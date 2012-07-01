@@ -1,0 +1,2517 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="owlapi:ontology:ont1#"
+     xml:base="owlapi:ontology:ont1"
+     xmlns:wine="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="owlapi:ontology:ont1"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#adjacentRegion -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#adjacentRegion"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasBody -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasBody"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasColor -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasColor"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasFlavor -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasFlavor"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasMaker -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasMaker"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasSugar -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasSugar"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasVintageYear -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#hasVintageYear"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#locatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#locatedIn"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#madeFromGrape -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#madeFromGrape"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Datatype -->
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Datatype"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Anjou -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Anjou"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Beaujolais -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Beaujolais"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CabernetFranc -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CabernetFranc"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CabernetSauvignon -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CabernetSauvignon"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Chardonnay -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Chardonnay"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CheninBlanc -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CheninBlanc"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Chianti -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Chianti"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CotesDOr -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CotesDOr"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#DessertWine -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#DessertWine"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#DryRiesling -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#DryRiesling"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#IceWine -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#IceWine"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Margaux -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Margaux"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Meritage -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Meritage"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Merlot -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Merlot"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Meursault -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Meursault"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Muscadet -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Muscadet"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Pauillac -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Pauillac"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PetiteSyrah -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PetiteSyrah"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PinotNoir -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PinotNoir"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Port -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Port"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#RedTableWine -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#RedTableWine"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Riesling -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Riesling"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Sancerre -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Sancerre"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Sauternes -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Sauternes"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SauvignonBlanc -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SauvignonBlanc"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Semillon -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Semillon"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#StEmilion -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#StEmilion"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SweetRiesling -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SweetRiesling"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#VintageYear -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#VintageYear"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteBurgundy -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteBurgundy"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteWine -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteWine"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineBody -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineBody"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineColor -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineColor"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineFlavor -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineFlavor"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineSugar -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineSugar"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Winery -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Winery"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Zinfandel -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Zinfandel"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom1 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom1"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom10 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom10"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom11 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom11"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom12 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom12"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom13 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom13"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom14 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom14"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom15 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom15"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom16 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom16"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom17 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom17"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom18 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom18"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom19 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom19"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom2 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom2"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom20 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom20"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom21 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom21"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom22 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom22"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom23 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom23"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom24 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom24"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom25 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom25"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom26 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom26"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom27 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom27"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom28 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom28"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom29 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom29"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom3 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom3"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom30 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom30"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom31 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom31"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom32 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom32"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom33 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom33"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom34 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom34"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom35 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom35"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom36 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom36"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom37 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom37"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom38 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom38"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom39 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom39"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom4 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom4"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom40 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom40"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom41 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom41"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom42 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom42"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom43 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom43"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom44 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom44"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom45 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom45"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom46 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom46"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom47 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom47"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom48 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom48"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom49 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom49"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom5 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom5"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom50 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom50"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom51 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom51"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom52 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom52"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom53 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom53"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom54 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom54"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom55 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom55"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom56 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom56"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom57 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom57"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom58 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom58"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom59 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom59"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom6 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom6"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom60 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom60"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom61 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom61"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom62 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom62"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom63 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom63"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom64 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom64"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom7 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom7"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom8 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom8"/>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom9 -->
+
+    <owl:Class rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom9"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#positiveInteger -->
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/2001/XMLSchema#positiveInteger">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Datatype"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#AlsaceRegion -->
+
+    <wine:__nom13 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#AlsaceRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#FrenchRegion"/>
+    </wine:__nom13>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#AnjouRegion -->
+
+    <wine:__nom14 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#AnjouRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#LoireRegion"/>
+    </wine:__nom14>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ArroyoGrandeRegion -->
+
+    <wine:Region rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ArroyoGrandeRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CaliforniaRegion"/>
+    </wine:Region>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#AustralianRegion -->
+
+    <wine:Region rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#AustralianRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    </wine:Region>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Bancroft -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Bancroft">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#BancroftChardonnay -->
+
+    <wine:Chardonnay rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#BancroftChardonnay">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Bancroft"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NapaRegion"/>
+    </wine:Chardonnay>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#BeaujolaisRegion -->
+
+    <wine:__nom26 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#BeaujolaisRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#FrenchRegion"/>
+    </wine:__nom26>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Beringer -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Beringer">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#BordeauxRegion -->
+
+    <wine:__nom23 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#BordeauxRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#FrenchRegion"/>
+    </wine:__nom23>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#BourgogneRegion -->
+
+    <wine:__nom44 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#BourgogneRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#FrenchRegion"/>
+    </wine:__nom44>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CabernetFrancGrape -->
+
+    <wine:__nom8 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CabernetFrancGrape">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom3"/>
+    </wine:__nom8>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CabernetSauvignonGrape -->
+
+    <wine:__nom8 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CabernetSauvignonGrape">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom29"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom62"/>
+    </wine:__nom8>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CaliforniaRegion -->
+
+    <wine:__nom15 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CaliforniaRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#USRegion"/>
+    </wine:__nom15>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CentralCoastRegion -->
+
+    <wine:Region rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CentralCoastRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CaliforniaRegion"/>
+    </wine:Region>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CentralTexasRegion -->
+
+    <wine:Region rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CentralTexasRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#TexasRegion"/>
+    </wine:Region>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChardonnayGrape -->
+
+    <wine:__nom24 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChardonnayGrape">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+    </wine:__nom24>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauChevalBlanc -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauChevalBlanc">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauChevalBlancStEmilion -->
+
+    <wine:StEmilion rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauChevalBlancStEmilion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauChevalBlanc"/>
+    </wine:StEmilion>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauDYchem -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauDYchem">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauDYchemSauterne -->
+
+    <wine:Sauternes rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauDYchemSauterne">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauDYchem"/>
+        <wine:madeFromGrape rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SauvignonBlancGrape"/>
+        <wine:madeFromGrape rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SemillonGrape"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Strong"/>
+    </wine:Sauternes>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauDeMeursault -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauDeMeursault">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauDeMeursaultMeursault -->
+
+    <wine:Meursault rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauDeMeursaultMeursault">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauDeMeursault"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+    </wine:Meursault>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauLafiteRothschild -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauLafiteRothschild">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauLafiteRothschildPauillac -->
+
+    <wine:Pauillac rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauLafiteRothschildPauillac">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauLafiteRothschild"/>
+    </wine:Pauillac>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauMargaux -->
+
+    <wine:Margaux rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauMargaux">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauMargauxWinery"/>
+    </wine:Margaux>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauMargauxWinery -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauMargauxWinery">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauMorgon -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauMorgon">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauMorgonBeaujolais -->
+
+    <wine:Beaujolais rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauMorgonBeaujolais">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauMorgon"/>
+    </wine:Beaujolais>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CheninBlancGrape -->
+
+    <wine:__nom63 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CheninBlancGrape">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom34"/>
+    </wine:__nom63>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChiantiClassico -->
+
+    <wine:Chianti rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChiantiClassico">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#McGuinnesso"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+    </wine:Chianti>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChiantiRegion -->
+
+    <wine:__nom61 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChiantiRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ItalianRegion"/>
+    </wine:__nom61>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ClosDeLaPoussie -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ClosDeLaPoussie">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ClosDeLaPoussieSancerre -->
+
+    <wine:Sancerre rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ClosDeLaPoussieSancerre">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ClosDeLaPoussie"/>
+    </wine:Sancerre>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ClosDeVougeot -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ClosDeVougeot">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ClosDeVougeotCotesDOr -->
+
+    <wine:CotesDOr rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ClosDeVougeotCotesDOr">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ClosDeVougeot"/>
+    </wine:CotesDOr>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CongressSprings -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CongressSprings">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CongressSpringsSemillon -->
+
+    <wine:Semillon rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CongressSpringsSemillon">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CongressSprings"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+    </wine:Semillon>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Corbans -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Corbans">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CorbansDryWhiteRiesling -->
+
+    <wine:Riesling rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CorbansDryWhiteRiesling">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Corbans"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NewZealandRegion"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#OffDry"/>
+    </wine:Riesling>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CorbansPrivateBinSauvignonBlanc -->
+
+    <wine:SauvignonBlanc rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CorbansPrivateBinSauvignonBlanc">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Corbans"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Full"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NewZealandRegion"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Strong"/>
+    </wine:SauvignonBlanc>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CorbansSauvignonBlanc -->
+
+    <wine:SauvignonBlanc rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CorbansSauvignonBlanc">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Corbans"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NewZealandRegion"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Strong"/>
+    </wine:SauvignonBlanc>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CortonMontrachet -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CortonMontrachet">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CortonMontrachetWhiteBurgundy -->
+
+    <wine:WhiteBurgundy rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CortonMontrachetWhiteBurgundy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CortonMontrachet"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Full"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Strong"/>
+    </wine:WhiteBurgundy>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CotesDOrRegion -->
+
+    <wine:__nom42 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CotesDOrRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#BourgogneRegion"/>
+    </wine:__nom42>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Cotturi -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Cotturi">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CotturiZinfandel -->
+
+    <wine:Zinfandel rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CotturiZinfandel">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Cotturi"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Full"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SonomaRegion"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Strong"/>
+    </wine:Zinfandel>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#DAnjou -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#DAnjou">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Delicate -->
+
+    <wine:__nom64 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Delicate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineFlavor"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom35"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom55"/>
+    </wine:__nom64>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry -->
+
+    <wine:__nom7 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineSugar"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom12"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom18"/>
+    </wine:__nom7>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#EdnaValleyRegion -->
+
+    <wine:Region rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#EdnaValleyRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CaliforniaRegion"/>
+    </wine:Region>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Elyse -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Elyse">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ElyseZinfandel -->
+
+    <wine:Zinfandel rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ElyseZinfandel">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Elyse"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Full"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NapaRegion"/>
+    </wine:Zinfandel>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Forman -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Forman">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#FormanCabernetSauvignon -->
+
+    <wine:CabernetSauvignon rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#FormanCabernetSauvignon">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Forman"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NapaRegion"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Strong"/>
+    </wine:CabernetSauvignon>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#FormanChardonnay -->
+
+    <wine:Chardonnay rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#FormanChardonnay">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Forman"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Full"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NapaRegion"/>
+    </wine:Chardonnay>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Foxen -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Foxen">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#FoxenCheninBlanc -->
+
+    <wine:CheninBlanc rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#FoxenCheninBlanc">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Foxen"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Full"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SantaBarbaraRegion"/>
+    </wine:CheninBlanc>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#FrenchRegion -->
+
+    <wine:__nom41 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#FrenchRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+    </wine:__nom41>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Full -->
+
+    <wine:__nom51 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Full">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineBody"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom40"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom45"/>
+    </wine:__nom51>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#GamayGrape -->
+
+    <wine:__nom33 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#GamayGrape">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+    </wine:__nom33>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#GaryFarrell -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#GaryFarrell">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#GaryFarrellMerlot -->
+
+    <wine:Merlot rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#GaryFarrellMerlot">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#GaryFarrell"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SonomaRegion"/>
+    </wine:Merlot>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#GermanyRegion -->
+
+    <wine:__nom17 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#GermanyRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+    </wine:__nom17>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Handley -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Handley">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ItalianRegion -->
+
+    <wine:__nom47 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ItalianRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+    </wine:__nom47>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#KalinCellars -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#KalinCellars">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#KalinCellarsSemillon -->
+
+    <wine:Semillon rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#KalinCellarsSemillon">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Full"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#KalinCellars"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Strong"/>
+    </wine:Semillon>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#KathrynKennedy -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#KathrynKennedy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#KathrynKennedyLateral -->
+
+    <wine:Meritage rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#KathrynKennedyLateral">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Delicate"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#KathrynKennedy"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+    </wine:Meritage>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#LaneTanner -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#LaneTanner">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#LaneTannerPinotNoir -->
+
+    <wine:PinotNoir rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#LaneTannerPinotNoir">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Delicate"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#LaneTanner"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Light"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SantaBarbaraRegion"/>
+    </wine:PinotNoir>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Light -->
+
+    <wine:__nom59 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Light">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineBody"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom40"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom56"/>
+    </wine:__nom59>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#LoireRegion -->
+
+    <wine:__nom19 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#LoireRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#FrenchRegion"/>
+    </wine:__nom19>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Longridge -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Longridge">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#LongridgeMerlot -->
+
+    <wine:Merlot rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#LongridgeMerlot">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Light"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Longridge"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NewZealandRegion"/>
+    </wine:Merlot>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MalbecGrape -->
+
+    <wine:__nom8 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MalbecGrape">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+    </wine:__nom8>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MargauxRegion -->
+
+    <wine:__nom22 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MargauxRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MedocRegion"/>
+    </wine:__nom22>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Marietta -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Marietta">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MariettaCabernetSauvignon -->
+
+    <wine:CabernetSauvignon rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MariettaCabernetSauvignon">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Marietta"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SonomaRegion"/>
+    </wine:CabernetSauvignon>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MariettaOldVinesRed -->
+
+    <wine:RedTableWine rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MariettaOldVinesRed">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Marietta"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SonomaRegion"/>
+    </wine:RedTableWine>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MariettaPetiteSyrah -->
+
+    <wine:PetiteSyrah rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MariettaPetiteSyrah">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Marietta"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SonomaRegion"/>
+    </wine:PetiteSyrah>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MariettaZinfandel -->
+
+    <wine:Zinfandel rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MariettaZinfandel">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Marietta"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SonomaRegion"/>
+    </wine:Zinfandel>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#McGuinnesso -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#McGuinnesso">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium -->
+
+    <wine:__nom59 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineBody"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom40"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom49"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom51"/>
+    </wine:__nom59>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MedocRegion -->
+
+    <wine:__nom2 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MedocRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#BordeauxRegion"/>
+    </wine:__nom2>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MendocinoRegion -->
+
+    <wine:Region rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MendocinoRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CaliforniaRegion"/>
+        <wine:adjacentRegion rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SonomaRegion"/>
+    </wine:Region>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MerlotGrape -->
+
+    <wine:__nom8 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MerlotGrape">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom43"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom62"/>
+    </wine:__nom8>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MeursaultRegion -->
+
+    <wine:__nom31 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MeursaultRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#BourgogneRegion"/>
+    </wine:__nom31>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate -->
+
+    <wine:__nom64 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineFlavor"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom35"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom48"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom50"/>
+    </wine:__nom64>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MountEdenVineyard -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MountEdenVineyard">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MountEdenVineyardEdnaValleyChardonnay -->
+
+    <wine:Chardonnay rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MountEdenVineyardEdnaValleyChardonnay">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#EdnaValleyRegion"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MountEdenVineyard"/>
+    </wine:Chardonnay>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MountEdenVineyardEstatePinotNoir -->
+
+    <wine:PinotNoir rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MountEdenVineyardEstatePinotNoir">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#EdnaValleyRegion"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Full"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MountEdenVineyard"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Strong"/>
+    </wine:PinotNoir>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Mountadam -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Mountadam">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MountadamChardonnay -->
+
+    <wine:Chardonnay rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MountadamChardonnay">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Full"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Mountadam"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SouthAustraliaRegion"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Strong"/>
+    </wine:Chardonnay>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MountadamPinotNoir -->
+
+    <wine:PinotNoir rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MountadamPinotNoir">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Mountadam"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SouthAustraliaRegion"/>
+    </wine:PinotNoir>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MountadamRiesling -->
+
+    <wine:DryRiesling rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MountadamRiesling">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Delicate"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Mountadam"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SouthAustraliaRegion"/>
+    </wine:DryRiesling>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MuscadetRegion -->
+
+    <wine:__nom16 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MuscadetRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#LoireRegion"/>
+    </wine:__nom16>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NapaRegion -->
+
+    <wine:Region rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NapaRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CaliforniaRegion"/>
+    </wine:Region>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NewZealandRegion -->
+
+    <wine:Region rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NewZealandRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    </wine:Region>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#OffDry -->
+
+    <wine:__nom7 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#OffDry">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineSugar"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom18"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom53"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom54"/>
+    </wine:__nom7>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PageMillWinery -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PageMillWinery">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PageMillWineryCabernetSauvignon -->
+
+    <wine:CabernetSauvignon rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PageMillWineryCabernetSauvignon">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NapaRegion"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PageMillWinery"/>
+    </wine:CabernetSauvignon>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PauillacRegion -->
+
+    <wine:__nom46 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PauillacRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MedocRegion"/>
+    </wine:__nom46>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PeterMccoy -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PeterMccoy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PeterMccoyChardonnay -->
+
+    <wine:Chardonnay rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PeterMccoyChardonnay">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PeterMccoy"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SonomaRegion"/>
+    </wine:Chardonnay>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PetiteSyrahGrape -->
+
+    <wine:__nom25 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PetiteSyrahGrape">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+    </wine:__nom25>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PetiteVerdotGrape -->
+
+    <wine:__nom8 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PetiteVerdotGrape">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+    </wine:__nom8>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PinotBlancGrape -->
+
+    <wine:__nom63 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PinotBlancGrape">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom21"/>
+    </wine:__nom63>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PinotNoirGrape -->
+
+    <wine:__nom39 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PinotNoirGrape">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+    </wine:__nom39>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PortugalRegion -->
+
+    <wine:__nom57 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PortugalRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+    </wine:__nom57>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PulignyMontrachet -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PulignyMontrachet">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PulignyMontrachetWhiteBurgundy -->
+
+    <wine:WhiteBurgundy rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PulignyMontrachetWhiteBurgundy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PulignyMontrachet"/>
+    </wine:WhiteBurgundy>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Red -->
+
+    <wine:__nom9 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Red">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineColor"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom28"/>
+    </wine:__nom9>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#RieslingGrape -->
+
+    <wine:__nom37 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#RieslingGrape">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+    </wine:__nom37>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Rose -->
+
+    <wine:__nom9 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Rose">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineColor"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom32"/>
+    </wine:__nom9>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#RoseDAnjou -->
+
+    <wine:Anjou rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#RoseDAnjou">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#DAnjou"/>
+    </wine:Anjou>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SancerreRegion -->
+
+    <wine:__nom30 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SancerreRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#LoireRegion"/>
+    </wine:__nom30>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SangioveseGrape -->
+
+    <wine:__nom60 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SangioveseGrape">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+    </wine:__nom60>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SantaBarbaraRegion -->
+
+    <wine:Region rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SantaBarbaraRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CaliforniaRegion"/>
+    </wine:Region>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SantaCruzMountainVineyard -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SantaCruzMountainVineyard">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SantaCruzMountainVineyardCabernetSauvignon -->
+
+    <wine:CabernetSauvignon rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SantaCruzMountainVineyardCabernetSauvignon">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Full"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SantaCruzMountainVineyard"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SantaCruzMountainsRegion"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Strong"/>
+    </wine:CabernetSauvignon>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SantaCruzMountainsRegion -->
+
+    <wine:Region rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SantaCruzMountainsRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CaliforniaRegion"/>
+    </wine:Region>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SaucelitoCanyon -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SaucelitoCanyon">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SaucelitoCanyonZinfandel -->
+
+    <wine:Zinfandel rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SaucelitoCanyonZinfandel">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ArroyoGrandeRegion"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SaucelitoCanyon"/>
+    </wine:Zinfandel>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SaucelitoCanyonZinfandel1998 -->
+
+    <wine:Zinfandel rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SaucelitoCanyonZinfandel1998">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ArroyoGrandeRegion"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SaucelitoCanyon"/>
+        <wine:hasVintageYear rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Year1998"/>
+    </wine:Zinfandel>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SauterneRegion -->
+
+    <wine:__nom52 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SauterneRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#BordeauxRegion"/>
+    </wine:__nom52>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SauvignonBlancGrape -->
+
+    <wine:__nom63 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SauvignonBlancGrape">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom11"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom6"/>
+    </wine:__nom63>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SchlossRothermel -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SchlossRothermel">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SchlossRothermelTrochenbierenausleseRiesling -->
+
+    <wine:SweetRiesling rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SchlossRothermelTrochenbierenausleseRiesling">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Full"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#GermanyRegion"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SchlossRothermel"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Strong"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Sweet"/>
+    </wine:SweetRiesling>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SchlossVolrad -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SchlossVolrad">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SchlossVolradTrochenbierenausleseRiesling -->
+
+    <wine:SweetRiesling rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SchlossVolradTrochenbierenausleseRiesling">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Full"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#GermanyRegion"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SchlossVolrad"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Sweet"/>
+    </wine:SweetRiesling>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SeanThackrey -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SeanThackrey">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SeanThackreySiriusPetiteSyrah -->
+
+    <wine:PetiteSyrah rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SeanThackreySiriusPetiteSyrah">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Full"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NapaRegion"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SeanThackrey"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Strong"/>
+    </wine:PetiteSyrah>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Selaks -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Selaks">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SelaksIceWine -->
+
+    <wine:IceWine rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SelaksIceWine">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NewZealandRegion"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Selaks"/>
+        <wine:hasColor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#White"/>
+    </wine:IceWine>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SelaksSauvignonBlanc -->
+
+    <wine:SauvignonBlanc rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SelaksSauvignonBlanc">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NewZealandRegion"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Selaks"/>
+    </wine:SauvignonBlanc>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SemillonGrape -->
+
+    <wine:__nom6 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SemillonGrape">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom27"/>
+    </wine:__nom6>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SevreEtMaine -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SevreEtMaine">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SevreEtMaineMuscadet -->
+
+    <wine:Muscadet rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SevreEtMaineMuscadet">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SevreEtMaine"/>
+    </wine:Muscadet>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SonomaRegion -->
+
+    <wine:Region rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SonomaRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CaliforniaRegion"/>
+    </wine:Region>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SouthAustraliaRegion -->
+
+    <wine:Region rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SouthAustraliaRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#AustralianRegion"/>
+    </wine:Region>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#StEmilionRegion -->
+
+    <wine:__nom36 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#StEmilionRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#BordeauxRegion"/>
+    </wine:__nom36>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#StGenevieve -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#StGenevieve">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#StGenevieveTexasWhite -->
+
+    <wine:WhiteWine rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#StGenevieveTexasWhite">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CentralTexasRegion"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#StGenevieve"/>
+    </wine:WhiteWine>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Stonleigh -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Stonleigh">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#StonleighSauvignonBlanc -->
+
+    <wine:SauvignonBlanc rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#StonleighSauvignonBlanc">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Delicate"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NewZealandRegion"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Stonleigh"/>
+    </wine:SauvignonBlanc>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Strong -->
+
+    <wine:__nom58 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Strong">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineFlavor"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom35"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom50"/>
+    </wine:__nom58>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Sweet -->
+
+    <wine:__nom53 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Sweet">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineSugar"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom1"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom18"/>
+    </wine:__nom53>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Taylor -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Taylor">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#TaylorPort -->
+
+    <wine:Port rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#TaylorPort">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Taylor"/>
+    </wine:Port>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#TexasRegion -->
+
+    <wine:__nom10 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#TexasRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#USRegion"/>
+    </wine:__nom10>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ToursRegion -->
+
+    <wine:__nom4 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ToursRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#LoireRegion"/>
+    </wine:__nom4>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#USRegion -->
+
+    <wine:__nom38 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#USRegion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Region"/>
+    </wine:__nom38>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Ventana -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Ventana">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#VentanaCheninBlanc -->
+
+    <wine:CheninBlanc rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#VentanaCheninBlanc">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CentralCoastRegion"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#OffDry"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Ventana"/>
+    </wine:CheninBlanc>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#White -->
+
+    <wine:__nom9 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#White">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineColor"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#__nom5"/>
+    </wine:__nom9>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhitehallLane -->
+
+    <wine:Winery rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhitehallLane">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </wine:Winery>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhitehallLaneCabernetFranc -->
+
+    <wine:CabernetFranc rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhitehallLaneCabernetFranc">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NapaRegion"/>
+        <wine:hasMaker rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhitehallLane"/>
+    </wine:CabernetFranc>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhitehallLanePrimavera -->
+
+    <wine:DessertWine rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhitehallLanePrimavera">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <wine:hasFlavor rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Delicate"/>
+        <wine:hasBody rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Light"/>
+        <wine:locatedIn rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#NapaRegion"/>
+        <wine:hasSugar rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Sweet"/>
+    </wine:DessertWine>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Year1998 -->
+
+    <wine:VintageYear rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Year1998">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    </wine:VintageYear>
+    
+
+
+    <!-- http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ZinfandelGrape -->
+
+    <wine:__nom20 rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ZinfandelGrape">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WineGrape"/>
+    </wine:__nom20>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Red"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Rose"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#White"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Sweet"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#OffDry"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Full"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Light"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Medium"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Dry"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#OffDry"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Sweet"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Bancroft"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauChevalBlanc"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauDYchem"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauDeMeursault"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauLafiteRothschild"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauMargauxWinery"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ChateauMorgon"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ClosDeLaPoussie"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#ClosDeVougeot"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CongressSprings"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Corbans"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#CortonMontrachet"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Cotturi"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#DAnjou"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Elyse"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Forman"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Foxen"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#GaryFarrell"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#KalinCellars"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#KathrynKennedy"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#LaneTanner"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Longridge"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Marietta"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#McGuinnesso"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#MountEdenVineyard"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Mountadam"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PageMillWinery"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PeterMccoy"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#PulignyMontrachet"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SantaCruzMountainVineyard"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SaucelitoCanyon"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SchlossRothermel"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SchlossVolrad"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SeanThackrey"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Selaks"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#SevreEtMaine"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#StGenevieve"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Stonleigh"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Taylor"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Ventana"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhitehallLane"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#OffDry"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Sweet"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Delicate"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Moderate"/>
+            <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Strong"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.2.1502) http://owlapi.sourceforge.net -->
+

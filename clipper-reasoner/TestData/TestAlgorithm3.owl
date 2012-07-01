@@ -1,0 +1,373 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http:Test"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http:Test">
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#A1"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#B1"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#B5"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#C0"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#C1"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#C2"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#C3"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#C4"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#C5"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#R5"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#R6"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#R7"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#R8"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#R9"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#RD1"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#RD2"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#A1"/>
+        <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#B1"/>
+        <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#B5"/>
+        <Class IRI="#C2"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#B5"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#R6"/>
+            <Class IRI="#B1"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C0"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#R6"/>
+            <Class IRI="#C1"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C0"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#R7"/>
+            <Class IRI="#C1"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C1"/>
+        <Class IRI="#C2"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C1"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#R5"/>
+            <Class IRI="#B5"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C2"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#R7"/>
+            <Class IRI="#B5"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C3"/>
+        <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C3"/>
+        <Class IRI="#C4"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C3"/>
+        <Class IRI="#C5"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectIntersectionOf>
+            <Class IRI="#A1"/>
+            <Class IRI="#B1"/>
+        </ObjectIntersectionOf>
+        <Class IRI="#C0"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectIntersectionOf>
+            <Class IRI="#A1"/>
+            <Class IRI="#B1"/>
+        </ObjectIntersectionOf>
+        <Class IRI="#C1"/>
+    </SubClassOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#R5"/>
+        <ObjectProperty IRI="#R8"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#R7"/>
+        <ObjectProperty abbreviatedIRI=":topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#R8"/>
+        <ObjectProperty IRI="#R9"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#R5"/>
+        <ObjectProperty IRI="#R6"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#R7"/>
+        <ObjectProperty IRI="#R6"/>
+    </InverseObjectProperties>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#RD1"/>
+        <DataProperty IRI="#RD2"/>
+    </SubDataPropertyOf>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl"/>
+        <IRI>#A1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A1s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg"/>
+        <IRI>#A1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl"/>
+        <IRI>#B1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">B1s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg"/>
+        <IRI>#B1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">B1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl"/>
+        <IRI>#B5</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">B5s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg"/>
+        <IRI>#B5</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">B5</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl"/>
+        <IRI>#C0</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">C0s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg"/>
+        <IRI>#C0</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">C0</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl"/>
+        <IRI>#C1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">C1s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg"/>
+        <IRI>#C1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">C1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl"/>
+        <IRI>#C2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">C2s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg"/>
+        <IRI>#C2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">C2</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl"/>
+        <IRI>#C3</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">C3s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg"/>
+        <IRI>#C3</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">C3</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl"/>
+        <IRI>#C4</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">C4s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg"/>
+        <IRI>#C4</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">C4</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_pl"/>
+        <IRI>#C5</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">C5s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#CN_sg"/>
+        <IRI>#C5</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">C5</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl"/>
+        <IRI>#R5</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">R5</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg"/>
+        <IRI>#R5</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">R5s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg"/>
+        <IRI>#R5</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">R5ed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl"/>
+        <IRI>#R6</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">R6</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg"/>
+        <IRI>#R6</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">R6s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg"/>
+        <IRI>#R6</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">R6ed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl"/>
+        <IRI>#R7</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">R7</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg"/>
+        <IRI>#R7</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">R7s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg"/>
+        <IRI>#R7</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">R7ed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl"/>
+        <IRI>#R8</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">R8</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg"/>
+        <IRI>#R8</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">R8s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg"/>
+        <IRI>#R8</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">R8ed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl"/>
+        <IRI>#R9</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">R9</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg"/>
+        <IRI>#R9</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">R9s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg"/>
+        <IRI>#R9</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">R9ed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl"/>
+        <IRI>#RD1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">RD1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg"/>
+        <IRI>#RD1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">RD1s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg"/>
+        <IRI>#RD1</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">RD1ed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_pl"/>
+        <IRI>#RD2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">RD2</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_sg"/>
+        <IRI>#RD2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">RD2s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://attempto.ifi.uzh.ch/ace_lexicon#TV_vbg"/>
+        <IRI>#RD2</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">RD2ed</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.2.2.1785) http://owlapi.sourceforge.net -->
+

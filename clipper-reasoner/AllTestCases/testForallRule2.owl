@@ -1,0 +1,20 @@
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.kr.tuwien.ac.at>
+
+Declaration(Class(<http://www.kr.tuwien.ac.at#A>))
+SubClassOf(<http://www.kr.tuwien.ac.at#A> owl:Thing)
+SubClassOf(<http://www.kr.tuwien.ac.at#A> ObjectAllValuesFrom(<http://www.kr.tuwien.ac.at#R> <http://www.kr.tuwien.ac.at#B>))
+Declaration(Class(<http://www.kr.tuwien.ac.at#B>))
+SubClassOf(<http://www.kr.tuwien.ac.at#B> owl:Thing)
+Declaration(Class(<http://www.kr.tuwien.ac.at#M>))
+SubClassOf(<http://www.kr.tuwien.ac.at#M> ObjectSomeValuesFrom(ObjectInverseOf(<http://www.kr.tuwien.ac.at#R>) <http://www.kr.tuwien.ac.at#A>))
+Declaration(ObjectProperty(<http://www.kr.tuwien.ac.at#R>))
+Declaration(NamedIndividual(<http://www.kr.tuwien.ac.at#a>))
+ClassAssertion(<http://www.kr.tuwien.ac.at#M> <http://www.kr.tuwien.ac.at#a>)
+)

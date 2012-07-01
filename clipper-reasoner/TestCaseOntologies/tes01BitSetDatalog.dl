@@ -1,0 +1,9 @@
+nothing(X) :- b(X), c(X).
+nothing(X) :- a(X).
+ :- r(X,Y), r(X,Z), a(X), Y !=Z.
+thing(Y) :- r(X,Y), a(X).
+c(Y) :- r(X,Y), a(X).
+b(Y) :- r(X,Y), a(X).
+nothing(Y) :- r(X,Y), a(X).
+topobjectproperty(X,Y) :- r(X,Y), a(X).
+a("a").

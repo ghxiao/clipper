@@ -1,0 +1,3 @@
+d(Y) :- r(X,Y), t1(X), a(X), c(Y).
+topobjectproperty(X,Y) :- r(X,Y), t1(X), a(X), c(Y).
+thing(Y) :- r(X,Y), t1(X), a(X), c(Y).

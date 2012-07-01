@@ -1,0 +1,22 @@
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(:=<http://www.w3.org/2002/07/owl#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.kr.tuwien.ac.at.testRoleInclusion.owl>
+
+Declaration(Class(<http://www.kr.tuwien.ac.at.testRoleInclusion.owl#A>))
+SubClassOf(<http://www.kr.tuwien.ac.at.testRoleInclusion.owl#A> owl:Thing)
+SubClassOf(<http://www.kr.tuwien.ac.at.testRoleInclusion.owl#A> ObjectSomeValuesFrom(ObjectInverseOf(<http://www.kr.tuwien.ac.at.testRoleInclusion.owl#R1>) <http://www.kr.tuwien.ac.at.testRoleInclusion.owl#B>))
+Declaration(Class(<http://www.kr.tuwien.ac.at.testRoleInclusion.owl#B>))
+SubClassOf(<http://www.kr.tuwien.ac.at.testRoleInclusion.owl#B> owl:Thing)
+Declaration(ObjectProperty(<http://www.kr.tuwien.ac.at.testRoleInclusion.owl#R1>))
+SubObjectPropertyOf(<http://www.kr.tuwien.ac.at.testRoleInclusion.owl#R1> <http://www.kr.tuwien.ac.at.testRoleInclusion.owl#R2>)
+Declaration(ObjectProperty(<http://www.kr.tuwien.ac.at.testRoleInclusion.owl#R2>))
+Declaration(NamedIndividual(<http://www.kr.tuwien.ac.at.testRoleInclusion.owl#a>))
+ClassAssertion(<http://www.kr.tuwien.ac.at.testRoleInclusion.owl#A> <http://www.kr.tuwien.ac.at.testRoleInclusion.owl#a>)
+Declaration(NamedIndividual(<http://www.kr.tuwien.ac.at.testRoleInclusion.owl#a1>))
+)

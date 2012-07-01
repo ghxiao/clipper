@@ -1,0 +1,814 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="owlapi:ontology:ont2#"
+     xml:base="owlapi:ontology:ont2"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:unnamed="http://www.owl-ontologies.com/unnamed.owl#">
+    <owl:Ontology rdf:about="owlapi:ontology:ont2"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#IsLoanOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#IsLoanOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasLoan"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasAgeValue -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasAgeValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasCreditCard -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasCreditCard">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasLoan -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasLoan">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasLoanStatusValue -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasLoanStatusValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasOwner -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasOwner">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#isOwnerOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasPermanentOrder -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasPermanentOrder">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasSexValue -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasSexValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#hasStatementIssuanceFrequency -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#hasStatementIssuanceFrequency">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#StatementIssuanceFrequencyValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#isCreditCardOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#isCreditCardOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasCreditCard"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#isOwnerOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#isOwnerOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#isPermanentOrderFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#isPermanentOrderFor">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#isTransactionFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#isTransactionFrom">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#isUserOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#isUserOf">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#isWithdrawalFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#isWithdrawalFor">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Withdrawal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#livesIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/unnamed.owl#livesIn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Above65 -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Above65">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Account -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Account">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#AfterTransaction -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#AfterTransaction">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#StatementIssuanceFrequencyValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Monthly"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Weekly"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#AgeValue -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#AgeValue">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Below18 -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Below18">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#From18To25"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#From25To35"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#From35To50"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#From50To65"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#CashCredit -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#CashCredit">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Credit"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#CollectionAnotherBank"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#CashWithdrawal -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#CashWithdrawal">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Withdrawal"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#CreditCardWithdrawal"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#RemittanceAnotherBank"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#CentralBohemia -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#CentralBohemia">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#EastBohemia"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#NorthBohemia"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#NorthMoravia"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Prague"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SouthBohemia"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SouthMoravia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Classic -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Classic">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Gold"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Junior"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Client -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Client">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#CollectionAnotherBank -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#CollectionAnotherBank">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Credit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Credit -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Credit">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Withdrawal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#CreditCard -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#CreditCard">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#CreditCardWithdrawal -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#CreditCardWithdrawal">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Withdrawal"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#RemittanceAnotherBank"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#DebtRunningLoan -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#DebtRunningLoan">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Running"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasLoanStatusValue"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProblemStatus"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#OKRunningLoan"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#EastBohemia -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#EastBohemia">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#NorthBohemia"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#NorthMoravia"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Prague"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SouthBohemia"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SouthMoravia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#FemaleSex -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#FemaleSex">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#MaleSex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Finished -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Finished">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Running"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#ForStatementPayment -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#ForStatementPayment">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#HouseholdPayment"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#InsurrancePayment"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Leasing"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#LoanPayment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#From18To25 -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#From18To25">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#From25To35"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#From35To50"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#From50To65"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#From25To35 -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#From25To35">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#From35To50"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#From50To65"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#From35To50 -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#From35To50">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#From50To65"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#From50To65 -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#From50To65">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Gold -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Gold">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Junior"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#HouseholdPayment -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#HouseholdPayment">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#InsurrancePayment"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Leasing"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#LoanPayment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#InsurrancePayment -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#InsurrancePayment">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Leasing"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#LoanPayment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#InterestsCredited -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#InterestsCredited">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Credit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Junior -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Junior">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Leasing -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Leasing">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#LoanPayment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Loan -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Loan">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#LoanPayment -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#LoanPayment">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#MaleSex -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#MaleSex">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Man -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Man">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasSexValue"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/unnamed.owl#MaleSex"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Woman"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Monthly -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Monthly">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#StatementIssuanceFrequencyValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Weekly"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#NoProblemsFinishedLoan -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#NoProblemsFinishedLoan">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Finished"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasLoanStatusValue"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/unnamed.owl#OKStatus"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#NotPaidFinishedLoan"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#NorthBohemia -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#NorthBohemia">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#NorthMoravia"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Prague"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SouthBohemia"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SouthMoravia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#NorthMoravia -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#NorthMoravia">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Prague"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SouthBohemia"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SouthMoravia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#NotPaidFinishedLoan -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#NotPaidFinishedLoan">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Finished"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasLoanStatusValue"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProblemStatus"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#OKRunningLoan -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#OKRunningLoan">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Running"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasLoanStatusValue"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/unnamed.owl#OKStatus"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#OKStatus -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#OKStatus">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#ProblemStatus"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#OldAgePension -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#OldAgePension">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#CollectionAnotherBank"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Payment -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Payment">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#PermanentOrder -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#isPermanentOrderFor"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Prague -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Prague">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SouthBohemia"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SouthMoravia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#ProblemStatus -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#ProblemStatus">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Region -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Region">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#RemittanceAnotherBank -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#RemittanceAnotherBank">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Withdrawal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Running -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Running">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#SanctionInterestCashWithdrawal -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#SanctionInterestCashWithdrawal">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#CashWithdrawal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#SexValue -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#SexValue">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#SouthBohemia -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#SouthBohemia">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/unnamed.owl#SouthMoravia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#SouthMoravia -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#SouthMoravia">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#StatementIssuanceFrequencyValue -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#StatementIssuanceFrequencyValue"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Transaction -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Weekly -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Weekly">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#StatementIssuanceFrequencyValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#WestBohemia -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#WestBohemia">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Withdrawal -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Withdrawal">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/unnamed.owl#Woman -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/unnamed.owl#Woman">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/unnamed.owl#hasSexValue"/>
+                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/unnamed.owl#FemaleSex"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version [Not Released]) http://owlapi.sourceforge.net -->
+

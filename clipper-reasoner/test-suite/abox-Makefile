@@ -1,0 +1,28 @@
+OURREASONERCOMMAND=../../../executableVersion/ourReasoner.sh
+KAON2COMMAND=../../../kaon2dlp/kaon2dlp 
+DLVCOMMAND=dlv
+TIME=gtime
+
+
+test : our.timing kaon2.timing
+
+translate: our.aboxtranslation.dl kaon2.aboxtranslation.dl our.tboxtranslation.dl kaon2.tboxtranslation.dl 
+
+our.aboxtranslation.dl : abox.owl 
+	 $(OURREASONERCOMMAND) abox.owl our.aboxtranslation.dl
+
+kaon2.aboxtranslation.dl : abox.owl
+	 $(KAON2COMMAND) abox.owl > kaon2.aboxtranslation.dl
+
+%.tboxtranslation.dl : 
+	 cd ../; make -f ../tbox-Makefile $*.tboxtranslation.dl ;
+
+%.timing : %.aboxtranslation.dl  %.tboxtranslation.dl
+	 $(TIME) -o $@ $(DLVCOMMAND) ../$*.tboxtranslation.dl $*.aboxtranslation.dl
+#	echo `pwd` >> ../../report/report.txt
+#	cat $@ >> ../../report/report.txt
+
+clean :
+	rm -rf *.timing *.dl 
+
+

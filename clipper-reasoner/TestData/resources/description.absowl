@@ -1,0 +1,1 @@
+  intersectionOf(people:person restriction(<http://cohse.semanticweb.org/ontologies/people#has_pet> someValuesFrom(people:rabbit)))
