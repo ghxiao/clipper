@@ -1,43 +1,22 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import static org.junit.Assert.*;
-import gnu.trove.set.hash.TIntHashSet;
-import it.unical.mat.wrapper.Predicate;
-
-import java.io.IOException;
 import java.util.ArrayList;
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
-import org.junit.Before;
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.ontology.InversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
-import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
-import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.rule.CQParser;
-import org.semanticweb.clipper.hornshiq.rule.Constant;
-import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
-import org.semanticweb.clipper.hornshiq.rule.NonDLPredicate;
-import org.semanticweb.clipper.hornshiq.rule.Term;
-import org.semanticweb.clipper.hornshiq.rule.Variable;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
-
-import com.google.common.base.Joiner;
 
 /**
  * 

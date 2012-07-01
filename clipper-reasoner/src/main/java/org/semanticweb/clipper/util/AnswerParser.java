@@ -1,22 +1,23 @@
 package org.semanticweb.clipper.util;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
-import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLIndividual;
-import org.semanticweb.owlapi.model.OWLObjectProperty;
 
+import com.google.common.collect.Lists;
 
 public class AnswerParser {
 	private List<String> answers;
 	private List<List<String>> decodedAnswers;
 	private String prefix = null;
+
+	private List<Integer> widths = null;
+
+	public List<Integer> getWidths() {
+		return widths;
+	}
 
 	public List<String> getAnswers() {
 		return answers;
@@ -62,8 +63,7 @@ public class AnswerParser {
 
 	private String getDecodedIndividual(String indiString) {
 		int code = getCode(indiString);
-		OWLIndividual individual = KaosManager.getInstance()
-				.getOwlIndividualEncoder().getSymbolByValue(code);
+		OWLIndividual individual = KaosManager.getInstance().getOwlIndividualEncoder().getSymbolByValue(code);
 		return individual.toString();
 
 	}
@@ -76,36 +76,51 @@ public class AnswerParser {
 		// for (String s1 : tokens)
 		// System.out.println(s1);
 
-//		if (tokens.length == 1) {
-//			return decodedAnswers;
-//		}
-//
-//		else if (tokens.length >= 2) {
-			for(int i = 1; i < tokens.length; i++){
-				String indiString = tokens[i];
-				decodedAnswers.add(getDecodedIndividual(indiString));
-			}
-			return decodedAnswers;
-//		}
+		// if (tokens.length == 1) {
+		// return decodedAnswers;
+		// }
+		//
+		// else if (tokens.length >= 2) {
+		for (int i = 1; i < tokens.length; i++) {
+			String indiString = tokens[i];
+			String decodedIndividual = getDecodedIndividual(indiString);
+			decodedAnswers.add(decodedIndividual);
+		}
+		return decodedAnswers;
+		// }
 
-//		if (tokens.length == 3) {
-//
-//			String indi1String = tokens[1];
-//			decodedAnswer = decodedAnswer + "("
-//					+ getDecodedIndividual(indi1String) + ",";
-//			String indi2String = tokens[2];
-//			decodedAnswer = decodedAnswer + getDecodedIndividual(indi2String)
-//					+ ")";
-//			return decodedAnswer;
-//		}
-		
-//		return null;
+		// if (tokens.length == 3) {
+		//
+		// String indi1String = tokens[1];
+		// decodedAnswer = decodedAnswer + "("
+		// + getDecodedIndividual(indi1String) + ",";
+		// String indi2String = tokens[2];
+		// decodedAnswer = decodedAnswer + getDecodedIndividual(indi2String)
+		// + ")";
+		// return decodedAnswer;
+		// }
+
+		// return null;
 	}
 
 	public void parse() {
-		
+
 		for (String answer : answers) {
-			decodedAnswers.add(getDecodedAnswer(answer));
+			List<String> decodedAnswer = getDecodedAnswer(answer);
+			int size = decodedAnswer.size();
+
+			if (widths == null) {
+				widths = Lists.newArrayListWithCapacity(size);
+				for (int i = 0; i < size; i++) {
+					widths.add(0);
+				}
+			}
+
+			for (int i = 0; i < size; i++) {
+				widths.set(i, Math.max(widths.get(i), decodedAnswer.get(i).length()));
+			}
+
+			decodedAnswers.add(decodedAnswer);
 		}
 	}
 
