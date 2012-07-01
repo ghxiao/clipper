@@ -40,6 +40,7 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.profiles.OWLProfileReport;
 
+import com.google.common.base.Strings;
 import com.google.inject.internal.Sets;
 
 public class QAHornSHIQ {
@@ -224,13 +225,13 @@ public class QAHornSHIQ {
 				long startNormalizatoinTime = System.currentTimeMillis();
 				ontology = man.loadOntologyFromOntologyDocument(file);
 
-				if (KaosManager.getInstance().getVerboseLevel() > 0)
+				if (KaosManager.getInstance().getVerboseLevel() >= 2)
 					System.out.println(ontology);
 
 				HornSHIQProfile profile = new HornSHIQProfile();
 
 				OWLProfileReport report = profile.checkOntology(ontology);
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println(report);
 				}
 
@@ -274,7 +275,7 @@ public class QAHornSHIQ {
 				QueryRewriter qr = new QueryRewriting(tb.getEnfContainer(), tb.getInverseRoleAxioms(),
 						tb.getAllValuesFromAxioms());
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println("%Enforces relations:");
 					for (EnforcedRelation e : tb.getEnfContainer().getEnfs()) {
 						printClassNamesFromEncodedNamesSet(e.getType1());
@@ -284,7 +285,7 @@ public class QAHornSHIQ {
 					}
 
 				}
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println("%rewritten queries:");
 				}
 				// /////////////////////////////////////////////////////////
@@ -297,8 +298,8 @@ public class QAHornSHIQ {
 				// /////////////////////////////////////////////////////////
 
 				long starCoutingRelatedRule = System.currentTimeMillis();
-				//this.rewrittenQueries = qr.getUcq();
-				//Set<CQ> ucq = qr.getUcq();
+				// this.rewrittenQueries = qr.getUcq();
+				// Set<CQ> ucq = qr.getUcq();
 				Set<CQ> ucq = new HashSet<CQ>(rewrittenQueries);
 				QueriesRelatedRules relatedRules = new QueriesRelatedRules(onto_bs, ucq);
 				relatedRules.setCoreImps(tb.getImpContainer().getImps());
@@ -307,7 +308,7 @@ public class QAHornSHIQ {
 				long endCoutingRelatedRule = System.currentTimeMillis();
 				this.coutingRealtedRulesTime = endCoutingRelatedRule - starCoutingRelatedRule;
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println("==============================================");
 					System.out.println("Numbers of rewritten queries is: " + ucq.size());
 					System.out.println("==============================================");
@@ -420,7 +421,7 @@ public class QAHornSHIQ {
 				QueryRewriting qr = new QueryRewriting(tb.getIndexedEnfContainer(), tb.getInverseRoleAxioms(),
 						tb.getAllValuesFromAxioms());
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println("%Enforces relations:");
 					for (EnforcedRelation e : qr.getEnfContainer().getEnfs()) {
 						printClassNamesFromEncodedNamesSet(e.getType1());
@@ -430,7 +431,7 @@ public class QAHornSHIQ {
 					}
 
 				}
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println("%rewritten queries:");
 				}
 				// /////////////////////////////////////////////////////////
@@ -452,7 +453,7 @@ public class QAHornSHIQ {
 				long endCoutingRelatedRule = System.currentTimeMillis();
 				this.coutingRealtedRulesTime = endCoutingRelatedRule - starCoutingRelatedRule;
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println("==============================================");
 					System.out.println("Numbers of rewritten queries is: " + ucq.size());
 					System.out.println("==============================================");
@@ -990,7 +991,7 @@ public class QAHornSHIQ {
 			invocation.waitUntilExecutionFinishes();
 			List<DLVError> k = invocation.getErrors();
 			if (k.size() > 0) {
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (KaosManager.getInstance().getVerboseLevel() >= 0) {
 					System.out.println(k);
 				}
 				outPutNotification = k.toString();
@@ -1014,6 +1015,8 @@ public class QAHornSHIQ {
 		if (KaosManager.getInstance().getVerboseLevel() >= 1) {
 			System.out.println("=============Decoded answers ==============");
 		}
+
+		tableOutput(cq, decodedAnswers, answerParser.getWidths());
 
 		BufferedWriter bufferedWriter = null;
 
@@ -1047,6 +1050,37 @@ public class QAHornSHIQ {
 			}
 		}
 
+	}
+
+	private void tableOutput(CQ cq, List<List<String>> decodedAnswers, List<Integer> widths) {
+		// | "Axel Polleres" | <http://www.polleres.net/foaf.rdf#me> |
+
+		// String format = "| %32s | %16s |\n";
+		int linewidth = 1;
+		StringBuilder formatBuilder = new StringBuilder();
+		formatBuilder.append("|");
+		for (Integer width : widths) {
+			formatBuilder.append(" %-").append(width).append("s |");
+			linewidth += width + 3;
+		}
+		
+		formatBuilder.append("\n");
+		String format = formatBuilder.toString();
+
+		System.out.println(Strings.repeat("-", linewidth));
+		
+		//FIXME: output variable name
+		System.out.format(format, cq.getHead().getTerms().toArray());
+		
+		System.out.println(Strings.repeat("=", linewidth));
+		
+		
+		for (List<String> decodedAnswer : decodedAnswers) {
+			System.out.format(format, decodedAnswer.toArray());
+		}
+
+		System.out.println(Strings.repeat("-", linewidth));
+		
 	}
 
 	public void setCq(CQ cq) {
