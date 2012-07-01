@@ -1,0 +1,31 @@
+<rdf:RDF
+		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+ 	xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<owl:Ontology rdf:about="">
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept0.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept1.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept2.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept3.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept4.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept5.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept6.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept7.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept8.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept9.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept10.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept11.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept12.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept13.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept14.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept15.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept16.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept17.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept18.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0-dept19.owl"/>
+		<owl:imports rdf:resource="file:///home/screech/workspaces/loadLUBM4SCREECH/dataset/1/1-ub-dl-univ0.owl"/>
+
+
+	
+	</owl:Ontology>
+</rdf:RDF>

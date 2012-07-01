@@ -1,0 +1,1 @@
+nothing(X) :- a1(X), a2(X).

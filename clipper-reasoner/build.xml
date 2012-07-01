@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project QAHornSHIQ">
+
+	<description>
+        kaos build file
+    </description>
+	<!-- set global properties for this build -->
+	<property name="src" location="src" />
+	<property name="dist" location="dist" />
+
+	<target name="init">
+		<tstamp />
+	</target>
+
+	<target name="create_run_jar" depends="init">
+		<jar destfile="dist/kaos-${DSTAMP}.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Main-Class" value="at.ac.tuwien.kr.hornshiq.cli.KaosReasonerCLI" />
+				<attribute name="Class-Path" value="." />
+			</manifest>
+			<fileset dir="bin" />
+			<zipfileset excludes="META-INF/*.SF" src="lib/owlapi/owlapi/3.2.2/owlapi-3.2.2.jar" />
+			<zipfileset excludes="META-INF/*.SF" src="lib/DLVwrapper-v4.1.jar" />
+			<zipfileset excludes="META-INF/*.SF" src="lib/trove-3.0.0rc2.jar" />
+			<zipfileset excludes="META-INF/*.SF" src="lib/antlr-3.3-complete.jar" />
+		</jar>
+	</target>
+</project>

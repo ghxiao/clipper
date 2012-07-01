@@ -1,0 +1,899 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="owlapi:ontology:ont2"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="owlapi:ontology:ont2">
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Above65"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AfterTransaction"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#StatementIssuanceFrequencyValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Below18"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CashCredit"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Credit"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CashWithdrawal"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Withdrawal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CentralBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Classic"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CollectionAnotherBank"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Credit"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Credit"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCardWithdrawal"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Withdrawal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#DebtRunningLoan"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Running"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#DebtRunningLoan"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasLoanStatusValue"/>
+            <Class IRI="http://www.owl-ontologies.com/unnamed.owl#ProblemStatus"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#EastBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#FemaleSex"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Finished"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#ForStatementPayment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From18To25"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From25To35"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From35To50"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From50To65"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Gold"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#HouseholdPayment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#InsurrancePayment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#InterestsCredited"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Credit"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Junior"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Leasing"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanPayment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#MaleSex"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Man"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Man"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasSexValue"/>
+            <Class IRI="http://www.owl-ontologies.com/unnamed.owl#MaleSex"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Monthly"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#StatementIssuanceFrequencyValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NoProblemsFinishedLoan"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Finished"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NoProblemsFinishedLoan"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasLoanStatusValue"/>
+            <Class IRI="http://www.owl-ontologies.com/unnamed.owl#OKStatus"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NorthBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NorthMoravia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NotPaidFinishedLoan"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Finished"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NotPaidFinishedLoan"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasLoanStatusValue"/>
+            <Class IRI="http://www.owl-ontologies.com/unnamed.owl#ProblemStatus"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#OKRunningLoan"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Running"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#OKRunningLoan"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasLoanStatusValue"/>
+            <Class IRI="http://www.owl-ontologies.com/unnamed.owl#OKStatus"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#OKStatus"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#OldAgePension"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CollectionAnotherBank"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isPermanentOrderFor"/>
+            <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Prague"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#ProblemStatus"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#RemittanceAnotherBank"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Withdrawal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Running"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SanctionInterestCashWithdrawal"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CashWithdrawal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SouthBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SouthMoravia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Weekly"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#StatementIssuanceFrequencyValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#WestBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Withdrawal"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Woman"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Woman"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasSexValue"/>
+            <Class IRI="http://www.owl-ontologies.com/unnamed.owl#FemaleSex"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AfterTransaction"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Monthly"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AfterTransaction"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Weekly"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Below18"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From18To25"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Below18"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From25To35"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Below18"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From35To50"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Below18"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From50To65"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CashCredit"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CollectionAnotherBank"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CashWithdrawal"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCardWithdrawal"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CashWithdrawal"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#RemittanceAnotherBank"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CentralBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#EastBohemia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CentralBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NorthBohemia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CentralBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NorthMoravia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CentralBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Prague"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CentralBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SouthBohemia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CentralBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SouthMoravia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Classic"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Gold"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Classic"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Junior"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Credit"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Withdrawal"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCardWithdrawal"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#RemittanceAnotherBank"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#DebtRunningLoan"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#OKRunningLoan"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#EastBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NorthBohemia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#EastBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NorthMoravia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#EastBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Prague"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#EastBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SouthBohemia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#EastBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SouthMoravia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#FemaleSex"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#MaleSex"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Finished"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Running"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#ForStatementPayment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#HouseholdPayment"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#ForStatementPayment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#InsurrancePayment"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#ForStatementPayment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Leasing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#ForStatementPayment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanPayment"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From18To25"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From25To35"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From18To25"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From35To50"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From18To25"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From50To65"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From25To35"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From35To50"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From25To35"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From50To65"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From35To50"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#From50To65"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Gold"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Junior"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#HouseholdPayment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#InsurrancePayment"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#HouseholdPayment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Leasing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#HouseholdPayment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanPayment"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#InsurrancePayment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Leasing"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#InsurrancePayment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanPayment"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Leasing"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanPayment"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Man"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Woman"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Monthly"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Weekly"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NoProblemsFinishedLoan"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NotPaidFinishedLoan"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NorthBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NorthMoravia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NorthBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Prague"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NorthBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SouthBohemia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NorthBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SouthMoravia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NorthMoravia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Prague"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NorthMoravia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SouthBohemia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#NorthMoravia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SouthMoravia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#OKStatus"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#ProblemStatus"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Prague"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SouthBohemia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Prague"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SouthMoravia"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SouthBohemia"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SouthMoravia"/>
+    </DisjointClasses>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#IsLoanOf"/>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasLoan"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isCreditCardOf"/>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasCreditCard"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasOwner"/>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isOwnerOf"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#IsLoanOf"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasAgeValue"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasLoan"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasLoanStatusValue"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasOwner"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasSexValue"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasStatementIssuanceFrequency"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isCreditCardOf"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isPermanentOrderFor"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isTransactionFrom"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isWithdrawalFor"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#livesIn"/>
+    </FunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#IsLoanOf"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasCreditCard"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasLoan"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isOwnerOf"/>
+    </InverseFunctionalObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#IsLoanOf"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasAgeValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasCreditCard"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasLoan"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasLoanStatusValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasOwner"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasPermanentOrder"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasSexValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasStatementIssuanceFrequency"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isCreditCardOf"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isOwnerOf"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isPermanentOrderFor"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isTransactionFrom"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Transaction"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isUserOf"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isWithdrawalFor"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Withdrawal"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#livesIn"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#IsLoanOf"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasAgeValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#AgeValue"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasCreditCard"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#CreditCard"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasLoan"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Loan"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasLoanStatusValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#LoanStatusValue"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasOwner"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasPermanentOrder"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#PermanentOrder"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasSexValue"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#SexValue"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#hasStatementIssuanceFrequency"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#StatementIssuanceFrequencyValue"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isCreditCardOf"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Client"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isOwnerOf"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isPermanentOrderFor"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isTransactionFrom"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isUserOf"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Account"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#isWithdrawalFor"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Payment"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.owl-ontologies.com/unnamed.owl#livesIn"/>
+        <Class IRI="http://www.owl-ontologies.com/unnamed.owl#Region"/>
+    </ObjectPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.2.2.1502) http://owlapi.sourceforge.net -->
+

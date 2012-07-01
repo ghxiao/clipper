@@ -1,0 +1,32 @@
+# it is assumed the commands output to standard output
+OURREASONERCOMMAND=../../executableVersion/ourReasoner.sh
+KAON2COMMAND=../../kaon2dlp/kaon2dlp 
+
+ABOXES=`ls -d abox*`
+
+test: translate
+	for d in ${ABOXES} ; do \
+		cd $$d ; \
+		make -f ../../abox-Makefile test  ; \
+		cd .. ; \
+	done 
+
+clean:
+	rm -rf *.dl
+	for d in ${ABOXES} ; do \
+		cd $$d ; \
+		pwd ; \
+		make -f ../../abox-Makefile clean ; \
+		cd .. ; \
+	done 
+
+translate: our.tboxtranslation.dl kaon2.tboxtranslation.dl
+
+our.tboxtranslation.dl : terminology.owl
+	 $(OURREASONERCOMMAND) terminology.owl our.tboxtranslation.dl
+
+kaon2.tboxtranslation.dl : terminology.owl
+	 $(KAON2COMMAND) terminology.owl > kaon2.tboxtranslation.dl
+
+
+

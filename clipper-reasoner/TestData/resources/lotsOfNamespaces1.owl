@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xml:base="http://www.example.org/ontology"
+    xmlns="http://www.example.org/ontology#">
+
+<owl:Ontology rdf:about="">
+  <rdfs:comment>An example OWL ontology</rdfs:comment>
+</owl:Ontology>
+
+<!-- Demonstrates lots of namespaces -->
+
+<owl:Thing rdf:about="http://www.example/org/ns1#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns2#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns3#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns4#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns5#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns6#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns7#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns8#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns9#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns10#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns11#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns12#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns13#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns14#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns15#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns16#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns17#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns18#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns19#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns20#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns21#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns22#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns23#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns24#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns25#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns26#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns27#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns28#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns29#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns30#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns31#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns32#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns33#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns34#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns35#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns36#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns37#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns38#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns39#x"/>
+<owl:Thing rdf:about="http://www.example/org/ns40#x"/>
+</rdf:RDF>

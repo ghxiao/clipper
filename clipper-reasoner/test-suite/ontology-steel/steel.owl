@@ -1,0 +1,902 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/terms/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://ontorule-project.eu/resources/steel#"
+     xml:base="http://ontorule-project.eu/resources/steel"
+     xmlns:dc="http://purl.org/dc/terms/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://ontorule-project.eu/resources/steel">
+        <dc:date rdf:datatype="&xsd;date">2010-05-31</dc:date>
+	    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ontology of the Steel Industry Case Study</rdfs:comment>
+	    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Final version</owl:versionInfo>
+	    <dc:publisher rdf:resource="http://ontorule-project.eu/" />
+	    <dc:contributor>Pablo Valledor</dc:contributor>
+	    <dc:contributor>Diego Berrueta</dc:contributor>
+	    <dc:contributor>Emilio Rubiera</dc:contributor>
+	    <dc:creator>Diego Díaz</dc:creator>
+	    <dc:creator>Luis Polo</dc:creator>
+	    <vann:preferredNamespacePrefix>steel</vann:preferredNamespacePrefix>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#action -->
+
+    <owl:ObjectProperty rdf:about="http://ontorule-project.eu/resources/steel#action">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">action</rdfs:label>
+        <rdfs:comment>This is the final assignment of a coil to an order (a customer)</rdfs:comment>
+        <rdfs:range rdf:resource="http://ontorule-project.eu/resources/steel#Action"/>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#Coil"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#derivesFrom -->
+
+    <owl:ObjectProperty rdf:about="http://ontorule-project.eu/resources/steel#derivesFrom">
+        <rdfs:label xml:lang="en">derives from</rdfs:label>
+        <rdfs:comment>A given phenomenon derives from a set of defects.</rdfs:comment>
+        <rdfs:range rdf:resource="http://ontorule-project.eu/resources/steel#Defect"/>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#Phenomenon"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#hasPhenomenon -->
+
+    <owl:ObjectProperty rdf:about="http://ontorule-project.eu/resources/steel#hasPhenomenon">
+        <rdfs:label xml:lang="en">has phenomenon</rdfs:label>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#Coil"/>
+        <rdfs:range rdf:resource="http://ontorule-project.eu/resources/steel#Phenomenon"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#hasSamplingPoint -->
+
+    <owl:ObjectProperty rdf:about="http://ontorule-project.eu/resources/steel#hasSamplingPoint">
+        <rdfs:label xml:lang="en">has sampling point</rdfs:label>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#Coil"/>
+        <rdfs:range rdf:resource="http://ontorule-project.eu/resources/steel#SamplingPoint"/>
+        <owl:inverseOf rdf:resource="http://ontorule-project.eu/resources/steel#inCoil"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#inCoil -->
+
+    <owl:ObjectProperty rdf:about="http://ontorule-project.eu/resources/steel#inCoil">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">in coil</rdfs:label>
+        <rdfs:comment>This property links sampling points, used by the system to measure some physical parameters such as the yield strength, to the product (a given coil).</rdfs:comment>
+        <rdfs:range rdf:resource="http://ontorule-project.eu/resources/steel#Coil"/>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#SamplingPoint"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#location -->
+
+    <owl:ObjectProperty rdf:about="http://ontorule-project.eu/resources/steel#location">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">location</rdfs:label>
+        <rdfs:comment>A defect is detected comparing coil data with order specifications in sampling points. Thus a defect is relative to a position in the coil.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#Defect"/>
+        <rdfs:range rdf:resource="http://ontorule-project.eu/resources/steel#SamplingPoint"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#locationOf -->
+
+    <owl:ObjectProperty rdf:about="http://ontorule-project.eu/resources/steel#locationOf">
+        <rdfs:label xml:lang="en">location of</rdfs:label>
+        <rdfs:range rdf:resource="http://ontorule-project.eu/resources/steel#Defect"/>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#SamplingPoint"/>
+        <owl:inverseOf rdf:resource="http://ontorule-project.eu/resources/steel#location"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#order -->
+
+    <owl:ObjectProperty rdf:about="http://ontorule-project.eu/resources/steel#order">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">order</rdfs:label>
+        <rdfs:comment>This is the initial assignment of a coil to an order (a customer). It will define the production goal to be validated by the rule system.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#Coil"/>
+        <rdfs:range rdf:resource="http://ontorule-project.eu/resources/steel#Order"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#phenomenonOf -->
+
+    <owl:ObjectProperty rdf:about="http://ontorule-project.eu/resources/steel#phenomenonOf">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">phenomenon of</rdfs:label>
+        <rdfs:range rdf:resource="http://ontorule-project.eu/resources/steel#Coil"/>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#Phenomenon"/>
+        <owl:inverseOf rdf:resource="http://ontorule-project.eu/resources/steel#hasPhenomenon"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#steelGrade -->
+
+    <owl:ObjectProperty rdf:about="http://ontorule-project.eu/resources/steel#steelGrade">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">steel grade</rdfs:label>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#Coil"/>
+        <rdfs:range rdf:resource="http://ontorule-project.eu/resources/steel#ProductType"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="&owl;topObjectProperty">
+        <rdfs:label xml:lang="en">top object property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#avgFlattenerElongation -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#avgFlattenerElongation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">average flattener elongation</rdfs:label>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#Coil"/>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#coilProperty"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#avgSkinPassElongation -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#avgSkinPassElongation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">average skin-pass elongation</rdfs:label>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#Coil"/>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#coilProperty"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#avgTemperature -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#avgTemperature">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">average temperature</rdfs:label>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#Coil"/>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#coilProperty"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#coilIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#coilIdentifier">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">coil identifier</rdfs:label>
+        <rdfs:comment>Unique identifier of the product.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#Coil"/>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#coilProperty"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#coilProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#coilProperty">
+        <rdfs:label xml:lang="en">coil property</rdfs:label>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#Coil"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#flattenerElongation -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#flattenerElongation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">flattener elongation</rdfs:label>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#SamplingPoint"/>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#samplingPointProperty"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#lengthScope -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#lengthScope">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">length scope</rdfs:label>
+        <rdfs:comment>Length of the coil in which the sampling applies. It is associated to a single coil sampling point.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#SamplingPoint"/>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#samplingPointProperty"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#position -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#position">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">position</rdfs:label>
+        <rdfs:comment>Position of the coil where a sampling is performed. There is a sampling point each 10 meters from the head to the tail of the coil, so the position indicates the distance in meters from the head to a given sampling point.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#SamplingPoint"/>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#samplingPointProperty"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#productTypeCode -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#productTypeCode">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">product type code</rdfs:label>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#ProductType"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#samplingPointProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#samplingPointProperty">
+        <rdfs:label xml:lang="en">sampling point property</rdfs:label>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#SamplingPoint"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#skinPassElongation -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#skinPassElongation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">skin-pass elongation</rdfs:label>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#SamplingPoint"/>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#samplingPointProperty"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#skinPassElongationMax -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#skinPassElongationMax">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">skin-pass elongation maximum</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#targetParameter"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#skinPassElongationMin -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#skinPassElongationMin">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">skin-pass elongation minimum</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#targetParameter"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#targetParameter -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#targetParameter">
+        <rdfs:label xml:lang="en">target parameter</rdfs:label>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#Order"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#temperature -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#temperature">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">temperature</rdfs:label>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#SamplingPoint"/>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#samplingPointProperty"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#temperatureMax -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#temperatureMax">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">temperature maximum</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#targetParameter"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#temperatureMin -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#temperatureMin">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">temperature minimum</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#targetParameter"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#thicknessTarget -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#thicknessTarget">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">thickness target</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#targetParameter"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#weightMax -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#weightMax">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">weight maximum</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#targetParameter"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#weightMin -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#weightMin">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">weight minimum</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#targetParameter"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#widthTarget -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#widthTarget">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">width target</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#targetParameter"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#yieldStrength -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#yieldStrength">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">yield strength</rdfs:label>
+        <rdfs:comment>This parameter is calculated in every sampling point along the coil. So the yieldStrength is associated with a given sampling point to allow the comparison with the yieldStrength value of the target specified in the order. Deviations from the target imply a defect in the coil.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ontorule-project.eu/resources/steel#SamplingPoint"/>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#samplingPointProperty"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#yieldStrengthMax -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#yieldStrengthMax">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">yield strength upper tolerance</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#targetParameter"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#yieldStrengthMin -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#yieldStrengthMin">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">yield strength lower tolerance</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#targetParameter"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#zincThicknessTarget -->
+
+    <owl:DatatypeProperty rdf:about="http://ontorule-project.eu/resources/steel#zincThicknessTarget">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">zinc thickness target</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://ontorule-project.eu/resources/steel#targetParameter"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="&owl;topDataProperty">
+        <rdfs:label xml:lang="en">top data property</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#Action -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#Action">
+        <rdfs:label xml:lang="en">Action</rdfs:label>
+        <rdfs:comment xml:lang="en">This category comprises the actions to be done with the product after the system has completed its evaluation</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#Clinching -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#Clinching">
+        <rdfs:label xml:lang="en">Clinching</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontorule-project.eu/resources/steel#ProductType"/>
+        <rdfs:comment xml:lang="en">Clinching steels are those obtained by a non-continuous method of joining whereby the points of joinage are produced by punching two or more steel sheets together simultaneously by means of a punch and die.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#Coil -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#Coil">
+        <rdfs:label xml:lang="en">Coil</rdfs:label>
+        <rdfs:comment xml:lang="en">A coil is a physical object which is the metallurgical product to be analysed during the process.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#Defect -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#Defect">
+        <rdfs:label xml:lang="en">An imperfection or defect detected in the coil.
+</rdfs:label>
+        <rdfs:label xml:lang="en">Defect</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#DualPhase -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#DualPhase">
+        <rdfs:label xml:lang="en">Dual-phase steel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontorule-project.eu/resources/steel#ProductType"/>
+        <rdfs:comment xml:lang="en">Dual-phase steel (DPA) is a high-strength steel that has a ferrite and martensitic microstructure. DPA starts as a low or medium carbon steel and is quenched from a temperature above A1 but below A3 on a continuous cooling transformation diagram. This results in a microstructure consisting of a soft ferrite matrix containing islands of martensite as the secondary phase (martensite increases the tensile strength).
+It features advantages such as low yield strength;low yield to tensile strength ratio (yield strength / tensile strength = 0.5); high initial strain hardening rates; good uniform elongation; high strain rate sensitivity (the faster it is crushed the more energy it absorbs); and good fatigue resistance.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#HSLA -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#HSLA">
+        <rdfs:label xml:lang="en">High-strength low-alloy steel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontorule-project.eu/resources/steel#ProductType"/>
+        <rdfs:comment xml:lang="en">High-strength low-alloy (HSLA) steel is a type of alloy steel that provides better mechanical properties or greater resistance to corrosion than carbon steel. HSLA steels vary from other steels in that they aren&#39;t made to meet a specific chemical composition, but rather to specific mechanical properties. They have a carbon content between 0.05&#8211;0.25% to retain formability and weldability.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#InterstitialFree -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#InterstitialFree">
+        <rdfs:label xml:lang="en">Intertitial free metallurgy steel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontorule-project.eu/resources/steel#ProductType"/>
+        <rdfs:comment xml:lang="en">Steels designed to provide an excellent combination of drawability and mechanical strength based on their specific interstitial free (IF) metallurgy.  
+These steels are hardened by adding manganese, silicon and phosphorous in solid solution to the ferrite. The metallurgy of IF steels optimizes their drawability.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#MechanicalDefect -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#MechanicalDefect">
+        <rdfs:label xml:lang="en">Mechanical defect</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontorule-project.eu/resources/steel#Defect"/>
+        <owl:disjointWith rdf:resource="http://ontorule-project.eu/resources/steel#SurfaceAspectDefect"/>
+        <rdfs:comment xml:lang="en">A defect having to do with the mechanical process.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#MechanicalPhenomenon -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#MechanicalPhenomenon">
+        <rdfs:label xml:lang="en">Mechanical phenomenon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontorule-project.eu/resources/steel#Phenomenon"/>
+        <owl:disjointWith rdf:resource="http://ontorule-project.eu/resources/steel#SurfaceAspectPhenomenon"/>
+        <rdfs:comment xml:lang="en">An effect detected in the coil related to the mechanical process.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#Order -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#Order">
+        <rdfs:label xml:lang="en">Order</rdfs:label>
+        <rdfs:comment xml:lang="en">An order defines the target specifications of the product. The order also specifies the tolerance allowed with respect to the target parameters.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#ParameterDefect -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#ParameterDefect">
+        <rdfs:label xml:lang="en">Parameter defect</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontorule-project.eu/resources/steel#MechanicalDefect"/>
+        <rdfs:comment xml:lang="en">It is a defect having to do with a deviation of the measured skin-pass elongation, flattener elongation or temperature from the specified values.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#Phenomenon -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#Phenomenon">
+        <rdfs:label xml:lang="en">Phenomenon</rdfs:label>
+        <rdfs:comment xml:lang="en">An effect detected in the coil, based on the identified defects along the coil sampling points.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#ProductType -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#ProductType">
+        <rdfs:label xml:lang="en">Product type</rdfs:label>
+        <rdfs:comment xml:lang="en">The type identifies the kind of steel, defined by a set of physical and chemical properties</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#Rephosphorised -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#Rephosphorised">
+        <rdfs:label xml:lang="en">Rephosphorised steel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontorule-project.eu/resources/steel#ProductType"/>
+        <rdfs:comment xml:lang="en">It is a kind of steel that contains phosphorus as its main alloying agent.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#SamplingPoint -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#SamplingPoint">
+        <rdfs:label xml:lang="en">Sampling point</rdfs:label>
+        <rdfs:comment xml:lang="en">A sampling point is an abstract concept which represents a given location within a coil where some physical parameters are measured.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#SkinPassElongationDefect -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#SkinPassElongationDefect">
+        <rdfs:label xml:lang="en">Skin-pass elongation defect</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontorule-project.eu/resources/steel#MechanicalDefect"/>
+        <rdfs:comment xml:lang="en">A skin-pass elongation defect has to do with any deviation of the measured skin-pass elongation from the requirements for the product.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#SkinPassElongationPhenomenon -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#SkinPassElongationPhenomenon">
+        <rdfs:label xml:lang="en">Skin-pass elongation phenomenon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontorule-project.eu/resources/steel#MechanicalPhenomenon"/>
+        <rdfs:comment xml:lang="en">An effect detected in the coil related to the skin-pass elongation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#SurfaceAspectDefect -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#SurfaceAspectDefect">
+        <rdfs:label xml:lang="en">Surface aspect defect</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontorule-project.eu/resources/steel#Defect"/>
+        <rdfs:comment xml:lang="en">A defect found in the surface of the coil.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#SurfaceAspectPhenomenon -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#SurfaceAspectPhenomenon">
+        <rdfs:label xml:lang="en">Surface aspect phenomenon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontorule-project.eu/resources/steel#Phenomenon"/>
+        <rdfs:comment xml:lang="en">An effect detected in the coil specifically on the surface of the product.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#TemperatureDefect -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#TemperatureDefect">
+        <rdfs:label xml:lang="en">Temperature defect</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontorule-project.eu/resources/steel#MechanicalDefect"/>
+        <rdfs:comment xml:lang="en">It is a defect having to do with temperature issues. At the exit of the furnace it is necessary to check the temperature ranges of the steel strip, depending on the maximum and minimum end of heating temperature set by the order (measured in &#186;C) and the steel grade.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#TemperaturePhenomenon -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#TemperaturePhenomenon">
+        <rdfs:label xml:lang="en">Temperature phenomenon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontorule-project.eu/resources/steel#MechanicalPhenomenon"/>
+        <rdfs:comment xml:lang="en">An effect detected in the coil related to the temperature.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#YieldStrengthDefect -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#YieldStrengthDefect">
+        <rdfs:label xml:lang="en">Yield strength defect</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontorule-project.eu/resources/steel#MechanicalDefect"/>
+        <rdfs:comment xml:lang="en">It is a mechanical defect having to do with the target yield strength. A defect of this category is identified if the yield strength is outside of the target range at any point.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#YieldStrengthPhenomenon -->
+
+    <owl:Class rdf:about="http://ontorule-project.eu/resources/steel#YieldStrengthPhenomenon">
+        <rdfs:label xml:lang="en">Yield strength phenomenon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://ontorule-project.eu/resources/steel#MechanicalPhenomenon"/>
+        <rdfs:comment xml:lang="en">An effect detected in the coil related to the yield strength.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#A200 -->
+
+    <owl:Thing rdf:about="http://ontorule-project.eu/resources/steel#A200">
+        <rdf:type rdf:resource="http://ontorule-project.eu/resources/steel#DualPhase"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>A200</rdfs:label>
+        <productTypeCode>A200</productTypeCode>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#B102 -->
+
+    <owl:Thing rdf:about="http://ontorule-project.eu/resources/steel#B102">
+        <rdf:type rdf:resource="http://ontorule-project.eu/resources/steel#InterstitialFree"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>B102</rdfs:label>
+        <productTypeCode>B102</productTypeCode>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#B105 -->
+
+    <owl:Thing rdf:about="http://ontorule-project.eu/resources/steel#B105">
+        <rdf:type rdf:resource="http://ontorule-project.eu/resources/steel#InterstitialFree"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>B105</rdfs:label>
+        <productTypeCode>B105</productTypeCode>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#C114 -->
+
+    <owl:Thing rdf:about="http://ontorule-project.eu/resources/steel#C114">
+        <rdf:type rdf:resource="http://ontorule-project.eu/resources/steel#Rephosphorised"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>C114</rdfs:label>
+        <productTypeCode>C114</productTypeCode>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#C116 -->
+
+    <owl:Thing rdf:about="http://ontorule-project.eu/resources/steel#C116">
+        <rdf:type rdf:resource="http://ontorule-project.eu/resources/steel#Rephosphorised"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>C116</rdfs:label>
+        <productTypeCode>C116</productTypeCode>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#C119 -->
+
+    <owl:Thing rdf:about="http://ontorule-project.eu/resources/steel#C119">
+        <rdf:type rdf:resource="http://ontorule-project.eu/resources/steel#Rephosphorised"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>C119</rdfs:label>
+        <productTypeCode>C119</productTypeCode>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#D012 -->
+
+    <owl:Thing rdf:about="http://ontorule-project.eu/resources/steel#D012">
+        <rdf:type rdf:resource="http://ontorule-project.eu/resources/steel#HSLA"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>D012</rdfs:label>
+        <productTypeCode>D012</productTypeCode>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#D071 -->
+
+    <owl:Thing rdf:about="http://ontorule-project.eu/resources/steel#D071">
+        <rdf:type rdf:resource="http://ontorule-project.eu/resources/steel#HSLA"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>D071</rdfs:label>
+        <productTypeCode>D071</productTypeCode>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#K012 -->
+
+    <owl:Thing rdf:about="http://ontorule-project.eu/resources/steel#K012">
+        <rdf:type rdf:resource="http://ontorule-project.eu/resources/steel#Clinching"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>K012</rdfs:label>
+        <productTypeCode>K012</productTypeCode>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#evaluation -->
+
+    <owl:Thing rdf:about="http://ontorule-project.eu/resources/steel#evaluation">
+        <rdf:type rdf:resource="http://ontorule-project.eu/resources/steel#Action"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label xml:lang="en">evaluation</rdfs:label>
+        <rdfs:comment>The coil is sent to experts when it is not clear whether it meets order requirements</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#keepAssignment -->
+
+    <owl:Thing rdf:about="http://ontorule-project.eu/resources/steel#keepAssignment">
+        <rdf:type rdf:resource="http://ontorule-project.eu/resources/steel#Action"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label xml:lang="en">Keep assignment</rdfs:label>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#repair -->
+
+    <owl:Thing rdf:about="http://ontorule-project.eu/resources/steel#repair">
+        <rdf:type rdf:resource="http://ontorule-project.eu/resources/steel#Action"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label xml:lang="en">repair</rdfs:label>
+        <rdfs:comment>When the quality of coil is low but it could be repaired, it is sent again to the production line.</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://ontorule-project.eu/resources/steel#scrap -->
+
+    <owl:Thing rdf:about="http://ontorule-project.eu/resources/steel#scrap">
+        <rdf:type rdf:resource="http://ontorule-project.eu/resources/steel#Action"/>
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label xml:lang="en">scrap</rdfs:label>
+        <rdfs:comment>When the quality of the coil is very low, it is sent to scrap</rdfs:comment>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1451) http://owlapi.sourceforge.net -->
+

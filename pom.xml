@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.semanticweb.clipper</groupId>
+	<version>0.2-SNAPSHOT</version>
+	<artifactId>clipper-parent</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>clipper-reasoner</module>
+		<module>clipper-cli</module>
+		<module>clipper-distribution</module>
+	</modules>
+
+	<name>clipper</name>
+	<description>clipper reasoner.</description>
+	<url>http://www.kr.tuwien.ac.at/research/systems/clipper/</url>
+
+	<inceptionYear>2011</inceptionYear>
+
+	<developers>
+	</developers>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>12.0</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.version>0.2-SNAPSHOT</project.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>clipper-reasoner-snapshots</id>
+			<url>http://clipper-reasoner.googlecode.com/svn/m2/snapshots</url>
+		</repository>
+		<repository>
+			<id>clipper-reasoner-releases</id>
+			<url>http://clipper-reasoner.googlecode.com/svn/m2/releases</url>
+		</repository>
+	</repositories>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
