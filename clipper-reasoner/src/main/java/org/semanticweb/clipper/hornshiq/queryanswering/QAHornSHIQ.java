@@ -938,7 +938,7 @@ public class QAHornSHIQ {
 	}
 
 	// =================================
-	public void runDatalogEngine() {
+	public List<List<String>> runDatalogEngine() {
 		getDataLog();
 		DLVInputProgram inputProgram = new DLVInputProgramImpl();
 		String outPutNotification = "";
@@ -1016,8 +1016,6 @@ public class QAHornSHIQ {
 			System.out.println("=============Decoded answers ==============");
 		}
 
-		tableOutput(cq, decodedAnswers, answerParser.getWidths());
-
 		BufferedWriter bufferedWriter = null;
 
 		try {
@@ -1049,38 +1047,8 @@ public class QAHornSHIQ {
 				ex.printStackTrace();
 			}
 		}
+		return decodedAnswers;
 
-	}
-
-	private void tableOutput(CQ cq, List<List<String>> decodedAnswers, List<Integer> widths) {
-		// | "Axel Polleres" | <http://www.polleres.net/foaf.rdf#me> |
-
-		// String format = "| %32s | %16s |\n";
-		int linewidth = 1;
-		StringBuilder formatBuilder = new StringBuilder();
-		formatBuilder.append("|");
-		for (Integer width : widths) {
-			formatBuilder.append(" %-").append(width).append("s |");
-			linewidth += width + 3;
-		}
-		
-		formatBuilder.append("\n");
-		String format = formatBuilder.toString();
-
-		System.out.println(Strings.repeat("-", linewidth));
-		
-		//FIXME: output variable name
-		System.out.format(format, cq.getHead().getTerms().toArray());
-		
-		System.out.println(Strings.repeat("=", linewidth));
-		
-		
-		for (List<String> decodedAnswer : decodedAnswers) {
-			System.out.format(format, decodedAnswer.toArray());
-		}
-
-		System.out.println(Strings.repeat("-", linewidth));
-		
 	}
 
 	public void setCq(CQ cq) {

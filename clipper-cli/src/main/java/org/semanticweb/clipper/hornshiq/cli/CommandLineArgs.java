@@ -23,6 +23,10 @@ class CommandQuery {
 	@Parameter(names = "-dlv", description = "the path to dlv")
 	private String dlvPath;
 
+	@Parameter(names = "-f", description = "table | csv | atoms")
+	private String outputFormat = "table";
+
+	// TODO: will be supported in the future
 	@Parameter(names = "-clingo", description = "the path to clingo", hidden = true)
 	private String clingoPath;
 
@@ -36,6 +40,10 @@ class CommandQuery {
 
 	public String getClingoPath() {
 		return clingoPath;
+	}
+
+	public String getOutputFormat() {
+		return outputFormat;
 	}
 
 	public void validate() {
