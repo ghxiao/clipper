@@ -1,6 +1,7 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.antlr.runtime.RecognitionException;
 import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
@@ -100,6 +101,7 @@ public class ClipperApp {
 		} catch (RecognitionException e) {
 			e.printStackTrace();
 		}
+
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setOntologyName(ontologyFileName);
 		qaHornSHIQ.setDataLogName(ontologyFileName + "-" + ontologyFileName + ".dl");
@@ -108,8 +110,19 @@ public class ClipperApp {
 		qaHornSHIQ.setDlvPath(cmd.getDlvPath());
 
 		long startTime = System.currentTimeMillis();
-		qaHornSHIQ.runDatalogEngine();
+		List<List<String>> answers = qaHornSHIQ.runDatalogEngine();
 		long endTime = System.currentTimeMillis();
+
+		QueryResultPrinter printer = null;
+		if (cmd.getOutputFormat().equals("csv")) {
+			printer = new CsvQueryResultPrinter();
+		} else if (cmd.getOutputFormat().equals("table")) {
+			printer = new TableQueryResultPrinter();
+		} else if (cmd.getOutputFormat().equals("terms")) {
+			// TODO
+		}
+
+		printer.print(cq.getHead(), answers);
 
 		if (KaosManager.getInstance().getVerboseLevel() > 0) {
 			statistics(qaHornSHIQ, startTime, endTime);

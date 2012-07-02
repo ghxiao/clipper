@@ -6,18 +6,12 @@ import java.util.List;
 import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
 import org.semanticweb.owlapi.model.OWLIndividual;
 
-import com.google.common.collect.Lists;
-
 public class AnswerParser {
 	private List<String> answers;
 	private List<List<String>> decodedAnswers;
 	private String prefix = null;
 
-	private List<Integer> widths = null;
-
-	public List<Integer> getWidths() {
-		return widths;
-	}
+	
 
 	public List<String> getAnswers() {
 		return answers;
@@ -107,18 +101,6 @@ public class AnswerParser {
 
 		for (String answer : answers) {
 			List<String> decodedAnswer = getDecodedAnswer(answer);
-			int size = decodedAnswer.size();
-
-			if (widths == null) {
-				widths = Lists.newArrayListWithCapacity(size);
-				for (int i = 0; i < size; i++) {
-					widths.add(0);
-				}
-			}
-
-			for (int i = 0; i < size; i++) {
-				widths.set(i, Math.max(widths.get(i), decodedAnswer.get(i).length()));
-			}
 
 			decodedAnswers.add(decodedAnswer);
 		}

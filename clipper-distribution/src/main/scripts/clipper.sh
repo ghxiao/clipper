@@ -16,5 +16,5 @@ fi
 
 clipper_cli_jar=`ls ${CLIPPER_HOME}/lib/clipper-cli*.jar`
 
-${java} -cp $(echo lib/*.jar | tr ' ' ':') org.semanticweb.clipper.hornshiq.cli.ClipperApp "$@"
+${java} -cp $(echo ${CLIPPER_HOME}/lib/*.jar | tr ' ' ':') org.semanticweb.clipper.hornshiq.cli.ClipperApp "$@"
 #exec ${java} -cp $(echo lib/*.jar | tr ' ' ':') -jar ${clipper_cli_jar} "$@"
