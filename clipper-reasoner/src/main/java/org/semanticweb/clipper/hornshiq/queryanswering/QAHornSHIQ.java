@@ -98,7 +98,7 @@ public class QAHornSHIQ {
 	public QAHornSHIQ() {
 		answers = new ArrayList<String>();
 		decodedAnswers = new ArrayList<List<String>>();
-		KaosManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);// default
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);// default
 	}
 
 	public String getDataLogName() {
@@ -146,7 +146,7 @@ public class QAHornSHIQ {
 	// }
 
 	public void setNamingStrategy(NamingStrategy namingStrategy) {
-		KaosManager.getInstance().setNamingStrategy(namingStrategy);
+		ClipperManager.getInstance().setNamingStrategy(namingStrategy);
 
 	}
 
@@ -207,7 +207,7 @@ public class QAHornSHIQ {
 				this.headPredicate = "q" + cq.getHead().getPredicate().getEncoding();
 			else
 				this.headPredicate = "q";
-			if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println("% Encoded Input query:" + cq);
 			}
 
@@ -217,13 +217,13 @@ public class QAHornSHIQ {
 				long startNormalizatoinTime = System.currentTimeMillis();
 				ontology = man.loadOntologyFromOntologyDocument(file);
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 2)
+				if (ClipperManager.getInstance().getVerboseLevel() >= 2)
 					System.out.println(ontology);
 
 				HornSHIQProfile profile = new HornSHIQProfile();
 
 				OWLProfileReport report = profile.checkOntology(ontology);
-				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println(report);
 				}
 
@@ -243,7 +243,7 @@ public class QAHornSHIQ {
 				long endNormalizationTime = System.currentTimeMillis();
 				this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizatoinTime);
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 					for (Axiom ax : onto_bs.getAxioms()) {
 						System.out.println(ax);
 					}
@@ -267,7 +267,7 @@ public class QAHornSHIQ {
 				QueryRewriter qr = new QueryRewriting(tb.getEnfContainer(), tb.getInverseRoleAxioms(),
 						tb.getAllValuesFromAxioms());
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println("%Enforces relations:");
 					for (EnforcedRelation e : tb.getEnfContainer().getEnfs()) {
 						printClassNamesFromEncodedNamesSet(e.getType1());
@@ -277,7 +277,7 @@ public class QAHornSHIQ {
 					}
 
 				}
-				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println("%rewritten queries:");
 				}
 				// /////////////////////////////////////////////////////////
@@ -300,7 +300,7 @@ public class QAHornSHIQ {
 				long endCoutingRelatedRule = System.currentTimeMillis();
 				this.clipperReport.setCoutingRealtedRulesTime(endCoutingRelatedRule - starCoutingRelatedRule);
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println("==============================================");
 					System.out.println("Numbers of rewritten queries is: " + ucq.size());
 					System.out.println("==============================================");
@@ -354,7 +354,7 @@ public class QAHornSHIQ {
 				this.headPredicate = "q" + cq.getHead().getPredicate().getEncoding();
 			else
 				this.headPredicate = "q";
-			if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println("% Encoded Input query:" + cq);
 			}
 
@@ -364,13 +364,13 @@ public class QAHornSHIQ {
 				long startNormalizatoinTime = System.currentTimeMillis();
 				ontology = man.loadOntologyFromOntologyDocument(file);
 
-				if (KaosManager.getInstance().getVerboseLevel() > 0)
+				if (ClipperManager.getInstance().getVerboseLevel() > 0)
 					System.out.println(ontology);
 
 				HornSHIQProfile profile = new HornSHIQProfile();
 
 				OWLProfileReport report = profile.checkOntology(ontology);
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 					System.out.println(report);
 				}
 
@@ -390,7 +390,7 @@ public class QAHornSHIQ {
 				long endNormalizationTime = System.currentTimeMillis();
 				this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizatoinTime);
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 					for (Axiom ax : onto_bs.getAxioms()) {
 						System.out.println(ax);
 					}
@@ -414,7 +414,7 @@ public class QAHornSHIQ {
 				QueryRewriting qr = new QueryRewriting(tb.getIndexedEnfContainer(), tb.getInverseRoleAxioms(),
 						tb.getAllValuesFromAxioms());
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println("%Enforces relations:");
 					for (EnforcedRelation e : qr.getEnfContainer().getEnfs()) {
 						printClassNamesFromEncodedNamesSet(e.getType1());
@@ -424,7 +424,7 @@ public class QAHornSHIQ {
 					}
 
 				}
-				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println("%rewritten queries:");
 				}
 				// /////////////////////////////////////////////////////////
@@ -446,7 +446,7 @@ public class QAHornSHIQ {
 				long endCoutingRelatedRule = System.currentTimeMillis();
 				this.clipperReport.setCoutingRealtedRulesTime(endCoutingRelatedRule - starCoutingRelatedRule);
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println("==============================================");
 					System.out.println("Numbers of rewritten queries is: " + ucq.size());
 					System.out.println("==============================================");
@@ -497,13 +497,13 @@ public class QAHornSHIQ {
 				long startNormalizatoinTime = System.currentTimeMillis();
 				ontology = man.loadOntologyFromOntologyDocument(file);
 
-				if (KaosManager.getInstance().getVerboseLevel() > 0)
+				if (ClipperManager.getInstance().getVerboseLevel() > 0)
 					System.out.println(ontology);
 
 				HornSHIQProfile profile = new HornSHIQProfile();
 
 				OWLProfileReport report = profile.checkOntology(ontology);
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 					System.out.println(report);
 				}
 
@@ -523,7 +523,7 @@ public class QAHornSHIQ {
 				long endNormalizationTime = System.currentTimeMillis();
 				this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizatoinTime);
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 					for (Axiom ax : onto_bs.getAxioms()) {
 						System.out.println(ax);
 					}
@@ -570,7 +570,7 @@ public class QAHornSHIQ {
 				this.headPredicate = "q" + cq.getHead().getPredicate().getEncoding();
 			else
 				this.headPredicate = "q";
-			if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println("% Encoded Input query:" + cq);
 			}
 
@@ -580,13 +580,13 @@ public class QAHornSHIQ {
 				long startNormalizatoinTime = System.currentTimeMillis();
 				ontology = man.loadOntologyFromOntologyDocument(file);
 
-				if (KaosManager.getInstance().getVerboseLevel() > 0)
+				if (ClipperManager.getInstance().getVerboseLevel() > 0)
 					System.out.println(ontology);
 
 				HornSHIQProfile profile = new HornSHIQProfile();
 
 				OWLProfileReport report = profile.checkOntology(ontology);
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 					System.out.println(report);
 				}
 
@@ -606,7 +606,7 @@ public class QAHornSHIQ {
 				long endNormalizationTime = System.currentTimeMillis();
 				this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizatoinTime);
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 					for (Axiom ax : onto_bs.getAxioms()) {
 						System.out.println(ax);
 					}
@@ -634,7 +634,7 @@ public class QAHornSHIQ {
 				// QueryRewriting qr = new QueryRewriting(tb.getEnfContainer(),
 				// tb.getInverseRoleAxioms(), tb.getAllValuesFromAxioms());
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 					System.out.println("%Enforces relations:");
 					for (EnforcedRelation e : qr.getEnfContainer().getEnfs()) {
 						printClassNamesFromEncodedNamesSet(e.getType1());
@@ -644,7 +644,7 @@ public class QAHornSHIQ {
 					}
 
 				}
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 					System.out.println("%rewritten queries:");
 				}
 				// /////////////////////////////////////////////////////////
@@ -665,7 +665,7 @@ public class QAHornSHIQ {
 				long endCoutingRelatedRule = System.currentTimeMillis();
 				this.clipperReport.setCoutingRealtedRulesTime(endCoutingRelatedRule - starCoutingRelatedRule);
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 					System.out.println("==============================================");
 					System.out.println("Numbers of rewritten queries is: " + ucq.size());
 					System.out.println("==============================================");
@@ -729,7 +729,7 @@ public class QAHornSHIQ {
 				this.headPredicate = "q" + cq.getHead().getPredicate().getEncoding();
 			else
 				this.headPredicate = "q";
-			if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println("% Encoded Input query:" + cq);
 			}
 
@@ -739,13 +739,13 @@ public class QAHornSHIQ {
 				long startNormalizatoinTime = System.currentTimeMillis();
 				ontology = man.loadOntologyFromOntologyDocument(file);
 
-				if (KaosManager.getInstance().getVerboseLevel() > 0)
+				if (ClipperManager.getInstance().getVerboseLevel() > 0)
 					System.out.println(ontology);
 
 				HornSHIQProfile profile = new HornSHIQProfile();
 
 				OWLProfileReport report = profile.checkOntology(ontology);
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 					System.out.println(report);
 				}
 
@@ -765,7 +765,7 @@ public class QAHornSHIQ {
 				long endNormalizationTime = System.currentTimeMillis();
 				this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizatoinTime);
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 					for (Axiom ax : onto_bs.getAxioms()) {
 						System.out.println(ax);
 					}
@@ -789,7 +789,7 @@ public class QAHornSHIQ {
 				QueryRewriting qr = new QueryRewriting(tb.getIndexedEnfContainer(), tb.getInverseRoleAxioms(),
 						tb.getAllValuesFromAxioms());
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 					System.out.println("%Enforces relations:");
 					for (EnforcedRelation e : qr.getEnfContainer().getEnfs()) {
 						printClassNamesFromEncodedNamesSet(e.getType1());
@@ -799,7 +799,7 @@ public class QAHornSHIQ {
 					}
 
 				}
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 					System.out.println("%rewritten queries:");
 				}
 				// /////////////////////////////////////////////////////////
@@ -820,7 +820,7 @@ public class QAHornSHIQ {
 				long endCoutingRelatedRule = System.currentTimeMillis();
 				this.clipperReport.setCoutingRealtedRulesTime(endCoutingRelatedRule - starCoutingRelatedRule);
 
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 					System.out.println("==============================================");
 					System.out.println("Numbers of rewritten queries is: " + ucq.size());
 					System.out.println("==============================================");
@@ -869,7 +869,7 @@ public class QAHornSHIQ {
 		// Creates an instance of DLVInvocation
 
 		// Creates an instance of DLVInputProgram
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("===========Model of the program========");
 		}
 
@@ -883,7 +883,7 @@ public class QAHornSHIQ {
 				@Override
 				public void handleResult(DLVInvocation obsd, FactResult res) {
 					String answerString = res.toString();
-					if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+					if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 						System.out.println(answerString);
 					}
 					// answers.add(answerString);
@@ -948,7 +948,7 @@ public class QAHornSHIQ {
 		// Creates an instance of DLVInvocation
 
 		// Creates an instance of DLVInputProgram
-		if (KaosManager.getInstance().getVerboseLevel() > 0)
+		if (ClipperManager.getInstance().getVerboseLevel() > 0)
 			System.out.println("===========Answers for the query ========");
 
 		try {
@@ -964,7 +964,7 @@ public class QAHornSHIQ {
 				@Override
 				public void handleResult(DLVInvocation obsd, FactResult res) {
 					String answerString = res.toString();
-					if (KaosManager.getInstance().getVerboseLevel() > 0)
+					if (ClipperManager.getInstance().getVerboseLevel() > 0)
 						System.out.println(answerString);
 					answers.add(answerString);
 				}
@@ -979,14 +979,14 @@ public class QAHornSHIQ {
 			// Roughly datalog program evalutaion
 			if (!modelBufferedHandler.hasMoreModels()) {
 				outPutNotification = "No model";
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 					System.out.println("No model");
 				}
 			}
 			invocation.waitUntilExecutionFinishes();
 			List<DLVError> k = invocation.getErrors();
 			if (k.size() > 0) {
-				if (KaosManager.getInstance().getVerboseLevel() >= 0) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 0) {
 					System.out.println(k);
 				}
 				outPutNotification = k.toString();
@@ -1000,14 +1000,14 @@ public class QAHornSHIQ {
 
 		long starOutputAnswer = System.currentTimeMillis();
 		AnswerParser answerParser = new AnswerParser();
-		if (KaosManager.getInstance().getNamingStrategy() == NamingStrategy.IntEncoding) {
+		if (ClipperManager.getInstance().getNamingStrategy() == NamingStrategy.IntEncoding) {
 			answerParser.setAnswers(this.answers);
 			answerParser.parse();
 			this.decodedAnswers = answerParser.getDecodedAnswers();
 		} else {
 			this.decodedAnswers.add(this.answers);
 		}
-		if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 			System.out.println("=============Decoded answers ==============");
 		}
 
@@ -1055,16 +1055,16 @@ public class QAHornSHIQ {
 	}
 
 	private String getBinaryPredicate(int value) {
-		switch (KaosManager.getInstance().getNamingStrategy()) {
+		switch (ClipperManager.getInstance().getNamingStrategy()) {
 		case LowerCaseFragment:
-			OWLObjectPropertyExpression owlExpression = KaosManager.getInstance()
+			OWLObjectPropertyExpression owlExpression = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder().getSymbolByValue(value);
 			if (owlExpression.isAnonymous())
-				return "INVERSEOF(" + normalize(owlExpression.getNamedProperty().getIRI()) + ")";
+				return "INVERSEOF(" + normalizeIRI(owlExpression.getNamedProperty().getIRI()) + ")";
 			else {
-				IRI iri = KaosManager.getInstance().getOwlObjectPropertyExpressionEncoder().getSymbolByValue(value)
+				IRI iri = ClipperManager.getInstance().getOwlObjectPropertyExpressionEncoder().getSymbolByValue(value)
 						.asOWLObjectProperty().getIRI();
-				return normalize(iri);
+				return normalizeIRI(iri);
 			}
 
 		case IntEncoding:
@@ -1074,11 +1074,11 @@ public class QAHornSHIQ {
 	}
 
 	private String getUnaryPredicate(int value) {
-		switch (KaosManager.getInstance().getNamingStrategy()) {
+		switch (ClipperManager.getInstance().getNamingStrategy()) {
 		case LowerCaseFragment:
-			IRI iri = KaosManager.getInstance().getOwlClassEncoder().getSymbolByValue(value).getIRI();
+			IRI iri = ClipperManager.getInstance().getOwlClassEncoder().getSymbolByValue(value).getIRI();
 
-			return normalize(iri);
+			return normalizeIRI(iri);
 		case IntEncoding:
 			return "c" + value;
 		}
@@ -1105,7 +1105,7 @@ public class QAHornSHIQ {
 		System.out.print(" } ");
 	}
 
-	private String normalize(IRI iri) {
+	private String normalizeIRI(IRI iri) {
 		String fragment = iri.getFragment();
 		if (fragment != null) {
 			return fragment.replaceAll("[_-]", "").toLowerCase();
@@ -1124,12 +1124,12 @@ public class QAHornSHIQ {
 	 * */
 	private String formatQuery(CQ cq) {
 		StringBuilder sb = new StringBuilder();
-		if (KaosManager.getInstance().getNamingStrategy().equals(NamingStrategy.IntEncoding)) {
+		if (ClipperManager.getInstance().getNamingStrategy().equals(NamingStrategy.IntEncoding)) {
 			sb.append(cq.getHead());
 			sb.append(" :- ");
 			boolean first = true;
 			for (Atom b : cq.getBody()) {
-				if (b.getPredicate().getEncoding() != KaosManager.getInstance().getThing()) {
+				if (b.getPredicate().getEncoding() != ClipperManager.getInstance().getThing()) {
 					if (!first) {
 						sb.append(", ");
 					}
@@ -1145,7 +1145,7 @@ public class QAHornSHIQ {
 			sb.append(" :- ");
 			boolean first = true;
 			for (Atom b : cq.getBody()) {
-				if (b.getPredicate().getEncoding() != KaosManager.getInstance().getThing()) {
+				if (b.getPredicate().getEncoding() != ClipperManager.getInstance().getThing()) {
 					if (!first) {
 						sb.append(", ");
 					}
@@ -1190,11 +1190,11 @@ public class QAHornSHIQ {
 
 	// convert term to lower case format
 	private String getConstant(int value) {
-		switch (KaosManager.getInstance().getNamingStrategy()) {
+		switch (ClipperManager.getInstance().getNamingStrategy()) {
 		case LowerCaseFragment:
-			IRI iri = KaosManager.getInstance().getOwlIndividualEncoder().getSymbolByValue(value)
+			IRI iri = ClipperManager.getInstance().getOwlIndividualEncoder().getSymbolByValue(value)
 					.asOWLNamedIndividual().getIRI();
-			return "\"" + normalize(iri) + "\"";
+			return "\"" + normalizeIRI(iri) + "\"";
 		case IntEncoding:
 			return "d" + value;
 		}

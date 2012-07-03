@@ -55,7 +55,7 @@ public class ClipperApp {
 	 * @param jc
 	 */
 	private void help(JCommander jc) {
-		System.out.println("Clipper reasoner [0.2]");
+		System.out.println("Clipper reasoner [v0.2]");
 		System.out.println();
 		jc.usage();
 	}

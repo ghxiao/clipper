@@ -136,7 +136,7 @@ public class ReductionToDatalog {
 			cons.clear();
 			for (int index = rb.getType().nextSetBit(0); index >= 0; index = rb
 					.getType().nextSetBit(index + 1)) {
-				OWLClass owlClass = KaosManager.getInstance()
+				OWLClass owlClass = ClipperManager.getInstance()
 						.getOwlClassEncoder().getSymbolByValue(index);
 				cons.addAtomToBody(owlClass.getIRI().getFragment() + "(X)");
 			}
@@ -176,13 +176,13 @@ public class ReductionToDatalog {
 
 				for (int index = imp.getType2().nextSetBit(0); index >= 0; index = imp
 						.getType2().nextSetBit(index + 1)) {
-					OWLClass owlClass = KaosManager.getInstance()
+					OWLClass owlClass = ClipperManager.getInstance()
 							.getOwlClassEncoder().getSymbolByValue(index);
 					rule.clear();
 					rule.setHead(owlClass.getIRI().getFragment() + "(X)");
 					for (int index1 = imp.getType1().nextSetBit(0); index1 >= 0; index1 = imp
 							.getType1().nextSetBit(index1 + 1)) {
-						OWLClass owlClass1 = KaosManager.getInstance()
+						OWLClass owlClass1 = ClipperManager.getInstance()
 								.getOwlClassEncoder().getSymbolByValue(index1);
 						if (!owlClass1.isOWLThing())
 							rule.addAtomToBody(owlClass1.getIRI().getFragment()
@@ -207,13 +207,13 @@ public class ReductionToDatalog {
 
 				for (int index = imp.getType2().nextSetBit(0); index >= 0; index = imp
 						.getType2().nextSetBit(index + 1)) {
-					OWLClass owlClass = KaosManager.getInstance()
+					OWLClass owlClass = ClipperManager.getInstance()
 							.getOwlClassEncoder().getSymbolByValue(index);
 					rule.clear();
 					rule.setHead("c" + index + "(X)");
 					for (int index1 = imp.getType1().nextSetBit(0); index1 >= 0; index1 = imp
 							.getType1().nextSetBit(index1 + 1)) {
-						OWLClass owlClass1 = KaosManager.getInstance()
+						OWLClass owlClass1 = ClipperManager.getInstance()
 								.getOwlClassEncoder().getSymbolByValue(index1);
 						if (index1 != thing)
 							rule.addAtomToBody("c" + index1 + "(X)");
@@ -238,15 +238,15 @@ public class ReductionToDatalog {
 		for (AtomSubAllAxiom axiom : allValuesFromAxioms) {
 			rule.clear();
 			int ic = axiom.getConcept2();
-			OWLClass c = KaosManager.getInstance().getOwlClassEncoder()
+			OWLClass c = ClipperManager.getInstance().getOwlClassEncoder()
 					.getSymbolByValue(ic);
 
 			int ir = axiom.getRole();
-			OWLObjectProperty r = KaosManager.getInstance()
+			OWLObjectProperty r = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(ir).asOWLObjectProperty();
 			int ia = axiom.getConcept1();
-			OWLClass a = KaosManager.getInstance().getOwlClassEncoder()
+			OWLClass a = ClipperManager.getInstance().getOwlClassEncoder()
 					.getSymbolByValue(ia);
 
 			rule.setHead(c.getIRI().getFragment() + "(Y)");
@@ -266,15 +266,15 @@ public class ReductionToDatalog {
 		for (AtomSubAllAxiom axiom : allValuesFromAxioms) {
 			rule.clear();
 			int ic = axiom.getConcept2();
-			OWLClass c = KaosManager.getInstance().getOwlClassEncoder()
+			OWLClass c = ClipperManager.getInstance().getOwlClassEncoder()
 					.getSymbolByValue(ic);
 
 			int ir = axiom.getRole();
-			OWLObjectProperty r = KaosManager.getInstance()
+			OWLObjectProperty r = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(ir).asOWLObjectProperty();
 			int ia = axiom.getConcept1();
-			OWLClass a = KaosManager.getInstance().getOwlClassEncoder()
+			OWLClass a = ClipperManager.getInstance().getOwlClassEncoder()
 					.getSymbolByValue(ia);
 
 			rule.setHead("c" + ic + "(Y)");
@@ -295,12 +295,12 @@ public class ReductionToDatalog {
 
 		for (SubPropertyAxiom subRoleAxiom : subObjectPropertyAxioms) {
 			int sup = subRoleAxiom.getRole2();
-			OWLObjectProperty superRole = KaosManager.getInstance()
+			OWLObjectProperty superRole = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(sup).asOWLObjectProperty();
 
 			int sub = subRoleAxiom.getRole1();
-			OWLObjectProperty subRole = KaosManager.getInstance()
+			OWLObjectProperty subRole = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(sub).asOWLObjectProperty();
 
@@ -318,12 +318,12 @@ public class ReductionToDatalog {
 
 		for (SubPropertyAxiom subRoleAxiom : subObjectPropertyAxioms) {
 			int sup = subRoleAxiom.getRole2();
-			OWLObjectProperty superRole = KaosManager.getInstance()
+			OWLObjectProperty superRole = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(sup).asOWLObjectProperty();
 
 			int sub = subRoleAxiom.getRole1();
-			OWLObjectProperty subRole = KaosManager.getInstance()
+			OWLObjectProperty subRole = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(sub).asOWLObjectProperty();
 
@@ -344,10 +344,10 @@ public class ReductionToDatalog {
 			int r1 = ax.getRole1();
 			int r2 = ax.getRole2();
 
-			OWLObjectProperty owlR1 = KaosManager.getInstance()
+			OWLObjectProperty owlR1 = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(r1).asOWLObjectProperty();
-			OWLObjectProperty owlR2 = KaosManager.getInstance()
+			OWLObjectProperty owlR2 = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(r2).asOWLObjectProperty();
 
@@ -372,10 +372,10 @@ public class ReductionToDatalog {
 			int r1 = ax.getRole1();
 			int r2 = ax.getRole2();
 
-			OWLObjectProperty owlR1 = KaosManager.getInstance()
+			OWLObjectProperty owlR1 = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(r1).asOWLObjectProperty();
-			OWLObjectProperty owlR2 = KaosManager.getInstance()
+			OWLObjectProperty owlR2 = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(r2).asOWLObjectProperty();
 
@@ -400,12 +400,12 @@ public class ReductionToDatalog {
 			int ia = subClassAxiom.getConcept1();
 			int ir = subClassAxiom.getRole();
 			int ic = subClassAxiom.getConcept2();
-			OWLClass a = KaosManager.getInstance().getOwlClassEncoder()
+			OWLClass a = ClipperManager.getInstance().getOwlClassEncoder()
 					.getSymbolByValue(ia);
-			OWLObjectProperty r = KaosManager.getInstance()
+			OWLObjectProperty r = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(ir).asOWLObjectProperty();
-			OWLClass c = KaosManager.getInstance().getOwlClassEncoder()
+			OWLClass c = ClipperManager.getInstance().getOwlClassEncoder()
 					.getSymbolByValue(ic);
 			Constraint constraint = new Constraint();
 			if (!a.isOWLThing())
@@ -429,12 +429,12 @@ public class ReductionToDatalog {
 			int ia = subClassAxiom.getConcept1();
 			int ir = subClassAxiom.getRole();
 			int ic = subClassAxiom.getConcept2();
-			OWLClass a = KaosManager.getInstance().getOwlClassEncoder()
+			OWLClass a = ClipperManager.getInstance().getOwlClassEncoder()
 					.getSymbolByValue(ia);
-			OWLObjectProperty r = KaosManager.getInstance()
+			OWLObjectProperty r = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(ir).asOWLObjectProperty();
-			OWLClass c = KaosManager.getInstance().getOwlClassEncoder()
+			OWLClass c = ClipperManager.getInstance().getOwlClassEncoder()
 					.getSymbolByValue(ic);
 			Constraint constraint = new Constraint();
 			if (ia != thing)
@@ -464,12 +464,12 @@ public class ReductionToDatalog {
 			int ia = subClassAxiom.getConcept1();
 			int ir = subClassAxiom.getRole();
 			int ic = subClassAxiom.getConcept2();
-			OWLClass a = KaosManager.getInstance().getOwlClassEncoder()
+			OWLClass a = ClipperManager.getInstance().getOwlClassEncoder()
 					.getSymbolByValue(ia);
-			OWLObjectProperty r = KaosManager.getInstance()
+			OWLObjectProperty r = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(ir).asOWLObjectProperty();
-			OWLClass c = KaosManager.getInstance().getOwlClassEncoder()
+			OWLClass c = ClipperManager.getInstance().getOwlClassEncoder()
 					.getSymbolByValue(ic);
 
 			for (EnforcedRelation enfRelation : coreEnfs) {
@@ -490,7 +490,7 @@ public class ReductionToDatalog {
 						// index = enfRelation
 						// .getType2().nextSetBit(index + 1)) {
 						int index = iterator.next();
-						OWLClass owlClass = KaosManager.getInstance()
+						OWLClass owlClass = ClipperManager.getInstance()
 								.getOwlClassEncoder().getSymbolByValue(index);
 						// create head of the rule. Each element of Type2 is a
 						// head.
@@ -505,7 +505,7 @@ public class ReductionToDatalog {
 							// 0; index1 = enfRelation
 							// .getType1().nextSetBit(index1 + 1)) {
 							int index1 = iterator1.next();
-							OWLClass owlClass1 = KaosManager.getInstance()
+							OWLClass owlClass1 = ClipperManager.getInstance()
 									.getOwlClassEncoder()
 									.getSymbolByValue(index1);
 							rule.addAtomToBody(owlClass1.getIRI().getFragment()
@@ -532,7 +532,7 @@ public class ReductionToDatalog {
 						// .getRoles().nextSetBit(index2 + 1)) {
 						int index2 = iterator.next();
 						rule.clear();
-						OWLObjectProperty ri = KaosManager.getInstance()
+						OWLObjectProperty ri = ClipperManager.getInstance()
 								.getOwlObjectPropertyExpressionEncoder()
 								.getSymbolByValue(index2).asOWLObjectProperty();
 						rule.setHead(ri.getIRI().getFragment() + "(X,Y)");
@@ -545,7 +545,7 @@ public class ReductionToDatalog {
 							// 0; index1 = enfRelation
 							// .getType1().nextSetBit(index1 + 1)) {
 							int index1 = iterator1.next();
-							OWLClass owlClass1 = KaosManager.getInstance()
+							OWLClass owlClass1 = ClipperManager.getInstance()
 									.getOwlClassEncoder()
 									.getSymbolByValue(index1);
 							rule.addAtomToBody(owlClass1.getIRI().getFragment()
@@ -573,12 +573,12 @@ public class ReductionToDatalog {
 			int ia = subClassAxiom.getConcept1();
 			int ir = subClassAxiom.getRole();
 			int ic = subClassAxiom.getConcept2();
-			OWLClass a = KaosManager.getInstance().getOwlClassEncoder()
+			OWLClass a = ClipperManager.getInstance().getOwlClassEncoder()
 					.getSymbolByValue(ia);
-			OWLObjectProperty r = KaosManager.getInstance()
+			OWLObjectProperty r = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(ir).asOWLObjectProperty();
-			OWLClass c = KaosManager.getInstance().getOwlClassEncoder()
+			OWLClass c = ClipperManager.getInstance().getOwlClassEncoder()
 					.getSymbolByValue(ic);
 
 			for (EnforcedRelation enfRelation : coreEnfs) {
@@ -603,7 +603,7 @@ public class ReductionToDatalog {
 					TIntIterator iterator = enfRelation.getType2().iterator();
 					while (iterator.hasNext()) {
 						int index = iterator.next();
-						OWLClass owlClass = KaosManager.getInstance()
+						OWLClass owlClass = ClipperManager.getInstance()
 								.getOwlClassEncoder().getSymbolByValue(index);
 						// create head of the rule. Each element of Type2 is a
 						// head.
@@ -643,7 +643,7 @@ public class ReductionToDatalog {
 					while (iterator2.hasNext()) {
 						int index2 = iterator2.next();
 						rule.clear();
-						OWLObjectProperty ri = KaosManager.getInstance()
+						OWLObjectProperty ri = ClipperManager.getInstance()
 								.getOwlObjectPropertyExpressionEncoder()
 								.getSymbolByValue(index2).asOWLObjectProperty();
 						rule.setHead("r" + index2 + "(X,Y)");
@@ -656,7 +656,7 @@ public class ReductionToDatalog {
 						// .getType1().nextSetBit(index1 + 1)) {
 						while (iterator1.hasNext()) {
 							int index1 = iterator1.next();
-							OWLClass owlClass1 = KaosManager.getInstance()
+							OWLClass owlClass1 = ClipperManager.getInstance()
 									.getOwlClassEncoder()
 									.getSymbolByValue(index1);
 							rule.addAtomToBody("c" + index1 + "(X)");
@@ -684,14 +684,14 @@ public class ReductionToDatalog {
 			int ind1 = a.getIndividual1();
 			int ind2 = a.getIndividual2();
 
-			OWLNamedIndividual subject = KaosManager.getInstance()
+			OWLNamedIndividual subject = ClipperManager.getInstance()
 					.getOwlIndividualEncoder().getSymbolByValue(ind1)
 					.asOWLNamedIndividual();
-			OWLObjectProperty r = KaosManager.getInstance()
+			OWLObjectProperty r = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(ir).asOWLObjectProperty();
 
-			OWLNamedIndividual object = KaosManager.getInstance()
+			OWLNamedIndividual object = ClipperManager.getInstance()
 					.getOwlIndividualEncoder().getSymbolByValue(ind2)
 					.asOWLNamedIndividual();
 
@@ -706,9 +706,9 @@ public class ReductionToDatalog {
 		for (ConceptAssertionAxiom ca : conceptAssertionAxioms) {
 			int ic = ca.getConcept();
 			int iInd = ca.getIndividual();
-			OWLClass c = KaosManager.getInstance().getOwlClassEncoder()
+			OWLClass c = ClipperManager.getInstance().getOwlClassEncoder()
 					.getSymbolByValue(ic);
-			OWLNamedIndividual ind = KaosManager.getInstance()
+			OWLNamedIndividual ind = ClipperManager.getInstance()
 					.getOwlIndividualEncoder().getSymbolByValue(iInd)
 					.asOWLNamedIndividual();
 			// System.out.println(c.getIRI().getFragment() +
@@ -730,14 +730,14 @@ public class ReductionToDatalog {
 			int ind1 = a.getIndividual1();
 			int ind2 = a.getIndividual2();
 
-			OWLNamedIndividual subject = KaosManager.getInstance()
+			OWLNamedIndividual subject = ClipperManager.getInstance()
 					.getOwlIndividualEncoder().getSymbolByValue(ind1)
 					.asOWLNamedIndividual();
-			OWLObjectProperty r = KaosManager.getInstance()
+			OWLObjectProperty r = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(ir).asOWLObjectProperty();
 
-			OWLNamedIndividual object = KaosManager.getInstance()
+			OWLNamedIndividual object = ClipperManager.getInstance()
 					.getOwlIndividualEncoder().getSymbolByValue(ind2)
 					.asOWLNamedIndividual();
 
@@ -755,9 +755,9 @@ public class ReductionToDatalog {
 		for (ConceptAssertionAxiom ca : conceptAssertionAxioms) {
 			int ic = ca.getConcept();
 			int iInd = ca.getIndividual();
-			OWLClass c = KaosManager.getInstance().getOwlClassEncoder()
+			OWLClass c = ClipperManager.getInstance().getOwlClassEncoder()
 					.getSymbolByValue(ic);
-			OWLNamedIndividual ind = KaosManager.getInstance()
+			OWLNamedIndividual ind = ClipperManager.getInstance()
 					.getOwlIndividualEncoder().getSymbolByValue(iInd)
 					.asOWLNamedIndividual();
 			// System.out.println(c.getIRI().getFragment() +

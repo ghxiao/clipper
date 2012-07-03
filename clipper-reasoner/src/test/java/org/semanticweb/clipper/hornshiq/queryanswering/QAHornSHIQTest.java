@@ -23,7 +23,7 @@ public class QAHornSHIQTest {
 	public void testBasicRewriting() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 	//	KaosManager.getInstance().setVerboseLevel(2);
-		KaosManager.getInstance().setNamingStrategy(
+		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setDataLogName("AllTestCases/testRoleInclusion.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testRoleInclusion.owl");

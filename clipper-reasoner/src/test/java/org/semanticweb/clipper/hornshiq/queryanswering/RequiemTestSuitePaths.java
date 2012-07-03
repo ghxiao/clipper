@@ -12,7 +12,7 @@ import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
@@ -27,7 +27,7 @@ public class RequiemTestSuitePaths {
 	@Test
 	public void query0() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setVerboseLevel(2);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/PathsQuery0.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
@@ -58,7 +58,7 @@ public class RequiemTestSuitePaths {
 	@Test
 	public void query01() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/PathsQuery01.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
@@ -90,7 +90,7 @@ public class RequiemTestSuitePaths {
 	@Test
 	public void query02() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/PathsQuery02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
@@ -123,7 +123,7 @@ public class RequiemTestSuitePaths {
 	@Test
 	public void query03() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/PathsQuery03.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
@@ -159,7 +159,7 @@ public class RequiemTestSuitePaths {
 	@Test
 	public void query04() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/PathsQuery04.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");

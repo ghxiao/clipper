@@ -19,7 +19,7 @@ import org.semanticweb.clipper.hornshiq.ontology.InversePropertyOfAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ObjectPropertyAssertionAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.SomeSubAtomAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.SubPropertyAxiom;
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.owlapi.model.ClassExpressionType;
 import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLAnnotationPropertyDomainAxiom;
@@ -80,11 +80,11 @@ import org.semanticweb.owlapi.model.SWRLRule;
 public class BitSetNormalHornALCHIQOntologyConverter implements OWLAxiomVisitorEx<Object> {
 
 	private NormalHornALCHIQOntology ontology;
-	private KaosManager km;
+	private ClipperManager km;
 
 	public NormalHornALCHIQOntology convert(OWLOntology owlOntology) {
 		ontology = new NormalHornALCHIQOntology();
-		km = KaosManager.getInstance();
+		km = ClipperManager.getInstance();
 		for (OWLAxiom ax : owlOntology.getLogicalAxioms()) {
 			ax.accept(this);
 		}

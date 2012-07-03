@@ -12,7 +12,7 @@ import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
@@ -27,7 +27,7 @@ public class RequiemTestSuiteAdolena {
 	@Test
 	public void query0() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 	
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setNamingStrategy(NamingStrategy.IntEncoding);
@@ -63,7 +63,7 @@ public class RequiemTestSuiteAdolena {
 	@Test
 	public void query01() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 	    QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		// qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ
@@ -98,7 +98,7 @@ public class RequiemTestSuiteAdolena {
 	@Test
 	public void query02() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ
 				.setDataLogName("TestData/requiem/EvalDL09/AdolenaQuery02.dl");
@@ -138,7 +138,7 @@ public class RequiemTestSuiteAdolena {
 	@Test
 	public void query03() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ
 				.setDataLogName("TestData/requiem/EvalDL09/AdolenaQuery03.dl");
@@ -175,7 +175,7 @@ public class RequiemTestSuiteAdolena {
 		qaHornSHIQ
 				.setDataLogName("TestData/requiem/EvalDL09/AdolenaQuery04.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/adolena.owl");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0) <- Device(?0), assistsWith(?0,?1), PhysicalAbility(?1),
 		// affects(?2,?1), Quadriplegia(?2)
 		String sparql = "PREFIX ub: <http://ksg.meraka.co.za/adolena.owl#>\n"

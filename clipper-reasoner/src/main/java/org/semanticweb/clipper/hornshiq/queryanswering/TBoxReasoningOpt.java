@@ -110,9 +110,9 @@ public class TBoxReasoningOpt {
 		boolean modifiedIMPS = false;
 		for (EnforcedRelation tuple : this.enf_relation) {
 			if (tuple.getType2().contains(
-					KaosManager.getInstance().getNothing())) {
+					ClipperManager.getInstance().getNothing())) {
 				HornImplication new_imp = new HornImplication(tuple.getType1(),
-						KaosManager.getInstance().getNothing());
+						ClipperManager.getInstance().getNothing());
 				if (imp_relation.add(new_imp)) {
 					this.enf_relation.updateNewImpl(new_imp);
 					this.computeAboxTypeClosure();
@@ -276,7 +276,7 @@ public class TBoxReasoningOpt {
 								&& (tuple2.getType2()
 										.contains(ax.getConcept2()) || ax
 								// .getConcept2() == this.thing)) {
-										.getConcept2() == KaosManager
+										.getConcept2() == ClipperManager
 										.getInstance().getThing())) {
 
 							for (int i : tuple2.getType2().toArray()) {
@@ -356,7 +356,7 @@ public class TBoxReasoningOpt {
 	 */
 	public void reasoning() {
 
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("Start IMP size: " + imp_relation.size());
 			System.out.println("Start ENF size: " + enf_relation.size());
 			System.out.println("Start ABoxType size: " + this.aboxType.size());
@@ -403,7 +403,7 @@ public class TBoxReasoningOpt {
 				addition.clear();
 			}
 
-			if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println("ITERATION STATS:");
 				System.out.println("IMP size: " + imp_relation.size());
 				System.out.println("ENF size: " + enf_relation.size());

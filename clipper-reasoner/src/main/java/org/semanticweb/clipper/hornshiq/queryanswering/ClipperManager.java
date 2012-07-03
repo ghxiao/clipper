@@ -9,7 +9,7 @@ import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 
 
-public class KaosManager {
+public class ClipperManager {
 
 	private SymbolEncoder<OWLClass> owlClassEncoder;
 	private SymbolEncoder<OWLObjectPropertyExpression> owlObjectPropertyExpressionEncoder;
@@ -24,9 +24,9 @@ public class KaosManager {
 	
 	private NamingStrategy namingStrategy;
 
-	private static KaosManager instance = new KaosManager();
+	private static ClipperManager instance = new ClipperManager();
 
-	private KaosManager() {
+	private ClipperManager() {
 		this.owlClassEncoder = new SymbolEncoder<OWLClass>(OWLClass.class);
 		this.owlObjectPropertyExpressionEncoder = new SymbolEncoder<OWLObjectPropertyExpression>(
 				OWLObjectPropertyExpression.class);
@@ -40,7 +40,7 @@ public class KaosManager {
 				.getOWLBottomObjectProperty());
 	}
 
-	public static KaosManager getInstance() {
+	public static ClipperManager getInstance() {
 		return instance;
 	}
 

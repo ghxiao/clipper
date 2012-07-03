@@ -136,3 +136,55 @@ class CsvQueryResultPrinter extends QueryResultPrinter {
 	}
 
 }
+
+class HtmlQueryResultPrinter extends QueryResultPrinter {
+
+	@Override
+	void init(List<Term> answerVars, List<List<String>> answers) {
+
+	}
+
+	@Override
+	void printHead(List<Term> answerVars) {
+		System.out.println("<table><tr>");
+
+		for (Term ansVar : answerVars) {
+			System.out.print("<td>");
+			System.out.print(encodeHTML(ansVar.toString()));
+			System.out.println("</td>");
+		}
+
+		// Joiner.on(", ").appendTo(System.out, answerVars);
+		System.out.println("</tr>");
+		// System.out.println();
+	}
+
+	@Override
+	void printAnswer(List<String> answer) {
+		System.out.println("<tr>");
+		for (String term : answer) {
+			System.out.print("<td>");
+			System.out.print(encodeHTML(term));
+			System.out.println("</td>");
+		}
+		System.out.println("</tr>");
+	}
+
+	@Override
+	void printFoot() {
+		System.out.println("</table>");
+	}
+
+	public static String encodeHTML(String s) {
+		StringBuffer out = new StringBuffer();
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+			if (c > 127 || c == '"' || c == '<' || c == '>') {
+				out.append("&#" + (int) c + ";");
+			} else {
+				out.append(c);
+			}
+		}
+		return out.toString();
+	}
+}

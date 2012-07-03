@@ -35,9 +35,9 @@ public class EnforcedRelation {
 
 	public EnforcedRelation() {
 		this.type1 = new TIntHashSet(); 
-		this.type1.add(KaosManager.getInstance().getThing());
+		this.type1.add(ClipperManager.getInstance().getThing());
 		this.type2 = new TIntHashSet(); 
-		this.type2.add(KaosManager.getInstance().getThing());
+		this.type2.add(ClipperManager.getInstance().getThing());
 		this.roles = new TIntHashSet();
 		
 	}
@@ -46,10 +46,10 @@ public class EnforcedRelation {
 	public EnforcedRelation(int T1, int R, int T2) {
 		this.type1 = new TIntHashSet();
 		this.type1.add(T1);
-		this.type1.add(KaosManager.getInstance().getThing());
+		this.type1.add(ClipperManager.getInstance().getThing());
 		this.type2 = new TIntHashSet();
 		this.type2.add(T2);
-		this.type2.add(KaosManager.getInstance().getThing());
+		this.type2.add(ClipperManager.getInstance().getThing());
 		this.roles = new TIntHashSet();
 		this.roles.add(R);
 	}
@@ -57,9 +57,9 @@ public class EnforcedRelation {
 	// =======================
 	public EnforcedRelation(TIntHashSet T1, TIntHashSet R, TIntHashSet T2) {
 		this.type1 =  new TIntHashSet(T1);
-		this.type1.add(KaosManager.getInstance().getThing());
+		this.type1.add(ClipperManager.getInstance().getThing());
 		this.type2 =  new TIntHashSet(T2);
-		this.type2.add(KaosManager.getInstance().getThing());
+		this.type2.add(ClipperManager.getInstance().getThing());
 		this.roles = new TIntHashSet(R);
 		}
 	// constructor to get a clone of an EnforcedRelation
@@ -72,9 +72,9 @@ public class EnforcedRelation {
 
 	public EnforcedRelation(TIntHashSet T1, int r, TIntHashSet T2) {
 		this.type1 = new TIntHashSet(T1);
-		this.type1.add(KaosManager.getInstance().getThing());
+		this.type1.add(ClipperManager.getInstance().getThing());
 		this.type2 = new TIntHashSet(T2);
-		this.type2.add(KaosManager.getInstance().getThing());
+		this.type2.add(ClipperManager.getInstance().getThing());
 		TIntHashSet R = new TIntHashSet();
 		R.add(r);
 		this.roles = R;

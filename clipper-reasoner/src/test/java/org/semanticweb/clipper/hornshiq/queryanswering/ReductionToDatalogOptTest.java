@@ -15,7 +15,7 @@ import org.semanticweb.clipper.hornshiq.profile.HornALCHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQTransNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQProfile;
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt;
 import org.semanticweb.clipper.hornshiq.queryanswering.TBoxReasoningOpt;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
@@ -66,7 +66,7 @@ public class ReductionToDatalogOptTest {
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
-		KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		System.out.println("==========Datalog Program=============");
@@ -122,7 +122,7 @@ public class ReductionToDatalogOptTest {
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
-		KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		System.out.println("==========Datalog Program=============");
@@ -180,7 +180,7 @@ public class ReductionToDatalogOptTest {
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
-		KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		System.out.println("==========Datalog Program=============");
 		try {
 			PrintStream program = new PrintStream(new FileOutputStream("TestCaseOntologies/ruleR3DataLog.dl"));
@@ -235,7 +235,7 @@ public class ReductionToDatalogOptTest {
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
-		KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		System.out.println("==========Datalog Program=============");
@@ -349,7 +349,7 @@ public class ReductionToDatalogOptTest {
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		
-		KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		System.out.println("==========Datalog Program=============");
 		try {
 			PrintStream program = new PrintStream(new FileOutputStream("TestCaseOntologies/ruleR6DataLog.dl"));
@@ -403,7 +403,7 @@ public class ReductionToDatalogOptTest {
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
-		KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		PrintingUtilities printer = new PrintingUtilities();
@@ -461,7 +461,7 @@ public class ReductionToDatalogOptTest {
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
-		KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		// printer.printReachBottom(tb.getReachBottoms());
@@ -522,7 +522,7 @@ public class ReductionToDatalogOptTest {
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
-		KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		PrintingUtilities printer = new PrintingUtilities();
 		// printer.printReachBottom(tb.getReachBottoms());
 		// reduction.getDataLogcProgram("TestCaseOntologies/tes01Datalog.dl");

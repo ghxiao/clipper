@@ -11,7 +11,7 @@ import org.semanticweb.clipper.hornshiq.ontology.AtomSubSomeAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.Axiom;
 import org.semanticweb.clipper.hornshiq.ontology.ConceptAssertionAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ObjectPropertyAssertionAxiom;
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.util.SymbolEncoder;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
@@ -85,7 +85,7 @@ public class KaosManagerTest {
 
 	@Test
 	public void test001() {
-		KaosManager km = KaosManager.getInstance();
+		ClipperManager km = ClipperManager.getInstance();
 		SymbolEncoder<OWLClass> owlClassEncoder = km.getOwlClassEncoder();
 		SymbolEncoder<OWLDataProperty> owlDataPropertyEncoder = km.getOwlDataPropertyEncoder();
 		SymbolEncoder<OWLObjectPropertyExpression> owlObjectPropertyEncoder = km
@@ -101,7 +101,7 @@ public class KaosManagerTest {
 
 	@Test
 	public void test002() {
-		KaosManager km = KaosManager.getInstance();
+		ClipperManager km = ClipperManager.getInstance();
 		SymbolEncoder<OWLClass> owlClassEncoder = km.getOwlClassEncoder();
 
 		SymbolEncoder<OWLObjectPropertyExpression> owlObjectPropertyEncoder = km
@@ -130,7 +130,7 @@ public class KaosManagerTest {
 
 	@Test
 	public void testThing() {
-		KaosManager km = KaosManager.getInstance();
+		ClipperManager km = ClipperManager.getInstance();
 		SymbolEncoder<OWLClass> owlClassEncoder = km.getOwlClassEncoder();
 		SymbolEncoder<OWLObjectPropertyExpression> owlObjectPropertyEncoder = km
 		.getOwlObjectPropertyExpressionEncoder();

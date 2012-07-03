@@ -170,7 +170,7 @@ public class ReductionToDatalogOpt {
 //    	
 //    }
 	public void rulesFromImps(PrintStream program) {
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("%==========rules From Imps=============");
 		}
 		Rule rule = new Rule();
@@ -185,7 +185,7 @@ public class ReductionToDatalogOpt {
 			rule.setHead(getUnaryPredicate(imp.getHead()) + "(X)");
 			rule.setBody(getEncodedBodyOfImp(imp.getBody()));
 			if (rule.isNotTrivial()) {
-				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println(rule);
 				}
 				program.println(rule);
@@ -198,7 +198,7 @@ public class ReductionToDatalogOpt {
 		TIntIterator iterator = body.iterator();
 		while (iterator.hasNext()) {
 			int p = iterator.next();
-			String classIRI = KaosManager.getInstance()
+			String classIRI = ClipperManager.getInstance()
 					//
 					.getOwlClassEncoder().getSymbolByValue(p).getIRI()
 					.toString();
@@ -210,7 +210,7 @@ public class ReductionToDatalogOpt {
 
 	// subclassOf( A, R only C)
 	public void rulesFromValueRestrictions(PrintStream program) {
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out
 					.println("%==========rules From Value Restrictions ============");
 		}
@@ -222,11 +222,11 @@ public class ReductionToDatalogOpt {
 			int ia = axiom.getConcept1();
 
 			rule.setHead(getUnaryPredicate(ic) + "(Y)");
-			if (ia != KaosManager.getInstance().getThing()) rule.addAtomToBody(getUnaryPredicate(ia) + "(X)");
+			if (ia != ClipperManager.getInstance().getThing()) rule.addAtomToBody(getUnaryPredicate(ia) + "(X)");
 			final String s;
 			s = getBinaryAtomWithoutInverse(ir, "X", "Y");
 			rule.addAtomToBody(s);
-			if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println(rule);
 			}
 			program.println(rule);
@@ -247,7 +247,7 @@ public class ReductionToDatalogOpt {
 
 	// SubRole (sup, super)
 	public void rulesFromRoleInclusions(PrintStream program) {
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("%==========rules From Sub Roles Axioms =====");
 		}
 		for (SubPropertyAxiom subRoleAxiom : subObjectPropertyAxioms) {
@@ -259,7 +259,7 @@ public class ReductionToDatalogOpt {
 			if (!(sub % 2 == 1 && sup % 2 == 1)) {
 				rule.setHead(getBinaryAtomWithoutInverse(sup, "X", "Y"));
 				rule.addAtomToBody(getBinaryAtomWithoutInverse(sub, "X", "Y"));
-				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println(rule);
 				}
 				program.println(rule);
@@ -269,7 +269,7 @@ public class ReductionToDatalogOpt {
 
 	// InverseRole(r1, r2)
 	public void rulesFromInverseRoleAxioms(PrintStream program) {
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out
 					.println("%==========rules From inverse role axioms===================");
 		}
@@ -280,14 +280,14 @@ public class ReductionToDatalogOpt {
 			int r2 = ax.getRole2();
 			rule.setHead(getBinaryAtomWithoutInverse(r1, "X", "Y"));
 			rule.addAtomToBody(getBinaryAtomWithoutInverse(r2, "Y", "X"));
-			if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println(rule);
 			}
 			program.println(rule);
 			rule.clear();
 			rule.setHead(getBinaryAtomWithoutInverse(r2, "Y", "X"));
 			rule.addAtomToBody(getBinaryAtomWithoutInverse(r1, "X", "Y"));
-			if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println(rule);
 			}
 			program.println(rule);
@@ -296,7 +296,7 @@ public class ReductionToDatalogOpt {
 
 	// SubclassOf( A, R max 1 C)
 	public void rulesFromNumberRestrictions(PrintStream program) {
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out
 					.println("%==========rules From NumberRestrictions ===================");
 		}
@@ -314,7 +314,7 @@ public class ReductionToDatalogOpt {
 			constraint.addAtomToBody(getBinaryAtomWithoutInverse(ir, "X", "Y"));
 			constraint.addAtomToBody(getBinaryAtomWithoutInverse(ir, "X", "Z"));
 			constraint.addAtomToBody("Y !=Z");
-			if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println(constraint);
 			}
 			program.println(constraint);
@@ -322,7 +322,7 @@ public class ReductionToDatalogOpt {
 	}
 
 	public void rulesFromNumberRestrictionAndEnfs(PrintStream program) {// 1
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out
 					.println("%==========rules From NumberRestrictions And Enfs===================");
 		}
@@ -348,10 +348,10 @@ public class ReductionToDatalogOpt {
 						Rule rule = new Rule();
 						rule.setHead(getUnaryPredicate(index) + "(Y)");
 						rule.setBody(getEncodedBodyOfImp(enfRelation.getType1()));
-						if (ia != KaosManager.getInstance().getThing()) rule.addAtomToBody(getUnaryPredicate(ia) + "(X)");
+						if (ia != ClipperManager.getInstance().getThing()) rule.addAtomToBody(getUnaryPredicate(ia) + "(X)");
 						rule.addAtomToBody(getBinaryAtomWithoutInverse(ir, "X",
 								"Y"));
-						if (ic != KaosManager.getInstance().getThing())rule.addAtomToBody(getUnaryPredicate(ic) + "(Y)");
+						if (ic != ClipperManager.getInstance().getThing())rule.addAtomToBody(getUnaryPredicate(ic) + "(Y)");
 						// Rule only makes sense if the read is not contained in
 						// the body.
 						if (rule.isNotTrivial()) {
@@ -368,10 +368,10 @@ public class ReductionToDatalogOpt {
 						rule.setHead(getBinaryAtomWithoutInverse(index2, "X",
 								"Y"));
 						rule.setBody(getEncodedBodyOfImp(enfRelation.getType1()));
-						if (ia != KaosManager.getInstance().getThing()) rule.addAtomToBody(getUnaryPredicate(ia) + "(X)");
+						if (ia != ClipperManager.getInstance().getThing()) rule.addAtomToBody(getUnaryPredicate(ia) + "(X)");
 						rule.addAtomToBody(getBinaryAtomWithoutInverse(ir, "X",
 								"Y"));
-						if (ic != KaosManager.getInstance().getThing()) rule.addAtomToBody(getUnaryPredicate(ic) + "(Y)");
+						if (ic != ClipperManager.getInstance().getThing()) rule.addAtomToBody(getUnaryPredicate(ic) + "(Y)");
 						// Rule only makes sense if its Head is not
 						// contained in
 						// the body.
@@ -386,7 +386,7 @@ public class ReductionToDatalogOpt {
 		}// 1
 
 		for (Rule r : generatedRules) {
-			if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println(r);
 			}
 			program.println(r);
@@ -394,7 +394,7 @@ public class ReductionToDatalogOpt {
 	}
 
 	public void rulesFromABoxAssertions(PrintStream program) {
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("%Facts From ABox Assertions");
 		}
 		for (ObjectPropertyAssertionAxiom a : roleAssertionAxioms) {
@@ -402,7 +402,7 @@ public class ReductionToDatalogOpt {
 			int ir = a.getRole();
 			int ind1 = a.getIndividual1();
 			int ind2 = a.getIndividual2();
-			if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println(getBinaryPredicate(ir) + "("
 						+ getConstant(ind1) + "," + getConstant(ind2) + ").");
 			}
@@ -415,7 +415,7 @@ public class ReductionToDatalogOpt {
 		for (ConceptAssertionAxiom ca : conceptAssertionAxioms) {
 			int ic = ca.getConcept();
 			int iInd = ca.getIndividual();
-			if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println(getUnaryPredicate(ic) + "("
 						+ getConstant(iInd) + ").");
 			}
@@ -429,7 +429,7 @@ public class ReductionToDatalogOpt {
 	 * @return DATALOG program that contains ABox completion rules and Assertions in ABox
 	 * */
 	public void getEncodedDataLogProgram(String generatedDataLogFile) {
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out
 					.println("============== Encoded DATALOG PROGRAM :================ ");
 		}
@@ -458,7 +458,7 @@ public class ReductionToDatalogOpt {
 	 * @return DATALOG program contain only ABox assertions
 	 * */
 	public void getABoxAssertionsDatalogProgram(String generatedDataLogFile) {
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out
 					.println("============== Encoded DATALOG PROGRAM :================ ");
 		}
@@ -491,7 +491,7 @@ public class ReductionToDatalogOpt {
 	 * @return DATALOG program contains only Completion rules.
 	 */
 	public void getCompletionRulesDatalogProgram(String generatedDataLogFile) {
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out
 					.println("============== Encoded DATALOG PROGRAM :================ ");
 		}
@@ -517,9 +517,9 @@ public class ReductionToDatalogOpt {
 
 	}
 	private String getConstant(int value) {
-		switch (KaosManager.getInstance().getNamingStrategy()) {
+		switch (ClipperManager.getInstance().getNamingStrategy()) {
 		case LowerCaseFragment:
-			IRI iri = KaosManager.getInstance().getOwlIndividualEncoder()
+			IRI iri = ClipperManager.getInstance().getOwlIndividualEncoder()
 					.getSymbolByValue(value).asOWLNamedIndividual().getIRI();
 			return "\"" + normalize(iri) + "\"";
 		case IntEncoding:
@@ -529,9 +529,9 @@ public class ReductionToDatalogOpt {
 	}
 
 	private String getBinaryPredicate(int value) {
-		switch (KaosManager.getInstance().getNamingStrategy()) {
+		switch (ClipperManager.getInstance().getNamingStrategy()) {
 		case LowerCaseFragment:
-			IRI iri = KaosManager.getInstance()
+			IRI iri = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(value).asOWLObjectProperty().getIRI();
 			return normalize(iri);
@@ -542,9 +542,9 @@ public class ReductionToDatalogOpt {
 	}
 
 	private String getUnaryPredicate(int value) {
-		switch (KaosManager.getInstance().getNamingStrategy()) {
+		switch (ClipperManager.getInstance().getNamingStrategy()) {
 		case LowerCaseFragment:
-			IRI iri = KaosManager.getInstance().getOwlClassEncoder()
+			IRI iri = ClipperManager.getInstance().getOwlClassEncoder()
 					.getSymbolByValue(value).getIRI();
 
 			return normalize(iri);

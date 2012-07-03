@@ -32,8 +32,8 @@ public class QueryReWritingTest {
 	@Test
 	public void testBasicRewriting() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		KaosManager.getInstance().setVerboseLevel(2);
-		KaosManager.getInstance().setNamingStrategy(
+		ClipperManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setDataLogName("AllTestCases/simpleRewriting.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/simpleRewriting.owl");
@@ -63,8 +63,8 @@ public class QueryReWritingTest {
 	@Test
 	public void testQueryRewriting2() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		KaosManager.getInstance().setVerboseLevel(2);
-		KaosManager.getInstance().setNamingStrategy(
+		ClipperManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting2.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting2.owl");
@@ -95,8 +95,8 @@ public class QueryReWritingTest {
 	@Test
 	public void testQueryRewriting3() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		KaosManager.getInstance().setVerboseLevel(2);
-		KaosManager.getInstance().setNamingStrategy(
+		ClipperManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting3.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
@@ -130,8 +130,8 @@ public class QueryReWritingTest {
 	@Test
 	public void testQueryRewriting4() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		KaosManager.getInstance().setVerboseLevel(2);
-		KaosManager.getInstance().setNamingStrategy(
+		ClipperManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting3.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
