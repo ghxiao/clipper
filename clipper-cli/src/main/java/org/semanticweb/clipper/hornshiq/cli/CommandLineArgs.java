@@ -23,7 +23,7 @@ class CommandQuery {
 	@Parameter(names = "-dlv", description = "the path to dlv")
 	private String dlvPath;
 
-	@Parameter(names = "-f", description = "table | csv | atoms")
+	@Parameter(names = {"-f", "--output-format"}, description = "output format, possible values: { table | csv | atoms | html }")
 	private String outputFormat = "table";
 
 	// TODO: will be supported in the future

@@ -118,7 +118,11 @@ public class ClipperApp {
 			printer = new CsvQueryResultPrinter();
 		} else if (cmd.getOutputFormat().equals("table")) {
 			printer = new TableQueryResultPrinter();
-		} else if (cmd.getOutputFormat().equals("terms")) {
+		} else if (cmd.getOutputFormat().equals("html")) {
+			printer = new HtmlQueryResultPrinter();
+		}
+
+		else if (cmd.getOutputFormat().equals("terms")) {
 			// TODO
 		}
 
