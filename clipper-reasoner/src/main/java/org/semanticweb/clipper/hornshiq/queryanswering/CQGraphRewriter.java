@@ -23,7 +23,7 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.Sets;
 
-public class CQGraphRewriter {
+public class CQGraphRewriter implements QueryRewriter {
 
 	final Logger logger = LoggerFactory.getLogger(CQGraphRewriter.class);
 
@@ -161,9 +161,9 @@ public class CQGraphRewriter {
 		for (EnforcedRelation enf : matchedEnfs) {
 
 			boolean mergeable = mergeable(g, enf, leaves);
-			
+
 			logger.debug("mergable = {}", mergeable);
-			
+
 			if (mergeable) {
 				CQGraph g1 = g.deepCopy();
 
@@ -220,4 +220,9 @@ public class CQGraphRewriter {
 		return resultGraphs;
 	}
 
+	@Override
+	public Collection<CQ> rewrite(CQ query) {
+		rewrite(new CQGraph(query));
+		return resultCQs;
+	}
 }
