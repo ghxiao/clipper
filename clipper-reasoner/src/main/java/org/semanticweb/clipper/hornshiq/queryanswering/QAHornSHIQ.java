@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -40,9 +41,6 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.profiles.OWLProfileReport;
 
-import com.google.common.base.Strings;
-import com.google.inject.internal.Sets;
-
 public class QAHornSHIQ {
 
 	private String dataLogName;
@@ -60,15 +58,9 @@ public class QAHornSHIQ {
 	private List<List<String>> decodedAnswers;
 	private CQ cq;
 
-	private long reasoningTime;
-	private long queryRewritingTime;
-	private long datalogRunTime;
-	private long normalizationTime;
-	private long outputAnswerTime;
-	private long coutingRealtedRulesTime;
-	private int numberOfRewrittenQueries;
-	private int numberOfRewrittenQueriesAndRules;
-	private Set<CQ> rewrittenQueries;
+	private ClipperReport clipperReport = new ClipperReport();
+
+	private Collection<CQ> rewrittenQueries;
 	String dlvPath = "lib/dlv";
 
 	public String getDlvPath() {
@@ -95,7 +87,7 @@ public class QAHornSHIQ {
 		this.answers = answers;
 	}
 
-	public Set<CQ> getRewrittenQueries() {
+	public Collection<CQ> getRewrittenQueries() {
 		return rewrittenQueries;
 	}
 
@@ -163,35 +155,35 @@ public class QAHornSHIQ {
 	}
 
 	public long getReasoningTime() {
-		return reasoningTime;
+		return clipperReport.getReasoningTime();
 	}
 
 	public long getQueryRewritingTime() {
-		return queryRewritingTime;
+		return clipperReport.getQueryRewritingTime();
 	}
 
 	public long getDatalogRunTime() {
-		return datalogRunTime;
+		return clipperReport.getDatalogRunTime();
 	}
 
 	public int getNumberOfRewrittenQueries() {
-		return numberOfRewrittenQueries;
+		return clipperReport.getNumberOfRewrittenQueries();
 	}
 
 	public int getNumberOfRewrittenQueriesAndRules() {
-		return numberOfRewrittenQueriesAndRules;
+		return clipperReport.getNumberOfRewrittenQueriesAndRules();
 	}
 
 	public long getNormalizationTime() {
-		return normalizationTime;
+		return clipperReport.getNormalizationTime();
 	}
 
 	public long getOutputAnswerTime() {
-		return outputAnswerTime;
+		return clipperReport.getOutputAnswerTime();
 	}
 
 	public long getCoutingRealtedRulesTime() {
-		return coutingRealtedRulesTime;
+		return clipperReport.getCoutingRealtedRulesTime();
 	}
 
 	// private void getDataLog() {
@@ -249,7 +241,7 @@ public class QAHornSHIQ {
 				NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
 				long endNormalizationTime = System.currentTimeMillis();
-				this.normalizationTime = endNormalizationTime - startNormalizatoinTime;
+				this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizatoinTime);
 
 				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
 					for (Axiom ax : onto_bs.getAxioms()) {
@@ -263,7 +255,7 @@ public class QAHornSHIQ {
 				long reasoningBegin = System.currentTimeMillis();
 				tb.reasoning();
 				long reasoningEnd = System.currentTimeMillis();
-				reasoningTime = reasoningEnd - reasoningBegin;
+				clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
 				// end of evaluating reasoning time
 				// //////////////////////////////////////////////
 				ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
@@ -293,7 +285,7 @@ public class QAHornSHIQ {
 				long rewritingBegin = System.currentTimeMillis();
 				this.rewrittenQueries = qr.rewrite(cq);
 				long rewritingEnd = System.currentTimeMillis();
-				queryRewritingTime = rewritingEnd - rewritingBegin;
+				clipperReport.setQueryRewritingTime(rewritingEnd - rewritingBegin);
 				// End of evaluating query rewriting time
 				// /////////////////////////////////////////////////////////
 
@@ -306,7 +298,7 @@ public class QAHornSHIQ {
 				relatedRules.setCoreEnfs(tb.getEnfContainer().getEnfs());
 				relatedRules.countUCQRelatedRules();
 				long endCoutingRelatedRule = System.currentTimeMillis();
-				this.coutingRealtedRulesTime = endCoutingRelatedRule - starCoutingRelatedRule;
+				this.clipperReport.setCoutingRealtedRulesTime(endCoutingRelatedRule - starCoutingRelatedRule);
 
 				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println("==============================================");
@@ -321,8 +313,9 @@ public class QAHornSHIQ {
 						System.out.println(rule);
 					}
 				}
-				numberOfRewrittenQueries = ucq.size();
-				numberOfRewrittenQueriesAndRules = relatedRules.getUcqRelatedDatalogRules().size() + ucq.size();
+				clipperReport.setNumberOfRewrittenQueries(ucq.size());
+				clipperReport.setNumberOfRewrittenQueriesAndRules(relatedRules.getUcqRelatedDatalogRules().size()
+						+ ucq.size());
 				// System.out
 				// .println("==============================================");
 				// System.out
@@ -395,7 +388,7 @@ public class QAHornSHIQ {
 				NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
 				long endNormalizationTime = System.currentTimeMillis();
-				this.normalizationTime = endNormalizationTime - startNormalizatoinTime;
+				this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizatoinTime);
 
 				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
 					for (Axiom ax : onto_bs.getAxioms()) {
@@ -409,7 +402,7 @@ public class QAHornSHIQ {
 				long reasoningBegin = System.currentTimeMillis();
 				tb.reasoning();
 				long reasoningEnd = System.currentTimeMillis();
-				reasoningTime = reasoningEnd - reasoningBegin;
+				clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
 				// end of evaluating reasoning time
 				// //////////////////////////////////////////////
 				ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
@@ -439,7 +432,7 @@ public class QAHornSHIQ {
 				long rewritingBegin = System.currentTimeMillis();
 				qr.rewrite(cq);
 				long rewritingEnd = System.currentTimeMillis();
-				queryRewritingTime = rewritingEnd - rewritingBegin;
+				clipperReport.setQueryRewritingTime(rewritingEnd - rewritingBegin);
 				// End of evaluating query rewriting time
 				// /////////////////////////////////////////////////////////
 
@@ -451,7 +444,7 @@ public class QAHornSHIQ {
 				relatedRules.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 				relatedRules.countUCQRelatedRules();
 				long endCoutingRelatedRule = System.currentTimeMillis();
-				this.coutingRealtedRulesTime = endCoutingRelatedRule - starCoutingRelatedRule;
+				this.clipperReport.setCoutingRealtedRulesTime(endCoutingRelatedRule - starCoutingRelatedRule);
 
 				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println("==============================================");
@@ -466,8 +459,9 @@ public class QAHornSHIQ {
 						System.out.println(rule);
 					}
 				}
-				numberOfRewrittenQueries = ucq.size();
-				numberOfRewrittenQueriesAndRules = relatedRules.getUcqRelatedDatalogRules().size() + ucq.size();
+				clipperReport.setNumberOfRewrittenQueries(ucq.size());
+				clipperReport.setNumberOfRewrittenQueriesAndRules(relatedRules.getUcqRelatedDatalogRules().size()
+						+ ucq.size());
 				// System.out
 				// .println("==============================================");
 				// System.out
@@ -527,7 +521,7 @@ public class QAHornSHIQ {
 				NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
 				long endNormalizationTime = System.currentTimeMillis();
-				this.normalizationTime = endNormalizationTime - startNormalizatoinTime;
+				this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizatoinTime);
 
 				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
 					for (Axiom ax : onto_bs.getAxioms()) {
@@ -541,7 +535,7 @@ public class QAHornSHIQ {
 				long reasoningBegin = System.currentTimeMillis();
 				tb.reasoning();
 				long reasoningEnd = System.currentTimeMillis();
-				reasoningTime = reasoningEnd - reasoningBegin;
+				clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
 				// end of evaluating reasoning time
 				// //////////////////////////////////////////////
 				ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
@@ -610,7 +604,7 @@ public class QAHornSHIQ {
 				NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
 				long endNormalizationTime = System.currentTimeMillis();
-				this.normalizationTime = endNormalizationTime - startNormalizatoinTime;
+				this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizatoinTime);
 
 				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
 					for (Axiom ax : onto_bs.getAxioms()) {
@@ -624,7 +618,7 @@ public class QAHornSHIQ {
 				long reasoningBegin = System.currentTimeMillis();
 				tb.reasoning();
 				long reasoningEnd = System.currentTimeMillis();
-				reasoningTime = reasoningEnd - reasoningBegin;
+				clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
 				// end of evaluating reasoning time
 				// //////////////////////////////////////////////
 				// ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(
@@ -658,7 +652,7 @@ public class QAHornSHIQ {
 				long rewritingBegin = System.currentTimeMillis();
 				qr.rewrite(cq);
 				long rewritingEnd = System.currentTimeMillis();
-				queryRewritingTime = rewritingEnd - rewritingBegin;
+				clipperReport.setQueryRewritingTime(rewritingEnd - rewritingBegin);
 				// End of evaluating query rewriting time
 				// /////////////////////////////////////////////////////////
 				this.rewrittenQueries = qr.getUcq();
@@ -669,7 +663,7 @@ public class QAHornSHIQ {
 				relatedRules.setCoreEnfs(tb.getEnfContainer().getEnfs());
 				relatedRules.countUCQRelatedRules();
 				long endCoutingRelatedRule = System.currentTimeMillis();
-				this.coutingRealtedRulesTime = endCoutingRelatedRule - starCoutingRelatedRule;
+				this.clipperReport.setCoutingRealtedRulesTime(endCoutingRelatedRule - starCoutingRelatedRule);
 
 				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
 					System.out.println("==============================================");
@@ -684,8 +678,9 @@ public class QAHornSHIQ {
 						System.out.println(rule);
 					}
 				}
-				numberOfRewrittenQueries = ucq.size();
-				numberOfRewrittenQueriesAndRules = relatedRules.getUcqRelatedDatalogRules().size() + ucq.size();
+				clipperReport.setNumberOfRewrittenQueries(ucq.size());
+				clipperReport.setNumberOfRewrittenQueriesAndRules(relatedRules.getUcqRelatedDatalogRules().size()
+						+ ucq.size());
 				// System.out
 				// .println("==============================================");
 				// System.out
@@ -768,7 +763,7 @@ public class QAHornSHIQ {
 				NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
 				long endNormalizationTime = System.currentTimeMillis();
-				this.normalizationTime = endNormalizationTime - startNormalizatoinTime;
+				this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizatoinTime);
 
 				if (KaosManager.getInstance().getVerboseLevel() >= 2) {
 					for (Axiom ax : onto_bs.getAxioms()) {
@@ -782,7 +777,7 @@ public class QAHornSHIQ {
 				long reasoningBegin = System.currentTimeMillis();
 				tb.reasoning();
 				long reasoningEnd = System.currentTimeMillis();
-				reasoningTime = reasoningEnd - reasoningBegin;
+				clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
 				// end of evaluating reasoning time
 				// //////////////////////////////////////////////
 				ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
@@ -812,7 +807,7 @@ public class QAHornSHIQ {
 				long rewritingBegin = System.currentTimeMillis();
 				qr.rewrite(cq);
 				long rewritingEnd = System.currentTimeMillis();
-				queryRewritingTime = rewritingEnd - rewritingBegin;
+				clipperReport.setQueryRewritingTime(rewritingEnd - rewritingBegin);
 				// End of evaluating query rewriting time
 				// /////////////////////////////////////////////////////////
 
@@ -823,7 +818,7 @@ public class QAHornSHIQ {
 				relatedRules.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 				relatedRules.countUCQRelatedRules();
 				long endCoutingRelatedRule = System.currentTimeMillis();
-				this.coutingRealtedRulesTime = endCoutingRelatedRule - starCoutingRelatedRule;
+				this.clipperReport.setCoutingRealtedRulesTime(endCoutingRelatedRule - starCoutingRelatedRule);
 
 				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
 					System.out.println("==============================================");
@@ -980,7 +975,7 @@ public class QAHornSHIQ {
 			long dlvBegin = System.currentTimeMillis();
 			invocation.run();
 			long dlvEng = System.currentTimeMillis();
-			datalogRunTime = dlvEng - dlvBegin;
+			clipperReport.setDatalogRunTime(dlvEng - dlvBegin);
 			// Roughly datalog program evalutaion
 			if (!modelBufferedHandler.hasMoreModels()) {
 				outPutNotification = "No model";
@@ -1030,7 +1025,7 @@ public class QAHornSHIQ {
 			}
 
 			long endOutputAnswer = System.currentTimeMillis();
-			this.outputAnswerTime = endOutputAnswer - starOutputAnswer;
+			this.clipperReport.setOutputAnswerTime(endOutputAnswer - starOutputAnswer);
 
 		} catch (FileNotFoundException ex) {
 			ex.printStackTrace();
