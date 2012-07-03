@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLIndividual;
@@ -223,7 +223,7 @@ public class CQParser {
 	private int getEncodedIndividual(String indiString) {
 		OWLIndividual individual = OWLManager.getOWLDataFactory()
 				.getOWLNamedIndividual(IRI.create(this.prefix + indiString));
-		int intIndividual = KaosManager.getInstance().getOwlIndividualEncoder()
+		int intIndividual = ClipperManager.getInstance().getOwlIndividualEncoder()
 				.getValueBySymbol(individual);
 		return intIndividual;
 	}
@@ -233,7 +233,7 @@ public class CQParser {
 		OWLObjectProperty owlPredicate = OWLManager
 				.getOWLDataFactory()
 				.getOWLObjectProperty(IRI.create(this.prefix + predicateString));
-		int encodedPredicate = KaosManager.getInstance()
+		int encodedPredicate = ClipperManager.getInstance()
 				.getOwlObjectPropertyExpressionEncoder()
 				.getValueBySymbol(owlPredicate);
 		Predicate predicate = new DLPredicate(encodedPredicate, arity);
