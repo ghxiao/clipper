@@ -57,7 +57,7 @@ import org.semanticweb.clipper.hornshiq.rule.Predicate;
 import org.semanticweb.clipper.hornshiq.rule.NonDLPredicate;
 import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
 import org.semanticweb.clipper.util.SymbolEncoder;
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
@@ -293,7 +293,7 @@ objectList
     o1 = object
     {
       if(currentArity==1) {
-	      int p = KaosManager.getInstance().getOwlClassEncoder().getValueBySymbol(
+	      int p = ClipperManager.getInstance().getOwlClassEncoder().getValueBySymbol(
 	       OWLManager.getOWLDataFactory().getOWLClass(IRI.create(getFullName($o1.text))));
 	      currentPredicate = new DLPredicate(p, 1);
 	      currentBodyAtom = new Atom(currentPredicate, currentSubject);
@@ -306,7 +306,7 @@ objectList
     } ( ',' o2 = object
     {
       if(currentArity==1) {
-        int p = KaosManager.getInstance().getOwlClassEncoder().getValueBySymbol(
+        int p = ClipperManager.getInstance().getOwlClassEncoder().getValueBySymbol(
           OWLManager.getOWLDataFactory().getOWLClass(IRI.create(getFullName($o1.text))));
         currentPredicate = new DLPredicate(p, 1);
         currentBodyAtom = new Atom(currentPredicate, currentSubject);
@@ -329,7 +329,7 @@ verb
     : 
     varOrIRIref {
 	   this.currentArity = 2;  
-	   int p = KaosManager.getInstance().getOwlObjectPropertyExpressionEncoder().getValueBySymbol(
+	   int p = ClipperManager.getInstance().getOwlObjectPropertyExpressionEncoder().getValueBySymbol(
 	     OWLManager.getOWLDataFactory().getOWLObjectProperty(IRI.create(getFullName( $varOrIRIref.text))));
 		 currentPredicate = new DLPredicate(p, currentArity);   
     }
@@ -381,7 +381,7 @@ graphTerm returns [Constant constant]
     : iriRef {
     String quotedIRIText = $iriRef.text;
     String iri = quotedIRIText.substring(1, quotedIRIText.length()-1);
-      int c = KaosManager.getInstance().getOwlIndividualEncoder().getValueBySymbol(OWLManager.getOWLDataFactory().getOWLNamedIndividual(IRI.create(iri)));
+      int c = ClipperManager.getInstance().getOwlIndividualEncoder().getValueBySymbol(OWLManager.getOWLDataFactory().getOWLNamedIndividual(IRI.create(iri)));
       $constant = new Constant(c);
     
      }

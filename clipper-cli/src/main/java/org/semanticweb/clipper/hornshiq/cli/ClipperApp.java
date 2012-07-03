@@ -9,7 +9,7 @@ import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
- 
+
 import com.beust.jcommander.JCommander;
 
 public class ClipperApp {
@@ -67,19 +67,27 @@ public class ClipperApp {
 		// note that naming strategy shoud be set after create new QAHornSHIQ
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 
+		String ontologyFileName = cmd.getFiles().get(0);
+		qaHornSHIQ.setOntologyName(ontologyFileName);
+
+		qaHornSHIQ.setDataLogName(ontologyFileName + ".dl");
+
 		if (cmd.isRewritingOntologyOnly()) {
-
-			String ontologyFileName = cmd.getFiles().get(0);
-			qaHornSHIQ.setOntologyName(ontologyFileName);
-
-			qaHornSHIQ.setDataLogName(ontologyFileName + ".dl");
-
 			qaHornSHIQ.getCompletionRulesDataLog();
-
-			long totalTime = qaHornSHIQ.getReasoningTime() + qaHornSHIQ.getQueryRewritingTime();
-			System.out.println(qaHornSHIQ.getNumberOfRewrittenQueries() + " "
-					+ qaHornSHIQ.getNumberOfRewrittenQueriesAndRules() + " " + totalTime);
+		} else if (cmd.isRewritingABoxOnly()) {
+			qaHornSHIQ.getAboxDataLog();
+		} else if (cmd.isRewritingOntologyAndQuery()) {
+			qaHornSHIQ.getDataLog();
+		} else if (cmd.isRewritingTBoxOnly()) {
+			// TODO
+		} else if (cmd.isRewritingTBoxAndQuery()) {
+			// TODO
 		}
+
+		long totalTime = qaHornSHIQ.getReasoningTime() + qaHornSHIQ.getQueryRewritingTime();
+		System.out.println(qaHornSHIQ.getNumberOfRewrittenQueries() + " "
+				+ qaHornSHIQ.getNumberOfRewrittenQueriesAndRules() + " " + totalTime);
+
 	}
 
 	private void query(JCommander jc, CommandQuery cmd) {
@@ -120,9 +128,7 @@ public class ClipperApp {
 			printer = new TableQueryResultPrinter();
 		} else if (cmd.getOutputFormat().equals("html")) {
 			printer = new HtmlQueryResultPrinter();
-		}
-
-		else if (cmd.getOutputFormat().equals("terms")) {
+		} else if (cmd.getOutputFormat().equals("terms")) {
 			// TODO
 		}
 

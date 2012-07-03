@@ -3,7 +3,7 @@ package org.semanticweb.clipper.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.owlapi.model.OWLIndividual;
 
 public class AnswerParser {
@@ -57,7 +57,7 @@ public class AnswerParser {
 
 	private String getDecodedIndividual(String indiString) {
 		int code = getCode(indiString);
-		OWLIndividual individual = KaosManager.getInstance().getOwlIndividualEncoder().getSymbolByValue(code);
+		OWLIndividual individual = ClipperManager.getInstance().getOwlIndividualEncoder().getSymbolByValue(code);
 		return individual.toString();
 
 	}
