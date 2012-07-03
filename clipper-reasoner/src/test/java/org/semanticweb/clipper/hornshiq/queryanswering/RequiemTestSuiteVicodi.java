@@ -12,7 +12,7 @@ import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
@@ -28,8 +28,8 @@ public class RequiemTestSuiteVicodi {
 	@Test
 	public void query1() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(2);
-		KaosManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
+		ClipperManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/VicodiQuery0.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/vicodi.owl");
@@ -66,7 +66,7 @@ public class RequiemTestSuiteVicodi {
 	@Test
 	public void query2() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 	//	KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
@@ -106,7 +106,7 @@ public class RequiemTestSuiteVicodi {
 	@Test
 	public void query3() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 	//	KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
@@ -142,7 +142,7 @@ public class RequiemTestSuiteVicodi {
 	@Test
 	public void query4() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 	//	KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
@@ -178,7 +178,7 @@ public class RequiemTestSuiteVicodi {
 	@Test
 	public void query5() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 	//	KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
@@ -219,7 +219,7 @@ public class RequiemTestSuiteVicodi {
 	@Test
 	public void query5WithData() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 	//	KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);

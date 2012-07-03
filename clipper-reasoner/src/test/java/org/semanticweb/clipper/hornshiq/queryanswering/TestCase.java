@@ -11,7 +11,7 @@ import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
@@ -40,8 +40,8 @@ public class TestCase {
 	@Test
 	public void testRoleInclusion() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		KaosManager.getInstance().setVerboseLevel(2);
-		KaosManager.getInstance().setNamingStrategy(
+		ClipperManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setDataLogName("AllTestCases/testRoleInclusion.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testRoleInclusion.owl");
@@ -79,8 +79,8 @@ public class TestCase {
 	@Test
 	public void testRoleInclusionWithInverse() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		KaosManager.getInstance().setVerboseLevel(2);
-		KaosManager.getInstance().setNamingStrategy(
+		ClipperManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setDataLogName("AllTestCases/testInverseRoleInclusion.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testInverseRoleInclusion.owl");
@@ -116,8 +116,8 @@ public class TestCase {
 	@Test
 	public void testConceptInclusion() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		KaosManager.getInstance().setVerboseLevel(2);
-		KaosManager.getInstance().setNamingStrategy(
+		ClipperManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setDataLogName("AllTestCases/testConceptInclusion.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testConceptInclusion.owl");
@@ -159,8 +159,8 @@ public class TestCase {
 	@Test
 	public void testBottomRule() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		KaosManager.getInstance().setVerboseLevel(2);
-		KaosManager.getInstance().setNamingStrategy(
+		ClipperManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setDataLogName("AllTestCases/testBottomRule.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testBottomRule.owl");
@@ -244,8 +244,8 @@ public class TestCase {
 	@Test
 	public void testForallRule1() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		KaosManager.getInstance().setVerboseLevel(2);
-		KaosManager.getInstance().setNamingStrategy(
+		ClipperManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setDataLogName("AllTestCases/testForallRule1.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testForallRule1.owl");
@@ -283,8 +283,8 @@ public class TestCase {
 	@Test
 	public void testForallRule2() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		KaosManager.getInstance().setVerboseLevel(2);
-		KaosManager.getInstance().setNamingStrategy(
+		ClipperManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setDataLogName("AllTestCases/testForallRule2.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testForallRule2.owl");
@@ -320,8 +320,8 @@ public class TestCase {
 	@Test
 	public void testForallRule3() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		KaosManager.getInstance().setVerboseLevel(2);
-		KaosManager.getInstance().setNamingStrategy(
+		ClipperManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setDataLogName("AllTestCases/testForallRule3.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testForallRule3.owl");
@@ -363,8 +363,8 @@ public class TestCase {
 	@Test
 	public void testAtMostOne_MergeChildren() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		KaosManager.getInstance().setVerboseLevel(2);
-		KaosManager.getInstance().setNamingStrategy(
+		ClipperManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ
 				.setDataLogName("AllTestCases/testAtMostOne_MergeChildren.dl");
@@ -409,8 +409,8 @@ public class TestCase {
 	@Test
 	public void testAtMostOne_ParentChildCollapse() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		KaosManager.getInstance().setVerboseLevel(2);
-		KaosManager.getInstance().setNamingStrategy(
+		ClipperManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setDataLogName("AllTestCases/atMostParentChildCollapse.dl");
 		qaHornSHIQ
@@ -455,8 +455,8 @@ public class TestCase {
 	@Test
 	public void testBasicRewriting() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		KaosManager.getInstance().setVerboseLevel(2);
-		KaosManager.getInstance().setNamingStrategy(
+		ClipperManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setDataLogName("AllTestCases/simpleRewriting.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/simpleRewriting.owl");
@@ -497,8 +497,8 @@ public class TestCase {
 		@Test
 		public void testQueryRewriting2() throws RecognitionException {
 			QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-			KaosManager.getInstance().setVerboseLevel(2);
-			KaosManager.getInstance().setNamingStrategy(
+			ClipperManager.getInstance().setVerboseLevel(2);
+			ClipperManager.getInstance().setNamingStrategy(
 					NamingStrategy.LowerCaseFragment);
 			qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting2.dl");
 			qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting2.owl");
@@ -540,8 +540,8 @@ public class TestCase {
 		@Test
 		public void testQueryRewriting3() throws RecognitionException {
 			QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-			KaosManager.getInstance().setVerboseLevel(2);
-			KaosManager.getInstance().setNamingStrategy(
+			ClipperManager.getInstance().setVerboseLevel(2);
+			ClipperManager.getInstance().setNamingStrategy(
 					NamingStrategy.LowerCaseFragment);
 			qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting3.dl");
 			qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
@@ -583,8 +583,8 @@ public class TestCase {
 			@Test
 			public void testQueryRewriting4() throws RecognitionException {
 				QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-				KaosManager.getInstance().setVerboseLevel(2);
-				KaosManager.getInstance().setNamingStrategy(
+				ClipperManager.getInstance().setVerboseLevel(2);
+				ClipperManager.getInstance().setNamingStrategy(
 						NamingStrategy.LowerCaseFragment);
 				qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting3.dl");
 				qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");

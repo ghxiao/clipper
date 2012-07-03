@@ -12,7 +12,7 @@ import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
@@ -27,7 +27,7 @@ public class RequiemTestSuiteUniversity {
 	@Test
 	public void query0() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setVerboseLevel(2);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/query1.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
@@ -80,8 +80,8 @@ public class RequiemTestSuiteUniversity {
 	@Test
 	public void query1() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		KaosManager.getInstance().setVerboseLevel(1);
-		KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/query1.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
@@ -123,7 +123,7 @@ public class RequiemTestSuiteUniversity {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/query02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0,?1,?2) <- Student(?0), advisor(?0,?1), FacultyStaff(?1),
 		// takesCourse(?0,?2), teacherOf(?1,?2), Course(?2)
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>\n" + //
@@ -165,7 +165,7 @@ public class RequiemTestSuiteUniversity {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/query03.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0,?1) <- Person(?0), worksFor(?0,?1), Organization(?1)
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>\n" + //
 				"SELECT ?x0 ?x1  \n" + //
@@ -202,7 +202,7 @@ public class RequiemTestSuiteUniversity {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/query04.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 		// /Q(?0) <- Person(?0), worksFor(?0,?1), University(?1),
 		// hasAlumnus(?1,?0)
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>\n" + //
@@ -240,7 +240,7 @@ public class RequiemTestSuiteUniversity {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/query02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0,?1,?2) <- Student(?0), advisor(?0,?1), FacultyStaff(?1),
 		// takesCourse(?0,?2), teacherOf(?1,?2), Course(?2)
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>\n" + //
@@ -281,7 +281,7 @@ public class RequiemTestSuiteUniversity {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/query02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0,?1,?2) <- Student(?0), advisor(?0,?1), FacultyStaff(?1),
 		// takesCourse(?0,?2), teacherOf(?1,?2), Course(?2)
 		String sparql =  "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n" +
@@ -322,7 +322,7 @@ public class RequiemTestSuiteUniversity {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/query02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
-		KaosManager.getInstance().setVerboseLevel(1);
+		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0,?1,?2) <- Student(?0), advisor(?0,?1), FacultyStaff(?1),
 		// takesCourse(?0,?2), teacherOf(?1,?2), Course(?2)
 		String sparql =  "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n" +

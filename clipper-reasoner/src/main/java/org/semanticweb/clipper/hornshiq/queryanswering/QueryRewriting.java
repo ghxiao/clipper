@@ -68,12 +68,12 @@ public class QueryRewriting implements QueryRewriter {
 			ucq.add(q);
 		// END OF UPDATE
 		for (Variable x : q.getNonDistinguishedVars()) {
-			if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 				System.out.println("% Choose variable:" + x);
 			}
 			TIntHashSet rho = q.computeRho(x, inversePropertyOfAxioms);
 			if ((rho != null) && q.hasNoLoop(x)) {
-				if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 					System.out.println("              Comptute S/rho wrt " + x + " : " + rho);
 				}
 				// Need method indexEnfs.matchRolesAndType2
@@ -83,11 +83,11 @@ public class QueryRewriting implements QueryRewriter {
 				for (EnforcedRelation enf : enfs) {
 					// if (enf.getType2().containsAll(q.computeTypeOfX(x))
 					// && (enf.getRoles().containsAll(rho))) {
-					if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+					if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 						System.out.println("              There is a rewriteable case :" + enf);
 					}
 					CQ qPrime = q.computeQprime(enf.getType1(), x);
-					if (KaosManager.getInstance().getVerboseLevel() >= 1) {
+					if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 						System.out.println("               Rewrite query at this step:" + qPrime);
 					}
 					if ((qPrime != null) && (!ucq.contains(qPrime))) {

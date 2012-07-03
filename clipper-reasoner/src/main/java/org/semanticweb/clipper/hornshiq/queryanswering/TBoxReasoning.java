@@ -54,13 +54,13 @@ public class TBoxReasoning {
 		// If Ontology contain TBox only, then set ABoxType as a set of all
 		// concepts in TBox
 		if (this.aboxTypes.size() == 0) {
-			for (int concept = 0; concept <= KaosManager.getInstance()
+			for (int concept = 0; concept <= ClipperManager.getInstance()
 					.getOwlClassEncoder().getMax(); concept++) {
 				this.aboxTypes.add(concept);
 				// this.hasABox = false;
 			}
 		}
-		this.aboxTypes.add(KaosManager.getInstance().getThing());
+		this.aboxTypes.add(ClipperManager.getInstance().getThing());
 		// initializing coreImp
 		impContainer = new IndexedHornImpContainer();
 		for (AndSubAtomAxiom axiom : ont_bs.getAndSubAtomAxioms()) {
@@ -191,7 +191,7 @@ public class TBoxReasoning {
 			for (HornImplication imp : imps) {
 				if (this.aboxTypes.containsAll(imp.getBody())) {
 					// if bottom in Abox Type, then ontology is inconsistent
-					if (imp.getHead() == KaosManager.getInstance().getNothing()) {
+					if (imp.getHead() == ClipperManager.getInstance().getNothing()) {
 						this.inconsistent = true;
 						return true;
 					} else if (this.aboxTypes.add(imp.getHead())) {
@@ -213,9 +213,9 @@ public class TBoxReasoning {
 		boolean modifiedIMPS = false;
 		for (EnforcedRelation tuple : enfs) {
 			if (tuple.getType2().contains(
-					KaosManager.getInstance().getNothing())) {
+					ClipperManager.getInstance().getNothing())) {
 				HornImplication new_imp = new HornImplication(tuple.getType1(),
-						KaosManager.getInstance().getNothing());
+						ClipperManager.getInstance().getNothing());
 				if (impContainer.add(new_imp)) {
 					newImps.add(new_imp);
 					modifiedIMPS = true;
@@ -590,7 +590,7 @@ public class TBoxReasoning {
 	 * Apply the saturation rules on TBox
 	 */
 	public void reasoning() {
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("Start reasoning");
 			System.out.println(" IMP size: " + enfContainer.getEnfs().size());
 			System.out.println(" ENF size: " + impContainer.getImps().size());
@@ -688,7 +688,7 @@ public class TBoxReasoning {
 			if (atMostRule_ParentChildCollapsed())
 				update = true;
 		}
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("End of reasoning");
 			System.out.println(" IMP size: " + enfContainer.getEnfs().size());
 			System.out.println(" ENF size: " + impContainer.getImps().size());

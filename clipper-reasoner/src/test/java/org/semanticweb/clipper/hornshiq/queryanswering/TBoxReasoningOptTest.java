@@ -17,7 +17,7 @@ import org.semanticweb.clipper.hornshiq.profile.HornALCHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQTransNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQProfile;
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt;
 import org.semanticweb.clipper.hornshiq.queryanswering.TBoxReasoningOpt;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
@@ -36,7 +36,7 @@ public class TBoxReasoningOptTest {
 
 	@Test
 	public  void test01() throws OWLOntologyCreationException, FileNotFoundException {
-		KaosManager.getInstance().setVerboseLevel(2);
+		ClipperManager.getInstance().setVerboseLevel(2);
 		System.out.println("START");
 		// File file = new File(
 		// "test-suite/ontology-horn-shiq-LUBM/terminology.owl");
@@ -96,7 +96,7 @@ public class TBoxReasoningOptTest {
 
 		 System.out.println("==========Information of Encoded Ontology==========");
 		 SymbolEncoder<OWLClass> owlClassEncoder =
-		 KaosManager.getInstance().getOwlClassEncoder();
+		 ClipperManager.getInstance().getOwlClassEncoder();
 		 for (int cls = 0; cls < owlClassEncoder.getMax(); cls++) {
 		 System.out.println(owlClassEncoder.getSymbolByValue(cls) + " -> " +
 		 cls);
@@ -132,7 +132,7 @@ public class TBoxReasoningOptTest {
 		//
 		// reduction.getEncodedDataLogProgram(datalogFileName);
 
-		KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		System.out.println("==========Datalog Program=============");
 		reduction.getEncodedDataLogProgram(datalogFileName);
 	}

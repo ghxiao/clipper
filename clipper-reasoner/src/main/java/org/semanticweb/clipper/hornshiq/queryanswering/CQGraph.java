@@ -9,6 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import lombok.Data;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
@@ -373,6 +377,8 @@ public class CQGraph extends DirectedSparseMultigraph<Variable, CQGraphEdge> {
 
 }
 
+@Data
+@RequiredArgsConstructor
 class CQGraphEdge {
 
 	@Override
@@ -380,62 +386,10 @@ class CQGraphEdge {
 		return "<" + var1 + ", " + var2 + ">[" + role + "]";
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((role == null) ? 0 : role.hashCode());
-		result = prime * result + ((var1 == null) ? 0 : var1.hashCode());
-		result = prime * result + ((var2 == null) ? 0 : var2.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CQGraphEdge other = (CQGraphEdge) obj;
-		if (role == null) {
-			if (other.role != null)
-				return false;
-		} else if (!role.equals(other.role))
-			return false;
-		if (var1 == null) {
-			if (other.var1 != null)
-				return false;
-		} else if (!var1.equals(other.var1))
-			return false;
-		if (var2 == null) {
-			if (other.var2 != null)
-				return false;
-		} else if (!var2.equals(other.var2))
-			return false;
-		return true;
-	}
-
-	public Variable getVar1() {
-		return var1;
-	}
-
-	public Variable getVar2() {
-		return var2;
-	}
-
-	public Integer getRole() {
-		return role;
-	}
-
-	public CQGraphEdge(Variable var1, Variable var2, int role) {
-		this.var1 = var1;
-		this.var2 = var2;
-		this.role = role;
-	}
-
+	@NonNull
 	private Variable var1, var2;
+
+	@NonNull
 	private Integer role;
 
 }

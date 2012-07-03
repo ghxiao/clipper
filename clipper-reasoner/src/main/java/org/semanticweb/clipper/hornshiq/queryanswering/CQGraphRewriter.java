@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.semanticweb.clipper.hornshiq.ontology.NormalHornALCHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.SubPropertyAxiom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Predicates;
 import com.google.common.collect.HashMultimap;
@@ -23,9 +23,10 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.Sets;
 
+@Slf4j
 public class CQGraphRewriter implements QueryRewriter {
 
-	final Logger logger = LoggerFactory.getLogger(CQGraphRewriter.class);
+	//final Logger log = LoggerFactory.getLogger(CQGraphRewriter.class);
 
 	NormalHornALCHIQOntology ontology;
 	IndexedEnfContainer enfs;
@@ -57,8 +58,8 @@ public class CQGraphRewriter implements QueryRewriter {
 	 * @return
 	 */
 	public List<CQGraph> rewrite(CQGraph g) {
-		logger.debug("rewrite(CQGraph g)");
-		logger.debug("g = {}", g);
+		log.debug("rewrite(CQGraph g)");
+		log.debug("g = {}", g);
 
 		resultGraphs = Lists.newArrayList();
 		resultCQs = Lists.newArrayList();
@@ -76,9 +77,9 @@ public class CQGraphRewriter implements QueryRewriter {
 	 */
 	public void rewrite_recursive(CQGraph g) {
 
-		logger.debug("rewrite_recursive(CQGraph g)");
-		logger.debug("g = {}", g);
-		logger.debug("cq(g) = {}", g.toCQ());
+		log.debug("rewrite_recursive(CQGraph g)");
+		log.debug("g = {}", g);
+		log.debug("cq(g) = {}", g.toCQ());
 
 		resultGraphs.add(g);
 
@@ -94,7 +95,7 @@ public class CQGraphRewriter implements QueryRewriter {
 	}
 
 	public void rewrite(CQGraph g, Collection<Variable> leaves) {
-		logger.debug("leaves = {}", leaves);
+		log.debug("leaves = {}", leaves);
 
 		g.focus(leaves);
 
@@ -162,7 +163,7 @@ public class CQGraphRewriter implements QueryRewriter {
 
 			boolean mergeable = mergeable(g, enf, leaves);
 
-			logger.debug("mergable = {}", mergeable);
+			log.debug("mergable = {}", mergeable);
 
 			if (mergeable) {
 				CQGraph g1 = g.deepCopy();
@@ -172,15 +173,15 @@ public class CQGraphRewriter implements QueryRewriter {
 					type.add(t);
 				}
 
-				logger.debug("cq(g) = {}", g.toCQ());
-				logger.debug("edges = {}; map = {}", edges, map);
-				logger.debug("type = {}", type);
+				log.debug("cq(g) = {}", g.toCQ());
+				log.debug("edges = {}; map = {}", edges, map);
+				log.debug("type = {}", type);
 				g1.clip(leaves, edges, map, type);
 
 				CQ cq = g1.toCQ();
 				if (!resultCQs.contains(cq)) {
 					resultCQs.add(cq);
-					logger.debug("-- new cq = {}", cq);
+					log.debug("-- new cq = {}", cq);
 					rewrite_recursive(g1);
 				}
 			}

@@ -7,7 +7,7 @@ import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
@@ -85,7 +85,7 @@ public class KaosReasonerCLISupportLatex {
 				dlvPath = args[i + 1];
 				i += 2;
 			} else if (args[i].equals("-verbose")) {
-				KaosManager.getInstance().setVerboseLevel(Integer.parseInt(args[i + 1]));
+				ClipperManager.getInstance().setVerboseLevel(Integer.parseInt(args[i + 1]));
 				i += 2;
 			} else {
 				return false;

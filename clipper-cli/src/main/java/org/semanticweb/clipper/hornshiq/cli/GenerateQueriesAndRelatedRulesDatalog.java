@@ -7,7 +7,7 @@ import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
@@ -43,7 +43,7 @@ public class GenerateQueriesAndRelatedRulesDatalog {
 		//cq.getHead().getPredicate().getEncoding();
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		//note that naming strategy shoud be set after create new QAHornSHIQ
-		KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setOntologyName(ontologyFile);
 		qaHornSHIQ.setDataLogName(sparqlFile +"-"+ontologyFile + ".dlReducedTBox");
 		qaHornSHIQ.setCq(cq);
@@ -92,7 +92,7 @@ public class GenerateQueriesAndRelatedRulesDatalog {
 				dlvPath = args[i + 1];
 				i += 2;
 			} else if (args[i].equals("-verbose")) {
-				KaosManager.getInstance().setVerboseLevel(Integer.parseInt(args[i + 1]));
+				ClipperManager.getInstance().setVerboseLevel(Integer.parseInt(args[i + 1]));
 				i += 2;
 			} else {
 				return false;
