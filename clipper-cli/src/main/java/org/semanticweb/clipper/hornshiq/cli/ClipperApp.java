@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.util.List;
 
 import org.antlr.runtime.RecognitionException;
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
-
+ 
 import com.beust.jcommander.JCommander;
 
 public class ClipperApp {
@@ -36,16 +36,16 @@ public class ClipperApp {
 
 		jc.parse(args);
 
-		KaosManager.getInstance().setVerboseLevel(co.getVerbose());
+		ClipperManager.getInstance().setVerboseLevel(co.getVerbose());
 
 		String cmd = jc.getParsedCommand();
 
 		if (cmd == null) {
 			help(jc);
 		} else if (cmd.equals("query")) {
-			query(commandQuery);
+			query(jc, commandQuery);
 		} else if (cmd.equals("rewrite")) {
-			rewrite(commandRewrite);
+			rewrite(jc, commandRewrite);
 		} else if (cmd.equals("help")) {
 			help(jc);
 		}
@@ -60,12 +60,12 @@ public class ClipperApp {
 		jc.usage();
 	}
 
-	private void rewrite(CommandRewrite cmd) {
+	private void rewrite(JCommander jc, CommandRewrite cmd) {
 		System.setProperty("entityExpansionLimit", "512000");
 
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		// note that naming strategy shoud be set after create new QAHornSHIQ
-		KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 
 		if (cmd.isRewritingOntologyOnly()) {
 
@@ -82,8 +82,8 @@ public class ClipperApp {
 		}
 	}
 
-	private void query(CommandQuery cmd) {
-		KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+	private void query(JCommander jc, CommandQuery cmd) {
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		System.setProperty("entityExpansionLimit", "512000");
 		String ontologyFileName = cmd.getFiles().get(0);
 		String sparqlFileName = cmd.getFiles().get(1);
@@ -128,7 +128,7 @@ public class ClipperApp {
 
 		printer.print(cq.getHead(), answers);
 
-		if (KaosManager.getInstance().getVerboseLevel() > 0) {
+		if (ClipperManager.getInstance().getVerboseLevel() > 0) {
 			statistics(qaHornSHIQ, startTime, endTime);
 		}
 
