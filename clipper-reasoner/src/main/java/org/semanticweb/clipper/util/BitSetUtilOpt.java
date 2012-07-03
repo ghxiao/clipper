@@ -4,7 +4,7 @@ import gnu.trove.set.hash.TIntHashSet;
 
 import java.util.BitSet;
 
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 
 
 public class BitSetUtilOpt {
@@ -12,21 +12,21 @@ public class BitSetUtilOpt {
 	public static TIntHashSet getInstanceWithTop (TIntHashSet in) 
 	{
 		TIntHashSet ret = new TIntHashSet(in);
-		ret.add(KaosManager.getInstance().getThing());
+		ret.add(ClipperManager.getInstance().getThing());
 		return ret;
 	}
 	
 	public static TIntHashSet getInstanceWithTop (int in) 
 	{
 		TIntHashSet ret = new TIntHashSet(in);
-		ret.add(KaosManager.getInstance().getThing());
+		ret.add(ClipperManager.getInstance().getThing());
 		return ret;
 	}
 	
 	public static TIntHashSet getInstanceWithTop () 
 	{
 		TIntHashSet ret = new TIntHashSet();
-		ret.add(KaosManager.getInstance().getThing());
+		ret.add(ClipperManager.getInstance().getThing());
 		return ret;
 	}
 	

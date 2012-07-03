@@ -24,7 +24,7 @@ import org.semanticweb.clipper.hornshiq.queryanswering.HornImplication;
 import org.semanticweb.clipper.hornshiq.queryanswering.HornImplicationRelation;
 import org.semanticweb.clipper.hornshiq.queryanswering.IndexedEnfContainer;
 import org.semanticweb.clipper.hornshiq.queryanswering.IndexedHornImpContainer;
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.Rule;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
@@ -192,7 +192,7 @@ public class QueriesRelatedRules {
 
 			for (Predicate predicate : ucqRelatedBodyPredicates) {
 				if (headPredicate.equals(predicate)) {
-					if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+					if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 						System.out.println(addedRule);
 					}
 					numberOfRelatedDatalogRules++;
@@ -225,7 +225,7 @@ public class QueriesRelatedRules {
 	public boolean rulesFromImps() {
 
 		boolean updated = false;
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out
 					.println("%==========rules From Imps in Counting Related rules=============");
 		}
@@ -258,7 +258,7 @@ public class QueriesRelatedRules {
 	// subclassOf( A, R only C)
 	public boolean rulesFromValueRestrictions() {
 		boolean updated = false;
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out
 					.println("%==========rules From Value Restrictions ============");
 		}
@@ -269,7 +269,7 @@ public class QueriesRelatedRules {
 			int ir = axiom.getRole();
 			int ia = axiom.getConcept1();
 			rule.setHead(getUnaryPredicate(ic) + "(Y)");
-			if (ia != KaosManager.getInstance().getThing())
+			if (ia != ClipperManager.getInstance().getThing())
 				rule.addAtomToBody(getUnaryPredicate(ia) + "(X)");
 			final String s;
 			s = getBinaryAtomWithoutInverse(ir, "X", "Y");
@@ -298,7 +298,7 @@ public class QueriesRelatedRules {
 	 */
 	public boolean rulesFromRoleInclusions() {
 		boolean updated = false;
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("%==========rules From Sub Roles Axioms =====");
 		}
 		Set<SubPropertyAxiom> removedAxioms = new HashSet<SubPropertyAxiom>();
@@ -340,7 +340,7 @@ public class QueriesRelatedRules {
 	 */
 	public boolean rulesFromInverseRoleAxioms() {
 		boolean updated = false;
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out
 					.println("%==========rules From inverse role axioms===================");
 		}
@@ -392,7 +392,7 @@ public class QueriesRelatedRules {
 	 */
 	public boolean rulesFromNumberRestrictionAndEnfs() {
 		boolean updated = false;
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out
 					.println("%==========rules From NumberRestrictions And Enfs===================");
 		}
@@ -428,7 +428,7 @@ public class QueriesRelatedRules {
 						bodyPredicates.addAll(getPredicatesFromSet(enfRelation
 								.getType1()));
 
-						if (ia != KaosManager.getInstance().getThing())
+						if (ia != ClipperManager.getInstance().getThing())
 							rule.addAtomToBody(getUnaryPredicate(ia) + "(X)");
 
 						Predicate iaPredicate = new DLPredicate(ia, 1);
@@ -440,7 +440,7 @@ public class QueriesRelatedRules {
 						Predicate irPredicate = new DLPredicate(ir, 2);
 						bodyPredicates.add(irPredicate);
 
-						if (ic != KaosManager.getInstance().getThing())
+						if (ic != ClipperManager.getInstance().getThing())
 							rule.addAtomToBody(getUnaryPredicate(ic) + "(Y)");
 
 						Predicate icPredicate = new DLPredicate(ic, 2);
@@ -472,7 +472,7 @@ public class QueriesRelatedRules {
 						bodyPredicates.addAll(getPredicatesFromSet(enfRelation
 								.getType1()));
 
-						if (ia != KaosManager.getInstance().getThing())
+						if (ia != ClipperManager.getInstance().getThing())
 							rule.addAtomToBody(getUnaryPredicate(ia) + "(X)");
 						Predicate iaPredicate = new DLPredicate(ia, 1);
 						bodyPredicates.add(iaPredicate);
@@ -482,7 +482,7 @@ public class QueriesRelatedRules {
 						Predicate irPredicate = new DLPredicate(ir, 2);
 						bodyPredicates.add(irPredicate);
 
-						if (ic != KaosManager.getInstance().getThing())
+						if (ic != ClipperManager.getInstance().getThing())
 							rule.addAtomToBody(getUnaryPredicate(ic) + "(Y)");
 						Predicate icPredicate = new DLPredicate(ic, 1);
 						bodyPredicates.add(icPredicate);
@@ -515,7 +515,7 @@ public class QueriesRelatedRules {
 	}
 
 	public void countUCQRelatedRules() {
-		if (KaosManager.getInstance().getVerboseLevel() >= 2) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out
 					.println("==============Datalog rules which are related to UCQ :================ ");
 		}
@@ -533,9 +533,9 @@ public class QueriesRelatedRules {
 	}
 
 	private String getBinaryPredicate(int value) {
-		switch (KaosManager.getInstance().getNamingStrategy()) {
+		switch (ClipperManager.getInstance().getNamingStrategy()) {
 		case LowerCaseFragment:
-			IRI iri = KaosManager.getInstance()
+			IRI iri = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(value).asOWLObjectProperty().getIRI();
 			return normalize(iri);
@@ -546,9 +546,9 @@ public class QueriesRelatedRules {
 	}
 
 	private String getUnaryPredicate(int value) {
-		switch (KaosManager.getInstance().getNamingStrategy()) {
+		switch (ClipperManager.getInstance().getNamingStrategy()) {
 		case LowerCaseFragment:
-			IRI iri = KaosManager.getInstance().getOwlClassEncoder()
+			IRI iri = ClipperManager.getInstance().getOwlClassEncoder()
 					.getSymbolByValue(value).getIRI();
 
 			return normalize(iri);
@@ -593,7 +593,7 @@ public class QueriesRelatedRules {
 		TIntIterator iterator = body.iterator();
 		while (iterator.hasNext()) {
 			int p = iterator.next();
-			String classIRI = KaosManager.getInstance()
+			String classIRI = ClipperManager.getInstance()
 					//
 					.getOwlClassEncoder().getSymbolByValue(p).getIRI()
 					.toString();

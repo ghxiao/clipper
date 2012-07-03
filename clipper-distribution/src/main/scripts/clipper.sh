@@ -6,8 +6,9 @@ else
 	java=java
 fi
 
-if [ -z ${CLIPPER_HOME} ]; then
-	CLIPPER_HOME=.
+if [ -z ${CLIPPER_HOME} ]; then	 
+	echo "CLIPPER_HOME not set" 1>&2
+    exit 1	
 fi
 
 if [ -z "${clipper_java_args}" ]; then

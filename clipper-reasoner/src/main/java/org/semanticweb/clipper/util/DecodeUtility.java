@@ -3,7 +3,7 @@ package org.semanticweb.clipper.util;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
 
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.owlapi.model.IRI;
@@ -40,9 +40,9 @@ public String decodeQuery(CQ conjunctiveQuery){
 }
 
 private String getBinaryPredicate(int value) {
-	switch (KaosManager.getInstance().getNamingStrategy()) {
+	switch (ClipperManager.getInstance().getNamingStrategy()) {
 	case LowerCaseFragment:
-		OWLObjectPropertyExpression owlExpression = KaosManager
+		OWLObjectPropertyExpression owlExpression = ClipperManager
 				.getInstance().getOwlObjectPropertyExpressionEncoder()
 				.getSymbolByValue(value);
 		if (owlExpression.isAnonymous())
@@ -50,7 +50,7 @@ private String getBinaryPredicate(int value) {
 					+ normalize(owlExpression.getNamedProperty().getIRI())
 					+ ")";
 		else {
-			IRI iri = KaosManager.getInstance()
+			IRI iri = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
 					.getSymbolByValue(value).asOWLObjectProperty().getIRI();
 			return normalize(iri);
@@ -63,9 +63,9 @@ private String getBinaryPredicate(int value) {
 }
 
 private String getUnaryPredicate(int value) {
-	switch (KaosManager.getInstance().getNamingStrategy()) {
+	switch (ClipperManager.getInstance().getNamingStrategy()) {
 	case LowerCaseFragment:
-		IRI iri = KaosManager.getInstance().getOwlClassEncoder()
+		IRI iri = ClipperManager.getInstance().getOwlClassEncoder()
 				.getSymbolByValue(value).getIRI();
 
 		return normalize(iri);

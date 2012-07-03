@@ -1,7 +1,0 @@
- :- nothing(X).
-fresh3(X) :- artery(X), fresh4(X).
-bloodclot(X) :- pulmonaryembolism(X).
-pulmonaryembolism(X) :- bloodclot(X), fresh2(X).
-artery(X) :- fresh1(X).
-fresh2(Y) :- fresh3(X), hasspecificlocation(Y,X).
-fresh4(Y) :- lung(X), serves(Y,X).

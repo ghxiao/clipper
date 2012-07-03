@@ -19,6 +19,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import org.semanticweb.clipper.hornshiq.ontology.Axiom;
 import org.semanticweb.clipper.hornshiq.ontology.NormalHornALCHIQOntology;
 import org.semanticweb.clipper.hornshiq.profile.BitSetNormalHornALCHIQOntologyConverter;
@@ -41,6 +44,8 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.profiles.OWLProfileReport;
 
+@Getter
+@Setter
 public class QAHornSHIQ {
 
 	private String dataLogName;
@@ -49,10 +54,7 @@ public class QAHornSHIQ {
 	private String queryString;
 	private String queryPrefix;
 	private String datalogEngine = "dlv";
-	// private NamingStrategy namingStrategy = NamingStrategy.IntEncoding;//
-	// IntEncoding
-	// =
-	// default
+
 	private String headPredicate;
 	private List<String> answers;
 	private List<List<String>> decodedAnswers;
@@ -63,87 +65,12 @@ public class QAHornSHIQ {
 	private Collection<CQ> rewrittenQueries;
 	String dlvPath = "lib/dlv";
 
-	public String getDlvPath() {
-		return dlvPath;
-	}
-
-	public void setDlvPath(String dlvPath) {
-		this.dlvPath = dlvPath;
-	}
-
-	public String getDatalogEngine() {
-		return datalogEngine;
-	}
-
-	public void setDatalogEngine(String datalogEngine) {
-		this.datalogEngine = datalogEngine;
-	}
-
-	public List<String> getAnswers() {
-		return answers;
-	}
-
-	public void setAnswers(List<String> answers) {
-		this.answers = answers;
-	}
-
-	public Collection<CQ> getRewrittenQueries() {
-		return rewrittenQueries;
-	}
-
-	public void setRewrittenQueries(Set<CQ> rewrittenQueries) {
-		this.rewrittenQueries = rewrittenQueries;
-	}
 
 	public QAHornSHIQ() {
 		answers = new ArrayList<String>();
 		decodedAnswers = new ArrayList<List<String>>();
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);// default
-	}
-
-	public String getDataLogName() {
-		return dataLogName;
-	}
-
-	public void setDataLogName(String dataLogName) {
-		this.dataLogName = dataLogName;
-	}
-
-	public String getOntologyName() {
-		return ontologyName;
-	}
-
-	public void setOntologyName(String ontologyName) {
-		this.ontologyName = ontologyName;
-	}
-
-	public String getQueryFileName() {
-		return queryFileName;
-	}
-
-	public void setQueryFileName(String queryFileName) {
-		this.queryFileName = queryFileName;
-	}
-
-	public String getQueryString() {
-		return queryString;
-	}
-
-	public void setQueryString(String queryString) {
-		this.queryString = queryString;
-	}
-
-	public String getQueryPrefix() {
-		return queryPrefix;
-	}
-
-	public void setQueryPrefix(String queryPrefix) {
-		this.queryPrefix = queryPrefix;
-	}
-
-	// public NamingStrategy getNamingStrategy() {
-	// return namingStrategy;
-	// }
+	}	
 
 	public void setNamingStrategy(NamingStrategy namingStrategy) {
 		ClipperManager.getInstance().setNamingStrategy(namingStrategy);
@@ -220,22 +147,7 @@ public class QAHornSHIQ {
 				if (ClipperManager.getInstance().getVerboseLevel() >= 2)
 					System.out.println(ontology);
 
-				HornSHIQProfile profile = new HornSHIQProfile();
-
-				OWLProfileReport report = profile.checkOntology(ontology);
-				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-					System.out.println(report);
-				}
-
-				HornSHIQNormalizer normalizer = new HornSHIQNormalizer();
-
-				OWLOntology normalizedOnt = normalizer.normalize(ontology);
-
-				HornALCHIQTransNormalizer normalizer1 = new HornALCHIQTransNormalizer();
-				OWLOntology normalizedOnt1 = normalizer1.normalize(normalizedOnt);
-
-				HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
-				OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
+				OWLOntology normalizedOnt3 = normalize(ontology);
 
 				BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
 				NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
@@ -257,12 +169,6 @@ public class QAHornSHIQ {
 				long reasoningEnd = System.currentTimeMillis();
 				clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
 				// end of evaluating reasoning time
-				// //////////////////////////////////////////////
-				ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
-				// reduction.setNamingStrategy(this.namingStrategy);
-				reduction.setCoreImps(tb.getImpContainer().getImps());
-				reduction.setCoreEnfs(tb.getEnfContainer().getEnfs());
-				reduction.getEncodedDataLogProgram(this.dataLogName);
 
 				QueryRewriter qr = new QueryRewriting(tb.getEnfContainer(), tb.getInverseRoleAxioms(),
 						tb.getAllValuesFromAxioms());
@@ -336,6 +242,30 @@ public class QAHornSHIQ {
 	}
 
 	/**
+	 * @param ontology
+	 * @return
+	 */
+	private OWLOntology normalize(OWLOntology ontology) {
+		HornSHIQProfile profile = new HornSHIQProfile();
+
+		OWLProfileReport report = profile.checkOntology(ontology);
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+			System.out.println(report);
+		}
+
+		HornSHIQNormalizer normalizer = new HornSHIQNormalizer();
+
+		OWLOntology normalizedOnt = normalizer.normalize(ontology);
+
+		HornALCHIQTransNormalizer normalizer1 = new HornALCHIQTransNormalizer();
+		OWLOntology normalizedOnt1 = normalizer1.normalize(normalizedOnt);
+
+		HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
+		OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
+		return normalizedOnt3;
+	}
+
+	/**
 	 * @return Datalog program contains: rewritten queries, completion rules
 	 * */
 	public void getQueriesAndCompletionRulesDataLog() {
@@ -364,25 +294,7 @@ public class QAHornSHIQ {
 				long startNormalizatoinTime = System.currentTimeMillis();
 				ontology = man.loadOntologyFromOntologyDocument(file);
 
-				if (ClipperManager.getInstance().getVerboseLevel() > 0)
-					System.out.println(ontology);
-
-				HornSHIQProfile profile = new HornSHIQProfile();
-
-				OWLProfileReport report = profile.checkOntology(ontology);
-				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
-					System.out.println(report);
-				}
-
-				HornSHIQNormalizer normalizer = new HornSHIQNormalizer();
-
-				OWLOntology normalizedOnt = normalizer.normalize(ontology);
-
-				HornALCHIQTransNormalizer normalizer1 = new HornALCHIQTransNormalizer();
-				OWLOntology normalizedOnt1 = normalizer1.normalize(normalizedOnt);
-
-				HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
-				OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
+				OWLOntology normalizedOnt3 = normalize(ontology);
 
 				BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
 				NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
@@ -497,25 +409,7 @@ public class QAHornSHIQ {
 				long startNormalizatoinTime = System.currentTimeMillis();
 				ontology = man.loadOntologyFromOntologyDocument(file);
 
-				if (ClipperManager.getInstance().getVerboseLevel() > 0)
-					System.out.println(ontology);
-
-				HornSHIQProfile profile = new HornSHIQProfile();
-
-				OWLProfileReport report = profile.checkOntology(ontology);
-				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
-					System.out.println(report);
-				}
-
-				HornSHIQNormalizer normalizer = new HornSHIQNormalizer();
-
-				OWLOntology normalizedOnt = normalizer.normalize(ontology);
-
-				HornALCHIQTransNormalizer normalizer1 = new HornALCHIQTransNormalizer();
-				OWLOntology normalizedOnt1 = normalizer1.normalize(normalizedOnt);
-
-				HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
-				OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
+				OWLOntology normalizedOnt3 = normalize(ontology);
 
 				BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
 				NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
@@ -580,25 +474,7 @@ public class QAHornSHIQ {
 				long startNormalizatoinTime = System.currentTimeMillis();
 				ontology = man.loadOntologyFromOntologyDocument(file);
 
-				if (ClipperManager.getInstance().getVerboseLevel() > 0)
-					System.out.println(ontology);
-
-				HornSHIQProfile profile = new HornSHIQProfile();
-
-				OWLProfileReport report = profile.checkOntology(ontology);
-				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
-					System.out.println(report);
-				}
-
-				HornSHIQNormalizer normalizer = new HornSHIQNormalizer();
-
-				OWLOntology normalizedOnt = normalizer.normalize(ontology);
-
-				HornALCHIQTransNormalizer normalizer1 = new HornALCHIQTransNormalizer();
-				OWLOntology normalizedOnt1 = normalizer1.normalize(normalizedOnt);
-
-				HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
-				OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
+				OWLOntology normalizedOnt3 = normalize(ontology);
 
 				BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
 				NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
@@ -739,25 +615,7 @@ public class QAHornSHIQ {
 				long startNormalizatoinTime = System.currentTimeMillis();
 				ontology = man.loadOntologyFromOntologyDocument(file);
 
-				if (ClipperManager.getInstance().getVerboseLevel() > 0)
-					System.out.println(ontology);
-
-				HornSHIQProfile profile = new HornSHIQProfile();
-
-				OWLProfileReport report = profile.checkOntology(ontology);
-				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
-					System.out.println(report);
-				}
-
-				HornSHIQNormalizer normalizer = new HornSHIQNormalizer();
-
-				OWLOntology normalizedOnt = normalizer.normalize(ontology);
-
-				HornALCHIQTransNormalizer normalizer1 = new HornALCHIQTransNormalizer();
-				OWLOntology normalizedOnt1 = normalizer1.normalize(normalizedOnt);
-
-				HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
-				OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
+				OWLOntology normalizedOnt3 = normalize(ontology);
 
 				BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
 				NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
@@ -833,102 +691,11 @@ public class QAHornSHIQ {
 						System.out.println(rule);
 					}
 				}
-				// numberOfRewrittenQueries = ucq.size();
-				// numberOfRewrittenQueriesAndRules = relatedRules
-				// .getUcqRelatedDatalogRules().size() + ucq.size();
-				// System.out
-				// .println("==============================================");
-				// System.out
-				// .println("Total number of Conjunctive queries and related rules: "
-				// + numberOfRewrittenQueriesAndRules);
-				// FileWriter fstream = new FileWriter(this.dataLogName, true);
-				// BufferedWriter out = new BufferedWriter(fstream);
-				// out.write("% rewritten queries:\n");
-				// for (CQ query : ucq)
-				// out.write(query.toString() + "\n");
-				// out.close();
 			} catch (OWLOntologyCreationException e) {
 				e.printStackTrace();
 			} catch (Exception e) {
 				System.err.println("Error: " + e.getMessage());
 			}
-		}
-	}
-
-	public void getModel() {
-		getDataLog();
-		DLVInputProgram inputProgram = new DLVInputProgramImpl();
-
-		/* I can add some file to the DLVInputProgram */
-
-		inputProgram.addFile(this.dataLogName);
-
-		DLVInvocation invocation = DLVWrapper.getInstance().createInvocation(dlvPath);
-		/* I can specify a part of DLV program using simple strings */
-
-		// Creates an instance of DLVInvocation
-
-		// Creates an instance of DLVInputProgram
-		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-			System.out.println("===========Model of the program========");
-		}
-
-		try {
-			invocation.setInputProgram(inputProgram);
-			invocation.setNumberOfModels(1);
-			ModelBufferedHandler modelBufferedHandler = new ModelBufferedHandler(invocation);
-
-			/* In this moment I can start the DLV execution */
-			FactHandler factHandler = new FactHandler() {
-				@Override
-				public void handleResult(DLVInvocation obsd, FactResult res) {
-					String answerString = res.toString();
-					if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-						System.out.println(answerString);
-					}
-					// answers.add(answerString);
-				}
-			};
-			invocation.subscribe(factHandler);
-
-			invocation.run();
-
-			if (!modelBufferedHandler.hasMoreModels())
-				System.out.println("No model");
-
-			invocation.waitUntilExecutionFinishes();
-			List<DLVError> k = invocation.getErrors();
-			if (k.size() > 0)
-				System.out.println(k);
-		} catch (DLVInvocationException e1) {
-			e1.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	public void getAnswer2() {
-		getDataLog();
-
-		try {
-			String line;
-			// Process p =
-			// Runtime.getRuntime().exec("dlv -filter=nephew /home/tritritri/disney.dlv");
-			String runCmd = "";
-			runCmd += datalogEngine + " -brave " + this.dataLogName;
-			// Process p =
-			// Runtime.getRuntime().exec("dlv -brave /home/kien/tmp/test.dl ");
-			Process p = Runtime.getRuntime().exec(runCmd);
-
-			BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
-
-			while ((line = input.readLine()) != null) {
-				System.out.println(line);
-			}
-			input.close();
-		} catch (Exception err) {
-			err.printStackTrace();
 		}
 	}
 
@@ -1044,14 +811,6 @@ public class QAHornSHIQ {
 		}
 		return decodedAnswers;
 
-	}
-
-	public void setCq(CQ cq) {
-		this.cq = cq;
-	}
-
-	public CQ getCq() {
-		return cq;
 	}
 
 	private String getBinaryPredicate(int value) {
