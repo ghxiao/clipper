@@ -1,6 +1,8 @@
 package org.semanticweb.clipper.hornshiq.rule;
 
-import org.semanticweb.owlapi.model.IRI;
+import lombok.Getter;
+import lombok.Setter;
+
 import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.util.ShortFormProvider;
 import org.semanticweb.owlapi.util.SimpleShortFormProvider;
@@ -36,27 +38,13 @@ public class DLPredicate implements Predicate {
 		return true;
 	}
 
+	@Getter
+	@Setter
 	int encoding;
 
+	@Getter
+	@Setter
 	int arity;
-
-	@Override
-	public int getEncoding() {
-		return encoding;
-	}
-
-	public void setEncoding(int encoding) {
-		this.encoding = encoding;
-	}
-
-	@Override
-	public int getArity() {
-		return arity;
-	}
-
-	public void setArity(int arity) {
-		this.arity = arity;
-	}
 
 	public DLPredicate(int encoding, int arity) {
 		this.encoding = encoding;
@@ -76,11 +64,6 @@ public class DLPredicate implements Predicate {
 			throw new IllegalArgumentException();
 		}
 	}
-
-	// @Override
-	// public String toString() {
-	// return "DLPredicate [encoding=" + encoding + ", arity=" + arity + "]";
-	// }
 
 	@Override
 	public String toString() {

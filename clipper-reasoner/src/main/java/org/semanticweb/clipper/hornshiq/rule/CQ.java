@@ -4,14 +4,17 @@ import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
 
 import java.util.ArrayList;
-import java.util.BitSet;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import org.semanticweb.clipper.hornshiq.ontology.InversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.queryanswering.KaosManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
+
+@Data
 
 public class CQ {
 	Atom head;
@@ -22,57 +25,7 @@ public class CQ {
 		body = new HashSet<Atom>();
 	}
 
-	public CQ(CQ q) {
-		// TODO copy constructor
-	}
-
-	public void setHead(Atom head) {
-		this.head = head;
-	}
-
-	public void setBody(Set<Atom> body) {
-		this.body = body;
-	}
-
-	public Set<Atom> getBody() {
-		return body;
-	}
-
-	public Atom getHead() {
-		return head;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((body == null) ? 0 : body.hashCode());
-		result = prime * result + ((head == null) ? 0 : head.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CQ other = (CQ) obj;
-		if (body == null) {
-			if (other.body != null)
-				return false;
-		} else if (!body.equals(other.body))
-			return false;
-		if (head == null) {
-			if (other.head != null)
-				return false;
-		} else if (!head.equals(other.head))
-			return false;
-		return true;
-	}
-
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -213,7 +166,7 @@ public class CQ {
 			int i = iterator.next();
 			// for (int i = type.nextSetBit(0); i >= 0; i = type.nextSetBit(i +
 			// 1)) {
-			if (i != KaosManager.getInstance().getThing()) {
+			if (i != ClipperManager.getInstance().getThing()) {
 				Predicate predicate = new DLPredicate(i, 1);
 				List<Term> terms = new ArrayList<Term>();
 				terms.add(x);
