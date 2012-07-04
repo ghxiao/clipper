@@ -4,12 +4,15 @@ import gnu.trove.set.hash.TIntHashSet;
 
 import java.util.*;
 
+import lombok.Getter;
+
 import org.semanticweb.clipper.hornshiq.ontology.AtomSubAllAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.InversePropertyOfAxiom;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
 
+@Getter
 public class QueryRewriting implements QueryRewriter {
 
 	private IndexedEnfContainer enfContainer;
@@ -17,30 +20,6 @@ public class QueryRewriting implements QueryRewriter {
 	private List<InversePropertyOfAxiom> inversePropertyOfAxioms;
 
 	private Set<CQ> ucq;
-
-	public List<InversePropertyOfAxiom> getInversePropertyOfAxioms() {
-		return inversePropertyOfAxioms;
-	}
-
-	public void setInversePropertyOfAxioms(List<InversePropertyOfAxiom> inversePropertyOfAxioms) {
-		this.inversePropertyOfAxioms = inversePropertyOfAxioms;
-	}
-
-	public Set<CQ> getUcq() {
-		return ucq;
-	}
-
-	public void setUcq(Set<CQ> ucq) {
-		this.ucq = ucq;
-	}
-
-	public IndexedEnfContainer getEnfContainer() {
-		return enfContainer;
-	}
-
-	public void setEnfContainer(IndexedEnfContainer enfContainer) {
-		this.enfContainer = enfContainer;
-	}
 
 	public QueryRewriting(IndexedEnfContainer indexEnfs, List<InversePropertyOfAxiom> inversePropertyAxioms,
 			List<AtomSubAllAxiom> allValuesFromAxs) {
@@ -50,8 +29,20 @@ public class QueryRewriting implements QueryRewriter {
 		ucq = new HashSet<CQ>();
 	}
 
-	/* (non-Javadoc)
-	 * @see org.semanticweb.clipper.hornshiq.queryanswering.QueryRewriter#rewrite(org.semanticweb.clipper.hornshiq.rule.CQ)
+	public QueryRewriting(Set<EnforcedRelation> enfs, List<InversePropertyOfAxiom> inversePropertyOfAxioms) {
+		this.enfContainer = new IndexedEnfContainer();
+		this.enfContainer.addAll(enfs);
+		this.inversePropertyOfAxioms = inversePropertyOfAxioms;
+		this.allValuesFromAxioms = new ArrayList<AtomSubAllAxiom>();
+		ucq = new HashSet<CQ>();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.semanticweb.clipper.hornshiq.queryanswering.QueryRewriter#rewrite
+	 * (org.semanticweb.clipper.hornshiq.rule.CQ)
 	 */
 	@Override
 	public Set<CQ> rewrite(CQ query) {
