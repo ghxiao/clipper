@@ -1,43 +1,18 @@
 package org.semanticweb.clipper.hornshiq.ontology;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 /**
- *SubClassOf (concep1, role SOME concept2)
+ * SubClassOf (concep1, role SOME concept2)
  * */
+@Data
+@AllArgsConstructor
 public class AtomSubSomeAxiom implements Axiom {
 
 	int concept1;
 	int role;
 	int concept2;
-
-	public AtomSubSomeAxiom(int concept1, int role, int concept2) {
-		super();
-		this.concept1 = concept1;
-		this.role = role;
-		this.concept2 = concept2;
-	}
-
-	public int getConcept1() {
-		return concept1;
-	}
-
-	public void setConcept1(int concept1) {
-		this.concept1 = concept1;
-	}
-
-	public int getRole() {
-		return role;
-	}
-
-	public void setRole(int role) {
-		this.role = role;
-	}
-
-	public int getConcept2() {
-		return concept2;
-	}
-
-	public void setConcept2(int concept2) {
-		this.concept2 = concept2;
-	}
 
 	@Override
 	public String toString() {

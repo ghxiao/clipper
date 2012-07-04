@@ -1,29 +1,12 @@
 package org.semanticweb.clipper.hornshiq.ontology;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
 public class InversePropertyOfAxiom implements Axiom {
 	int role1, role2;
-
-	public int getRole1() {
-		return role1;
-	}
-
-	public void setRole1(int role1) {
-		this.role1 = role1;
-	}
-
-	public int getRole2() {
-		return role2;
-	}
-
-	public void setRole2(int role2) {
-		this.role2 = role2;
-	}
-
-	public InversePropertyOfAxiom(int role1, int role2) {
-		super();
-		this.role1 = role1;
-		this.role2 = role2;
-	}
 
 	@Override
 	public String toString() {

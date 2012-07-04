@@ -1,5 +1,9 @@
 package org.semanticweb.clipper.hornshiq.ontology;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import gnu.trove.set.hash.TIntHashSet;
 
 /**
@@ -8,13 +12,10 @@ import gnu.trove.set.hash.TIntHashSet;
  * @author xiao
  * 
  */
+@Data
+@AllArgsConstructor
 public class AndSubAtomAxiom implements Axiom {
-	public AndSubAtomAxiom(TIntHashSet left, int right) {
-		super();
-		this.left = left;
-		this.right = right;
-	}
-
+	
 	public AndSubAtomAxiom(int left, int right) {
 		this(new TIntHashSet(new int[] { left }), right);
 	}
@@ -31,11 +32,5 @@ public class AndSubAtomAxiom implements Axiom {
 		this.left = left;
 	}
 
-	public TIntHashSet getLeft() {
-		return left;
-	}
 
-	public int getRight() {
-		return right;
-	}
 }

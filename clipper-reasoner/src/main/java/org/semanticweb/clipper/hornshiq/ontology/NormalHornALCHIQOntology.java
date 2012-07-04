@@ -5,6 +5,11 @@ import gnu.trove.set.hash.TIntHashSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class NormalHornALCHIQOntology {
 
 	List<AndSubAtomAxiom> andSubAtomAxioms;
@@ -33,50 +38,7 @@ public class NormalHornALCHIQOntology {
 
 	TIntHashSet aboxConcepts;
 
-	public List<AndSubAtomAxiom> getAndSubAtomAxioms() {
-		return andSubAtomAxioms;
-	}
-
-	public List<DisjointObjectPropertiesAxiom> getDisjAxioms() {
-		return disjAxioms;
-	}
-
-	public List<AtomSubSomeAxiom> getAtomSubSomeAxioms() {
-		return atomSubSomeAxioms;
-	}
-
-	public List<AtomSubAllAxiom> getAtomSubAllAxioms() {
-		return atomSubAllAxioms;
-	}
-
-	public List<AtomSubMaxOneAxiom> getAtomSubMaxOneAxioms() {
-		return atomSubMaxOneAxioms;
-	}
-
-	public List<AtomSubMinAxiom> getAtomSubMinAxioms() {
-		return atomSubMinAxioms;
-	}
-
-	public List<SomeSubAtomAxiom> getSomeSubAtomAxioms() {
-		return someSubAtomAxioms;
-	}
-
-	public List<ConceptAssertionAxiom> getConceptAssertionAxioms() {
-		return conceptAssertionAxioms;
-	}
-
-	public List<ObjectPropertyAssertionAxiom> getRoleAssertionAxioms() {
-		return roleAssertionAxioms;
-	}
-
-	public List<SubPropertyAxiom> getSubPropertyAxioms() {
-		return subPropertyAxioms;
-	}
-
-	public List<InversePropertyOfAxiom> getInversePropertyOfAxioms() {
-		return inversePropertyOfAxioms;
-	}
-
+	
 	public NormalHornALCHIQOntology() {
 		this.andSubAtomAxioms = new ArrayList<AndSubAtomAxiom>();
 		this.atomSubMaxOneAxioms = new ArrayList<AtomSubMaxOneAxiom>();
@@ -110,18 +72,6 @@ public class NormalHornALCHIQOntology {
 
 		return result;
 
-	}
-
-	public TIntHashSet getAboxConcepts() {
-		return this.aboxConcepts;
-	}
-
-	public List<TransitivityAxiom> getTransitivityAxioms() {
-		return transitivityAxioms;
-	}
-
-	public void setTransitivityAxioms(List<TransitivityAxiom> transitivityAxioms) {
-		this.transitivityAxioms = transitivityAxioms;
 	}
 
 	/*
