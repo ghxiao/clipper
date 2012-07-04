@@ -1,10 +1,8 @@
 package org.semanticweb.clipper.hornshiq.ontology;
 
+import gnu.trove.set.hash.TIntHashSet;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import gnu.trove.set.hash.TIntHashSet;
 
 /**
  * A1 and A2 and ... and An SubClassOf B
