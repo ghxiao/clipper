@@ -51,19 +51,19 @@ public class KaosReasonerCLI {
 		qaHornSHIQ.runDatalogEngine();
 		long endTime = System.currentTimeMillis();
 		
-		System.out.println("Ontology parsing and normalization time:                      " + qaHornSHIQ.getNormalizationTime() + "  milliseconds");
-		System.out.println("Reasoning time:                                               " + qaHornSHIQ.getReasoningTime()
+		System.out.println("Ontology parsing and normalization time:                      " + qaHornSHIQ.getClipperReport().getNormalizationTime() + "  milliseconds");
+		System.out.println("Reasoning time:                                               " + qaHornSHIQ.getClipperReport().getReasoningTime()
 				+ "  milliseconds");
 		System.out.println("Query rewriting time:                                         "
-				+ qaHornSHIQ.getQueryRewritingTime() + "  milliseconds");
-		long totalTime= qaHornSHIQ.getReasoningTime() 	+ qaHornSHIQ.getQueryRewritingTime();
+				+ qaHornSHIQ.getClipperReport().getQueryRewritingTime() + "  milliseconds");
+		long totalTime= qaHornSHIQ.getClipperReport().getReasoningTime() 	+ qaHornSHIQ.getClipperReport().getQueryRewritingTime();
 		System.out.println("Total time for query rewriting (reasoning + rewriting time):  "
 				+ totalTime + "  milliseconds");
-		System.out.println("Total rules/rewritten queries: "+ qaHornSHIQ.getNumberOfRewrittenQueriesAndRules());
-		System.out.println("Time of running datalog program:                              " + qaHornSHIQ.getDatalogRunTime() + "  milliseconds");
-		System.out.println("Time for output answer  :                                     " + qaHornSHIQ.getOutputAnswerTime() + "  milliseconds");
-		System.out.println("Time for counting queries realted rules (just for benchmark): " + qaHornSHIQ.getCoutingRealtedRulesTime() + "  milliseconds");
-		long runningTime= endTime -startTime - qaHornSHIQ.getCoutingRealtedRulesTime();
+		System.out.println("Total rules/rewritten queries: "+ qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueriesAndRules());
+		System.out.println("Time of running datalog program:                              " + qaHornSHIQ.getClipperReport().getDatalogRunTime() + "  milliseconds");
+		System.out.println("Time for output answer  :                                     " + qaHornSHIQ.getClipperReport().getOutputAnswerTime() + "  milliseconds");
+		System.out.println("Time for counting queries realted rules (just for benchmark): " + qaHornSHIQ.getClipperReport().getCoutingRealtedRulesTime() + "  milliseconds");
+		long runningTime= endTime -startTime - qaHornSHIQ.getClipperReport().getCoutingRealtedRulesTime();
 		System.out.println("Total running time of the whole system:                       " + runningTime + "  milliseconds");
 	}
 

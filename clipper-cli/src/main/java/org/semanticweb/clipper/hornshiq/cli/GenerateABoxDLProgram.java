@@ -56,14 +56,14 @@ public class GenerateABoxDLProgram {
 //				+ "  milliseconds");
 //		System.out.println("Query rewriting time:                                         "
 //				+ qaHornSHIQ.getQueryRewritingTime() + "  milliseconds");
-		long totalTime= qaHornSHIQ.getReasoningTime() 	+ qaHornSHIQ.getQueryRewritingTime();
-		System.out.println(qaHornSHIQ.getNumberOfRewrittenQueries()+ " " + qaHornSHIQ.getNumberOfRewrittenQueriesAndRules() + " " + totalTime);
+		long totalTime= qaHornSHIQ.getClipperReport().getReasoningTime() 	+ qaHornSHIQ.getClipperReport().getQueryRewritingTime();
+		System.out.println(qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueries()+ " " + qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueriesAndRules() + " " + totalTime);
 //		System.out.println("Total time for query rewriting (reasoning + rewriting time):  "
 //				+ totalTime + "  milliseconds");
-//		System.out.println("Time of running datalog program:                              " + qaHornSHIQ.getDatalogRunTime() + "  milliseconds");
-//		System.out.println("Time for output answer  :                                     " + qaHornSHIQ.getOutputAnswerTime() + "  milliseconds");
-//		System.out.println("Time for counting queries realted rules (just for benchmark): " + qaHornSHIQ.getCoutingRealtedRulesTime() + "  milliseconds");
-//		long runningTime= endTime -startTime - qaHornSHIQ.getCoutingRealtedRulesTime();
+//		System.out.println("Time of running datalog program:                              " + qaHornSHIQ.getClipperReport().getDatalogRunTime() + "  milliseconds");
+//		System.out.println("Time for output answer  :                                     " + qaHornSHIQ.getClipperReport().getOutputAnswerTime() + "  milliseconds");
+//		System.out.println("Time for counting queries realted rules (just for benchmark): " + qaHornSHIQ.getClipperReport().getCoutingRealtedRulesTime() + "  milliseconds");
+//		long runningTime= endTime -startTime - qaHornSHIQ.getClipperReport().getCoutingRealtedRulesTime();
 //		System.out.println("Total running time of the whole system:                       " + runningTime + "  milliseconds");
 	}
 

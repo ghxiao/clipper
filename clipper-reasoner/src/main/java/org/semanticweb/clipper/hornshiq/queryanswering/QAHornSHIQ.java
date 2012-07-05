@@ -198,7 +198,8 @@ public class QAHornSHIQ {
 				// System.out
 				// .println("Total number of Conjunctive queries and related rules: "
 				// + numberOfRewrittenQueriesAndRules);
-				FileWriter fstream = new FileWriter(this.dataLogName, true);
+				//FileWriter fstream = new FileWriter(this.dataLogName, true);
+				FileWriter fstream = new FileWriter(this.dataLogName);
 				BufferedWriter out = new BufferedWriter(fstream);
 				out.write("% rewritten queries:\n");
 				for (CQ query : ucq)
