@@ -264,7 +264,8 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 	public boolean removeVertex(Term vertex) {
 		if (vertex.isVariable()) {
 			Variable v = (Variable) vertex;
-			checkState(!isAnswerVariable(v));
+			// checkState(!isAnswerVariable(v));
+			this.answerVariables.remove(v);
 			this.concepts.removeAll(v);
 		}
 
