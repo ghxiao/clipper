@@ -136,6 +136,38 @@ public class CQGraphTest {
 		assertEquals(2, g.getEdgeCount());
 	}
 	
+
+	// with constant
+	@Test
+	public void testClip015() {
+		String s = " q()  :- r2(X0, d0), r4(X0, X1), r6(d0, X2), r8(X1, X2), c2(X0), c3(d0), c4(X1), c5(X2). ";
+		System.out.println(s);
+		CQParser parser = new CQParser();
+		parser.setQueryString(s);
+		CQ cq = parser.getCq();
+		CQGraph g = new CQGraph(cq);
+		System.out.println(g);
+
+		// Vertex vertex = g.findVertex(0);
+		Variable vertex = new Variable(2);
+		ImmutableSet<Variable> vs = ImmutableSet.of(vertex);
+		g.focus(vs);
+		System.out.println("Select " + vertex);
+		System.out.println(g);
+
+		// TIntHashSet type = new TIntHashSet(new int[] { 3, 4 });
+		ImmutableList<Integer> type = ImmutableList.of(6);
+
+		Map<CQGraphEdge, Integer> emptyMap = Maps.newHashMap();
+		g.clip(vs, g.getInEdges(vertex), emptyMap, type);
+		System.out.println("Clip off " + vertex);
+		System.out.println(g);
+		System.out.println(g.toCQ());
+
+		assertEquals(2, g.getVertexCount());
+		assertEquals(2, g.getEdgeCount());
+	}
+	
 	@Test
 	public void testClip02() {
 		String s = " q()  :- r2(X1, X0), r4(X2, X1), r6(X1, X3). ";
