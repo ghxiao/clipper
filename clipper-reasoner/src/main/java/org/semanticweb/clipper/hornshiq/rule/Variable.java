@@ -30,6 +30,14 @@ public class Variable implements Term {
 		return "X" + index;
 	}
 
-	
+	@Override
+	public Variable asVariable() {
+		return this;
+	}
+
+	@Override
+	public Constant asConstant() {
+		throw new IllegalArgumentException("not a constant!");
+	}
 
 }

@@ -1,5 +1,8 @@
 package org.semanticweb.clipper.hornshiq.rule;
 
+import lombok.Data;
+
+@Data
 public class Constant implements Term {
 
 	int value;
@@ -28,6 +31,7 @@ public class Constant implements Term {
 	}
 
 	public Constant() {
+
 	}
 
 	public Constant(int value) {
@@ -61,12 +65,13 @@ public class Constant implements Term {
 	}
 
 	@Override
-	public String getName() {
-		return name;
+	public Variable asVariable() {
+		throw new IllegalArgumentException("not a variable!");
 	}
 
 	@Override
-	public void setName(String name) {
-		this.name = name;
+	public Constant asConstant() {
+		return this;
 	}
+
 }
