@@ -8,4 +8,8 @@ public interface Term {
 	public String getName();
 
 	public void setName(String name);
+
+	public Variable asVariable();
+
+	public Constant asConstant();
 }

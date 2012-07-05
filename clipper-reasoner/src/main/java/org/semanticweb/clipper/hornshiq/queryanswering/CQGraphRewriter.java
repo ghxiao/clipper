@@ -82,6 +82,7 @@ public class CQGraphRewriter implements QueryRewriter {
 		log.debug("cq(g) = {}", g.toCQ());
 
 		resultGraphs.add(g);
+		resultCQs.add(g.toCQ());
 
 		Set<Set<Variable>> selfLoopComponents = slcc.transform(g);
 
@@ -177,7 +178,7 @@ public class CQGraphRewriter implements QueryRewriter {
 
 				CQ cq = g1.toCQ();
 				if (!resultCQs.contains(cq)) {
-					resultCQs.add(cq);
+					
 					log.debug("-- new cq = {}", cq);
 					rewrite_recursive(g1);
 				}
