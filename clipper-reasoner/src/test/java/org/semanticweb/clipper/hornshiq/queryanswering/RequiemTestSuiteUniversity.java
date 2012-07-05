@@ -54,8 +54,8 @@ public class RequiemTestSuiteUniversity {
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.runDatalogEngine();
-		System.out.println("reasoning time " + qaHornSHIQ.getReasoningTime() + "milisecond");
-		System.out.println("reasoning time " + qaHornSHIQ.getQueryRewritingTime() + "milisecond");
+		System.out.println("reasoning time " + qaHornSHIQ.getClipperReport().getReasoningTime() + "milisecond");
+		System.out.println("reasoning time " + qaHornSHIQ.getClipperReport().getQueryRewritingTime() + "milisecond");
 		// Set predictedAnswser = new HashSet<String>();
 		// List<String> ans1= new List<String>();
 
@@ -113,7 +113,7 @@ public class RequiemTestSuiteUniversity {
 		
 		//qaHornSHIQ.getAnswers();
 		// Check if our answers is the same as correct answers.
-		System.out.println("NUmber of rewritten quries: " + qaHornSHIQ.getNumberOfRewrittenQueries());
+		System.out.println("NUmber of rewritten quries: " + qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueries());
 
 	}
 

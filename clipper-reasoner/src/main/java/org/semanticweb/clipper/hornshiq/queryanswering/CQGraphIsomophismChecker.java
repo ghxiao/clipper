@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
+import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
 
 import com.google.common.collect.BiMap;
@@ -21,8 +22,8 @@ public class CQGraphIsomophismChecker {
 			return false;
 		}
 
-		Collection<Variable> vars1 = g1.getVertices();
-		Collection<Variable> vars2 = g2.getVertices();
+		Collection<Term> vars1 = g1.getVertices();
+		Collection<Term> vars2 = g2.getVertices();
 
 		int nAnsVars = ansVars1.size();
 
