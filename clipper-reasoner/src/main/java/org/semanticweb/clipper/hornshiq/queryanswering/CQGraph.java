@@ -38,7 +38,7 @@ import edu.uci.ics.jung.graph.DirectedSparseMultigraph;
  * 
  */
 @SuppressWarnings("serial")
-public class CQGraph extends DirectedSparseMultigraph<Variable, CQGraphEdge> {
+public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 
 	/**
 	 * distinguished (answer, output) variables
@@ -48,7 +48,7 @@ public class CQGraph extends DirectedSparseMultigraph<Variable, CQGraphEdge> {
 	/**
 	 * the map from the Variables to list of concepts
 	 */
-	private Multimap<Variable, Integer> concepts = HashMultimap.create();
+	private Multimap<Term, Integer> concepts = HashMultimap.create();
 
 	/**
 	 * never use
@@ -68,11 +68,10 @@ public class CQGraph extends DirectedSparseMultigraph<Variable, CQGraphEdge> {
 			Predicate predicate = atom.getPredicate();
 			List<Term> terms = atom.getTerms();
 			if (predicate.getArity() == 2) {
-				CQGraphEdge edge = new CQGraphEdge((Variable) terms.get(0), (Variable) terms.get(1),
-						predicate.getEncoding());
+				CQGraphEdge edge = new CQGraphEdge(terms.get(0), terms.get(1), predicate.getEncoding());
 				this.addEdge(edge);
 			} else if (predicate.getArity() == 1) {
-				Variable var = (Variable) terms.get(0);
+				Term var = terms.get(0);
 				this.addVertex(var);
 				concepts.put(var, predicate.getEncoding());
 			}
@@ -86,13 +85,13 @@ public class CQGraph extends DirectedSparseMultigraph<Variable, CQGraphEdge> {
 	}
 
 	private void addEdge(CQGraphEdge edge) {
-		this.addEdge(edge, edge.getVar1(), edge.getVar2());
+		this.addEdge(edge, edge.getSource(), edge.getDest());
 	}
 
 	public CQGraph deepCopy() {
 		CQGraph g = new CQGraph();
 
-		for (Variable vertex : this.getVertices()) {
+		for (Term vertex : this.getVertices()) {
 			g.addVertex(vertex);
 		}
 
@@ -143,23 +142,23 @@ public class CQGraph extends DirectedSparseMultigraph<Variable, CQGraphEdge> {
 
 			if (map.containsKey(edge)) {
 				Integer subRole = map.get(edge);
-				CQGraphEdge newEdge = new CQGraphEdge(edge.getVar1(), vertex0, subRole);
+				CQGraphEdge newEdge = new CQGraphEdge(edge.getSource(), vertex0, subRole);
 				replaceEdge(edge, newEdge);
-				if (edge.getRole().equals(subRole) && edge.getVar2().equals(vertex0)) {
+				if (edge.getRole().equals(subRole) && edge.getDest().equals(vertex0)) {
 					removingEdge = false;
 				}
 			} else {
-				Variable parentVertex = edge.getVar1();
+				Term parentVertex = edge.getSource();
 
 				List<CQGraphEdge> inEdges = Lists.newArrayList(getInEdges(parentVertex));
 				for (CQGraphEdge e1 : inEdges) {
-					CQGraphEdge newEdge = new CQGraphEdge(e1.getVar1(), vertex0, edge.getRole());
+					CQGraphEdge newEdge = new CQGraphEdge(e1.getSource(), vertex0, e1.getRole());
 					replaceEdge(e1, newEdge);
 				}
 				List<CQGraphEdge> outEdges = Lists.newArrayList(this.getOutEdges(parentVertex));
 				for (CQGraphEdge e1 : outEdges) {
 					if (!edge.equals(e1)) {
-						CQGraphEdge newEdge = new CQGraphEdge(vertex0, e1.getVar2(), edge.getRole());
+						CQGraphEdge newEdge = new CQGraphEdge(vertex0, e1.getDest(), e1.getRole());
 						replaceEdge(e1, newEdge);
 					}
 				}
@@ -199,18 +198,19 @@ public class CQGraph extends DirectedSparseMultigraph<Variable, CQGraphEdge> {
 	}
 
 	/**
-	 * @param var
+	 * @param parentVertex
 	 * @return
 	 */
-	public Collection<Integer> getConcepts(Variable var) {
-		return concepts.get(var);
+	public Collection<Integer> getConcepts(Term parentVertex) {
+		return concepts.get(parentVertex);
 	}
 
 	/**
 	 * @param variable
 	 * @return
 	 */
-	public boolean isAnswerVariable(Variable variable) {
+	public boolean isAnswerVariable(Term variable) {
+
 		return answerVariables.contains(variable);
 	}
 
@@ -227,10 +227,13 @@ public class CQGraph extends DirectedSparseMultigraph<Variable, CQGraphEdge> {
 	}
 
 	@Override
-	public boolean removeVertex(Variable vertex) {
-		checkState(!isAnswerVariable(vertex));
-		this.concepts.removeAll(vertex);
-		// this.answerVariables.remove(vertex);
+	public boolean removeVertex(Term vertex) {
+		if (vertex.isVariable()) {
+			Variable v = (Variable) vertex;
+			checkState(!isAnswerVariable(v));
+			this.concepts.removeAll(v);
+		}
+
 		return super.removeVertex(vertex);
 	}
 
@@ -246,7 +249,7 @@ public class CQGraph extends DirectedSparseMultigraph<Variable, CQGraphEdge> {
 			invRole = role - 1;
 		}
 
-		CQGraphEdge outEdge = new CQGraphEdge(inEdge.getVar2(), inEdge.getVar1(), invRole);
+		CQGraphEdge outEdge = new CQGraphEdge(inEdge.getDest(), inEdge.getSource(), invRole);
 
 		return outEdge;
 	}
@@ -257,7 +260,7 @@ public class CQGraph extends DirectedSparseMultigraph<Variable, CQGraphEdge> {
 			Collection<CQGraphEdge> possibleOutEdges = this.getOutEdges(vertex);
 
 			for (CQGraphEdge edge : possibleOutEdges) {
-				Variable second = edge.getVar2();
+				Term second = edge.getDest();
 				if (!leaves.contains(second)) {
 					outEdges.add(edge);
 				}
@@ -272,7 +275,7 @@ public class CQGraph extends DirectedSparseMultigraph<Variable, CQGraphEdge> {
 		for (Variable vertex : vertices) {
 			Collection<CQGraphEdge> possibleInEdges = this.getInEdges(vertex);
 			for (CQGraphEdge edge : possibleInEdges) {
-				Variable first = edge.getVar1();
+				Term first = edge.getSource();
 				if (!vertices.contains(first)) {
 					inEdges.add(edge);
 				}
@@ -294,14 +297,14 @@ public class CQGraph extends DirectedSparseMultigraph<Variable, CQGraphEdge> {
 		for (Variable vertex : vertices) {
 			Preconditions.checkState(this.containsVertex(vertex), "the vertex is not in the graph");
 			for (CQGraphEdge edge : this.getInEdges(vertex)) {
-				Variable first = this.getSource(edge);
-				if (vertices.contains(first) && !edge.getVar1().equals(edge.getVar2())) {
+				Term first = this.getSource(edge);
+				if (vertices.contains(first) && !edge.getSource().equals(edge.getDest())) {
 					interEdges.add(edge);
 				}
 			}
 			for (CQGraphEdge edge : this.getOutEdges(vertex)) {
-				Variable second = this.getDest(edge);
-				if (vertices.contains(second) && !edge.getVar1().equals(edge.getVar2())) {
+				Term second = this.getDest(edge);
+				if (vertices.contains(second) && !edge.getSource().equals(edge.getDest())) {
 					interEdges.add(edge);
 				}
 			}
@@ -313,7 +316,7 @@ public class CQGraph extends DirectedSparseMultigraph<Variable, CQGraphEdge> {
 		StringBuilder sb = new StringBuilder();
 		sb.append("{ ");
 		boolean first = true;
-		for (Variable var : getVertices()) {
+		for (Term var : getVertices()) {
 			if (!first)
 				sb.append(", ");
 			sb.append(var).append("[");
@@ -337,8 +340,8 @@ public class CQGraph extends DirectedSparseMultigraph<Variable, CQGraphEdge> {
 	public CQ toCQ() {
 		Set<Atom> bodyAtoms = new HashSet<Atom>();
 		for (CQGraphEdge e : this.getEdges()) {
-			Variable firstVar = e.getVar1();
-			Variable secondVar = e.getVar2();
+			Term firstVar = e.getSource();
+			Term secondVar = e.getDest();
 			int role = e.getRole();
 			if (role != 0 && role != 1) {
 				if (role % 2 == 0) {
@@ -352,7 +355,7 @@ public class CQGraph extends DirectedSparseMultigraph<Variable, CQGraphEdge> {
 
 		}
 
-		for (Variable vertex : this.getVertices()) {
+		for (Term vertex : this.getVertices()) {
 			for (int concept : getConcepts(vertex)) {
 				if (concept != 0) {
 					DLPredicate c = new DLPredicate(concept, 1);
@@ -383,11 +386,11 @@ class CQGraphEdge {
 
 	@Override
 	public String toString() {
-		return "<" + var1 + ", " + var2 + ">[" + role + "]";
+		return "<" + source + ", " + dest + ">[" + role + "]";
 	}
 
 	@NonNull
-	private Variable var1, var2;
+	private Term source, dest;
 
 	@NonNull
 	private Integer role;
