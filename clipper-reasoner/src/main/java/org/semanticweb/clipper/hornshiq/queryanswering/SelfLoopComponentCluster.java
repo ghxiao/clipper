@@ -1,6 +1,8 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+import gnu.trove.iterator.TIntIterator;
+import gnu.trove.set.hash.TIntHashSet;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,21 +13,16 @@ import java.util.Set;
 import org.apache.commons.collections15.Buffer;
 import org.apache.commons.collections15.Transformer;
 import org.apache.commons.collections15.buffer.UnboundedFifoBuffer;
-
+import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
-
-import edu.uci.ics.jung.graph.util.Pair;
-import gnu.trove.iterator.TIntIterator;
-import gnu.trove.set.hash.TIntHashSet;
 
 public class SelfLoopComponentCluster implements Transformer<CQGraph, Set<Set<Variable>>> {
 
 	private List<Integer> selfLoopRoles;
 
-	
-	//TODO only consider non-simples roles
-	
+	// TODO only consider non-simples roles
+
 	public SelfLoopComponentCluster(IndexedEnfContainer enfs) {
 		selfLoopRoles = new ArrayList<Integer>();
 		boolean mayLoop = true;
@@ -63,7 +60,13 @@ public class SelfLoopComponentCluster implements Transformer<CQGraph, Set<Set<Va
 
 		Set<Set<Variable>> clusterSet = new HashSet<Set<Variable>>();
 
-		HashSet<Variable> unvisitedVertices = new HashSet<Variable>(graph.getVertices());
+		HashSet<Variable> unvisitedVertices = new HashSet<Variable>();
+
+		for (Term vtx : graph.getVertices()) {
+			if (vtx.isVariable()) {
+				unvisitedVertices.add(vtx.asVariable());
+			}
+		}
 
 		while (!unvisitedVertices.isEmpty()) {
 			Variable root = unvisitedVertices.iterator().next();
@@ -103,12 +106,12 @@ public class SelfLoopComponentCluster implements Transformer<CQGraph, Set<Set<Va
 		for (CQGraphEdge edge : incidentEdges) {
 			// if (selfLoopRoles.containsAll(g.getRoles(edge))) {
 			if (selfLoopRoles.contains(edge.getRole())) {
-				Pair<Variable> endpoints = g.getEndpoints(edge);
-				checkNotNull(endpoints, "endpoints == null !");
-				if (vertex.equals(endpoints.getFirst()) && !g.isAnswerVariable(endpoints.getSecond())) {
-					neighbors.add(endpoints.getSecond());
-				} else if (vertex.equals(endpoints.getSecond()) && !g.isAnswerVariable(endpoints.getFirst())) {
-					neighbors.add(endpoints.getFirst());
+				Term source = edge.getSource();
+				Term dest = edge.getDest();
+				if (vertex.equals(source) && dest.isVariable() && !g.isAnswerVariable(dest)) {
+					neighbors.add(dest.asVariable());
+				} else if (vertex.equals(dest) && dest.isVariable() && !g.isAnswerVariable(source)) {
+					neighbors.add(source.asVariable());
 				}
 			}
 		}

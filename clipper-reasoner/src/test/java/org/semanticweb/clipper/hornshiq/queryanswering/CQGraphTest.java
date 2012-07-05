@@ -64,6 +64,19 @@ public class CQGraphTest {
 		System.out.println(g2cq);
 	}
 
+	// individual
+	@Test
+	public void testToCQ03() {
+		String s = "q(X1, X2)  :- r2(X1, X0), r4(X2, X1), r5(d3, X1), c1(X1), c2(X1), c2(X0).";
+		System.out.println(s);
+		CQParser parser = new CQParser();
+		parser.setQueryString(s);
+		CQ cq = parser.getCq();
+		CQGraph g = new CQGraph(cq);
+		CQ g2cq = g.toCQ();
+		System.out.println(g2cq);
+	}
+
 	@Test
 	public void testClip01() {
 		String s = " q()  :- r2(X1, X0), r4(X2, X1), r6(X3, X1). ";
@@ -93,6 +106,36 @@ public class CQGraphTest {
 		assertEquals(2, g.getEdgeCount());
 	}
 
+	// with constant
+	@Test
+	public void testClip01c() {
+		String s = " q()  :- r2(X1, X0), r4(d2, X1), r6(X3, X1), c3(d2). ";
+		System.out.println(s);
+		CQParser parser = new CQParser();
+		parser.setQueryString(s);
+		CQ cq = parser.getCq();
+		CQGraph g = new CQGraph(cq);
+		System.out.println(g);
+
+		// Vertex vertex = g.findVertex(0);
+		Variable vertex = new Variable(0);
+		ImmutableSet<Variable> vs = ImmutableSet.of(vertex);
+		g.focus(vs);
+		System.out.println("Select " + vertex);
+		System.out.println(g);
+
+		// TIntHashSet type = new TIntHashSet(new int[] { 3, 4 });
+		ImmutableList<Integer> type = ImmutableList.of(3, 4);
+
+		Map<CQGraphEdge, Integer> emptyMap = Maps.newHashMap();
+		g.clip(vs, g.getInEdges(vertex), emptyMap, type);
+		System.out.println("Clip off " + vertex);
+		System.out.println(g);
+
+		assertEquals(3, g.getVertexCount());
+		assertEquals(2, g.getEdgeCount());
+	}
+	
 	@Test
 	public void testClip02() {
 		String s = " q()  :- r2(X1, X0), r4(X2, X1), r6(X1, X3). ";
@@ -450,7 +493,7 @@ public class CQGraphTest {
 		assertEquals(2, g.getVertexCount());
 		assertEquals(1, g.getEdgeCount());
 	}
-	
+
 	@Test
 	public void testClip13() {
 		String s = "q(X1) :- c2(X1), c5(X3), r2(X2,X3), c4(X2), r2(X1,X2).";
@@ -486,15 +529,17 @@ public class CQGraphTest {
 		assertEquals(2, g.getVertexCount());
 		assertEquals(1, g.getEdgeCount());
 	}
-	
+
 	/*
-	 * DEBUG (CQGraphRewriter.java:175) - cq(g) = q(X1) :- c2(X1), c5(X3), r2(X2,X3), c4(X2), r2(X1,X2).
+	 * DEBUG (CQGraphRewriter.java:175) - cq(g) = q(X1) :- c2(X1), c5(X3),
+	 * r2(X2,X3), c4(X2), r2(X1,X2).
 	 * 
-DEBUG (CQGraphRewriter.java:176) - edges = [<X1, X2>[2]]; map = {<X1, X2>[2]=2}
-
-DEBUG (CQGraphRewriter.java:177) - type = [3, 0]
-
-DEBUG (CQGraphRewriter.java:183) - -- new cq = q(X1) :- c2(X1), c3(X3).
+	 * DEBUG (CQGraphRewriter.java:176) - edges = [<X1, X2>[2]]; map = {<X1,
+	 * X2>[2]=2}
+	 * 
+	 * DEBUG (CQGraphRewriter.java:177) - type = [3, 0]
+	 * 
+	 * DEBUG (CQGraphRewriter.java:183) - -- new cq = q(X1) :- c2(X1), c3(X3).
 	 */
 	@Test
 	public void testClip14() {
@@ -530,17 +575,6 @@ DEBUG (CQGraphRewriter.java:183) - -- new cq = q(X1) :- c2(X1), c3(X3).
 
 		assertEquals(2, g.getVertexCount());
 		assertEquals(1, g.getEdgeCount());
-	}
-
-	@Test
-	public void testMultiMap() {
-		Multimap<String, String> mmap = HashMultimap.create();
-		mmap.put("a", "b");
-		mmap.put("a", "b");
-		mmap.put("a", "c");
-		mmap.put("b", "c");
-
-		System.out.println(mmap);
 	}
 
 }

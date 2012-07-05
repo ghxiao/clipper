@@ -49,16 +49,16 @@ public class KaosOutputQueryNormtimeRewriteTime {
 		//qaHornSHIQ.getQueriesAndRelatedRulesDataLog();
 		qaHornSHIQ.getQueriesAndRelatedRulesDataLog();
 		long endTime = System.currentTimeMillis();
-		long reasoningAndRewritingTime = qaHornSHIQ.getReasoningTime()
-				+ qaHornSHIQ.getQueryRewritingTime();
+		long reasoningAndRewritingTime = qaHornSHIQ.getClipperReport().getReasoningTime()
+				+ qaHornSHIQ.getClipperReport().getQueryRewritingTime();
 		long runningTime = endTime - startTime
-				- qaHornSHIQ.getCoutingRealtedRulesTime();
+				- qaHornSHIQ.getClipperReport().getCoutingRealtedRulesTime();
 
 	                                 	// queries
-		System.out.println(qaHornSHIQ.getNumberOfRewrittenQueriesAndRules()
+		System.out.println(qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueriesAndRules()
 				+ " "+
 				// normalization
-				qaHornSHIQ.getNormalizationTime() + " " +
+				qaHornSHIQ.getClipperReport().getNormalizationTime() + " " +
 				// rewriting                   
 				reasoningAndRewritingTime );
 	}
