@@ -2,6 +2,8 @@ package org.semanticweb.clipper.hornshiq.rule;
 
 public interface Term {
 	public boolean isVariable();
+	
+	public boolean isConstant();
 
 	public int getIndex();
 

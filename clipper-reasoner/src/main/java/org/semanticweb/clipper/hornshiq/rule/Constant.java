@@ -74,4 +74,9 @@ public class Constant implements Term {
 		return this;
 	}
 
+	@Override
+	public boolean isConstant() {
+		return true;
+	}
+
 }

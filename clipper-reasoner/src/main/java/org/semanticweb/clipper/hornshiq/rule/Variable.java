@@ -40,4 +40,9 @@ public class Variable implements Term {
 		throw new IllegalArgumentException("not a constant!");
 	}
 
+	@Override
+	public boolean isConstant() {
+		return false;
+	}
+
 }

@@ -15,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
+import org.semanticweb.clipper.hornshiq.rule.Constant;
 import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
 import org.semanticweb.clipper.hornshiq.rule.NonDLPredicate;
 import org.semanticweb.clipper.hornshiq.rule.Predicate;
@@ -128,24 +129,27 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 			Collection<CQGraphEdge> edges, //
 			Map<CQGraphEdge, Integer> map, //
 			List<Integer> type) {
-		Variable vertex0 = leaves.iterator().next();
-
-		checkState(this.containsVertex(vertex0), "vertex is not in the graph!");
 
 		boolean distinguished = false;
 
+		// Term newLeaf;
+
+		Term vertex0 = computeNewLeaf(edges, map);
+
 		List<Integer> newType = Lists.newArrayList(type);
 
-		// vertex0.concepts = type;
-		for (CQGraphEdge edge : edges) {
-			boolean removingEdge = true;
+		// vertex0.concepts = type
+		// to avoid java.util.ConcurrentModificationException
+		ArrayList<CQGraphEdge> copyOfEdges = Lists.newArrayList(edges);
+		for (CQGraphEdge edge : copyOfEdges) {
+			// boolean removingEdge = true;
 
 			if (map.containsKey(edge)) {
 				Integer subRole = map.get(edge);
 				CQGraphEdge newEdge = new CQGraphEdge(edge.getSource(), vertex0, subRole);
 				replaceEdge(edge, newEdge);
 				if (edge.getRole().equals(subRole) && edge.getDest().equals(vertex0)) {
-					removingEdge = false;
+					// removingEdge = false;
 				}
 			} else {
 				Term parentVertex = edge.getSource();
@@ -167,34 +171,64 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 				}
 				newType.addAll(getConcepts(parentVertex));
 
-				removeVertex(parentVertex);
+				if (parentVertex.isVariable()) {
+					removeVertex(parentVertex);
+				}
 			}
 
-			if (removingEdge) {
-				removeEdge(edge);
-			}
+			// if (removingEdge) {
+			// removeEdge(edge);
+			// }
 
 		}
 
 		mergeLeafVertices(vertex0, leaves, newType, distinguished);
 	}
 
-	private void mergeLeafVertices(Variable selectedVertex, Collection<Variable> leafVertices, List<Integer> type,
+	/**
+	 * get a constant source from the edges
+	 * 
+	 * if there are more than one such edges, an exception will be thrown
+	 * 
+	 * @param map
+	 */
+	private Term computeNewLeaf(Collection<CQGraphEdge> edges, Map<CQGraphEdge, Integer> map) {
+		Term ret = null;
+		for (CQGraphEdge edge : edges) {
+			if (!map.containsKey(edge)) {
+				if (edge.getSource().isConstant()) {
+					if (ret == null) {
+						ret = edge.getSource().asConstant();
+					} else {
+						// not the first one
+						throw new IllegalArgumentException("more than one constants to merge!");
+					}
+				}
+			}
+		}
+
+		if (ret == null)
+			ret = edges.iterator().next().getDest();
+
+		return ret;
+	}
+
+	private void mergeLeafVertices(Term vertex0, Collection<Variable> leafVertices, List<Integer> type,
 			boolean distinguished) {
 		Collection<CQGraphEdge> interLeafEdges = this.getInterEdges(leafVertices);
 		for (CQGraphEdge edge : interLeafEdges) {
 			this.removeEdge(edge);
 		}
 		for (Variable vertex : leafVertices) {
-			if (vertex != selectedVertex) {
+			if (!vertex.equals(vertex0)) {
 				this.removeVertex(vertex);
 			}
 		}
 
-		getConcepts(selectedVertex).clear();
-		getConcepts(selectedVertex).addAll(type);
+		getConcepts(vertex0).clear();
+		getConcepts(vertex0).addAll(type);
 		if (distinguished)
-			answerVariables.add(selectedVertex);
+			answerVariables.add(vertex0.asVariable());
 	}
 
 	/**
