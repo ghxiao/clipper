@@ -1,5 +1,3 @@
-#summary One-sentence summary of this page.
-
 = Introduction =
 
 Clipper is a Reasoner for Conjunctive Query Answering over Honr-SHIQ via Query Rewriting 
