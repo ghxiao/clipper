@@ -1,1 +1,2 @@
-*.dl # generated dlv files
+#generated dlv files
+*.dl
