@@ -53,7 +53,7 @@ class TableQueryResultPrinter extends QueryResultPrinter {
 	@Override
 	void init(List<Term> answerVars, List<List<String>> answers) {
 
-		int size = answers.get(0).size();
+		int size = answerVars.size();
 
 		widths = Lists.newArrayListWithCapacity(size);
 		for (int i = 0; i < size; i++) {

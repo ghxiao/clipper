@@ -1,5 +1,6 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 
 import com.beust.jcommander.JCommander;
+import com.google.common.io.Files;
 
 public class ClipperApp {
 
@@ -112,8 +114,16 @@ public class ClipperApp {
 		}
 
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+
+//		File ontologyFile = new File(ontologyFileName);
+//		String ontologyDir = ontologyFile.getParent();
+//		String name = ontologyFile.getName();
+//		String string = Files.getFileExtension(ontologyFileName);
+//		
+		String sparqlName = new File(sparqlFileName).getName();
+		
 		qaHornSHIQ.setOntologyName(ontologyFileName);
-		qaHornSHIQ.setDataLogName(ontologyFileName + "-" + ontologyFileName + ".dl");
+		qaHornSHIQ.setDataLogName(ontologyFileName + "-" + sparqlName + ".dl");
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setQueryRewriter(cla.getRewriter());
 

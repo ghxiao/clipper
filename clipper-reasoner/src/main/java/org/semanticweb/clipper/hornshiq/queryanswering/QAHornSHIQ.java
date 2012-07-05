@@ -136,6 +136,12 @@ public class QAHornSHIQ {
 				clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
 				// end of evaluating reasoning time
 
+				ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
+				// reduction.setNamingStrategy(this.namingStrategy);
+				reduction.setCoreImps(tb.getImpContainer().getImps());
+				reduction.setCoreEnfs(tb.getEnfContainer().getEnfs());
+				reduction.getEncodedDataLogProgram(this.dataLogName);
+
 				QueryRewriter qr = null;
 				if (queryRewriter.equals("old")) {
 					qr = new QueryRewriting(tb.getEnfContainer(), tb.getInverseRoleAxioms(),
@@ -198,17 +204,21 @@ public class QAHornSHIQ {
 				// System.out
 				// .println("Total number of Conjunctive queries and related rules: "
 				// + numberOfRewrittenQueriesAndRules);
-				//FileWriter fstream = new FileWriter(this.dataLogName, true);
-				FileWriter fstream = new FileWriter(this.dataLogName);
+				// FileWriter fstream = new FileWriter(this.dataLogName, true);
+				FileWriter fstream = new FileWriter(this.dataLogName, true);
 				BufferedWriter out = new BufferedWriter(fstream);
 				out.write("% rewritten queries:\n");
 				for (CQ query : ucq)
 					out.write(formatQuery(query) + "\n");
+//				for (Rule rule : relatedRules.getUcqRelatedDatalogRules()) {
+//					out.write(rule + "\n");
+//				}
+
 				out.close();
 			} catch (OWLOntologyCreationException e) {
 				e.printStackTrace();
-			} catch (Exception e) {
-				System.err.println("Error: " + e.getMessage());
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
 	}
