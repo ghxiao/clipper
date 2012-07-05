@@ -154,9 +154,8 @@ class HtmlQueryResultPrinter extends QueryResultPrinter {
 			System.out.println("</td>");
 		}
 
-		// Joiner.on(", ").appendTo(System.out, answerVars);
 		System.out.println("</tr>");
-		// System.out.println();
+
 	}
 
 	@Override
