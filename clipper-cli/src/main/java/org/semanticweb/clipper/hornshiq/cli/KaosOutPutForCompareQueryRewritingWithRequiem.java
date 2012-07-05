@@ -55,10 +55,10 @@ public class KaosOutPutForCompareQueryRewritingWithRequiem {
 //				+ "  milliseconds");
 //		System.out.println("Query rewriting time:                                         "
 //				+ qaHornSHIQ.getQueryRewritingTime() + "  milliseconds");
-		long rewritingTime= qaHornSHIQ.getReasoningTime() 	+ qaHornSHIQ.getQueryRewritingTime()+qaHornSHIQ.getCoutingRealtedRulesTime();
+		long rewritingTime= qaHornSHIQ.getClipperReport().getReasoningTime() 	+ qaHornSHIQ.getClipperReport().getQueryRewritingTime()+qaHornSHIQ.getClipperReport().getCoutingRealtedRulesTime();
 	 //Add counting realated rules time to query rewriting time (18 Juanuary 2012)
-	//	long rewritingTime= qaHornSHIQ.getReasoningTime() 	+ qaHornSHIQ.getQueryRewritingTime() + qaHornSHIQ.getCoutingRealtedRulesTime();
-		System.out.println(qaHornSHIQ.getNumberOfRewrittenQueries()+ " " + qaHornSHIQ.getNumberOfRewrittenQueriesAndRules() + " " + rewritingTime);
+	//	long rewritingTime= qaHornSHIQ.getClipperReport().getReasoningTime() 	+ qaHornSHIQ.getClipperReport().getQueryRewritingTime() + qaHornSHIQ.getCoutingRealtedRulesTime();
+		System.out.println(qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueries()+ " " + qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueriesAndRules() + " " + rewritingTime);
 //		System.out.println("#queries:"+qaHornSHIQ.getNumberOfRewrittenQueries()+ "; queries +rules: " + qaHornSHIQ.getNumberOfRewrittenQueriesAndRules() + "rewriting time: " + rewritingTime + "find realted rules: "+ qaHornSHIQ.getCoutingRealtedRulesTime());
 //		System.out.println("Total time for query rewriting (reasoning + rewriting time):  "
 //				+ totalTime + "  milliseconds");

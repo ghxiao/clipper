@@ -47,16 +47,16 @@ public class KaosReasonerCLILUBM {
 		long startTime = System.currentTimeMillis();
 		qaHornSHIQ.getQueriesAndRelatedRulesDataLog();
 		long endTime = System.currentTimeMillis();
-		long reasoningAndRewriting = qaHornSHIQ.getReasoningTime()
-				+ qaHornSHIQ.getQueryRewritingTime();
+		long reasoningAndRewriting = qaHornSHIQ.getClipperReport().getReasoningTime()
+				+ qaHornSHIQ.getClipperReport().getQueryRewritingTime();
 		long runningTime = endTime - startTime
-				- qaHornSHIQ.getCoutingRealtedRulesTime();
+				- qaHornSHIQ.getClipperReport().getCoutingRealtedRulesTime();
 
 	                                 	// queries
-		System.out.println(qaHornSHIQ.getNumberOfRewrittenQueriesAndRules()
+		System.out.println(qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueriesAndRules()
 				+ " "+
 				// normalization
-				qaHornSHIQ.getNormalizationTime() + " " +
+				qaHornSHIQ.getClipperReport().getNormalizationTime() + " " +
 				// rewriting                   
 				reasoningAndRewriting );
 	}

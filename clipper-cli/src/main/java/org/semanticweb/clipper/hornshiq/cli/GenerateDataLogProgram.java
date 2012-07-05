@@ -55,8 +55,8 @@ public class GenerateDataLogProgram {
 //				+ "  milliseconds");
 //		System.out.println("Query rewriting time:                                         "
 //				+ qaHornSHIQ.getQueryRewritingTime() + "  milliseconds");
-		long totalTime= qaHornSHIQ.getReasoningTime() 	+ qaHornSHIQ.getQueryRewritingTime();
-		System.out.println(qaHornSHIQ.getNumberOfRewrittenQueries()+ " " + qaHornSHIQ.getNumberOfRewrittenQueriesAndRules() + " " + totalTime);
+		long totalTime= qaHornSHIQ.getClipperReport().getReasoningTime() 	+ qaHornSHIQ.getClipperReport().getQueryRewritingTime();
+		System.out.println(qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueries()+ " " + qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueriesAndRules() + " " + totalTime);
 //		System.out.println("Total time for query rewriting (reasoning + rewriting time):  "
 //				+ totalTime + "  milliseconds");
 //		System.out.println("Time of running datalog program:                              " + qaHornSHIQ.getDatalogRunTime() + "  milliseconds");
