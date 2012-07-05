@@ -26,7 +26,7 @@ import com.google.common.collect.Sets;
 @Slf4j
 public class CQGraphRewriter implements QueryRewriter {
 
-	//final Logger log = LoggerFactory.getLogger(CQGraphRewriter.class);
+	// final Logger log = LoggerFactory.getLogger(CQGraphRewriter.class);
 
 	NormalHornALCHIQOntology ontology;
 	IndexedEnfContainer enfs;
@@ -168,10 +168,7 @@ public class CQGraphRewriter implements QueryRewriter {
 			if (mergeable) {
 				CQGraph g1 = g.deepCopy();
 
-				List<Integer> type = Lists.newArrayList();
-				for (Integer t : enf.getType1().toArray()) {
-					type.add(t);
-				}
+				List<Integer> type = toList(enf.getType1());
 
 				log.debug("cq(g) = {}", g.toCQ());
 				log.debug("edges = {}; map = {}", edges, map);
@@ -187,6 +184,18 @@ public class CQGraphRewriter implements QueryRewriter {
 			}
 		}
 
+	}
+
+	/**
+	 * @param tmp
+	 * @return
+	 */
+	private List<Integer> toList(TIntHashSet tmp) {
+		List<Integer> type = Lists.newArrayList();
+		for (Integer t : tmp.toArray()) {
+			type.add(t);
+		}
+		return type;
 	}
 
 	/**

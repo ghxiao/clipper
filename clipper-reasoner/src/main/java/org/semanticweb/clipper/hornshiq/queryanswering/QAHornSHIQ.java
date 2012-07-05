@@ -55,6 +55,8 @@ public class QAHornSHIQ {
 	private String queryPrefix;
 	private String datalogEngine = "dlv";
 
+	private String queryRewriter = "old";
+
 	private String headPredicate;
 	private List<String> answers;
 	private List<List<String>> decodedAnswers;
@@ -63,57 +65,21 @@ public class QAHornSHIQ {
 	private ClipperReport clipperReport = new ClipperReport();
 
 	private Collection<CQ> rewrittenQueries;
-	String dlvPath = "lib/dlv";
 
+	// String dlvPath = "lib/dlv";
+	String dlvPath;
 
 	public QAHornSHIQ() {
 		answers = new ArrayList<String>();
 		decodedAnswers = new ArrayList<List<String>>();
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);// default
-	}	
+	}
 
 	public void setNamingStrategy(NamingStrategy namingStrategy) {
 		ClipperManager.getInstance().setNamingStrategy(namingStrategy);
 
 	}
 
-	public List<List<String>> getDecodedAnswers() {
-		return decodedAnswers;
-	}
-
-	public long getReasoningTime() {
-		return clipperReport.getReasoningTime();
-	}
-
-	public long getQueryRewritingTime() {
-		return clipperReport.getQueryRewritingTime();
-	}
-
-	public long getDatalogRunTime() {
-		return clipperReport.getDatalogRunTime();
-	}
-
-	public int getNumberOfRewrittenQueries() {
-		return clipperReport.getNumberOfRewrittenQueries();
-	}
-
-	public int getNumberOfRewrittenQueriesAndRules() {
-		return clipperReport.getNumberOfRewrittenQueriesAndRules();
-	}
-
-	public long getNormalizationTime() {
-		return clipperReport.getNormalizationTime();
-	}
-
-	public long getOutputAnswerTime() {
-		return clipperReport.getOutputAnswerTime();
-	}
-
-	public long getCoutingRealtedRulesTime() {
-		return clipperReport.getCoutingRealtedRulesTime();
-	}
-
-	// private void getDataLog() {
 	/**
 	 * @return Datalog program that contains: rewritten queries, completion
 	 *         rules, and ABox assertions
@@ -170,8 +136,13 @@ public class QAHornSHIQ {
 				clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
 				// end of evaluating reasoning time
 
-				QueryRewriter qr = new QueryRewriting(tb.getEnfContainer(), tb.getInverseRoleAxioms(),
-						tb.getAllValuesFromAxioms());
+				QueryRewriter qr = null;
+				if (queryRewriter.equals("old")) {
+					qr = new QueryRewriting(tb.getEnfContainer(), tb.getInverseRoleAxioms(),
+							tb.getAllValuesFromAxioms());
+				} else {
+					qr = new CQGraphRewriter(onto_bs, tb.getEnfContainer());
+				}
 
 				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println("%Enforces relations:");
@@ -709,6 +680,8 @@ public class QAHornSHIQ {
 
 		inputProgram.addFile(this.dataLogName);
 
+		ensureDlvPath();
+
 		DLVInvocation invocation = DLVWrapper.getInstance().createInvocation(dlvPath);
 		/* I can specify a part of DLV program using simple strings */
 
@@ -811,6 +784,15 @@ public class QAHornSHIQ {
 		}
 		return decodedAnswers;
 
+	}
+
+	/**
+	 * if dlvPath is not set, then we use ~/bin/dlv
+	 */
+	private void ensureDlvPath() {
+		if (dlvPath == null || dlvPath.length() == 0) {
+			dlvPath = System.getenv("HOME") + "/bin/dlv";
+		}
 	}
 
 	private String getBinaryPredicate(int value) {
@@ -959,4 +941,5 @@ public class QAHornSHIQ {
 		}
 		throw new IllegalStateException("Not possible");
 	}
+
 }
