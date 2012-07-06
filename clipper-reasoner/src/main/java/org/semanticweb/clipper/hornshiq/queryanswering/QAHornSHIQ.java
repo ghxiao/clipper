@@ -96,9 +96,12 @@ public class QAHornSHIQ {
 				cqParser.setPrefix(queryPrefix);
 				cq = cqParser.getCq();
 			}
-			if (cq.getHead().getPredicate().getEncoding() != -1)
-				this.headPredicate = "q" + cq.getHead().getPredicate().getEncoding();
-			else
+			
+			// may be useful in the future
+//			if (cq.getHead().getPredicate().getEncoding() != -1)
+//				this.headPredicate = "q" + cq.getHead().getPredicate().getEncoding();
+//			else
+				
 				this.headPredicate = "q";
 			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println("% Encoded Input query:" + cq);
