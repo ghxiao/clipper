@@ -12,10 +12,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.semanticweb.clipper.hornshiq.ontology.NormalHornALCHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.SubPropertyAxiom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
+import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
 
 import com.google.common.base.Predicates;
+import com.google.common.base.Strings;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -27,6 +29,8 @@ import com.google.common.collect.Sets;
 public class CQGraphRewriter implements QueryRewriter {
 
 	// final Logger log = LoggerFactory.getLogger(CQGraphRewriter.class);
+
+	CQGraphHomomorphismChecker checker;
 
 	NormalHornALCHIQOntology ontology;
 	IndexedEnfContainer enfs;
@@ -41,6 +45,7 @@ public class CQGraphRewriter implements QueryRewriter {
 	public CQGraphRewriter(NormalHornALCHIQOntology ontology, IndexedEnfContainer enfs) {
 		this.ontology = ontology;
 		this.enfs = enfs;
+		checker = new CQGraphHomomorphismChecker();
 		List<SubPropertyAxiom> subPropertyAxioms = ontology.computeNonSimpleSubPropertyClosure();
 		transSuperRole2SubRolesMmap = HashMultimap.create();
 		for (SubPropertyAxiom subPropertyAxiom : subPropertyAxioms) {
@@ -177,14 +182,32 @@ public class CQGraphRewriter implements QueryRewriter {
 				g1.clip(leaves, edges, map, type);
 
 				CQ cq = g1.toCQ();
+				// if (!redundant(g1)) {
 				if (!resultCQs.contains(cq)) {
-					
+
 					log.debug("-- new cq = {}", cq);
 					rewrite_recursive(g1);
 				}
 			}
 		}
 
+	}
+
+	public boolean redundant(CQGraph g1) {
+		for (CQGraph g : resultGraphs) {
+			if (checker.isHomomorphism(g, g1)) {
+				Map<Term, Term> map = checker.getMap();
+				System.out.println(Strings.repeat("-", 80));
+				System.out.println(g.toCQ());
+				System.out.println("--> " + map);
+				System.out.println(g1.toCQ());
+				System.out.println(checker.check(map, g, g1));
+				System.out.println(Strings.repeat("-", 80));
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**

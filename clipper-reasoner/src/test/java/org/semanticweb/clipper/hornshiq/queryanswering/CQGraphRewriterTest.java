@@ -145,7 +145,7 @@ public class CQGraphRewriterTest {
 		ontology.getTransitivityAxioms().add(new TransitivityAxiom(4));
 		ontology.getTransitivityAxioms().add(new TransitivityAxiom(6));
 
-		ontology.getAndSubAtomAxioms().add(new AndSubAtomAxiom(4, 5));
+		//ontology.getAndSubAtomAxioms().add(new AndSubAtomAxiom(4, 5));
 
 		IndexedEnfContainer enfs = new IndexedEnfContainer();
 
