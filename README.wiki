@@ -1,18 +1,14 @@
-# Introduction 
+= Introduction =
 
-Clipper is a Reasoner for Conjunctive Query Answering over Honr-SHIQ via Query Rewriting. 
+Clipper is a Reasoner for Conjunctive Query Answering over Honr-SHIQ via Query Rewriting 
 
-# Usage from CLI
+= Usage from CLI =
 
-1. Download the latest version of clipper-vx.zip and unzip it
-2. Set env variable CLIPPER_HOME to the where you extracted 
-
-   `$ export CLIPPER_HOME=/path/to/clipper.sh`
-
-3. Download [DLV](http://www.dlvsystem.com/dlvsystem/index.php/DLV) to your local machine
-4. Run `clipper.sh` 
-
-```
+  # Download the latest version of clipper-vx.zip and extract it
+  # Set env variable CLIPPER_HOME to the where you extracted 
+  # Download DLV
+  # Run clipper.sh 
+{{{
 Usage: clipper.sh [options] [command] [command options]
   Options:
     -v, -verbose   Level of verbosity
@@ -46,26 +42,25 @@ Usage: clipper.sh [options] [command] [command options]
 
     help      Print the usage
       Usage: help [options]
-```
+}}}
 
-# Build from source 
-We use [maven build system](http://maven.apache.org) and [Git](http://git-scm.com) to manage the source code.
+= Build from source =
+We use [http://maven.apache.org maven build system] and [http://git-scm.com Git] to manage the source code.
+{{{
+  $ git clone https://github.com/ghxiao/clipper.git clipper
+  $ cd  clipper
+  $ ./mvn_build.sh
+}}}
 
-	  $ git clone https://github.com/ghxiao/clipper.git clipper
-	  $ cd clipper
-	  $ ./mvn_build.sh
+= Citations = 
 
-# Citations
+[[1]] Thomas Eiter, Magdalena Ortiz, Mantas Šimkus, Trung-Kien Tran, and Guohui Xiao. 
+Query Rewriting for Horn-SHIQ plus Rules. _AAAI 2012_. 
 
-[1] Thomas Eiter, Magdalena Ortiz, Mantas Šimkus, Trung-Kien Tran, and Guohui Xiao. 
-Query Rewriting for Horn-SHIQ plus Rules. _AAAI 2012_. [pdf](http://www.kr.tuwien.ac.at/staff/xiao/pub/2012/eostx2012-aaai-hshiq.pdf)
+[[2]] Thomas Eiter, Magdalena Ortiz, Mantas Šimkus, Trung-Kien Tran, and Guohui Xiao. Towards Practical Query Answering for Horn SHIQ. _DL 2012_. 
 
-[2] Thomas Eiter, Magdalena Ortiz, Mantas Šimkus, Trung-Kien Tran, and Guohui Xiao. Towards Practical Query Answering for Horn SHIQ. _DL 2012_. [pdf](http://www.kr.tuwien.ac.at/staff/xiao/pub/2012/eostx2012-dl-hshiq.pdf)
+= Links =
 
-# Links 
-
-* [Clipper @ Google Code](http://code.google.com/p/clipper-reasoner)
-* [Clipper @ Github](https://github.com/ghxiao/clipper)
-* [Clipper @ TUWien](http://www.kr.tuwien.ac.at/research/systems/clipper/index.html)
-
-Contact <xiao(a)kr.tuwien.ac.at>
+  * [http://code.google.com/p/clipper-reasoner Clipper @ Google Code ]
+  * [https://github.com/ghxiao/clipper Clipper @ Github ]
+  * [http://www.kr.tuwien.ac.at/research/systems/clipper/index.html Clipper @ TUWien]
