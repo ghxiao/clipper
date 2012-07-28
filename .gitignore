@@ -3,3 +3,5 @@ target
 .settings
 *~
 catalog-v*.xml
+.classpath
+.project
