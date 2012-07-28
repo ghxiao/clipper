@@ -1,6 +1,6 @@
 # Introduction 
 
-Clipper is a Reasoner for Conjunctive Query Answering over Honr-SHIQ via Query Rewriting. 
+Clipper is a Reasoner for conjunctive query answering over Horn-SHIQ via 	query rewriting. 
 
 # Usage from CLI
 
@@ -55,17 +55,17 @@ We use [maven build system](http://maven.apache.org) and [Git](http://git-scm.co
 	  $ cd clipper
 	  $ ./mvn_build.sh
 
-# Citations
+# References
 
 [1] Thomas Eiter, Magdalena Ortiz, Mantas Šimkus, Trung-Kien Tran, and Guohui Xiao. 
 Query Rewriting for Horn-SHIQ plus Rules. _AAAI 2012_. [pdf](http://www.kr.tuwien.ac.at/staff/xiao/pub/2012/eostx2012-aaai-hshiq.pdf)
 
 [2] Thomas Eiter, Magdalena Ortiz, Mantas Šimkus, Trung-Kien Tran, and Guohui Xiao. Towards Practical Query Answering for Horn SHIQ. _DL 2012_. [pdf](http://www.kr.tuwien.ac.at/staff/xiao/pub/2012/eostx2012-dl-hshiq.pdf)
 
-# Links 
+## Links 
 
 * [Clipper @ Google Code](http://code.google.com/p/clipper-reasoner)
 * [Clipper @ Github](https://github.com/ghxiao/clipper)
 * [Clipper @ TUWien](http://www.kr.tuwien.ac.at/research/systems/clipper/index.html)
 
-Contact <xiao(a)kr.tuwien.ac.at>
+Contact: xiao(a)kr.tuwien.ac.at
