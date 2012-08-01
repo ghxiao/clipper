@@ -22,12 +22,16 @@ public class CQParserTest {
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		OWLOntology ontology = manager.loadOntologyFromOntologyDocument(IRI.create(CQParserTest.class
 				.getResource("/ontologies/LUBM/univ-bench.owl")));
-
-		InputStream istream = CQParser.class.getResourceAsStream("/ontologies/LUBM/Queries/Query_00.txt");
-
-		CQParser parser = new CQParser(istream, ImmutableSet.of(ontology));
-		CQ cq = parser.parse();
-		System.out.println(cq);
+		for (int i = 0; i <= 14; i++) {
+			String name = String.format("/ontologies/LUBM/Queries/Query_%02d.txt", i);
+			System.out.println(name);
+			//final String name = "/ontologies/LUBM/Queries/Query_00.txt";
+			InputStream istream = CQParser.class.getResourceAsStream(name);
+			CQParser parser = new CQParser(istream, ImmutableSet.of(ontology));
+			CQ cq = parser.parse();
+			System.out.println(cq);
+			System.out.println();
+		}
 	}
 
 }
