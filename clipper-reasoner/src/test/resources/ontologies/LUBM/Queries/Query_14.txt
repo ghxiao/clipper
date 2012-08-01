@@ -1,0 +1,2 @@
+Q(?0) <- UndergraduateStudent(?0)
+

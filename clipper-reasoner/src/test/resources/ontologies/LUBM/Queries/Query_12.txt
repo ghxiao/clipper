@@ -1,0 +1,1 @@
+Q(?0,?1,?44) <- Chair(?0), Department(?1), worksFor(?0,?1), subOrganizationOf(?1, ?44)
