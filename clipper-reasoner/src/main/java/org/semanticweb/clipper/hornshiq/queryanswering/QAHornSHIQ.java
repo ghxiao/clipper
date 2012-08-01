@@ -32,7 +32,7 @@ import org.semanticweb.clipper.hornshiq.profile.HornSHIQProfile;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.rule.CQParser;
+import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.util.AnswerParser;
 import org.semanticweb.clipper.util.QueriesRelatedRules;
@@ -91,7 +91,7 @@ public class QAHornSHIQ {
 		} else {
 			File file = new File(ontologyName);
 			if (cq == null) {
-				CQParser cqParser = new CQParser();
+				InternalCQParser cqParser = new InternalCQParser();
 				cqParser.setQueryString(queryString);
 				cqParser.setPrefix(queryPrefix);
 				cq = cqParser.getCq();
@@ -260,7 +260,7 @@ public class QAHornSHIQ {
 		} else {
 			File file = new File(ontologyName);
 			if (cq == null) {
-				CQParser cqParser = new CQParser();
+				InternalCQParser cqParser = new InternalCQParser();
 				cqParser.setQueryString(queryString);
 				cqParser.setPrefix(queryPrefix);
 				cq = cqParser.getCq();
@@ -440,7 +440,7 @@ public class QAHornSHIQ {
 		} else {
 			File file = new File(ontologyName);
 			if (cq == null) {
-				CQParser cqParser = new CQParser();
+				InternalCQParser cqParser = new InternalCQParser();
 				cqParser.setQueryString(queryString);
 				cqParser.setPrefix(queryPrefix);
 				cq = cqParser.getCq();
@@ -581,7 +581,7 @@ public class QAHornSHIQ {
 		} else {
 			File file = new File(ontologyName);
 			if (cq == null) {
-				CQParser cqParser = new CQParser();
+				InternalCQParser cqParser = new InternalCQParser();
 				cqParser.setQueryString(queryString);
 				cqParser.setPrefix(queryPrefix);
 				cq = cqParser.getCq();

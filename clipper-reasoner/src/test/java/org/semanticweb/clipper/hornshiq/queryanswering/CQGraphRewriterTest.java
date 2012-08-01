@@ -13,7 +13,7 @@ import org.semanticweb.clipper.hornshiq.ontology.NormalHornALCHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.SubPropertyAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.TransitivityAxiom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.rule.CQParser;
+import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
@@ -116,7 +116,7 @@ public class CQGraphRewriterTest {
 
 		String s = "q(X1)  :- c2(X1), r2(X1, X2), c4(X2), c5(X3), r2(X2, X3).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -163,7 +163,7 @@ public class CQGraphRewriterTest {
 
 		String s = "q(X1)  :-  r2(X1, X2),  r4(X1, X3), r6(X1, X4).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);

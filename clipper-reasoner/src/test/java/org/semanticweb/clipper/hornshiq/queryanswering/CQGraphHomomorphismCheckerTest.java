@@ -9,7 +9,7 @@ import java.util.Map;
 
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.rule.CQParser;
+import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
 
@@ -23,7 +23,7 @@ public class CQGraphHomomorphismCheckerTest {
 	public void test() {
 		String s = "q( X0 )  :- r6(X1, X2), r8(X1, X2), c3 (X1), c3(X1), r8(X0,X2), c2(X0), r4(X0,X1). ";
 
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g1 = new CQGraph(cq);
@@ -54,7 +54,7 @@ public class CQGraphHomomorphismCheckerTest {
 		// "q( X0 )  :- r6(X1, X2), r8(X1, X2), c3 (X1), c3(X1), r8(X0,X2), c2(X0), r4(X0,X1). ";
 		String s = "q( X0 )  :- r6(X1, X2), r8(X1, X2), c3 (X1), c3(X1), r8(X0,X2), c2(X0), r4(X0,X1). ";
 
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g1 = new CQGraph(cq);
@@ -86,7 +86,7 @@ public class CQGraphHomomorphismCheckerTest {
 		// "q( X0 )  :- r6(X1, X2), r8(X1, X2), c3 (X1), c3(X1), r8(X0,X2), c2(X0), r4(X0,X1). ";
 		String s = "q( X0 )  :- r6(X1, X2), r8(X1, X2), c3 (X1), c3(X1), r8(X0,X2), c2(X0), r4(X0,X1). ";
 
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g1 = new CQGraph(cq);
@@ -111,7 +111,7 @@ public class CQGraphHomomorphismCheckerTest {
 		// "q( X0 )  :- r6(X1, X2), r8(X1, X2), c3 (X1), c3(X1), r8(X0,X2), c2(X0), r4(X0,X1). ";
 		String s = "q( X0 )  :- r6(X1, X2), r8(X1, X2), c3 (X1), c3(X1), r8(X0,X2), c2(X0), r4(X0,X1). ";
 
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g1 = new CQGraph(cq);
@@ -137,7 +137,7 @@ public class CQGraphHomomorphismCheckerTest {
 		// "q( X0 )  :- r6(X1, X2), r8(X1, X2), c3 (X1), c3(X1), r8(X0,X2), c2(X0), r4(X0,X1). ";
 		String s = "q(X1) :- r6(X1,X4), r2(X1,X2), r4(X1,X3).";
 
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g1 = new CQGraph(cq);
