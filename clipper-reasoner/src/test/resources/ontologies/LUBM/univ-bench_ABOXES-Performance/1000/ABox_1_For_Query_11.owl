@@ -1,0 +1,2489 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY univ-bench "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl_ABox_1_Query_11#"
+     xml:base="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl_ABox_1_Query_11"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:univ-bench="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="file:/Users/xiao/Documents/workspace/sygenia/examples/ontologies/LUBM/univ-bench.owl"/>
+    </owl:Ontology>
+    <owl:ObjectProperty rdf:about="&univ-bench;researchProject"/>
+    <owl:ObjectProperty rdf:about="&univ-bench;subOrganizationOf"/>
+    <owl:Class rdf:about="&univ-bench;ResearchGroup"/>
+    <rdf:Description rdf:about="&univ-bench;a_1000"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10007">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15332"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10013">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4484"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_10052">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14976"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_6390"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10058">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_16109"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5107"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10074"/>
+    <rdf:Description rdf:about="&univ-bench;a_1009"/>
+    <rdf:Description rdf:about="&univ-bench;a_1010">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_11355"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14324"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10113"/>
+    <rdf:Description rdf:about="&univ-bench;a_10121"/>
+    <rdf:Description rdf:about="&univ-bench;a_10124"/>
+    <rdf:Description rdf:about="&univ-bench;a_10161"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10180">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9387"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_10191"/>
+    <rdf:Description rdf:about="&univ-bench;a_10220">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_6710"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9221"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10250"/>
+    <rdf:Description rdf:about="&univ-bench;a_10254"/>
+    <rdf:Description rdf:about="&univ-bench;a_10292"/>
+    <rdf:Description rdf:about="&univ-bench;a_103"/>
+    <rdf:Description rdf:about="&univ-bench;a_10300"/>
+    <rdf:Description rdf:about="&univ-bench;a_10320"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10332">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17055"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_10335"/>
+    <rdf:Description rdf:about="&univ-bench;a_10357">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_13755"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1929"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10358">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10113"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_7027"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10382">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1079"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_10386"/>
+    <rdf:Description rdf:about="&univ-bench;a_1042"/>
+    <rdf:Description rdf:about="&univ-bench;a_10437"/>
+    <rdf:Description rdf:about="&univ-bench;a_10440"/>
+    <rdf:Description rdf:about="&univ-bench;a_10454">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_16951"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8243"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10477">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16651"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19312"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10482">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11070"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_10505"/>
+    <rdf:Description rdf:about="&univ-bench;a_10513"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10514">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19543"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_1052"/>
+    <rdf:Description rdf:about="&univ-bench;a_1058"/>
+    <rdf:Description rdf:about="&univ-bench;a_10594">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1242"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_7484"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10614"/>
+    <rdf:Description rdf:about="&univ-bench;a_10618"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10619">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2024"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_10633"/>
+    <rdf:Description rdf:about="&univ-bench;a_10634"/>
+    <rdf:Description rdf:about="&univ-bench;a_10650"/>
+    <rdf:Description rdf:about="&univ-bench;a_10673"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10720">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3316"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10726">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4313"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10727">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17102"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10745">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3294"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_10746"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10763">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5579"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_10766">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_150"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17097"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1078"/>
+    <rdf:Description rdf:about="&univ-bench;a_1079"/>
+    <rdf:Description rdf:about="&univ-bench;a_10800"/>
+    <rdf:Description rdf:about="&univ-bench;a_10816"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10824">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18927"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10827">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10618"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10874">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13092"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_10905"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_10973">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1238"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_11030"/>
+    <rdf:Description rdf:about="&univ-bench;a_11032"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11043">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16703"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11049">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3503"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_11070"/>
+    <rdf:Description rdf:about="&univ-bench;a_111"/>
+    <rdf:Description rdf:about="&univ-bench;a_11104"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11112">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9416"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_11113">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12748"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_18415"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11134"/>
+    <rdf:Description rdf:about="&univ-bench;a_11137">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_14574"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7971"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11152">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19048"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_11154"/>
+    <rdf:Description rdf:about="&univ-bench;a_11178">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3321"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_5378"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1120"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11244">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7141"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11246">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11271"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_11269">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17848"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19531"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11271"/>
+    <rdf:Description rdf:about="&univ-bench;a_11285"/>
+    <rdf:Description rdf:about="&univ-bench;a_11290"/>
+    <rdf:Description rdf:about="&univ-bench;a_11301"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11305">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19015"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_11311">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19082"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19484"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11324">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_103"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15878"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11326">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_14308"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2331"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11331">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1162"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_11353"/>
+    <rdf:Description rdf:about="&univ-bench;a_11355"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11361">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7536"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_11363">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_14297"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15665"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11364"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11377">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6638"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_11441"/>
+    <rdf:Description rdf:about="&univ-bench;a_11456"/>
+    <rdf:Description rdf:about="&univ-bench;a_11487">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13207"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_1801"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1149"/>
+    <rdf:Description rdf:about="&univ-bench;a_11502"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11524">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7681"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_11538">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13084"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19551"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11545">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14234"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_11549"/>
+    <rdf:Description rdf:about="&univ-bench;a_11557">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13947"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_15842"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11600"/>
+    <rdf:Description rdf:about="&univ-bench;a_11607"/>
+    <rdf:Description rdf:about="&univ-bench;a_11612"/>
+    <rdf:Description rdf:about="&univ-bench;a_1162"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11632">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14555"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_11638">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3855"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4209"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1164"/>
+    <rdf:Description rdf:about="&univ-bench;a_11649">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_16671"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7145"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11651">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_459"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_11659"/>
+    <rdf:Description rdf:about="&univ-bench;a_11678"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11688">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4246"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_1170"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11709">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14588"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_11712"/>
+    <rdf:Description rdf:about="&univ-bench;a_11717"/>
+    <rdf:Description rdf:about="&univ-bench;a_11723">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17385"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_6573"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11731">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15408"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_11739"/>
+    <rdf:Description rdf:about="&univ-bench;a_11755">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_16677"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18933"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11775"/>
+    <rdf:Description rdf:about="&univ-bench;a_11781"/>
+    <rdf:Description rdf:about="&univ-bench;a_11811"/>
+    <rdf:Description rdf:about="&univ-bench;a_11816"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11849">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18488"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_11854">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_1000"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_340"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11858"/>
+    <rdf:Description rdf:about="&univ-bench;a_11901"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_11912">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2032"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_1192"/>
+    <rdf:Description rdf:about="&univ-bench;a_11947"/>
+    <rdf:Description rdf:about="&univ-bench;a_11992"/>
+    <rdf:Description rdf:about="&univ-bench;a_12"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_1200">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11353"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_12004"/>
+    <rdf:Description rdf:about="&univ-bench;a_12016"/>
+    <rdf:Description rdf:about="&univ-bench;a_12021"/>
+    <rdf:Description rdf:about="&univ-bench;a_12161">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2855"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_712"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1219"/>
+    <rdf:Description rdf:about="&univ-bench;a_12199">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12605"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_14483"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12208"/>
+    <rdf:Description rdf:about="&univ-bench;a_12213"/>
+    <rdf:Description rdf:about="&univ-bench;a_1225">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3032"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4350"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12287"/>
+    <rdf:Description rdf:about="&univ-bench;a_123">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_10074"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6978"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_12324">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9655"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_12325"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_12334">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14475"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_12346">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_10437"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8741"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12373"/>
+    <rdf:Description rdf:about="&univ-bench;a_1238"/>
+    <rdf:Description rdf:about="&univ-bench;a_1242"/>
+    <rdf:Description rdf:about="&univ-bench;a_12436"/>
+    <rdf:Description rdf:about="&univ-bench;a_12447"/>
+    <rdf:Description rdf:about="&univ-bench;a_1247"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_12480">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8310"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_12507">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18284"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_1251">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13196"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_12547">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1629"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_12549"/>
+    <rdf:Description rdf:about="&univ-bench;a_12587"/>
+    <rdf:Description rdf:about="&univ-bench;a_12597"/>
+    <rdf:Description rdf:about="&univ-bench;a_12605"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_1261">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3915"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_12611">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5657"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_12617"/>
+    <rdf:Description rdf:about="&univ-bench;a_12654"/>
+    <rdf:Description rdf:about="&univ-bench;a_12674"/>
+    <rdf:Description rdf:about="&univ-bench;a_12686">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19898"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4734"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_12713">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16399"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_12740"/>
+    <rdf:Description rdf:about="&univ-bench;a_12748"/>
+    <rdf:Description rdf:about="&univ-bench;a_12757"/>
+    <rdf:Description rdf:about="&univ-bench;a_12779"/>
+    <rdf:Description rdf:about="&univ-bench;a_12789">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_11775"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2600"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1279"/>
+    <rdf:Description rdf:about="&univ-bench;a_12805"/>
+    <rdf:Description rdf:about="&univ-bench;a_12825"/>
+    <rdf:Description rdf:about="&univ-bench;a_12839">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_13699"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7272"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12887"/>
+    <rdf:Description rdf:about="&univ-bench;a_12891">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_11285"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1497"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_12907">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6637"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_12909"/>
+    <rdf:Description rdf:about="&univ-bench;a_12911"/>
+    <rdf:Description rdf:about="&univ-bench;a_1295">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_2559"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3162"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12965">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10905"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19117"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12969"/>
+    <rdf:Description rdf:about="&univ-bench;a_12990">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16469"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_9340"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_13">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7350"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_13058"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_13076">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4377"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_13084"/>
+    <rdf:Description rdf:about="&univ-bench;a_13092"/>
+    <rdf:Description rdf:about="&univ-bench;a_131">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_10124"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6800"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13101"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_13113">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11858"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_17283"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6134"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_13114">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19061"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_13122"/>
+    <rdf:Description rdf:about="&univ-bench;a_13165"/>
+    <rdf:Description rdf:about="&univ-bench;a_13196"/>
+    <rdf:Description rdf:about="&univ-bench;a_132"/>
+    <rdf:Description rdf:about="&univ-bench;a_1320"/>
+    <rdf:Description rdf:about="&univ-bench;a_13207"/>
+    <rdf:Description rdf:about="&univ-bench;a_13218">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16236"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_5288"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13224">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_5448"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7429"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13273"/>
+    <rdf:Description rdf:about="&univ-bench;a_13301"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_1331">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_92"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_13341"/>
+    <rdf:Description rdf:about="&univ-bench;a_1342">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17408"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3209"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13479"/>
+    <rdf:Description rdf:about="&univ-bench;a_13491">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18970"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_2300"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1350"/>
+    <rdf:Description rdf:about="&univ-bench;a_13504"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_13531">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17873"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_13536"/>
+    <rdf:Description rdf:about="&univ-bench;a_13601"/>
+    <rdf:Description rdf:about="&univ-bench;a_13602"/>
+    <rdf:Description rdf:about="&univ-bench;a_13603"/>
+    <rdf:Description rdf:about="&univ-bench;a_13605"/>
+    <rdf:Description rdf:about="&univ-bench;a_13630"/>
+    <rdf:Description rdf:about="&univ-bench;a_13631">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_15152"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8900"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_13647">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8294"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_13654"/>
+    <rdf:Description rdf:about="&univ-bench;a_1369"/>
+    <rdf:Description rdf:about="&univ-bench;a_13699"/>
+    <rdf:Description rdf:about="&univ-bench;a_13707"/>
+    <rdf:Description rdf:about="&univ-bench;a_13731">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_357"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_7287"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13733"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_13750">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_98"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_13755"/>
+    <rdf:Description rdf:about="&univ-bench;a_13781"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_13806">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13733"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_13823"/>
+    <rdf:Description rdf:about="&univ-bench;a_13903">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_11678"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5256"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13916">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8815"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_9123"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1392">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12825"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_18354"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13932"/>
+    <rdf:Description rdf:about="&univ-bench;a_13936"/>
+    <rdf:Description rdf:about="&univ-bench;a_13941"/>
+    <rdf:Description rdf:about="&univ-bench;a_13944"/>
+    <rdf:Description rdf:about="&univ-bench;a_13947"/>
+    <rdf:Description rdf:about="&univ-bench;a_140">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_132"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_480"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14039"/>
+    <rdf:Description rdf:about="&univ-bench;a_14041"/>
+    <rdf:Description rdf:about="&univ-bench;a_14044"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_14050">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15785"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_14083"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_14087">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2087"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_14102">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7819"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_8170"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_14104">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6914"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_1413">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7013"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_14159">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14752"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_14198"/>
+    <rdf:Description rdf:about="&univ-bench;a_14208"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_14219">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17274"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_14234"/>
+    <rdf:Description rdf:about="&univ-bench;a_14236"/>
+    <rdf:Description rdf:about="&univ-bench;a_14253">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_12447"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14442"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14255">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_11901"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5754"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_14284">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13605"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_14297"/>
+    <rdf:Description rdf:about="&univ-bench;a_14299">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12213"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3241"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14300"/>
+    <rdf:Description rdf:about="&univ-bench;a_14308"/>
+    <rdf:Description rdf:about="&univ-bench;a_14324"/>
+    <rdf:Description rdf:about="&univ-bench;a_14331"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_14368">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5968"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_14420"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_14425">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15756"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_14438">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13479"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_14208"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14442"/>
+    <rdf:Description rdf:about="&univ-bench;a_14452"/>
+    <rdf:Description rdf:about="&univ-bench;a_14475"/>
+    <rdf:Description rdf:about="&univ-bench;a_14483"/>
+    <rdf:Description rdf:about="&univ-bench;a_14488"/>
+    <rdf:Description rdf:about="&univ-bench;a_14509"/>
+    <rdf:Description rdf:about="&univ-bench;a_14539">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_2551"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3251"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14555"/>
+    <rdf:Description rdf:about="&univ-bench;a_14574"/>
+    <rdf:Description rdf:about="&univ-bench;a_1458"/>
+    <rdf:Description rdf:about="&univ-bench;a_14588"/>
+    <rdf:Description rdf:about="&univ-bench;a_1461">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18867"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_9712"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_14610">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16548"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_1463"/>
+    <rdf:Description rdf:about="&univ-bench;a_14631"/>
+    <rdf:Description rdf:about="&univ-bench;a_14644"/>
+    <rdf:Description rdf:about="&univ-bench;a_14646">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_16681"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7832"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14647"/>
+    <rdf:Description rdf:about="&univ-bench;a_14675"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_14677">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8426"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_14697"/>
+    <rdf:Description rdf:about="&univ-bench;a_14720">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3831"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3906"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14752"/>
+    <rdf:Description rdf:about="&univ-bench;a_14784">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_1219"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4590"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14812"/>
+    <rdf:Description rdf:about="&univ-bench;a_14825"/>
+    <rdf:Description rdf:about="&univ-bench;a_14856"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_14897">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11070"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_14906">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13823"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_14910">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2059"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_14933">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3626"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_6351"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_14941">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_207"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_14946">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17840"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3502"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14954"/>
+    <rdf:Description rdf:about="&univ-bench;a_14958"/>
+    <rdf:Description rdf:about="&univ-bench;a_1497"/>
+    <rdf:Description rdf:about="&univ-bench;a_14976"/>
+    <rdf:Description rdf:about="&univ-bench;a_150"/>
+    <rdf:Description rdf:about="&univ-bench;a_15023">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_7210"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8669"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15074">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_5074"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8718"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15094"/>
+    <rdf:Description rdf:about="&univ-bench;a_15152"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_1516">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7421"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_15194">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16507"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3009"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15210"/>
+    <rdf:Description rdf:about="&univ-bench;a_15211">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5366"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_7920"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_15217">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5497"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_15259">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12208"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19224"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_1527">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15664"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_15283">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11659"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_15291">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9153"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_15332"/>
+    <rdf:Description rdf:about="&univ-bench;a_15348"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_15366">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9511"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_15376">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_18494"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9344"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15381"/>
+    <rdf:Description rdf:about="&univ-bench;a_15408"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_15410">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15636"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_15437">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_12325"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16723"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1547">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_15628"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16723"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1549"/>
+    <rdf:Description rdf:about="&univ-bench;a_15538"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_15545">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15259"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_15607">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17377"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_15612"/>
+    <rdf:Description rdf:about="&univ-bench;a_15616"/>
+    <rdf:Description rdf:about="&univ-bench;a_15628"/>
+    <rdf:Description rdf:about="&univ-bench;a_15635"/>
+    <rdf:Description rdf:about="&univ-bench;a_15636"/>
+    <rdf:Description rdf:about="&univ-bench;a_15638"/>
+    <rdf:Description rdf:about="&univ-bench;a_15647"/>
+    <rdf:Description rdf:about="&univ-bench;a_15653">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3284"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_6589"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15656">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15793"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_6712"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15664"/>
+    <rdf:Description rdf:about="&univ-bench;a_15665"/>
+    <rdf:Description rdf:about="&univ-bench;a_15685"/>
+    <rdf:Description rdf:about="&univ-bench;a_15732">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_15829"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3066"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15746"/>
+    <rdf:Description rdf:about="&univ-bench;a_15749"/>
+    <rdf:Description rdf:about="&univ-bench;a_15756"/>
+    <rdf:Description rdf:about="&univ-bench;a_15760"/>
+    <rdf:Description rdf:about="&univ-bench;a_15782"/>
+    <rdf:Description rdf:about="&univ-bench;a_15785"/>
+    <rdf:Description rdf:about="&univ-bench;a_15793">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_775"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_8119"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15796"/>
+    <rdf:Description rdf:about="&univ-bench;a_15829"/>
+    <rdf:Description rdf:about="&univ-bench;a_15842"/>
+    <rdf:Description rdf:about="&univ-bench;a_15846"/>
+    <rdf:Description rdf:about="&univ-bench;a_15861"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_15877">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11032"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_15878"/>
+    <rdf:Description rdf:about="&univ-bench;a_1588"/>
+    <rdf:Description rdf:about="&univ-bench;a_15882"/>
+    <rdf:Description rdf:about="&univ-bench;a_15888"/>
+    <rdf:Description rdf:about="&univ-bench;a_15902">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16548"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_8389"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15919">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13932"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_16016"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_1593">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10634"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_15946"/>
+    <rdf:Description rdf:about="&univ-bench;a_15980"/>
+    <rdf:Description rdf:about="&univ-bench;a_160"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_16002">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6332"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_16007">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17144"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_18186"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16016"/>
+    <rdf:Description rdf:about="&univ-bench;a_16037"/>
+    <rdf:Description rdf:about="&univ-bench;a_16052"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_16070">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18526"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_16078"/>
+    <rdf:Description rdf:about="&univ-bench;a_16081">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_528"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6802"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_16084">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12779"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_16109"/>
+    <rdf:Description rdf:about="&univ-bench;a_16119">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4338"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_4503"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1614"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_16149">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1009"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_16157"/>
+    <rdf:Description rdf:about="&univ-bench;a_16160">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12654"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_14697"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16206"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_16210">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17256"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_16224"/>
+    <rdf:Description rdf:about="&univ-bench;a_16230"/>
+    <rdf:Description rdf:about="&univ-bench;a_16233"/>
+    <rdf:Description rdf:about="&univ-bench;a_16236"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_16242">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19661"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_16243"/>
+    <rdf:Description rdf:about="&univ-bench;a_16247"/>
+    <rdf:Description rdf:about="&univ-bench;a_16269"/>
+    <rdf:Description rdf:about="&univ-bench;a_1629"/>
+    <rdf:Description rdf:about="&univ-bench;a_16294"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_16346">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13941"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_16362">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4721"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_16373"/>
+    <rdf:Description rdf:about="&univ-bench;a_16374">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_4563"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_48"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16378"/>
+    <rdf:Description rdf:about="&univ-bench;a_16384"/>
+    <rdf:Description rdf:about="&univ-bench;a_16386"/>
+    <rdf:Description rdf:about="&univ-bench;a_1639">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10824"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_16052"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16399">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_1295"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14420"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16420">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10292"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_9319"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16421"/>
+    <rdf:Description rdf:about="&univ-bench;a_16440"/>
+    <rdf:Description rdf:about="&univ-bench;a_16469"/>
+    <rdf:Description rdf:about="&univ-bench;a_16480">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19972"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3427"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16507"/>
+    <rdf:Description rdf:about="&univ-bench;a_16512"/>
+    <rdf:Description rdf:about="&univ-bench;a_16514"/>
+    <rdf:Description rdf:about="&univ-bench;a_16542">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13944"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_4569"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16548"/>
+    <rdf:Description rdf:about="&univ-bench;a_16566">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1042"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_13122"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16605">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3245"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9767"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16613"/>
+    <rdf:Description rdf:about="&univ-bench;a_16642">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1350"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_13654"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16651"/>
+    <rdf:Description rdf:about="&univ-bench;a_16671"/>
+    <rdf:Description rdf:about="&univ-bench;a_16677"/>
+    <rdf:Description rdf:about="&univ-bench;a_16681"/>
+    <rdf:Description rdf:about="&univ-bench;a_16701">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16243"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3369"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16703"/>
+    <rdf:Description rdf:about="&univ-bench;a_16705"/>
+    <rdf:Description rdf:about="&univ-bench;a_16707"/>
+    <rdf:Description rdf:about="&univ-bench;a_16712">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15749"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_7194"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_16719">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16514"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_16723"/>
+    <rdf:Description rdf:about="&univ-bench;a_16724">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_11441"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5194"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16744"/>
+    <rdf:Description rdf:about="&univ-bench;a_16765">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_2817"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4644"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16767"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_16775">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12617"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_16804"/>
+    <rdf:Description rdf:about="&univ-bench;a_16824"/>
+    <rdf:Description rdf:about="&univ-bench;a_16832"/>
+    <rdf:Description rdf:about="&univ-bench;a_16833"/>
+    <rdf:Description rdf:about="&univ-bench;a_16836">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_10505"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19735"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16871"/>
+    <rdf:Description rdf:about="&univ-bench;a_16872"/>
+    <rdf:Description rdf:about="&univ-bench;a_16880"/>
+    <rdf:Description rdf:about="&univ-bench;a_16894"/>
+    <rdf:Description rdf:about="&univ-bench;a_16899"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_16925">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10250"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_16928">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2943"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_16929"/>
+    <rdf:Description rdf:about="&univ-bench;a_16951"/>
+    <rdf:Description rdf:about="&univ-bench;a_16994"/>
+    <rdf:Description rdf:about="&univ-bench;a_17013">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13536"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19430"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17055"/>
+    <rdf:Description rdf:about="&univ-bench;a_17065"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_17068">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19288"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_17073"/>
+    <rdf:Description rdf:about="&univ-bench;a_17075"/>
+    <rdf:Description rdf:about="&univ-bench;a_17081"/>
+    <rdf:Description rdf:about="&univ-bench;a_1709"/>
+    <rdf:Description rdf:about="&univ-bench;a_17097"/>
+    <rdf:Description rdf:about="&univ-bench;a_17098"/>
+    <rdf:Description rdf:about="&univ-bench;a_17102"/>
+    <rdf:Description rdf:about="&univ-bench;a_17107">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3128"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_8236"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17143"/>
+    <rdf:Description rdf:about="&univ-bench;a_17144"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_17172">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15877"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_17243"/>
+    <rdf:Description rdf:about="&univ-bench;a_17256"/>
+    <rdf:Description rdf:about="&univ-bench;a_17274"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_17279">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1164"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_17283"/>
+    <rdf:Description rdf:about="&univ-bench;a_17292">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1458"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_14958"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17326">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_13504"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14954"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17377"/>
+    <rdf:Description rdf:about="&univ-bench;a_17385"/>
+    <rdf:Description rdf:about="&univ-bench;a_17392"/>
+    <rdf:Description rdf:about="&univ-bench;a_17408"/>
+    <rdf:Description rdf:about="&univ-bench;a_17444"/>
+    <rdf:Description rdf:about="&univ-bench;a_17446"/>
+    <rdf:Description rdf:about="&univ-bench;a_17480"/>
+    <rdf:Description rdf:about="&univ-bench;a_17504"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_17521">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4998"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_17568">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19965"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_5063"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17573"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_17587">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8210"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_17590"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_17592">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7742"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_17601"/>
+    <rdf:Description rdf:about="&univ-bench;a_17606"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_17610">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18188"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_17633"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_17668">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6524"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_17701">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1279"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_17713"/>
+    <rdf:Description rdf:about="&univ-bench;a_17762"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_17765">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10633"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_17793"/>
+    <rdf:Description rdf:about="&univ-bench;a_1781">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13601"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_9701"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17822"/>
+    <rdf:Description rdf:about="&univ-bench;a_17840"/>
+    <rdf:Description rdf:about="&univ-bench;a_17846"/>
+    <rdf:Description rdf:about="&univ-bench;a_17848"/>
+    <rdf:Description rdf:about="&univ-bench;a_17856"/>
+    <rdf:Description rdf:about="&univ-bench;a_17873"/>
+    <rdf:Description rdf:about="&univ-bench;a_17876">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_15210"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9001"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17906"/>
+    <rdf:Description rdf:about="&univ-bench;a_17959">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19561"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_4777"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_17970">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17573"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_17983">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13602"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_917"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1801"/>
+    <rdf:Description rdf:about="&univ-bench;a_18013"/>
+    <rdf:Description rdf:about="&univ-bench;a_1809">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_16994"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9161"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18092">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18623"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_2514"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_18103">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9143"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_1811"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_18123">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_751"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_18126"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_18186">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8860"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_18188"/>
+    <rdf:Description rdf:about="&univ-bench;a_1819"/>
+    <rdf:Description rdf:about="&univ-bench;a_18226">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2781"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_4390"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18265"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_18283">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8798"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_18284"/>
+    <rdf:Description rdf:about="&univ-bench;a_18294"/>
+    <rdf:Description rdf:about="&univ-bench;a_18322"/>
+    <rdf:Description rdf:about="&univ-bench;a_18327">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_16157"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_33"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18351"/>
+    <rdf:Description rdf:about="&univ-bench;a_18354"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_1836">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12287"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_18367">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12004"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_18372">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_13101"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8662"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18389"/>
+    <rdf:Description rdf:about="&univ-bench;a_18395"/>
+    <rdf:Description rdf:about="&univ-bench;a_18415"/>
+    <rdf:Description rdf:about="&univ-bench;a_18421"/>
+    <rdf:Description rdf:about="&univ-bench;a_18435"/>
+    <rdf:Description rdf:about="&univ-bench;a_18446">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1058"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_18494"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18487"/>
+    <rdf:Description rdf:about="&univ-bench;a_18488"/>
+    <rdf:Description rdf:about="&univ-bench;a_18494"/>
+    <rdf:Description rdf:about="&univ-bench;a_1852"/>
+    <rdf:Description rdf:about="&univ-bench;a_18522"/>
+    <rdf:Description rdf:about="&univ-bench;a_18526"/>
+    <rdf:Description rdf:about="&univ-bench;a_18544"/>
+    <rdf:Description rdf:about="&univ-bench;a_18600"/>
+    <rdf:Description rdf:about="&univ-bench;a_18623"/>
+    <rdf:Description rdf:about="&univ-bench;a_18624"/>
+    <rdf:Description rdf:about="&univ-bench;a_18635"/>
+    <rdf:Description rdf:about="&univ-bench;a_18651">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_17856"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6627"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_18668">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15612"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_18712">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5928"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_18716">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12805"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_13630"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18720"/>
+    <rdf:Description rdf:about="&univ-bench;a_18727"/>
+    <rdf:Description rdf:about="&univ-bench;a_18747"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_18780">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11612"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_18807"/>
+    <rdf:Description rdf:about="&univ-bench;a_18816"/>
+    <rdf:Description rdf:about="&univ-bench;a_18829"/>
+    <rdf:Description rdf:about="&univ-bench;a_1883"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_18834">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19768"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_18836">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11947"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_18844">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_10800"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3875"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_18849">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5301"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_18867"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_18887">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19604"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_18896">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6086"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_1890"/>
+    <rdf:Description rdf:about="&univ-bench;a_18900"/>
+    <rdf:Description rdf:about="&univ-bench;a_18911"/>
+    <rdf:Description rdf:about="&univ-bench;a_18927"/>
+    <rdf:Description rdf:about="&univ-bench;a_18933"/>
+    <rdf:Description rdf:about="&univ-bench;a_18950"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_1896">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6160"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_18970"/>
+    <rdf:Description rdf:about="&univ-bench;a_18988"/>
+    <rdf:Description rdf:about="&univ-bench;a_19005"/>
+    <rdf:Description rdf:about="&univ-bench;a_19015"/>
+    <rdf:Description rdf:about="&univ-bench;a_19046"/>
+    <rdf:Description rdf:about="&univ-bench;a_19048"/>
+    <rdf:Description rdf:about="&univ-bench;a_19055"/>
+    <rdf:Description rdf:about="&univ-bench;a_19061"/>
+    <rdf:Description rdf:about="&univ-bench;a_19069"/>
+    <rdf:Description rdf:about="&univ-bench;a_19082"/>
+    <rdf:Description rdf:about="&univ-bench;a_19092"/>
+    <rdf:Description rdf:about="&univ-bench;a_19117"/>
+    <rdf:Description rdf:about="&univ-bench;a_19138"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_19141">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4696"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_19157"/>
+    <rdf:Description rdf:about="&univ-bench;a_1917"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_19182">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8650"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_1919"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_19201">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1320"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_19224"/>
+    <rdf:Description rdf:about="&univ-bench;a_19231"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_19240">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5212"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_19287">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10386"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_19288"/>
+    <rdf:Description rdf:about="&univ-bench;a_1929"/>
+    <rdf:Description rdf:about="&univ-bench;a_193">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_17075"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_350"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19305">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11549"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_15538"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_19312">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14825"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_19356">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16294"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_19360"/>
+    <rdf:Description rdf:about="&univ-bench;a_19369">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15635"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_9753"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19374"/>
+    <rdf:Description rdf:about="&univ-bench;a_19427"/>
+    <rdf:Description rdf:about="&univ-bench;a_19430"/>
+    <rdf:Description rdf:about="&univ-bench;a_19432"/>
+    <rdf:Description rdf:about="&univ-bench;a_19435"/>
+    <rdf:Description rdf:about="&univ-bench;a_1944">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18435"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3588"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_19454">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16224"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_19472"/>
+    <rdf:Description rdf:about="&univ-bench;a_19474"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_19482">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1078"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_19484"/>
+    <rdf:Description rdf:about="&univ-bench;a_19488"/>
+    <rdf:Description rdf:about="&univ-bench;a_19498"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_19512">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5940"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_19531"/>
+    <rdf:Description rdf:about="&univ-bench;a_19540">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19231"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_7282"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19543"/>
+    <rdf:Description rdf:about="&univ-bench;a_19551"/>
+    <rdf:Description rdf:about="&univ-bench;a_19555"/>
+    <rdf:Description rdf:about="&univ-bench;a_19561"/>
+    <rdf:Description rdf:about="&univ-bench;a_19568"/>
+    <rdf:Description rdf:about="&univ-bench;a_1959"/>
+    <rdf:Description rdf:about="&univ-bench;a_19592">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_14300"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16386"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19604"/>
+    <rdf:Description rdf:about="&univ-bench;a_19661"/>
+    <rdf:Description rdf:about="&univ-bench;a_19690">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_10191"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9963"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_19711">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2081"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_19735"/>
+    <rdf:Description rdf:about="&univ-bench;a_19740"/>
+    <rdf:Description rdf:about="&univ-bench;a_19744">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2165"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_5286"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_19759">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18829"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19092"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7366"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_19768"/>
+    <rdf:Description rdf:about="&univ-bench;a_1979"/>
+    <rdf:Description rdf:about="&univ-bench;a_19812">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16929"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_9624"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19817">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_15782"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3643"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19854"/>
+    <rdf:Description rdf:about="&univ-bench;a_19875"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_19898">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17446"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_19930"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_19937">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16233"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_19965"/>
+    <rdf:Description rdf:about="&univ-bench;a_19968"/>
+    <rdf:Description rdf:about="&univ-bench;a_19972"/>
+    <rdf:Description rdf:about="&univ-bench;a_19979">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13341"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_15348"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_19992">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17098"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_19996"/>
+    <rdf:Description rdf:about="&univ-bench;a_2024"/>
+    <rdf:Description rdf:about="&univ-bench;a_2032"/>
+    <rdf:Description rdf:about="&univ-bench;a_2059"/>
+    <rdf:Description rdf:about="&univ-bench;a_207"/>
+    <rdf:Description rdf:about="&univ-bench;a_2075">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16384"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_4559"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2081"/>
+    <rdf:Description rdf:about="&univ-bench;a_2084">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_13781"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4949"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2087"/>
+    <rdf:Description rdf:about="&univ-bench;a_2089"/>
+    <rdf:Description rdf:about="&univ-bench;a_2111">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_344"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_6017"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2126">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_1919"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4036"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2131"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_215">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18294"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_2151">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19555"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_2156">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5642"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_6163"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2165"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_2182">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5890"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_2239">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11030"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19740"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_225">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6794"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_2256"/>
+    <rdf:Description rdf:about="&univ-bench;a_226"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_2264">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12021"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_2290">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16707"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_2297">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16744"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_2300"/>
+    <rdf:Description rdf:about="&univ-bench;a_2327"/>
+    <rdf:Description rdf:about="&univ-bench;a_2331"/>
+    <rdf:Description rdf:about="&univ-bench;a_2336">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_4733"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6321"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2384"/>
+    <rdf:Description rdf:about="&univ-bench;a_2392"/>
+    <rdf:Description rdf:about="&univ-bench;a_2397"/>
+    <rdf:Description rdf:about="&univ-bench;a_2401"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_2456">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15381"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_2494">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16230"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_2503"/>
+    <rdf:Description rdf:about="&univ-bench;a_2514"/>
+    <rdf:Description rdf:about="&univ-bench;a_2541">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16767"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_6227"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2551"/>
+    <rdf:Description rdf:about="&univ-bench;a_2554"/>
+    <rdf:Description rdf:about="&univ-bench;a_2559"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_2574">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19069"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_2589"/>
+    <rdf:Description rdf:about="&univ-bench;a_2600"/>
+    <rdf:Description rdf:about="&univ-bench;a_2612"/>
+    <rdf:Description rdf:about="&univ-bench;a_2614">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_16269"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9263"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_263">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17762"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_2631"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_2643">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2614"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_2693">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_18389"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8109"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2694"/>
+    <rdf:Description rdf:about="&univ-bench;a_2709">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15746"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3388"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_2711">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4955"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_2776"/>
+    <rdf:Description rdf:about="&univ-bench;a_2781"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_2803">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14083"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_2807">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_17243"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9570"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2815">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19360"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_8900"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2817"/>
+    <rdf:Description rdf:about="&univ-bench;a_2836">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1052"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_4315"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_2838">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16613"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_2855"/>
+    <rdf:Description rdf:about="&univ-bench;a_287">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1149"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_8992"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2870"/>
+    <rdf:Description rdf:about="&univ-bench;a_2872">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17143"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_6703"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2874"/>
+    <rdf:Description rdf:about="&univ-bench;a_2885"/>
+    <rdf:Description rdf:about="&univ-bench;a_2895">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8115"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_9403"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2929">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_8410"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8921"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2943"/>
+    <rdf:Description rdf:about="&univ-bench;a_297"/>
+    <rdf:Description rdf:about="&univ-bench;a_298"/>
+    <rdf:Description rdf:about="&univ-bench;a_3">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_11502"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3464"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3009"/>
+    <rdf:Description rdf:about="&univ-bench;a_3032"/>
+    <rdf:Description rdf:about="&univ-bench;a_3035"/>
+    <rdf:Description rdf:about="&univ-bench;a_3044"/>
+    <rdf:Description rdf:about="&univ-bench;a_3066"/>
+    <rdf:Description rdf:about="&univ-bench;a_3098"/>
+    <rdf:Description rdf:about="&univ-bench;a_3128"/>
+    <rdf:Description rdf:about="&univ-bench;a_3162"/>
+    <rdf:Description rdf:about="&univ-bench;a_3178">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_15094"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19474"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3209"/>
+    <rdf:Description rdf:about="&univ-bench;a_3232"/>
+    <rdf:Description rdf:about="&univ-bench;a_3241"/>
+    <rdf:Description rdf:about="&univ-bench;a_3245"/>
+    <rdf:Description rdf:about="&univ-bench;a_3251"/>
+    <rdf:Description rdf:about="&univ-bench;a_3259"/>
+    <rdf:Description rdf:about="&univ-bench;a_3284"/>
+    <rdf:Description rdf:about="&univ-bench;a_3294"/>
+    <rdf:Description rdf:about="&univ-bench;a_33"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_3311">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3683"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_3312"/>
+    <rdf:Description rdf:about="&univ-bench;a_3316"/>
+    <rdf:Description rdf:about="&univ-bench;a_3321"/>
+    <rdf:Description rdf:about="&univ-bench;a_3325"/>
+    <rdf:Description rdf:about="&univ-bench;a_3329"/>
+    <rdf:Description rdf:about="&univ-bench;a_3369"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_3385">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19498"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_3388"/>
+    <rdf:Description rdf:about="&univ-bench;a_340"/>
+    <rdf:Description rdf:about="&univ-bench;a_3414">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6159"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_9665"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3427"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_343">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9748"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_3431"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_344">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17793"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_3457"/>
+    <rdf:Description rdf:about="&univ-bench;a_3464"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_3466">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10746"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_3473"/>
+    <rdf:Description rdf:about="&univ-bench;a_350"/>
+    <rdf:Description rdf:about="&univ-bench;a_3502"/>
+    <rdf:Description rdf:about="&univ-bench;a_3503"/>
+    <rdf:Description rdf:about="&univ-bench;a_3535"/>
+    <rdf:Description rdf:about="&univ-bench;a_3545">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_18126"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19968"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3567"/>
+    <rdf:Description rdf:about="&univ-bench;a_357"/>
+    <rdf:Description rdf:about="&univ-bench;a_3588"/>
+    <rdf:Description rdf:about="&univ-bench;a_3592">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18265"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_4551"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3608">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_15647"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4253"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_3614">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14812"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_3626"/>
+    <rdf:Description rdf:about="&univ-bench;a_3636"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_3643">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18624"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_3664"/>
+    <rdf:Description rdf:about="&univ-bench;a_3683"/>
+    <rdf:Description rdf:about="&univ-bench;a_3703"/>
+    <rdf:Description rdf:about="&univ-bench;a_3715"/>
+    <rdf:Description rdf:about="&univ-bench;a_3719"/>
+    <rdf:Description rdf:about="&univ-bench;a_3731"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_3756">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1549"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_3759">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_1369"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14644"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3788">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16206"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_17392"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3791"/>
+    <rdf:Description rdf:about="&univ-bench;a_3831"/>
+    <rdf:Description rdf:about="&univ-bench;a_384"/>
+    <rdf:Description rdf:about="&univ-bench;a_3847">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15846"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_7617"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3855"/>
+    <rdf:Description rdf:about="&univ-bench;a_3861"/>
+    <rdf:Description rdf:about="&univ-bench;a_3875"/>
+    <rdf:Description rdf:about="&univ-bench;a_3906"/>
+    <rdf:Description rdf:about="&univ-bench;a_3915"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_3934">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15638"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_3937">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_13165"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3731"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3955"/>
+    <rdf:Description rdf:about="&univ-bench;a_3977">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11781"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_1614"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_402"/>
+    <rdf:Description rdf:about="&univ-bench;a_4034"/>
+    <rdf:Description rdf:about="&univ-bench;a_4036"/>
+    <rdf:Description rdf:about="&univ-bench;a_4053"/>
+    <rdf:Description rdf:about="&univ-bench;a_4100"/>
+    <rdf:Description rdf:about="&univ-bench;a_4101">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3567"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4158"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4102">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16440"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_17601"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4119">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_1120"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16880"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4158"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_4169">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15685"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_4189">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13707"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3636"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4209"/>
+    <rdf:Description rdf:about="&univ-bench;a_4246"/>
+    <rdf:Description rdf:about="&univ-bench;a_4253"/>
+    <rdf:Description rdf:about="&univ-bench;a_4290">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3098"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5317"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_431"/>
+    <rdf:Description rdf:about="&univ-bench;a_4310">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3035"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_803"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4313"/>
+    <rdf:Description rdf:about="&univ-bench;a_4315"/>
+    <rdf:Description rdf:about="&univ-bench;a_4338"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_4350">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3431"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_4377">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5309"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_4390"/>
+    <rdf:Description rdf:about="&univ-bench;a_4399">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11712"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_17065"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_4412">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5203"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_4484"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_4496">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18900"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_45">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6718"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_4503"/>
+    <rdf:Description rdf:about="&univ-bench;a_4511">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16374"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_18351"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4544">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15760"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3325"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4551"/>
+    <rdf:Description rdf:about="&univ-bench;a_4559"/>
+    <rdf:Description rdf:about="&univ-bench;a_4563"/>
+    <rdf:Description rdf:about="&univ-bench;a_4569"/>
+    <rdf:Description rdf:about="&univ-bench;a_4570"/>
+    <rdf:Description rdf:about="&univ-bench;a_459"/>
+    <rdf:Description rdf:about="&univ-bench;a_4590"/>
+    <rdf:Description rdf:about="&univ-bench;a_4591">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1917"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_7579"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_4600">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2327"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_4644"/>
+    <rdf:Description rdf:about="&univ-bench;a_4667">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_1170"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5415"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4669">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_297"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3791"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_468">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_15946"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16078"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4696"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_4702">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11154"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_4703">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5693"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_4713">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_2612"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9559"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4721"/>
+    <rdf:Description rdf:about="&univ-bench;a_473">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_14647"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18816"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4733"/>
+    <rdf:Description rdf:about="&univ-bench;a_4734"/>
+    <rdf:Description rdf:about="&univ-bench;a_4738">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_2503"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7206"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4777"/>
+    <rdf:Description rdf:about="&univ-bench;a_4782"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_4792">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7643"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_48"/>
+    <rdf:Description rdf:about="&univ-bench;a_480"/>
+    <rdf:Description rdf:about="&univ-bench;a_4815">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_17906"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19435"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4822"/>
+    <rdf:Description rdf:about="&univ-bench;a_4823">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_11739"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17713"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_4869">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15647"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_4894">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_16872"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19875"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4910"/>
+    <rdf:Description rdf:about="&univ-bench;a_4924"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_4933">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4991"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_4935">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3232"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_4949"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_4955">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_298"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_4975">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16804"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_4980">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_1463"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3259"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4989">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19055"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7022"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4991"/>
+    <rdf:Description rdf:about="&univ-bench;a_4998"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_5007">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7092"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_5063"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_507">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16899"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_5074"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_5105">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10254"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_5107"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_5119">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18720"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_512">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16378"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_5123"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_5125">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18600"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_5162">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3535"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_8598"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5164">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_17633"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9001"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5194"/>
+    <rdf:Description rdf:about="&univ-bench;a_5203"/>
+    <rdf:Description rdf:about="&univ-bench;a_5212"/>
+    <rdf:Description rdf:about="&univ-bench;a_5256"/>
+    <rdf:Description rdf:about="&univ-bench;a_5258"/>
+    <rdf:Description rdf:about="&univ-bench;a_528"/>
+    <rdf:Description rdf:about="&univ-bench;a_5286"/>
+    <rdf:Description rdf:about="&univ-bench;a_5288"/>
+    <rdf:Description rdf:about="&univ-bench;a_5301"/>
+    <rdf:Description rdf:about="&univ-bench;a_5309"/>
+    <rdf:Description rdf:about="&univ-bench;a_5317"/>
+    <rdf:Description rdf:about="&univ-bench;a_5360">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3664"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6004"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5366"/>
+    <rdf:Description rdf:about="&univ-bench;a_5367">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18013"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_630"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5378"/>
+    <rdf:Description rdf:about="&univ-bench;a_5415"/>
+    <rdf:Description rdf:about="&univ-bench;a_542"/>
+    <rdf:Description rdf:about="&univ-bench;a_5448"/>
+    <rdf:Description rdf:about="&univ-bench;a_5454">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_1890"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19488"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_5497">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_542"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_5549">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_226"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_5550"/>
+    <rdf:Description rdf:about="&univ-bench;a_5557">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1852"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_7869"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5579"/>
+    <rdf:Description rdf:about="&univ-bench;a_5588">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19854"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2631"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5603">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12887"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_13058"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5637">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10454"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_11717"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5642"/>
+    <rdf:Description rdf:about="&univ-bench;a_5657"/>
+    <rdf:Description rdf:about="&univ-bench;a_5693"/>
+    <rdf:Description rdf:about="&univ-bench;a_5736">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16247"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_402"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5754"/>
+    <rdf:Description rdf:about="&univ-bench;a_5767">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_15888"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19046"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5770"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_5792">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18950"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_5834">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2885"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_5856"/>
+    <rdf:Description rdf:about="&univ-bench;a_5890"/>
+    <rdf:Description rdf:about="&univ-bench;a_5911">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14675"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_18988"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5927"/>
+    <rdf:Description rdf:about="&univ-bench;a_5928"/>
+    <rdf:Description rdf:about="&univ-bench;a_5940"/>
+    <rdf:Description rdf:about="&univ-bench;a_5968"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_6">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_793"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_6004"/>
+    <rdf:Description rdf:about="&univ-bench;a_6017"/>
+    <rdf:Description rdf:about="&univ-bench;a_6034"/>
+    <rdf:Description rdf:about="&univ-bench;a_6086"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_6102">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10161"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_6103">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18911"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_6128">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4399"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_6134"/>
+    <rdf:Description rdf:about="&univ-bench;a_6159"/>
+    <rdf:Description rdf:about="&univ-bench;a_6160"/>
+    <rdf:Description rdf:about="&univ-bench;a_6162">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_12016"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7090"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_6163">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4570"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_6209"/>
+    <rdf:Description rdf:about="&univ-bench;a_6227"/>
+    <rdf:Description rdf:about="&univ-bench;a_6230"/>
+    <rdf:Description rdf:about="&univ-bench;a_6238">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_12587"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13936"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6242"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_6268">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17504"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_630"/>
+    <rdf:Description rdf:about="&univ-bench;a_6312">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12909"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19427"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6321"/>
+    <rdf:Description rdf:about="&univ-bench;a_633">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_111"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_668"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_6330">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_384"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_6332"/>
+    <rdf:Description rdf:about="&univ-bench;a_6351"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_6363">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11456"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_6376">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3703"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_6390"/>
+    <rdf:Description rdf:about="&univ-bench;a_6459">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14631"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19930"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_6482">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7830"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_650"/>
+    <rdf:Description rdf:about="&univ-bench;a_6502">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11290"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_5770"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6517"/>
+    <rdf:Description rdf:about="&univ-bench;a_6524"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_6526">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17606"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_6573"/>
+    <rdf:Description rdf:about="&univ-bench;a_6579">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16824"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_17081"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6589"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_659">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_160"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_6612">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_18747"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_650"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6627"/>
+    <rdf:Description rdf:about="&univ-bench;a_6637"/>
+    <rdf:Description rdf:about="&univ-bench;a_6638"/>
+    <rdf:Description rdf:about="&univ-bench;a_668"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_6683">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19568"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_6703"/>
+    <rdf:Description rdf:about="&univ-bench;a_6710"/>
+    <rdf:Description rdf:about="&univ-bench;a_6712"/>
+    <rdf:Description rdf:about="&univ-bench;a_6718"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_6744">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3473"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_6763">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1819"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_9929"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6794"/>
+    <rdf:Description rdf:about="&univ-bench;a_6800"/>
+    <rdf:Description rdf:about="&univ-bench;a_6802"/>
+    <rdf:Description rdf:about="&univ-bench;a_6912"/>
+    <rdf:Description rdf:about="&univ-bench;a_6914">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10300"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_5550"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6949">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10335"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3861"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_6958">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16833"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_6978"/>
+    <rdf:Description rdf:about="&univ-bench;a_7013"/>
+    <rdf:Description rdf:about="&univ-bench;a_7022"/>
+    <rdf:Description rdf:about="&univ-bench;a_7026">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_16421"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1979"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7027"/>
+    <rdf:Description rdf:about="&univ-bench;a_7070">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_15882"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8190"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7073">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8240"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_7090"/>
+    <rdf:Description rdf:about="&univ-bench;a_7092"/>
+    <rdf:Description rdf:about="&univ-bench;a_7097">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1192"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_8518"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_710">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_759"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_92"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7108">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12757"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_711">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17587"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_7118"/>
+    <rdf:Description rdf:about="&univ-bench;a_712"/>
+    <rdf:Description rdf:about="&univ-bench;a_7130">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_15980"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4910"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7131">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_2554"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3329"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7132">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_14825"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2401"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7139">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17822"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19157"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7141"/>
+    <rdf:Description rdf:about="&univ-bench;a_7145"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7155">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1247"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_7157">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11607"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_9050"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7194"/>
+    <rdf:Description rdf:about="&univ-bench;a_7201"/>
+    <rdf:Description rdf:about="&univ-bench;a_7203">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_10614"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19374"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7206"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7207">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19472"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_7210"/>
+    <rdf:Description rdf:about="&univ-bench;a_7272"/>
+    <rdf:Description rdf:about="&univ-bench;a_7282"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7286">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4569"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_7287"/>
+    <rdf:Description rdf:about="&univ-bench;a_7333">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13273"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_14236"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7349">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10320"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_7350"/>
+    <rdf:Description rdf:about="&univ-bench;a_7352">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_14677"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16512"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7366"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7389">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8487"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_7421"/>
+    <rdf:Description rdf:about="&univ-bench;a_7429"/>
+    <rdf:Description rdf:about="&univ-bench;a_7474">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12740"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_4034"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7476">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1588"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7477">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15861"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_7478"/>
+    <rdf:Description rdf:about="&univ-bench;a_7484"/>
+    <rdf:Description rdf:about="&univ-bench;a_7498">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11992"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_2694"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_751">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2776"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7515">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19005"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_7536"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7540">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3719"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_755">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14452"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7576">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6209"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_7579"/>
+    <rdf:Description rdf:about="&univ-bench;a_759"/>
+    <rdf:Description rdf:about="&univ-bench;a_7594">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_10440"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18522"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7605"/>
+    <rdf:Description rdf:about="&univ-bench;a_7611">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_10816"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18544"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7617"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7619">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5927"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_7641"/>
+    <rdf:Description rdf:about="&univ-bench;a_7642"/>
+    <rdf:Description rdf:about="&univ-bench;a_7643"/>
+    <rdf:Description rdf:about="&univ-bench;a_7653">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3457"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_5123"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_766">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5856"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_7681"/>
+    <rdf:Description rdf:about="&univ-bench;a_7690"/>
+    <rdf:Description rdf:about="&univ-bench;a_7692">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_16373"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2397"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7702">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12597"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_13603"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7714">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_13196"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18421"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7716"/>
+    <rdf:Description rdf:about="&univ-bench;a_7722">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14041"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_18635"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7742"/>
+    <rdf:Description rdf:about="&univ-bench;a_775"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7754">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2589"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_7771">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14331"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_6242"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_778"/>
+    <rdf:Description rdf:about="&univ-bench;a_7802">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_7118"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9409"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7819"/>
+    <rdf:Description rdf:about="&univ-bench;a_7830"/>
+    <rdf:Description rdf:about="&univ-bench;a_7832"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7859">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16705"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_7860">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19138"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_1959"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7861">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11816"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_7869"/>
+    <rdf:Description rdf:about="&univ-bench;a_7888"/>
+    <rdf:Description rdf:about="&univ-bench;a_7890">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14856"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_18395"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7905"/>
+    <rdf:Description rdf:about="&univ-bench;a_791">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_10673"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1883"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7920"/>
+    <rdf:Description rdf:about="&univ-bench;a_7928">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_12549"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17590"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_793"/>
+    <rdf:Description rdf:about="&univ-bench;a_7971"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_7995">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19996"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_803"/>
+    <rdf:Description rdf:about="&univ-bench;a_8043">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_2392"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7690"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_8106">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12969"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_8109"/>
+    <rdf:Description rdf:about="&univ-bench;a_8115"/>
+    <rdf:Description rdf:about="&univ-bench;a_8119"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_8144">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6517"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_8159">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_12911"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2384"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8170"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_8182">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2256"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_8190"/>
+    <rdf:Description rdf:about="&univ-bench;a_8210"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_8228">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16871"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_8236"/>
+    <rdf:Description rdf:about="&univ-bench;a_8240"/>
+    <rdf:Description rdf:about="&univ-bench;a_8243"/>
+    <rdf:Description rdf:about="&univ-bench;a_8260">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13301"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_4053"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8294"/>
+    <rdf:Description rdf:about="&univ-bench;a_8310"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_8326">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4782"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_8334">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9269"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_8344">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15616"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_8368">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_6034"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7605"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8377"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_8386">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2874"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_8389"/>
+    <rdf:Description rdf:about="&univ-bench;a_8410"/>
+    <rdf:Description rdf:about="&univ-bench;a_8426"/>
+    <rdf:Description rdf:about="&univ-bench;a_8472">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7201"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_8486"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_8479">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5258"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_8486"/>
+    <rdf:Description rdf:about="&univ-bench;a_8487"/>
+    <rdf:Description rdf:about="&univ-bench;a_8490"/>
+    <rdf:Description rdf:about="&univ-bench;a_8518"/>
+    <rdf:Description rdf:about="&univ-bench;a_8598"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_8612">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2089"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_8639">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_15796"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18322"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_8640">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14509"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_8647">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17846"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_8650"/>
+    <rdf:Description rdf:about="&univ-bench;a_8662"/>
+    <rdf:Description rdf:about="&univ-bench;a_8669"/>
+    <rdf:Description rdf:about="&univ-bench;a_869">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_11600"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14198"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8718"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_8726">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7641"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_8741"/>
+    <rdf:Description rdf:about="&univ-bench;a_8747">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3715"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3955"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_8749">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1811"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_8781">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10513"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_16832"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8785"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_8792">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8490"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_8798"/>
+    <rdf:Description rdf:about="&univ-bench;a_8815"/>
+    <rdf:Description rdf:about="&univ-bench;a_8860"/>
+    <rdf:Description rdf:about="&univ-bench;a_8900"/>
+    <rdf:Description rdf:about="&univ-bench;a_8921"/>
+    <rdf:Description rdf:about="&univ-bench;a_8947">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14954"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_2870"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8967">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10650"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_12674"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8992"/>
+    <rdf:Description rdf:about="&univ-bench;a_9001"/>
+    <rdf:Description rdf:about="&univ-bench;a_9050"/>
+    <rdf:Description rdf:about="&univ-bench;a_9087"/>
+    <rdf:Description rdf:about="&univ-bench;a_9104">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18487"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_431"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9119"/>
+    <rdf:Description rdf:about="&univ-bench;a_9123"/>
+    <rdf:Description rdf:about="&univ-bench;a_9143"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_9152">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18727"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_9153"/>
+    <rdf:Description rdf:about="&univ-bench;a_9161"/>
+    <rdf:Description rdf:about="&univ-bench;a_917"/>
+    <rdf:Description rdf:about="&univ-bench;a_9178">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17480"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_8785"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_9199">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8377"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_92"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_9216">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11104"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_9221"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_9232">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17073"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_926">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4924"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_7905"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9263"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_9265">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9087"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_9269"/>
+    <rdf:Description rdf:about="&univ-bench;a_9282">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_11364"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7478"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9297">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_11134"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9119"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9306">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14044"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_16894"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9317">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16037"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_4822"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6912"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_7642"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9319"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_9339">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7716"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_9340"/>
+    <rdf:Description rdf:about="&univ-bench;a_9343">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12373"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_3044"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9344"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_9360">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18807"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_9381">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_979"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_9387"/>
+    <rdf:Description rdf:about="&univ-bench;a_9403"/>
+    <rdf:Description rdf:about="&univ-bench;a_9409"/>
+    <rdf:Description rdf:about="&univ-bench;a_9416"/>
+    <rdf:Description rdf:about="&univ-bench;a_944">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_9604"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9882"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9511"/>
+    <rdf:Description rdf:about="&univ-bench;a_9523">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_12436"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1709"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9559"/>
+    <rdf:Description rdf:about="&univ-bench;a_9570"/>
+    <rdf:Description rdf:about="&univ-bench;a_9604"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_9607">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11811"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_9624"/>
+    <rdf:Description rdf:about="&univ-bench;a_9655"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_9661">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7888"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_9665"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_9675">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_778"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_9686">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_19432"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3312"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9701"/>
+    <rdf:Description rdf:about="&univ-bench;a_9712"/>
+    <rdf:Description rdf:about="&univ-bench;a_9748"/>
+    <rdf:Description rdf:about="&univ-bench;a_9753"/>
+    <rdf:Description rdf:about="&univ-bench;a_9767"/>
+    <rdf:Description rdf:about="&univ-bench;a_9778">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10121"/>
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_4100"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_979"/>
+    <rdf:Description rdf:about="&univ-bench;a_9798">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_15211"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17444"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_98">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_9801">
+        <univ-bench:researchProject rdf:resource="&univ-bench;a_14039"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6230"/>
+    </rdf:Description>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_9802">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14488"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_9882"/>
+    <rdf:Description rdf:about="&univ-bench;a_9929"/>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_9940">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2131"/>
+    </univ-bench:ResearchGroup>
+    <univ-bench:ResearchGroup rdf:about="&univ-bench;a_9954">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11301"/>
+    </univ-bench:ResearchGroup>
+    <rdf:Description rdf:about="&univ-bench;a_9963"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 0.9.2) http://owlapi.sourceforge.net -->
+

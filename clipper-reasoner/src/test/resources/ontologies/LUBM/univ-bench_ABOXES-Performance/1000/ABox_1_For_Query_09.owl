@@ -1,0 +1,2671 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY univ-bench "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl_ABox_1_Query_09#"
+     xml:base="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl_ABox_1_Query_09"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:univ-bench="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="file:/Users/xiao/Documents/workspace/sygenia/examples/ontologies/LUBM/univ-bench.owl"/>
+    </owl:Ontology>
+    <owl:ObjectProperty rdf:about="&univ-bench;advisor"/>
+    <owl:ObjectProperty rdf:about="&univ-bench;takesCourse"/>
+    <owl:ObjectProperty rdf:about="&univ-bench;teacherOf"/>
+    <rdf:Description rdf:about="&univ-bench;a_10024"/>
+    <rdf:Description rdf:about="&univ-bench;a_10030"/>
+    <rdf:Description rdf:about="&univ-bench;a_10060">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_11483"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10069">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1573"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2287"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10136">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17139"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4166"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10161">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5478"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10178">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_16957"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10195">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18087"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1021">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_4318"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6571"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10217">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14848"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10222"/>
+    <rdf:Description rdf:about="&univ-bench;a_10245"/>
+    <rdf:Description rdf:about="&univ-bench;a_1030"/>
+    <rdf:Description rdf:about="&univ-bench;a_10329">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2989"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_665"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10339"/>
+    <rdf:Description rdf:about="&univ-bench;a_10349">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4201"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1035"/>
+    <rdf:Description rdf:about="&univ-bench;a_10375">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14198"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_323"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10381"/>
+    <rdf:Description rdf:about="&univ-bench;a_10395">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_3765"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_7761"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10401">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1308"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1043">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_16277"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10430"/>
+    <rdf:Description rdf:about="&univ-bench;a_10472"/>
+    <rdf:Description rdf:about="&univ-bench;a_10481">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_11654"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10485"/>
+    <rdf:Description rdf:about="&univ-bench;a_10520"/>
+    <rdf:Description rdf:about="&univ-bench;a_10527">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9822"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9907"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10573">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_17492"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10608">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4232"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10625"/>
+    <rdf:Description rdf:about="&univ-bench;a_10629">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5347"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10640">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8496"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10657">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_11007"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10658">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15861"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17799"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1066">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_60"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9983"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10660"/>
+    <rdf:Description rdf:about="&univ-bench;a_10702">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10520"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13662"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10759">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8128"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10781"/>
+    <rdf:Description rdf:about="&univ-bench;a_10789"/>
+    <rdf:Description rdf:about="&univ-bench;a_10792"/>
+    <rdf:Description rdf:about="&univ-bench;a_10808">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_6616"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1081">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_18464"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19759"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10816">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_16433"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4647"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10824">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_16260"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1083"/>
+    <rdf:Description rdf:about="&univ-bench;a_10840">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13936"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7289"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10881">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13372"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5785"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10894">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14866"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8914"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10920"/>
+    <rdf:Description rdf:about="&univ-bench;a_10960"/>
+    <rdf:Description rdf:about="&univ-bench;a_10976">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12348"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_16511"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10988"/>
+    <rdf:Description rdf:about="&univ-bench;a_10989">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18283"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_19793"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11007"/>
+    <rdf:Description rdf:about="&univ-bench;a_11014"/>
+    <rdf:Description rdf:about="&univ-bench;a_11024">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_15274"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11087"/>
+    <rdf:Description rdf:about="&univ-bench;a_11093">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17589"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8860"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11100">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1035"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_18390"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11141"/>
+    <rdf:Description rdf:about="&univ-bench;a_11158">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10789"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11192"/>
+    <rdf:Description rdf:about="&univ-bench;a_11223">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5073"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_8596"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1129">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10988"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11315"/>
+    <rdf:Description rdf:about="&univ-bench;a_11321"/>
+    <rdf:Description rdf:about="&univ-bench;a_11332">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_2681"/>
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_681"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_8099"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11338"/>
+    <rdf:Description rdf:about="&univ-bench;a_11397"/>
+    <rdf:Description rdf:about="&univ-bench;a_11416"/>
+    <rdf:Description rdf:about="&univ-bench;a_11461"/>
+    <rdf:Description rdf:about="&univ-bench;a_11483"/>
+    <rdf:Description rdf:about="&univ-bench;a_11516">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13014"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17512"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11523">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14748"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_18551"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11571">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8038"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9728"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11579">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_16925"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11599">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17791"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19891"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1161"/>
+    <rdf:Description rdf:about="&univ-bench;a_11610">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9956"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11639">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5715"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_880"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11646">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4166"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11654"/>
+    <rdf:Description rdf:about="&univ-bench;a_11724">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_16521"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_2871"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11797">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18032"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11811">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9521"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11826">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_15151"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11852"/>
+    <rdf:Description rdf:about="&univ-bench;a_11853">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12124"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11867">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_16402"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11880"/>
+    <rdf:Description rdf:about="&univ-bench;a_11897">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4182"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11905">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_3889"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11943">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14769"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11947">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_11141"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1196">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13825"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11970">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18532"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11977">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19004"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5430"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12007">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1233"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_4952"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12015"/>
+    <rdf:Description rdf:about="&univ-bench;a_12018">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_10573"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17492"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1202">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17152"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1754"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12022">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_19342"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7396"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12100">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_10161"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5478"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12124"/>
+    <rdf:Description rdf:about="&univ-bench;a_12131">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1302"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12139">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4361"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12140">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5817"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12148">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13460"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17063"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12153"/>
+    <rdf:Description rdf:about="&univ-bench;a_12154">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_17844"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12158">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_19441"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1218">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_19456"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12182">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2341"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6763"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12193">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10472"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12205"/>
+    <rdf:Description rdf:about="&univ-bench;a_1224">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_7560"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12242">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18324"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_3485"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12260">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13887"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8839"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12289"/>
+    <rdf:Description rdf:about="&univ-bench;a_12302">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12342"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_7091"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12329">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15014"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5721"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1233"/>
+    <rdf:Description rdf:about="&univ-bench;a_12342"/>
+    <rdf:Description rdf:about="&univ-bench;a_12344">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_7034"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12348"/>
+    <rdf:Description rdf:about="&univ-bench;a_12382">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_6266"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12393">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_11610"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9956"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12409">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10781"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_4602"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12430">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9667"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12432">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14686"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12443">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14629"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_3321"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12449">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2677"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5978"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12456">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_15776"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12482">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13735"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14238"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12504"/>
+    <rdf:Description rdf:about="&univ-bench;a_1254">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13260"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16527"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12542"/>
+    <rdf:Description rdf:about="&univ-bench;a_12543">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5986"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_8958"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12547"/>
+    <rdf:Description rdf:about="&univ-bench;a_12563">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10030"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12572">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8028"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12647">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_6570"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12678">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13619"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18254"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12688"/>
+    <rdf:Description rdf:about="&univ-bench;a_1269">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15600"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_7832"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12733">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19389"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5550"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12734">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13036"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14512"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12802">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18286"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12823">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_1504"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_44"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12850">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_7107"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12864">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5466"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12880"/>
+    <rdf:Description rdf:about="&univ-bench;a_12885">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_15603"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12906">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12015"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12907">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10222"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12920"/>
+    <rdf:Description rdf:about="&univ-bench;a_12931">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18128"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12955"/>
+    <rdf:Description rdf:about="&univ-bench;a_12964"/>
+    <rdf:Description rdf:about="&univ-bench;a_13014">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_17512"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1302"/>
+    <rdf:Description rdf:about="&univ-bench;a_13036"/>
+    <rdf:Description rdf:about="&univ-bench;a_13052">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17295"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9512"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1308"/>
+    <rdf:Description rdf:about="&univ-bench;a_13087">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_11321"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13091">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_7008"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13101">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1429"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_4107"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13108">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_17871"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13194">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10789"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_11158"/>
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4205"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13196"/>
+    <rdf:Description rdf:about="&univ-bench;a_13199">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14920"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_2799"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13231">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15057"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18965"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13246"/>
+    <rdf:Description rdf:about="&univ-bench;a_13260">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_16527"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13300">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19993"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_902"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13338">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15810"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5703"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13343">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5345"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13346"/>
+    <rdf:Description rdf:about="&univ-bench;a_13360">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10024"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9621"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13372"/>
+    <rdf:Description rdf:about="&univ-bench;a_13390"/>
+    <rdf:Description rdf:about="&univ-bench;a_13399">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_11867"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16402"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13405">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15945"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_2984"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13424">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12688"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13460"/>
+    <rdf:Description rdf:about="&univ-bench;a_13469"/>
+    <rdf:Description rdf:about="&univ-bench;a_13485"/>
+    <rdf:Description rdf:about="&univ-bench;a_13502">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12542"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_1428"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1351">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5850"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6256"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13530">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8547"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13534">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_417"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9586"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13552">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_663"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_7987"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13619">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18254"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13637">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18260"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13655">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_17066"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13662">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10520"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13707">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17493"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7480"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13712">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9371"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13735">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_15062"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13737"/>
+    <rdf:Description rdf:about="&univ-bench;a_13763"/>
+    <rdf:Description rdf:about="&univ-bench;a_13776"/>
+    <rdf:Description rdf:about="&univ-bench;a_1378"/>
+    <rdf:Description rdf:about="&univ-bench;a_13825"/>
+    <rdf:Description rdf:about="&univ-bench;a_13855">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_10629"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14900"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_3125"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5347"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13865">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17394"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9732"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13870"/>
+    <rdf:Description rdf:about="&univ-bench;a_13874">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11087"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17910"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13877">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_3703"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13887">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8839"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1390">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12880"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13911">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8188"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13936">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_7289"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1394"/>
+    <rdf:Description rdf:about="&univ-bench;a_13940">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_11897"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4182"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13975">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_7547"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13991">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_7519"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13995">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_3917"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14003">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1161"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14005"/>
+    <rdf:Description rdf:about="&univ-bench;a_14013">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18707"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_19859"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14058">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18446"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5128"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1407"/>
+    <rdf:Description rdf:about="&univ-bench;a_14075">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5101"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9262"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14076">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_17322"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14198">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_323"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14217">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_18806"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4896"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14238">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13735"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14243">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19878"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9399"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14249">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_10349"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4201"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14258"/>
+    <rdf:Description rdf:about="&univ-bench;a_1428">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12542"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1429"/>
+    <rdf:Description rdf:about="&univ-bench;a_14323"/>
+    <rdf:Description rdf:about="&univ-bench;a_14345"/>
+    <rdf:Description rdf:about="&univ-bench;a_14359">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9466"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14379">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14258"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14385">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_17041"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14417">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_10608"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4232"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14437">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5255"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1446">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11880"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15869"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14460">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_16383"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14466"/>
+    <rdf:Description rdf:about="&univ-bench;a_14474">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18127"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14495"/>
+    <rdf:Description rdf:about="&univ-bench;a_14507">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_16394"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14512">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13036"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14533">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19073"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_6081"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14556">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18987"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14558">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13776"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14573"/>
+    <rdf:Description rdf:about="&univ-bench;a_14574"/>
+    <rdf:Description rdf:about="&univ-bench;a_14581">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14359"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9466"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14608"/>
+    <rdf:Description rdf:about="&univ-bench;a_14629">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_3321"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14644">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1378"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14645">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5773"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14652"/>
+    <rdf:Description rdf:about="&univ-bench;a_14661">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_6160"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14686"/>
+    <rdf:Description rdf:about="&univ-bench;a_14696">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12802"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18286"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14697">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14345"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14740">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_11338"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14748"/>
+    <rdf:Description rdf:about="&univ-bench;a_14769"/>
+    <rdf:Description rdf:about="&univ-bench;a_1478">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13196"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14786"/>
+    <rdf:Description rdf:about="&univ-bench;a_148">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18987"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14827"/>
+    <rdf:Description rdf:about="&univ-bench;a_14841"/>
+    <rdf:Description rdf:about="&univ-bench;a_14848"/>
+    <rdf:Description rdf:about="&univ-bench;a_14863">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_1907"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_2315"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14866">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8914"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14900">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_3125"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14920">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_2799"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14927">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12964"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14936">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9597"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14937">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_10178"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16957"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14942">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13776"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14558"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15003">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_1959"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9509"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15014"/>
+    <rdf:Description rdf:about="&univ-bench;a_15016">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_10060"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11483"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1504">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_44"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15057">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18965"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15062"/>
+    <rdf:Description rdf:about="&univ-bench;a_15077">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1407"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_4601"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1509">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18004"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_19077"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15104">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_11646"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4166"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15120"/>
+    <rdf:Description rdf:about="&univ-bench;a_15133">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10245"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9509"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15151"/>
+    <rdf:Description rdf:about="&univ-bench;a_15179">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12139"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15614"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15182">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13246"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_7167"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15274"/>
+    <rdf:Description rdf:about="&univ-bench;a_15275">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8157"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15282">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_495"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5544"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15296">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_3011"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15306">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9007"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15310">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_11905"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_3889"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15346">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14495"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15438"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15406">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12131"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1302"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15436">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_18448"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_2374"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15438">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14495"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15468">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_11315"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15492">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_2660"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15495">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_3731"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_6022"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15504">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10660"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_162"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15511">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12504"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_19565"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15527">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13108"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17871"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1553">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9324"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15600"/>
+    <rdf:Description rdf:about="&univ-bench;a_15603"/>
+    <rdf:Description rdf:about="&univ-bench;a_15614">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12139"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15625">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_10759"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8128"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15667">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18741"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_6881"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15695"/>
+    <rdf:Description rdf:about="&univ-bench;a_15696">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_3949"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15699">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_1196"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13825"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15706">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12140"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5817"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15721">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14645"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5773"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1573"/>
+    <rdf:Description rdf:about="&univ-bench;a_15742">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_11811"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9521"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15776"/>
+    <rdf:Description rdf:about="&univ-bench;a_15810">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5703"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15817"/>
+    <rdf:Description rdf:about="&univ-bench;a_15835">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_3948"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_4754"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15841">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17803"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_7749"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15842">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_16062"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15843"/>
+    <rdf:Description rdf:about="&univ-bench;a_15848">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11321"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13087"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15861"/>
+    <rdf:Description rdf:about="&univ-bench;a_15869">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_11880"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15879">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14556"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18987"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15884">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_148"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18987"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15892">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12205"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15945">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_2984"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15949">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18152"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_18569"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15958"/>
+    <rdf:Description rdf:about="&univ-bench;a_1597">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_16748"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6266"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15973">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12885"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15603"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15983">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5952"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15984">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1083"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15997">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_11852"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16005">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_2250"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5641"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16031">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16956"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_922"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16062"/>
+    <rdf:Description rdf:about="&univ-bench;a_16091">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12864"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5466"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16129">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8328"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16133">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15275"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8157"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16154"/>
+    <rdf:Description rdf:about="&univ-bench;a_16169">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16606"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17603"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16181">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4802"/>
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5478"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_162">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10660"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16204">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8271"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16215">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_18695"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9371"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16250"/>
+    <rdf:Description rdf:about="&univ-bench;a_16259">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13196"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_1478"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16260"/>
+    <rdf:Description rdf:about="&univ-bench;a_16276">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12289"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16277"/>
+    <rdf:Description rdf:about="&univ-bench;a_16314">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9418"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16325">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13712"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9371"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16329"/>
+    <rdf:Description rdf:about="&univ-bench;a_16367">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_662"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_7155"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16383"/>
+    <rdf:Description rdf:about="&univ-bench;a_16384">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12344"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7034"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16394"/>
+    <rdf:Description rdf:about="&univ-bench;a_16402"/>
+    <rdf:Description rdf:about="&univ-bench;a_16418">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13343"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5345"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16433">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4647"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16460">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_17315"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16467">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19986"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2685"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16485">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17620"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9957"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16511">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12348"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16515">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13911"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8188"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16521">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_2871"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16527"/>
+    <rdf:Description rdf:about="&univ-bench;a_16575"/>
+    <rdf:Description rdf:about="&univ-bench;a_16589">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_16250"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16606"/>
+    <rdf:Description rdf:about="&univ-bench;a_16643">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14076"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17322"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16647">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_15843"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16652">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12931"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18128"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16654"/>
+    <rdf:Description rdf:about="&univ-bench;a_16723">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_1218"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19456"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16744">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15983"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5952"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16748">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_6266"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16835">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12920"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16925"/>
+    <rdf:Description rdf:about="&univ-bench;a_16936">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5086"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16956"/>
+    <rdf:Description rdf:about="&univ-bench;a_16957"/>
+    <rdf:Description rdf:about="&univ-bench;a_1697"/>
+    <rdf:Description rdf:about="&univ-bench;a_16976">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14345"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14697"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17000">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13737"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17016"/>
+    <rdf:Description rdf:about="&univ-bench;a_1704">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17537"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_19252"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17041"/>
+    <rdf:Description rdf:about="&univ-bench;a_17063">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13460"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17066"/>
+    <rdf:Description rdf:about="&univ-bench;a_17103"/>
+    <rdf:Description rdf:about="&univ-bench;a_17108"/>
+    <rdf:Description rdf:about="&univ-bench;a_17139">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4166"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17152">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1754"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17164">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9207"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17167">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_351"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17176">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_2013"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17205">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9621"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17209">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_11332"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_681"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17234">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2857"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_861"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17235">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_6911"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9907"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17237">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17176"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_2013"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1727"/>
+    <rdf:Description rdf:about="&univ-bench;a_17283">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_6652"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17295">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9512"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17315"/>
+    <rdf:Description rdf:about="&univ-bench;a_17322"/>
+    <rdf:Description rdf:about="&univ-bench;a_17370">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4807"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_6010"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17394">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9732"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17401">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15817"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_3732"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17402">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12688"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13424"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17448">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14258"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14379"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17457"/>
+    <rdf:Description rdf:about="&univ-bench;a_17477">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6877"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_7577"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17484">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12964"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14927"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17486">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8919"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17492"/>
+    <rdf:Description rdf:about="&univ-bench;a_17493">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_3932"/>
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_7480"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_757"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17512"/>
+    <rdf:Description rdf:about="&univ-bench;a_17531">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13877"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_3703"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17537"/>
+    <rdf:Description rdf:about="&univ-bench;a_1754"/>
+    <rdf:Description rdf:about="&univ-bench;a_17540">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_18923"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19059"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17581">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_17016"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17589">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8860"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17594">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10381"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_8405"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17597">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_19529"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17603">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_16606"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17610">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13346"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17620">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9957"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17641">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12955"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9619"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17650">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16329"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_3547"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17651">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12647"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6570"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17664">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5459"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17686">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_15695"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17758"/>
+    <rdf:Description rdf:about="&univ-bench;a_17791">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_19891"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17799">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_15861"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17803"/>
+    <rdf:Description rdf:about="&univ-bench;a_17815">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_2149"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_83"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17844"/>
+    <rdf:Description rdf:about="&univ-bench;a_17864">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_16181"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4802"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17871"/>
+    <rdf:Description rdf:about="&univ-bench;a_17899"/>
+    <rdf:Description rdf:about="&univ-bench;a_17910">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_11087"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17970">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_11797"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18032"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17990">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17167"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_351"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17992">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_478"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_6222"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17995">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_494"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17997">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1933"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_19845"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17998">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1727"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18004"/>
+    <rdf:Description rdf:about="&univ-bench;a_18032"/>
+    <rdf:Description rdf:about="&univ-bench;a_18072"/>
+    <rdf:Description rdf:about="&univ-bench;a_18087"/>
+    <rdf:Description rdf:about="&univ-bench;a_18088"/>
+    <rdf:Description rdf:about="&univ-bench;a_18100">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18088"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1811">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_17103"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5557"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9813"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18115">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14573"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9517"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18127"/>
+    <rdf:Description rdf:about="&univ-bench;a_18128"/>
+    <rdf:Description rdf:about="&univ-bench;a_18148">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_16129"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8328"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18152"/>
+    <rdf:Description rdf:about="&univ-bench;a_18181"/>
+    <rdf:Description rdf:about="&univ-bench;a_1820">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1727"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17998"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18240">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12572"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8028"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18254"/>
+    <rdf:Description rdf:about="&univ-bench;a_18260"/>
+    <rdf:Description rdf:about="&univ-bench;a_18261">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17205"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9621"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18263">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_16314"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9418"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18265">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17486"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8919"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18283"/>
+    <rdf:Description rdf:about="&univ-bench;a_18286"/>
+    <rdf:Description rdf:about="&univ-bench;a_18295">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1697"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_424"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18309">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1083"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15984"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18324"/>
+    <rdf:Description rdf:about="&univ-bench;a_18388">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14437"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5255"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18390">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1035"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18411">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17108"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_3696"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18413">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12880"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_1390"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18424">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14652"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_8337"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18446"/>
+    <rdf:Description rdf:about="&univ-bench;a_18448">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_2374"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18464">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_19759"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18484">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18072"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_19148"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18532"/>
+    <rdf:Description rdf:about="&univ-bench;a_18551">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14748"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18569">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18152"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18636">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5180"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_7087"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18645">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10625"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18662">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12547"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_6145"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18695">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9371"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_187"/>
+    <rdf:Description rdf:about="&univ-bench;a_18707"/>
+    <rdf:Description rdf:about="&univ-bench;a_1871">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_4776"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6411"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18720">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12154"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17844"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18741"/>
+    <rdf:Description rdf:about="&univ-bench;a_18749">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12015"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12906"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18806">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4896"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18818">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10920"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5067"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18826"/>
+    <rdf:Description rdf:about="&univ-bench;a_18861">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18088"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_18100"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18895">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17597"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19529"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18912">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13485"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_3319"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18923">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_19059"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18935">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_746"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18947">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1302"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18955">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13194"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4205"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18958">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14574"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_7437"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18965"/>
+    <rdf:Description rdf:about="&univ-bench;a_18987"/>
+    <rdf:Description rdf:about="&univ-bench;a_190">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14005"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2919"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19004"/>
+    <rdf:Description rdf:about="&univ-bench;a_19059"/>
+    <rdf:Description rdf:about="&univ-bench;a_1907">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_2315"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19073"/>
+    <rdf:Description rdf:about="&univ-bench;a_19077">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18004"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1908">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_617"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19116">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11338"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14740"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19128">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_7776"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19148">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18072"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19164">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_11416"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19166">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_16654"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19201">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5369"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19215"/>
+    <rdf:Description rdf:about="&univ-bench;a_19249">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_10217"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14848"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1925"/>
+    <rdf:Description rdf:about="&univ-bench;a_19252">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_17537"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19259">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19215"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9464"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1933"/>
+    <rdf:Description rdf:about="&univ-bench;a_19342">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_7396"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19389"/>
+    <rdf:Description rdf:about="&univ-bench;a_19428">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_503"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9541"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19434">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13763"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2800"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19441"/>
+    <rdf:Description rdf:about="&univ-bench;a_19456"/>
+    <rdf:Description rdf:about="&univ-bench;a_19475">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13735"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15062"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19522">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13469"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2144"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19529"/>
+    <rdf:Description rdf:about="&univ-bench;a_19538">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16250"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_16589"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19565">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12504"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19568">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_6184"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19573">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11416"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_19164"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19586">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2787"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4354"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1959">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9509"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19634">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13975"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7547"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19677">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1378"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14644"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19682">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_16575"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19693">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8353"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_915"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19759"/>
+    <rdf:Description rdf:about="&univ-bench;a_19793">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18283"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1982">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14385"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17041"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19838">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_11024"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15274"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19845">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1933"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19859">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18707"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19873">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_10808"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6616"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19878"/>
+    <rdf:Description rdf:about="&univ-bench;a_1989">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9054"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19891"/>
+    <rdf:Description rdf:about="&univ-bench;a_19892"/>
+    <rdf:Description rdf:about="&univ-bench;a_19918">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14466"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19958">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1302"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_18947"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19961">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_11461"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19986"/>
+    <rdf:Description rdf:about="&univ-bench;a_19993"/>
+    <rdf:Description rdf:about="&univ-bench;a_2013"/>
+    <rdf:Description rdf:about="&univ-bench;a_2085">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14466"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_19918"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2104">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_2875"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5512"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2139">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10472"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12193"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2144">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13469"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2149"/>
+    <rdf:Description rdf:about="&univ-bench;a_2208">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16575"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_19682"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2209">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12205"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15892"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2250"/>
+    <rdf:Description rdf:about="&univ-bench;a_2252">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_17457"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2281">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5305"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2287">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1573"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2315"/>
+    <rdf:Description rdf:about="&univ-bench;a_2317">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11192"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_3190"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2324">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12158"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19441"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2341">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_6763"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2349">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_11943"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14769"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2374"/>
+    <rdf:Description rdf:about="&univ-bench;a_2385">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14786"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2414">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19892"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_29"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2437">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_10401"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1308"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2465"/>
+    <rdf:Description rdf:about="&univ-bench;a_2541">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13091"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7008"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2574">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2281"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5305"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2650">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13991"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7519"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2657">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_7255"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9925"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2660"/>
+    <rdf:Description rdf:about="&univ-bench;a_2668">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13870"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2677">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5978"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2681"/>
+    <rdf:Description rdf:about="&univ-bench;a_2685">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_19986"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2696">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14786"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2385"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2697">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14323"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2700">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_1553"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9324"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2702">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10960"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2721">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_17899"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2787">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4354"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2799"/>
+    <rdf:Description rdf:about="&univ-bench;a_2800">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13763"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2814">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10339"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_8154"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2857">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_861"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2867">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13390"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9285"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2871"/>
+    <rdf:Description rdf:about="&univ-bench;a_2875"/>
+    <rdf:Description rdf:about="&univ-bench;a_29">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_19892"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2919">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14005"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2973">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_15120"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2984">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15842"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16062"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2989">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_665"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3002"/>
+    <rdf:Description rdf:about="&univ-bench;a_3011">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10222"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12907"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3100">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17103"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_1811"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3117"/>
+    <rdf:Description rdf:about="&univ-bench;a_3125"/>
+    <rdf:Description rdf:about="&univ-bench;a_3128">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10988"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_1129"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3140">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_19201"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5369"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3190">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_11192"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3193">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4348"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_323"/>
+    <rdf:Description rdf:about="&univ-bench;a_3287">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_3002"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3319">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13485"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3321"/>
+    <rdf:Description rdf:about="&univ-bench;a_3331">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12153"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3336">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_11970"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18532"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3398">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_11579"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16925"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3416">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17995"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_494"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_342">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9843"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3485">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18324"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_351"/>
+    <rdf:Description rdf:about="&univ-bench;a_3547">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_16329"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3578">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5290"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3605">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_17758"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3694">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_10195"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18087"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3696">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_17108"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3703"/>
+    <rdf:Description rdf:about="&univ-bench;a_3731"/>
+    <rdf:Description rdf:about="&univ-bench;a_3732">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_15817"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3748">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18181"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9173"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3765"/>
+    <rdf:Description rdf:about="&univ-bench;a_3848">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_10657"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11007"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3889"/>
+    <rdf:Description rdf:about="&univ-bench;a_391"/>
+    <rdf:Description rdf:about="&univ-bench;a_3917"/>
+    <rdf:Description rdf:about="&univ-bench;a_3932"/>
+    <rdf:Description rdf:about="&univ-bench;a_3948"/>
+    <rdf:Description rdf:about="&univ-bench;a_3949"/>
+    <rdf:Description rdf:about="&univ-bench;a_4084">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5005"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4103">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_646"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4107">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1429"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4132">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_11826"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15151"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4166"/>
+    <rdf:Description rdf:about="&univ-bench;a_417">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9586"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4182"/>
+    <rdf:Description rdf:about="&univ-bench;a_4191">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11461"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_19961"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4201"/>
+    <rdf:Description rdf:about="&univ-bench;a_4205"/>
+    <rdf:Description rdf:about="&univ-bench;a_4232"/>
+    <rdf:Description rdf:about="&univ-bench;a_424">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1697"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4318">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_6571"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4348"/>
+    <rdf:Description rdf:about="&univ-bench;a_4354"/>
+    <rdf:Description rdf:about="&univ-bench;a_4361"/>
+    <rdf:Description rdf:about="&univ-bench;a_4365"/>
+    <rdf:Description rdf:about="&univ-bench;a_44"/>
+    <rdf:Description rdf:about="&univ-bench;a_4404">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10960"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2702"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4426">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5308"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8951"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4452"/>
+    <rdf:Description rdf:about="&univ-bench;a_4519"/>
+    <rdf:Description rdf:about="&univ-bench;a_4523">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_11853"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12124"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4573">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4452"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9155"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_458">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12456"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15776"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4593">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10640"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4600">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_10640"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8496"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4601">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1407"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4602">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10781"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4637">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_3117"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4647"/>
+    <rdf:Description rdf:about="&univ-bench;a_4675">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14507"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16394"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4741">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_1908"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_617"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4754">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_3948"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4776">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_6411"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_478"/>
+    <rdf:Description rdf:about="&univ-bench;a_4799">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1030"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4802"/>
+    <rdf:Description rdf:about="&univ-bench;a_4807"/>
+    <rdf:Description rdf:about="&univ-bench;a_4880">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10430"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4896"/>
+    <rdf:Description rdf:about="&univ-bench;a_494"/>
+    <rdf:Description rdf:about="&univ-bench;a_4949">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_1224"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7560"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_495"/>
+    <rdf:Description rdf:about="&univ-bench;a_4952">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1233"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5005"/>
+    <rdf:Description rdf:about="&univ-bench;a_5027">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_187"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5759"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_503">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9541"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5051">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15958"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_670"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5067">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10920"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5073"/>
+    <rdf:Description rdf:about="&univ-bench;a_5086"/>
+    <rdf:Description rdf:about="&univ-bench;a_5101">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9262"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5128">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18446"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5180"/>
+    <rdf:Description rdf:about="&univ-bench;a_5185">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10640"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_4593"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_524">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_6310"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5255"/>
+    <rdf:Description rdf:about="&univ-bench;a_5290"/>
+    <rdf:Description rdf:about="&univ-bench;a_5305"/>
+    <rdf:Description rdf:about="&univ-bench;a_5308">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8951"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5317">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10792"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5338">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4365"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9304"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5345"/>
+    <rdf:Description rdf:about="&univ-bench;a_5347"/>
+    <rdf:Description rdf:about="&univ-bench;a_5369"/>
+    <rdf:Description rdf:about="&univ-bench;a_5408">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10430"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_4880"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5430">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_19004"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5459"/>
+    <rdf:Description rdf:about="&univ-bench;a_5466"/>
+    <rdf:Description rdf:about="&univ-bench;a_5478"/>
+    <rdf:Description rdf:about="&univ-bench;a_5512">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_2875"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5544">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_495"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5550">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_19389"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5553">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13870"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2668"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5557"/>
+    <rdf:Description rdf:about="&univ-bench;a_5568">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_7620"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5573">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11315"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15468"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5598">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14323"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2697"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_56">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11141"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_11947"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5628">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12850"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7107"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5641">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_2250"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5669">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14076"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_7260"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5682">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4519"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9409"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5703"/>
+    <rdf:Description rdf:about="&univ-bench;a_571">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9276"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5715">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_880"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5721">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_15014"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5743">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13346"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17610"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5745">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_6051"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9937"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5759">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_187"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5760">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_940"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5771">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1030"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_4799"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5773"/>
+    <rdf:Description rdf:about="&univ-bench;a_5785">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13372"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5817"/>
+    <rdf:Description rdf:about="&univ-bench;a_5842">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13737"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17000"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5850">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_6256"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5858">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17016"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17581"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5861">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15306"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9007"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5952">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14841"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_7809"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_597">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_11014"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5978"/>
+    <rdf:Description rdf:about="&univ-bench;a_5986"/>
+    <rdf:Description rdf:about="&univ-bench;a_60">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9983"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6010">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4807"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6015">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_571"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9276"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6018">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15120"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2973"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6022">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_3731"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6051">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9937"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6062">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17457"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2252"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6081">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_19073"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_610">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17283"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6652"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6142"/>
+    <rdf:Description rdf:about="&univ-bench;a_6145">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12547"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6160"/>
+    <rdf:Description rdf:about="&univ-bench;a_617"/>
+    <rdf:Description rdf:about="&univ-bench;a_6176">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12920"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_16835"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6184"/>
+    <rdf:Description rdf:about="&univ-bench;a_6194">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_4103"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_646"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6222">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_478"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6228">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15696"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_3949"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6256"/>
+    <rdf:Description rdf:about="&univ-bench;a_6266"/>
+    <rdf:Description rdf:about="&univ-bench;a_6310"/>
+    <rdf:Description rdf:about="&univ-bench;a_6327">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_6142"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6353">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_16204"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8271"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6406">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15296"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_3011"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6411"/>
+    <rdf:Description rdf:about="&univ-bench;a_6414">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14460"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16383"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6440">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10485"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_646"/>
+    <rdf:Description rdf:about="&univ-bench;a_6479">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_391"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6527">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_342"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9843"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6570"/>
+    <rdf:Description rdf:about="&univ-bench;a_6571"/>
+    <rdf:Description rdf:about="&univ-bench;a_6579">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_16460"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17315"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6607">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_3002"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_3287"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6611">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13502"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6616"/>
+    <rdf:Description rdf:about="&univ-bench;a_662"/>
+    <rdf:Description rdf:about="&univ-bench;a_663">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18826"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6631">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11014"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_597"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_665"/>
+    <rdf:Description rdf:about="&univ-bench;a_6652"/>
+    <rdf:Description rdf:about="&univ-bench;a_6667">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12382"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6266"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6694">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5760"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_940"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_670">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_15958"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6743">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_1989"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9054"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_676">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1394"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6763"/>
+    <rdf:Description rdf:about="&univ-bench;a_6794">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11852"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15997"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_681"/>
+    <rdf:Description rdf:about="&univ-bench;a_685">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7116"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9547"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6864">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12432"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14686"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6877"/>
+    <rdf:Description rdf:about="&univ-bench;a_6881">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18741"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6911">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9907"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6929">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_19568"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6184"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7008"/>
+    <rdf:Description rdf:about="&univ-bench;a_7034"/>
+    <rdf:Description rdf:about="&univ-bench;a_7054">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10625"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_18645"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7087">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5180"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7091">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12342"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7107"/>
+    <rdf:Description rdf:about="&univ-bench;a_7116"/>
+    <rdf:Description rdf:about="&univ-bench;a_7137">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_16154"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7155">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_662"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7167">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13246"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7221">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_10824"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16260"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7255">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9925"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7260">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14076"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7289"/>
+    <rdf:Description rdf:about="&univ-bench;a_7347"/>
+    <rdf:Description rdf:about="&univ-bench;a_7396"/>
+    <rdf:Description rdf:about="&univ-bench;a_7436">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18826"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_663"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7437">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14574"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7442">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14661"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6160"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_746"/>
+    <rdf:Description rdf:about="&univ-bench;a_7480"/>
+    <rdf:Description rdf:about="&univ-bench;a_7519"/>
+    <rdf:Description rdf:about="&univ-bench;a_7547"/>
+    <rdf:Description rdf:about="&univ-bench;a_7557">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13637"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18260"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7560"/>
+    <rdf:Description rdf:about="&univ-bench;a_757">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_3932"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7577">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_6877"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7615">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_7347"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7620"/>
+    <rdf:Description rdf:about="&univ-bench;a_7684">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14474"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18127"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7749">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_17803"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7761">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_3765"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7776"/>
+    <rdf:Description rdf:about="&univ-bench;a_7799">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_1043"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16277"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7809">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14841"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7832">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_15600"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7881">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16154"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_7137"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_789">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7347"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_7615"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7901">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13502"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_6611"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7909">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14827"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9534"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7933">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17899"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_2721"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_794">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_16936"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5086"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7948">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_16181"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5478"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7987">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_663"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7988">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1925"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9517"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7998">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16654"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_19166"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8028"/>
+    <rdf:Description rdf:about="&univ-bench;a_8038"/>
+    <rdf:Description rdf:about="&univ-bench;a_808">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_19128"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7776"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8099">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_2681"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8101">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_524"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6310"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8128"/>
+    <rdf:Description rdf:about="&univ-bench;a_8154">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10339"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8157"/>
+    <rdf:Description rdf:about="&univ-bench;a_818">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14608"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8188"/>
+    <rdf:Description rdf:about="&univ-bench;a_8271"/>
+    <rdf:Description rdf:about="&univ-bench;a_83">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_2149"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8312">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13530"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8547"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8328"/>
+    <rdf:Description rdf:about="&univ-bench;a_8337">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14652"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8351">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12430"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9667"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8353"/>
+    <rdf:Description rdf:about="&univ-bench;a_8372">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17664"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5459"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8377">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1394"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_676"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8405">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10381"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8417">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17164"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9207"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8478">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10472"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9933"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8496"/>
+    <rdf:Description rdf:about="&univ-bench;a_8547"/>
+    <rdf:Description rdf:about="&univ-bench;a_8556">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_3193"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4348"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8596">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5073"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_861"/>
+    <rdf:Description rdf:about="&univ-bench;a_8646">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12139"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4361"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8679">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8874"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8685">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_3578"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5290"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_880"/>
+    <rdf:Description rdf:about="&univ-bench;a_8833">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1161"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14003"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8839"/>
+    <rdf:Description rdf:about="&univ-bench;a_8860"/>
+    <rdf:Description rdf:about="&univ-bench;a_8874"/>
+    <rdf:Description rdf:about="&univ-bench;a_8904">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5568"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7620"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8914">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_4084"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5005"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8919"/>
+    <rdf:Description rdf:about="&univ-bench;a_8921">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_18935"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_746"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8931">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_2465"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8936">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10792"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_5317"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8951"/>
+    <rdf:Description rdf:about="&univ-bench;a_8958">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5986"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8966">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10485"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_6440"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9007"/>
+    <rdf:Description rdf:about="&univ-bench;a_902">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_19993"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9024">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6142"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_6327"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9054"/>
+    <rdf:Description rdf:about="&univ-bench;a_9140">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_10481"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11654"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_915">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8353"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9151">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_8679"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8874"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9155">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4452"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9169">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13655"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17066"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9173">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18181"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9182">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_14936"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9597"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9187">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_2465"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_8931"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9207"/>
+    <rdf:Description rdf:about="&univ-bench;a_9210">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15695"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_17686"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_922">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_16956"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9262"/>
+    <rdf:Description rdf:about="&univ-bench;a_9267">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12289"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_16276"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9276"/>
+    <rdf:Description rdf:about="&univ-bench;a_9285">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13390"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9300">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_15492"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_2660"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9304">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4365"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9324"/>
+    <rdf:Description rdf:about="&univ-bench;a_9351">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12153"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_3331"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9371"/>
+    <rdf:Description rdf:about="&univ-bench;a_9399">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_19878"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_940"/>
+    <rdf:Description rdf:about="&univ-bench;a_9409">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4519"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9412">
+        <univ-bench:advisor rdf:resource="&univ-bench;a_13995"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_3917"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9418"/>
+    <rdf:Description rdf:about="&univ-bench;a_9464">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_19215"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9466"/>
+    <rdf:Description rdf:about="&univ-bench;a_9509">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10245"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9512"/>
+    <rdf:Description rdf:about="&univ-bench;a_9517">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14573"/>
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1925"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9521"/>
+    <rdf:Description rdf:about="&univ-bench;a_9533">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10030"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_12563"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9534">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_14827"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9541"/>
+    <rdf:Description rdf:about="&univ-bench;a_9542">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11397"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_9864"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9547">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_7116"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9586"/>
+    <rdf:Description rdf:about="&univ-bench;a_9597"/>
+    <rdf:Description rdf:about="&univ-bench;a_9619">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12955"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9621">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10024"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9667"/>
+    <rdf:Description rdf:about="&univ-bench;a_9728">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8038"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9732"/>
+    <rdf:Description rdf:about="&univ-bench;a_9737">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17758"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_3605"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9752">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_3117"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_4637"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9813">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5557"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9822"/>
+    <rdf:Description rdf:about="&univ-bench;a_9843"/>
+    <rdf:Description rdf:about="&univ-bench;a_9847">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_391"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_6479"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9854">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15843"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_16647"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9864">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_11397"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9899">
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14608"/>
+        <univ-bench:advisor rdf:resource="&univ-bench;a_818"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9907">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9822"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9925"/>
+    <rdf:Description rdf:about="&univ-bench;a_9933">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10472"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9937"/>
+    <rdf:Description rdf:about="&univ-bench;a_9956"/>
+    <rdf:Description rdf:about="&univ-bench;a_9957"/>
+    <rdf:Description rdf:about="&univ-bench;a_9983"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 0.9.2) http://owlapi.sourceforge.net -->
+

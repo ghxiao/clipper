@@ -1,0 +1,1 @@
+Q(?0,?44) <- Publication(?0), publicationAuthor(?0,?44)
