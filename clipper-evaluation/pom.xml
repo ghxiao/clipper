@@ -15,5 +15,10 @@
 			<artifactId>sygenia</artifactId>
 			<version>0.3</version>
 		</dependency>
+		<dependency>
+			<groupId>org.semanticweb.clipper</groupId>
+			<artifactId>clipper-reasoner</artifactId>
+			<version>0.2-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>
