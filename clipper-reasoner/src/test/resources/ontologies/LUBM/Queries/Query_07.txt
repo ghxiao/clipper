@@ -1,0 +1,3 @@
+Q(?0,?1,?44) <- Student(?0), Course(?1), teacherOf(?44, ?1), takesCourse(?0,?1)
+
+
