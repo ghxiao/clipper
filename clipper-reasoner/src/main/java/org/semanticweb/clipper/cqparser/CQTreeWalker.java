@@ -1,4 +1,4 @@
-package org.semanticweb.clipper.dllog;
+package org.semanticweb.clipper.cqparser;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Set;
 
 import org.antlr.runtime.tree.CommonTree;
+
 import org.semanticweb.clipper.hornshiq.rule.Atom;
+import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.Constant;
 import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
 import org.semanticweb.clipper.hornshiq.rule.NonDLPredicate;
@@ -16,12 +18,12 @@ import org.semanticweb.clipper.hornshiq.rule.Variable;
 import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.util.BidirectionalShortFormProvider;
 
-public class DLLogTreeWalker {
+import com.google.common.collect.Sets;
 
+public class CQTreeWalker {
 	private BidirectionalShortFormProvider bsfp;
 
-	public DLLogTreeWalker(
-			BidirectionalShortFormProvider bidirectionalShortFormProvider) {
+	public CQTreeWalker(BidirectionalShortFormProvider bidirectionalShortFormProvider) {
 		this.bsfp = bidirectionalShortFormProvider;
 	}
 
@@ -30,22 +32,22 @@ public class DLLogTreeWalker {
 		return node.getChildren();
 	}
 
-	public List<DLLogRule> walkRootNode(CommonTree root) {
+//	public List<DLLogRule> walkRootNode(CommonTree root) {
+//
+//		List<DLLogRule> rules = new ArrayList<DLLogRule>();
+//
+//		List<CommonTree> children = childrenOf(root);
+//
+//		for (CommonTree node : children) {
+//			rules.add(walkRuleNode(node));
+//		}
+//
+//		return rules;
+//	}
 
-		List<DLLogRule> rules = new ArrayList<DLLogRule>();
+	public CQ walkRuleNode(CommonTree ruleNode) {
 
-		List<CommonTree> children = childrenOf(root);
-
-		for (CommonTree node : children) {
-			rules.add(walkRuleNode(node));
-		}
-
-		return rules;
-	}
-
-	public DLLogRule walkRuleNode(CommonTree ruleNode) {
-
-		assert (ruleNode.getType() == DLLogLexer.RULE);
+		assert (ruleNode.getType() == CQLexer.RULE);
 
 		Iterator<CommonTree> iterator = childrenOf(ruleNode).iterator();
 
@@ -56,19 +58,16 @@ public class DLLogTreeWalker {
 
 		List<Atom> bodyPositiveNonDLAtoms = new ArrayList<Atom>();
 
-		// TODO: handle negative body
-		List<Atom> bodyNegativeNonDLAtoms = new ArrayList<Atom>();
-
 		// walk for head
 		walkAtomList(iterator.next(), headDLAtoms, headNonDLAtoms);
 
 		// walk for positive body
-		walkAtomList(iterator.next(), bodyPositiveDLAtoms,
-				bodyPositiveNonDLAtoms);
+		walkAtomList(iterator.next(), bodyPositiveDLAtoms, bodyPositiveNonDLAtoms);
 
 		// TODO: negative body
-		return new DLLogRule(headDLAtoms, headNonDLAtoms, bodyPositiveDLAtoms,
-				bodyPositiveNonDLAtoms, bodyNegativeNonDLAtoms);
+
+		return new CQ(headNonDLAtoms.iterator().next(), Sets.newHashSet(bodyPositiveDLAtoms));
+
 	}
 
 	/**
@@ -82,9 +81,8 @@ public class DLLogTreeWalker {
 	 * @param nonDLAtoms
 	 *            non-DL atoms are added to nonDLAtoms
 	 */
-	public void walkAtomList(CommonTree node, List<Atom> dlAtoms,
-			List<Atom> nonDLAtoms) {
-		assert (node.getType() == DLLogLexer.ATOM_LIST);
+	public void walkAtomList(CommonTree node, List<Atom> dlAtoms, List<Atom> nonDLAtoms) {
+		assert (node.getType() == CQLexer.ATOM_LIST);
 		for (CommonTree atomNode : childrenOf(node)) {
 			Atom atom = walkAtomNode(atomNode);
 			if (atom.getPredicate().isDLPredicate()) {
@@ -110,8 +108,8 @@ public class DLLogTreeWalker {
 		} else {
 			if (entities.size() > 1)
 				System.err.println(//
-						"Warning: More than one DL predicates with the same short name "
-								+ predicateName + " -> " + entities);
+						"Warning: More than one DL predicates with the same short name " + predicateName + " -> "
+								+ entities);
 			OWLEntity entity = entities.iterator().next();
 			predicate = new DLPredicate(entity);
 		}
@@ -132,9 +130,9 @@ public class DLLogTreeWalker {
 		String text = subNode.getText();
 
 		switch (termNode.getType()) {
-		case DLLogLexer.VARIABLE:
+		case CQLexer.VARIABLE:
 			return new Variable(text);
-		case DLLogLexer.CONSTANT:
+		case CQLexer.CONSTANT:
 			return new Constant(text);
 		}
 		throw new IllegalArgumentException();

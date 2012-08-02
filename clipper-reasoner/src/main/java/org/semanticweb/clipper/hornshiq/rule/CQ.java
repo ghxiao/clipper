@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,11 +16,12 @@ import org.semanticweb.clipper.hornshiq.ontology.InversePropertyOfAxiom;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 
 @Data
-
+@AllArgsConstructor
 public class CQ {
 	Atom head;
 	Set<Atom> body;
 
+	
 	public CQ() {
 		head = new Atom();
 		body = new HashSet<Atom>();
