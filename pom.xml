@@ -10,6 +10,7 @@
 		<module>clipper-reasoner</module>
 		<module>clipper-cli</module>
 		<module>clipper-distribution</module>
+		<module>clipper-evaluation</module>
 	</modules>
 
 	<name>clipper</name>
