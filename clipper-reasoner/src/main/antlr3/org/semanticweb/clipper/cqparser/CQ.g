@@ -82,7 +82,8 @@ package org.semanticweb.clipper.cqparser;
   
   
 cq:
-  head (':-' | '<-') body  -> ^(RULE head body);
+head (':-' | '<-') body  -> ^(RULE head body);
+  //head (':-' | '<-') body COMMENT_LINE? -> ^(RULE head body);
   
   /*head (':-' | '<-') body '.' -> ^(RULE head body);*/
    
@@ -127,3 +128,4 @@ UPPER_LEADING_ID  :   ('A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
 LOWER_LEADING_ID  :   ('a'..'z') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
 WS  : (' '|'\n'|'\r')+ {$channel=HIDDEN;} ;
 INT : ('0'..'9')+; 
+
