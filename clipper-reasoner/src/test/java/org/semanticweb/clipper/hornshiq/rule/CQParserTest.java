@@ -7,7 +7,7 @@ import java.util.Set;
 
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
-import org.semanticweb.clipper.hornshiq.rule.CQParser;
+import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLIndividual;
@@ -20,7 +20,7 @@ public class CQParserTest {
 		String s="     q( X0 )     :-       r6(   X1,   d1),             c3 (d1), c3(X1), r8(X0,X2), c2(X0), r4(X0,X1).         ";
 		String s1="     q()     :-       r6(X1,d1),             c3(d1), c3(X1), r8(X0,X2), c2(X0), r4(X0,X1).         ";
 		String s2="     q(X0,  X1)     :-       r6(X1,d1),             c3(d1), c3(X1), r8(X0,X2), c2(X0), r4(X0,X1).         ";
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		System.out.println(parser.getCq());
 		parser.setQueryString(s1);

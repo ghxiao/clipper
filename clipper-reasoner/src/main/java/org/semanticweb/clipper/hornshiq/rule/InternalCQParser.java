@@ -12,17 +12,17 @@ import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 
 
-public class CQParser {
+public class InternalCQParser {
 	private CQ cq;
 	private String queryString;
 	private String prefix= null;
 
-	public CQParser() {
+	public InternalCQParser() {
 		cq = new CQ();
 		queryString = new String();
 	}
 
-	public CQParser(String queryString) {
+	public InternalCQParser(String queryString) {
 		this.cq = new CQ();
 		this.queryString = queryString;
 	}
