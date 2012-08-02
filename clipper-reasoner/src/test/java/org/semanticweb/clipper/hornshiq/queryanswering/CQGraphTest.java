@@ -9,7 +9,7 @@ import java.util.Set;
 
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.rule.CQParser;
+import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
 
 import com.google.common.collect.HashMultimap;
@@ -26,7 +26,7 @@ public class CQGraphTest {
 	public void test() {
 		String s = "q( X0 )  :- r6(X1, X2), r8(X1, X2), c3 (X1), c3(X1), r8(X0,X2), c2(X0), r4(X0,X1). ";
 
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -43,7 +43,7 @@ public class CQGraphTest {
 	public void testToCQ01() {
 		String s = "q()  :- r2(X1, X0), r4(X2, X1), r6(X3, X1).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -56,7 +56,7 @@ public class CQGraphTest {
 	public void testToCQ02() {
 		String s = "q(X1, X2)  :- r2(X1, X0), r4(X2, X1), r5(X3, X1), c1(X1), c2(X1), c2(X0).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -69,7 +69,7 @@ public class CQGraphTest {
 	public void testToCQ03() {
 		String s = "q(X1, X2)  :- r2(X1, X0), r4(X2, X1), r5(d3, X1), c1(X1), c2(X1), c2(X0).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -81,7 +81,7 @@ public class CQGraphTest {
 	public void testClip01() {
 		String s = " q()  :- r2(X1, X0), r4(X2, X1), r6(X3, X1). ";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -111,7 +111,7 @@ public class CQGraphTest {
 	public void testClip01c() {
 		String s = " q()  :- r2(X1, X0), r4(d2, X1), r6(X3, X1), c3(d2). ";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -142,7 +142,7 @@ public class CQGraphTest {
 	public void testClip015() {
 		String s = " q()  :- r2(X0, d0), r4(X0, X1), r6(d0, X2), r8(X1, X2), c2(X0), c3(d0), c4(X1), c5(X2). ";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -172,7 +172,7 @@ public class CQGraphTest {
 	public void testClip02() {
 		String s = " q()  :- r2(X1, X0), r4(X2, X1), r6(X1, X3). ";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -198,7 +198,7 @@ public class CQGraphTest {
 	public void testClip03() {
 		String s = " q()  :- r2(X1, X0), r4(X2, X1), r6(X1, X3), r4(X0, X4), r4(X4, X3).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -226,7 +226,7 @@ public class CQGraphTest {
 	public void testClip04() {
 		String s = "q()  :- r2(X1, X2), r2(X2, X3), c1(X1), c2(X2), c3(X3).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -256,7 +256,7 @@ public class CQGraphTest {
 	public void testClip05() {
 		String s = " q()  :- r2(X1, X2), r2(X2, X3), r3(X3, X4), c1(X1), c2(X2), c3(X3), c4(X4).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -287,7 +287,7 @@ public class CQGraphTest {
 	public void testClip06() {
 		String s = " q()  :- r2(X1, X2), r2(X2, X3), r3(X3, X4), c1(X1), c2(X2), c3(X3), c4(X4), r6(X1, X2).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -319,7 +319,7 @@ public class CQGraphTest {
 	public void testClip07() {
 		String s = "q()  :- r2(X1, X2), r2(X2, X3), r3(X3, X4), c1(X1), c2(X2), c3(X3), c4(X4), r6(X1, X2).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -351,7 +351,7 @@ public class CQGraphTest {
 	public void testClip08() {
 		String s = "q()  :- r2(X1, X2), r2(X2, X3), r3(X3, X4), c1(X1), c2(X2), c3(X3), c4(X4), r6(X1, X2).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -386,7 +386,7 @@ public class CQGraphTest {
 	public void testClip09() {
 		String s = "q()  :- r2(X1, X3), r4(X1, X2), r6(X2, X3).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -422,7 +422,7 @@ public class CQGraphTest {
 	public void testClip10() {
 		String s = "q(X1) :- c2(X1), c5(X3), r2(X2,X3), c4(X2), r2(X1,X2).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -458,7 +458,7 @@ public class CQGraphTest {
 	public void testClip11() {
 		String s = "q(X1) :- c2(X1), c5(X3), r2(X2,X3), c4(X2), r2(X1,X2).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -494,7 +494,7 @@ public class CQGraphTest {
 	public void testClip12() {
 		String s = "q(X1) :- c2(X1), c5(X3), r2(X2,X3), c4(X2), r2(X1,X2).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -530,7 +530,7 @@ public class CQGraphTest {
 	public void testClip13() {
 		String s = "q(X1) :- c2(X1), c5(X3), r2(X2,X3), c4(X2), r2(X1,X2).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
@@ -577,7 +577,7 @@ public class CQGraphTest {
 	public void testClip14() {
 		String s = "q(X1) :- c2(X1), c5(X3), r2(X2,X3), c4(X2), r2(X1,X2).";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);

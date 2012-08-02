@@ -23,7 +23,7 @@ import org.semanticweb.clipper.hornshiq.ontology.InversePropertyOfAxiom;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.rule.CQParser;
+import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 import org.semanticweb.clipper.hornshiq.rule.Constant;
 import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
 import org.semanticweb.clipper.hornshiq.rule.NonDLPredicate;
@@ -340,7 +340,7 @@ public class QueryRewritingTest {
 		Set<CQ> ucq = qr.getUcq();
 		for (CQ query : ucq)
 			System.out.println(query);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString("q0(X0) :- c3(X1), c2(X0), r4(X0,X1).");
 		CQ cq1 = parser.getCq();
 		parser.setQueryString("q0(X1) :- c2(X1), c3(X1), c4(X1).");
@@ -603,7 +603,7 @@ public class QueryRewritingTest {
 		Set<CQ> ucq = qr.getUcq();
 		for (CQ query : ucq)
 			System.out.println(query);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString("q0() :- r8(d1,X2), c2(d1), c3(d1), c4(d1).");
 		CQ cq1 = parser.getCq();
 		parser.setQueryString("q0() :- r6(X1,d1), c3(d1), c3(X1), r8(X0,X2), c2(X0), r4(X0,X1).");
@@ -622,7 +622,7 @@ public class QueryRewritingTest {
 	@Test
 	public void test05() { // consider the case of inverseOf(r) exist in enfs
 		CQ cq = new CQ();
-		CQParser cqParser = new CQParser();
+		InternalCQParser cqParser = new InternalCQParser();
 		cqParser.setQueryString("q0(X0) :- r4(X1,d1), c3(d1), c3(X1), r8(X0,X2), c2(X0), r3(X0,X1).");
 		cq = cqParser.getCq();
 		System.out.println("Input query:" + cq);
@@ -662,7 +662,7 @@ public class QueryRewritingTest {
 		Set<CQ> ucq = qr.getUcq();
 		for (CQ query : ucq)
 			System.out.println(query);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString("q0(X2) :- r6(X1,d1), c2(X2), c3(d1), c3(X1), r4(X2,X1), c5(X2).");
 		CQ cq1 = parser.getCq();
 		// System.out.println(ucq.contains(cq1));
@@ -686,7 +686,7 @@ public class QueryRewritingTest {
 	@Test
 	public void test06() {
 		CQ cq = new CQ();
-		CQParser cqParser = new CQParser();
+		InternalCQParser cqParser = new InternalCQParser();
 		cqParser.setQueryString("q0(X0) :- r6(X1,d1), c3(d1), c3(X1), r8(X0,X2), c2(X0), r4(X0,X1).");
 		cq = cqParser.getCq();
 		System.out.println("Input query:" + cq);
@@ -726,7 +726,7 @@ public class QueryRewritingTest {
 		Set<CQ> ucq = qr.getUcq();
 		for (CQ query : ucq)
 			System.out.println(query);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString("q0(X2) :- r6(X1,d1), c2(X2), c3(d1), c3(X1), r4(X2,X1), c5(X2).");
 		CQ cq1 = parser.getCq();
 		// System.out.println(ucq.contains(cq1));
@@ -750,7 +750,7 @@ public class QueryRewritingTest {
 	@Test
 	public void test07() {
 		CQ cq = new CQ();
-		CQParser cqParser = new CQParser();
+		InternalCQParser cqParser = new InternalCQParser();
 		cqParser.setQueryString("q(X1,X2) :- r4(X2,X3), r4(X1,X2).");
 		cq = cqParser.getCq();
 		System.out.println("Input query:" + cq);

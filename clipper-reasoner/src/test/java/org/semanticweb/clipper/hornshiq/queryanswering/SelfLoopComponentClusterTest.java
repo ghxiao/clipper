@@ -10,7 +10,7 @@ import java.util.Set;
 import org.junit.Test;
 
 import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.rule.CQParser;
+import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
 
 import com.google.common.base.Joiner;
@@ -21,7 +21,7 @@ public class SelfLoopComponentClusterTest {
 	public void test() throws IOException {
 		String s = "q() :- r2(X1, X2), r2(X3, X2), r4(X1, X3), r8(X4, X3), r4(X4, X5), r2(X4, X6)";
 		System.out.println(s);
-		CQParser parser = new CQParser();
+		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString(s);
 		CQ cq = parser.getCq();
 		CQGraph g = new CQGraph(cq);
