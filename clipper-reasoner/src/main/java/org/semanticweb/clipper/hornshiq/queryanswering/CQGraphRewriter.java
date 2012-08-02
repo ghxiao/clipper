@@ -32,6 +32,7 @@ public class CQGraphRewriter implements QueryRewriter {
 
 	CQGraphHomomorphismChecker checker;
 
+
 	NormalHornALCHIQOntology ontology;
 	IndexedEnfContainer enfs;
 
@@ -184,7 +185,6 @@ public class CQGraphRewriter implements QueryRewriter {
 				CQ cq = g1.toCQ();
 				// if (!redundant(g1)) {
 				if (!resultCQs.contains(cq)) {
-
 					log.debug("-- new cq = {}", cq);
 					rewrite_recursive(g1);
 				}
