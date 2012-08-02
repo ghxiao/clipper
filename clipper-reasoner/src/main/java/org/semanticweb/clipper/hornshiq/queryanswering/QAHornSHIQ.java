@@ -75,6 +75,9 @@ public class QAHornSHIQ {
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);// default
 	}
 
+	
+	
+	
 	public void setNamingStrategy(NamingStrategy namingStrategy) {
 		ClipperManager.getInstance().setNamingStrategy(namingStrategy);
 

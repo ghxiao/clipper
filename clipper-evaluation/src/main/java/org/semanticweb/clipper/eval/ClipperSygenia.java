@@ -3,6 +3,7 @@ package org.semanticweb.clipper.eval;
 import java.io.File;
 
 import org.oxford.comlab.compass.SystemInterface;
+import org.semanticweb.clipper.cqparser.CQParser;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 
@@ -22,13 +23,16 @@ public class ClipperSygenia implements SystemInterface {
 
 	@Override
 	public void loadTestToSystem(String ontologyFile, File aBox) throws Exception {
-		// TODO Auto-generated method stub
+		qaHornSHIQ.setOntologyName(ontologyFile);
 
 	}
 
 	@Override
 	public void loadQuery(int queryIndex) throws Exception {
-		String queryFile = String.format("%s", queryIndex);
+		String queryFile = String.format("%02d", queryIndex);
+		CQParser parser = new CQParser(new File(queryFile));
+		
+		
 		InternalCQParser parser = new InternalCQParser();
 		
 	}
