@@ -23,6 +23,7 @@ package org.semanticweb.clipper.cqparser;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Set;
@@ -37,12 +38,18 @@ import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
 @members{
 
-  Set<OWLOntology> ontologies;
+      Set<OWLOntology> ontologies;
   
-  public CQParser(File file, Set<OWLOntology> ontologies) throws FileNotFoundException, IOException {
-    this(new CommonTokenStream(new CQLexer(new ANTLRInputStream(new FileInputStream(file)))));
-    this.ontologies = ontologies;
-  }
+		  public CQParser(InputStream istream, Set<OWLOntology> ontologies) throws FileNotFoundException, IOException {
+		    this(new CommonTokenStream(new CQLexer(new ANTLRInputStream(istream))));
+		    this.ontologies = ontologies;
+		  }
+  
+  
+		  public CQParser(File file, Set<OWLOntology> ontologies) throws FileNotFoundException, IOException {
+		    this(new CommonTokenStream(new CQLexer(new ANTLRInputStream(new FileInputStream(file)))));
+		    this.ontologies = ontologies;
+		  }
 
       public CQ parse() {
         cq_return r = null;
@@ -75,7 +82,9 @@ package org.semanticweb.clipper.cqparser;
   
   
 cq:
-  head (':-' | '<-') body '.' -> ^(RULE head body);
+  head (':-' | '<-') body  -> ^(RULE head body);
+  
+  /*head (':-' | '<-') body '.' -> ^(RULE head body);*/
    
 head: 
   atom ('v' atom)* -> ^(ATOM_LIST atom*);
@@ -109,7 +118,7 @@ term:
   | constant -> ^(CONSTANT constant);
 
 variable:
-  UPPER_LEADING_ID;
+  '?'! INT;
   
 constant:
   LOWER_LEADING_ID;
@@ -117,3 +126,4 @@ constant:
 UPPER_LEADING_ID  :   ('A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
 LOWER_LEADING_ID  :   ('a'..'z') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
 WS  : (' '|'\n'|'\r')+ {$channel=HIDDEN;} ;
+INT : ('0'..'9')+; 

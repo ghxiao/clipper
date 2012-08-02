@@ -1,0 +1,1853 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY univ-bench "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl_ABox_1_Query_08#"
+     xml:base="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl_ABox_1_Query_08"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:univ-bench="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="file:/Users/xiao/Documents/workspace/sygenia/examples/ontologies/LUBM/univ-bench.owl"/>
+    </owl:Ontology>
+    <owl:ObjectProperty rdf:about="&univ-bench;headOf"/>
+    <owl:ObjectProperty rdf:about="&univ-bench;listedCourse"/>
+    <owl:ObjectProperty rdf:about="&univ-bench;member"/>
+    <owl:ObjectProperty rdf:about="&univ-bench;memberOf"/>
+    <owl:ObjectProperty rdf:about="&univ-bench;subOrganizationOf"/>
+    <owl:ObjectProperty rdf:about="&univ-bench;takesCourse"/>
+    <owl:ObjectProperty rdf:about="&univ-bench;teacherOf"/>
+    <owl:ObjectProperty rdf:about="&univ-bench;teachingAssistantOf"/>
+    <owl:ObjectProperty rdf:about="&univ-bench;worksFor"/>
+    <owl:DatatypeProperty rdf:about="&univ-bench;emailAddress"/>
+    <owl:Class rdf:about="&univ-bench;Course"/>
+    <owl:Class rdf:about="&univ-bench;Department"/>
+    <owl:Class rdf:about="&univ-bench;GraduateCourse"/>
+    <owl:Class rdf:about="&univ-bench;GraduateStudent"/>
+    <owl:Class rdf:about="&univ-bench;ResearchAssistant"/>
+    <owl:Class rdf:about="&univ-bench;Student"/>
+    <owl:Class rdf:about="&univ-bench;UndergraduateStudent"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_10012">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16425"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_10052">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_15776"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10070"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_10100">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4443"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_1014">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_13462"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18736"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1019">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12111"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_18546"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_10202">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10851"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_10378"/>
+    <univ-bench:Student rdf:about="&univ-bench;a_10404">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_7568"/>
+    </univ-bench:Student>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_10407">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_3272"/>
+    </univ-bench:UndergraduateStudent>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_10423"/>
+    <rdf:Description rdf:about="&univ-bench;a_10446"/>
+    <rdf:Description rdf:about="&univ-bench;a_10546">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_17063"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10562">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5968"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10574"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_10611">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19891"/>
+    </univ-bench:Department>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_10618">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_12158"/>
+    </univ-bench:UndergraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_10678">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6180"/>
+    </univ-bench:Department>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_107">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:ResearchAssistant>
+    <rdf:Description rdf:about="&univ-bench;a_10714"/>
+    <rdf:Description rdf:about="&univ-bench;a_10748">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_19983"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8248"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10806"/>
+    <rdf:Description rdf:about="&univ-bench;a_10821">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_13101"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9975"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10851"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_1087">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1898"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_10883">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10423"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_13293"/>
+    </rdf:Description>
+    <univ-bench:Course rdf:about="&univ-bench;a_10950"/>
+    <rdf:Description rdf:about="&univ-bench;a_10953">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13222"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_10976">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11244"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_7562"/>
+    </rdf:Description>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_11034">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_16946"/>
+    </univ-bench:ResearchAssistant>
+    <rdf:Description rdf:about="&univ-bench;a_11035">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_2188"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4283"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11047">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_2962"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11083">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14968"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11099"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_11121">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3176"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_4974"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_11164">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15744"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_1118">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16099"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_11202">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_16033"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11218">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_4290"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11219"/>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_11244"/>
+    <rdf:Description rdf:about="&univ-bench;a_11296"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_11318">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7317"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_11331">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_4709"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_11350">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_17526"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4257"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_11411">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11219"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_11458">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_11685"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11713"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_11464">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18021"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_11471"/>
+    <rdf:Description rdf:about="&univ-bench;a_11522"/>
+    <rdf:Description rdf:about="&univ-bench;a_1153">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_4463"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7011"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11648"/>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_11679">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_8303"/>
+    </univ-bench:ResearchAssistant>
+    <univ-bench:Department rdf:about="&univ-bench;a_11685">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_523"/>
+    </univ-bench:Department>
+    <univ-bench:Student rdf:about="&univ-bench;a_11688">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_4256"/>
+    </univ-bench:Student>
+    <rdf:Description rdf:about="&univ-bench;a_11706">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_9975"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_11711">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18839"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_11712"/>
+    <rdf:Description rdf:about="&univ-bench;a_11713"/>
+    <univ-bench:Course rdf:about="&univ-bench;a_11717"/>
+    <rdf:Description rdf:about="&univ-bench;a_11773">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_14706"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6363"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11868">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12333"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_4696"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_11885"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_11888">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14151"/>
+    </univ-bench:Department>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_11892">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_3091"/>
+    </univ-bench:ResearchAssistant>
+    <univ-bench:Department rdf:about="&univ-bench;a_11904">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11648"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_8200"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_11911">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2599"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_11913"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_11920">
+        <univ-bench:member rdf:resource="&univ-bench;a_107"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17788"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_11921">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6575"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_9187"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_11932"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_11972">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1748"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_12035">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7596"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_12095">
+        <univ-bench:member rdf:resource="&univ-bench;a_2763"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3993"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_12111"/>
+    <rdf:Description rdf:about="&univ-bench;a_12122">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5442"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_5667"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12151">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_13567"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_12158">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12419"/>
+    </univ-bench:Department>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_12175">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:UndergraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_12186">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1889"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_12209"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_12223">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2040"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_12263">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19661"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_12277">
+        <univ-bench:member rdf:resource="&univ-bench;a_11047"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_148"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_12333"/>
+    <rdf:Description rdf:about="&univ-bench;a_12370"/>
+    <rdf:Description rdf:about="&univ-bench;a_12389"/>
+    <rdf:Description rdf:about="&univ-bench;a_12419"/>
+    <rdf:Description rdf:about="&univ-bench;a_12437">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_18614"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8224"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12448">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_17839"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12480">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9248"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1250"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_12503">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7367"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_12601">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17766"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_12626">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4659"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_12648"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_12654">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6489"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_12665"/>
+    <rdf:Description rdf:about="&univ-bench;a_12734"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_12737">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7265"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_12743"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_12766">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_3515"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_12803">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_14570"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6642"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12807">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8224"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_12833">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13485"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_3169"/>
+    </rdf:Description>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_12918">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:UndergraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_12931">
+        <univ-bench:member rdf:resource="&univ-bench;a_16822"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2122"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_12980"/>
+    <rdf:Description rdf:about="&univ-bench;a_13015"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_13020">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_285"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_13044"/>
+    <rdf:Description rdf:about="&univ-bench;a_13090"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_13101">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_70"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_13111">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7854"/>
+    </rdf:Description>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_13125">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_7121"/>
+    </univ-bench:UndergraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_13128">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_18531"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13145">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_14602"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15647"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_13165">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6962"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_13184">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14400"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_3166"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_13192">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14386"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_13222"/>
+    <rdf:Description rdf:about="&univ-bench;a_13270"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_13293">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2668"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_13308"/>
+    <rdf:Description rdf:about="&univ-bench;a_13332"/>
+    <univ-bench:Course rdf:about="&univ-bench;a_13382"/>
+    <rdf:Description rdf:about="&univ-bench;a_13423">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_10446"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_13462">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18469"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_1347"/>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_13485"/>
+    <univ-bench:Student rdf:about="&univ-bench;a_13530">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_3449"/>
+    </univ-bench:Student>
+    <rdf:Description rdf:about="&univ-bench;a_13552">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4290"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_9482"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13567"/>
+    <rdf:Description rdf:about="&univ-bench;a_1359"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_13591">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5206"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_13592"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_13631">
+        <univ-bench:member rdf:resource="&univ-bench;a_5678"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_757"/>
+    </univ-bench:Department>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_13661">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:ResearchAssistant>
+    <rdf:Description rdf:about="&univ-bench;a_13764"/>
+    <rdf:Description rdf:about="&univ-bench;a_13794">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4020"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_13837"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_14004">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8349"/>
+    </univ-bench:Department>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_14055">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_9827"/>
+    </univ-bench:ResearchAssistant>
+    <rdf:Description rdf:about="&univ-bench;a_14065">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_10202"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1509"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_1409">
+        <univ-bench:member rdf:resource="&univ-bench;a_10562"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12743"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_14151"/>
+    <rdf:Description rdf:about="&univ-bench;a_14161"/>
+    <rdf:Description rdf:about="&univ-bench;a_1418"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_14235">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4828"/>
+    </univ-bench:Department>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_14239">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:UndergraduateStudent>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_14245"/>
+    <rdf:Description rdf:about="&univ-bench;a_14272">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10446"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_6171"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_14297">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2522"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_644"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_1432">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3601"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_14352">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17929"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_9574"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_14386"/>
+    <rdf:Description rdf:about="&univ-bench;a_14400"/>
+    <rdf:Description rdf:about="&univ-bench;a_14408">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19615"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_4682"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14427">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1802"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_2415"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_14453"/>
+    <rdf:Description rdf:about="&univ-bench;a_14465"/>
+    <rdf:Description rdf:about="&univ-bench;a_14484"/>
+    <rdf:Description rdf:about="&univ-bench;a_14485">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17356"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_14570">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15818"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_14580">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_18626"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_14598">
+        <univ-bench:member rdf:resource="&univ-bench;a_16055"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17018"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_1460"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_14602">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7279"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_14603"/>
+    <rdf:Description rdf:about="&univ-bench;a_14628">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_1087"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1839"/>
+    </rdf:Description>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_14650">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_18622"/>
+    </univ-bench:UndergraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_14681">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18383"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_14706">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_513"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_14747"/>
+    <rdf:Description rdf:about="&univ-bench;a_14772">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_16049"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19451"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_14779">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17427"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_5593"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_148"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_1481">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2447"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_7552"/>
+    </univ-bench:Department>
+    <univ-bench:Course rdf:about="&univ-bench;a_14838"/>
+    <rdf:Description rdf:about="&univ-bench;a_14968"/>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_14970">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_18148"/>
+    </univ-bench:ResearchAssistant>
+    <rdf:Description rdf:about="&univ-bench;a_15024">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_14603"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15033"/>
+    <rdf:Description rdf:about="&univ-bench;a_15068">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6235"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1509"/>
+    <rdf:Description rdf:about="&univ-bench;a_15199">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15776"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_16968"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1522"/>
+    <rdf:Description rdf:about="&univ-bench;a_15282">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5023"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_8570"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15362"/>
+    <rdf:Description rdf:about="&univ-bench;a_15370">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19224"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_6172"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15393"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_15395">
+        <univ-bench:member rdf:resource="&univ-bench;a_16665"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5198"/>
+    </univ-bench:Department>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_15446">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:UndergraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_15520">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16438"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_15528">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_4801"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_1553">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17310"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_15533"/>
+    <rdf:Description rdf:about="&univ-bench;a_15556"/>
+    <rdf:Description rdf:about="&univ-bench;a_15563">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10950"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15573"/>
+    <rdf:Description rdf:about="&univ-bench;a_15587"/>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_15619">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_13192"/>
+    </univ-bench:ResearchAssistant>
+    <rdf:Description rdf:about="&univ-bench;a_15637"/>
+    <rdf:Description rdf:about="&univ-bench;a_15647"/>
+    <rdf:Description rdf:about="&univ-bench;a_15702"/>
+    <rdf:Description rdf:about="&univ-bench;a_15744"/>
+    <univ-bench:Student rdf:about="&univ-bench;a_1576">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_9317"/>
+    </univ-bench:Student>
+    <rdf:Description rdf:about="&univ-bench;a_15776"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_15790">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8778"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_15818"/>
+    <rdf:Description rdf:about="&univ-bench;a_15819"/>
+    <rdf:Description rdf:about="&univ-bench;a_15821">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_7854"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_15860">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15033"/>
+    </univ-bench:Department>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_15861">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_2557"/>
+    </univ-bench:ResearchAssistant>
+    <univ-bench:Department rdf:about="&univ-bench;a_15899">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6823"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_941"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_15923">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_10678"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_2934"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_15952"/>
+    <rdf:Description rdf:about="&univ-bench;a_1596"/>
+    <univ-bench:Student rdf:about="&univ-bench;a_15988">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_6285"/>
+    </univ-bench:Student>
+    <univ-bench:Department rdf:about="&univ-bench;a_16001">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2942"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_16033"/>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_16049">
+        <rdf:type rdf:resource="&univ-bench;Department"/>
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_11972"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1460"/>
+    </univ-bench:ResearchAssistant>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_16055">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:UndergraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_1609"/>
+    <rdf:Description rdf:about="&univ-bench;a_16099"/>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_16141">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_18373"/>
+    </univ-bench:UndergraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_16198">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_12333"/>
+    </rdf:Description>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_16207">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_9563"/>
+    </univ-bench:UndergraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_16222">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18902"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_16227">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_5023"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16282"/>
+    <rdf:Description rdf:about="&univ-bench;a_16348"/>
+    <rdf:Description rdf:about="&univ-bench;a_16371">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_15393"/>
+    </rdf:Description>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_1640">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_18214"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_16403"/>
+    <rdf:Description rdf:about="&univ-bench;a_16425"/>
+    <rdf:Description rdf:about="&univ-bench;a_16438"/>
+    <rdf:Description rdf:about="&univ-bench;a_16468"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_16501">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_12626"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_16511"/>
+    <rdf:Description rdf:about="&univ-bench;a_16513">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_18570"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_16514">
+        <univ-bench:member rdf:resource="&univ-bench;a_13794"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_541"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_16563">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_10611"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18570"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16578">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_11713"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16580"/>
+    <univ-bench:Course rdf:about="&univ-bench;a_16585"/>
+    <rdf:Description rdf:about="&univ-bench;a_16587"/>
+    <rdf:Description rdf:about="&univ-bench;a_1661"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_16636">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18385"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_16653">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_11888"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_1666">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_14161"/>
+    </rdf:Description>
+    <univ-bench:Student rdf:about="&univ-bench;a_16665">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:Student>
+    <rdf:Description rdf:about="&univ-bench;a_16715">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17151"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_8053"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16719">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_5529"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7789"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16740">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4801"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_6274"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16772">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_12209"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_6697"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_16822">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1596"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_16896">
+        <univ-bench:member rdf:resource="&univ-bench;a_3094"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_455"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_169">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19730"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_9970"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_16946">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4366"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_16952"/>
+    <rdf:Description rdf:about="&univ-bench;a_16964">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14245"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_3875"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_16968">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10574"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_1699">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_2095"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_17018"/>
+    <rdf:Description rdf:about="&univ-bench;a_17063"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_17079">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16468"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_17125"/>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_17151"/>
+    <univ-bench:Course rdf:about="&univ-bench;a_17156"/>
+    <univ-bench:Student rdf:about="&univ-bench;a_17157">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_13165"/>
+    </univ-bench:Student>
+    <rdf:Description rdf:about="&univ-bench;a_17198">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4283"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17204">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_18423"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17310"/>
+    <univ-bench:Student rdf:about="&univ-bench;a_1735">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_7588"/>
+    </univ-bench:Student>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_17356"/>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_17376">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_11164"/>
+    </univ-bench:UndergraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_17377">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_12111"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17427"/>
+    <rdf:Description rdf:about="&univ-bench;a_1748"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_1749">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15033"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_17516">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_12186"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9963"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_17526">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18354"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_17605"/>
+    <rdf:Description rdf:about="&univ-bench;a_17647"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_17714">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5344"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_17747"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_17751">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_3759"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_17766"/>
+    <rdf:Description rdf:about="&univ-bench;a_17778">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_7093"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17788"/>
+    <rdf:Description rdf:about="&univ-bench;a_17802">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_7789"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_17839"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_17865">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13090"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_6925"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_17927">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2277"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_3761"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_17929"/>
+    <rdf:Description rdf:about="&univ-bench;a_1802"/>
+    <rdf:Description rdf:about="&univ-bench;a_18021"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_18135">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11913"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_14239"/>
+    </univ-bench:Department>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_18142">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_7411"/>
+    </univ-bench:ResearchAssistant>
+    <univ-bench:Department rdf:about="&univ-bench;a_18148">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1609"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19264"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_18165">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11099"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_18203">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_5487"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7350"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_18214">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17018"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2030"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_3683"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_18280">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_18923"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19038"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_18334">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3245"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_18354"/>
+    <rdf:Description rdf:about="&univ-bench;a_18355">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_5149"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9248"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_18373">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15362"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_18383"/>
+    <rdf:Description rdf:about="&univ-bench;a_18385"/>
+    <rdf:Description rdf:about="&univ-bench;a_1839"/>
+    <rdf:Description rdf:about="&univ-bench;a_18392">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17839"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18423"/>
+    <rdf:Description rdf:about="&univ-bench;a_18443">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_7148"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_18469"/>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_18497"/>
+    <rdf:Description rdf:about="&univ-bench;a_18531"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_18533">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17747"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_4256"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_18546">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_429"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_18554">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_18736"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_18570">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16952"/>
+    </univ-bench:Department>
+    <univ-bench:Student rdf:about="&univ-bench;a_1858">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:Student>
+    <rdf:Description rdf:about="&univ-bench;a_18584"/>
+    <rdf:Description rdf:about="&univ-bench;a_18597">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1509"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_18614">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1661"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_18622">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9592"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_18626">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11296"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_18666">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2712"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_18674"/>
+    <rdf:Description rdf:about="&univ-bench;a_18736"/>
+    <rdf:Description rdf:about="&univ-bench;a_18839"/>
+    <rdf:Description rdf:about="&univ-bench;a_18878">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_18958"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1889"/>
+    <rdf:Description rdf:about="&univ-bench;a_18902"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_18923">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15637"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_18958"/>
+    <rdf:Description rdf:about="&univ-bench;a_18963"/>
+    <rdf:Description rdf:about="&univ-bench;a_18965">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6515"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_9584"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_1898"/>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_19003">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_18148"/>
+    </univ-bench:UndergraduateStudent>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_19038"/>
+    <rdf:Description rdf:about="&univ-bench;a_19067"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_19079">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2716"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_9973"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_19083">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_7298"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_19098">
+        <univ-bench:member rdf:resource="&univ-bench;a_15068"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19298"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_19099">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14838"/>
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_1802"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_9719"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_1917">
+        <univ-bench:member rdf:resource="&univ-bench;a_13661"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5786"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_19218">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15952"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_19223">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16348"/>
+    </univ-bench:Department>
+    <univ-bench:Course rdf:about="&univ-bench;a_19224"/>
+    <rdf:Description rdf:about="&univ-bench;a_19236">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_4184"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_19238">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8459"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_19257">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_19380"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19264"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_19266">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18674"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_8667"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19293">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_19527"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_19298"/>
+    <rdf:Description rdf:about="&univ-bench;a_1930">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_11911"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4444"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19380"/>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_19391"/>
+    <rdf:Description rdf:about="&univ-bench;a_19400">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10070"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19451"/>
+    <rdf:Description rdf:about="&univ-bench;a_19457"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_19514">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6484"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_19527">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19067"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_19546">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11471"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_2143"/>
+    </rdf:Description>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_19615"/>
+    <rdf:Description rdf:about="&univ-bench;a_19635"/>
+    <rdf:Description rdf:about="&univ-bench;a_19661"/>
+    <rdf:Description rdf:about="&univ-bench;a_19674"/>
+    <rdf:Description rdf:about="&univ-bench;a_19730"/>
+    <rdf:Description rdf:about="&univ-bench;a_19780">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_9549"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_19891"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_19983">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19635"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_2009">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_8829"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_201">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_6384"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6559"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2030"/>
+    <rdf:Description rdf:about="&univ-bench;a_2040"/>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_2073">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_17714"/>
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_7350"/>
+    </univ-bench:ResearchAssistant>
+    <univ-bench:Department rdf:about="&univ-bench;a_2095">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_242"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_2122"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_2143">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_527"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_2154">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_15647"/>
+    </rdf:Description>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_2164">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_419"/>
+    </univ-bench:ResearchAssistant>
+    <univ-bench:Department rdf:about="&univ-bench;a_2188">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10714"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_2277"/>
+    <rdf:Description rdf:about="&univ-bench;a_2361"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_2415">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15819"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_242"/>
+    <rdf:Description rdf:about="&univ-bench;a_2447"/>
+    <rdf:Description rdf:about="&univ-bench;a_2522"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_2557">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4416"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_2599"/>
+    <rdf:Description rdf:about="&univ-bench;a_2640">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_18165"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_3196"/>
+    </rdf:Description>
+    <univ-bench:Student rdf:about="&univ-bench;a_2648">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_14004"/>
+    </univ-bench:Student>
+    <rdf:Description rdf:about="&univ-bench;a_265">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_16001"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9142"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2668"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_2699">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_18666"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_2712"/>
+    <rdf:Description rdf:about="&univ-bench;a_2716"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_2727">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11932"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_2763">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_2790"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_2794">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_4550"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_2819">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10070"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2836">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_5777"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5802"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_285"/>
+    <rdf:Description rdf:about="&univ-bench;a_2893">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_14681"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_626"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_2914">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_4972"/>
+    </rdf:Description>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_2934"/>
+    <univ-bench:Course rdf:about="&univ-bench;a_2936"/>
+    <rdf:Description rdf:about="&univ-bench;a_2942"/>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_2962"/>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_298"/>
+    <rdf:Description rdf:about="&univ-bench;a_2994"/>
+    <rdf:Description rdf:about="&univ-bench;a_3073">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_2994"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_3091">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13764"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_3094">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14161"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_3115">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_696"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_3150">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11885"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_3166">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6590"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_3169">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7185"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_3176">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_19223"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9549"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3184"/>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_3196"/>
+    <univ-bench:Student rdf:about="&univ-bench;a_3206">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_18570"/>
+    </univ-bench:Student>
+    <rdf:Description rdf:about="&univ-bench;a_3245"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_3272">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18584"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_33"/>
+    <rdf:Description rdf:about="&univ-bench;a_3327"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_3359">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19674"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_3449">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16580"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_347">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_14235"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18423"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3474"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_3515">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15573"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_3524"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_3554">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3327"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_3566">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_15587"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3581"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_3582">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_2727"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_3601"/>
+    <rdf:Description rdf:about="&univ-bench;a_3662">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_12209"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3683">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15393"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3694">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_1250"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3745">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_14400"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_3759">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14484"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_3761">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Student rdf:about="&univ-bench;a_3869">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_19238"/>
+    </univ-bench:Student>
+    <univ-bench:Department rdf:about="&univ-bench;a_3875">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6548"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_3908">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19380"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_6651"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_3993"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_4020">
+        <rdf:type rdf:resource="&univ-bench;GraduateCourse"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16587"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_7979"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_4069">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_4184"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_419">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12980"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_4217">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_12035"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17063"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_4256">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16585"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2790"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_4257"/>
+    <rdf:Description rdf:about="&univ-bench;a_4283"/>
+    <rdf:Description rdf:about="&univ-bench;a_4285">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_10806"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_429"/>
+    <rdf:Description rdf:about="&univ-bench;a_4290"/>
+    <rdf:Description rdf:about="&univ-bench;a_4302"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_4355">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2361"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_4366"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_4376">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12665"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_5743"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_4416"/>
+    <univ-bench:Course rdf:about="&univ-bench;a_444"/>
+    <rdf:Description rdf:about="&univ-bench;a_4443"/>
+    <univ-bench:Course rdf:about="&univ-bench;a_4444"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_4463">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6452"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_4495">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_1250"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_455"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_4550">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6679"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_4597">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_10012"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18958"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_464">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_626"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4659"/>
+    <rdf:Description rdf:about="&univ-bench;a_4660">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_7011"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4679">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6015"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_902"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_4682">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1347"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_4696">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4934"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_4706">
+        <univ-bench:member rdf:resource="&univ-bench;a_11083"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19457"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_4709">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8517"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_4712">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_13332"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_4713">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_11717"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_1553"/>
+    </rdf:Description>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_4737">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_9990"/>
+    </univ-bench:ResearchAssistant>
+    <univ-bench:Department rdf:about="&univ-bench;a_4748">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15556"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_548"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_4801"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_4803">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6084"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_4817"/>
+    <rdf:Description rdf:about="&univ-bench;a_4828"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_4934">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9551"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_4972"/>
+    <univ-bench:Student rdf:about="&univ-bench;a_4974">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:Student>
+    <rdf:Description rdf:about="&univ-bench;a_5023"/>
+    <rdf:Description rdf:about="&univ-bench;a_5060">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_4257"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_513"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_5149">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1359"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_5198"/>
+    <rdf:Description rdf:about="&univ-bench;a_5206"/>
+    <rdf:Description rdf:about="&univ-bench;a_523"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_5258">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11522"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_12175"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_527"/>
+    <rdf:Description rdf:about="&univ-bench;a_5344"/>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_5388">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_4803"/>
+    </univ-bench:UndergraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_541"/>
+    <univ-bench:Course rdf:about="&univ-bench;a_5442"/>
+    <rdf:Description rdf:about="&univ-bench;a_548">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_14603"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_5487">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16511"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_5517">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13332"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_3150"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_5529">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7211"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_5533">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_8248"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5541"/>
+    <rdf:Description rdf:about="&univ-bench;a_5578">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_11411"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13382"/>
+    </rdf:Description>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_5593">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:ResearchAssistant>
+    <univ-bench:Department rdf:about="&univ-bench;a_5667">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13015"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_5678">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_12601"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_15587"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_5743">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_2936"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_5769">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_3359"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7298"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_5777">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17647"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_5786"/>
+    <rdf:Description rdf:about="&univ-bench;a_5795"/>
+    <rdf:Description rdf:about="&univ-bench;a_5802"/>
+    <rdf:Description rdf:about="&univ-bench;a_5806">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18531"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_7752"/>
+    </rdf:Description>
+    <univ-bench:Student rdf:about="&univ-bench;a_5892">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_10100"/>
+    </univ-bench:Student>
+    <rdf:Description rdf:about="&univ-bench;a_5950"/>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_5968"/>
+    <rdf:Description rdf:about="&univ-bench;a_6014">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_12737"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6121"/>
+    </rdf:Description>
+    <univ-bench:Course rdf:about="&univ-bench;a_6015"/>
+    <rdf:Description rdf:about="&univ-bench;a_6026"/>
+    <rdf:Description rdf:about="&univ-bench;a_6084"/>
+    <rdf:Description rdf:about="&univ-bench;a_6111"/>
+    <univ-bench:Course rdf:about="&univ-bench;a_6121"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_6171">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16282"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_6172">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12370"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_6180"/>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_6224">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_1749"/>
+    </univ-bench:UndergraduateStudent>
+    <univ-bench:Course rdf:about="&univ-bench;a_6235"/>
+    <rdf:Description rdf:about="&univ-bench;a_626"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_6274">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14747"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_6285">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15702"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_6359">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_11318"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_16033"/>
+    </rdf:Description>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_6363"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_6384">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14453"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_6415">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_8829"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6417">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_6559"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_644">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_5795"/>
+    </rdf:Description>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_6448">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_869"/>
+    </univ-bench:UndergraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_6452"/>
+    <rdf:Description rdf:about="&univ-bench;a_6484"/>
+    <rdf:Description rdf:about="&univ-bench;a_6489"/>
+    <univ-bench:Course rdf:about="&univ-bench;a_6515"/>
+    <rdf:Description rdf:about="&univ-bench;a_6537">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_1596"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_6548"/>
+    <rdf:Description rdf:about="&univ-bench;a_6559"/>
+    <rdf:Description rdf:about="&univ-bench;a_6575"/>
+    <rdf:Description rdf:about="&univ-bench;a_6590"/>
+    <univ-bench:Course rdf:about="&univ-bench;a_6642"/>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_6647">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_15790"/>
+    </univ-bench:UndergraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_6651">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13270"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7546"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_6679"/>
+    <rdf:Description rdf:about="&univ-bench;a_6685"/>
+    <rdf:Description rdf:about="&univ-bench;a_6687">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_14968"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_6697">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6685"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_6788">
+        <univ-bench:member rdf:resource="&univ-bench;a_15563"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3184"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_6823"/>
+    <univ-bench:Course rdf:about="&univ-bench;a_6908"/>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_6919">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_19514"/>
+    </univ-bench:ResearchAssistant>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_6925">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:ResearchAssistant>
+    <rdf:Description rdf:about="&univ-bench;a_696"/>
+    <rdf:Description rdf:about="&univ-bench;a_6962"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_6976">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_12223"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_6989">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11712"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_14485"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_70"/>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_7000">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_12503"/>
+    </univ-bench:ResearchAssistant>
+    <rdf:Description rdf:about="&univ-bench;a_7011"/>
+    <univ-bench:Student rdf:about="&univ-bench;a_7062">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:Student>
+    <rdf:Description rdf:about="&univ-bench;a_7093"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_7121">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12648"/>
+    </univ-bench:Department>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_7142">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_1432"/>
+    </univ-bench:UndergraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_7148"/>
+    <rdf:Description rdf:about="&univ-bench;a_7162"/>
+    <rdf:Description rdf:about="&univ-bench;a_7185"/>
+    <rdf:Description rdf:about="&univ-bench;a_7211"/>
+    <rdf:Description rdf:about="&univ-bench;a_7256"/>
+    <rdf:Description rdf:about="&univ-bench;a_7265"/>
+    <rdf:Description rdf:about="&univ-bench;a_7279"/>
+    <rdf:Description rdf:about="&univ-bench;a_7298"/>
+    <rdf:Description rdf:about="&univ-bench;a_7317"/>
+    <rdf:Description rdf:about="&univ-bench;a_7350"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_7361">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_19218"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_7367"/>
+    <rdf:Description rdf:about="&univ-bench;a_7396">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_1839"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_7411">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14465"/>
+    </univ-bench:Department>
+    <univ-bench:Student rdf:about="&univ-bench;a_7460">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_17079"/>
+    </univ-bench:Student>
+    <rdf:Description rdf:about="&univ-bench;a_749">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13567"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_4934"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_7516">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6026"/>
+    </univ-bench:Department>
+    <univ-bench:Course rdf:about="&univ-bench;a_7539"/>
+    <rdf:Description rdf:about="&univ-bench;a_7546"/>
+    <rdf:Description rdf:about="&univ-bench;a_7552">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_19391"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_7562">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13592"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_7568">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1522"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_757"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_7576">
+        <univ-bench:member rdf:resource="&univ-bench;a_6415"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8262"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_7588">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1418"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_7596"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_7752">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10378"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_7755">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_16222"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_6908"/>
+    </rdf:Description>
+    <univ-bench:Course rdf:about="&univ-bench;a_7785"/>
+    <rdf:Description rdf:about="&univ-bench;a_7789"/>
+    <rdf:Description rdf:about="&univ-bench;a_7854"/>
+    <rdf:Description rdf:about="&univ-bench;a_7861">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4972"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_9177"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_7979">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13222"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_8053">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15533"/>
+    </univ-bench:Department>
+    <univ-bench:UndergraduateStudent rdf:about="&univ-bench;a_8195">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_11711"/>
+    </univ-bench:UndergraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_8200">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7539"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8224"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_8234">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13308"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_1858"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_8248"/>
+    <rdf:Description rdf:about="&univ-bench;a_8262"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_8303">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4817"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_8349"/>
+    <rdf:Description rdf:about="&univ-bench;a_836">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_17156"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_3115"/>
+    </rdf:Description>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_8373">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_839">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_15860"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_298"/>
+    </rdf:Description>
+    <univ-bench:Student rdf:about="&univ-bench;a_845">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_6651"/>
+    </univ-bench:Student>
+    <rdf:Description rdf:about="&univ-bench;a_8459"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_8467">
+        <univ-bench:member rdf:resource="&univ-bench;a_13111"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7256"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_8476">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_18334"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_444"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_8517"/>
+    <rdf:Description rdf:about="&univ-bench;a_8552">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_13020"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7093"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_8570">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13837"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_8607">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8740"/>
+    </univ-bench:Department>
+    <univ-bench:Student rdf:about="&univ-bench;a_8632">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_8607"/>
+    </univ-bench:Student>
+    <rdf:Description rdf:about="&univ-bench;a_8663">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_11464"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_9428"/>
+    </rdf:Description>
+    <univ-bench:Student rdf:about="&univ-bench;a_8667">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:Student>
+    <univ-bench:Department rdf:about="&univ-bench;a_8678">
+        <univ-bench:member rdf:resource="&univ-bench;a_2819"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5950"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_8685">
+        <univ-bench:member rdf:resource="&univ-bench;a_18392"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9718"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_869">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_33"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_8740"/>
+    <rdf:Description rdf:about="&univ-bench;a_8778"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_8820">
+        <univ-bench:member rdf:resource="&univ-bench;a_3694"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4302"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_8829"/>
+    <rdf:Description rdf:about="&univ-bench;a_8834">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_5795"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_8922">
+        <univ-bench:member rdf:resource="&univ-bench;a_7062"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9899"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_8925">
+        <univ-bench:member rdf:resource="&univ-bench;a_12918"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6111"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_8998">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_19451"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_9002">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12389"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_8373"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_902">
+        <rdf:type rdf:resource="&univ-bench;UndergraduateStudent"/>
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_16636"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18963"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_908">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_15520"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_2994"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9117">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_10806"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_13591"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9142"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_9177">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9971"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_9187">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_9188">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_4355"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7785"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_923">
+        <univ-bench:member rdf:resource="&univ-bench;a_15446"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3581"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_9248"/>
+    <rdf:Description rdf:about="&univ-bench;a_9303"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_9317">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7162"/>
+    </univ-bench:Department>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_9390">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_3554"/>
+    </univ-bench:ResearchAssistant>
+    <rdf:Description rdf:about="&univ-bench;a_941">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_7148"/>
+    </rdf:Description>
+    <univ-bench:GraduateCourse rdf:about="&univ-bench;a_9428"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_9482">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9303"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_9519">
+        <univ-bench:teachingAssistantOf rdf:resource="&univ-bench;a_19730"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9524">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_1118"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_13044"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9549"/>
+    <rdf:Description rdf:about="&univ-bench;a_9551"/>
+    <univ-bench:Student rdf:about="&univ-bench;a_9555">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_12263"/>
+    </univ-bench:Student>
+    <univ-bench:Department rdf:about="&univ-bench;a_9563">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17125"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_9574">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_4184"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_9584">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16403"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_9592"/>
+    <rdf:Description rdf:about="&univ-bench;a_9619">
+        <univ-bench:teacherOf rdf:resource="&univ-bench;a_5802"/>
+    </rdf:Description>
+    <univ-bench:Student rdf:about="&univ-bench;a_9657">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_7516"/>
+    </univ-bench:Student>
+    <rdf:Description rdf:about="&univ-bench;a_9718"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_9719">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17605"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_9779">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3524"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_4069"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_9827">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5541"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_9849">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_12654"/>
+        <univ-bench:takesCourse rdf:resource="&univ-bench;a_18497"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&univ-bench;a_9899"/>
+    <univ-bench:Course rdf:about="&univ-bench;a_9963"/>
+    <rdf:Description rdf:about="&univ-bench;a_9966">
+        <univ-bench:listedCourse rdf:resource="&univ-bench;a_9142"/>
+    </rdf:Description>
+    <univ-bench:Department rdf:about="&univ-bench;a_9970">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12734"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_9971"/>
+    <univ-bench:ResearchAssistant rdf:about="&univ-bench;a_9973">
+        <univ-bench:emailAddress rdf:datatype="&xsd;string">XX-XXX</univ-bench:emailAddress>
+    </univ-bench:ResearchAssistant>
+    <rdf:Description rdf:about="&univ-bench;a_9975"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_9990">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3474"/>
+    </univ-bench:Department>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 0.9.2) http://owlapi.sourceforge.net -->
+

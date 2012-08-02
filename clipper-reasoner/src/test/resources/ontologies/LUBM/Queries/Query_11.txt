@@ -1,0 +1,1 @@
+Q(?0,?44) <- ResearchGroup(?0), subOrganizationOf(?0, ?44)

@@ -131,7 +131,7 @@ public class CQTreeWalker {
 
 		switch (termNode.getType()) {
 		case CQLexer.VARIABLE:
-			return new Variable(text);
+			return new Variable(Integer.parseInt(text));
 		case CQLexer.CONSTANT:
 			return new Constant(text);
 		}
