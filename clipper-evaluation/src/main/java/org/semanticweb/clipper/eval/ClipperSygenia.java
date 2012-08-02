@@ -4,17 +4,15 @@ import java.io.File;
 
 import org.oxford.comlab.compass.SystemInterface;
 
-public class ClipperSyngenia implements SystemInterface {
+public class ClipperSygenia implements SystemInterface {
 
 	@Override
 	public void initializeSystem() throws Exception {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void shutdown() {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -26,7 +24,6 @@ public class ClipperSyngenia implements SystemInterface {
 
 	@Override
 	public void loadQuery(int queryIndex) throws Exception {
-		// TODO Auto-generated method stub
 
 	}
 
