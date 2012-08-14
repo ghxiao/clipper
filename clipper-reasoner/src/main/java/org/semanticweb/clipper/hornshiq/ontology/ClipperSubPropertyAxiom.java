@@ -8,7 +8,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class SubPropertyAxiom implements Axiom {
+public class ClipperSubPropertyAxiom implements ClipperAxiom {
 	int role1, role2;
 
 	@Override
@@ -47,7 +47,7 @@ public class SubPropertyAxiom implements Axiom {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		SubPropertyAxiom other = (SubPropertyAxiom) obj;
+		ClipperSubPropertyAxiom other = (ClipperSubPropertyAxiom) obj;
 		if (role1 != other.role1)
 			return false;
 		if (role2 != other.role2)

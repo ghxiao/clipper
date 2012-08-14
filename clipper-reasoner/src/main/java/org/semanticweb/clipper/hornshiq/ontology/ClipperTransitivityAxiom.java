@@ -3,10 +3,10 @@ package org.semanticweb.clipper.hornshiq.ontology;
 import lombok.Data;
 
 @Data
-public class TransitivityAxiom implements Axiom {
+public class ClipperTransitivityAxiom implements ClipperAxiom {
 	private int role;
 
-	public TransitivityAxiom(int role) {
+	public ClipperTransitivityAxiom(int role) {
 		// normalization. in case role is inv(r), convert it to r
 		this.role = role / 2 * 2;
 	}

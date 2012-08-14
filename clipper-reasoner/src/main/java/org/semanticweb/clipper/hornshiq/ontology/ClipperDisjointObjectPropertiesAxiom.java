@@ -5,7 +5,8 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class InversePropertyOfAxiom implements Axiom {
+public class ClipperDisjointObjectPropertiesAxiom implements ClipperAxiom {
+
 	int role1, role2;
 
 	@Override
@@ -24,6 +25,6 @@ public class InversePropertyOfAxiom implements Axiom {
 			r2 = "inv(" + r2 + ")";
 		}
 
-		return String.format("Inv(%s, %s)", r1, r2);
+		return String.format("Disj(%s, %s)", r1, r2);
 	}
 }

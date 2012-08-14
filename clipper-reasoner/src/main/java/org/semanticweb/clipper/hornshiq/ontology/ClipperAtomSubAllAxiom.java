@@ -4,12 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * SubclassOf ( concept1 SOME role, concept2)
- *  
- */
+ * SubClassOf(concept1, role ALL concept2)   
+ * */
 @Data
 @AllArgsConstructor
-public class SomeSubAtomAxiom implements Axiom {
+public class ClipperAtomSubAllAxiom implements ClipperAxiom {
 
 	int concept1;
 	int role;
@@ -24,6 +23,6 @@ public class SomeSubAtomAxiom implements Axiom {
 			r = "inv(" + r + ")";
 		}
 
-		return String.format(" %d some %s SubClassOf %d", concept1, r, concept2);
+		return String.format("%d SubClassOf %s all %d", concept1, r, concept2);
 	}
 }

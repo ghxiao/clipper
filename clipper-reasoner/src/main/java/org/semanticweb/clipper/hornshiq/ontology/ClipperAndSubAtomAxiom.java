@@ -12,9 +12,9 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class AndSubAtomAxiom implements Axiom {
+public class ClipperAndSubAtomAxiom implements ClipperAxiom {
 	
-	public AndSubAtomAxiom(int left, int right) {
+	public ClipperAndSubAtomAxiom(int left, int right) {
 		this(new TIntHashSet(new int[] { left }), right);
 	}
 

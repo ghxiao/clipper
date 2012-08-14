@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ConceptAssertionAxiom implements Axiom {
+public class ClipperConceptAssertionAxiom implements ClipperAxiom {
 
 	int concept;
 
