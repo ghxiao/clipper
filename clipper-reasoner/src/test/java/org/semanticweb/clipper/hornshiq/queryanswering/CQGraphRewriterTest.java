@@ -7,11 +7,11 @@ import java.io.IOException;
 import java.util.List;
 
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.ontology.AndSubAtomAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubSomeAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.NormalHornALCHIQOntology;
-import org.semanticweb.clipper.hornshiq.ontology.SubPropertyAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.TransitivityAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAndSubAtomAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubSomeAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperTransitivityAxiom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 
@@ -95,15 +95,15 @@ public class CQGraphRewriterTest {
 
 	@Test
 	public void test() throws IOException {
-		NormalHornALCHIQOntology ontology = new NormalHornALCHIQOntology();
-		ontology.getSubPropertyAxioms().add(new SubPropertyAxiom(2, 3));
+		ClipperHornSHIQOntology ontology = new ClipperHornSHIQOntology();
+		ontology.getSubPropertyAxioms().add(new ClipperSubPropertyAxiom(2, 3));
 
-		ontology.getTransitivityAxioms().add(new TransitivityAxiom(2));
+		ontology.getTransitivityAxioms().add(new ClipperTransitivityAxiom(2));
 
-		ontology.getAtomSubSomeAxioms().add(new AtomSubSomeAxiom(2, 2, 3));
-		ontology.getAtomSubSomeAxioms().add(new AtomSubSomeAxiom(3, 2, 4));
+		ontology.getAtomSubSomeAxioms().add(new ClipperAtomSubSomeAxiom(2, 2, 3));
+		ontology.getAtomSubSomeAxioms().add(new ClipperAtomSubSomeAxiom(3, 2, 4));
 
-		ontology.getAndSubAtomAxioms().add(new AndSubAtomAxiom(4, 5));
+		ontology.getAndSubAtomAxioms().add(new ClipperAndSubAtomAxiom(4, 5));
 
 		IndexedEnfContainer enfs = new IndexedEnfContainer();
 
@@ -139,11 +139,11 @@ public class CQGraphRewriterTest {
 	 */
 	@Test
 	public void test02() throws IOException {
-		NormalHornALCHIQOntology ontology = new NormalHornALCHIQOntology();
+		ClipperHornSHIQOntology ontology = new ClipperHornSHIQOntology();
 
-		ontology.getTransitivityAxioms().add(new TransitivityAxiom(2));
-		ontology.getTransitivityAxioms().add(new TransitivityAxiom(4));
-		ontology.getTransitivityAxioms().add(new TransitivityAxiom(6));
+		ontology.getTransitivityAxioms().add(new ClipperTransitivityAxiom(2));
+		ontology.getTransitivityAxioms().add(new ClipperTransitivityAxiom(4));
+		ontology.getTransitivityAxioms().add(new ClipperTransitivityAxiom(6));
 
 		//ontology.getAndSubAtomAxioms().add(new AndSubAtomAxiom(4, 5));
 

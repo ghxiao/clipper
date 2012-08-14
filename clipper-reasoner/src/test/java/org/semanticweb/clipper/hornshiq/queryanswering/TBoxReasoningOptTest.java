@@ -10,9 +10,9 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.ontology.Axiom;
-import org.semanticweb.clipper.hornshiq.ontology.NormalHornALCHIQOntology;
-import org.semanticweb.clipper.hornshiq.profile.BitSetNormalHornALCHIQOntologyConverter;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
+import org.semanticweb.clipper.hornshiq.profile.ClipperHornSHIQOntologyConverter;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQTransNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQNormalizer;
@@ -91,8 +91,8 @@ public class TBoxReasoningOptTest {
 		// System.out.println(ax);
 		// }
 
-		BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
-		NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
+		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
+		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
 		 System.out.println("==========Information of Encoded Ontology==========");
 		 SymbolEncoder<OWLClass> owlClassEncoder =
@@ -134,7 +134,7 @@ public class TBoxReasoningOptTest {
 
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		System.out.println("==========Datalog Program=============");
-		reduction.getEncodedDataLogProgram(datalogFileName);
+		reduction.saveEncodedDataLogProgram(datalogFileName);
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {

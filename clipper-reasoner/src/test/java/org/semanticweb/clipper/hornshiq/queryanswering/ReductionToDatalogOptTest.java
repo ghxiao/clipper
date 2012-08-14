@@ -8,9 +8,9 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.ontology.Axiom;
-import org.semanticweb.clipper.hornshiq.ontology.NormalHornALCHIQOntology;
-import org.semanticweb.clipper.hornshiq.profile.BitSetNormalHornALCHIQOntologyConverter;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
+import org.semanticweb.clipper.hornshiq.profile.ClipperHornSHIQOntologyConverter;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQTransNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQNormalizer;
@@ -56,10 +56,10 @@ public class ReductionToDatalogOptTest {
 		HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
 		OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
 
-		BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
-		NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
+		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
+		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (Axiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -112,10 +112,10 @@ public class ReductionToDatalogOptTest {
 		HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
 		OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
 
-		BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
-		NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
+		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
+		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (Axiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -168,10 +168,10 @@ public class ReductionToDatalogOptTest {
 		HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
 		OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
 
-		BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
-		NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
+		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
+		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (Axiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -225,10 +225,10 @@ public class ReductionToDatalogOptTest {
 		HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
 		OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
 
-		BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
-		NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
+		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
+		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (Axiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -281,10 +281,10 @@ public class ReductionToDatalogOptTest {
 		HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
 		OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
 
-		BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
-		NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
+		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
+		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (Axiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -336,10 +336,10 @@ public class ReductionToDatalogOptTest {
 		HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
 		OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
 
-		BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
-		NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
+		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
+		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (Axiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -393,10 +393,10 @@ public class ReductionToDatalogOptTest {
 		HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
 		OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
 
-		BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
-		NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
+		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
+		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (Axiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -451,10 +451,10 @@ public class ReductionToDatalogOptTest {
 		HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
 		OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
 
-		BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
-		NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
+		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
+		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (Axiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -510,10 +510,10 @@ public class ReductionToDatalogOptTest {
 		HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
 		OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
 
-		BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
-		NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
+		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
+		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (Axiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -526,7 +526,7 @@ public class ReductionToDatalogOptTest {
 		PrintingUtilities printer = new PrintingUtilities();
 		// printer.printReachBottom(tb.getReachBottoms());
 		// reduction.getDataLogcProgram("TestCaseOntologies/tes01Datalog.dl");
-		reduction.getEncodedDataLogProgram("TestCaseOntologies/tes01BitSetDatalog.dl");
+		reduction.saveEncodedDataLogProgram("TestCaseOntologies/tes01BitSetDatalog.dl");
 
 	}
 }

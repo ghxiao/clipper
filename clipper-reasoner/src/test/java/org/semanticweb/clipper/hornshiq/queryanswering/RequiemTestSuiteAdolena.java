@@ -56,7 +56,7 @@ public class RequiemTestSuiteAdolena {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.runDatalogEngine();
+		qaHornSHIQ.query();
 
 	}
 
@@ -91,7 +91,7 @@ public class RequiemTestSuiteAdolena {
 		qaHornSHIQ.setDlvPath("lib/dlv");
 
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.getDataLog();
+		qaHornSHIQ.generateDataLog();
 
 	}
 
@@ -131,7 +131,7 @@ public class RequiemTestSuiteAdolena {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.getDataLog();
+		qaHornSHIQ.generateDataLog();
 
 	}
 
@@ -164,7 +164,7 @@ public class RequiemTestSuiteAdolena {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.getDataLog();
+		qaHornSHIQ.generateDataLog();
 
 	}
 
@@ -203,7 +203,7 @@ public class RequiemTestSuiteAdolena {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.getDataLog();
+		qaHornSHIQ.generateDataLog();
 
 	}
 }

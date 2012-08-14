@@ -9,18 +9,18 @@ public class OntologyTest {
 
 	@Test
 	public void test() {
-		NormalHornALCHIQOntology ontology = new NormalHornALCHIQOntology();
+		ClipperHornSHIQOntology ontology = new ClipperHornSHIQOntology();
 
-		ontology.getSubPropertyAxioms().add(new SubPropertyAxiom(14, 12));
-		ontology.getSubPropertyAxioms().add(new SubPropertyAxiom(4, 6));
-		ontology.getSubPropertyAxioms().add(new SubPropertyAxiom(6, 8));
-		ontology.getSubPropertyAxioms().add(new SubPropertyAxiom(6, 10));
-		ontology.getSubPropertyAxioms().add(new SubPropertyAxiom(8, 18));
+		ontology.getSubPropertyAxioms().add(new ClipperSubPropertyAxiom(14, 12));
+		ontology.getSubPropertyAxioms().add(new ClipperSubPropertyAxiom(4, 6));
+		ontology.getSubPropertyAxioms().add(new ClipperSubPropertyAxiom(6, 8));
+		ontology.getSubPropertyAxioms().add(new ClipperSubPropertyAxiom(6, 10));
+		ontology.getSubPropertyAxioms().add(new ClipperSubPropertyAxiom(8, 18));
 
-		ontology.getTransitivityAxioms().add(new TransitivityAxiom(4));
-		ontology.getTransitivityAxioms().add(new TransitivityAxiom(14));
+		ontology.getTransitivityAxioms().add(new ClipperTransitivityAxiom(4));
+		ontology.getTransitivityAxioms().add(new ClipperTransitivityAxiom(14));
 
-		List<SubPropertyAxiom> nonSimpleSubPropertyClosure = ontology
+		List<ClipperSubPropertyAxiom> nonSimpleSubPropertyClosure = ontology
 				.computeNonSimpleSubPropertyClosure();
 		
 		System.out.println(nonSimpleSubPropertyClosure);

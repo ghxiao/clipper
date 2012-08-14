@@ -11,6 +11,9 @@ import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import com.beust.jcommander.JCommander;
 import com.google.common.io.Files;
@@ -67,7 +70,7 @@ public class ClipperApp {
 		System.setProperty("entityExpansionLimit", "512000");
 
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		// note that naming strategy shoud be set after create new QAHornSHIQ
+		// note that naming strategy should be set after create new QAHornSHIQ
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 
 		String ontologyFileName = cmd.getFiles().get(0);
@@ -80,7 +83,7 @@ public class ClipperApp {
 		} else if (cmd.isRewritingABoxOnly()) {
 			qaHornSHIQ.getAboxDataLog();
 		} else if (cmd.isRewritingOntologyAndQuery()) {
-			qaHornSHIQ.getDataLog();
+			qaHornSHIQ.generateDataLog();
 		} else if (cmd.isRewritingTBoxOnly()) {
 			// TODO
 		} else if (cmd.isRewritingTBoxAndQuery()) {
@@ -95,42 +98,41 @@ public class ClipperApp {
 	}
 
 	private void query(CommandLineArgs cla, CommandQuery cmd) {
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		System.setProperty("entityExpansionLimit", "512000");
+
 		String ontologyFileName = cmd.getFiles().get(0);
-		String sparqlFileName = cmd.getFiles().get(1);
-		SparqlParser sparqlParser = null;
+		File ontologyFile = new File(ontologyFileName);
 		try {
-			sparqlParser = new SparqlParser(sparqlFileName);
-		} catch (IOException e) {
+			OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(ontologyFile);
+			qaHornSHIQ.addOntology(ontology);
+		} catch (OWLOntologyCreationException e) {
 			e.printStackTrace();
 		}
 
 		CQ cq = null;
+		String sparqlFileName = cmd.getFiles().get(1);
 		try {
+			SparqlParser sparqlParser = new SparqlParser(sparqlFileName);
 			cq = sparqlParser.query();
+			qaHornSHIQ.setCq(cq);
 		} catch (RecognitionException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-
-//		File ontologyFile = new File(ontologyFileName);
-//		String ontologyDir = ontologyFile.getParent();
-//		String name = ontologyFile.getName();
-//		String string = Files.getFileExtension(ontologyFileName);
-//		
 		String sparqlName = new File(sparqlFileName).getName();
-		
+
 		qaHornSHIQ.setOntologyName(ontologyFileName);
 		qaHornSHIQ.setDataLogName(ontologyFileName + "-" + sparqlName + ".dl");
-		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setQueryRewriter(cla.getRewriter());
 
 		qaHornSHIQ.setDlvPath(cmd.getDlvPath());
 
 		long startTime = System.currentTimeMillis();
-		List<List<String>> answers = qaHornSHIQ.runDatalogEngine();
+		List<List<String>> answers = qaHornSHIQ.query();
 		long endTime = System.currentTimeMillis();
 
 		QueryResultPrinter printer = createQueryResultPrinter(cmd.getOutputFormat());

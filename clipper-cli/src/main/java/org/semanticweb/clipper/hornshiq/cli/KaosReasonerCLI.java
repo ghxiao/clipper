@@ -48,7 +48,7 @@ public class KaosReasonerCLI {
 			qaHornSHIQ.setDlvPath(dlvPath);
 		}
 		long startTime = System.currentTimeMillis();
-		qaHornSHIQ.runDatalogEngine();
+		qaHornSHIQ.query();
 		long endTime = System.currentTimeMillis();
 		
 		System.out.println("Ontology parsing and normalization time:                      " + qaHornSHIQ.getClipperReport().getNormalizationTime() + "  milliseconds");

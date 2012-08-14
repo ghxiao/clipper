@@ -13,6 +13,8 @@ import org.semanticweb.owlapi.profiles.OWLProfileViolation;
 import org.semanticweb.owlapi.util.OWLObjectPropertyManager;
 import org.semanticweb.owlapi.util.OWLOntologyWalker;
 
+import com.google.common.collect.ImmutableSet;
+
 public class HornSHIQProfile implements OWLProfile {
 
 	private Sub0_ClassExpressionChecker sub0;
@@ -53,12 +55,14 @@ public class HornSHIQProfile implements OWLProfile {
 	@Override
 	public OWLProfileReport checkOntology(OWLOntology ontology) {
 		OWL2DLProfile profile = new OWL2DLProfile();
-		OWLProfileReport report = profile.checkOntology(ontology);
-		Set<OWLProfileViolation> violations = new HashSet<OWLProfileViolation>();
-		violations.addAll(report.getViolations());
+		//OWLProfileReport report = profile.checkOntology(ontology);
+//		Set<OWLProfileViolation> violations = new HashSet<OWLProfileViolation>();
+//		violations.addAll(report.getViolations());
 
+//		OWLOntologyWalker walker = new OWLOntologyWalker(
+//				ontology.getImportsClosure());
 		OWLOntologyWalker walker = new OWLOntologyWalker(
-				ontology.getImportsClosure());
+				ImmutableSet.of( ontology));
 		profileObjectVisitor = new HornSHIQProfileObjectVistor(this, walker,
 				ontology.getOWLOntologyManager());
 		
@@ -70,7 +74,7 @@ public class HornSHIQProfile implements OWLProfile {
 //			System.out.println(e.getKey() + " -> " +e.getValue());
 //		}
 //		System.exit(0);
-		
+		Set<OWLProfileViolation> violations = new HashSet<OWLProfileViolation>();
 		violations.addAll(profileObjectVisitor.getProfileViolations());
 		return new OWLProfileReport(this, violations);
 	}

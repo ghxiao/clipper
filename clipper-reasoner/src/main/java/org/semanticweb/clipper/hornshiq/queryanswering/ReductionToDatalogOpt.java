@@ -11,13 +11,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubAllAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubMaxOneAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.NormalHornALCHIQOntology;
-import org.semanticweb.clipper.hornshiq.ontology.ConceptAssertionAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.InversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ObjectPropertyAssertionAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.SubPropertyAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMaxOneAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperConceptAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperObjectPropertyAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.owlapi.model.IRI;
 
 
@@ -37,12 +37,12 @@ public class ReductionToDatalogOpt {
 
 	private Collection<HornImplication> coreImps;
 	private Collection<EnforcedRelation> coreEnfs;
-	private List<AtomSubAllAxiom> allValuesFromAxioms;
-	private List<SubPropertyAxiom> subObjectPropertyAxioms;
-	private List<InversePropertyOfAxiom> inverseObjectPropertyAxioms;
-	private List<AtomSubMaxOneAxiom> maxOneCardinalityAxioms;
-	private List<ConceptAssertionAxiom> conceptAssertionAxioms;
-	private List<ObjectPropertyAssertionAxiom> roleAssertionAxioms;
+	private List<ClipperAtomSubAllAxiom> allValuesFromAxioms;
+	private List<ClipperSubPropertyAxiom> subObjectPropertyAxioms;
+	private List<ClipperInversePropertyOfAxiom> inverseObjectPropertyAxioms;
+	private List<ClipperAtomSubMaxOneAxiom> maxOneCardinalityAxioms;
+	private List<ClipperConceptAssertionAxiom> conceptAssertionAxioms;
+	private List<ClipperObjectPropertyAssertionAxiom> roleAssertionAxioms;
 
 	protected final int NOTHING = 1;
 	protected final int THING = 0;
@@ -75,7 +75,7 @@ public class ReductionToDatalogOpt {
 //		// this.namingStrategy = strategy;
 //	}
 
-	public ReductionToDatalogOpt(NormalHornALCHIQOntology ont_bs) {
+	public ReductionToDatalogOpt(ClipperHornSHIQOntology ont_bs) {
 		// this.namingStrategy = NamingStrategy.IntEncoding;
 
 		// KaosManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
@@ -215,7 +215,7 @@ public class ReductionToDatalogOpt {
 					.println("%==========rules From Value Restrictions ============");
 		}
 		Rule rule = new Rule();
-		for (AtomSubAllAxiom axiom : allValuesFromAxioms) {
+		for (ClipperAtomSubAllAxiom axiom : allValuesFromAxioms) {
 			rule.clear();
 			int ic = axiom.getConcept2();
 			int ir = axiom.getRole();
@@ -250,7 +250,7 @@ public class ReductionToDatalogOpt {
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("%==========rules From Sub Roles Axioms =====");
 		}
-		for (SubPropertyAxiom subRoleAxiom : subObjectPropertyAxioms) {
+		for (ClipperSubPropertyAxiom subRoleAxiom : subObjectPropertyAxioms) {
 			int sup = subRoleAxiom.getRole2();
 			int sub = subRoleAxiom.getRole1();
 			// don't care about subroleAxiom of anonymous roles
@@ -274,7 +274,7 @@ public class ReductionToDatalogOpt {
 					.println("%==========rules From inverse role axioms===================");
 		}
 		Rule rule = new Rule();
-		for (InversePropertyOfAxiom ax : inverseObjectPropertyAxioms) {
+		for (ClipperInversePropertyOfAxiom ax : inverseObjectPropertyAxioms) {
 			rule.clear();
 			int r1 = ax.getRole1();
 			int r2 = ax.getRole2();
@@ -300,7 +300,7 @@ public class ReductionToDatalogOpt {
 			System.out
 					.println("%==========rules From NumberRestrictions ===================");
 		}
-		for (AtomSubMaxOneAxiom subClassAxiom : maxOneCardinalityAxioms) {
+		for (ClipperAtomSubMaxOneAxiom subClassAxiom : maxOneCardinalityAxioms) {
 			int ia = subClassAxiom.getConcept1();
 			int ir = subClassAxiom.getRole();
 			int ic = subClassAxiom.getConcept2();
@@ -327,7 +327,7 @@ public class ReductionToDatalogOpt {
 					.println("%==========rules From NumberRestrictions And Enfs===================");
 		}
 		Set<Rule> generatedRules = new HashSet<Rule>();
-		for (AtomSubMaxOneAxiom subClassAxiom : maxOneCardinalityAxioms) {// 2
+		for (ClipperAtomSubMaxOneAxiom subClassAxiom : maxOneCardinalityAxioms) {// 2
 			int ia = subClassAxiom.getConcept1();
 			int ir = subClassAxiom.getRole();
 			int ic = subClassAxiom.getConcept2();
@@ -397,7 +397,7 @@ public class ReductionToDatalogOpt {
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("%Facts From ABox Assertions");
 		}
-		for (ObjectPropertyAssertionAxiom a : roleAssertionAxioms) {
+		for (ClipperObjectPropertyAssertionAxiom a : roleAssertionAxioms) {
 
 			int ir = a.getRole();
 			int ind1 = a.getIndividual1();
@@ -412,7 +412,7 @@ public class ReductionToDatalogOpt {
 		}
 		// System.out.println("======================================== ");
 		// System.out.println("Facts from Class assertions: ");
-		for (ConceptAssertionAxiom ca : conceptAssertionAxioms) {
+		for (ClipperConceptAssertionAxiom ca : conceptAssertionAxioms) {
 			int ic = ca.getConcept();
 			int iInd = ca.getIndividual();
 			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
@@ -428,7 +428,7 @@ public class ReductionToDatalogOpt {
 	/**
 	 * @return DATALOG program that contains ABox completion rules and Assertions in ABox
 	 * */
-	public void getEncodedDataLogProgram(String generatedDataLogFile) {
+	public void saveEncodedDataLogProgram(String generatedDataLogFile) {
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out
 					.println("============== Encoded DATALOG PROGRAM :================ ");

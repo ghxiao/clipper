@@ -11,13 +11,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubAllAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubMaxOneAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.NormalHornALCHIQOntology;
-import org.semanticweb.clipper.hornshiq.ontology.ConceptAssertionAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.InversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ObjectPropertyAssertionAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.SubPropertyAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMaxOneAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperConceptAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperObjectPropertyAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.clipper.util.BitSetUtil;
 import org.semanticweb.clipper.util.PrintingUtilities;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -46,23 +46,23 @@ public class ReductionToDatalog {
 	private Set<ImplicationRelation> coreImps;
 	private Set<ImplicationRelation> coreImpsForDataLog;
 	private Set<EnforcedRelation> coreEnfs;
-	private List<AtomSubAllAxiom> allValuesFromAxioms;
-	private List<AtomSubMaxOneAxiom> maxOneCardinalityAxioms;
-	private List<SubPropertyAxiom> subObjectPropertyAxioms;
+	private List<ClipperAtomSubAllAxiom> allValuesFromAxioms;
+	private List<ClipperAtomSubMaxOneAxiom> maxOneCardinalityAxioms;
+	private List<ClipperSubPropertyAxiom> subObjectPropertyAxioms;
 	private Set<ReachBottom> reachBottoms;
-	private List<InversePropertyOfAxiom> inverseRoleAxioms;
+	private List<ClipperInversePropertyOfAxiom> inverseRoleAxioms;
 	protected int nothing = 1;
 	protected int thing = 0;
 	protected int toProperty = 0;
 	protected int bottomProperty = 2;
 
-	private List<ConceptAssertionAxiom> conceptAssertionAxioms;
+	private List<ClipperConceptAssertionAxiom> conceptAssertionAxioms;
 
-	private List<ObjectPropertyAssertionAxiom> roleAssertionAxioms;
+	private List<ClipperObjectPropertyAssertionAxiom> roleAssertionAxioms;
 
-	private List<SubPropertyAxiom> subPropertyAxioms;
+	private List<ClipperSubPropertyAxiom> subPropertyAxioms;
 
-	private List<InversePropertyOfAxiom> inversePropertyOfAxioms;
+	private List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms;
 
 	/*
 	 * Constructor
@@ -71,24 +71,24 @@ public class ReductionToDatalog {
 	 * 
 	 * @param: Name of generated datalog file
 	 */
-	public ReductionToDatalog(NormalHornALCHIQOntology ont_bs) {
+	public ReductionToDatalog(ClipperHornSHIQOntology ont_bs) {
 
 		this.coreImps = new HashSet<ImplicationRelation>();
 		this.coreEnfs = new HashSet<EnforcedRelation>();
 		// initializing allValuesFromAxioms
-		allValuesFromAxioms = new ArrayList<AtomSubAllAxiom>();
+		allValuesFromAxioms = new ArrayList<ClipperAtomSubAllAxiom>();
 		allValuesFromAxioms = ont_bs.getAtomSubAllAxioms();
 
 		// initializing maxOneCardinalityAxioms;
-		maxOneCardinalityAxioms = new ArrayList<AtomSubMaxOneAxiom>();
+		maxOneCardinalityAxioms = new ArrayList<ClipperAtomSubMaxOneAxiom>();
 		maxOneCardinalityAxioms = ont_bs.getAtomSubMaxOneAxioms();
 
 		// initializing subObjectPropertyAxioms
-		subObjectPropertyAxioms = new ArrayList<SubPropertyAxiom>();
+		subObjectPropertyAxioms = new ArrayList<ClipperSubPropertyAxiom>();
 		subObjectPropertyAxioms = ont_bs.getSubPropertyAxioms();
 
 		// initializing private List<InversePropertyOfAxiom> inverseRoleAxioms;
-		inverseRoleAxioms = new ArrayList<InversePropertyOfAxiom>();
+		inverseRoleAxioms = new ArrayList<ClipperInversePropertyOfAxiom>();
 		inverseRoleAxioms = ont_bs.getInversePropertyOfAxioms();
 
 		this.reachBottoms = new HashSet<ReachBottom>();
@@ -103,11 +103,11 @@ public class ReductionToDatalog {
 
 	}
 
-	public List<AtomSubAllAxiom> getAllValuesFromAxioms() {
+	public List<ClipperAtomSubAllAxiom> getAllValuesFromAxioms() {
 		return allValuesFromAxioms;
 	}
 
-	public void setAllValuesFromAxioms(List<AtomSubAllAxiom> allValuesFromAxioms) {
+	public void setAllValuesFromAxioms(List<ClipperAtomSubAllAxiom> allValuesFromAxioms) {
 		this.allValuesFromAxioms = allValuesFromAxioms;
 	}
 
@@ -235,7 +235,7 @@ public class ReductionToDatalog {
 	public void ruleR3(PrintStream program) {
 
 		Rule rule = new Rule();
-		for (AtomSubAllAxiom axiom : allValuesFromAxioms) {
+		for (ClipperAtomSubAllAxiom axiom : allValuesFromAxioms) {
 			rule.clear();
 			int ic = axiom.getConcept2();
 			OWLClass c = ClipperManager.getInstance().getOwlClassEncoder()
@@ -263,7 +263,7 @@ public class ReductionToDatalog {
 	public void ruleR3BitSet(PrintStream program) {
 
 		Rule rule = new Rule();
-		for (AtomSubAllAxiom axiom : allValuesFromAxioms) {
+		for (ClipperAtomSubAllAxiom axiom : allValuesFromAxioms) {
 			rule.clear();
 			int ic = axiom.getConcept2();
 			OWLClass c = ClipperManager.getInstance().getOwlClassEncoder()
@@ -293,7 +293,7 @@ public class ReductionToDatalog {
 	 */
 	public void ruleR4(PrintStream program) {
 
-		for (SubPropertyAxiom subRoleAxiom : subObjectPropertyAxioms) {
+		for (ClipperSubPropertyAxiom subRoleAxiom : subObjectPropertyAxioms) {
 			int sup = subRoleAxiom.getRole2();
 			OWLObjectProperty superRole = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
@@ -316,7 +316,7 @@ public class ReductionToDatalog {
 
 	public void ruleR4BitSet(PrintStream program) {
 
-		for (SubPropertyAxiom subRoleAxiom : subObjectPropertyAxioms) {
+		for (ClipperSubPropertyAxiom subRoleAxiom : subObjectPropertyAxioms) {
 			int sup = subRoleAxiom.getRole2();
 			OWLObjectProperty superRole = ClipperManager.getInstance()
 					.getOwlObjectPropertyExpressionEncoder()
@@ -339,7 +339,7 @@ public class ReductionToDatalog {
 
 	public void ruleR5(PrintStream program) {
 		Rule rule = new Rule();
-		for (InversePropertyOfAxiom ax : inverseRoleAxioms) {
+		for (ClipperInversePropertyOfAxiom ax : inverseRoleAxioms) {
 			rule.clear();
 			int r1 = ax.getRole1();
 			int r2 = ax.getRole2();
@@ -367,7 +367,7 @@ public class ReductionToDatalog {
 
 	public void ruleR5BitSet(PrintStream program) {
 		Rule rule = new Rule();
-		for (InversePropertyOfAxiom ax : inverseRoleAxioms) {
+		for (ClipperInversePropertyOfAxiom ax : inverseRoleAxioms) {
 			rule.clear();
 			int r1 = ax.getRole1();
 			int r2 = ax.getRole2();
@@ -396,7 +396,7 @@ public class ReductionToDatalog {
 	/* 
 	 * */
 	public void ruleR6(PrintStream program) {
-		for (AtomSubMaxOneAxiom subClassAxiom : maxOneCardinalityAxioms) {
+		for (ClipperAtomSubMaxOneAxiom subClassAxiom : maxOneCardinalityAxioms) {
 			int ia = subClassAxiom.getConcept1();
 			int ir = subClassAxiom.getRole();
 			int ic = subClassAxiom.getConcept2();
@@ -425,7 +425,7 @@ public class ReductionToDatalog {
 	}
 
 	public void ruleR6BitSet(PrintStream program) {
-		for (AtomSubMaxOneAxiom subClassAxiom : maxOneCardinalityAxioms) {
+		for (ClipperAtomSubMaxOneAxiom subClassAxiom : maxOneCardinalityAxioms) {
 			int ia = subClassAxiom.getConcept1();
 			int ir = subClassAxiom.getRole();
 			int ic = subClassAxiom.getConcept2();
@@ -460,7 +460,7 @@ public class ReductionToDatalog {
 	 */
 	public void ruleR7(PrintStream program) {
 		BitSetUtil bu = new BitSetUtil();
-		for (AtomSubMaxOneAxiom subClassAxiom : maxOneCardinalityAxioms) {
+		for (ClipperAtomSubMaxOneAxiom subClassAxiom : maxOneCardinalityAxioms) {
 			int ia = subClassAxiom.getConcept1();
 			int ir = subClassAxiom.getRole();
 			int ic = subClassAxiom.getConcept2();
@@ -569,7 +569,7 @@ public class ReductionToDatalog {
 
 	public void ruleR7BitSet(PrintStream program) {
 		BitSetUtil bu = new BitSetUtil();
-		for (AtomSubMaxOneAxiom subClassAxiom : maxOneCardinalityAxioms) {
+		for (ClipperAtomSubMaxOneAxiom subClassAxiom : maxOneCardinalityAxioms) {
 			int ia = subClassAxiom.getConcept1();
 			int ir = subClassAxiom.getRole();
 			int ic = subClassAxiom.getConcept2();
@@ -678,7 +678,7 @@ public class ReductionToDatalog {
 	}
 
 	public void ruleR8R9(PrintStream program) {
-		for (ObjectPropertyAssertionAxiom a : roleAssertionAxioms) {
+		for (ClipperObjectPropertyAssertionAxiom a : roleAssertionAxioms) {
 
 			int ir = a.getRole();
 			int ind1 = a.getIndividual1();
@@ -703,7 +703,7 @@ public class ReductionToDatalog {
 		}
 		// System.out.println("======================================== ");
 		// System.out.println("Facts from Class assertions: ");
-		for (ConceptAssertionAxiom ca : conceptAssertionAxioms) {
+		for (ClipperConceptAssertionAxiom ca : conceptAssertionAxioms) {
 			int ic = ca.getConcept();
 			int iInd = ca.getIndividual();
 			OWLClass c = ClipperManager.getInstance().getOwlClassEncoder()
@@ -724,7 +724,7 @@ public class ReductionToDatalog {
 	}
 
 	public void ruleR8R9BitSet(PrintStream program) {
-		for (ObjectPropertyAssertionAxiom a : roleAssertionAxioms) {
+		for (ClipperObjectPropertyAssertionAxiom a : roleAssertionAxioms) {
 
 			int ir = a.getRole();
 			int ind1 = a.getIndividual1();
@@ -752,7 +752,7 @@ public class ReductionToDatalog {
 		}
 		// System.out.println("======================================== ");
 		// System.out.println("Facts from Class assertions: ");
-		for (ConceptAssertionAxiom ca : conceptAssertionAxioms) {
+		for (ClipperConceptAssertionAxiom ca : conceptAssertionAxioms) {
 			int ic = ca.getConcept();
 			int iInd = ca.getIndividual();
 			OWLClass c = ClipperManager.getInstance().getOwlClassEncoder()

@@ -7,18 +7,18 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import org.semanticweb.clipper.hornshiq.ontology.AndSubAtomAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubAllAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubMaxOneAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubMinAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubSomeAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.NormalHornALCHIQOntology;
-import org.semanticweb.clipper.hornshiq.ontology.ConceptAssertionAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.DisjointObjectPropertiesAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.InversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ObjectPropertyAssertionAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.SomeSubAtomAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.SubPropertyAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAndSubAtomAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMaxOneAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMinAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubSomeAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperConceptAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperDisjointObjectPropertiesAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperObjectPropertyAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperSomeSubAtomAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.owlapi.model.ClassExpressionType;
 import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
@@ -77,13 +77,13 @@ import org.semanticweb.owlapi.model.OWLTransitiveObjectPropertyAxiom;
 import org.semanticweb.owlapi.model.SWRLRule;
 
 
-public class BitSetNormalHornALCHIQOntologyConverter implements OWLAxiomVisitorEx<Object> {
+public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Object> {
 
-	private NormalHornALCHIQOntology ontology;
+	private ClipperHornSHIQOntology ontology;
 	private ClipperManager km;
 
-	public NormalHornALCHIQOntology convert(OWLOntology owlOntology) {
-		ontology = new NormalHornALCHIQOntology();
+	public ClipperHornSHIQOntology convert(OWLOntology owlOntology) {
+		ontology = new ClipperHornSHIQOntology();
 		km = ClipperManager.getInstance();
 		for (OWLAxiom ax : owlOntology.getLogicalAxioms()) {
 			ax.accept(this);
@@ -120,7 +120,7 @@ public class BitSetNormalHornALCHIQOntologyConverter implements OWLAxiomVisitorE
 				TIntHashSet left = new TIntHashSet();
 				left.add(km.getOwlClassEncoder().getValueBySymbol((OWLClass) subClass));
 				int right = (km.getOwlClassEncoder().getValueBySymbol((OWLClass) superClass));
-				ontology.getAndSubAtomAxioms().add(new AndSubAtomAxiom(left, right));
+				ontology.getAndSubAtomAxioms().add(new ClipperAndSubAtomAxiom(left, right));
 			}
 		}
 
@@ -140,7 +140,7 @@ public class BitSetNormalHornALCHIQOntologyConverter implements OWLAxiomVisitorE
 				for (OWLClassExpression op : operands) {
 					left.add(km.getOwlClassEncoder().getValueBySymbol((OWLClass) op));
 				}
-				ontology.getAndSubAtomAxioms().add(new AndSubAtomAxiom(left, right));
+				ontology.getAndSubAtomAxioms().add(new ClipperAndSubAtomAxiom(left, right));
 
 			}
 
@@ -151,7 +151,7 @@ public class BitSetNormalHornALCHIQOntologyConverter implements OWLAxiomVisitorE
 				if (filler.getClassExpressionType() == ClassExpressionType.OWL_CLASS) {
 					int concept1 = km.getOwlClassEncoder().getValueBySymbol((OWLClass) filler);
 					int role = km.getOwlObjectPropertyExpressionEncoder().getValueBySymbol(some.getProperty());
-					ontology.getSomeSubAtomAxioms().add(new SomeSubAtomAxiom(concept1, role, right));
+					ontology.getSomeSubAtomAxioms().add(new ClipperSomeSubAtomAxiom(concept1, role, right));
 				} else {
 					throw new IllegalStateException();
 				}
@@ -191,7 +191,7 @@ public class BitSetNormalHornALCHIQOntologyConverter implements OWLAxiomVisitorE
 				if (filler.getClassExpressionType() == ClassExpressionType.OWL_CLASS) {
 					int role = km.getOwlObjectPropertyExpressionEncoder().getValueBySymbol(some.getProperty());
 					int concept2 = km.getOwlClassEncoder().getValueBySymbol((OWLClass) filler);
-					ontology.getAtomSubSomeAxioms().add(new AtomSubSomeAxiom(left, role, concept2));
+					ontology.getAtomSubSomeAxioms().add(new ClipperAtomSubSomeAxiom(left, role, concept2));
 				} else {
 					throw new IllegalStateException();
 				}
@@ -204,7 +204,7 @@ public class BitSetNormalHornALCHIQOntologyConverter implements OWLAxiomVisitorE
 				if (filler.getClassExpressionType() == ClassExpressionType.OWL_CLASS) {
 					int role = km.getOwlObjectPropertyExpressionEncoder().getValueBySymbol(all.getProperty());
 					int concept2 = km.getOwlClassEncoder().getValueBySymbol((OWLClass) filler);
-					ontology.getAtomSubAllAxioms().add(new AtomSubAllAxiom(left, role, concept2));
+					ontology.getAtomSubAllAxioms().add(new ClipperAtomSubAllAxiom(left, role, concept2));
 				} else {
 					throw new IllegalStateException();
 				}
@@ -218,7 +218,7 @@ public class BitSetNormalHornALCHIQOntologyConverter implements OWLAxiomVisitorE
 				if (filler.getClassExpressionType() == ClassExpressionType.OWL_CLASS) {
 					int role = km.getOwlObjectPropertyExpressionEncoder().getValueBySymbol(max.getProperty());
 					int concept2 = km.getOwlClassEncoder().getValueBySymbol((OWLClass) filler);
-					ontology.getAtomSubMaxOneAxioms().add(new AtomSubMaxOneAxiom(left, role, concept2));
+					ontology.getAtomSubMaxOneAxioms().add(new ClipperAtomSubMaxOneAxiom(left, role, concept2));
 				} else {
 					throw new IllegalStateException();
 				}
@@ -232,7 +232,7 @@ public class BitSetNormalHornALCHIQOntologyConverter implements OWLAxiomVisitorE
 				if (filler.getClassExpressionType() == ClassExpressionType.OWL_CLASS) {
 					int role = km.getOwlObjectPropertyExpressionEncoder().getValueBySymbol(min.getProperty());
 					int concept2 = km.getOwlClassEncoder().getValueBySymbol((OWLClass) filler);
-					ontology.getAtomSubMinAxioms().add(new AtomSubMinAxiom(left, role, concept2, min.getCardinality()));
+					ontology.getAtomSubMinAxioms().add(new ClipperAtomSubMinAxiom(left, role, concept2, min.getCardinality()));
 				} else {
 					throw new IllegalStateException();
 				}
@@ -319,7 +319,7 @@ public class BitSetNormalHornALCHIQOntologyConverter implements OWLAxiomVisitorE
 				OWLObjectPropertyExpression second = properties[j];
 				int r = km.getOwlObjectPropertyExpressionEncoder().getValueBySymbol(first);
 				int s = km.getOwlObjectPropertyExpressionEncoder().getValueBySymbol(second);
-				ontology.getDisjAxioms().add(new DisjointObjectPropertiesAxiom(r, s));
+				ontology.getDisjAxioms().add(new ClipperDisjointObjectPropertiesAxiom(r, s));
 			}
 		}
 		return null;
@@ -337,7 +337,7 @@ public class BitSetNormalHornALCHIQOntologyConverter implements OWLAxiomVisitorE
 		int p = km.getOwlObjectPropertyExpressionEncoder().getValueBySymbol(axiom.getProperty());
 		int s = km.getOwlIndividualEncoder().getValueBySymbol(axiom.getSubject());
 		int o = km.getOwlIndividualEncoder().getValueBySymbol(axiom.getObject());
-		ontology.getRoleAssertionAxioms().add(new ObjectPropertyAssertionAxiom(p, s, o));
+		ontology.getRoleAssertionAxioms().add(new ClipperObjectPropertyAssertionAxiom(p, s, o));
 		return null;
 	}
 
@@ -353,7 +353,7 @@ public class BitSetNormalHornALCHIQOntologyConverter implements OWLAxiomVisitorE
 		OWLObjectPropertyExpression sup = axiom.getSuperProperty();
 		int r = km.getOwlObjectPropertyExpressionEncoder().getValueBySymbol(sub);
 		int s = km.getOwlObjectPropertyExpressionEncoder().getValueBySymbol(sup);
-		return ontology.getSubPropertyAxioms().add(new SubPropertyAxiom(r, s));
+		return ontology.getSubPropertyAxioms().add(new ClipperSubPropertyAxiom(r, s));
 	}
 
 	@Override
@@ -403,7 +403,7 @@ public class BitSetNormalHornALCHIQOntologyConverter implements OWLAxiomVisitorE
 
 		int cls = km.getOwlClassEncoder().getValueBySymbol((OWLClass) axiom.getClassExpression());
 		int ind = km.getOwlIndividualEncoder().getValueBySymbol(axiom.getIndividual());
-		ontology.getConceptAssertionAxioms().add(new ConceptAssertionAxiom(cls, ind));
+		ontology.getConceptAssertionAxioms().add(new ClipperConceptAssertionAxiom(cls, ind));
 		return null;
 
 	}
@@ -463,7 +463,7 @@ public class BitSetNormalHornALCHIQOntologyConverter implements OWLAxiomVisitorE
 		OWLObjectPropertyExpression second = axiom.getSecondProperty();
 		int r = km.getOwlObjectPropertyExpressionEncoder().getValueBySymbol(first);
 		int s = km.getOwlObjectPropertyExpressionEncoder().getValueBySymbol(second);
-		ontology.getInversePropertyOfAxioms().add(new InversePropertyOfAxiom(r, s));
+		ontology.getInversePropertyOfAxioms().add(new ClipperInversePropertyOfAxiom(r, s));
 		return null;
 
 		// throw new UnsupportedOperationException();
