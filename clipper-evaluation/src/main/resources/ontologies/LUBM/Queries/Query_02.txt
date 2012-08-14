@@ -1,0 +1,2 @@
+Q(?0,?1,?2) <- GraduateStudent(?0), University(?1), Department(?2), memberOf(?0,?2), subOrganizationOf(?2,?1), undergraduateDegreeFrom(?0,?1)
+//Q(?0) <- t(?0,?1), t(?1,?2), t(?2,?3)
