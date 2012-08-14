@@ -9,8 +9,8 @@ import java.util.Set;
 
 import lombok.extern.slf4j.Slf4j;
 
-import org.semanticweb.clipper.hornshiq.ontology.NormalHornALCHIQOntology;
-import org.semanticweb.clipper.hornshiq.ontology.SubPropertyAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
@@ -33,7 +33,7 @@ public class CQGraphRewriter implements QueryRewriter {
 	CQGraphHomomorphismChecker checker;
 
 
-	NormalHornALCHIQOntology ontology;
+	ClipperHornSHIQOntology ontology;
 	IndexedEnfContainer enfs;
 
 	Multimap<Integer, Integer> transSuperRole2SubRolesMmap;
@@ -43,13 +43,13 @@ public class CQGraphRewriter implements QueryRewriter {
 
 	private SelfLoopComponentCluster slcc;
 
-	public CQGraphRewriter(NormalHornALCHIQOntology ontology, IndexedEnfContainer enfs) {
+	public CQGraphRewriter(ClipperHornSHIQOntology ontology, IndexedEnfContainer enfs) {
 		this.ontology = ontology;
 		this.enfs = enfs;
 		checker = new CQGraphHomomorphismChecker();
-		List<SubPropertyAxiom> subPropertyAxioms = ontology.computeNonSimpleSubPropertyClosure();
+		List<ClipperSubPropertyAxiom> subPropertyAxioms = ontology.computeNonSimpleSubPropertyClosure();
 		transSuperRole2SubRolesMmap = HashMultimap.create();
-		for (SubPropertyAxiom subPropertyAxiom : subPropertyAxioms) {
+		for (ClipperSubPropertyAxiom subPropertyAxiom : subPropertyAxioms) {
 			int subRole = subPropertyAxiom.getRole1();
 			int superRole = subPropertyAxiom.getRole2();
 			transSuperRole2SubRolesMmap.put(superRole, subRole);

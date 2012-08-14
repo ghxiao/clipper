@@ -5,9 +5,9 @@ import gnu.trove.set.hash.TIntHashSet;
 import java.util.Collection;
 import java.util.List;
 
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubAllAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.InversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.SubPropertyAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
 
 
@@ -25,11 +25,11 @@ public class EnforcedRelation {
 	private TIntHashSet type2;
 
 	private IndexedHornImpContainer imp_rel;
-	private List<SubPropertyAxiom> subObjectPropertyAxioms;
-	private List<InversePropertyOfAxiom> inverseRoleAxioms;
-	private List<AtomSubAllAxiom> allValuesFromAxioms;
+	private List<ClipperSubPropertyAxiom> subObjectPropertyAxioms;
+	private List<ClipperInversePropertyOfAxiom> inverseRoleAxioms;
+	private List<ClipperAtomSubAllAxiom> allValuesFromAxioms;
 
-	public void setAllValuesFromAxioms(List<AtomSubAllAxiom> allValuesFromAxioms) {
+	public void setAllValuesFromAxioms(List<ClipperAtomSubAllAxiom> allValuesFromAxioms) {
 		this.allValuesFromAxioms = allValuesFromAxioms;
 	}
 
@@ -155,12 +155,12 @@ public class EnforcedRelation {
 	
 
 	public void setSubObjectPropertyAxioms(
-			List<SubPropertyAxiom> subObjectPropertyAxioms) {
+			List<ClipperSubPropertyAxiom> subObjectPropertyAxioms) {
 		this.subObjectPropertyAxioms = subObjectPropertyAxioms;
 	}
 
 	public void setInverseRoleAxioms(
-			List<InversePropertyOfAxiom> inverseRoleAxioms) {
+			List<ClipperInversePropertyOfAxiom> inverseRoleAxioms) {
 		this.inverseRoleAxioms = inverseRoleAxioms;
 	}
 
@@ -199,7 +199,7 @@ public class EnforcedRelation {
 		while (doMore) {
 			doMore = false;
 
-			for (SubPropertyAxiom ax : this.subObjectPropertyAxioms) {
+			for (ClipperSubPropertyAxiom ax : this.subObjectPropertyAxioms) {
 				int r = ax.getRole1();
 				int s = ax.getRole2();
 				if (this.getRoles().contains(r) && !this.getRoles().contains(s)) {
@@ -213,7 +213,7 @@ public class EnforcedRelation {
 				}
 			}
 
-			for (InversePropertyOfAxiom ax : inverseRoleAxioms) {
+			for (ClipperInversePropertyOfAxiom ax : inverseRoleAxioms) {
 				int r = ax.getRole1();
 				int s = ax.getRole2();
 				if (this.getRoles().contains(r)
@@ -251,7 +251,7 @@ public class EnforcedRelation {
 	public boolean ensureForAllClosure() {
 		boolean modified = false;
 
-		for (AtomSubAllAxiom ax : allValuesFromAxioms) {
+		for (ClipperAtomSubAllAxiom ax : allValuesFromAxioms) {
 			if (this.getRoles().contains(ax.getRole())
 					&& this.getType1().contains(ax.getConcept1())) {
 				if (!this.getType2().contains(ax.getConcept2())) {

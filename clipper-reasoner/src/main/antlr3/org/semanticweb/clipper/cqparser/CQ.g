@@ -60,7 +60,7 @@ import org.semanticweb.owlapi.util.SimpleShortFormProvider;
         }
         CommonTree t = (CommonTree) r.getTree();
 
-        System.out.println(t.toStringTree());
+        //System.out.println(t.toStringTree());
         CommonTreeNodeStream nodes = new CommonTreeNodeStream(t);
         // AST nodes have payloads that point into token stream
         nodes.setTokenStream(input);

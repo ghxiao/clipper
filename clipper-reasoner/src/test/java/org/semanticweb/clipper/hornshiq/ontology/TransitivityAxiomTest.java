@@ -9,7 +9,7 @@ public class TransitivityAxiomTest {
 	@Test
 	public void test01() {
 		int r = 10;
-		Axiom ax = new TransitivityAxiom(r);
+		ClipperAxiom ax = new ClipperTransitivityAxiom(r);
 		assertEquals("trans(10)", ax.toString());
 		System.out.println(ax);
 	}
@@ -17,7 +17,7 @@ public class TransitivityAxiomTest {
 	@Test
 	public void test02() {
 		int r = 11;
-		Axiom ax = new TransitivityAxiom(r);
+		ClipperAxiom ax = new ClipperTransitivityAxiom(r);
 		assertEquals("trans(10)", ax.toString());
 		System.out.println(ax);
 	}

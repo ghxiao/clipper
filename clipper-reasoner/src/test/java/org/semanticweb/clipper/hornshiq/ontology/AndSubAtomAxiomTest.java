@@ -7,7 +7,7 @@ import gnu.trove.set.hash.TIntHashSet;
 import java.util.BitSet;
 
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.ontology.AndSubAtomAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAndSubAtomAxiom;
 
 public class AndSubAtomAxiomTest {
 	@Test
@@ -16,7 +16,7 @@ public class AndSubAtomAxiomTest {
 		left.add(0);
 		left.add(2);
 		int right = 1;
-		AndSubAtomAxiom axiom = new AndSubAtomAxiom(left, right);
+		ClipperAndSubAtomAxiom axiom = new ClipperAndSubAtomAxiom(left, right);
 		assertEquals("{0, 2} SubClassOf 1", axiom.toString());
 	}
 }

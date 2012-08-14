@@ -51,7 +51,7 @@ public class RequiemTestSuitePaths {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.getDataLog();
+		qaHornSHIQ.generateDataLog();
 
 	}
 
@@ -83,7 +83,7 @@ public class RequiemTestSuitePaths {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.runDatalogEngine();
+		qaHornSHIQ.query();
 
 	}
 	
@@ -116,7 +116,7 @@ public class RequiemTestSuitePaths {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.runDatalogEngine();
+		qaHornSHIQ.query();
 		System.out.println("NUmber of rewritten quries: " + qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueries());
 	}
 	
@@ -150,7 +150,7 @@ public class RequiemTestSuitePaths {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.runDatalogEngine();
+		qaHornSHIQ.query();
 		System.out.println("reasoning time " + qaHornSHIQ.getClipperReport().getReasoningTime() + "millisecond");
 		System.out.println("reasoning time " + qaHornSHIQ.getClipperReport().getQueryRewritingTime() + "millisecond");
 		System.out.println("NUmber of rewritten quries: " + qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueries());
@@ -187,7 +187,7 @@ public class RequiemTestSuitePaths {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.runDatalogEngine();
+		qaHornSHIQ.query();
 		System.out.println("Reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime() + "  millisecond");
 		System.out.println("Query rewriting time: " + qaHornSHIQ.getClipperReport().getQueryRewritingTime() + "  millisecond");
 		System.out.println("Time of running datalog program : " + qaHornSHIQ.getClipperReport().getDatalogRunTime() + "  milliseconds");

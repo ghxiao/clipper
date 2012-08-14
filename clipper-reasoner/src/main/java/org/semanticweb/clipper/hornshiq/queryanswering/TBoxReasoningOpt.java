@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.semanticweb.clipper.hornshiq.ontology.AndSubAtomAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubAllAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubMaxOneAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubSomeAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.NormalHornALCHIQOntology;
-import org.semanticweb.clipper.hornshiq.ontology.ConceptAssertionAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.InversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.SubPropertyAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAndSubAtomAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMaxOneAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubSomeAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperConceptAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
 
 
@@ -28,10 +28,10 @@ public class TBoxReasoningOpt {
 	private IndexedHornImpContainer imp_relation;
 	private IndexedEnfContainer enf_relation;
 
-	private List<AtomSubAllAxiom> allValuesFromAxioms;
-	private List<SubPropertyAxiom> subObjectPropertyAxioms;
-	private List<InversePropertyOfAxiom> inverseRoleAxioms;
-	private List<AtomSubMaxOneAxiom> maxOneCardinalityAxioms;
+	private List<ClipperAtomSubAllAxiom> allValuesFromAxioms;
+	private List<ClipperSubPropertyAxiom> subObjectPropertyAxioms;
+	private List<ClipperInversePropertyOfAxiom> inverseRoleAxioms;
+	private List<ClipperAtomSubMaxOneAxiom> maxOneCardinalityAxioms;
 
 	// protected int noThing = 1;
 	// protected int thing = 0;
@@ -40,7 +40,7 @@ public class TBoxReasoningOpt {
 
 	private TIntHashSet aboxType;
 
-	public TBoxReasoningOpt(NormalHornALCHIQOntology ont_bs,
+	public TBoxReasoningOpt(ClipperHornSHIQOntology ont_bs,
 			TIntHashSet aboxType) {
 
 		init(ont_bs);
@@ -49,7 +49,7 @@ public class TBoxReasoningOpt {
 
 	}
 
-	protected void init(NormalHornALCHIQOntology ont_bs) {
+	protected void init(ClipperHornSHIQOntology ont_bs) {
 		// initializing allValuesFromAxioms
 		allValuesFromAxioms = ont_bs.getAtomSubAllAxioms();
 
@@ -64,14 +64,14 @@ public class TBoxReasoningOpt {
 
 		// initializing coreImp
 		imp_relation = new IndexedHornImpContainer();
-		for (AndSubAtomAxiom axiom : ont_bs.getAndSubAtomAxioms()) {
+		for (ClipperAndSubAtomAxiom axiom : ont_bs.getAndSubAtomAxioms()) {
 			imp_relation.add(new HornImplication(axiom.getLeft(), axiom
 					.getRight()));
 		}
 
 		// initializing coreEnf
 		enf_relation = new IndexedEnfContainer();
-		for (AtomSubSomeAxiom axiom : ont_bs.getAtomSubSomeAxioms()) {
+		for (ClipperAtomSubSomeAxiom axiom : ont_bs.getAtomSubSomeAxioms()) {
 			EnforcedRelation enf = new EnforcedRelation(axiom.getConcept1(),
 					axiom.getRole(), axiom.getConcept2());
 
@@ -84,11 +84,11 @@ public class TBoxReasoningOpt {
 
 	}
 
-	public TBoxReasoningOpt(NormalHornALCHIQOntology ont_bs) {
+	public TBoxReasoningOpt(ClipperHornSHIQOntology ont_bs) {
 		init(ont_bs);
 
 		this.aboxType = BitSetUtilOpt.getInstanceWithTop();
-		for (ConceptAssertionAxiom ca : ont_bs.getConceptAssertionAxioms()) {
+		for (ClipperConceptAssertionAxiom ca : ont_bs.getConceptAssertionAxioms()) {
 			this.aboxType.add(ca.getConcept());
 		}
 		//
@@ -128,7 +128,7 @@ public class TBoxReasoningOpt {
 		Collection<EnforcedRelation> addition = new ArrayList<EnforcedRelation>();
 
 		for (EnforcedRelation tuple : this.enf_relation) {
-			for (AtomSubAllAxiom ax : allValuesFromAxioms) {
+			for (ClipperAtomSubAllAxiom ax : allValuesFromAxioms) {
 
 				if (tuple.getRoles().contains(ax.getRole())
 						&& !tuple.getType1().contains(ax.getConcept1())
@@ -200,7 +200,7 @@ public class TBoxReasoningOpt {
 		boolean modifiedIMPS = false;
 
 		for (EnforcedRelation tuple : this.enf_relation) {
-			for (AtomSubAllAxiom ax : allValuesFromAxioms) {
+			for (ClipperAtomSubAllAxiom ax : allValuesFromAxioms) {
 				if (tuple.getRoles().contains(
 						BitSetUtilOpt.inverseRole(ax.getRole()))
 						&& tuple.getType2().contains(ax.getConcept1())) {
@@ -223,7 +223,7 @@ public class TBoxReasoningOpt {
 
 		Collection<EnforcedRelation> addition = new ArrayList<EnforcedRelation>();
 
-		for (AtomSubMaxOneAxiom ax : maxOneCardinalityAxioms) {
+		for (ClipperAtomSubMaxOneAxiom ax : maxOneCardinalityAxioms) {
 			for (EnforcedRelation tuple1 : this.enf_relation) {
 				if (tuple1.getRoles().contains(ax.getRole())
 						&& tuple1.getType2().contains(ax.getConcept2())) {
@@ -263,7 +263,7 @@ public class TBoxReasoningOpt {
 	private Collection<EnforcedRelation> infRule_AtMostRule_ParentChildCollapse() {
 		Collection<EnforcedRelation> addition = new ArrayList<EnforcedRelation>();
 
-		for (AtomSubMaxOneAxiom ax : maxOneCardinalityAxioms) {
+		for (ClipperAtomSubMaxOneAxiom ax : maxOneCardinalityAxioms) {
 			for (EnforcedRelation tuple1 : this.enf_relation) {
 				if (tuple1.getRoles().contains(
 						BitSetUtilOpt.inverseRole(ax.getRole()))
@@ -422,12 +422,12 @@ public class TBoxReasoningOpt {
 		this.enf_relation = coreEnfs;
 	}
 
-	public List<InversePropertyOfAxiom> getInverseRoleAxioms() {
+	public List<ClipperInversePropertyOfAxiom> getInverseRoleAxioms() {
 		return inverseRoleAxioms;
 	}
 
 	public void setInverseRoleAxioms(
-			List<InversePropertyOfAxiom> inverseRoleAxioms) {
+			List<ClipperInversePropertyOfAxiom> inverseRoleAxioms) {
 		this.inverseRoleAxioms = inverseRoleAxioms;
 	}
 
@@ -439,7 +439,7 @@ public class TBoxReasoningOpt {
 		return enf_relation;
 	}
 
-	public List<AtomSubAllAxiom> getAllValuesFromAxioms() {
+	public List<ClipperAtomSubAllAxiom> getAllValuesFromAxioms() {
 		return allValuesFromAxioms;
 	}
 

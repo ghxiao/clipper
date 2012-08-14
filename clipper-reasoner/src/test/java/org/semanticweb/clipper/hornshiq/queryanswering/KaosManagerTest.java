@@ -7,10 +7,10 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubSomeAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.Axiom;
-import org.semanticweb.clipper.hornshiq.ontology.ConceptAssertionAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ObjectPropertyAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubSomeAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperConceptAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperObjectPropertyAssertionAxiom;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.util.SymbolEncoder;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -116,14 +116,14 @@ public class KaosManagerTest {
 		int v_a = owlIndividualEncoder.getValueBySymbol(a);
 		int v_b = owlIndividualEncoder.getValueBySymbol(b);
 
-		List<Axiom> axioms = new ArrayList<Axiom>();
-		axioms.add(new AtomSubSomeAxiom(v_A, v_r, v_B));
-		axioms.add(new AtomSubSomeAxiom(v_A, v_inv_r, v_B));
-		axioms.add(new ConceptAssertionAxiom(v_A, v_b));
-		axioms.add(new AtomSubSomeAxiom(v_A, v_r, v_B));
-		axioms.add(new ObjectPropertyAssertionAxiom(v_r, v_a, v_b));
+		List<ClipperAxiom> axioms = new ArrayList<ClipperAxiom>();
+		axioms.add(new ClipperAtomSubSomeAxiom(v_A, v_r, v_B));
+		axioms.add(new ClipperAtomSubSomeAxiom(v_A, v_inv_r, v_B));
+		axioms.add(new ClipperConceptAssertionAxiom(v_A, v_b));
+		axioms.add(new ClipperAtomSubSomeAxiom(v_A, v_r, v_B));
+		axioms.add(new ClipperObjectPropertyAssertionAxiom(v_r, v_a, v_b));
 
-		for (Axiom ax : axioms) {
+		for (ClipperAxiom ax : axioms) {
 			System.out.println(ax);
 		}
 	}

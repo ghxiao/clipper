@@ -64,7 +64,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.runDatalogEngine();
+		qaHornSHIQ.query();
 		// expect answer: a1
 		List<String> a1 = new ArrayList<String>();
 		a1.add("q0(\"a\")");
@@ -103,7 +103,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.runDatalogEngine();
+		qaHornSHIQ.query();
 		// expect answer: a1
 		List<String> a = new ArrayList<String>();
 		a.add("q0(\"a\")");
@@ -141,7 +141,7 @@ public class TestCase {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 
-		qaHornSHIQ.runDatalogEngine();
+		qaHornSHIQ.query();
 
 		for (List<String> answer : qaHornSHIQ.getDecodedAnswers()) {
 			System.out.println(answer);
@@ -182,7 +182,7 @@ public class TestCase {
 
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.runDatalogEngine();
+		qaHornSHIQ.query();
 		// expect 1 answer for q(x) :- Nothing(x) because the ontology is
 		// inconsistent
 		for (List<String> answer : qaHornSHIQ.getDecodedAnswers()) {
@@ -270,7 +270,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.runDatalogEngine();
+		qaHornSHIQ.query();
 		// expect answer: a1
 		List<String> a = new ArrayList<String>();
 		a.add("q0(\"a\")");
@@ -306,7 +306,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.runDatalogEngine();
+		qaHornSHIQ.query();
 		// expect answer: a1
 		List<String> a = new ArrayList<String>();
 		a.add("q0(\"a\")");
@@ -349,7 +349,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.runDatalogEngine();
+		qaHornSHIQ.query();
 		// expect answer: a
 		List<String> a = new ArrayList<String>();
 		a.add("q0(\"a\")");
@@ -394,7 +394,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.runDatalogEngine();
+		qaHornSHIQ.query();
 		// assertEquals(qaHornSHIQ.getDecodedAnswers().size(), 0);
 		// expect answer: a
 		List<String> a = new ArrayList<String>();
@@ -436,7 +436,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.runDatalogEngine();
+		qaHornSHIQ.query();
 		// assertEquals(qaHornSHIQ.getDecodedAnswers().size(), 0);
 		// expect answer: a
 		List<String> a = new ArrayList<String>();
@@ -485,7 +485,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.getDataLog();
+		qaHornSHIQ.generateDataLog();
 		//Expect the rewritten query: q0(X0) :- r3(X2,X3), a(X2), a2(X2), a1(X0), a4(X3), r1(X0,X2).
 		assertEquals(2, qaHornSHIQ.getRewrittenQueries().size());
 
@@ -527,7 +527,7 @@ public class TestCase {
 			// qaHornSHIQ.setQueryString(queryString);
 			qaHornSHIQ.setCq(cq);
 			qaHornSHIQ.setDlvPath("lib/dlv");
-			qaHornSHIQ.getDataLog();
+			qaHornSHIQ.generateDataLog();
 			//expected rewritten query: q0(X1) :- a1(X1), a(X1), a3(X1), a4(X1).
 			assertEquals(2, qaHornSHIQ.getRewrittenQueries().size());
 			
@@ -572,7 +572,7 @@ public class TestCase {
 			// qaHornSHIQ.setQueryString(queryString);
 			qaHornSHIQ.setCq(cq);
 			qaHornSHIQ.setDlvPath("lib/dlv");
-			qaHornSHIQ.getDataLog();
+			qaHornSHIQ.generateDataLog();
 			//expect rewritten query: q0(X0) :- a("d"), a4("d"), r1(X0,"d"), a1(X0), r2(X0,"d"), a2("d").
 			assertEquals(2, qaHornSHIQ.getRewrittenQueries().size());
 		}
@@ -615,7 +615,7 @@ public class TestCase {
 				// qaHornSHIQ.setQueryString(queryString);
 				qaHornSHIQ.setCq(cq);
 				qaHornSHIQ.setDlvPath("lib/dlv");
-				qaHornSHIQ.getDataLog();
+				qaHornSHIQ.generateDataLog();
 				//expect rewritten query: No rewritten query.
 				assertEquals(1, qaHornSHIQ.getRewrittenQueries().size());
 			

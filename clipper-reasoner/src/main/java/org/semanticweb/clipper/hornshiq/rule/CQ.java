@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import org.semanticweb.clipper.hornshiq.ontology.InversePropertyOfAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 
 @Data
@@ -97,9 +97,9 @@ public class CQ {
 	 * return anonymous inverseOf(r) Note: We assume that for each role r, there
 	 * is only one inverse role of r.
 	 * */
-	public int getInverseOf(int r, List<InversePropertyOfAxiom> inverseAxioms) {
+	public int getInverseOf(int r, List<ClipperInversePropertyOfAxiom> inverseAxioms) {
 		int rBar = -1;
-		for (InversePropertyOfAxiom invAxiom : inverseAxioms) {
+		for (ClipperInversePropertyOfAxiom invAxiom : inverseAxioms) {
 			if (invAxiom.getRole1() == r)
 				rBar = invAxiom.getRole2();
 			if (invAxiom.getRole2() == r)
@@ -114,7 +114,7 @@ public class CQ {
 		return rBar;
 	}
 
-	public TIntHashSet computeRho(Variable x, List<InversePropertyOfAxiom> inverseAxioms) {
+	public TIntHashSet computeRho(Variable x, List<ClipperInversePropertyOfAxiom> inverseAxioms) {
 
 		TIntHashSet rho = new TIntHashSet();
 		// BitSet emptyRho = new BitSet();

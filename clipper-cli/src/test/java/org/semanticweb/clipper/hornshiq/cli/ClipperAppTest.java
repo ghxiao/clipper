@@ -16,7 +16,7 @@ public class ClipperAppTest {
 	@Test
 	public void testQuery() {
 
-		ClipperApp.main("-v=2 -rewriter=new query src/test/resources/university.owl src/test/resources/university-q1.sparql"
+		ClipperApp.main("-v=1 -rewriter=new query src/test/resources/university.owl src/test/resources/university-q1.sparql"
 				.split("\\ "));
 	}
 

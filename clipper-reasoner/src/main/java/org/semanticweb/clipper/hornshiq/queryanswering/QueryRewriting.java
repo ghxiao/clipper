@@ -6,8 +6,8 @@ import java.util.*;
 
 import lombok.Getter;
 
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubAllAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.InversePropertyOfAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
@@ -16,24 +16,24 @@ import org.semanticweb.clipper.hornshiq.rule.Variable;
 public class QueryRewriting implements QueryRewriter {
 
 	private IndexedEnfContainer enfContainer;
-	private List<AtomSubAllAxiom> allValuesFromAxioms;
-	private List<InversePropertyOfAxiom> inversePropertyOfAxioms;
+	private List<ClipperAtomSubAllAxiom> allValuesFromAxioms;
+	private List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms;
 
 	private Set<CQ> ucq;
 
-	public QueryRewriting(IndexedEnfContainer indexEnfs, List<InversePropertyOfAxiom> inversePropertyAxioms,
-			List<AtomSubAllAxiom> allValuesFromAxs) {
+	public QueryRewriting(IndexedEnfContainer indexEnfs, List<ClipperInversePropertyOfAxiom> inversePropertyAxioms,
+			List<ClipperAtomSubAllAxiom> allValuesFromAxs) {
 		this.enfContainer = indexEnfs;
 		this.inversePropertyOfAxioms = inversePropertyAxioms;
 		this.allValuesFromAxioms = allValuesFromAxs;
 		ucq = new HashSet<CQ>();
 	}
 
-	public QueryRewriting(Set<EnforcedRelation> enfs, List<InversePropertyOfAxiom> inversePropertyOfAxioms) {
+	public QueryRewriting(Set<EnforcedRelation> enfs, List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms) {
 		this.enfContainer = new IndexedEnfContainer();
 		this.enfContainer.addAll(enfs);
 		this.inversePropertyOfAxioms = inversePropertyOfAxioms;
-		this.allValuesFromAxioms = new ArrayList<AtomSubAllAxiom>();
+		this.allValuesFromAxioms = new ArrayList<ClipperAtomSubAllAxiom>();
 		ucq = new HashSet<CQ>();
 	}
 
@@ -119,7 +119,7 @@ public class QueryRewriting implements QueryRewriter {
 		while (iter.hasNext()) {
 			Atom bodyAtom = (Atom) iter.next();
 			if (bodyAtom.getPredicate().getArity() > 1) {
-				for (AtomSubAllAxiom ax : this.allValuesFromAxioms) {
+				for (ClipperAtomSubAllAxiom ax : this.allValuesFromAxioms) {
 					// if meet axiom in the form of : Thing SubclassOf ForAll
 					// Role . Concept2)
 					// then check if concept2 is in the body atom. If yes,

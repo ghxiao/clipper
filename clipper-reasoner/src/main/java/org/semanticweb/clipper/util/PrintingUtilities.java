@@ -5,10 +5,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubAllAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubMaxOneAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.InversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.SubPropertyAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMaxOneAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
 import org.semanticweb.clipper.hornshiq.queryanswering.HornImplication;
 import org.semanticweb.clipper.hornshiq.queryanswering.ImplicationRelation;
@@ -60,34 +60,34 @@ public class PrintingUtilities {
 		}
 	}
 	// =============================
-	public void printInversePropertyAxioms(List<  InversePropertyOfAxiom> invAxioms) {
+	public void printInversePropertyAxioms(List<  ClipperInversePropertyOfAxiom> invAxioms) {
 		System.out.println("Role Inclusion Axioms: ");
-		for (InversePropertyOfAxiom e : invAxioms) {
+		for (ClipperInversePropertyOfAxiom e : invAxioms) {
 			System.out.println(e);
 		}
 	}
 	// ===========================
 	public void printValueRestricitons(
-			List<AtomSubAllAxiom> subClassAxiomsWithValueRestriction) {
+			List<ClipperAtomSubAllAxiom> subClassAxiomsWithValueRestriction) {
 		System.out.println("Value Restriction Axioms: ");
-		for (AtomSubAllAxiom e : subClassAxiomsWithValueRestriction) {
+		for (ClipperAtomSubAllAxiom e : subClassAxiomsWithValueRestriction) {
 			System.out.println(e);
 		}
 	}//
 		// ===========================
 
 	public void printMaxOneCarinalityAxioms(
-			List<AtomSubMaxOneAxiom> subClassAxiomsWithMaxCardinality) {
+			List<ClipperAtomSubMaxOneAxiom> subClassAxiomsWithMaxCardinality) {
 		System.out.println("MaxOneCardinality Axioms: ");
-		for (AtomSubMaxOneAxiom e : subClassAxiomsWithMaxCardinality) {
+		for (ClipperAtomSubMaxOneAxiom e : subClassAxiomsWithMaxCardinality) {
 			System.out.println(e);
 		}
 	}
 
 	// =============================
-	public void printSubObjectPropertyAxioms(List<SubPropertyAxiom> subObjectPropertyAxioms) {
+	public void printSubObjectPropertyAxioms(List<ClipperSubPropertyAxiom> subObjectPropertyAxioms) {
 		System.out.println("Role Inclusion Axioms: ");
-		for (SubPropertyAxiom e : subObjectPropertyAxioms) {
+		for (ClipperSubPropertyAxiom e : subObjectPropertyAxioms) {
 			System.out.println("                  " + e);
 		}
 	}

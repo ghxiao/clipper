@@ -46,7 +46,7 @@ public class QAHornSHIQTest {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.runDatalogEngine();
+		qaHornSHIQ.query();
 		// expect answer: a1
 		List<String> a1 = new ArrayList<String>();
 		a1.add("q0(\"a1\")");

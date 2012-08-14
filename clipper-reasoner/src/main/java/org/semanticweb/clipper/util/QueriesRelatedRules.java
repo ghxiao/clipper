@@ -11,13 +11,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubAllAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.AtomSubMaxOneAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.NormalHornALCHIQOntology;
-import org.semanticweb.clipper.hornshiq.ontology.ConceptAssertionAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.InversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ObjectPropertyAssertionAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.SubPropertyAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMaxOneAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperConceptAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperObjectPropertyAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.clipper.hornshiq.queryanswering.Constraint;
 import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
 import org.semanticweb.clipper.hornshiq.queryanswering.HornImplication;
@@ -45,12 +45,12 @@ public class QueriesRelatedRules {
 
 	private Collection<HornImplication> coreImps;
 	private Collection<EnforcedRelation> coreEnfs;
-	private List<AtomSubAllAxiom> allValuesFromAxioms;
-	private List<SubPropertyAxiom> subObjectPropertyAxioms;
-	private List<InversePropertyOfAxiom> inverseObjectPropertyAxioms;
-	private List<AtomSubMaxOneAxiom> maxOneCardinalityAxioms;
-	private List<ConceptAssertionAxiom> conceptAssertionAxioms;
-	private List<ObjectPropertyAssertionAxiom> roleAssertionAxioms;
+	private List<ClipperAtomSubAllAxiom> allValuesFromAxioms;
+	private List<ClipperSubPropertyAxiom> subObjectPropertyAxioms;
+	private List<ClipperInversePropertyOfAxiom> inverseObjectPropertyAxioms;
+	private List<ClipperAtomSubMaxOneAxiom> maxOneCardinalityAxioms;
+	private List<ClipperConceptAssertionAxiom> conceptAssertionAxioms;
+	private List<ClipperObjectPropertyAssertionAxiom> roleAssertionAxioms;
 	private Set<CQ> ucq;
 	private Set<Rule> ucqRelatedDatalogRules; // contain datalog rules related
 												// to ucq
@@ -101,7 +101,7 @@ public class QueriesRelatedRules {
 		// this.namingStrategy = strategy;
 	}
 
-	public QueriesRelatedRules(NormalHornALCHIQOntology ont_bs,
+	public QueriesRelatedRules(ClipperHornSHIQOntology ont_bs,
 			Set<CQ> rewrittenUcq) {
 		allValuesFromAxioms = ont_bs.getAtomSubAllAxioms();
 		maxOneCardinalityAxioms = ont_bs.getAtomSubMaxOneAxioms();
@@ -262,8 +262,8 @@ public class QueriesRelatedRules {
 			System.out
 					.println("%==========rules From Value Restrictions ============");
 		}
-		Set<AtomSubAllAxiom> removedAxioms = new HashSet<AtomSubAllAxiom>();
-		for (AtomSubAllAxiom axiom : allValuesFromAxioms) {
+		Set<ClipperAtomSubAllAxiom> removedAxioms = new HashSet<ClipperAtomSubAllAxiom>();
+		for (ClipperAtomSubAllAxiom axiom : allValuesFromAxioms) {
 			Rule rule = new Rule();
 			int ic = axiom.getConcept2();
 			int ir = axiom.getRole();
@@ -301,8 +301,8 @@ public class QueriesRelatedRules {
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("%==========rules From Sub Roles Axioms =====");
 		}
-		Set<SubPropertyAxiom> removedAxioms = new HashSet<SubPropertyAxiom>();
-		for (SubPropertyAxiom subRoleAxiom : subObjectPropertyAxioms) {
+		Set<ClipperSubPropertyAxiom> removedAxioms = new HashSet<ClipperSubPropertyAxiom>();
+		for (ClipperSubPropertyAxiom subRoleAxiom : subObjectPropertyAxioms) {
 			int superRole = subRoleAxiom.getRole2();
 			int subRole = subRoleAxiom.getRole1();
 			// don't care about subroleAxiom of anonymous roles
@@ -345,9 +345,9 @@ public class QueriesRelatedRules {
 					.println("%==========rules From inverse role axioms===================");
 		}
 
-		Set<InversePropertyOfAxiom> removedAxioms = new HashSet<InversePropertyOfAxiom>();
+		Set<ClipperInversePropertyOfAxiom> removedAxioms = new HashSet<ClipperInversePropertyOfAxiom>();
 
-		for (InversePropertyOfAxiom ax : inverseObjectPropertyAxioms) {
+		for (ClipperInversePropertyOfAxiom ax : inverseObjectPropertyAxioms) {
 			Rule rule = new Rule();
 			int r1 = ax.getRole1();
 			int r2 = ax.getRole2();
@@ -397,7 +397,7 @@ public class QueriesRelatedRules {
 					.println("%==========rules From NumberRestrictions And Enfs===================");
 		}
 		Set<Rule> generatedRules = new HashSet<Rule>();
-		for (AtomSubMaxOneAxiom subClassAxiom : maxOneCardinalityAxioms) {// 2
+		for (ClipperAtomSubMaxOneAxiom subClassAxiom : maxOneCardinalityAxioms) {// 2
 			int ia = subClassAxiom.getConcept1();
 			int ir = subClassAxiom.getRole();
 			int ic = subClassAxiom.getConcept2();

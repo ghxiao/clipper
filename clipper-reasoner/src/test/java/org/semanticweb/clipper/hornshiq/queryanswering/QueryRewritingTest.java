@@ -19,7 +19,7 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.junit.Before;
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.ontology.InversePropertyOfAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
@@ -75,7 +75,7 @@ public class QueryRewritingTest {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.getDataLog();
+		qaHornSHIQ.generateDataLog();
 	}
 
 	@Test
@@ -103,7 +103,7 @@ public class QueryRewritingTest {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.getDataLog();
+		qaHornSHIQ.generateDataLog();
 		// expected rewritten query: q0(X1) :- a1(X1), a(X1), a3(X1), a4(X1).
 
 	}
@@ -135,7 +135,7 @@ public class QueryRewritingTest {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.getDataLog();
+		qaHornSHIQ.generateDataLog();
 		// expect rewritten query: q0(X0) :- a("d"), a4("d"), r1(X0,"d"),
 		// a1(X0), r2(X0,"d"), a2("d").
 	}
@@ -167,7 +167,7 @@ public class QueryRewritingTest {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.getDataLog();
+		qaHornSHIQ.generateDataLog();
 		// expect rewritten query: No rewritten query.
 
 	}
@@ -333,7 +333,7 @@ public class QueryRewritingTest {
 		// s34_r2_s3 = new EnforcedRelation(s34, r2, s3);
 		enfs.add(s34_r2_s3);
 		System.out.println("Enfs :" + enfs);
-		List<InversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<InversePropertyOfAxiom>();
+		List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<ClipperInversePropertyOfAxiom>();
 		QueryRewriting qr = new QueryRewriting(enfs, inversePropertyOfAxioms);
 		System.out.println("Rewriting queries:");
 		qr.rewrite(cq);
@@ -425,7 +425,7 @@ public class QueryRewritingTest {
 		// s34_r2_s3 = new EnforcedRelation(s34, r2, s3);
 		enfs.add(s34_r2_s3);
 		System.out.println("Enfs :" + enfs);
-		List<InversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<InversePropertyOfAxiom>();
+		List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<ClipperInversePropertyOfAxiom>();
 		QueryRewriting qr = new QueryRewriting(enfs, inversePropertyOfAxioms);
 		System.out.println("Rewriting queries:");
 		qr.rewrite(cq);
@@ -499,8 +499,8 @@ public class QueryRewritingTest {
 		enfs.add(s34_r4_s3);
 
 		// creat InversePropertyAxioms
-		List<InversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<InversePropertyOfAxiom>();
-		InversePropertyOfAxiom invAxiom1 = new InversePropertyOfAxiom(4, 6);
+		List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<ClipperInversePropertyOfAxiom>();
+		ClipperInversePropertyOfAxiom invAxiom1 = new ClipperInversePropertyOfAxiom(4, 6);
 		inversePropertyOfAxioms.add(invAxiom1);
 
 		System.out.println("Enfs :" + enfs);
@@ -590,8 +590,8 @@ public class QueryRewritingTest {
 		enfs.add(enf_2_8_3);
 
 		// creat InversePropertyAxioms
-		List<InversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<InversePropertyOfAxiom>();
-		InversePropertyOfAxiom invAxiom1 = new InversePropertyOfAxiom(4, 6);
+		List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<ClipperInversePropertyOfAxiom>();
+		ClipperInversePropertyOfAxiom invAxiom1 = new ClipperInversePropertyOfAxiom(4, 6);
 		inversePropertyOfAxioms.add(invAxiom1);
 
 		System.out.println("Enfs :" + enfs);
@@ -649,8 +649,8 @@ public class QueryRewritingTest {
 		enfs.add(enf_2_8_3);
 
 		// creat InversePropertyAxioms
-		List<InversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<InversePropertyOfAxiom>();
-		InversePropertyOfAxiom invAxiom1 = new InversePropertyOfAxiom(4, 6);
+		List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<ClipperInversePropertyOfAxiom>();
+		ClipperInversePropertyOfAxiom invAxiom1 = new ClipperInversePropertyOfAxiom(4, 6);
 		inversePropertyOfAxioms.add(invAxiom1);
 
 		System.out.println("Enfs :" + enfs);
@@ -713,8 +713,8 @@ public class QueryRewritingTest {
 		enfs.add(enf_2_8_3);
 
 		// creat InversePropertyAxioms
-		List<InversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<InversePropertyOfAxiom>();
-		InversePropertyOfAxiom invAxiom1 = new InversePropertyOfAxiom(4, 6);
+		List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<ClipperInversePropertyOfAxiom>();
+		ClipperInversePropertyOfAxiom invAxiom1 = new ClipperInversePropertyOfAxiom(4, 6);
 		inversePropertyOfAxioms.add(invAxiom1);
 
 		System.out.println("Enfs :" + enfs);
@@ -767,8 +767,8 @@ public class QueryRewritingTest {
 		enfs.add(enf_2_4_2);
 
 		// creat InversePropertyAxioms
-		List<InversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<InversePropertyOfAxiom>();
-		InversePropertyOfAxiom invAxiom1 = new InversePropertyOfAxiom(4, 6);
+		List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<ClipperInversePropertyOfAxiom>();
+		ClipperInversePropertyOfAxiom invAxiom1 = new ClipperInversePropertyOfAxiom(4, 6);
 		inversePropertyOfAxioms.add(invAxiom1);
 
 		System.out.println("Enfs :" + enfs);

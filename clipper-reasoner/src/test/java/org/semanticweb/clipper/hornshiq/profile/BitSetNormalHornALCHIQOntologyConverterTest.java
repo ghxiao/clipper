@@ -5,10 +5,10 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.ontology.Axiom;
-import org.semanticweb.clipper.hornshiq.ontology.NormalHornALCHIQOntology;
-import org.semanticweb.clipper.hornshiq.ontology.DisjointObjectPropertiesAxiom;
-import org.semanticweb.clipper.hornshiq.profile.BitSetNormalHornALCHIQOntologyConverter;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperDisjointObjectPropertiesAxiom;
+import org.semanticweb.clipper.hornshiq.profile.ClipperHornSHIQOntologyConverter;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQTransNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQNormalizer;
@@ -50,10 +50,10 @@ public class BitSetNormalHornALCHIQOntologyConverterTest {
 		HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
 		OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
 		
-		BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
-		NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
+		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
+		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 		
-		for (Axiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAxioms()) {
 			System.out.println(ax);
 		}
 	}
@@ -83,10 +83,10 @@ public class BitSetNormalHornALCHIQOntologyConverterTest {
 		HornALCHIQNormalizer normalizer2 = new HornALCHIQNormalizer();
 		OWLOntology normalizedOnt3 = normalizer2.normalize(normalizedOnt1);
 		
-		BitSetNormalHornALCHIQOntologyConverter converter = new BitSetNormalHornALCHIQOntologyConverter();
-		NormalHornALCHIQOntology onto_bs = converter.convert(normalizedOnt3);
+		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
+		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 		
-		for (Axiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAxioms()) {
 			System.out.println(ax);
 		}
 	}
