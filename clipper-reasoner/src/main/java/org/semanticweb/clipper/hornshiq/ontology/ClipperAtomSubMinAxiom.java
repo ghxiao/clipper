@@ -3,12 +3,20 @@ package org.semanticweb.clipper.hornshiq.ontology;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+/**
+ * SubClassOf (concept1,role  min n  concept2)
+ * 
+ *
+ */
 @Data
 @AllArgsConstructor
-public class ObjectPropertyAssertionAxiom implements Axiom {
-	int role;
+public class ClipperAtomSubMinAxiom implements ClipperAxiom {
 
-	int individual1, individual2;
+	int concept1;
+	int role;
+	int concept2;
+	int n;
+
 	
 	@Override
 	public String toString() {
@@ -19,6 +27,6 @@ public class ObjectPropertyAssertionAxiom implements Axiom {
 			r = "inv(" + r + ")";
 		}
 
-		return String.format("%s(%d, %d)", r, individual1, individual2);
+		return String.format("%d SubClassOf %d min %d %d", concept1, r, n, concept2);
 	}
 }
