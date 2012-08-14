@@ -34,6 +34,7 @@ import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.Nam
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
+import org.semanticweb.clipper.hornshiq.rule.NonDLPredicate;
 import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.util.AnswerParser;
 import org.semanticweb.clipper.util.QueriesRelatedRules;
@@ -110,8 +111,10 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		// this.headPredicate = "q" +
 		// cq.getHead().getPredicate().getEncoding();
 		// else
-
-		this.headPredicate = "q";
+		String ans = "ans";
+		cq.getHead().setPredicate(new NonDLPredicate("ans") );
+		
+		this.headPredicate = ans;
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("% Encoded Input query:" + cq);
 		}
@@ -126,7 +129,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 			queryRewriting(tb);
 
-			reduceRewrittenQuriesToDatalog(tb);
+			reduceRewrittenQueriesToDatalog(tb);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -138,7 +141,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	 * @param tb
 	 * @throws IOException
 	 */
-	private void reduceRewrittenQuriesToDatalog(TBoxReasoning tb) throws IOException {
+	private void reduceRewrittenQueriesToDatalog(TBoxReasoning tb) throws IOException {
 		long starCoutingRelatedRule = System.currentTimeMillis();
 		// this.rewrittenQueries = qr.getUcq();
 		// Set<CQ> ucq = qr.getUcq();
@@ -710,6 +713,9 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	@Override
 	public List<List<String>> query() {
 		generateDataLog();
+		
+		this.answers = Lists.newArrayList();
+		
 		DLVInputProgram inputProgram = new DLVInputProgramImpl();
 		String outPutNotification = "";
 
@@ -912,7 +918,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 						sb.append(", ");
 					}
 					first = false;
-					sb.append(b);
+					sb.append(intFormOfAtom(b));
 				}
 			}
 			sb.append(".");
@@ -939,6 +945,35 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	}
 
 	// ============================================
+		private String intFormOfAtom(Atom atom) {
+			StringBuilder sb = new StringBuilder();
+			if (atom.getPredicate().getArity() == 1) {
+				String predicateStr = getUnaryPredicate(atom.getPredicate().getEncoding());
+				
+				sb.append(predicateStr);
+			} else if (atom.getPredicate().getArity() == 2) {
+				String predicateStr = getBinaryPredicate(atom.getPredicate().getEncoding());
+				
+				sb.append(predicateStr);
+			} else
+				sb.append(atom.getPredicate());
+			sb.append("(");
+			boolean first = true;
+			for (Term t : atom.getTerms()) {
+				if (!first) {
+					sb.append(",");
+				}
+				first = false;
+				if (!t.isVariable()) {
+					sb.append(getConstant(t.getIndex()));
+				} else
+					sb.append(t);
+			}
+			sb.append(")");
+			return sb.toString();
+		}
+	
+	// ============================================
 	private String lowerCaseFormOfAtom(Atom atom) {
 		StringBuilder sb = new StringBuilder();
 		if (atom.getPredicate().getArity() == 1) {
@@ -963,7 +998,6 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		}
 		sb.append(")");
 		return sb.toString();
-
 	}
 
 	// convert term to lower case format
@@ -979,9 +1013,9 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		throw new IllegalStateException("Not possible");
 	}
 
-	public QAHornSHIQ(String dlv) {
-		this.ontologies = Lists.newArrayList();
-	}
+//	public QAHornSHIQ(String dlv) {
+//		this.ontologies = Lists.newArrayList();
+//	}
 
 	@Override
 	public void addOntology(OWLOntology ontology) {

@@ -19,14 +19,5 @@ public class ClipperCompletenessAnalyzer {
 		
 		complAnalyzer.doCompletenessAnalysisExperimentAllMappings(mySystem, ontologyFile, datasetFolder);
 
-		// String ontologyFile = root +
-		// "/src/main/resources/ontologies/LUBM/univ-bench.owl";
-		//
-		// String datasetFolder = root + "/src/main/resources/ontologies/LUBM";
-		//
-		// CompletenessAnalyser analyzer = new CompletenessAnalyser();
-		// SystemInterface cs = new ClipperSygenia();
-		// analyzer.doCompletenessAnalysisExperimentInjective(cs, ontologyFile,
-		// datasetFolder);
 	}
 }
