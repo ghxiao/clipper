@@ -138,7 +138,7 @@ selectQuery
     
      )
     {
-      NonDLPredicate ans = new NonDLPredicate(0, outputVars.size());
+      NonDLPredicate ans = new NonDLPredicate("ans", outputVars.size());
       head = new Atom(ans, outputVars);
       //System.out.println("head: " + head);
     }

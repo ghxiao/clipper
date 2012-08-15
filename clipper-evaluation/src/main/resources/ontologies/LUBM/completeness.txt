@@ -1,0 +1,500 @@
+***  Examining query 1 *** /Users/xiao/Dropbox/Projects/clipper.git/clipper-evaluation/./src/main/resources/ontologies/LUBM/univ-bench_TB-C_s/Query_01
+/Users/xiao/Dropbox/Projects/clipper.git/clipper-evaluation/./src/main/resources/ontologies/LUBM/Queries/Query_00.txt
+Examining ABoxes for inference pattern Q(X0X44)-GraduateStudent(X0)takesCourse(X0X44)
+Q(X0) :- Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>]
+Failed in 0 out of 1 testing units for 1 inference patterns
+Completeness: 1.0
+Analysis of query 1 finished in 3421 ms
+
+
+***  Examining query 2 *** /Users/xiao/Dropbox/Projects/clipper.git/clipper-evaluation/./src/main/resources/ontologies/LUBM/univ-bench_TB-C_s/Query_02
+/Users/xiao/Dropbox/Projects/clipper.git/clipper-evaluation/./src/main/resources/ontologies/LUBM/Queries/Query_01.txt
+Examining ABoxes for inference pattern Q(X0X1X2)-Department(X2)GraduateStudent(X0)headOf(X0X2)subOrganizationOf(X2X1)undergraduateDegreeFrom(X0X1)
+Q(X0,X44) :- takesCourse(X0,X44), GraduateStudent(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2)-Department(X2)GraduateStudent(X0)member(X2X0)subOrganizationOf(X2X1)undergraduateDegreeFrom(X0X1)
+Q(X0,X44) :- takesCourse(X0,X44), GraduateStudent(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2)-Department(X2)GraduateStudent(X0)memberOf(X0X2)subOrganizationOf(X2X1)undergraduateDegreeFrom(X0X1)
+Q(X0,X44) :- takesCourse(X0,X44), GraduateStudent(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2)-Department(X2)GraduateStudent(X0)subOrganizationOf(X2X1)undergraduateDegreeFrom(X0X1)worksFor(X0X2)
+Q(X0,X44) :- takesCourse(X0,X44), GraduateStudent(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+Failed in 0 out of 4 testing units for 4 inference patterns
+Completeness: 1.0
+Analysis of query 2 finished in 1096 ms
+
+
+***  Examining query 3 *** /Users/xiao/Dropbox/Projects/clipper.git/clipper-evaluation/./src/main/resources/ontologies/LUBM/univ-bench_TB-C_s/Query_03
+/Users/xiao/Dropbox/Projects/clipper.git/clipper-evaluation/./src/main/resources/ontologies/LUBM/Queries/Query_02.txt
+Examining ABoxes for inference pattern Q(X0X1)-publicationAuthor(X0X1)
+line 2:0 no viable alternative at character '/'
+Q(X0,X1,X2) :- undergraduateDegreeFrom(X0,X1), GraduateStudent(X0), memberOf(X0,X2), University(X1), subOrganizationOf(X2,X1), Department(X2).
+line 2:1 no viable alternative at character '/'
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+Failed in 0 out of 1 testing units for 1 inference patterns
+Completeness: 1.0
+Analysis of query 3 finished in 328 ms
+
+
+***  Examining query 4 *** /Users/xiao/Dropbox/Projects/clipper.git/clipper-evaluation/./src/main/resources/ontologies/LUBM/univ-bench_TB-C_s/Query_04
+/Users/xiao/Dropbox/Projects/clipper.git/clipper-evaluation/./src/main/resources/ontologies/LUBM/Queries/Query_03.txt
+Examining ABoxes for inference pattern Q(X0X1X2X3X4)-advisor(X5X0)emailAddress(X0X2)headOf(X0X4)name(X0X1)telephone(X0X3)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-advisor(X5X0)emailAddress(X0X2)name(X0X1)telephone(X0X3)worksFor(X0X4)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-AssistantProfessor(X0)emailAddress(X0X2)headOf(X0X4)name(X0X1)telephone(X0X3)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-AssistantProfessor(X0)emailAddress(X0X2)name(X0X1)telephone(X0X3)worksFor(X0X4)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-AssociateProfessor(X0)emailAddress(X0X2)headOf(X0X4)name(X0X1)telephone(X0X3)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-AssociateProfessor(X0)emailAddress(X0X2)name(X0X1)telephone(X0X3)worksFor(X0X4)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-Chair(X0)emailAddress(X0X2)headOf(X0X4)name(X0X1)telephone(X0X3)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-Chair(X0)emailAddress(X0X2)name(X0X1)telephone(X0X3)worksFor(X0X4)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-College(X5)emailAddress(X0X2)headOf(X0X4)headOf(X0X5)name(X0X1)telephone(X0X3)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-College(X5)emailAddress(X0X2)headOf(X0X5)name(X0X1)telephone(X0X3)worksFor(X0X4)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-Dean(X0)emailAddress(X0X2)headOf(X0X4)name(X0X1)telephone(X0X3)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-Dean(X0)emailAddress(X0X2)name(X0X1)telephone(X0X3)worksFor(X0X4)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-Department(X5)emailAddress(X0X2)headOf(X0X4)headOf(X0X5)name(X0X1)telephone(X0X3)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-Department(X5)emailAddress(X0X2)headOf(X0X5)name(X0X1)telephone(X0X3)worksFor(X0X4)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-emailAddress(X0X2)headOf(X0X4)name(X0X1)telephone(X0X3)tenured(X0X5)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-emailAddress(X0X2)name(X0X1)telephone(X0X3)tenured(X0X5)worksFor(X0X4)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-FullProfessor(X0)emailAddress(X0X2)headOf(X0X4)name(X0X1)telephone(X0X3)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-FullProfessor(X0)emailAddress(X0X2)name(X0X1)telephone(X0X3)worksFor(X0X4)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-Professor(X0)emailAddress(X0X2)headOf(X0X4)name(X0X1)telephone(X0X3)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-VisitingProfessor(X0)emailAddress(X0X2)headOf(X0X4)name(X0X1)telephone(X0X3)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X4)-VisitingProfessor(X0)emailAddress(X0X2)name(X0X1)telephone(X0X3)worksFor(X0X4)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]Examining ABoxes for inference pattern Q(X0X1X2X3X44)-Professor(X0)emailAddress(X0X2)name(X0X1)telephone(X0X3)worksFor(X0X44)
+Q(X0,X44) :- Publication(X0), publicationAuthor(X0,X44).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+Failed in 0 out of 22 testing units for 22 inference patterns
+Completeness: 1.0
+Analysis of query 4 finished in 5714 ms
+
+
+***  Examining query 5 *** /Users/xiao/Dropbox/Projects/clipper.git/clipper-evaluation/./src/main/resources/ontologies/LUBM/univ-bench_TB-C_s/Query_05
+/Users/xiao/Dropbox/Projects/clipper.git/clipper-evaluation/./src/main/resources/ontologies/LUBM/Queries/Query_04.txt
+Examining ABoxes for inference pattern Q(X0X1)-headOf(X0X1)
+Q(X0,X1,X2,X3,X44) :- name(X0,X1), worksFor(X0,X44), emailAddress(X0,X2), telephone(X0,X3), Professor(X0).
+DLV Error, exitValue=1
+[tmp.dlv: line 145: Rule is not safe., Aborting due to parser errors., DLV Error, exitValue=1]
+Failed at ABox: Pattern_a_0;a_1;_D_.owl
+Examining ABoxes for inference pattern Q(X0X1)-member(X1X0)
+Q(X0,X1,X2,X3,X44) :- name(X0,X1), worksFor(X0,X44), emailAddress(X0,X2), telephone(X0,X3), Professor(X0).
+DLV Error, exitValue=1
+[tmp.dlv: line 146: Rule is not safe., Aborting due to parser errors., DLV Error, exitValue=1]
+Failed at ABox: Pattern_a_0;a_1;_D_.owl
+Examining ABoxes for inference pattern Q(X0X1)-memberOf(X0X1)
+Q(X0,X1,X2,X3,X44) :- name(X0,X1), worksFor(X0,X44), emailAddress(X0,X2), telephone(X0,X3), Professor(X0).
+DLV Error, exitValue=1
+[tmp.dlv: line 147: Rule is not safe., Aborting due to parser errors., DLV Error, exitValue=1]
+Failed at ABox: Pattern_a_0;a_1;_D_.owl
+Examining ABoxes for inference pattern Q(X0X1)-worksFor(X0X1)
+Q(X0,X1,X2,X3,X44) :- name(X0,X1), worksFor(X0,X44), emailAddress(X0,X2), telephone(X0,X3), Professor(X0).
+DLV Error, exitValue=1
+[tmp.dlv: line 148: Rule is not safe., Aborting due to parser errors., DLV Error, exitValue=1]
+Failed at ABox: Pattern_a_0;a_1;_D_.owl
+
+Failed in 4 out of 4 testing units for 4 inference patterns
+Completeness: 0.0
+Analysis of query 5 finished in 1472 ms
+
+
+***  Examining query 6 *** /Users/xiao/Dropbox/Projects/clipper.git/clipper-evaluation/./src/main/resources/ontologies/LUBM/univ-bench_TB-C_s/Query_06
+/Users/xiao/Dropbox/Projects/clipper.git/clipper-evaluation/./src/main/resources/ontologies/LUBM/Queries/Query_05.txt
+Examining ABoxes for inference pattern Q(X0)-AdministrativeStaff(X0)Course(X1)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-AdministrativeStaff(X0)GraduateCourse(X1)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-AdministrativeStaff(X0)listedCourse(X1X2)takesCourse(X0X2)
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]
+Examining ABoxes for inference pattern Q(X0)-AdministrativeStaff(X0)takesCourse(X0X1)teacherOf(X2X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-AdministrativeStaff(X0)takesCourse(X0X1)teachingAssistantOf(X2X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Examining ABoxes for inference pattern Q(X0)-advisor(X0X1)listedCourse(X2X3)takesCourse(X0X3)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-advisor(X0X1)takesCourse(X0X2)teacherOf(X3X2)
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;a_3;.owl
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-advisor(X0X1)takesCourse(X0X2)teachingAssistantOf(X3X2)
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;a_3;.owl
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;a_3;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-advisor(X1X0)listedCourse(X2X3)takesCourse(X0X3)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;a_3;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-advisor(X1X0)takesCourse(X0X2)teacherOf(X3X2)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;a_3;.owl
+Examining ABoxes for inference pattern Q(X0)-advisor(X1X0)takesCourse(X0X2)teachingAssistantOf(X3X2)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-affiliateOf(X1X0)listedCourse(X2X3)takesCourse(X0X3)
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;a_3;.owl
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;a_3;.owl
+Examining ABoxes for inference pattern Q(X0)-affiliateOf(X1X0)takesCourse(X0X2)teacherOf(X3X2)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;a_3;.owl
+Examining ABoxes for inference pattern Q(X0)-affiliateOf(X1X0)takesCourse(X0X2)teachingAssistantOf(X3X2)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-AssistantProfessor(X0)Course(X1)takesCourse(X0X1)
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;a_3;.owl
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+Examining ABoxes for inference pattern Q(X0)-AssistantProfessor(X0)GraduateCourse(X1)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-AssistantProfessor(X0)listedCourse(X1X2)takesCourse(X0X2)
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-AssistantProfessor(X0)takesCourse(X0X1)teacherOf(X2X1)
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Examining ABoxes for inference pattern Q(X0)-AssistantProfessor(X0)takesCourse(X0X1)teachingAssistantOf(X2X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Examining ABoxes for inference pattern Q(X0)-AssociateProfessor(X0)Course(X1)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-AssociateProfessor(X0)GraduateCourse(X1)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-AssociateProfessor(X0)listedCourse(X1X2)takesCourse(X0X2)
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Examining ABoxes for inference pattern Q(X0)-AssociateProfessor(X0)takesCourse(X0X1)teacherOf(X2X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Examining ABoxes for inference pattern Q(X0)-AssociateProfessor(X0)takesCourse(X0X1)teachingAssistantOf(X2X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Chair(X0)Course(X1)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Chair(X0)GraduateCourse(X1)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Chair(X0)listedCourse(X1X2)takesCourse(X0X2)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Chair(X0)takesCourse(X0X1)teacherOf(X2X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Examining ABoxes for inference pattern Q(X0)-Chair(X0)takesCourse(X0X1)teachingAssistantOf(X2X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Examining ABoxes for inference pattern Q(X0)-ClericalStaff(X0)Course(X1)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+Examining ABoxes for inference pattern Q(X0)-ClericalStaff(X0)GraduateCourse(X1)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-ClericalStaff(X0)listedCourse(X1X2)takesCourse(X0X2)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-ClericalStaff(X0)takesCourse(X0X1)teacherOf(X2X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Examining ABoxes for inference pattern Q(X0)-ClericalStaff(X0)takesCourse(X0X1)teachingAssistantOf(X2X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Course(X1)advisor(X0X2)takesCourse(X0X1)
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Course(X1)advisor(X2X0)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Examining ABoxes for inference pattern Q(X0)-Course(X1)affiliateOf(X2X0)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Examining ABoxes for inference pattern Q(X0)-Course(X1)Dean(X0)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+Examining ABoxes for inference pattern Q(X0)-Course(X1)degreeFrom(X0X2)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owlExamining ABoxes for inference pattern Q(X0)-Course(X1)Director(X0)takesCourse(X0X1)
+
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Course(X1)doctoralDegreeFrom(X0X2)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Examining ABoxes for inference pattern Q(X0)-Course(X1)Employee(X0)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Course(X1)Faculty(X0)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Course(X1)FullProfessor(X0)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Course(X1)hasAlumnus(X2X0)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Examining ABoxes for inference pattern Q(X0)-Course(X1)headOf(X0X2)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Course(X1)Lecturer(X0)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owlExamining ABoxes for inference pattern Q(X0)-Course(X1)mastersDegreeFrom(X0X2)takesCourse(X0X1)
+
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Course(X1)member(X2X0)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Examining ABoxes for inference pattern Q(X0)-Course(X1)memberOf(X0X2)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Course(X1)Person(X0)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Course(X1)PostDoc(X0)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+Examining ABoxes for inference pattern Q(X0)-Course(X1)Professor(X0)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Course(X1)publicationAuthor(X2X0)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Examining ABoxes for inference pattern Q(X0)-Course(X1)SystemsStaff(X0)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Course(X1)takesCourse(X0X1)teacherOf(X0X2)
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Course(X1)takesCourse(X0X1)teachingAssistantOf(X0X2)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Examining ABoxes for inference pattern Q(X0)-Course(X1)takesCourse(X0X1)tenured(X0X2)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Course(X1)takesCourse(X0X1)undergraduateDegreeFrom(X0X2)
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Course(X1)takesCourse(X0X1)worksFor(X0X2)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;a_2;.owl
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]Examining ABoxes for inference pattern Q(X0)-Course(X1)TeachingAssistant(X0)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+Examining ABoxes for inference pattern Q(X0)-Course(X1)VisitingProfessor(X0)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+Examining ABoxes for inference pattern Q(X0)-Dean(X0)GraduateCourse(X1)takesCourse(X0X1)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_2>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_1>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_5>]
+[<http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_0>, <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#a_4>]A STRANGE CASE HAPPENED ON Pattern_a_0;_D_a_1;.owl
+Examining ABoxes for inference pattern Q(X0)-Dean(X0)listedCourse(X1X2)takesCourse(X0X2)
+Q(X0,X44) :- memberOf(X0,X44), Person(X0).
