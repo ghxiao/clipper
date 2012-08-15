@@ -11,7 +11,7 @@ public class CQFormater {
 	public CQFormater() {
 	}
 
-	String getBinaryPredicate(int value) {
+	public String getBinaryPredicate(int value) {
 		switch (ClipperManager.getInstance().getNamingStrategy()) {
 		case LowerCaseFragment:
 			OWLObjectPropertyExpression owlExpression = ClipperManager.getInstance()
@@ -30,7 +30,7 @@ public class CQFormater {
 		throw new IllegalStateException("Not possible");
 	}
 
-	String getUnaryPredicate(int value) {
+	public String getUnaryPredicate(int value) {
 		switch (ClipperManager.getInstance().getNamingStrategy()) {
 		case LowerCaseFragment:
 			IRI iri = ClipperManager.getInstance().getOwlClassEncoder().getSymbolByValue(value).getIRI();
@@ -42,7 +42,7 @@ public class CQFormater {
 		throw new IllegalStateException("Not possible");
 	}
 
-	private String normalizeIRI(IRI iri) {
+	public String normalizeIRI(IRI iri) {
 		String fragment = iri.getFragment();
 		if (fragment != null) {
 			return fragment.replaceAll("[_-]", "").toLowerCase();
@@ -171,4 +171,15 @@ public class CQFormater {
 		throw new IllegalStateException("Not possible");
 	}
 
+	public String getBinaryAtomWithoutInverse(int v, String var1, String var2) {
+		final String s;
+		if (v % 2 == 0) {
+			s = getBinaryPredicate(v) + "(" + var1 + "," + var2 + ")";
+		} else {
+			// int inverseOfr = ir + 1;
+			int inverseOfr = v - 1;
+			s = getBinaryPredicate(inverseOfr) + "(" + var2 + "," + var1 + ")";
+		}
+		return s;
+	}
 }
