@@ -75,12 +75,16 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 	private Collection<OWLOntology> ontologies;
 	private ClipperHornSHIQOntology clipperOntology;
+	
+	private CQFormater cqFormater;
 
 	public QAHornSHIQ() {
 		answers = new ArrayList<String>();
 		decodedAnswers = new ArrayList<List<String>>();
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);// default
 		this.ontologies = new ArrayList<OWLOntology>();
+		cqFormater = new CQFormater();
+		//ClipperManager.getInstance().reset();
 	}
 
 	public void setNamingStrategy(NamingStrategy namingStrategy) {
@@ -99,12 +103,12 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		// } else {
 
 		// File file = new File(ontologyName);
-		if (cq == null) {
-			InternalCQParser cqParser = new InternalCQParser();
-			cqParser.setQueryString(queryString);
-			cqParser.setPrefix(queryPrefix);
-			cq = cqParser.getCq();
-		}
+//		if (cq == null) {
+//			InternalCQParser cqParser = new InternalCQParser();
+//			cqParser.setQueryString(queryString);
+//			cqParser.setPrefix(queryPrefix);
+//			cq = cqParser.getCq();
+//		}
 
 		// may be useful in the future
 		// if (cq.getHead().getPredicate().getEncoding() != -1)
@@ -120,7 +124,6 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		}
 
 		try {
-
 			preprocessOntologies();
 
 			TBoxReasoning tb = saturateTbox();
@@ -159,7 +162,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 			System.out.println("==============================================");
 			System.out.println("Rewritten queries: ");
 			for (CQ query : ucq)
-				System.out.println(formatQuery(query));
+				System.out.println(cqFormater.formatQuery(query));
 			System.out.println("==============================================");
 			System.out.println("Datalog related to rewritten queries: ");
 			for (Rule rule : relatedRules.getUcqRelatedDatalogRules()) {
@@ -173,7 +176,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		BufferedWriter out = new BufferedWriter(fstream);
 		out.write("% rewritten queries:\n");
 		for (CQ query : ucq)
-			out.write(formatQuery(query) + "\n");
+			out.write(cqFormater.formatQuery(query) + "\n");
 		// for (Rule rule : relatedRules.getUcqRelatedDatalogRules()) {
 		// out.write(rule + "\n");
 		// }
@@ -393,7 +396,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 				BufferedWriter out = new BufferedWriter(fstream);
 				out.write("% rewritten queries:\n");
 				for (CQ query : ucq)
-					out.write(formatQuery(query) + "\n");
+					out.write(cqFormater.formatQuery(query) + "\n");
 				out.close();
 			} catch (OWLOntologyCreationException e) {
 				e.printStackTrace();
@@ -581,7 +584,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 					}
 					program.println("% rewritten queries ");
 					for (CQ query : ucq)
-						program.println(formatQuery(query));
+						program.println(cqFormater.formatQuery(query));
 
 					program.close();
 
@@ -596,6 +599,27 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		}
 	}
 
+	private void printClassNamesFromEncodedNamesSet(TIntHashSet encodedNames) {
+		TIntIterator iterator = encodedNames.iterator();
+		System.out.print("{ ");
+		while (iterator.hasNext()) {
+			int index = iterator.next();
+			System.out.print(cqFormater.getUnaryPredicate(index) + ",");
+		}
+		System.out.print(" } ");
+	}
+
+	private void printRoleNamesFromEncodedNamesSet(TIntHashSet encodedNames) {
+		TIntIterator iterator = encodedNames.iterator();
+		System.out.print("{ ");
+		while (iterator.hasNext()) {
+			int index = iterator.next();
+			System.out.print(cqFormater.getBinaryPredicate(index) + ",");
+		}
+		System.out.print(" } ");
+	}
+
+	
 	/**
 	 * @return Datalog program contains only Abox assersions
 	 * */
@@ -738,7 +762,8 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 			invocation.setInputProgram(inputProgram);
 			invocation.setNumberOfModels(1);
 			List<String> filters = new ArrayList<String>();
-			filters.add(this.headPredicate);
+			//filters.add(this.headPredicate);
+			filters.add(cq.getHead().getPredicate().toString());
 			invocation.setFilter(filters, true);
 			ModelBufferedHandler modelBufferedHandler = new ModelBufferedHandler(invocation);
 
@@ -838,181 +863,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		}
 	}
 
-	private String getBinaryPredicate(int value) {
-		switch (ClipperManager.getInstance().getNamingStrategy()) {
-		case LowerCaseFragment:
-			OWLObjectPropertyExpression owlExpression = ClipperManager.getInstance()
-					.getOwlObjectPropertyExpressionEncoder().getSymbolByValue(value);
-			if (owlExpression.isAnonymous())
-				return "INVERSEOF(" + normalizeIRI(owlExpression.getNamedProperty().getIRI()) + ")";
-			else {
-				IRI iri = ClipperManager.getInstance().getOwlObjectPropertyExpressionEncoder().getSymbolByValue(value)
-						.asOWLObjectProperty().getIRI();
-				return normalizeIRI(iri);
-			}
-
-		case IntEncoding:
-			return "r" + value;
-		}
-		throw new IllegalStateException("Not possible");
-	}
-
-	private String getUnaryPredicate(int value) {
-		switch (ClipperManager.getInstance().getNamingStrategy()) {
-		case LowerCaseFragment:
-			IRI iri = ClipperManager.getInstance().getOwlClassEncoder().getSymbolByValue(value).getIRI();
-
-			return normalizeIRI(iri);
-		case IntEncoding:
-			return "c" + value;
-		}
-		throw new IllegalStateException("Not possible");
-	}
-
-	private void printClassNamesFromEncodedNamesSet(TIntHashSet encodedNames) {
-		TIntIterator iterator = encodedNames.iterator();
-		System.out.print("{ ");
-		while (iterator.hasNext()) {
-			int index = iterator.next();
-			System.out.print(getUnaryPredicate(index) + ",");
-		}
-		System.out.print(" } ");
-	}
-
-	private void printRoleNamesFromEncodedNamesSet(TIntHashSet encodedNames) {
-		TIntIterator iterator = encodedNames.iterator();
-		System.out.print("{ ");
-		while (iterator.hasNext()) {
-			int index = iterator.next();
-			System.out.print(getBinaryPredicate(index) + ",");
-		}
-		System.out.print(" } ");
-	}
-
-	private String normalizeIRI(IRI iri) {
-		String fragment = iri.getFragment();
-		if (fragment != null) {
-			return fragment.replaceAll("[_-]", "").toLowerCase();
-		} else {
-			final String iriString = iri.toString();
-			int i = iriString.lastIndexOf('/') + 1;
-			return iriString.substring(i).replace("_-", "").toLowerCase();
-
-		}
-
-	}
-
-	/**
-	 * Print return a conjunctive query in lowercase, not in form of encoded
-	 * number.
-	 * */
-	private String formatQuery(CQ cq) {
-		StringBuilder sb = new StringBuilder();
-		if (ClipperManager.getInstance().getNamingStrategy().equals(NamingStrategy.IntEncoding)) {
-			sb.append(cq.getHead());
-			sb.append(" :- ");
-			boolean first = true;
-			for (Atom b : cq.getBody()) {
-				if (b.getPredicate().getEncoding() != ClipperManager.getInstance().getThing()) {
-					if (!first) {
-						sb.append(", ");
-					}
-					first = false;
-					sb.append(intFormOfAtom(b));
-				}
-			}
-			sb.append(".");
-			return sb.toString();
-
-		} else {
-			sb.append(cq.getHead());
-			sb.append(" :- ");
-			boolean first = true;
-			for (Atom b : cq.getBody()) {
-				if (b.getPredicate().getEncoding() != ClipperManager.getInstance().getThing()) {
-					if (!first) {
-						sb.append(", ");
-					}
-					first = false;
-					sb.append(lowerCaseFormOfAtom(b));
-				}
-			}
-			sb.append(".");
-			return sb.toString();
-
-		}
-
-	}
-
-	// ============================================
-		private String intFormOfAtom(Atom atom) {
-			StringBuilder sb = new StringBuilder();
-			if (atom.getPredicate().getArity() == 1) {
-				String predicateStr = getUnaryPredicate(atom.getPredicate().getEncoding());
-				
-				sb.append(predicateStr);
-			} else if (atom.getPredicate().getArity() == 2) {
-				String predicateStr = getBinaryPredicate(atom.getPredicate().getEncoding());
-				
-				sb.append(predicateStr);
-			} else
-				sb.append(atom.getPredicate());
-			sb.append("(");
-			boolean first = true;
-			for (Term t : atom.getTerms()) {
-				if (!first) {
-					sb.append(",");
-				}
-				first = false;
-				if (!t.isVariable()) {
-					sb.append(getConstant(t.getIndex()));
-				} else
-					sb.append(t);
-			}
-			sb.append(")");
-			return sb.toString();
-		}
 	
-	// ============================================
-	private String lowerCaseFormOfAtom(Atom atom) {
-		StringBuilder sb = new StringBuilder();
-		if (atom.getPredicate().getArity() == 1) {
-			String predicateStr = getUnaryPredicate(atom.getPredicate().getEncoding());
-			sb.append(predicateStr);
-		} else if (atom.getPredicate().getArity() == 2) {
-			String predicateStr = getBinaryPredicate(atom.getPredicate().getEncoding());
-			sb.append(predicateStr);
-		} else
-			sb.append(atom.getPredicate());
-		sb.append("(");
-		boolean first = true;
-		for (Term t : atom.getTerms()) {
-			if (!first) {
-				sb.append(",");
-			}
-			first = false;
-			if (!t.isVariable()) {
-				sb.append(getConstant(t.getIndex()));
-			} else
-				sb.append(t);
-		}
-		sb.append(")");
-		return sb.toString();
-	}
-
-	// convert term to lower case format
-	private String getConstant(int value) {
-		switch (ClipperManager.getInstance().getNamingStrategy()) {
-		case LowerCaseFragment:
-			IRI iri = ClipperManager.getInstance().getOwlIndividualEncoder().getSymbolByValue(value)
-					.asOWLNamedIndividual().getIRI();
-			return "\"" + normalizeIRI(iri) + "\"";
-		case IntEncoding:
-			return "d" + value;
-		}
-		throw new IllegalStateException("Not possible");
-	}
-
 //	public QAHornSHIQ(String dlv) {
 //		this.ontologies = Lists.newArrayList();
 //	}

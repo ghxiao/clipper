@@ -27,6 +27,13 @@ public class ClipperManager {
 	private static ClipperManager instance = new ClipperManager();
 
 	private ClipperManager() {
+		reset();
+	}
+
+	/**
+	 * 
+	 */
+	public void reset() {
 		this.owlClassEncoder = new SymbolEncoder<OWLClass>(OWLClass.class);
 		this.owlObjectPropertyExpressionEncoder = new SymbolEncoder<OWLObjectPropertyExpression>(
 				OWLObjectPropertyExpression.class);
@@ -91,6 +98,8 @@ public class ClipperManager {
 	public void setNamingStrategy(NamingStrategy namingStrategy) {
 		this.namingStrategy = namingStrategy;
 	}
+
+	
 
 	
 }

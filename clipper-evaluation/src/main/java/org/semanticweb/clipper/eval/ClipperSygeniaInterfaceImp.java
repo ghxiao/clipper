@@ -15,6 +15,7 @@ import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
 
 public class ClipperSygeniaInterfaceImp implements SystemInterface {
@@ -34,7 +35,6 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 	private OWLOntologyManager manager;
 
 	private OWLOntology abox;
-
 
 	@Override
 	public void initializeSystem() throws Exception {
@@ -63,10 +63,10 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 
 		qaHornSHIQ.setDataLogName("tmp.dlv");
 
-		qaHornSHIQ.setNamingStrategy(NamingStrategy.IntEncoding);
-		// qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		//qaHornSHIQ.setNamingStrategy(NamingStrategy.IntEncoding);
+		 qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 
-		ClipperManager.getInstance().setVerboseLevel(0);
+		// ClipperManager.getInstance().setVerboseLevel(0);
 
 		manager.removeOntology(tbox);
 
@@ -98,19 +98,21 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 	@Override
 	public long runLoadedQuery() throws Exception {
 		List<List<String>> results = qaHornSHIQ.query();
-
+		Joiner.on("\n").appendTo(System.out, results);
+		//System.out.println(results);
 		return results.size();
 	}
 
 	@Override
 	public void clearRepository() throws Exception {
-		//manager.removeOntology(tbox);
-		//manager.removeOntology(abox);
+		tbox = null;
+		abox = null;
+		// manager.removeOntology(abox);
 	}
 
-//	public static void main(String[] args) {
-//		ClipperApp
-//				.main("-v=1 -rewriter=new query src/main/resources/ontologies/LUBM/univ-bench_TB-C_s/Query_01/Q(X0X44)-GraduateStudent(X0)takesCourse(X0X44)/Pattern_a_0;a_1;_D_.owl src/test/resources/university-q1.sparql"
-//						.split("\\ "));
-//	}
+	// public static void main(String[] args) {
+	// ClipperApp
+	// .main("-v=1 -rewriter=new query src/main/resources/ontologies/LUBM/univ-bench_TB-C_s/Query_01/Q(X0X44)-GraduateStudent(X0)takesCourse(X0X44)/Pattern_a_0;a_1;_D_.owl src/test/resources/university-q1.sparql"
+	// .split("\\ "));
+	// }
 }
