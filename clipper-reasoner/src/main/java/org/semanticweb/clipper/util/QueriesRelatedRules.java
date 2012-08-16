@@ -472,45 +472,6 @@ public class QueriesRelatedRules {
 		}
 	}
 
-	// private String getBinaryPredicate(int value) {
-	// switch (ClipperManager.getInstance().getNamingStrategy()) {
-	// case LowerCaseFragment:
-	// IRI iri = ClipperManager.getInstance()
-	// .getOwlObjectPropertyExpressionEncoder()
-	// .getSymbolByValue(value).asOWLObjectProperty().getIRI();
-	// return normalize(iri);
-	// case IntEncoding:
-	// return "r" + value;
-	// }
-	// throw new IllegalStateException("Not possible");
-	// }
-	//
-	// private String getUnaryPredicate(int value) {
-	// switch (ClipperManager.getInstance().getNamingStrategy()) {
-	// case LowerCaseFragment:
-	// IRI iri = ClipperManager.getInstance().getOwlClassEncoder()
-	// .getSymbolByValue(value).getIRI();
-	//
-	// return normalize(iri);
-	// case IntEncoding:
-	// return "c" + value;
-	// }
-	// throw new IllegalStateException("Not possible");
-	// }
-	//
-	// private String normalize(IRI iri) {
-	// String fragment = iri.getFragment();
-	// if (fragment != null) {
-	// return fragment.replaceAll("[_-]", "").toLowerCase();
-	// } else {
-	// final String iriString = iri.toString();
-	// int i = iriString.lastIndexOf('/') + 1;
-	// return iriString.substring(i).replace("_-", "").toLowerCase();
-	// }
-	// }
-
-	// =====================================================
-
 	// ====================================================
 	/*
 	 * to eliminate some redundant rule in normalization
