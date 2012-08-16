@@ -16,7 +16,7 @@ import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMaxOneAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperConceptAssertionAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperObjectPropertyAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperPropertyAssertionAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.owlapi.model.IRI;
 
@@ -42,13 +42,15 @@ public class ReductionToDatalogOpt {
 	private List<ClipperInversePropertyOfAxiom> inverseObjectPropertyAxioms;
 	private List<ClipperAtomSubMaxOneAxiom> maxOneCardinalityAxioms;
 	private List<ClipperConceptAssertionAxiom> conceptAssertionAxioms;
-	private List<ClipperObjectPropertyAssertionAxiom> roleAssertionAxioms;
+	private List<ClipperPropertyAssertionAxiom> roleAssertionAxioms;
 
 	protected final int NOTHING = 1;
 	protected final int THING = 0;
 	protected final int TOP_PROPERTY = 0;
 	protected final int BOTTOM_PROPERTY = 2;
 
+	CQFormater cqFormater = new CQFormater();
+	
 	// private NamingStrategy namingStrategy;
 
 	public enum NamingStrategy {
@@ -97,7 +99,7 @@ public class ReductionToDatalogOpt {
 
 		conceptAssertionAxioms = ont_bs.getConceptAssertionAxioms();
 
-		roleAssertionAxioms = ont_bs.getRoleAssertionAxioms();
+		roleAssertionAxioms = ont_bs.getObjectPropertyAssertionAxioms();
 
 		subObjectPropertyAxioms = ont_bs.getSubPropertyAxioms();
 	}
@@ -112,7 +114,7 @@ public class ReductionToDatalogOpt {
 		while (iterator.hasNext()) {
 			int index = iterator.next();
 			if (index != THING) {
-				strBody.add(getUnaryPredicate(index) + "(X)");
+				strBody.add(cqFormater.getUnaryPredicate(index) + "(X)");
 				// strBody.add("c" + index + "(X)");
 			}
 		}
@@ -182,7 +184,7 @@ public class ReductionToDatalogOpt {
 
 			rule.clear();
 			// rule.setHead("c" + imp.getHead() + "(X)");
-			rule.setHead(getUnaryPredicate(imp.getHead()) + "(X)");
+			rule.setHead(cqFormater.getUnaryPredicate(imp.getHead()) + "(X)");
 			rule.setBody(getEncodedBodyOfImp(imp.getBody()));
 			if (rule.isNotTrivial()) {
 				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
@@ -221,10 +223,10 @@ public class ReductionToDatalogOpt {
 			int ir = axiom.getRole();
 			int ia = axiom.getConcept1();
 
-			rule.setHead(getUnaryPredicate(ic) + "(Y)");
-			if (ia != ClipperManager.getInstance().getThing()) rule.addAtomToBody(getUnaryPredicate(ia) + "(X)");
+			rule.setHead(cqFormater.getUnaryPredicate(ic) + "(Y)");
+			if (ia != ClipperManager.getInstance().getThing()) rule.addAtomToBody(cqFormater.getUnaryPredicate(ia) + "(X)");
 			final String s;
-			s = getBinaryAtomWithoutInverse(ir, "X", "Y");
+			s = cqFormater.getBinaryAtomWithoutInverse(ir, "X", "Y");
 			rule.addAtomToBody(s);
 			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println(rule);
@@ -233,17 +235,17 @@ public class ReductionToDatalogOpt {
 		}
 	}
 
-	protected String getBinaryAtomWithoutInverse(int v, String var1, String var2) {
-		final String s;
-		if (v % 2 == 0) {
-			s = getBinaryPredicate(v) + "(" + var1 + "," + var2 + ")";
-		} else {
-			// int inverseOfr = ir + 1;
-			int inverseOfr = v - 1;
-			s = getBinaryPredicate(inverseOfr) + "(" + var2 + "," + var1 + ")";
-		}
-		return s;
-	}
+//	protected String getBinaryAtomWithoutInverse(int v, String var1, String var2) {
+//		final String s;
+//		if (v % 2 == 0) {
+//			s = cqFormater.getBinaryPredicate(v) + "(" + var1 + "," + var2 + ")";
+//		} else {
+//			// int inverseOfr = ir + 1;
+//			int inverseOfr = v - 1;
+//			s = cqFormater.getBinaryPredicate(inverseOfr) + "(" + var2 + "," + var1 + ")";
+//		}
+//		return s;
+//	}
 
 	// SubRole (sup, super)
 	public void rulesFromRoleInclusions(PrintStream program) {
@@ -257,8 +259,8 @@ public class ReductionToDatalogOpt {
 			// if (!(sup % 2 == 1 && sup % 2 == 1)) {
 			Rule rule = new Rule();
 			if (!(sub % 2 == 1 && sup % 2 == 1)) {
-				rule.setHead(getBinaryAtomWithoutInverse(sup, "X", "Y"));
-				rule.addAtomToBody(getBinaryAtomWithoutInverse(sub, "X", "Y"));
+				rule.setHead(cqFormater.getBinaryAtomWithoutInverse(sup, "X", "Y"));
+				rule.addAtomToBody(cqFormater.getBinaryAtomWithoutInverse(sub, "X", "Y"));
 				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 					System.out.println(rule);
 				}
@@ -278,15 +280,15 @@ public class ReductionToDatalogOpt {
 			rule.clear();
 			int r1 = ax.getRole1();
 			int r2 = ax.getRole2();
-			rule.setHead(getBinaryAtomWithoutInverse(r1, "X", "Y"));
-			rule.addAtomToBody(getBinaryAtomWithoutInverse(r2, "Y", "X"));
+			rule.setHead(cqFormater.getBinaryAtomWithoutInverse(r1, "X", "Y"));
+			rule.addAtomToBody(cqFormater.getBinaryAtomWithoutInverse(r2, "Y", "X"));
 			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println(rule);
 			}
 			program.println(rule);
 			rule.clear();
-			rule.setHead(getBinaryAtomWithoutInverse(r2, "Y", "X"));
-			rule.addAtomToBody(getBinaryAtomWithoutInverse(r1, "X", "Y"));
+			rule.setHead(cqFormater.getBinaryAtomWithoutInverse(r2, "Y", "X"));
+			rule.addAtomToBody(cqFormater.getBinaryAtomWithoutInverse(r1, "X", "Y"));
 			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println(rule);
 			}
@@ -306,13 +308,13 @@ public class ReductionToDatalogOpt {
 			int ic = subClassAxiom.getConcept2();
 			Constraint constraint = new Constraint();
 			if (ia != THING)
-				constraint.addAtomToBody(getUnaryPredicate(ia) + "(X)");
+				constraint.addAtomToBody(cqFormater.getUnaryPredicate(ia) + "(X)");
 			if (ic != THING) {
-				constraint.addAtomToBody(getUnaryPredicate(ic) + "(Y)");
-				constraint.addAtomToBody(getUnaryPredicate(ic) + "(Z)");
+				constraint.addAtomToBody(cqFormater.getUnaryPredicate(ic) + "(Y)");
+				constraint.addAtomToBody(cqFormater.getUnaryPredicate(ic) + "(Z)");
 			}
-			constraint.addAtomToBody(getBinaryAtomWithoutInverse(ir, "X", "Y"));
-			constraint.addAtomToBody(getBinaryAtomWithoutInverse(ir, "X", "Z"));
+			constraint.addAtomToBody(cqFormater.getBinaryAtomWithoutInverse(ir, "X", "Y"));
+			constraint.addAtomToBody(cqFormater.getBinaryAtomWithoutInverse(ir, "X", "Z"));
 			constraint.addAtomToBody("Y !=Z");
 			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println(constraint);
@@ -346,12 +348,12 @@ public class ReductionToDatalogOpt {
 						// create head of the rule. Each element of Type2 is a
 						// head.
 						Rule rule = new Rule();
-						rule.setHead(getUnaryPredicate(index) + "(Y)");
+						rule.setHead(cqFormater.getUnaryPredicate(index) + "(Y)");
 						rule.setBody(getEncodedBodyOfImp(enfRelation.getType1()));
-						if (ia != ClipperManager.getInstance().getThing()) rule.addAtomToBody(getUnaryPredicate(ia) + "(X)");
-						rule.addAtomToBody(getBinaryAtomWithoutInverse(ir, "X",
+						if (ia != ClipperManager.getInstance().getThing()) rule.addAtomToBody(cqFormater.getUnaryPredicate(ia) + "(X)");
+						rule.addAtomToBody(cqFormater.getBinaryAtomWithoutInverse(ir, "X",
 								"Y"));
-						if (ic != ClipperManager.getInstance().getThing())rule.addAtomToBody(getUnaryPredicate(ic) + "(Y)");
+						if (ic != ClipperManager.getInstance().getThing())rule.addAtomToBody(cqFormater.getUnaryPredicate(ic) + "(Y)");
 						// Rule only makes sense if the read is not contained in
 						// the body.
 						if (rule.isNotTrivial()) {
@@ -365,13 +367,13 @@ public class ReductionToDatalogOpt {
 					while (iterator2.hasNext()) {
 						int index2 = iterator2.next();
 						Rule rule = new Rule();
-						rule.setHead(getBinaryAtomWithoutInverse(index2, "X",
+						rule.setHead(cqFormater.getBinaryAtomWithoutInverse(index2, "X",
 								"Y"));
 						rule.setBody(getEncodedBodyOfImp(enfRelation.getType1()));
-						if (ia != ClipperManager.getInstance().getThing()) rule.addAtomToBody(getUnaryPredicate(ia) + "(X)");
-						rule.addAtomToBody(getBinaryAtomWithoutInverse(ir, "X",
+						if (ia != ClipperManager.getInstance().getThing()) rule.addAtomToBody(cqFormater.getUnaryPredicate(ia) + "(X)");
+						rule.addAtomToBody(cqFormater.getBinaryAtomWithoutInverse(ir, "X",
 								"Y"));
-						if (ic != ClipperManager.getInstance().getThing()) rule.addAtomToBody(getUnaryPredicate(ic) + "(Y)");
+						if (ic != ClipperManager.getInstance().getThing()) rule.addAtomToBody(cqFormater.getUnaryPredicate(ic) + "(Y)");
 						// Rule only makes sense if its Head is not
 						// contained in
 						// the body.
@@ -397,17 +399,17 @@ public class ReductionToDatalogOpt {
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("%Facts From ABox Assertions");
 		}
-		for (ClipperObjectPropertyAssertionAxiom a : roleAssertionAxioms) {
+		for (ClipperPropertyAssertionAxiom a : roleAssertionAxioms) {
 
 			int ir = a.getRole();
 			int ind1 = a.getIndividual1();
 			int ind2 = a.getIndividual2();
 			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-				System.out.println(getBinaryPredicate(ir) + "("
-						+ getConstant(ind1) + "," + getConstant(ind2) + ").");
+				System.out.println(cqFormater.getBinaryPredicate(ir) + "("
+						+ cqFormater.getConstant(ind1) + "," + cqFormater.getConstant(ind2) + ").");
 			}
-			program.println(getBinaryPredicate(ir) + "(" + getConstant(ind1)
-					+ "," + getConstant(ind2) + ").");
+			program.println(cqFormater.getBinaryPredicate(ir) + "(" + cqFormater.getConstant(ind1)
+					+ "," + cqFormater.getConstant(ind2) + ").");
 
 		}
 		// System.out.println("======================================== ");
@@ -416,10 +418,10 @@ public class ReductionToDatalogOpt {
 			int ic = ca.getConcept();
 			int iInd = ca.getIndividual();
 			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-				System.out.println(getUnaryPredicate(ic) + "("
-						+ getConstant(iInd) + ").");
+				System.out.println(cqFormater.getUnaryPredicate(ic) + "("
+						+ cqFormater.getConstant(iInd) + ").");
 			}
-			program.println(getUnaryPredicate(ic) + "(" + getConstant(iInd)
+			program.println(cqFormater.getUnaryPredicate(ic) + "(" + cqFormater.getConstant(iInd)
 					+ ").");
 
 		}
@@ -516,54 +518,58 @@ public class ReductionToDatalogOpt {
 		}
 
 	}
-	private String getConstant(int value) {
-		switch (ClipperManager.getInstance().getNamingStrategy()) {
-		case LowerCaseFragment:
-			IRI iri = ClipperManager.getInstance().getOwlIndividualEncoder()
-					.getSymbolByValue(value).asOWLNamedIndividual().getIRI();
-			return "\"" + normalize(iri) + "\"";
-		case IntEncoding:
-			return "d" + value;
-		}
-		throw new IllegalStateException("Not possible");
-	}
-
-	private String getBinaryPredicate(int value) {
-		switch (ClipperManager.getInstance().getNamingStrategy()) {
-		case LowerCaseFragment:
-			IRI iri = ClipperManager.getInstance()
-					.getOwlObjectPropertyExpressionEncoder()
-					.getSymbolByValue(value).asOWLObjectProperty().getIRI();
-			return normalize(iri);
-		case IntEncoding:
-			return "r" + value;
-		}
-		throw new IllegalStateException("Not possible");
-	}
-
-	private String getUnaryPredicate(int value) {
-		switch (ClipperManager.getInstance().getNamingStrategy()) {
-		case LowerCaseFragment:
-			IRI iri = ClipperManager.getInstance().getOwlClassEncoder()
-					.getSymbolByValue(value).getIRI();
-
-			return normalize(iri);
-		case IntEncoding:
-			return "c" + value;
-		}
-		throw new IllegalStateException("Not possible");
-	}
-
-	private String normalize(IRI iri) {
-		String fragment = iri.getFragment();
-		if (fragment != null) {
-			return fragment.replaceAll("[_-]", "").toLowerCase();
-		} else {
-			final String iriString = iri.toString();
-			int i = iriString.lastIndexOf('/') + 1;
-			return iriString.substring(i).replace("_-", "").toLowerCase();
-
-		}
-
-	}
+	
+	
+	
+	
+//	private String getConstant(int value) {
+//		switch (ClipperManager.getInstance().getNamingStrategy()) {
+//		case LowerCaseFragment:
+//			IRI iri = ClipperManager.getInstance().getOwlIndividualEncoder()
+//					.getSymbolByValue(value).asOWLNamedIndividual().getIRI();
+//			return "\"" + normalize(iri) + "\"";
+//		case IntEncoding:
+//			return "d" + value;
+//		}
+//		throw new IllegalStateException("Not possible");
+//	}
+//
+//	private String getBinaryPredicate(int value) {
+//		switch (ClipperManager.getInstance().getNamingStrategy()) {
+//		case LowerCaseFragment:
+//			IRI iri = ClipperManager.getInstance()
+//					.getOwlObjectPropertyExpressionEncoder()
+//					.getSymbolByValue(value).asOWLObjectProperty().getIRI();
+//			return normalize(iri);
+//		case IntEncoding:
+//			return "r" + value;
+//		}
+//		throw new IllegalStateException("Not possible");
+//	}
+//
+//	private String getUnaryPredicate(int value) {
+//		switch (ClipperManager.getInstance().getNamingStrategy()) {
+//		case LowerCaseFragment:
+//			IRI iri = ClipperManager.getInstance().getOwlClassEncoder()
+//					.getSymbolByValue(value).getIRI();
+//
+//			return normalize(iri);
+//		case IntEncoding:
+//			return "c" + value;
+//		}
+//		throw new IllegalStateException("Not possible");
+//	}
+//
+//	private String normalize(IRI iri) {
+//		String fragment = iri.getFragment();
+//		if (fragment != null) {
+//			return fragment.replaceAll("[_-]", "").toLowerCase();
+//		} else {
+//			final String iriString = iri.toString();
+//			int i = iriString.lastIndexOf('/') + 1;
+//			return iriString.substring(i).replace("_-", "").toLowerCase();
+//
+//		}
+//
+//	}
 }

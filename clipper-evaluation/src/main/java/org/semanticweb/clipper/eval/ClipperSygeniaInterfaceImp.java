@@ -38,12 +38,15 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 
 	@Override
 	public void initializeSystem() throws Exception {
-		if (dlvPath == null) {
-			throw new IllegalStateException("please call setDlvPath() before initializeSystem() !");
-		}
+		// if (dlvPath == null) {
+		// throw new
+		// IllegalStateException("please call setDlvPath() before initializeSystem() !");
+		// }
 
 		qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDlvPath(dlvPath);
+		if (dlvPath != null) {
+			qaHornSHIQ.setDlvPath(dlvPath);
+		}
 	}
 
 	@Override
@@ -63,8 +66,8 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 
 		qaHornSHIQ.setDataLogName("tmp.dlv");
 
-		//qaHornSHIQ.setNamingStrategy(NamingStrategy.IntEncoding);
-		 qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
+//		qaHornSHIQ.setNamingStrategy(NamingStrategy.IntEncoding);
+		qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 
 		// ClipperManager.getInstance().setVerboseLevel(0);
 
@@ -99,7 +102,8 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 	public long runLoadedQuery() throws Exception {
 		List<List<String>> results = qaHornSHIQ.query();
 		Joiner.on("\n").appendTo(System.out, results);
-		//System.out.println(results);
+		System.out.println();
+		// System.out.println(results);
 		return results.size();
 	}
 

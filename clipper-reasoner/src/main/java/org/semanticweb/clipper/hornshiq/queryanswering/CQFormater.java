@@ -4,7 +4,11 @@ import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.owlapi.model.IRI;
-import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
+import org.semanticweb.owlapi.model.OWLLiteral;
+import org.semanticweb.owlapi.model.OWLNamedIndividual;
+import org.semanticweb.owlapi.model.OWLProperty;
+import org.semanticweb.owlapi.model.OWLPropertyAssertionObject;
+import org.semanticweb.owlapi.model.OWLPropertyExpression;
 
 public class CQFormater {
 
@@ -14,15 +18,18 @@ public class CQFormater {
 	public String getBinaryPredicate(int value) {
 		switch (ClipperManager.getInstance().getNamingStrategy()) {
 		case LowerCaseFragment:
-			OWLObjectPropertyExpression owlExpression = ClipperManager.getInstance()
-					.getOwlObjectPropertyExpressionEncoder().getSymbolByValue(value);
-			if (owlExpression.isAnonymous())
-				return "INVERSEOF(" + normalizeIRI(owlExpression.getNamedProperty().getIRI()) + ")";
-			else {
-				IRI iri = ClipperManager.getInstance().getOwlObjectPropertyExpressionEncoder().getSymbolByValue(value)
-						.asOWLObjectProperty().getIRI();
-				return normalizeIRI(iri);
-			}
+			OWLPropertyExpression owlExpression = ClipperManager.getInstance().getOwlPropertyExpressionEncoder()
+					.getSymbolByValue(value);
+
+			OWLProperty property = (OWLProperty) owlExpression;
+
+			// if (owlExpression.isAnonymous())
+			// return "INVERSEOF(" +
+			// normalizeIRI(owlExpression.getNamedProperty().getIRI()) + ")";
+			// else {
+			IRI iri = property.getIRI();
+			return normalizeIRI(iri);
+			// }
 
 		case IntEncoding:
 			return "r" + value;
@@ -159,12 +166,25 @@ public class CQFormater {
 	// }
 
 	// convert term to lower case format
-	private String getConstant(int value) {
+	public String getConstant(int value) {
 		switch (ClipperManager.getInstance().getNamingStrategy()) {
 		case LowerCaseFragment:
-			IRI iri = ClipperManager.getInstance().getOwlIndividualEncoder().getSymbolByValue(value)
-					.asOWLNamedIndividual().getIRI();
-			return "\"" + normalizeIRI(iri) + "\"";
+
+			final OWLPropertyAssertionObject symbol = ClipperManager.getInstance().getOwlIndividualAndLiteralEncoder()
+					.getSymbolByValue(value);
+
+			if (symbol instanceof OWLLiteral) {
+				OWLLiteral owlLiteral = (OWLLiteral) symbol;
+				return owlLiteral.getLiteral();
+
+			} else if (symbol instanceof OWLNamedIndividual) {
+				OWLNamedIndividual owlNamedIndividual = (OWLNamedIndividual) symbol;
+				return "\"" + normalizeIRI(owlNamedIndividual.getIRI()) + "\"";
+			} else {
+				throw new IllegalArgumentException(symbol.toString());
+			}
+
+			// IRI iri = symbol.getIRI();
 		case IntEncoding:
 			return "d" + value;
 		}

@@ -1,5 +1,8 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.util.SymbolEncoder;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -7,21 +10,42 @@ import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
-
+import org.semanticweb.owlapi.model.OWLPropertyAssertionObject;
+import org.semanticweb.owlapi.model.OWLPropertyExpression;
 
 public class ClipperManager {
-
+	@Getter
 	private SymbolEncoder<OWLClass> owlClassEncoder;
-	private SymbolEncoder<OWLObjectPropertyExpression> owlObjectPropertyExpressionEncoder;
-	private SymbolEncoder<OWLDataProperty> owlDataPropertyEncoder;
-	private SymbolEncoder<OWLIndividual> owlIndividualEncoder;
+
+	/**
+	 * encoder for both OWLObjectPropertyExpression and
+	 * OWLDataPropertyExpression
+	 */
+	@SuppressWarnings("rawtypes")
+	@Getter
+	private SymbolEncoder<OWLPropertyExpression> owlPropertyExpressionEncoder;
+
+	/**
+	 * encoder for both OWLIndividual and OWLLiteral
+	 */
+	@Getter
+	private SymbolEncoder<OWLPropertyAssertionObject> owlIndividualAndLiteralEncoder;
+
+	@Getter
 	private int thing;
+	@Getter
 	private int nothing;
+	@Getter
 	private int topProperty;
+	@Getter
 	private int bottomProperty;
 
+	@Getter
+	@Setter
 	private int verboseLevel;
-	
+
+	@Getter
+	@Setter
 	private NamingStrategy namingStrategy;
 
 	private static ClipperManager instance = new ClipperManager();
@@ -30,20 +54,21 @@ public class ClipperManager {
 		reset();
 	}
 
-	/**
-	 * 
-	 */
+	@SuppressWarnings("rawtypes")
 	public void reset() {
 		this.owlClassEncoder = new SymbolEncoder<OWLClass>(OWLClass.class);
-		this.owlObjectPropertyExpressionEncoder = new SymbolEncoder<OWLObjectPropertyExpression>(
-				OWLObjectPropertyExpression.class);
-		this.owlDataPropertyEncoder = new SymbolEncoder<OWLDataProperty>(OWLDataProperty.class);
-		this.owlIndividualEncoder = new SymbolEncoder<OWLIndividual>(OWLIndividual.class);
+		this.owlPropertyExpressionEncoder = new SymbolEncoder<OWLPropertyExpression>(OWLPropertyExpression.class);
+
+		this.owlIndividualAndLiteralEncoder = new SymbolEncoder<OWLPropertyAssertionObject>(
+				OWLPropertyAssertionObject.class);
+
 		this.thing = owlClassEncoder.getValueBySymbol(OWLManager.getOWLDataFactory().getOWLThing());
 		this.nothing = owlClassEncoder.getValueBySymbol(OWLManager.getOWLDataFactory().getOWLNothing());
-		this.topProperty = owlObjectPropertyExpressionEncoder.getValueBySymbol(OWLManager.getOWLDataFactory()
+
+		this.topProperty = owlPropertyExpressionEncoder.getValueBySymbol(OWLManager.getOWLDataFactory()
 				.getOWLTopObjectProperty());
-		this.bottomProperty = owlObjectPropertyExpressionEncoder.getValueBySymbol(OWLManager.getOWLDataFactory()
+
+		this.bottomProperty = owlPropertyExpressionEncoder.getValueBySymbol(OWLManager.getOWLDataFactory()
 				.getOWLBottomObjectProperty());
 	}
 
@@ -51,55 +76,4 @@ public class ClipperManager {
 		return instance;
 	}
 
-	public SymbolEncoder<OWLClass> getOwlClassEncoder() {
-		return owlClassEncoder;
-	}
-
-	public SymbolEncoder<OWLDataProperty> getOwlDataPropertyEncoder() {
-		return owlDataPropertyEncoder;
-	}
-
-	public SymbolEncoder<OWLIndividual> getOwlIndividualEncoder() {
-		return owlIndividualEncoder;
-	}
-
-	public SymbolEncoder<OWLObjectPropertyExpression> getOwlObjectPropertyExpressionEncoder() {
-		return owlObjectPropertyExpressionEncoder;
-	}
-
-	public int getThing() {
-		return thing;
-	}
-
-	public int getNothing() {
-		return nothing;
-	}
-
-	public int getTopProperty() {
-		return topProperty;
-	}
-
-	public int getBottomProperty() {
-		return bottomProperty;
-	}
-
-	public int getVerboseLevel() {
-		return verboseLevel;
-	}
-
-	public void setVerboseLevel(int verboseLevel) {
-		this.verboseLevel = verboseLevel;
-	}
-
-	public NamingStrategy getNamingStrategy() {
-		return namingStrategy;
-	}
-
-	public void setNamingStrategy(NamingStrategy namingStrategy) {
-		this.namingStrategy = namingStrategy;
-	}
-
-	
-
-	
 }

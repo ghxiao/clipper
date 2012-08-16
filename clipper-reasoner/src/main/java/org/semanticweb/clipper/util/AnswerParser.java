@@ -57,8 +57,9 @@ public class AnswerParser {
 
 	private String getDecodedIndividual(String indiString) {
 		int code = getCode(indiString);
-		OWLIndividual individual = ClipperManager.getInstance().getOwlIndividualEncoder().getSymbolByValue(code);
-		return individual.toString();
+		//OWLIndividual individual = ClipperManager.getInstance().getOwlIndividualAndLiteralEncoder().getSymbolByValue(code);
+		return ClipperManager.getInstance().getOwlIndividualAndLiteralEncoder().getSymbolByValue(code).toString();
+		//return individual.toString();
 
 	}
 

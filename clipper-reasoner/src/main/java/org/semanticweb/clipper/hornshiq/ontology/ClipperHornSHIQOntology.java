@@ -12,33 +12,32 @@ import lombok.Setter;
 @Setter
 public class ClipperHornSHIQOntology {
 
-	List<ClipperAndSubAtomAxiom> andSubAtomAxioms;
+	private List<ClipperAndSubAtomAxiom> andSubAtomAxioms;
 
-	List<ClipperDisjointObjectPropertiesAxiom> disjAxioms;
+	private List<ClipperDisjointObjectPropertiesAxiom> disjointObjectPropertiesAxioms;
 
-	List<ClipperAtomSubSomeAxiom> atomSubSomeAxioms;
+	private List<ClipperAtomSubSomeAxiom> atomSubSomeAxioms;
 
-	List<ClipperAtomSubAllAxiom> atomSubAllAxioms;
+	private List<ClipperAtomSubAllAxiom> atomSubAllAxioms;
 
-	List<ClipperAtomSubMaxOneAxiom> atomSubMaxOneAxioms;
+	private List<ClipperAtomSubMaxOneAxiom> atomSubMaxOneAxioms;
 
-	List<ClipperAtomSubMinAxiom> atomSubMinAxioms;
+	private List<ClipperAtomSubMinAxiom> atomSubMinAxioms;
 
-	List<ClipperSomeSubAtomAxiom> someSubAtomAxioms;
+	private List<ClipperSomeSubAtomAxiom> someSubAtomAxioms;
 
-	List<ClipperConceptAssertionAxiom> conceptAssertionAxioms;
+	private List<ClipperConceptAssertionAxiom> conceptAssertionAxioms;
 
-	List<ClipperObjectPropertyAssertionAxiom> roleAssertionAxioms;
+	private List<ClipperPropertyAssertionAxiom> objectPropertyAssertionAxioms;
 
-	List<ClipperSubPropertyAxiom> subPropertyAxioms;
+	private List<ClipperSubPropertyAxiom> subPropertyAxioms;
 
-	List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms;
+	private List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms;
 
 	private List<ClipperTransitivityAxiom> transitivityAxioms;
 
 	TIntHashSet aboxConcepts;
 
-	
 	public ClipperHornSHIQOntology() {
 		this.andSubAtomAxioms = new ArrayList<ClipperAndSubAtomAxiom>();
 		this.atomSubMaxOneAxioms = new ArrayList<ClipperAtomSubMaxOneAxiom>();
@@ -46,15 +45,15 @@ public class ClipperHornSHIQOntology {
 		this.atomSubSomeAxioms = new ArrayList<ClipperAtomSubSomeAxiom>();
 		this.atomSubAllAxioms = new ArrayList<ClipperAtomSubAllAxiom>();
 		this.conceptAssertionAxioms = new ArrayList<ClipperConceptAssertionAxiom>();
-		this.disjAxioms = new ArrayList<ClipperDisjointObjectPropertiesAxiom>();
-		this.roleAssertionAxioms = new ArrayList<ClipperObjectPropertyAssertionAxiom>();
+		this.disjointObjectPropertiesAxioms = new ArrayList<ClipperDisjointObjectPropertiesAxiom>();
+		this.objectPropertyAssertionAxioms = new ArrayList<ClipperPropertyAssertionAxiom>();
 		this.someSubAtomAxioms = new ArrayList<ClipperSomeSubAtomAxiom>();
 		this.subPropertyAxioms = new ArrayList<ClipperSubPropertyAxiom>();
 		this.inversePropertyOfAxioms = new ArrayList<ClipperInversePropertyOfAxiom>();
 		this.transitivityAxioms = new ArrayList<ClipperTransitivityAxiom>();
 	}
 
-	public List<ClipperAxiom> getAxioms() {
+	public List<ClipperAxiom> getAllAxioms() {
 
 		List<ClipperAxiom> result = new ArrayList<ClipperAxiom>();
 		result.addAll(andSubAtomAxioms);
@@ -63,8 +62,8 @@ public class ClipperHornSHIQOntology {
 		result.addAll(atomSubMinAxioms);
 		result.addAll(atomSubSomeAxioms);
 		result.addAll(conceptAssertionAxioms);
-		result.addAll(disjAxioms);
-		result.addAll(roleAssertionAxioms);
+		result.addAll(disjointObjectPropertiesAxioms);
+		result.addAll(objectPropertyAssertionAxioms);
 		result.addAll(someSubAtomAxioms);
 		result.addAll(subPropertyAxioms);
 		result.addAll(inversePropertyOfAxioms);
@@ -91,7 +90,7 @@ public class ClipperHornSHIQOntology {
 			updated = false;
 			List<ClipperSubPropertyAxiom> delta = new ArrayList<ClipperSubPropertyAxiom>();
 			for (ClipperSubPropertyAxiom subAx1 : result) {
-				
+
 				int r1_1 = subAx1.getRole1();
 				int r1_2 = subAx1.getRole2();
 
@@ -99,8 +98,7 @@ public class ClipperHornSHIQOntology {
 					int r2_1 = subAx2.getRole1();
 					if (r1_2 == r2_1) {
 						int r2_2 = subAx2.getRole2();
-						ClipperSubPropertyAxiom axiom = new ClipperSubPropertyAxiom(r1_1,
-								r2_2);
+						ClipperSubPropertyAxiom axiom = new ClipperSubPropertyAxiom(r1_1, r2_2);
 						if (!result.contains(axiom)) {
 							updated = true;
 							delta.add(axiom);

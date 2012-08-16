@@ -10,7 +10,7 @@ import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubSomeAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperConceptAssertionAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperObjectPropertyAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperPropertyAssertionAxiom;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.util.SymbolEncoder;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -23,9 +23,11 @@ import org.semanticweb.owlapi.model.OWLObjectInverseOf;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLPropertyAssertionObject;
+import org.semanticweb.owlapi.model.OWLPropertyExpression;
 
 
-public class KaosManagerTest {
+public class ClipperManagerTest {
 
 	private OWLOntologyManager manager;
 	private OWLDataFactory factory;
@@ -87,9 +89,9 @@ public class KaosManagerTest {
 	public void test001() {
 		ClipperManager km = ClipperManager.getInstance();
 		SymbolEncoder<OWLClass> owlClassEncoder = km.getOwlClassEncoder();
-		SymbolEncoder<OWLDataProperty> owlDataPropertyEncoder = km.getOwlDataPropertyEncoder();
-		SymbolEncoder<OWLObjectPropertyExpression> owlObjectPropertyEncoder = km
-				.getOwlObjectPropertyExpressionEncoder();
+		SymbolEncoder<OWLPropertyExpression> owlDataPropertyEncoder = km.getOwlPropertyExpressionEncoder();
+		SymbolEncoder<OWLPropertyExpression> owlObjectPropertyEncoder = km
+				.getOwlPropertyExpressionEncoder();
 
 		assertEquals(2, owlClassEncoder.getValueBySymbol(A));
 		assertEquals(2, owlClassEncoder.getValueBySymbol(A));
@@ -104,9 +106,9 @@ public class KaosManagerTest {
 		ClipperManager km = ClipperManager.getInstance();
 		SymbolEncoder<OWLClass> owlClassEncoder = km.getOwlClassEncoder();
 
-		SymbolEncoder<OWLObjectPropertyExpression> owlObjectPropertyEncoder = km
-				.getOwlObjectPropertyExpressionEncoder();
-		SymbolEncoder<OWLIndividual> owlIndividualEncoder = km.getOwlIndividualEncoder();
+		SymbolEncoder<OWLPropertyExpression> owlObjectPropertyEncoder = km
+				.getOwlPropertyExpressionEncoder();
+		SymbolEncoder<OWLPropertyAssertionObject> owlIndividualEncoder = km.getOwlIndividualAndLiteralEncoder();
 
 		int v_A = owlClassEncoder.getValueBySymbol(A);
 		int v_B = owlClassEncoder.getValueBySymbol(B);
@@ -121,7 +123,7 @@ public class KaosManagerTest {
 		axioms.add(new ClipperAtomSubSomeAxiom(v_A, v_inv_r, v_B));
 		axioms.add(new ClipperConceptAssertionAxiom(v_A, v_b));
 		axioms.add(new ClipperAtomSubSomeAxiom(v_A, v_r, v_B));
-		axioms.add(new ClipperObjectPropertyAssertionAxiom(v_r, v_a, v_b));
+		axioms.add(new ClipperPropertyAssertionAxiom(v_r, v_a, v_b));
 
 		for (ClipperAxiom ax : axioms) {
 			System.out.println(ax);
@@ -132,8 +134,8 @@ public class KaosManagerTest {
 	public void testThing() {
 		ClipperManager km = ClipperManager.getInstance();
 		SymbolEncoder<OWLClass> owlClassEncoder = km.getOwlClassEncoder();
-		SymbolEncoder<OWLObjectPropertyExpression> owlObjectPropertyEncoder = km
-		.getOwlObjectPropertyExpressionEncoder();
+		SymbolEncoder<OWLPropertyExpression> owlObjectPropertyEncoder = km
+		.getOwlPropertyExpressionEncoder();
 		assertEquals(km.getThing(), owlClassEncoder.getValueBySymbol(OWLManager.getOWLDataFactory().getOWLThing()));
 		assertEquals(km.getNothing(), owlClassEncoder.getValueBySymbol(OWLManager.getOWLDataFactory().getOWLNothing()));
 		assertEquals(km.getTopProperty(), owlObjectPropertyEncoder.getValueBySymbol(OWLManager.getOWLDataFactory()

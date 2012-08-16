@@ -3,7 +3,7 @@ package org.semanticweb.clipper.hornshiq.ontology;
 import lombok.Data;
 
 @Data
-public class ClipperTransitivityAxiom implements ClipperAxiom {
+public class ClipperTransitivityAxiom implements ClipperTBoxAxiom {
 	private int role;
 
 	public ClipperTransitivityAxiom(int role) {
