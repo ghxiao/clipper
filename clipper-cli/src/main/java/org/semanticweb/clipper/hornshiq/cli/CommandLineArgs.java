@@ -25,6 +25,9 @@ class CommandQuery {
 	@Parameter(description = "<ontology.owl> <cq.sparql>")
 	private List<String> files;
 
+//	@Parameter(description = "query.cq")
+//	private String cq;
+	
 	@Parameter(names = "-dlv", description = "the path to dlv")
 	private String dlvPath;
 
@@ -32,12 +35,11 @@ class CommandQuery {
 	private String outputFormat = "table";
 
 	// TODO: will be supported in the future
-
 	@Parameter(names = "-clingo", description = "the path to clingo", hidden = true)
 	private String clingoPath;
 
 	public void validate() {
-		// TODO
+
 	}
 
 }

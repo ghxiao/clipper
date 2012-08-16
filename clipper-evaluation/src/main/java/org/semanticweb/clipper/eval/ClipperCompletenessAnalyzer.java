@@ -11,8 +11,8 @@ import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 public class ClipperCompletenessAnalyzer {
 	public static void main(String[] args) throws Exception {
 		// runAllTests();
-		//runOneTest(4, 0);
-		runOneTest(1, 0);
+		runOneTest(4, 0);
+		// runOneTest(1, 0);
 	}
 
 	public static void runOneTest(int queryIndex, int patternIndex) throws Exception {
@@ -25,12 +25,14 @@ public class ClipperCompletenessAnalyzer {
 		ClipperSygeniaInterfaceImp cqSystem = new ClipperSygeniaInterfaceImp();
 
 		cqSystem.setDataSetRoot(root);
-		cqSystem.setDlvPath("/Users/xiao/bin/dlv");
+		// cqSystem.setDlvPath("/Users/xiao/bin/dlv");
 		cqSystem.initializeSystem();
 		ArrayList<String> allQueryFolders = loadQueryFolders(datasetFolder);
 		// long timeStart = System.currentTimeMillis();
 		// for ( int i = 0; i<allQueryFolders.size() ; i++ ) {
 
+		
+		
 		long timeQueryStart = System.currentTimeMillis();
 		System.out.println("***  Examining query " + (queryIndex + 1) + " *** " + allQueryFolders.get(queryIndex));
 

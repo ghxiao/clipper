@@ -49,7 +49,7 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 	 */
 	private Multimap<Term, Integer> concepts = HashMultimap.create();
 
-	private String headPredicate;
+	private String headPredicateName;
 
 	/**
 	 * never use
@@ -65,7 +65,7 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 	public CQGraph(CQ cq) {
 		super();
 
-		this.headPredicate = cq.getHead().getPredicate().toString();
+		this.headPredicateName = cq.getHead().getPredicate().toString();
 		
 		for (Atom atom : cq.getBody()) {
 			Predicate predicate = atom.getPredicate();
@@ -105,7 +105,7 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 		// g.roles.putAll(this.roles);
 		g.concepts.putAll(this.concepts);
 		g.answerVariables.addAll(this.answerVariables);
-		g.headPredicate = this.headPredicate;
+		g.headPredicateName = this.headPredicateName;
 		
 		return g;
 
@@ -403,7 +403,7 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 		}
 
 		List<Term> answerVars = new ArrayList<Term>(answerVariables);
-		Predicate headPredicate = new NonDLPredicate(this.headPredicate);
+		Predicate headPredicate = new NonDLPredicate(this.headPredicateName);
 		Atom head = new Atom(headPredicate, answerVars);
 		CQ cq = new CQ();
 		cq.setHead(head);

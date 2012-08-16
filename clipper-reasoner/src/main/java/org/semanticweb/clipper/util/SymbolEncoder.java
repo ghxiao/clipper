@@ -5,9 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLObjectInverseOf;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
+import org.semanticweb.owlapi.model.OWLPropertyExpression;
 
 public class SymbolEncoder<K> {
 
@@ -39,24 +41,25 @@ public class SymbolEncoder<K> {
 
 	List<K> intToSymbol_List = new ArrayList<K>();
 
+	@SuppressWarnings("unchecked")
 	public K getSymbolByValue(int value) {
 
-		if (cls == OWLObjectPropertyExpression.class) {
-			OWLObjectPropertyExpression p = (OWLObjectPropertyExpression) intToSymbol_List.get(value / 2 - start);
-
-			if (value % 2 == 0) {
-				return (K) p;
+		if (cls == OWLPropertyExpression.class) {
+			@SuppressWarnings("rawtypes")
+			OWLPropertyExpression p = (OWLPropertyExpression) intToSymbol_List.get(value / 2 - start);
+			if (p.isObjectPropertyExpression()) {
+				if (value % 2 == 0) {
+					return (K) p;
+				} else {
+					return (K) ((OWLObjectPropertyExpression) p).getInverseProperty();
+				}
 			} else {
-				return (K) p.getInverseProperty();
+				return (K) p;
 			}
 		} else {
-
-			// if (0 <= value && value <= currentMax - 1)
 			return intToSymbol_List.get(value - start);
 		}
-		// else {
-		// throw new IllegalArgumentException();
-		// }
+
 	}
 
 	@SuppressWarnings("unchecked")
@@ -74,8 +77,11 @@ public class SymbolEncoder<K> {
 			} else {
 				return 2 * lookupOrInsert((K) namedProperty);
 			}
-		} else {
+		} else if (OWLDataProperty.class.isAssignableFrom(symbol.getClass())) {
+			return 2 * lookupOrInsert((K) symbol);
+		}
 
+		else {
 			return lookupOrInsert(symbol);
 		}
 	}

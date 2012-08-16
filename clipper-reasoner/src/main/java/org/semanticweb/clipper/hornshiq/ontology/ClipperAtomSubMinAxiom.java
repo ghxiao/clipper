@@ -10,7 +10,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class ClipperAtomSubMinAxiom implements ClipperAxiom {
+public class ClipperAtomSubMinAxiom implements ClipperTBoxAxiom {
 
 	int concept1;
 	int role;

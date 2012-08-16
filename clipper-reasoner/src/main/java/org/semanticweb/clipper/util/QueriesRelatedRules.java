@@ -15,7 +15,7 @@ import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMaxOneAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperConceptAssertionAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperObjectPropertyAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperPropertyAssertionAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.clipper.hornshiq.queryanswering.CQFormater;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
@@ -44,7 +44,7 @@ public class QueriesRelatedRules {
 	private List<ClipperInversePropertyOfAxiom> inverseObjectPropertyAxioms;
 	private List<ClipperAtomSubMaxOneAxiom> maxOneCardinalityAxioms;
 	private List<ClipperConceptAssertionAxiom> conceptAssertionAxioms;
-	private List<ClipperObjectPropertyAssertionAxiom> roleAssertionAxioms;
+	private List<ClipperPropertyAssertionAxiom> roleAssertionAxioms;
 	private Set<CQ> ucq;
 
 	@Getter
@@ -66,7 +66,7 @@ public class QueriesRelatedRules {
 		subObjectPropertyAxioms = ont_bs.getSubPropertyAxioms();
 		inverseObjectPropertyAxioms = ont_bs.getInversePropertyOfAxioms();
 		conceptAssertionAxioms = ont_bs.getConceptAssertionAxioms();
-		roleAssertionAxioms = ont_bs.getRoleAssertionAxioms();
+		roleAssertionAxioms = ont_bs.getObjectPropertyAssertionAxioms();
 		subObjectPropertyAxioms = ont_bs.getSubPropertyAxioms();
 
 		ucq = rewrittenUcq;

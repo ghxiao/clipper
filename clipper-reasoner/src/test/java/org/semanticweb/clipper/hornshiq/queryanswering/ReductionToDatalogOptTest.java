@@ -10,7 +10,7 @@ import java.io.PrintStream;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
-import org.semanticweb.clipper.hornshiq.profile.ClipperHornSHIQOntologyConverter;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntologyConverter;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQTransNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQNormalizer;
@@ -59,7 +59,7 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -115,7 +115,7 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -171,7 +171,7 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -228,7 +228,7 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -284,7 +284,7 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -339,7 +339,7 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -396,7 +396,7 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -454,7 +454,7 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -513,7 +513,7 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 

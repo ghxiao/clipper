@@ -223,7 +223,7 @@ public class InternalCQParser {
 	private int getEncodedIndividual(String indiString) {
 		OWLIndividual individual = OWLManager.getOWLDataFactory()
 				.getOWLNamedIndividual(IRI.create(this.prefix + indiString));
-		int intIndividual = ClipperManager.getInstance().getOwlIndividualEncoder()
+		int intIndividual = ClipperManager.getInstance().getOwlIndividualAndLiteralEncoder()
 				.getValueBySymbol(individual);
 		return intIndividual;
 	}
@@ -234,7 +234,7 @@ public class InternalCQParser {
 				.getOWLDataFactory()
 				.getOWLObjectProperty(IRI.create(this.prefix + predicateString));
 		int encodedPredicate = ClipperManager.getInstance()
-				.getOwlObjectPropertyExpressionEncoder()
+				.getOwlPropertyExpressionEncoder()
 				.getValueBySymbol(owlPredicate);
 		Predicate predicate = new DLPredicate(encodedPredicate, arity);
 		return predicate;

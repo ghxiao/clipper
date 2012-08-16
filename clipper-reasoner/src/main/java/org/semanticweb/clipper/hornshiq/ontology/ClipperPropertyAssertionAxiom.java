@@ -5,11 +5,11 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ClipperObjectPropertyAssertionAxiom implements ClipperAxiom {
+public class ClipperPropertyAssertionAxiom implements ClipperABoxAxiom {
 	int role;
 
 	int individual1, individual2;
-	
+
 	@Override
 	public String toString() {
 		String r = String.valueOf((role) / 2 * 2);
