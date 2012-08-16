@@ -66,8 +66,8 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 
 		qaHornSHIQ.setDataLogName("tmp.dlv");
 
-//		qaHornSHIQ.setNamingStrategy(NamingStrategy.IntEncoding);
-		qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		qaHornSHIQ.setNamingStrategy(NamingStrategy.IntEncoding);
+//		qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 
 		// ClipperManager.getInstance().setVerboseLevel(0);
 

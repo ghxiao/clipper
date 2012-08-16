@@ -18,6 +18,7 @@ import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLDataPropertyDomainAxiom;
+import org.semanticweb.owlapi.model.OWLDataPropertyExpression;
 import org.semanticweb.owlapi.model.OWLDataPropertyRangeAxiom;
 import org.semanticweb.owlapi.model.OWLDatatypeDefinitionAxiom;
 import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
@@ -319,7 +320,7 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Objec
 		int p = km.getOwlPropertyExpressionEncoder().getValueBySymbol(axiom.getProperty());
 		int s = km.getOwlIndividualAndLiteralEncoder().getValueBySymbol(axiom.getSubject());
 		int o = km.getOwlIndividualAndLiteralEncoder().getValueBySymbol(axiom.getObject());
-		ontology.getObjectPropertyAssertionAxioms().add(new ClipperPropertyAssertionAxiom(p, s, o));
+		ontology.getPropertyAssertionAxioms().add(new ClipperPropertyAssertionAxiom(p, s, o));
 		return null;
 	}
 
@@ -398,7 +399,11 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Objec
 
 	@Override
 	public Object visit(OWLDataPropertyAssertionAxiom axiom) {
-		throw new UnsupportedOperationException();
+		int p = km.getOwlPropertyExpressionEncoder().getValueBySymbol(axiom.getProperty());
+		int s = km.getOwlIndividualAndLiteralEncoder().getValueBySymbol(axiom.getSubject());
+		int o = km.getOwlIndividualAndLiteralEncoder().getValueBySymbol(axiom.getObject());
+		ontology.getPropertyAssertionAxioms().add(new ClipperPropertyAssertionAxiom(p, s, o));
+		return null;
 
 	}
 
@@ -416,7 +421,11 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Objec
 
 	@Override
 	public Object visit(OWLSubDataPropertyOfAxiom axiom) {
-		throw new UnsupportedOperationException();
+		OWLDataPropertyExpression sub = axiom.getSubProperty();
+		OWLDataPropertyExpression sup = axiom.getSuperProperty();
+		int r = km.getOwlPropertyExpressionEncoder().getValueBySymbol(sub);
+		int s = km.getOwlPropertyExpressionEncoder().getValueBySymbol(sup);
+		return ontology.getSubPropertyAxioms().add(new ClipperSubPropertyAxiom(r, s));
 
 	}
 

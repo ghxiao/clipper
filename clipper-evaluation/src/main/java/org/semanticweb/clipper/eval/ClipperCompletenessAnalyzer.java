@@ -10,8 +10,8 @@ import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 
 public class ClipperCompletenessAnalyzer {
 	public static void main(String[] args) throws Exception {
-		// runAllTests();
-		runOneTest(4, 0);
+		runAllTests();
+		// runOneTest(3, 0);
 		// runOneTest(1, 0);
 	}
 
@@ -21,7 +21,7 @@ public class ClipperCompletenessAnalyzer {
 		String ontologyFile = root + "/univ-bench.owl";
 		String datasetFolder = root + "/univ-bench_TB-C_s";
 
-		ClipperManager.getInstance().setVerboseLevel(8);
+		ClipperManager.getInstance().setVerboseLevel(1);
 		ClipperSygeniaInterfaceImp cqSystem = new ClipperSygeniaInterfaceImp();
 
 		cqSystem.setDataSetRoot(root);
@@ -31,14 +31,14 @@ public class ClipperCompletenessAnalyzer {
 		// long timeStart = System.currentTimeMillis();
 		// for ( int i = 0; i<allQueryFolders.size() ; i++ ) {
 
-		
-		
 		long timeQueryStart = System.currentTimeMillis();
-		System.out.println("***  Examining query " + (queryIndex + 1) + " *** " + allQueryFolders.get(queryIndex));
+		final String queryDatasetFolder = allQueryFolders.get(queryIndex);
+		System.out.println("***  Examining query " + (queryIndex) + " *** " + queryDatasetFolder);
 
-		cqSystem.loadQuery(queryIndex);
+		cqSystem.loadQuery(queryIndex + 1);
 
-		String queryDatasetFolder = allQueryFolders.get(queryIndex);
+		// String queryDatasetFolder = allQueryFolders.get(queryIndex);
+		// String queryDatasetFolder = allQueryFolders.get(queryIndex - 1);
 		File testingUnitsDir = new File(queryDatasetFolder);
 		File[] testingUnits = testingUnitsDir.listFiles();
 		int failedABoxes = 0;

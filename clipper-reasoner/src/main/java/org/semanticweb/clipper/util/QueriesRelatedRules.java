@@ -43,8 +43,7 @@ public class QueriesRelatedRules {
 	private List<ClipperSubPropertyAxiom> subObjectPropertyAxioms;
 	private List<ClipperInversePropertyOfAxiom> inverseObjectPropertyAxioms;
 	private List<ClipperAtomSubMaxOneAxiom> maxOneCardinalityAxioms;
-	private List<ClipperConceptAssertionAxiom> conceptAssertionAxioms;
-	private List<ClipperPropertyAssertionAxiom> roleAssertionAxioms;
+
 	private Set<CQ> ucq;
 
 	@Getter
@@ -65,8 +64,6 @@ public class QueriesRelatedRules {
 		maxOneCardinalityAxioms = ont_bs.getAtomSubMaxOneAxioms();
 		subObjectPropertyAxioms = ont_bs.getSubPropertyAxioms();
 		inverseObjectPropertyAxioms = ont_bs.getInversePropertyOfAxioms();
-		conceptAssertionAxioms = ont_bs.getConceptAssertionAxioms();
-		roleAssertionAxioms = ont_bs.getObjectPropertyAssertionAxioms();
 		subObjectPropertyAxioms = ont_bs.getSubPropertyAxioms();
 
 		ucq = rewrittenUcq;

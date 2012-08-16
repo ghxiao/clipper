@@ -99,7 +99,7 @@ public class ReductionToDatalogOpt {
 
 		conceptAssertionAxioms = ont_bs.getConceptAssertionAxioms();
 
-		roleAssertionAxioms = ont_bs.getObjectPropertyAssertionAxioms();
+		roleAssertionAxioms = ont_bs.getPropertyAssertionAxioms();
 
 		subObjectPropertyAxioms = ont_bs.getSubPropertyAxioms();
 	}

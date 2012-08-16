@@ -583,9 +583,11 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 
 	@Override
 	public Object visit(OWLDataPropertyAssertionAxiom axiom) {
-		if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
-			System.err.println("skiping " + axiom);
-		}
+//		if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
+//			System.err.println("skiping " + axiom);
+//		}
+		manager.addAxiom(normalizedOnt, axiom);
+		
 		return null;
 		// throw new IllegalArgumentException(axiom.toString());
 

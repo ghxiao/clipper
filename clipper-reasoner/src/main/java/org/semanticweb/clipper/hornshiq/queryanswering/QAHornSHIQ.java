@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -808,16 +809,21 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 		long starOutputAnswer = System.currentTimeMillis();
 		AnswerParser answerParser = new AnswerParser();
+		
+		this.decodedAnswers.clear();
 		if (ClipperManager.getInstance().getNamingStrategy() == NamingStrategy.IntEncoding) {
 			answerParser.setAnswers(this.answers);
 			answerParser.parse();
 			this.decodedAnswers = answerParser.getDecodedAnswers();
 		} else {
 			// FIXME
-			//this.decodedAnswers.add(this.answers);
-			answerParser.setAnswers(this.answers);
-			answerParser.parse();
-			this.decodedAnswers = answerParser.getDecodedAnswers();
+			// this.decodedAnswers.add(this.answers);
+			// answerParser.setAnswers(this.answers);
+			// answerParser.parse();
+			for (String ans : this.answers) {
+				this.decodedAnswers.add(Arrays.asList(ans.split(",")));
+			}
+
 		}
 		if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 			System.out.println("=============Decoded answers ==============");

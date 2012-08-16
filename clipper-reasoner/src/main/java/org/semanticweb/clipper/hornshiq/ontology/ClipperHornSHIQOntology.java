@@ -28,7 +28,7 @@ public class ClipperHornSHIQOntology {
 
 	private List<ClipperConceptAssertionAxiom> conceptAssertionAxioms;
 
-	private List<ClipperPropertyAssertionAxiom> objectPropertyAssertionAxioms;
+	private List<ClipperPropertyAssertionAxiom> propertyAssertionAxioms;
 
 	private List<ClipperSubPropertyAxiom> subPropertyAxioms;
 
@@ -46,7 +46,7 @@ public class ClipperHornSHIQOntology {
 		this.atomSubAllAxioms = new ArrayList<ClipperAtomSubAllAxiom>();
 		this.conceptAssertionAxioms = new ArrayList<ClipperConceptAssertionAxiom>();
 		this.disjointObjectPropertiesAxioms = new ArrayList<ClipperDisjointObjectPropertiesAxiom>();
-		this.objectPropertyAssertionAxioms = new ArrayList<ClipperPropertyAssertionAxiom>();
+		this.propertyAssertionAxioms = new ArrayList<ClipperPropertyAssertionAxiom>();
 		this.someSubAtomAxioms = new ArrayList<ClipperSomeSubAtomAxiom>();
 		this.subPropertyAxioms = new ArrayList<ClipperSubPropertyAxiom>();
 		this.inversePropertyOfAxioms = new ArrayList<ClipperInversePropertyOfAxiom>();
@@ -63,7 +63,7 @@ public class ClipperHornSHIQOntology {
 		result.addAll(atomSubSomeAxioms);
 		result.addAll(conceptAssertionAxioms);
 		result.addAll(disjointObjectPropertiesAxioms);
-		result.addAll(objectPropertyAssertionAxioms);
+		result.addAll(propertyAssertionAxioms);
 		result.addAll(someSubAtomAxioms);
 		result.addAll(subPropertyAxioms);
 		result.addAll(inversePropertyOfAxioms);
