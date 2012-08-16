@@ -4,14 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
-import org.semanticweb.owlapi.model.OWLIndividual;
 
 public class AnswerParser {
 	private List<String> answers;
 	private List<List<String>> decodedAnswers;
 	private String prefix = null;
-
-	
 
 	public List<String> getAnswers() {
 		return answers;
@@ -52,14 +49,12 @@ public class AnswerParser {
 			return -1;
 	}
 
-	// ========================================Parsing
-	// OWLQuery===================================
-
 	private String getDecodedIndividual(String indiString) {
 		int code = getCode(indiString);
-		//OWLIndividual individual = ClipperManager.getInstance().getOwlIndividualAndLiteralEncoder().getSymbolByValue(code);
+		// OWLIndividual individual =
+		// ClipperManager.getInstance().getOwlIndividualAndLiteralEncoder().getSymbolByValue(code);
 		return ClipperManager.getInstance().getOwlIndividualAndLiteralEncoder().getSymbolByValue(code).toString();
-		//return individual.toString();
+		// return individual.toString();
 
 	}
 
@@ -68,34 +63,13 @@ public class AnswerParser {
 		String delims = "[\\(\\),]+";
 		String s = answer;
 		String[] tokens = s.split(delims);
-		// for (String s1 : tokens)
-		// System.out.println(s1);
 
-		// if (tokens.length == 1) {
-		// return decodedAnswers;
-		// }
-		//
-		// else if (tokens.length >= 2) {
 		for (int i = 1; i < tokens.length; i++) {
 			String indiString = tokens[i];
 			String decodedIndividual = getDecodedIndividual(indiString);
 			decodedAnswers.add(decodedIndividual);
 		}
 		return decodedAnswers;
-		// }
-
-		// if (tokens.length == 3) {
-		//
-		// String indi1String = tokens[1];
-		// decodedAnswer = decodedAnswer + "("
-		// + getDecodedIndividual(indi1String) + ",";
-		// String indi2String = tokens[2];
-		// decodedAnswer = decodedAnswer + getDecodedIndividual(indi2String)
-		// + ")";
-		// return decodedAnswer;
-		// }
-
-		// return null;
 	}
 
 	public void parse() {
