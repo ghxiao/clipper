@@ -1,0 +1,1514 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY galen "http://krono.act.uji.es/Links/ontologies/galen.owl#" >
+    <!ENTITY temporalModule "http://krono.act.uji.es/Links/ontologies/temporalModule.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://krono.act.uji.es/Links/ontologies/temporalModule.owl_ABox_1_Query_01#"
+     xml:base="http://krono.act.uji.es/Links/ontologies/temporalModule.owl_ABox_1_Query_01"
+     xmlns:galen="http://krono.act.uji.es/Links/ontologies/galen.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:temporalModule="http://krono.act.uji.es/Links/ontologies/temporalModule.owl#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="file:/Users/xiao/Documents/workspace/sygenia/examples/ontologies/Galen/moduleU_JIA_procedures.owl"/>
+    </owl:Ontology>
+    <owl:ObjectProperty rdf:about="&galen;hasPhysicalState"/>
+    <owl:ObjectProperty rdf:about="&galen;hasQuantity"/>
+    <owl:ObjectProperty rdf:about="&galen;hasState"/>
+    <owl:ObjectProperty rdf:about="&galen;isCountConcentrationOf"/>
+    <owl:ObjectProperty rdf:about="&galen;isInSuspensionWithin"/>
+    <owl:ObjectProperty rdf:about="&galen;isToDetermine"/>
+    <owl:Class rdf:about="&galen;Blood"/>
+    <owl:Class rdf:about="&galen;BodyFluid"/>
+    <owl:Class rdf:about="&galen;CountConcentration"/>
+    <owl:Class rdf:about="&galen;ErythrocyteCount"/>
+    <owl:Class rdf:about="&galen;ErythrocyteCountProcedure"/>
+    <owl:Class rdf:about="&galen;HaemoglobinConcentrationProcedure"/>
+    <owl:Class rdf:about="&galen;InvestigationAct"/>
+    <owl:Class rdf:about="&galen;Liquid"/>
+    <owl:Class rdf:about="&galen;LiquidBlood"/>
+    <owl:Class rdf:about="&galen;LymphocyteCount"/>
+    <owl:Class rdf:about="&galen;LymphocyteCountProcedure"/>
+    <owl:Class rdf:about="&galen;NeutrophilCount"/>
+    <owl:Class rdf:about="&galen;NeutrophilCountProcedure"/>
+    <owl:Class rdf:about="&galen;PhysicalState"/>
+    <owl:Class rdf:about="&galen;Platelet"/>
+    <owl:Class rdf:about="&galen;PlateletCount"/>
+    <owl:Class rdf:about="&galen;PlateletCountProcedure"/>
+    <owl:Class rdf:about="&galen;WestergrenESRProcedure"/>
+    <owl:Class rdf:about="&galen;liquid"/>
+    <owl:Class rdf:about="&galen;liquidState"/>
+    <galen:BodyFluid rdf:about="&temporalModule;a_10046">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:BodyFluid>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_10099">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_7029"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_10128">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_2870"/>
+    </galen:NeutrophilCount>
+    <galen:liquid rdf:about="&temporalModule;a_10218"/>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_10280">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_18121"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_10283">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_13293"/>
+    </galen:LymphocyteCount>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_10310">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_768"/>
+    </galen:InvestigationAct>
+    <galen:CountConcentration rdf:about="&temporalModule;a_10329">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_7045"/>
+    </galen:CountConcentration>
+    <galen:Blood rdf:about="&temporalModule;a_10339">
+        <rdf:type rdf:resource="&galen;Liquid"/>
+    </galen:Blood>
+    <galen:CountConcentration rdf:about="&temporalModule;a_10396">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_5553"/>
+    </galen:CountConcentration>
+    <galen:CountConcentration rdf:about="&temporalModule;a_10419">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_4852"/>
+    </galen:CountConcentration>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_10525">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_8212"/>
+    </galen:ErythrocyteCount>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_10542">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_16069"/>
+    </galen:InvestigationAct>
+    <galen:liquid rdf:about="&temporalModule;a_10548"/>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_10579">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_112"/>
+    </galen:InvestigationAct>
+    <galen:Blood rdf:about="&temporalModule;a_10580">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_2007"/>
+    </galen:Blood>
+    <galen:ErythrocyteCountProcedure rdf:about="&temporalModule;a_10587">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_4631"/>
+    </galen:ErythrocyteCountProcedure>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_10590">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_11270"/>
+    </galen:ErythrocyteCount>
+    <galen:PhysicalState rdf:about="&temporalModule;a_10601">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_19014"/>
+    </galen:PhysicalState>
+    <galen:Platelet rdf:about="&temporalModule;a_10665">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_19504"/>
+    </galen:Platelet>
+    <galen:BodyFluid rdf:about="&temporalModule;a_10678">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:BodyFluid>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_10720">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_19681"/>
+    </galen:InvestigationAct>
+    <galen:BodyFluid rdf:about="&temporalModule;a_10722">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:BodyFluid>
+    <galen:Blood rdf:about="&temporalModule;a_10729">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_8177"/>
+    </galen:Blood>
+    <galen:Platelet rdf:about="&temporalModule;a_10730">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_18184"/>
+    </galen:Platelet>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_10766">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_16539"/>
+    </galen:InvestigationAct>
+    <galen:Platelet rdf:about="&temporalModule;a_10837">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_13357"/>
+    </galen:Platelet>
+    <galen:BodyFluid rdf:about="&temporalModule;a_10841">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:BodyFluid>
+    <galen:Blood rdf:about="&temporalModule;a_10853">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_19182"/>
+    </galen:Blood>
+    <galen:Platelet rdf:about="&temporalModule;a_10881">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_19601"/>
+    </galen:Platelet>
+    <galen:liquid rdf:about="&temporalModule;a_10886"/>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_10903">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_16523"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:liquid rdf:about="&temporalModule;a_10983"/>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_10987">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_12985"/>
+    </galen:ErythrocyteCount>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_11053">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_7103"/>
+    </galen:WestergrenESRProcedure>
+    <galen:Blood rdf:about="&temporalModule;a_11156">
+        <rdf:type rdf:resource="&galen;Liquid"/>
+    </galen:Blood>
+    <galen:Platelet rdf:about="&temporalModule;a_11191">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_6081"/>
+    </galen:Platelet>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_112">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_1980"/>
+    </galen:NeutrophilCount>
+    <galen:Platelet rdf:about="&temporalModule;a_11270">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_8683"/>
+    </galen:Platelet>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_11349">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_11498"/>
+    </galen:ErythrocyteCount>
+    <galen:Blood rdf:about="&temporalModule;a_11395">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_7655"/>
+    </galen:Blood>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_11416">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_3709"/>
+    </galen:ErythrocyteCount>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_11485">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_4441"/>
+    </galen:LymphocyteCount>
+    <galen:ErythrocyteCountProcedure rdf:about="&temporalModule;a_11498">
+        <rdf:type rdf:resource="&galen;Platelet"/>
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_15794"/>
+        <galen:isToDetermine rdf:resource="&temporalModule;a_62"/>
+    </galen:ErythrocyteCountProcedure>
+    <galen:PhysicalState rdf:about="&temporalModule;a_11558">
+        <galen:hasState rdf:resource="&temporalModule;a_14973"/>
+    </galen:PhysicalState>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_11565">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_16711"/>
+    </galen:WestergrenESRProcedure>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_11582">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_9637"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:Platelet rdf:about="&temporalModule;a_11583">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_14101"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_11584">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_13370"/>
+    </galen:Platelet>
+    <galen:ErythrocyteCountProcedure rdf:about="&temporalModule;a_11600">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_6385"/>
+    </galen:ErythrocyteCountProcedure>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_1161">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_15201"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:Platelet rdf:about="&temporalModule;a_11643">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_19315"/>
+    </galen:Platelet>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_11656">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_7803"/>
+    </galen:ErythrocyteCount>
+    <galen:CountConcentration rdf:about="&temporalModule;a_11708">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_2437"/>
+    </galen:CountConcentration>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_11736">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_7826"/>
+    </galen:WestergrenESRProcedure>
+    <galen:Blood rdf:about="&temporalModule;a_11894">
+        <rdf:type rdf:resource="&galen;Liquid"/>
+    </galen:Blood>
+    <galen:Blood rdf:about="&temporalModule;a_11944">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_4583"/>
+    </galen:Blood>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_11952">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_13812"/>
+    </galen:LymphocyteCount>
+    <galen:Platelet rdf:about="&temporalModule;a_12030">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_16823"/>
+    </galen:Platelet>
+    <galen:ErythrocyteCountProcedure rdf:about="&temporalModule;a_12124">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_6520"/>
+    </galen:ErythrocyteCountProcedure>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_12154"/>
+    <galen:Platelet rdf:about="&temporalModule;a_12195">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_9009"/>
+    </galen:Platelet>
+    <galen:liquid rdf:about="&temporalModule;a_12207"/>
+    <galen:Blood rdf:about="&temporalModule;a_12271">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_6650"/>
+    </galen:Blood>
+    <galen:PhysicalState rdf:about="&temporalModule;a_12316">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_1500"/>
+    </galen:PhysicalState>
+    <galen:CountConcentration rdf:about="&temporalModule;a_12327">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_4668"/>
+    </galen:CountConcentration>
+    <galen:liquid rdf:about="&temporalModule;a_12432"/>
+    <galen:Platelet rdf:about="&temporalModule;a_12450">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_7215"/>
+    </galen:Platelet>
+    <galen:liquidState rdf:about="&temporalModule;a_12489"/>
+    <galen:Blood rdf:about="&temporalModule;a_12576">
+        <rdf:type rdf:resource="&galen;Liquid"/>
+    </galen:Blood>
+    <galen:Platelet rdf:about="&temporalModule;a_12616">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_7903"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_12644">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_10841"/>
+    </galen:Platelet>
+    <galen:Blood rdf:about="&temporalModule;a_12663">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_19907"/>
+    </galen:Blood>
+    <galen:Blood rdf:about="&temporalModule;a_12728">
+        <rdf:type rdf:resource="&galen;Liquid"/>
+    </galen:Blood>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_12803">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_3745"/>
+    </galen:InvestigationAct>
+    <galen:Platelet rdf:about="&temporalModule;a_12805">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_6615"/>
+    </galen:Platelet>
+    <galen:ErythrocyteCountProcedure rdf:about="&temporalModule;a_12833">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_6988"/>
+    </galen:ErythrocyteCountProcedure>
+    <galen:liquidState rdf:about="&temporalModule;a_12846"/>
+    <galen:Platelet rdf:about="&temporalModule;a_12856">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_15394"/>
+    </galen:Platelet>
+    <galen:PhysicalState rdf:about="&temporalModule;a_12887">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_12432"/>
+    </galen:PhysicalState>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_12917"/>
+    <galen:Liquid rdf:about="&temporalModule;a_1293">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:Liquid>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_1296">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_14375"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:Platelet rdf:about="&temporalModule;a_12985">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_11395"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_12986">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_17241"/>
+    </galen:Platelet>
+    <galen:Blood rdf:about="&temporalModule;a_13106">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_560"/>
+    </galen:Blood>
+    <galen:BodyFluid rdf:about="&temporalModule;a_13113">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:BodyFluid>
+    <galen:PhysicalState rdf:about="&temporalModule;a_13207">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_2782"/>
+    </galen:PhysicalState>
+    <galen:Platelet rdf:about="&temporalModule;a_13254">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_18257"/>
+    </galen:Platelet>
+    <galen:PlateletCount rdf:about="&temporalModule;a_13284"/>
+    <galen:Platelet rdf:about="&temporalModule;a_13293">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_18617"/>
+    </galen:Platelet>
+    <galen:CountConcentration rdf:about="&temporalModule;a_13295">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_3959"/>
+    </galen:CountConcentration>
+    <galen:CountConcentration rdf:about="&temporalModule;a_13328">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_12986"/>
+    </galen:CountConcentration>
+    <galen:Blood rdf:about="&temporalModule;a_13357">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_19865"/>
+    </galen:Blood>
+    <galen:BodyFluid rdf:about="&temporalModule;a_13370">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:BodyFluid>
+    <galen:PhysicalState rdf:about="&temporalModule;a_13390">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_6633"/>
+    </galen:PhysicalState>
+    <galen:Blood rdf:about="&temporalModule;a_13473">
+        <rdf:type rdf:resource="&galen;BodyFluid"/>
+    </galen:Blood>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_13481">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_4757"/>
+    </galen:ErythrocyteCount>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_13573">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_1751"/>
+    </galen:WestergrenESRProcedure>
+    <galen:Platelet rdf:about="&temporalModule;a_13586">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_15947"/>
+    </galen:Platelet>
+    <galen:PhysicalState rdf:about="&temporalModule;a_13599">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_947"/>
+    </galen:PhysicalState>
+    <galen:Platelet rdf:about="&temporalModule;a_13627">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_2455"/>
+    </galen:Platelet>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_13705">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_5098"/>
+    </galen:InvestigationAct>
+    <galen:PhysicalState rdf:about="&temporalModule;a_13751">
+        <galen:hasState rdf:resource="&temporalModule;a_378"/>
+    </galen:PhysicalState>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_13765">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_4799"/>
+    </galen:InvestigationAct>
+    <galen:Platelet rdf:about="&temporalModule;a_13812">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_18897"/>
+    </galen:Platelet>
+    <galen:ErythrocyteCountProcedure rdf:about="&temporalModule;a_13915">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_10128"/>
+    </galen:ErythrocyteCountProcedure>
+    <galen:Blood rdf:about="&temporalModule;a_13917">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_15349"/>
+    </galen:Blood>
+    <galen:Platelet rdf:about="&temporalModule;a_13945">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_8193"/>
+    </galen:Platelet>
+    <galen:PhysicalState rdf:about="&temporalModule;a_13965">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_10886"/>
+    </galen:PhysicalState>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_13999">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_9727"/>
+    </galen:WestergrenESRProcedure>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_14044">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_15357"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:Blood rdf:about="&temporalModule;a_14101">
+        <rdf:type rdf:resource="&galen;Liquid"/>
+    </galen:Blood>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_14212">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_6175"/>
+    </galen:NeutrophilCount>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_14375">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_16422"/>
+    </galen:NeutrophilCount>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_14588">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_19730"/>
+    </galen:NeutrophilCount>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_14629">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_15310"/>
+    </galen:NeutrophilCount>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_14649">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_16089"/>
+    </galen:InvestigationAct>
+    <galen:Platelet rdf:about="&temporalModule;a_14752">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_2979"/>
+    </galen:Platelet>
+    <galen:Blood rdf:about="&temporalModule;a_1480">
+        <rdf:type rdf:resource="&galen;Liquid"/>
+    </galen:Blood>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_14902">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_13481"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:liquid rdf:about="&temporalModule;a_14973"/>
+    <galen:liquid rdf:about="&temporalModule;a_1500"/>
+    <galen:Platelet rdf:about="&temporalModule;a_15047">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_15194"/>
+    </galen:Platelet>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_15089">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_11349"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_15108">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_3898"/>
+    </galen:LymphocyteCount>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_15117">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_2059"/>
+    </galen:InvestigationAct>
+    <galen:Platelet rdf:about="&temporalModule;a_15123">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_9527"/>
+    </galen:Platelet>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_15135">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_5343"/>
+    </galen:WestergrenESRProcedure>
+    <galen:Blood rdf:about="&temporalModule;a_15194">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_13965"/>
+    </galen:Blood>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_15201">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_668"/>
+    </galen:NeutrophilCount>
+    <galen:Blood rdf:about="&temporalModule;a_15245">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_15407"/>
+    </galen:Blood>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_15282">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_9740"/>
+    </galen:WestergrenESRProcedure>
+    <galen:Platelet rdf:about="&temporalModule;a_15310">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_18384"/>
+    </galen:Platelet>
+    <galen:ErythrocyteCountProcedure rdf:about="&temporalModule;a_15322">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_10987"/>
+    </galen:ErythrocyteCountProcedure>
+    <galen:Platelet rdf:about="&temporalModule;a_15327">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_12271"/>
+    </galen:Platelet>
+    <galen:liquidState rdf:about="&temporalModule;a_15349"/>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_15357">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_3036"/>
+    </galen:NeutrophilCount>
+    <galen:CountConcentration rdf:about="&temporalModule;a_1538">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_17415"/>
+    </galen:CountConcentration>
+    <galen:Blood rdf:about="&temporalModule;a_15394">
+        <rdf:type rdf:resource="&galen;BodyFluid"/>
+    </galen:Blood>
+    <galen:PhysicalState rdf:about="&temporalModule;a_15407">
+        <galen:hasState rdf:resource="&temporalModule;a_17499"/>
+    </galen:PhysicalState>
+    <galen:liquidState rdf:about="&temporalModule;a_15418"/>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_15479"/>
+    <galen:Platelet rdf:about="&temporalModule;a_15541">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_6337"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_15572">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_13473"/>
+    </galen:Platelet>
+    <galen:Blood rdf:about="&temporalModule;a_15595">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_9424"/>
+    </galen:Blood>
+    <galen:Blood rdf:about="&temporalModule;a_15603">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_5325"/>
+    </galen:Blood>
+    <galen:Blood rdf:about="&temporalModule;a_15631">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_12489"/>
+    </galen:Blood>
+    <galen:CountConcentration rdf:about="&temporalModule;a_15644">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_19750"/>
+    </galen:CountConcentration>
+    <galen:PhysicalState rdf:about="&temporalModule;a_15692">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_18280"/>
+    </galen:PhysicalState>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_15698">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_8902"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:Platelet rdf:about="&temporalModule;a_15706">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_17544"/>
+    </galen:Platelet>
+    <galen:Blood rdf:about="&temporalModule;a_1571">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_12846"/>
+    </galen:Blood>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_15714">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_7251"/>
+    </galen:NeutrophilCount>
+    <galen:CountConcentration rdf:about="&temporalModule;a_15765">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_12030"/>
+    </galen:CountConcentration>
+    <galen:Blood rdf:about="&temporalModule;a_15794">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_5319"/>
+    </galen:Blood>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_15892">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_11643"/>
+    </galen:ErythrocyteCount>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_15910">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_11952"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_15918">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_5808"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:Blood rdf:about="&temporalModule;a_15927">
+        <rdf:type rdf:resource="&galen;BodyFluid"/>
+    </galen:Blood>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_15947"/>
+    <galen:Blood rdf:about="&temporalModule;a_1598">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_16024"/>
+    </galen:Blood>
+    <galen:liquidState rdf:about="&temporalModule;a_16024"/>
+    <galen:Platelet rdf:about="&temporalModule;a_16027">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_2671"/>
+    </galen:Platelet>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_16069">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_12644"/>
+    </galen:LymphocyteCount>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_16089">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_10837"/>
+    </galen:LymphocyteCount>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_1619">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_10329"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:Platelet rdf:about="&temporalModule;a_16205">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_18585"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_16243">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_2083"/>
+    </galen:Platelet>
+    <galen:liquid rdf:about="&temporalModule;a_16246"/>
+    <galen:BodyFluid rdf:about="&temporalModule;a_16249">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:BodyFluid>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_16272">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_9851"/>
+    </galen:ErythrocyteCount>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_1639">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_7791"/>
+    </galen:WestergrenESRProcedure>
+    <galen:liquid rdf:about="&temporalModule;a_16395"/>
+    <galen:Platelet rdf:about="&temporalModule;a_16422">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_15245"/>
+    </galen:Platelet>
+    <galen:liquidState rdf:about="&temporalModule;a_16497"/>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_16523">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_16545"/>
+    </galen:ErythrocyteCount>
+    <galen:Blood rdf:about="&temporalModule;a_16527">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_9811"/>
+    </galen:Blood>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_16539">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_7023"/>
+    </galen:ErythrocyteCount>
+    <galen:Platelet rdf:about="&temporalModule;a_16545">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_9009"/>
+    </galen:Platelet>
+    <galen:liquid rdf:about="&temporalModule;a_16558"/>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_16571">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_7973"/>
+    </galen:WestergrenESRProcedure>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_16581">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_2674"/>
+    </galen:InvestigationAct>
+    <galen:PhysicalState rdf:about="&temporalModule;a_16663">
+        <galen:hasState rdf:resource="&temporalModule;a_10548"/>
+    </galen:PhysicalState>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_16665">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_19222"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_16711">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_16800"/>
+    </galen:LymphocyteCount>
+    <galen:PhysicalState rdf:about="&temporalModule;a_16733">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_10218"/>
+    </galen:PhysicalState>
+    <galen:Platelet rdf:about="&temporalModule;a_16800">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_7960"/>
+    </galen:Platelet>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_16822">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_420"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:Blood rdf:about="&temporalModule;a_16823">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_13599"/>
+    </galen:Blood>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_16901">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_4701"/>
+    </galen:WestergrenESRProcedure>
+    <galen:ErythrocyteCountProcedure rdf:about="&temporalModule;a_16973">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_18927"/>
+    </galen:ErythrocyteCountProcedure>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_16986">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_7951"/>
+    </galen:ErythrocyteCount>
+    <galen:PlateletCount rdf:about="&temporalModule;a_17001"/>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_17034">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_18950"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_17063">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_1538"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_17091">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_35"/>
+    </galen:WestergrenESRProcedure>
+    <galen:liquid rdf:about="&temporalModule;a_17092"/>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_17095">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_4388"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:liquid rdf:about="&temporalModule;a_17106"/>
+    <galen:Platelet rdf:about="&temporalModule;a_17170">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_6125"/>
+    </galen:Platelet>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_17210"/>
+    <galen:ErythrocyteCountProcedure rdf:about="&temporalModule;a_17214">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_10283"/>
+    </galen:ErythrocyteCountProcedure>
+    <galen:Blood rdf:about="&temporalModule;a_17241">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_12887"/>
+    </galen:Blood>
+    <galen:CountConcentration rdf:about="&temporalModule;a_17249">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_3164"/>
+    </galen:CountConcentration>
+    <galen:Platelet rdf:about="&temporalModule;a_17313">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_10729"/>
+    </galen:Platelet>
+    <galen:ErythrocyteCountProcedure rdf:about="&temporalModule;a_17344">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_17922"/>
+    </galen:ErythrocyteCountProcedure>
+    <galen:Platelet rdf:about="&temporalModule;a_17415">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_10046"/>
+    </galen:Platelet>
+    <galen:CountConcentration rdf:about="&temporalModule;a_17447">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_15541"/>
+    </galen:CountConcentration>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_17474">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_10730"/>
+    </galen:LymphocyteCount>
+    <galen:liquid rdf:about="&temporalModule;a_17499"/>
+    <galen:CountConcentration rdf:about="&temporalModule;a_1751">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_13627"/>
+    </galen:CountConcentration>
+    <galen:Blood rdf:about="&temporalModule;a_17544">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_9104"/>
+    </galen:Blood>
+    <galen:CountConcentration rdf:about="&temporalModule;a_17579">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_11584"/>
+    </galen:CountConcentration>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_17646">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_11485"/>
+    </galen:WestergrenESRProcedure>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_17705">
+        <rdf:type rdf:resource="&galen;liquid"/>
+        <galen:isToDetermine rdf:resource="&temporalModule;a_10590"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:Blood rdf:about="&temporalModule;a_17727">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_3356"/>
+    </galen:Blood>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_17753">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_14752"/>
+    </galen:ErythrocyteCount>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_17788">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_4830"/>
+    </galen:LymphocyteCount>
+    <galen:Platelet rdf:about="&temporalModule;a_1787">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_9124"/>
+    </galen:Platelet>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_17922">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_19043"/>
+    </galen:ErythrocyteCount>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_17976"/>
+    <galen:PhysicalState rdf:about="&temporalModule;a_18065">
+        <rdf:type rdf:resource="&galen;Blood"/>
+        <rdf:type rdf:resource="&galen;BodyFluid"/>
+        <galen:hasState rdf:resource="&temporalModule;a_12207"/>
+    </galen:PhysicalState>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_18121">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_511"/>
+    </galen:LymphocyteCount>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_18122"/>
+    <galen:BodyFluid rdf:about="&temporalModule;a_18184">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:BodyFluid>
+    <galen:Platelet rdf:about="&temporalModule;a_18254">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_11944"/>
+    </galen:Platelet>
+    <galen:Blood rdf:about="&temporalModule;a_18257">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_5645"/>
+    </galen:Blood>
+    <galen:CountConcentration rdf:about="&temporalModule;a_18272">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_9155"/>
+    </galen:CountConcentration>
+    <galen:liquid rdf:about="&temporalModule;a_18280"/>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_18290">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_4028"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:Platelet rdf:about="&temporalModule;a_18357">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_1836"/>
+    </galen:Platelet>
+    <galen:BodyFluid rdf:about="&temporalModule;a_1836">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:BodyFluid>
+    <galen:Platelet rdf:about="&temporalModule;a_18360">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_7981"/>
+    </galen:Platelet>
+    <galen:Blood rdf:about="&temporalModule;a_18384">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_19958"/>
+    </galen:Blood>
+    <galen:Platelet rdf:about="&temporalModule;a_18413">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_1598"/>
+    </galen:Platelet>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_18463">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_17753"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:Platelet rdf:about="&temporalModule;a_18514">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_3680"/>
+    </galen:Platelet>
+    <galen:Blood rdf:about="&temporalModule;a_18585">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_13390"/>
+    </galen:Blood>
+    <galen:ErythrocyteCountProcedure rdf:about="&temporalModule;a_18589">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_2786"/>
+    </galen:ErythrocyteCountProcedure>
+    <galen:Blood rdf:about="&temporalModule;a_18617">
+        <rdf:type rdf:resource="&galen;BodyFluid"/>
+    </galen:Blood>
+    <galen:Platelet rdf:about="&temporalModule;a_18666">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_13113"/>
+    </galen:Platelet>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_18670">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_19622"/>
+    </galen:WestergrenESRProcedure>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_1869">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_6632"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:Platelet rdf:about="&temporalModule;a_187">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_5950"/>
+    </galen:Platelet>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_18704">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_13328"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_18729">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_4933"/>
+    </galen:NeutrophilCount>
+    <galen:Platelet rdf:about="&temporalModule;a_1873">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_16249"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_18824">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_3572"/>
+    </galen:Platelet>
+    <galen:Blood rdf:about="&temporalModule;a_18889">
+        <rdf:type rdf:resource="&galen;Liquid"/>
+    </galen:Blood>
+    <galen:Blood rdf:about="&temporalModule;a_18897">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_15418"/>
+    </galen:Blood>
+    <galen:CountConcentration rdf:about="&temporalModule;a_18927">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_6371"/>
+    </galen:CountConcentration>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_18950">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_19734"/>
+    </galen:LymphocyteCount>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_18954">
+        <rdf:type rdf:resource="&galen;PhysicalState"/>
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_1787"/>
+        <galen:hasQuantity rdf:resource="&temporalModule;a_6538"/>
+    </galen:LymphocyteCount>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_19002">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_10525"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:liquid rdf:about="&temporalModule;a_19014"/>
+    <galen:Platelet rdf:about="&temporalModule;a_19043">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_7950"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_19102">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_9260"/>
+    </galen:Platelet>
+    <galen:PhysicalState rdf:about="&temporalModule;a_19158">
+        <galen:hasState rdf:resource="&temporalModule;a_16395"/>
+    </galen:PhysicalState>
+    <galen:PhysicalState rdf:about="&temporalModule;a_19182">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_9915"/>
+    </galen:PhysicalState>
+    <galen:CountConcentration rdf:about="&temporalModule;a_19222">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_8034"/>
+    </galen:CountConcentration>
+    <galen:Platelet rdf:about="&temporalModule;a_19261">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_15603"/>
+    </galen:Platelet>
+    <galen:Liquid rdf:about="&temporalModule;a_19271">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:Liquid>
+    <galen:Platelet rdf:about="&temporalModule;a_19278">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_619"/>
+    </galen:Platelet>
+    <galen:Blood rdf:about="&temporalModule;a_19290">
+        <rdf:type rdf:resource="&galen;NeutrophilCountProcedure"/>
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_19158"/>
+        <galen:isToDetermine rdf:resource="&temporalModule;a_4938"/>
+    </galen:Blood>
+    <galen:Liquid rdf:about="&temporalModule;a_19315">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:Liquid>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_1940">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_15644"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_19446">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_15892"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_19471">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_15047"/>
+    </galen:ErythrocyteCount>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_19504"/>
+    <galen:PhysicalState rdf:about="&temporalModule;a_19533">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_2718"/>
+    </galen:PhysicalState>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_1960">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_8217"/>
+    </galen:ErythrocyteCount>
+    <galen:Blood rdf:about="&temporalModule;a_19601">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_12316"/>
+    </galen:Blood>
+    <galen:PlateletCountProcedure rdf:about="&temporalModule;a_1962"/>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_19622">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_12450"/>
+    </galen:NeutrophilCount>
+    <galen:Liquid rdf:about="&temporalModule;a_19624">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:Liquid>
+    <galen:liquidState rdf:about="&temporalModule;a_19637"/>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_19681">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_2766"/>
+    </galen:NeutrophilCount>
+    <galen:Platelet rdf:about="&temporalModule;a_19730">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_3255"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_19734">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_16527"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_19750">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_8601"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_1980">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_9530"/>
+    </galen:Platelet>
+    <galen:liquidState rdf:about="&temporalModule;a_19865"/>
+    <galen:PhysicalState rdf:about="&temporalModule;a_19907">
+        <galen:hasState rdf:resource="&temporalModule;a_6390"/>
+    </galen:PhysicalState>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_19945">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_19102"/>
+    </galen:LymphocyteCount>
+    <galen:PhysicalState rdf:about="&temporalModule;a_19958">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_6090"/>
+    </galen:PhysicalState>
+    <galen:liquidState rdf:about="&temporalModule;a_2007"/>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_2008">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_4065"/>
+    </galen:WestergrenESRProcedure>
+    <galen:CountConcentration rdf:about="&temporalModule;a_2059">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_18413"/>
+    </galen:CountConcentration>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_2078">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_7708"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:Blood rdf:about="&temporalModule;a_2083">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_13751"/>
+    </galen:Blood>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_2162">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_2583"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_2195">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_17474"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:liquid rdf:about="&temporalModule;a_2262"/>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_2286">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_19278"/>
+    </galen:NeutrophilCount>
+    <galen:Platelet rdf:about="&temporalModule;a_2437">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_10339"/>
+    </galen:Platelet>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_2455"/>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_2470"/>
+    <galen:PhysicalState rdf:about="&temporalModule;a_2537">
+        <galen:hasState rdf:resource="&temporalModule;a_17705"/>
+    </galen:PhysicalState>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_2583">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_15572"/>
+    </galen:NeutrophilCount>
+    <galen:Platelet rdf:about="&temporalModule;a_2587">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_9015"/>
+    </galen:Platelet>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_2638">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_15714"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:Blood rdf:about="&temporalModule;a_2671">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_19637"/>
+    </galen:Blood>
+    <galen:PlateletCount rdf:about="&temporalModule;a_2674"/>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_2710">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_17447"/>
+    </galen:InvestigationAct>
+    <galen:liquid rdf:about="&temporalModule;a_2718"/>
+    <galen:Blood rdf:about="&temporalModule;a_2746">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_16497"/>
+    </galen:Blood>
+    <galen:Platelet rdf:about="&temporalModule;a_2766">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_4633"/>
+    </galen:Platelet>
+    <galen:liquid rdf:about="&temporalModule;a_2782"/>
+    <galen:CountConcentration rdf:about="&temporalModule;a_2786">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_187"/>
+    </galen:CountConcentration>
+    <galen:Platelet rdf:about="&temporalModule;a_2817">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_12663"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_2870">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_12154"/>
+    </galen:Platelet>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_2931">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_15765"/>
+    </galen:WestergrenESRProcedure>
+    <galen:BodyFluid rdf:about="&temporalModule;a_2979">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:BodyFluid>
+    <galen:Platelet rdf:about="&temporalModule;a_3036">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_11894"/>
+    </galen:Platelet>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_3044">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_2587"/>
+    </galen:NeutrophilCount>
+    <galen:Blood rdf:about="&temporalModule;a_3054">
+        <rdf:type rdf:resource="&galen;BodyFluid"/>
+    </galen:Blood>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_3079">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_17579"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:Platelet rdf:about="&temporalModule;a_3088">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_3054"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_3164">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_1480"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_3219">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_4248"/>
+    </galen:Platelet>
+    <galen:Blood rdf:about="&temporalModule;a_3255">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_4979"/>
+    </galen:Blood>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_3282">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_1960"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_3309">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_7744"/>
+    </galen:InvestigationAct>
+    <galen:PhysicalState rdf:about="&temporalModule;a_3356">
+        <galen:hasState rdf:resource="&temporalModule;a_3695"/>
+    </galen:PhysicalState>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_3382">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_14212"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:CountConcentration rdf:about="&temporalModule;a_3395">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_11583"/>
+    </galen:CountConcentration>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_3427">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_15108"/>
+    </galen:InvestigationAct>
+    <galen:CountConcentration rdf:about="&temporalModule;a_35">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_18357"/>
+    </galen:CountConcentration>
+    <galen:PhysicalState rdf:about="&temporalModule;a_3510">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_16246"/>
+    </galen:PhysicalState>
+    <galen:Blood rdf:about="&temporalModule;a_3520">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_4145"/>
+    </galen:Blood>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_3539">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_10396"/>
+    </galen:InvestigationAct>
+    <galen:Liquid rdf:about="&temporalModule;a_3572">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:Liquid>
+    <galen:Blood rdf:about="&temporalModule;a_3680">
+        <rdf:type rdf:resource="&galen;Liquid"/>
+    </galen:Blood>
+    <galen:liquid rdf:about="&temporalModule;a_3695"/>
+    <galen:Platelet rdf:about="&temporalModule;a_3709">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_15595"/>
+    </galen:Platelet>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_3736">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_9783"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_3745">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_13254"/>
+    </galen:ErythrocyteCount>
+    <galen:liquid rdf:about="&temporalModule;a_378"/>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_3796">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_17788"/>
+    </galen:WestergrenESRProcedure>
+    <galen:PhysicalState rdf:about="&temporalModule;a_3848">
+        <galen:hasState rdf:resource="&temporalModule;a_7902"/>
+    </galen:PhysicalState>
+    <galen:Platelet rdf:about="&temporalModule;a_3898">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_15479"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_3959">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_12917"/>
+    </galen:Platelet>
+    <galen:PhysicalState rdf:about="&temporalModule;a_3996">
+        <galen:hasState rdf:resource="&temporalModule;a_17106"/>
+    </galen:PhysicalState>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_4028">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_17170"/>
+    </galen:LymphocyteCount>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_4065">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_15327"/>
+    </galen:NeutrophilCount>
+    <galen:liquidState rdf:about="&temporalModule;a_4145"/>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_420">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_10665"/>
+    </galen:ErythrocyteCount>
+    <galen:Blood rdf:about="&temporalModule;a_4248">
+        <rdf:type rdf:resource="&galen;BodyFluid"/>
+    </galen:Blood>
+    <galen:Blood rdf:about="&temporalModule;a_4305">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_13207"/>
+    </galen:Blood>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_4366">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_11416"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:liquid rdf:about="&temporalModule;a_4379"/>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_4388">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_6737"/>
+    </galen:NeutrophilCount>
+    <galen:CountConcentration rdf:about="&temporalModule;a_4428">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_16243"/>
+    </galen:CountConcentration>
+    <galen:Platelet rdf:about="&temporalModule;a_4441">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_15927"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_4457">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_4925"/>
+    </galen:Platelet>
+    <galen:PhysicalState rdf:about="&temporalModule;a_4583">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_10983"/>
+    </galen:PhysicalState>
+    <galen:CountConcentration rdf:about="&temporalModule;a_4631">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_13945"/>
+    </galen:CountConcentration>
+    <galen:Blood rdf:about="&temporalModule;a_4633">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_16663"/>
+    </galen:Blood>
+    <galen:ErythrocyteCountProcedure rdf:about="&temporalModule;a_4642">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_8236"/>
+    </galen:ErythrocyteCountProcedure>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_4663"/>
+    <galen:Platelet rdf:about="&temporalModule;a_4668">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_17727"/>
+    </galen:Platelet>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_4674">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_18954"/>
+    </galen:InvestigationAct>
+    <galen:PlateletCount rdf:about="&temporalModule;a_4701"/>
+    <galen:Platelet rdf:about="&temporalModule;a_4757">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_5863"/>
+    </galen:Platelet>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_478">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_10419"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:CountConcentration rdf:about="&temporalModule;a_4799">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_15706"/>
+    </galen:CountConcentration>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_4801">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_14629"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:Platelet rdf:about="&temporalModule;a_4830">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_1571"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_4852">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_15631"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_4854">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_19271"/>
+    </galen:Platelet>
+    <galen:Blood rdf:about="&temporalModule;a_4925">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_3996"/>
+    </galen:Blood>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_4931">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_3044"/>
+    </galen:InvestigationAct>
+    <galen:Platelet rdf:about="&temporalModule;a_4933">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_12576"/>
+    </galen:Platelet>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_4936">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_11708"/>
+    </galen:WestergrenESRProcedure>
+    <galen:PlateletCount rdf:about="&temporalModule;a_4938"/>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_4966">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_11656"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:liquidState rdf:about="&temporalModule;a_4979"/>
+    <galen:Blood rdf:about="&temporalModule;a_5001">
+        <rdf:type rdf:resource="&galen;Liquid"/>
+    </galen:Blood>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_5098">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_18360"/>
+    </galen:NeutrophilCount>
+    <galen:Platelet rdf:about="&temporalModule;a_511">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_13917"/>
+    </galen:Platelet>
+    <galen:PhysicalState rdf:about="&temporalModule;a_513">
+        <galen:hasState rdf:resource="&temporalModule;a_16558"/>
+    </galen:PhysicalState>
+    <galen:PhysicalState rdf:about="&temporalModule;a_5135">
+        <galen:hasState rdf:resource="&temporalModule;a_4379"/>
+    </galen:PhysicalState>
+    <galen:CountConcentration rdf:about="&temporalModule;a_523">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_8372"/>
+    </galen:CountConcentration>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_525">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_7923"/>
+    </galen:InvestigationAct>
+    <galen:Blood rdf:about="&temporalModule;a_526">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_513"/>
+    </galen:Blood>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_5281">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_9233"/>
+    </galen:NeutrophilCount>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_5283">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_554"/>
+    </galen:WestergrenESRProcedure>
+    <galen:liquidState rdf:about="&temporalModule;a_53"/>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_5318">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_5281"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:PhysicalState rdf:about="&temporalModule;a_5319">
+        <galen:hasState rdf:resource="&temporalModule;a_7888"/>
+    </galen:PhysicalState>
+    <galen:liquidState rdf:about="&temporalModule;a_5325"/>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_5343">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_12856"/>
+    </galen:ErythrocyteCount>
+    <galen:liquid rdf:about="&temporalModule;a_5444"/>
+    <galen:CountConcentration rdf:about="&temporalModule;a_5501">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_6804"/>
+    </galen:CountConcentration>
+    <galen:Platelet rdf:about="&temporalModule;a_5508">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_19624"/>
+    </galen:Platelet>
+    <galen:CountConcentration rdf:about="&temporalModule;a_554">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_17313"/>
+    </galen:CountConcentration>
+    <galen:Platelet rdf:about="&temporalModule;a_5553">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_12728"/>
+    </galen:Platelet>
+    <galen:PhysicalState rdf:about="&temporalModule;a_560">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_7775"/>
+    </galen:PhysicalState>
+    <galen:Blood rdf:about="&temporalModule;a_5613">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_5135"/>
+    </galen:Blood>
+    <galen:liquidState rdf:about="&temporalModule;a_5645"/>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_5689">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_19471"/>
+    </galen:WestergrenESRProcedure>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_5808">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_7284"/>
+    </galen:ErythrocyteCount>
+    <galen:ErythrocyteCountProcedure rdf:about="&temporalModule;a_5814">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_523"/>
+    </galen:ErythrocyteCountProcedure>
+    <galen:Blood rdf:about="&temporalModule;a_5863">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_19533"/>
+    </galen:Blood>
+    <galen:Blood rdf:about="&temporalModule;a_5881">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_8375"/>
+    </galen:Blood>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_5915">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_18666"/>
+    </galen:NeutrophilCount>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_5939">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_19945"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:BodyFluid rdf:about="&temporalModule;a_5950">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:BodyFluid>
+    <galen:NeutrophilCountProcedure rdf:about="&temporalModule;a_6031">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_17249"/>
+    </galen:NeutrophilCountProcedure>
+    <galen:Liquid rdf:about="&temporalModule;a_6081">
+        <rdf:type rdf:resource="&galen;Blood"/>
+    </galen:Liquid>
+    <galen:liquid rdf:about="&temporalModule;a_6090"/>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_6125"/>
+    <galen:Platelet rdf:about="&temporalModule;a_6175">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_526"/>
+    </galen:Platelet>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_619"/>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_62">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_16205"/>
+    </galen:ErythrocyteCount>
+    <galen:Platelet rdf:about="&temporalModule;a_6227">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_8246"/>
+    </galen:Platelet>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_6318">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_8444"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:Blood rdf:about="&temporalModule;a_6337">
+        <rdf:type rdf:resource="&galen;BodyFluid"/>
+    </galen:Blood>
+    <galen:Platelet rdf:about="&temporalModule;a_6371">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_19290"/>
+    </galen:Platelet>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_6385">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_13586"/>
+    </galen:LymphocyteCount>
+    <galen:liquid rdf:about="&temporalModule;a_6390"/>
+    <galen:CountConcentration rdf:about="&temporalModule;a_6520">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_9261"/>
+    </galen:CountConcentration>
+    <galen:liquid rdf:about="&temporalModule;a_6538"/>
+    <galen:Platelet rdf:about="&temporalModule;a_6546">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_10580"/>
+    </galen:Platelet>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_6615"/>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_6632">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_19261"/>
+    </galen:NeutrophilCount>
+    <galen:liquid rdf:about="&temporalModule;a_6633"/>
+    <galen:PhysicalState rdf:about="&temporalModule;a_6650">
+        <galen:hasState rdf:resource="&temporalModule;a_2262"/>
+    </galen:PhysicalState>
+    <galen:Platelet rdf:about="&temporalModule;a_668">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_4663"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_6737">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_2746"/>
+    </galen:Platelet>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_6785">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_7791"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:Platelet rdf:about="&temporalModule;a_6804">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_8600"/>
+    </galen:Platelet>
+    <galen:PlateletCount rdf:about="&temporalModule;a_686"/>
+    <galen:Platelet rdf:about="&temporalModule;a_689">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_18065"/>
+    </galen:Platelet>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_6899">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_13295"/>
+    </galen:InvestigationAct>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_6988">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_3088"/>
+    </galen:ErythrocyteCount>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_6990">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_12616"/>
+    </galen:ErythrocyteCount>
+    <galen:Platelet rdf:about="&temporalModule;a_7023">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_13106"/>
+    </galen:Platelet>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_7029">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_689"/>
+    </galen:LymphocyteCount>
+    <galen:Platelet rdf:about="&temporalModule;a_7045">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_8329"/>
+    </galen:Platelet>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_7103">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_12195"/>
+    </galen:ErythrocyteCount>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_7146">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_9447"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_7193">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_12327"/>
+    </galen:WestergrenESRProcedure>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_7197">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_11191"/>
+    </galen:ErythrocyteCount>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_7202">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_1873"/>
+    </galen:NeutrophilCount>
+    <galen:Blood rdf:about="&temporalModule;a_7215">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_3510"/>
+    </galen:Blood>
+    <galen:Platelet rdf:about="&temporalModule;a_7251">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_10853"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_7284">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_3520"/>
+    </galen:Platelet>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_7355">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_3395"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:liquid rdf:about="&temporalModule;a_7450"/>
+    <galen:PhysicalState rdf:about="&temporalModule;a_7655">
+        <galen:hasState rdf:resource="&temporalModule;a_5444"/>
+    </galen:PhysicalState>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_768">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_6227"/>
+    </galen:NeutrophilCount>
+    <galen:Platelet rdf:about="&temporalModule;a_7684">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_4305"/>
+    </galen:Platelet>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_7708">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_4457"/>
+    </galen:LymphocyteCount>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_7744">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_905"/>
+    </galen:ErythrocyteCount>
+    <galen:liquid rdf:about="&temporalModule;a_7775"/>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_7791">
+        <rdf:type rdf:resource="&galen;LymphocyteCount"/>
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_12805"/>
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_15123"/>
+    </galen:ErythrocyteCount>
+    <galen:Platelet rdf:about="&temporalModule;a_7803">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_11156"/>
+    </galen:Platelet>
+    <galen:ErythrocyteCountProcedure rdf:about="&temporalModule;a_7824">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_16272"/>
+    </galen:ErythrocyteCountProcedure>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_7826">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_4854"/>
+    </galen:LymphocyteCount>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_7837">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_5501"/>
+    </galen:InvestigationAct>
+    <galen:liquid rdf:about="&temporalModule;a_7888"/>
+    <galen:liquid rdf:about="&temporalModule;a_7902"/>
+    <galen:Blood rdf:about="&temporalModule;a_7903">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_18065"/>
+    </galen:Blood>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_7923">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_10881"/>
+    </galen:LymphocyteCount>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_7950"/>
+    <galen:Platelet rdf:about="&temporalModule;a_7951">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_10722"/>
+    </galen:Platelet>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_7960"/>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_7973">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_2817"/>
+    </galen:ErythrocyteCount>
+    <galen:Blood rdf:about="&temporalModule;a_7981">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_10601"/>
+    </galen:Blood>
+    <galen:Platelet rdf:about="&temporalModule;a_8034">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_18122"/>
+    </galen:Platelet>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_8036">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_5915"/>
+    </galen:WestergrenESRProcedure>
+    <galen:liquidState rdf:about="&temporalModule;a_8177"/>
+    <galen:Blood rdf:about="&temporalModule;a_8193">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_15692"/>
+    </galen:Blood>
+    <galen:Platelet rdf:about="&temporalModule;a_8212">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_953"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_8217">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_10678"/>
+    </galen:Platelet>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_8236">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_9048"/>
+    </galen:LymphocyteCount>
+    <galen:Blood rdf:about="&temporalModule;a_8246">
+        <rdf:type rdf:resource="&galen;Liquid"/>
+    </galen:Blood>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_8257">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_6990"/>
+    </galen:InvestigationAct>
+    <galen:Blood rdf:about="&temporalModule;a_8329">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_11558"/>
+    </galen:Blood>
+    <galen:Platelet rdf:about="&temporalModule;a_8372">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_1293"/>
+    </galen:Platelet>
+    <galen:PhysicalState rdf:about="&temporalModule;a_8375">
+        <galen:hasState rdf:resource="&temporalModule;a_17092"/>
+    </galen:PhysicalState>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_8430">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_8723"/>
+    </galen:LymphocyteCount>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_8444">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_18824"/>
+    </galen:NeutrophilCount>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_8515">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_9553"/>
+    </galen:WestergrenESRProcedure>
+    <galen:CountConcentration rdf:about="&temporalModule;a_8546">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_16027"/>
+    </galen:CountConcentration>
+    <galen:Blood rdf:about="&temporalModule;a_8600">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_9689"/>
+    </galen:Blood>
+    <galen:Blood rdf:about="&temporalModule;a_8601">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_16733"/>
+    </galen:Blood>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_8602">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_18729"/>
+    </galen:WestergrenESRProcedure>
+    <galen:HaemoglobinConcentrationProcedure rdf:about="&temporalModule;a_8657">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_686"/>
+    </galen:HaemoglobinConcentrationProcedure>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_8672">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_8546"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:Blood rdf:about="&temporalModule;a_8683">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_3848"/>
+    </galen:Blood>
+    <galen:liquid rdf:about="&temporalModule;a_8684"/>
+    <galen:Platelet rdf:about="&temporalModule;a_8723">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_5881"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_881">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_5613"/>
+    </galen:Platelet>
+    <galen:NeutrophilCount rdf:about="&temporalModule;a_8902">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_3219"/>
+    </galen:NeutrophilCount>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_8908">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_8430"/>
+    </galen:InvestigationAct>
+    <galen:Liquid rdf:about="&temporalModule;a_9009">
+        <rdf:type rdf:resource="&galen;Blood"/>
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_18954"/>
+    </galen:Liquid>
+    <galen:Blood rdf:about="&temporalModule;a_9015">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_53"/>
+    </galen:Blood>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_9026">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_7202"/>
+    </galen:InvestigationAct>
+    <galen:Platelet rdf:about="&temporalModule;a_9048">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_5001"/>
+    </galen:Platelet>
+    <galen:Platelet rdf:about="&temporalModule;a_905">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_17210"/>
+    </galen:Platelet>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_9070">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_7197"/>
+    </galen:InvestigationAct>
+    <galen:PhysicalState rdf:about="&temporalModule;a_9104">
+        <galen:hasState rdf:resource="&temporalModule;a_8684"/>
+    </galen:PhysicalState>
+    <galen:Blood rdf:about="&temporalModule;a_9124">
+        <rdf:type rdf:resource="&galen;Liquid"/>
+    </galen:Blood>
+    <galen:Platelet rdf:about="&temporalModule;a_9155">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_2470"/>
+    </galen:Platelet>
+    <galen:LymphocyteCountProcedure rdf:about="&temporalModule;a_9220">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_13284"/>
+    </galen:LymphocyteCountProcedure>
+    <galen:Platelet rdf:about="&temporalModule;a_9233">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_9362"/>
+    </galen:Platelet>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_9260"/>
+    <galen:Platelet rdf:about="&temporalModule;a_9261">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_17976"/>
+    </galen:Platelet>
+    <galen:ErythrocyteCountProcedure rdf:about="&temporalModule;a_9291">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_17001"/>
+    </galen:ErythrocyteCountProcedure>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_9362"/>
+    <galen:liquid rdf:about="&temporalModule;a_9373"/>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_9411">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_2286"/>
+    </galen:WestergrenESRProcedure>
+    <galen:liquidState rdf:about="&temporalModule;a_9424"/>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_9447">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_18254"/>
+    </galen:LymphocyteCount>
+    <galen:liquid rdf:about="&temporalModule;a_947"/>
+    <galen:Blood rdf:about="&temporalModule;a_9527">
+        <galen:hasPhysicalState rdf:resource="&temporalModule;a_2537"/>
+    </galen:Blood>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_953"/>
+    <galen:LiquidBlood rdf:about="&temporalModule;a_9530"/>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_9553">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_7684"/>
+    </galen:LymphocyteCount>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_9637">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_5508"/>
+    </galen:LymphocyteCount>
+    <galen:PhysicalState rdf:about="&temporalModule;a_9689">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_9373"/>
+    </galen:PhysicalState>
+    <galen:ErythrocyteCount rdf:about="&temporalModule;a_9727">
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_6546"/>
+    </galen:ErythrocyteCount>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_9740">
+        <rdf:type rdf:resource="&galen;LymphocyteCountProcedure"/>
+        <galen:isToDetermine rdf:resource="&temporalModule;a_4428"/>
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_881"/>
+    </galen:LymphocyteCount>
+    <galen:LymphocyteCount rdf:about="&temporalModule;a_9783">
+        <rdf:type rdf:resource="&galen;NeutrophilCountProcedure"/>
+        <galen:isToDetermine rdf:resource="&temporalModule;a_18272"/>
+        <galen:isCountConcentrationOf rdf:resource="&temporalModule;a_18514"/>
+    </galen:LymphocyteCount>
+    <galen:PhysicalState rdf:about="&temporalModule;a_9811">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_7450"/>
+    </galen:PhysicalState>
+    <galen:Platelet rdf:about="&temporalModule;a_9851">
+        <galen:isInSuspensionWithin rdf:resource="&temporalModule;a_18889"/>
+    </galen:Platelet>
+    <galen:WestergrenESRProcedure rdf:about="&temporalModule;a_9914">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_14588"/>
+    </galen:WestergrenESRProcedure>
+    <galen:liquid rdf:about="&temporalModule;a_9915"/>
+    <galen:InvestigationAct rdf:about="&temporalModule;a_9921">
+        <galen:isToDetermine rdf:resource="&temporalModule;a_16986"/>
+    </galen:InvestigationAct>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 0.9.2) http://owlapi.sourceforge.net -->
+

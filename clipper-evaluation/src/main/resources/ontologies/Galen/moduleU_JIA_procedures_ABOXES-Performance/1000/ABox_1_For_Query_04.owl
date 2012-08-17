@@ -1,0 +1,1404 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY galen "http://krono.act.uji.es/Links/ontologies/galen.owl#" >
+    <!ENTITY temporalModule "http://krono.act.uji.es/Links/ontologies/temporalModule.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://krono.act.uji.es/Links/ontologies/temporalModule.owl_ABox_1_Query_04#"
+     xml:base="http://krono.act.uji.es/Links/ontologies/temporalModule.owl_ABox_1_Query_04"
+     xmlns:galen="http://krono.act.uji.es/Links/ontologies/galen.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:temporalModule="http://krono.act.uji.es/Links/ontologies/temporalModule.owl#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="file:/Users/xiao/Documents/workspace/sygenia/examples/ontologies/Galen/moduleU_JIA_procedures.owl"/>
+    </owl:Ontology>
+    <owl:ObjectProperty rdf:about="&galen;hasQuantity"/>
+    <owl:ObjectProperty rdf:about="&galen;hasState"/>
+    <owl:ObjectProperty rdf:about="&galen;hasTopology"/>
+    <owl:Class rdf:about="&galen;BloodComponents"/>
+    <owl:Class rdf:about="&galen;Cell"/>
+    <owl:Class rdf:about="&galen;Device"/>
+    <owl:Class rdf:about="&galen;Erythrocyte"/>
+    <owl:Class rdf:about="&galen;HollowStructure"/>
+    <owl:Class rdf:about="&galen;ImagingDevice"/>
+    <owl:Class rdf:about="&galen;Lymphocyte"/>
+    <owl:Class rdf:about="&galen;MRIScanner"/>
+    <owl:Class rdf:about="&galen;MicroscopicStructure"/>
+    <owl:Class rdf:about="&galen;Neutrophil"/>
+    <owl:Class rdf:about="&galen;Platelet"/>
+    <owl:Class rdf:about="&galen;SolidStructure"/>
+    <owl:Class rdf:about="&galen;Topology"/>
+    <owl:Class rdf:about="&galen;XRayMachine"/>
+    <owl:Class rdf:about="&galen;hollow"/>
+    <owl:Class rdf:about="&galen;hollowTopology"/>
+    <galen:hollow rdf:about="&temporalModule;a_1001"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_1003">
+        <galen:hasTopology rdf:resource="&temporalModule;a_15723"/>
+    </galen:ImagingDevice>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_10039">
+        <galen:hasTopology rdf:resource="&temporalModule;a_3303"/>
+    </galen:MicroscopicStructure>
+    <galen:XRayMachine rdf:about="&temporalModule;a_10045">
+        <galen:hasTopology rdf:resource="&temporalModule;a_17106"/>
+    </galen:XRayMachine>
+    <galen:hollowTopology rdf:about="&temporalModule;a_10079"/>
+    <galen:HollowStructure rdf:about="&temporalModule;a_10105"/>
+    <galen:HollowStructure rdf:about="&temporalModule;a_10118"/>
+    <galen:Device rdf:about="&temporalModule;a_10135">
+        <galen:hasTopology rdf:resource="&temporalModule;a_3901"/>
+    </galen:Device>
+    <galen:hollow rdf:about="&temporalModule;a_10137"/>
+    <galen:hollow rdf:about="&temporalModule;a_10171"/>
+    <galen:Platelet rdf:about="&temporalModule;a_10181"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_10197">
+        <galen:hasTopology rdf:resource="&temporalModule;a_3266"/>
+    </galen:SolidStructure>
+    <galen:SolidStructure rdf:about="&temporalModule;a_10247">
+        <galen:hasTopology rdf:resource="&temporalModule;a_846"/>
+    </galen:SolidStructure>
+    <galen:hollow rdf:about="&temporalModule;a_10271"/>
+    <galen:Topology rdf:about="&temporalModule;a_10282">
+        <rdf:type rdf:resource="&galen;Lymphocyte"/>
+        <galen:hasState rdf:resource="&temporalModule;a_3712"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_1030">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_4372"/>
+    </galen:Topology>
+    <galen:Neutrophil rdf:about="&temporalModule;a_10348"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_10388">
+        <galen:hasTopology rdf:resource="&temporalModule;a_4446"/>
+    </galen:ImagingDevice>
+    <galen:hollow rdf:about="&temporalModule;a_10390"/>
+    <galen:Topology rdf:about="&temporalModule;a_10417">
+        <galen:hasState rdf:resource="&temporalModule;a_14456"/>
+    </galen:Topology>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_10421">
+        <galen:hasTopology rdf:resource="&temporalModule;a_5018"/>
+    </galen:MicroscopicStructure>
+    <galen:hollowTopology rdf:about="&temporalModule;a_10437"/>
+    <galen:Topology rdf:about="&temporalModule;a_10459">
+        <galen:hasState rdf:resource="&temporalModule;a_11269"/>
+    </galen:Topology>
+    <galen:SolidStructure rdf:about="&temporalModule;a_10462">
+        <galen:hasTopology rdf:resource="&temporalModule;a_16776"/>
+    </galen:SolidStructure>
+    <galen:hollow rdf:about="&temporalModule;a_10525"/>
+    <galen:MRIScanner rdf:about="&temporalModule;a_10546">
+        <galen:hasTopology rdf:resource="&temporalModule;a_11619"/>
+    </galen:MRIScanner>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_1055">
+        <galen:hasTopology rdf:resource="&temporalModule;a_2677"/>
+    </galen:ImagingDevice>
+    <galen:Lymphocyte rdf:about="&temporalModule;a_10582"/>
+    <galen:Device rdf:about="&temporalModule;a_10592">
+        <galen:hasTopology rdf:resource="&temporalModule;a_3880"/>
+    </galen:Device>
+    <galen:SolidStructure rdf:about="&temporalModule;a_10631">
+        <galen:hasTopology rdf:resource="&temporalModule;a_10703"/>
+    </galen:SolidStructure>
+    <galen:hollow rdf:about="&temporalModule;a_10638"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_10639"/>
+    <galen:hollow rdf:about="&temporalModule;a_10699"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_10703"/>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_10771">
+        <galen:hasTopology rdf:resource="&temporalModule;a_4999"/>
+    </galen:MicroscopicStructure>
+    <galen:Platelet rdf:about="&temporalModule;a_10830"/>
+    <galen:XRayMachine rdf:about="&temporalModule;a_10868">
+        <galen:hasTopology rdf:resource="&temporalModule;a_18553"/>
+    </galen:XRayMachine>
+    <galen:hollow rdf:about="&temporalModule;a_10875"/>
+    <galen:hollow rdf:about="&temporalModule;a_10880"/>
+    <galen:Platelet rdf:about="&temporalModule;a_10903"/>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_10916">
+        <galen:hasTopology rdf:resource="&temporalModule;a_18354"/>
+    </galen:MicroscopicStructure>
+    <galen:Topology rdf:about="&temporalModule;a_10922">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_13203"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_10941"/>
+    <galen:Topology rdf:about="&temporalModule;a_10948">
+        <galen:hasState rdf:resource="&temporalModule;a_1521"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_10993">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_18268"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_10997">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_11469"/>
+    </galen:Topology>
+    <galen:Erythrocyte rdf:about="&temporalModule;a_11001"/>
+    <galen:hollow rdf:about="&temporalModule;a_1107"/>
+    <galen:Device rdf:about="&temporalModule;a_11091">
+        <galen:hasTopology rdf:resource="&temporalModule;a_3050"/>
+    </galen:Device>
+    <galen:hollow rdf:about="&temporalModule;a_11113"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_11148"/>
+    <galen:XRayMachine rdf:about="&temporalModule;a_11208">
+        <galen:hasTopology rdf:resource="&temporalModule;a_10437"/>
+    </galen:XRayMachine>
+    <galen:hollowTopology rdf:about="&temporalModule;a_11236"/>
+    <galen:hollow rdf:about="&temporalModule;a_11269"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_11301">
+        <galen:hasTopology rdf:resource="&temporalModule;a_838"/>
+    </galen:SolidStructure>
+    <galen:Device rdf:about="&temporalModule;a_11304">
+        <galen:hasTopology rdf:resource="&temporalModule;a_3929"/>
+    </galen:Device>
+    <galen:Topology rdf:about="&temporalModule;a_11312">
+        <galen:hasState rdf:resource="&temporalModule;a_195"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_11318"/>
+    <galen:MRIScanner rdf:about="&temporalModule;a_11342">
+        <galen:hasTopology rdf:resource="&temporalModule;a_6577"/>
+    </galen:MRIScanner>
+    <galen:hollow rdf:about="&temporalModule;a_11346"/>
+    <galen:Topology rdf:about="&temporalModule;a_11348">
+        <galen:hasState rdf:resource="&temporalModule;a_8625"/>
+    </galen:Topology>
+    <galen:XRayMachine rdf:about="&temporalModule;a_11364">
+        <galen:hasTopology rdf:resource="&temporalModule;a_16610"/>
+    </galen:XRayMachine>
+    <galen:SolidStructure rdf:about="&temporalModule;a_1140">
+        <galen:hasTopology rdf:resource="&temporalModule;a_2249"/>
+    </galen:SolidStructure>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_11406">
+        <galen:hasTopology rdf:resource="&temporalModule;a_5501"/>
+    </galen:ImagingDevice>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_11429">
+        <galen:hasTopology rdf:resource="&temporalModule;a_19060"/>
+    </galen:MicroscopicStructure>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_11453">
+        <galen:hasTopology rdf:resource="&temporalModule;a_10282"/>
+    </galen:ImagingDevice>
+    <galen:SolidStructure rdf:about="&temporalModule;a_11454">
+        <galen:hasTopology rdf:resource="&temporalModule;a_15966"/>
+    </galen:SolidStructure>
+    <galen:hollow rdf:about="&temporalModule;a_11464"/>
+    <galen:hollow rdf:about="&temporalModule;a_11469"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_1152"/>
+    <galen:hollow rdf:about="&temporalModule;a_11530"/>
+    <galen:MRIScanner rdf:about="&temporalModule;a_11548">
+        <galen:hasTopology rdf:resource="&temporalModule;a_18896"/>
+    </galen:MRIScanner>
+    <galen:Neutrophil rdf:about="&temporalModule;a_11613"/>
+    <galen:Topology rdf:about="&temporalModule;a_11619">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_12716"/>
+    </galen:Topology>
+    <galen:MRIScanner rdf:about="&temporalModule;a_117">
+        <galen:hasTopology rdf:resource="&temporalModule;a_1843"/>
+    </galen:MRIScanner>
+    <galen:Erythrocyte rdf:about="&temporalModule;a_1170">
+        <rdf:type rdf:resource="&galen;hollowTopology"/>
+    </galen:Erythrocyte>
+    <galen:hollowTopology rdf:about="&temporalModule;a_11718"/>
+    <galen:Topology rdf:about="&temporalModule;a_11726">
+        <galen:hasState rdf:resource="&temporalModule;a_9331"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_11784"/>
+    <galen:hollow rdf:about="&temporalModule;a_11795"/>
+    <galen:hollow rdf:about="&temporalModule;a_11806"/>
+    <galen:Neutrophil rdf:about="&temporalModule;a_1182"/>
+    <galen:hollow rdf:about="&temporalModule;a_11834"/>
+    <galen:Topology rdf:about="&temporalModule;a_11858">
+        <galen:hasState rdf:resource="&temporalModule;a_11346"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_11877"/>
+    <galen:Device rdf:about="&temporalModule;a_1189">
+        <galen:hasTopology rdf:resource="&temporalModule;a_12147"/>
+    </galen:Device>
+    <galen:hollowTopology rdf:about="&temporalModule;a_11931"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_11940">
+        <galen:hasTopology rdf:resource="&temporalModule;a_3020"/>
+    </galen:ImagingDevice>
+    <galen:hollow rdf:about="&temporalModule;a_12022"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_1206">
+        <galen:hasTopology rdf:resource="&temporalModule;a_4044"/>
+    </galen:SolidStructure>
+    <galen:Topology rdf:about="&temporalModule;a_12062">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_2584"/>
+    </galen:Topology>
+    <galen:XRayMachine rdf:about="&temporalModule;a_12089">
+        <galen:hasTopology rdf:resource="&temporalModule;a_3733"/>
+    </galen:XRayMachine>
+    <galen:Topology rdf:about="&temporalModule;a_12090">
+        <galen:hasState rdf:resource="&temporalModule;a_17326"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_12111"/>
+    <galen:hollow rdf:about="&temporalModule;a_12131"/>
+    <galen:Topology rdf:about="&temporalModule;a_12147">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_9772"/>
+    </galen:Topology>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_12342">
+        <galen:hasTopology rdf:resource="&temporalModule;a_169"/>
+    </galen:ImagingDevice>
+    <galen:Topology rdf:about="&temporalModule;a_12367">
+        <galen:hasState rdf:resource="&temporalModule;a_17337"/>
+    </galen:Topology>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_12376">
+        <galen:hasTopology rdf:resource="&temporalModule;a_7562"/>
+    </galen:MicroscopicStructure>
+    <galen:hollow rdf:about="&temporalModule;a_12427"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_12443">
+        <rdf:type rdf:resource="&galen;MRIScanner"/>
+        <galen:hasTopology rdf:resource="&temporalModule;a_565"/>
+    </galen:hollowTopology>
+    <galen:Device rdf:about="&temporalModule;a_12470">
+        <galen:hasTopology rdf:resource="&temporalModule;a_13135"/>
+    </galen:Device>
+    <galen:hollow rdf:about="&temporalModule;a_12476"/>
+    <galen:hollow rdf:about="&temporalModule;a_12522"/>
+    <galen:Neutrophil rdf:about="&temporalModule;a_12583"/>
+    <galen:Device rdf:about="&temporalModule;a_12615">
+        <galen:hasTopology rdf:resource="&temporalModule;a_6302"/>
+    </galen:Device>
+    <galen:hollow rdf:about="&temporalModule;a_12700"/>
+    <galen:hollow rdf:about="&temporalModule;a_12716"/>
+    <galen:Topology rdf:about="&temporalModule;a_12760">
+        <galen:hasState rdf:resource="&temporalModule;a_11318"/>
+    </galen:Topology>
+    <galen:Device rdf:about="&temporalModule;a_12769">
+        <galen:hasTopology rdf:resource="&temporalModule;a_5548"/>
+    </galen:Device>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_1278">
+        <galen:hasTopology rdf:resource="&temporalModule;a_12913"/>
+    </galen:MicroscopicStructure>
+    <galen:Device rdf:about="&temporalModule;a_12815">
+        <galen:hasTopology rdf:resource="&temporalModule;a_3652"/>
+    </galen:Device>
+    <galen:MRIScanner rdf:about="&temporalModule;a_12840">
+        <galen:hasTopology rdf:resource="&temporalModule;a_4958"/>
+    </galen:MRIScanner>
+    <galen:Topology rdf:about="&temporalModule;a_12848">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_10638"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_12889"/>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_12904">
+        <galen:hasTopology rdf:resource="&temporalModule;a_5813"/>
+    </galen:MicroscopicStructure>
+    <galen:Topology rdf:about="&temporalModule;a_12911">
+        <galen:hasState rdf:resource="&temporalModule;a_16208"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_12913">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_3017"/>
+    </galen:Topology>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_1293">
+        <galen:hasTopology rdf:resource="&temporalModule;a_15719"/>
+    </galen:ImagingDevice>
+    <galen:hollow rdf:about="&temporalModule;a_12963"/>
+    <galen:Erythrocyte rdf:about="&temporalModule;a_12999"/>
+    <galen:Topology rdf:about="&temporalModule;a_13040">
+        <galen:hasState rdf:resource="&temporalModule;a_1991"/>
+    </galen:Topology>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_13048">
+        <galen:hasTopology rdf:resource="&temporalModule;a_2019"/>
+    </galen:ImagingDevice>
+    <galen:MRIScanner rdf:about="&temporalModule;a_13055">
+        <galen:hasTopology rdf:resource="&temporalModule;a_12367"/>
+    </galen:MRIScanner>
+    <galen:XRayMachine rdf:about="&temporalModule;a_13121">
+        <galen:hasTopology rdf:resource="&temporalModule;a_9280"/>
+    </galen:XRayMachine>
+    <galen:Topology rdf:about="&temporalModule;a_13135">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_1757"/>
+    </galen:Topology>
+    <galen:Platelet rdf:about="&temporalModule;a_13155"/>
+    <galen:Device rdf:about="&temporalModule;a_13158">
+        <galen:hasTopology rdf:resource="&temporalModule;a_3955"/>
+    </galen:Device>
+    <galen:hollow rdf:about="&temporalModule;a_13203"/>
+    <galen:BloodComponents rdf:about="&temporalModule;a_13306"/>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_13328">
+        <galen:hasTopology rdf:resource="&temporalModule;a_16240"/>
+    </galen:MicroscopicStructure>
+    <galen:MRIScanner rdf:about="&temporalModule;a_13333">
+        <galen:hasTopology rdf:resource="&temporalModule;a_2262"/>
+    </galen:MRIScanner>
+    <galen:Topology rdf:about="&temporalModule;a_13357">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_11834"/>
+    </galen:Topology>
+    <galen:Cell rdf:about="&temporalModule;a_13365">
+        <rdf:type rdf:resource="&galen;SolidStructure"/>
+        <galen:hasTopology rdf:resource="&temporalModule;a_7073"/>
+    </galen:Cell>
+    <galen:hollow rdf:about="&temporalModule;a_13427"/>
+    <galen:Topology rdf:about="&temporalModule;a_13450">
+        <galen:hasState rdf:resource="&temporalModule;a_9345"/>
+    </galen:Topology>
+    <galen:XRayMachine rdf:about="&temporalModule;a_13456">
+        <galen:hasTopology rdf:resource="&temporalModule;a_14301"/>
+    </galen:XRayMachine>
+    <galen:Topology rdf:about="&temporalModule;a_13459">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_7944"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_13554">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_3128"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_1363"/>
+    <galen:BloodComponents rdf:about="&temporalModule;a_13641"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_13647"/>
+    <galen:Topology rdf:about="&temporalModule;a_13657">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_9340"/>
+    </galen:Topology>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_13662">
+        <galen:hasTopology rdf:resource="&temporalModule;a_10079"/>
+    </galen:MicroscopicStructure>
+    <galen:Topology rdf:about="&temporalModule;a_13721">
+        <galen:hasState rdf:resource="&temporalModule;a_1952"/>
+    </galen:Topology>
+    <galen:Lymphocyte rdf:about="&temporalModule;a_13725"/>
+    <galen:XRayMachine rdf:about="&temporalModule;a_1373">
+        <galen:hasTopology rdf:resource="&temporalModule;a_3910"/>
+    </galen:XRayMachine>
+    <galen:HollowStructure rdf:about="&temporalModule;a_13735"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_13774"/>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_13784">
+        <galen:hasTopology rdf:resource="&temporalModule;a_18748"/>
+    </galen:MicroscopicStructure>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_13805">
+        <galen:hasTopology rdf:resource="&temporalModule;a_6825"/>
+    </galen:ImagingDevice>
+    <galen:Topology rdf:about="&temporalModule;a_13849">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_19214"/>
+    </galen:Topology>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_13879">
+        <galen:hasTopology rdf:resource="&temporalModule;a_18387"/>
+    </galen:ImagingDevice>
+    <galen:Topology rdf:about="&temporalModule;a_13945">
+        <galen:hasState rdf:resource="&temporalModule;a_19044"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_14010">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_9579"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_14030"/>
+    <galen:hollow rdf:about="&temporalModule;a_14052"/>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_14093">
+        <galen:hasTopology rdf:resource="&temporalModule;a_7786"/>
+    </galen:MicroscopicStructure>
+    <galen:Topology rdf:about="&temporalModule;a_14200">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_17476"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_14280"/>
+    <galen:HollowStructure rdf:about="&temporalModule;a_14289"/>
+    <galen:Topology rdf:about="&temporalModule;a_14301">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_1107"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_14314">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_2181"/>
+    </galen:Topology>
+    <galen:Cell rdf:about="&temporalModule;a_14344"/>
+    <galen:XRayMachine rdf:about="&temporalModule;a_14450">
+        <galen:hasTopology rdf:resource="&temporalModule;a_13450"/>
+    </galen:XRayMachine>
+    <galen:Topology rdf:about="&temporalModule;a_14452">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_12963"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_14456"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_14469">
+        <galen:hasTopology rdf:resource="&temporalModule;a_15739"/>
+    </galen:SolidStructure>
+    <galen:SolidStructure rdf:about="&temporalModule;a_14498">
+        <galen:hasTopology rdf:resource="&temporalModule;a_5167"/>
+    </galen:SolidStructure>
+    <galen:SolidStructure rdf:about="&temporalModule;a_14592">
+        <galen:hasTopology rdf:resource="&temporalModule;a_16157"/>
+    </galen:SolidStructure>
+    <galen:XRayMachine rdf:about="&temporalModule;a_14623">
+        <galen:hasTopology rdf:resource="&temporalModule;a_2987"/>
+    </galen:XRayMachine>
+    <galen:Topology rdf:about="&temporalModule;a_14655">
+        <galen:hasState rdf:resource="&temporalModule;a_8883"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_14690"/>
+    <galen:BloodComponents rdf:about="&temporalModule;a_14692"/>
+    <galen:MRIScanner rdf:about="&temporalModule;a_14723">
+        <galen:hasTopology rdf:resource="&temporalModule;a_16413"/>
+    </galen:MRIScanner>
+    <galen:Neutrophil rdf:about="&temporalModule;a_14790"/>
+    <galen:Device rdf:about="&temporalModule;a_14819">
+        <galen:hasTopology rdf:resource="&temporalModule;a_19424"/>
+    </galen:Device>
+    <galen:Neutrophil rdf:about="&temporalModule;a_1491">
+        <rdf:type rdf:resource="&galen;Device"/>
+        <galen:hasTopology rdf:resource="&temporalModule;a_3771"/>
+    </galen:Neutrophil>
+    <galen:Topology rdf:about="&temporalModule;a_14942">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_12700"/>
+    </galen:Topology>
+    <galen:Erythrocyte rdf:about="&temporalModule;a_14949"/>
+    <galen:Topology rdf:about="&temporalModule;a_14953">
+        <galen:hasState rdf:resource="&temporalModule;a_12022"/>
+    </galen:Topology>
+    <galen:MRIScanner rdf:about="&temporalModule;a_14966">
+        <galen:hasTopology rdf:resource="&temporalModule;a_8034"/>
+    </galen:MRIScanner>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_15117">
+        <galen:hasTopology rdf:resource="&temporalModule;a_7863"/>
+    </galen:MicroscopicStructure>
+    <galen:Topology rdf:about="&temporalModule;a_15135">
+        <galen:hasState rdf:resource="&temporalModule;a_14280"/>
+    </galen:Topology>
+    <galen:Device rdf:about="&temporalModule;a_15150">
+        <galen:hasTopology rdf:resource="&temporalModule;a_5351"/>
+    </galen:Device>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_15164">
+        <galen:hasTopology rdf:resource="&temporalModule;a_14010"/>
+    </galen:MicroscopicStructure>
+    <galen:hollow rdf:about="&temporalModule;a_1521"/>
+    <galen:hollow rdf:about="&temporalModule;a_15288"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_15347"/>
+    <galen:hollow rdf:about="&temporalModule;a_15368"/>
+    <galen:XRayMachine rdf:about="&temporalModule;a_15420">
+        <galen:hasTopology rdf:resource="&temporalModule;a_16162"/>
+    </galen:XRayMachine>
+    <galen:Topology rdf:about="&temporalModule;a_15421">
+        <galen:hasState rdf:resource="&temporalModule;a_19278"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_15424"/>
+    <galen:HollowStructure rdf:about="&temporalModule;a_15500"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_15575">
+        <galen:hasTopology rdf:resource="&temporalModule;a_2969"/>
+    </galen:SolidStructure>
+    <galen:Erythrocyte rdf:about="&temporalModule;a_15579"/>
+    <galen:Device rdf:about="&temporalModule;a_15597">
+        <galen:hasTopology rdf:resource="&temporalModule;a_11877"/>
+    </galen:Device>
+    <galen:Erythrocyte rdf:about="&temporalModule;a_15608"/>
+    <galen:Device rdf:about="&temporalModule;a_15681">
+        <galen:hasTopology rdf:resource="&temporalModule;a_15781"/>
+    </galen:Device>
+    <galen:Device rdf:about="&temporalModule;a_15699">
+        <galen:hasTopology rdf:resource="&temporalModule;a_18221"/>
+    </galen:Device>
+    <galen:hollowTopology rdf:about="&temporalModule;a_15719"/>
+    <galen:Topology rdf:about="&temporalModule;a_15723">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_2082"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_15739"/>
+    <galen:hollow rdf:about="&temporalModule;a_15761"/>
+    <galen:Topology rdf:about="&temporalModule;a_15781">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_5047"/>
+    </galen:Topology>
+    <galen:BloodComponents rdf:about="&temporalModule;a_15843"/>
+    <galen:MRIScanner rdf:about="&temporalModule;a_15873">
+        <galen:hasTopology rdf:resource="&temporalModule;a_13945"/>
+    </galen:MRIScanner>
+    <galen:MRIScanner rdf:about="&temporalModule;a_15880">
+        <galen:hasTopology rdf:resource="&temporalModule;a_16238"/>
+    </galen:MRIScanner>
+    <galen:hollowTopology rdf:about="&temporalModule;a_15966"/>
+    <galen:BloodComponents rdf:about="&temporalModule;a_15978"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_15985">
+        <galen:hasTopology rdf:resource="&temporalModule;a_7585"/>
+    </galen:ImagingDevice>
+    <galen:hollow rdf:about="&temporalModule;a_16079"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_16092">
+        <galen:hasTopology rdf:resource="&temporalModule;a_13657"/>
+    </galen:SolidStructure>
+    <galen:Topology rdf:about="&temporalModule;a_16155">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_4582"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_16156">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_11530"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_16157"/>
+    <galen:Topology rdf:about="&temporalModule;a_16162">
+        <galen:hasState rdf:resource="&temporalModule;a_10880"/>
+    </galen:Topology>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_16167">
+        <galen:hasTopology rdf:resource="&temporalModule;a_16367"/>
+    </galen:MicroscopicStructure>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_16196">
+        <galen:hasTopology rdf:resource="&temporalModule;a_17954"/>
+    </galen:MicroscopicStructure>
+    <galen:hollow rdf:about="&temporalModule;a_16208"/>
+    <galen:Topology rdf:about="&temporalModule;a_16238">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_17335"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_16240">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_2776"/>
+    </galen:Topology>
+    <galen:SolidStructure rdf:about="&temporalModule;a_16264">
+        <galen:hasTopology rdf:resource="&temporalModule;a_11236"/>
+    </galen:SolidStructure>
+    <galen:hollowTopology rdf:about="&temporalModule;a_16269"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_16357">
+        <galen:hasTopology rdf:resource="&temporalModule;a_10922"/>
+    </galen:SolidStructure>
+    <galen:hollow rdf:about="&temporalModule;a_16366"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_16367"/>
+    <galen:Topology rdf:about="&temporalModule;a_16413">
+        <galen:hasState rdf:resource="&temporalModule;a_10941"/>
+    </galen:Topology>
+    <galen:BloodComponents rdf:about="&temporalModule;a_16470"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_16489">
+        <galen:hasTopology rdf:resource="&temporalModule;a_16155"/>
+    </galen:SolidStructure>
+    <galen:SolidStructure rdf:about="&temporalModule;a_16528">
+        <galen:hasTopology rdf:resource="&temporalModule;a_12760"/>
+    </galen:SolidStructure>
+    <galen:Topology rdf:about="&temporalModule;a_16559">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_2482"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_16610">
+        <galen:hasState rdf:resource="&temporalModule;a_4988"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_16637">
+        <galen:hasState rdf:resource="&temporalModule;a_11795"/>
+    </galen:Topology>
+    <galen:Platelet rdf:about="&temporalModule;a_16642"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_16661"/>
+    <galen:Device rdf:about="&temporalModule;a_16679">
+        <galen:hasTopology rdf:resource="&temporalModule;a_2854"/>
+    </galen:Device>
+    <galen:Topology rdf:about="&temporalModule;a_16776">
+        <galen:hasState rdf:resource="&temporalModule;a_513"/>
+    </galen:Topology>
+    <galen:XRayMachine rdf:about="&temporalModule;a_1681">
+        <galen:hasTopology rdf:resource="&temporalModule;a_17126"/>
+    </galen:XRayMachine>
+    <galen:hollow rdf:about="&temporalModule;a_16810"/>
+    <galen:MRIScanner rdf:about="&temporalModule;a_16822">
+        <rdf:type rdf:resource="&galen;SolidStructure"/>
+        <galen:hasTopology rdf:resource="&temporalModule;a_12911"/>
+        <galen:hasTopology rdf:resource="&temporalModule;a_14314"/>
+    </galen:MRIScanner>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_16826">
+        <galen:hasTopology rdf:resource="&temporalModule;a_13459"/>
+    </galen:MicroscopicStructure>
+    <galen:Lymphocyte rdf:about="&temporalModule;a_16888"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_169"/>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_16904">
+        <galen:hasTopology rdf:resource="&temporalModule;a_2664"/>
+    </galen:MicroscopicStructure>
+    <galen:Device rdf:about="&temporalModule;a_16931">
+        <galen:hasTopology rdf:resource="&temporalModule;a_4067"/>
+    </galen:Device>
+    <galen:Topology rdf:about="&temporalModule;a_16955">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_4141"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_17034"/>
+    <galen:hollow rdf:about="&temporalModule;a_17070"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_17101"/>
+    <galen:Topology rdf:about="&temporalModule;a_17106">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_5605"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_17126">
+        <galen:hasState rdf:resource="&temporalModule;a_6934"/>
+    </galen:Topology>
+    <galen:BloodComponents rdf:about="&temporalModule;a_17154"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_17194">
+        <galen:hasTopology rdf:resource="&temporalModule;a_5115"/>
+    </galen:SolidStructure>
+    <galen:Topology rdf:about="&temporalModule;a_17211">
+        <galen:hasState rdf:resource="&temporalModule;a_2316"/>
+    </galen:Topology>
+    <galen:MRIScanner rdf:about="&temporalModule;a_17225">
+        <galen:hasTopology rdf:resource="&temporalModule;a_9463"/>
+    </galen:MRIScanner>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_17250">
+        <galen:hasTopology rdf:resource="&temporalModule;a_16269"/>
+    </galen:MicroscopicStructure>
+    <galen:XRayMachine rdf:about="&temporalModule;a_17325">
+        <galen:hasTopology rdf:resource="&temporalModule;a_14942"/>
+    </galen:XRayMachine>
+    <galen:hollow rdf:about="&temporalModule;a_17326"/>
+    <galen:hollow rdf:about="&temporalModule;a_17335"/>
+    <galen:hollow rdf:about="&temporalModule;a_17337"/>
+    <galen:Topology rdf:about="&temporalModule;a_17361">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_4281"/>
+    </galen:Topology>
+    <galen:Cell rdf:about="&temporalModule;a_17406"/>
+    <galen:hollow rdf:about="&temporalModule;a_17476"/>
+    <galen:Neutrophil rdf:about="&temporalModule;a_17487"/>
+    <galen:Cell rdf:about="&temporalModule;a_17503"/>
+    <galen:Platelet rdf:about="&temporalModule;a_17551"/>
+    <galen:hollow rdf:about="&temporalModule;a_1757"/>
+    <galen:Platelet rdf:about="&temporalModule;a_17685"/>
+    <galen:Topology rdf:about="&temporalModule;a_17693">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_5329"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_17729"/>
+    <galen:Topology rdf:about="&temporalModule;a_17765">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_4811"/>
+    </galen:Topology>
+    <galen:Erythrocyte rdf:about="&temporalModule;a_17804"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_17824">
+        <galen:hasTopology rdf:resource="&temporalModule;a_15347"/>
+    </galen:ImagingDevice>
+    <galen:MRIScanner rdf:about="&temporalModule;a_1783">
+        <galen:hasTopology rdf:resource="&temporalModule;a_15135"/>
+    </galen:MRIScanner>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_17880">
+        <galen:hasTopology rdf:resource="&temporalModule;a_9677"/>
+    </galen:MicroscopicStructure>
+    <galen:hollowTopology rdf:about="&temporalModule;a_17954"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_18016">
+        <galen:hasTopology rdf:resource="&temporalModule;a_7015"/>
+    </galen:ImagingDevice>
+    <galen:hollow rdf:about="&temporalModule;a_18046"/>
+    <galen:Platelet rdf:about="&temporalModule;a_1807"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_18112">
+        <galen:hasTopology rdf:resource="&temporalModule;a_10459"/>
+    </galen:ImagingDevice>
+    <galen:Topology rdf:about="&temporalModule;a_18221">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_3091"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_18223">
+        <galen:hasState rdf:resource="&temporalModule;a_6066"/>
+    </galen:Topology>
+    <galen:BloodComponents rdf:about="&temporalModule;a_18265"/>
+    <galen:hollow rdf:about="&temporalModule;a_18268"/>
+    <galen:Topology rdf:about="&temporalModule;a_18278">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_7301"/>
+    </galen:Topology>
+    <galen:Neutrophil rdf:about="&temporalModule;a_18295"/>
+    <galen:Topology rdf:about="&temporalModule;a_18354">
+        <galen:hasState rdf:resource="&temporalModule;a_6185"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_18387"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_1843"/>
+    <galen:hollow rdf:about="&temporalModule;a_18451"/>
+    <galen:Topology rdf:about="&temporalModule;a_18553">
+        <galen:hasState rdf:resource="&temporalModule;a_17729"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_18661"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_18673">
+        <galen:hasTopology rdf:resource="&temporalModule;a_1960"/>
+    </galen:SolidStructure>
+    <galen:XRayMachine rdf:about="&temporalModule;a_18692">
+        <galen:hasTopology rdf:resource="&temporalModule;a_13774"/>
+    </galen:XRayMachine>
+    <galen:hollow rdf:about="&temporalModule;a_18701"/>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_18714">
+        <galen:hasTopology rdf:resource="&temporalModule;a_4760"/>
+    </galen:MicroscopicStructure>
+    <galen:hollowTopology rdf:about="&temporalModule;a_18748"/>
+    <galen:Cell rdf:about="&temporalModule;a_18799"/>
+    <galen:Cell rdf:about="&temporalModule;a_18812"/>
+    <galen:hollow rdf:about="&temporalModule;a_18825"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_18838">
+        <galen:hasTopology rdf:resource="&temporalModule;a_498"/>
+    </galen:ImagingDevice>
+    <galen:hollowTopology rdf:about="&temporalModule;a_18865"/>
+    <galen:Topology rdf:about="&temporalModule;a_18896">
+        <galen:hasState rdf:resource="&temporalModule;a_18701"/>
+    </galen:Topology>
+    <galen:Platelet rdf:about="&temporalModule;a_18920"/>
+    <galen:XRayMachine rdf:about="&temporalModule;a_1897">
+        <galen:hasTopology rdf:resource="&temporalModule;a_7480"/>
+    </galen:XRayMachine>
+    <galen:hollow rdf:about="&temporalModule;a_19044"/>
+    <galen:Topology rdf:about="&temporalModule;a_19060">
+        <galen:hasState rdf:resource="&temporalModule;a_6373"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_19071"/>
+    <galen:Device rdf:about="&temporalModule;a_19078">
+        <galen:hasTopology rdf:resource="&temporalModule;a_3249"/>
+    </galen:Device>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_19128">
+        <galen:hasTopology rdf:resource="&temporalModule;a_8941"/>
+    </galen:MicroscopicStructure>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_19140">
+        <galen:hasTopology rdf:resource="&temporalModule;a_16559"/>
+    </galen:ImagingDevice>
+    <galen:hollow rdf:about="&temporalModule;a_19172"/>
+    <galen:Cell rdf:about="&temporalModule;a_192"/>
+    <galen:hollow rdf:about="&temporalModule;a_19214"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_1926">
+        <galen:hasTopology rdf:resource="&temporalModule;a_4894"/>
+    </galen:SolidStructure>
+    <galen:hollow rdf:about="&temporalModule;a_19278"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_19313">
+        <galen:hasTopology rdf:resource="&temporalModule;a_13849"/>
+    </galen:SolidStructure>
+    <galen:hollowTopology rdf:about="&temporalModule;a_19424"/>
+    <galen:hollow rdf:about="&temporalModule;a_19443"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_19451"/>
+    <galen:hollow rdf:about="&temporalModule;a_195"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_19508"/>
+    <galen:hollow rdf:about="&temporalModule;a_1952"/>
+    <galen:Neutrophil rdf:about="&temporalModule;a_19550"/>
+    <galen:HollowStructure rdf:about="&temporalModule;a_19554"/>
+    <galen:hollow rdf:about="&temporalModule;a_19566"/>
+    <galen:hollow rdf:about="&temporalModule;a_1958"/>
+    <galen:Topology rdf:about="&temporalModule;a_1960">
+        <galen:hasState rdf:resource="&temporalModule;a_4164"/>
+    </galen:Topology>
+    <galen:MRIScanner rdf:about="&temporalModule;a_19635">
+        <galen:hasTopology rdf:resource="&temporalModule;a_13554"/>
+    </galen:MRIScanner>
+    <galen:hollow rdf:about="&temporalModule;a_19636"/>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_19648">
+        <galen:hasTopology rdf:resource="&temporalModule;a_4117"/>
+    </galen:MicroscopicStructure>
+    <galen:XRayMachine rdf:about="&temporalModule;a_19681">
+        <galen:hasTopology rdf:resource="&temporalModule;a_10997"/>
+    </galen:XRayMachine>
+    <galen:Lymphocyte rdf:about="&temporalModule;a_19682"/>
+    <galen:MRIScanner rdf:about="&temporalModule;a_19757">
+        <galen:hasTopology rdf:resource="&temporalModule;a_60"/>
+    </galen:MRIScanner>
+    <galen:Device rdf:about="&temporalModule;a_19788">
+        <galen:hasTopology rdf:resource="&temporalModule;a_13040"/>
+    </galen:Device>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_19829">
+        <galen:hasTopology rdf:resource="&temporalModule;a_13721"/>
+    </galen:ImagingDevice>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_19853">
+        <galen:hasTopology rdf:resource="&temporalModule;a_14200"/>
+    </galen:ImagingDevice>
+    <galen:Topology rdf:about="&temporalModule;a_19867">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_604"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_19903">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_14052"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_1991"/>
+    <galen:Topology rdf:about="&temporalModule;a_19913">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_19443"/>
+    </galen:Topology>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_19935">
+        <galen:hasTopology rdf:resource="&temporalModule;a_17693"/>
+    </galen:ImagingDevice>
+    <galen:SolidStructure rdf:about="&temporalModule;a_19959">
+        <galen:hasTopology rdf:resource="&temporalModule;a_16156"/>
+    </galen:SolidStructure>
+    <galen:XRayMachine rdf:about="&temporalModule;a_19966">
+        <galen:hasTopology rdf:resource="&temporalModule;a_4621"/>
+    </galen:XRayMachine>
+    <galen:Device rdf:about="&temporalModule;a_19972">
+        <galen:hasTopology rdf:resource="&temporalModule;a_18278"/>
+    </galen:Device>
+    <galen:XRayMachine rdf:about="&temporalModule;a_19991">
+        <galen:hasTopology rdf:resource="&temporalModule;a_6230"/>
+    </galen:XRayMachine>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_2004">
+        <galen:hasTopology rdf:resource="&temporalModule;a_3978"/>
+    </galen:MicroscopicStructure>
+    <galen:Topology rdf:about="&temporalModule;a_2019">
+        <galen:hasState rdf:resource="&temporalModule;a_8471"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_2045"/>
+    <galen:Device rdf:about="&temporalModule;a_2051">
+        <galen:hasTopology rdf:resource="&temporalModule;a_9134"/>
+    </galen:Device>
+    <galen:hollow rdf:about="&temporalModule;a_2082"/>
+    <galen:Topology rdf:about="&temporalModule;a_21">
+        <galen:hasState rdf:resource="&temporalModule;a_1363"/>
+    </galen:Topology>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_2111">
+        <galen:hasTopology rdf:resource="&temporalModule;a_1152"/>
+    </galen:MicroscopicStructure>
+    <galen:XRayMachine rdf:about="&temporalModule;a_2144">
+        <galen:hasTopology rdf:resource="&temporalModule;a_19071"/>
+    </galen:XRayMachine>
+    <galen:MRIScanner rdf:about="&temporalModule;a_2163">
+        <rdf:type rdf:resource="&galen;Topology"/>
+        <galen:hasTopology rdf:resource="&temporalModule;a_12111"/>
+        <galen:hasQuantity rdf:resource="&temporalModule;a_65"/>
+    </galen:MRIScanner>
+    <galen:hollow rdf:about="&temporalModule;a_2181"/>
+    <galen:Topology rdf:about="&temporalModule;a_220">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_17070"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_2249">
+        <galen:hasState rdf:resource="&temporalModule;a_9233"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_2262"/>
+    <galen:hollow rdf:about="&temporalModule;a_2290"/>
+    <galen:hollow rdf:about="&temporalModule;a_2316"/>
+    <galen:hollow rdf:about="&temporalModule;a_2331"/>
+    <galen:Topology rdf:about="&temporalModule;a_2333">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_12427"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_2352"/>
+    <galen:Topology rdf:about="&temporalModule;a_2361">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_4565"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_2462"/>
+    <galen:hollow rdf:about="&temporalModule;a_2482"/>
+    <galen:HollowStructure rdf:about="&temporalModule;a_250"/>
+    <galen:hollow rdf:about="&temporalModule;a_2584"/>
+    <galen:Topology rdf:about="&temporalModule;a_2664">
+        <galen:hasState rdf:resource="&temporalModule;a_16810"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_2677"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_2691">
+        <galen:hasTopology rdf:resource="&temporalModule;a_19913"/>
+    </galen:ImagingDevice>
+    <galen:hollow rdf:about="&temporalModule;a_2705"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_271">
+        <galen:hasTopology rdf:resource="&temporalModule;a_5712"/>
+    </galen:ImagingDevice>
+    <galen:SolidStructure rdf:about="&temporalModule;a_2765">
+        <galen:hasTopology rdf:resource="&temporalModule;a_14953"/>
+    </galen:SolidStructure>
+    <galen:hollow rdf:about="&temporalModule;a_2776"/>
+    <galen:XRayMachine rdf:about="&temporalModule;a_2825">
+        <galen:hasTopology rdf:resource="&temporalModule;a_2361"/>
+    </galen:XRayMachine>
+    <galen:hollow rdf:about="&temporalModule;a_2827"/>
+    <galen:Topology rdf:about="&temporalModule;a_2854">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_14030"/>
+    </galen:Topology>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_2953">
+        <galen:hasTopology rdf:resource="&temporalModule;a_5053"/>
+    </galen:ImagingDevice>
+    <galen:Topology rdf:about="&temporalModule;a_2969">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_16079"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_2982"/>
+    <galen:Topology rdf:about="&temporalModule;a_2987">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_19636"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_3017"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_3020"/>
+    <galen:XRayMachine rdf:about="&temporalModule;a_3033">
+        <galen:hasTopology rdf:resource="&temporalModule;a_19867"/>
+    </galen:XRayMachine>
+    <galen:Topology rdf:about="&temporalModule;a_3050">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_11806"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_3091"/>
+    <galen:hollow rdf:about="&temporalModule;a_3128"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_3172">
+        <galen:hasTopology rdf:resource="&temporalModule;a_16637"/>
+    </galen:ImagingDevice>
+    <galen:MRIScanner rdf:about="&temporalModule;a_3180">
+        <galen:hasTopology rdf:resource="&temporalModule;a_5644"/>
+    </galen:MRIScanner>
+    <galen:hollowTopology rdf:about="&temporalModule;a_3249"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_3266">
+        <rdf:type rdf:resource="&galen;Topology"/>
+        <galen:hasTopology rdf:resource="&temporalModule;a_13357"/>
+        <galen:hasState rdf:resource="&temporalModule;a_19172"/>
+    </galen:ImagingDevice>
+    <galen:Topology rdf:about="&temporalModule;a_3282">
+        <galen:hasState rdf:resource="&temporalModule;a_5921"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_3303">
+        <galen:hasState rdf:resource="&temporalModule;a_15761"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_3305"/>
+    <galen:HollowStructure rdf:about="&temporalModule;a_34"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_3471"/>
+    <galen:hollow rdf:about="&temporalModule;a_3595"/>
+    <galen:hollow rdf:about="&temporalModule;a_3598"/>
+    <galen:Topology rdf:about="&temporalModule;a_3652">
+        <galen:hasState rdf:resource="&temporalModule;a_18451"/>
+        <galen:hasState rdf:resource="&temporalModule;a_5340"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_3712"/>
+    <galen:Topology rdf:about="&temporalModule;a_3733">
+        <galen:hasState rdf:resource="&temporalModule;a_5217"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_3771"/>
+    <galen:Erythrocyte rdf:about="&temporalModule;a_3878"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_3880"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_3901"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_3910"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_3929"/>
+    <galen:Topology rdf:about="&temporalModule;a_3955">
+        <galen:hasState rdf:resource="&temporalModule;a_10699"/>
+    </galen:Topology>
+    <galen:Lymphocyte rdf:about="&temporalModule;a_3975"/>
+    <galen:Topology rdf:about="&temporalModule;a_3978">
+        <galen:hasState rdf:resource="&temporalModule;a_10171"/>
+    </galen:Topology>
+    <galen:HollowStructure rdf:about="&temporalModule;a_3981"/>
+    <galen:Lymphocyte rdf:about="&temporalModule;a_4041"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_4044"/>
+    <galen:Topology rdf:about="&temporalModule;a_4067">
+        <galen:hasState rdf:resource="&temporalModule;a_2982"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_4096">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_6990"/>
+    </galen:Topology>
+    <galen:MRIScanner rdf:about="&temporalModule;a_4109">
+        <galen:hasTopology rdf:resource="&temporalModule;a_17765"/>
+    </galen:MRIScanner>
+    <galen:Topology rdf:about="&temporalModule;a_4117">
+        <galen:hasState rdf:resource="&temporalModule;a_11464"/>
+    </galen:Topology>
+    <galen:XRayMachine rdf:about="&temporalModule;a_412">
+        <galen:hasTopology rdf:resource="&temporalModule;a_3471"/>
+    </galen:XRayMachine>
+    <galen:hollow rdf:about="&temporalModule;a_4141"/>
+    <galen:hollow rdf:about="&temporalModule;a_4164"/>
+    <galen:Lymphocyte rdf:about="&temporalModule;a_4168"/>
+    <galen:MRIScanner rdf:about="&temporalModule;a_4173">
+        <galen:hasTopology rdf:resource="&temporalModule;a_19451"/>
+    </galen:MRIScanner>
+    <galen:Device rdf:about="&temporalModule;a_4205">
+        <galen:hasTopology rdf:resource="&temporalModule;a_17211"/>
+    </galen:Device>
+    <galen:XRayMachine rdf:about="&temporalModule;a_4230">
+        <galen:hasTopology rdf:resource="&temporalModule;a_19508"/>
+    </galen:XRayMachine>
+    <galen:hollow rdf:about="&temporalModule;a_4281"/>
+    <galen:BloodComponents rdf:about="&temporalModule;a_4282"/>
+    <galen:hollow rdf:about="&temporalModule;a_4291"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_4312"/>
+    <galen:hollow rdf:about="&temporalModule;a_4372"/>
+    <galen:HollowStructure rdf:about="&temporalModule;a_4412"/>
+    <galen:Topology rdf:about="&temporalModule;a_4446">
+        <galen:hasState rdf:resource="&temporalModule;a_10875"/>
+    </galen:Topology>
+    <galen:XRayMachine rdf:about="&temporalModule;a_4465">
+        <galen:hasTopology rdf:resource="&temporalModule;a_11858"/>
+    </galen:XRayMachine>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_4486">
+        <galen:hasTopology rdf:resource="&temporalModule;a_6461"/>
+    </galen:ImagingDevice>
+    <galen:hollow rdf:about="&temporalModule;a_4565"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_4569"/>
+    <galen:Topology rdf:about="&temporalModule;a_4577">
+        <galen:hasState rdf:resource="&temporalModule;a_6975"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_4582"/>
+    <galen:Topology rdf:about="&temporalModule;a_4621">
+        <galen:hasState rdf:resource="&temporalModule;a_4291"/>
+    </galen:Topology>
+    <galen:SolidStructure rdf:about="&temporalModule;a_4624">
+        <galen:hasTopology rdf:resource="&temporalModule;a_12090"/>
+    </galen:SolidStructure>
+    <galen:Device rdf:about="&temporalModule;a_4640">
+        <galen:hasTopology rdf:resource="&temporalModule;a_6322"/>
+    </galen:Device>
+    <galen:Topology rdf:about="&temporalModule;a_4760">
+        <galen:hasState rdf:resource="&temporalModule;a_3595"/>
+    </galen:Topology>
+    <galen:Neutrophil rdf:about="&temporalModule;a_4779"/>
+    <galen:Topology rdf:about="&temporalModule;a_4795">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_11784"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_4811"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_482">
+        <galen:hasTopology rdf:resource="&temporalModule;a_10948"/>
+    </galen:ImagingDevice>
+    <galen:Erythrocyte rdf:about="&temporalModule;a_4828"/>
+    <galen:Lymphocyte rdf:about="&temporalModule;a_4834"/>
+    <galen:XRayMachine rdf:about="&temporalModule;a_486">
+        <galen:hasTopology rdf:resource="&temporalModule;a_6328"/>
+    </galen:XRayMachine>
+    <galen:HollowStructure rdf:about="&temporalModule;a_4876"/>
+    <galen:Topology rdf:about="&temporalModule;a_4894">
+        <galen:hasState rdf:resource="&temporalModule;a_15424"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_4925"/>
+    <galen:hollow rdf:about="&temporalModule;a_4936"/>
+    <galen:Device rdf:about="&temporalModule;a_4957">
+        <galen:hasTopology rdf:resource="&temporalModule;a_11718"/>
+    </galen:Device>
+    <galen:Topology rdf:about="&temporalModule;a_4958">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_10390"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_498">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_5728"/>
+    </galen:Topology>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_4986">
+        <galen:hasTopology rdf:resource="&temporalModule;a_5463"/>
+    </galen:MicroscopicStructure>
+    <galen:hollow rdf:about="&temporalModule;a_4988"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_4999"/>
+    <galen:Topology rdf:about="&temporalModule;a_5018">
+        <galen:hasState rdf:resource="&temporalModule;a_10137"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_5024"/>
+    <galen:Platelet rdf:about="&temporalModule;a_503"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_5033">
+        <galen:hasTopology rdf:resource="&temporalModule;a_12848"/>
+    </galen:ImagingDevice>
+    <galen:hollow rdf:about="&temporalModule;a_5047"/>
+    <galen:Topology rdf:about="&temporalModule;a_5053">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_12476"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_5115">
+        <galen:hasState rdf:resource="&temporalModule;a_18825"/>
+    </galen:Topology>
+    <galen:MRIScanner rdf:about="&temporalModule;a_5127">
+        <galen:hasTopology rdf:resource="&temporalModule;a_6263"/>
+    </galen:MRIScanner>
+    <galen:hollow rdf:about="&temporalModule;a_513"/>
+    <galen:Topology rdf:about="&temporalModule;a_5167">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_892"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_5217"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_5231"/>
+    <galen:XRayMachine rdf:about="&temporalModule;a_5245">
+        <galen:hasTopology rdf:resource="&temporalModule;a_19903"/>
+    </galen:XRayMachine>
+    <galen:SolidStructure rdf:about="&temporalModule;a_5318">
+        <galen:hasTopology rdf:resource="&temporalModule;a_4312"/>
+    </galen:SolidStructure>
+    <galen:hollow rdf:about="&temporalModule;a_5329"/>
+    <galen:hollow rdf:about="&temporalModule;a_5340"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_5346">
+        <galen:hasTopology rdf:resource="&temporalModule;a_1030"/>
+    </galen:SolidStructure>
+    <galen:hollowTopology rdf:about="&temporalModule;a_5351"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_5356">
+        <galen:hasTopology rdf:resource="&temporalModule;a_7279"/>
+    </galen:SolidStructure>
+    <galen:Platelet rdf:about="&temporalModule;a_5425"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_5438">
+        <galen:hasTopology rdf:resource="&temporalModule;a_2163"/>
+    </galen:SolidStructure>
+    <galen:Erythrocyte rdf:about="&temporalModule;a_5444"/>
+    <galen:Topology rdf:about="&temporalModule;a_5463">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_1958"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_5501">
+        <galen:hasState rdf:resource="&temporalModule;a_7669"/>
+    </galen:Topology>
+    <galen:SolidStructure rdf:about="&temporalModule;a_5520">
+        <galen:hasTopology rdf:resource="&temporalModule;a_1170"/>
+    </galen:SolidStructure>
+    <galen:Topology rdf:about="&temporalModule;a_5548">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_557"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_557"/>
+    <galen:hollow rdf:about="&temporalModule;a_5605"/>
+    <galen:Topology rdf:about="&temporalModule;a_5629">
+        <galen:hasState rdf:resource="&temporalModule;a_9347"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_5644"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_565"/>
+    <galen:Device rdf:about="&temporalModule;a_5668">
+        <galen:hasTopology rdf:resource="&temporalModule;a_5231"/>
+    </galen:Device>
+    <galen:hollow rdf:about="&temporalModule;a_5682"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_5712"/>
+    <galen:Device rdf:about="&temporalModule;a_5722">
+        <galen:hasTopology rdf:resource="&temporalModule;a_21"/>
+    </galen:Device>
+    <galen:hollow rdf:about="&temporalModule;a_5728"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_576">
+        <galen:hasTopology rdf:resource="&temporalModule;a_7915"/>
+    </galen:ImagingDevice>
+    <galen:Topology rdf:about="&temporalModule;a_5813">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_18046"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_5921"/>
+    <galen:Neutrophil rdf:about="&temporalModule;a_5961"/>
+    <galen:Topology rdf:about="&temporalModule;a_60">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_12522"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_604"/>
+    <galen:hollow rdf:about="&temporalModule;a_6066"/>
+    <galen:hollow rdf:about="&temporalModule;a_6094"/>
+    <galen:hollow rdf:about="&temporalModule;a_6146"/>
+    <galen:Lymphocyte rdf:about="&temporalModule;a_6184"/>
+    <galen:hollow rdf:about="&temporalModule;a_6185"/>
+    <galen:Topology rdf:about="&temporalModule;a_6230">
+        <galen:hasState rdf:resource="&temporalModule;a_15368"/>
+    </galen:Topology>
+    <galen:XRayMachine rdf:about="&temporalModule;a_6233">
+        <galen:hasTopology rdf:resource="&temporalModule;a_4569"/>
+    </galen:XRayMachine>
+    <galen:hollowTopology rdf:about="&temporalModule;a_6263"/>
+    <galen:Topology rdf:about="&temporalModule;a_6302">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_2827"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_6322">
+        <galen:hasState rdf:resource="&temporalModule;a_1001"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_6328">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_19566"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_6336"/>
+    <galen:hollow rdf:about="&temporalModule;a_6373"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_6405">
+        <galen:hasTopology rdf:resource="&temporalModule;a_2333"/>
+    </galen:ImagingDevice>
+    <galen:Topology rdf:about="&temporalModule;a_6461">
+        <galen:hasState rdf:resource="&temporalModule;a_13427"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_65"/>
+    <galen:Topology rdf:about="&temporalModule;a_6510">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_2352"/>
+    </galen:Topology>
+    <galen:BloodComponents rdf:about="&temporalModule;a_6514"/>
+    <galen:MRIScanner rdf:about="&temporalModule;a_6515">
+        <galen:hasTopology rdf:resource="&temporalModule;a_11148"/>
+    </galen:MRIScanner>
+    <galen:SolidStructure rdf:about="&temporalModule;a_6550">
+        <galen:hasTopology rdf:resource="&temporalModule;a_18223"/>
+    </galen:SolidStructure>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_6565">
+        <galen:hasTopology rdf:resource="&temporalModule;a_18865"/>
+    </galen:MicroscopicStructure>
+    <galen:Topology rdf:about="&temporalModule;a_6577">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_3305"/>
+    </galen:Topology>
+    <galen:MRIScanner rdf:about="&temporalModule;a_6579">
+        <galen:hasTopology rdf:resource="&temporalModule;a_8749"/>
+    </galen:MRIScanner>
+    <galen:SolidStructure rdf:about="&temporalModule;a_6596">
+        <galen:hasTopology rdf:resource="&temporalModule;a_9687"/>
+    </galen:SolidStructure>
+    <galen:Topology rdf:about="&temporalModule;a_6614">
+        <galen:hasState rdf:resource="&temporalModule;a_6146"/>
+    </galen:Topology>
+    <galen:Device rdf:about="&temporalModule;a_6644">
+        <galen:hasTopology rdf:resource="&temporalModule;a_17361"/>
+    </galen:Device>
+    <galen:Device rdf:about="&temporalModule;a_6691">
+        <galen:hasTopology rdf:resource="&temporalModule;a_4577"/>
+    </galen:Device>
+    <galen:Cell rdf:about="&temporalModule;a_682"/>
+    <galen:Topology rdf:about="&temporalModule;a_6825">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_7036"/>
+    </galen:Topology>
+    <galen:Device rdf:about="&temporalModule;a_6830">
+        <galen:hasTopology rdf:resource="&temporalModule;a_11931"/>
+    </galen:Device>
+    <galen:Topology rdf:about="&temporalModule;a_6896">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_17034"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_6934"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_6963">
+        <galen:hasTopology rdf:resource="&temporalModule;a_3652"/>
+    </galen:SolidStructure>
+    <galen:Device rdf:about="&temporalModule;a_6964">
+        <galen:hasTopology rdf:resource="&temporalModule;a_16955"/>
+    </galen:Device>
+    <galen:hollow rdf:about="&temporalModule;a_6975"/>
+    <galen:hollow rdf:about="&temporalModule;a_6990"/>
+    <galen:MRIScanner rdf:about="&temporalModule;a_7">
+        <galen:hasTopology rdf:resource="&temporalModule;a_7436"/>
+    </galen:MRIScanner>
+    <galen:Topology rdf:about="&temporalModule;a_7015">
+        <galen:hasState rdf:resource="&temporalModule;a_16366"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_7036"/>
+    <galen:XRayMachine rdf:about="&temporalModule;a_7040">
+        <galen:hasTopology rdf:resource="&temporalModule;a_11726"/>
+    </galen:XRayMachine>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_7050">
+        <galen:hasTopology rdf:resource="&temporalModule;a_8183"/>
+    </galen:ImagingDevice>
+    <galen:hollowTopology rdf:about="&temporalModule;a_7073"/>
+    <galen:SolidStructure rdf:about="&temporalModule;a_7075">
+        <galen:hasTopology rdf:resource="&temporalModule;a_901"/>
+    </galen:SolidStructure>
+    <galen:Device rdf:about="&temporalModule;a_709">
+        <galen:hasTopology rdf:resource="&temporalModule;a_10417"/>
+    </galen:Device>
+    <galen:MRIScanner rdf:about="&temporalModule;a_7122">
+        <galen:hasTopology rdf:resource="&temporalModule;a_14655"/>
+    </galen:MRIScanner>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_715">
+        <galen:hasTopology rdf:resource="&temporalModule;a_3282"/>
+    </galen:ImagingDevice>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_7153">
+        <galen:hasTopology rdf:resource="&temporalModule;a_4096"/>
+    </galen:MicroscopicStructure>
+    <galen:Topology rdf:about="&temporalModule;a_7279">
+        <galen:hasState rdf:resource="&temporalModule;a_14690"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_7301"/>
+    <galen:Topology rdf:about="&temporalModule;a_7345">
+        <galen:hasState rdf:resource="&temporalModule;a_6094"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_7360"/>
+    <galen:Erythrocyte rdf:about="&temporalModule;a_7390"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_7391">
+        <galen:hasTopology rdf:resource="&temporalModule;a_10993"/>
+    </galen:ImagingDevice>
+    <galen:Platelet rdf:about="&temporalModule;a_7429"/>
+    <galen:Topology rdf:about="&temporalModule;a_7436">
+        <galen:hasState rdf:resource="&temporalModule;a_2705"/>
+    </galen:Topology>
+    <galen:BloodComponents rdf:about="&temporalModule;a_7468"/>
+    <galen:XRayMachine rdf:about="&temporalModule;a_7470">
+        <rdf:type rdf:resource="&galen;hollow"/>
+        <galen:hasTopology rdf:resource="&temporalModule;a_7360"/>
+    </galen:XRayMachine>
+    <galen:hollowTopology rdf:about="&temporalModule;a_7480"/>
+    <galen:Lymphocyte rdf:about="&temporalModule;a_755"/>
+    <galen:Topology rdf:about="&temporalModule;a_7562">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_10271"/>
+    </galen:Topology>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_7576">
+        <galen:hasTopology rdf:resource="&temporalModule;a_2045"/>
+    </galen:ImagingDevice>
+    <galen:hollowTopology rdf:about="&temporalModule;a_7585"/>
+    <galen:MRIScanner rdf:about="&temporalModule;a_7590">
+        <galen:hasTopology rdf:resource="&temporalModule;a_5024"/>
+    </galen:MRIScanner>
+    <galen:MRIScanner rdf:about="&temporalModule;a_7613">
+        <galen:hasTopology rdf:resource="&temporalModule;a_12443"/>
+    </galen:MRIScanner>
+    <galen:hollow rdf:about="&temporalModule;a_7669"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_7786"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_7863"/>
+    <galen:hollow rdf:about="&temporalModule;a_7879"/>
+    <galen:Cell rdf:about="&temporalModule;a_791"/>
+    <galen:Topology rdf:about="&temporalModule;a_7915">
+        <galen:hasState rdf:resource="&temporalModule;a_4925"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_7944"/>
+    <galen:MRIScanner rdf:about="&temporalModule;a_7946">
+        <galen:hasTopology rdf:resource="&temporalModule;a_11312"/>
+    </galen:MRIScanner>
+    <galen:XRayMachine rdf:about="&temporalModule;a_7953">
+        <galen:hasTopology rdf:resource="&temporalModule;a_15421"/>
+    </galen:XRayMachine>
+    <galen:Topology rdf:about="&temporalModule;a_8034">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_5682"/>
+    </galen:Topology>
+    <galen:MRIScanner rdf:about="&temporalModule;a_8046">
+        <galen:hasTopology rdf:resource="&temporalModule;a_220"/>
+    </galen:MRIScanner>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_8076">
+        <galen:hasTopology rdf:resource="&temporalModule;a_5629"/>
+    </galen:MicroscopicStructure>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_816">
+        <galen:hasTopology rdf:resource="&temporalModule;a_8162"/>
+    </galen:MicroscopicStructure>
+    <galen:Topology rdf:about="&temporalModule;a_8162">
+        <galen:hasState rdf:resource="&temporalModule;a_11113"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_8183"/>
+    <galen:XRayMachine rdf:about="&temporalModule;a_8211">
+        <galen:hasTopology rdf:resource="&temporalModule;a_9403"/>
+    </galen:XRayMachine>
+    <galen:MRIScanner rdf:about="&temporalModule;a_8226">
+        <galen:hasTopology rdf:resource="&temporalModule;a_11348"/>
+    </galen:MRIScanner>
+    <galen:XRayMachine rdf:about="&temporalModule;a_8245">
+        <galen:hasTopology rdf:resource="&temporalModule;a_9724"/>
+    </galen:XRayMachine>
+    <galen:Device rdf:about="&temporalModule;a_8263">
+        <galen:hasTopology rdf:resource="&temporalModule;a_8661"/>
+    </galen:Device>
+    <galen:Topology rdf:about="&temporalModule;a_8331">
+        <galen:hasState rdf:resource="&temporalModule;a_2290"/>
+    </galen:Topology>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_8341">
+        <galen:hasTopology rdf:resource="&temporalModule;a_17101"/>
+    </galen:ImagingDevice>
+    <galen:Topology rdf:about="&temporalModule;a_838">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_4936"/>
+    </galen:Topology>
+    <galen:MRIScanner rdf:about="&temporalModule;a_8455">
+        <galen:hasTopology rdf:resource="&temporalModule;a_6510"/>
+    </galen:MRIScanner>
+    <galen:Topology rdf:about="&temporalModule;a_846">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_7879"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_8471"/>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_8481">
+        <galen:hasTopology rdf:resource="&temporalModule;a_10639"/>
+    </galen:MicroscopicStructure>
+    <galen:Erythrocyte rdf:about="&temporalModule;a_8562"/>
+    <galen:Cell rdf:about="&temporalModule;a_8599"/>
+    <galen:hollow rdf:about="&temporalModule;a_8625"/>
+    <galen:Topology rdf:about="&temporalModule;a_8661">
+        <galen:hasState rdf:resource="&temporalModule;a_2331"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_8749">
+        <galen:hasState rdf:resource="&temporalModule;a_968"/>
+    </galen:Topology>
+    <galen:MRIScanner rdf:about="&temporalModule;a_8757">
+        <galen:hasTopology rdf:resource="&temporalModule;a_9817"/>
+    </galen:MRIScanner>
+    <galen:BloodComponents rdf:about="&temporalModule;a_8789"/>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_8842">
+        <galen:hasTopology rdf:resource="&temporalModule;a_7345"/>
+    </galen:MicroscopicStructure>
+    <galen:hollow rdf:about="&temporalModule;a_8883"/>
+    <galen:hollow rdf:about="&temporalModule;a_892"/>
+    <galen:Topology rdf:about="&temporalModule;a_8941">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_10525"/>
+    </galen:Topology>
+    <galen:Cell rdf:about="&temporalModule;a_895"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_901"/>
+    <galen:HollowStructure rdf:about="&temporalModule;a_9043"/>
+    <galen:ImagingDevice rdf:about="&temporalModule;a_9067">
+        <galen:hasTopology rdf:resource="&temporalModule;a_9150"/>
+    </galen:ImagingDevice>
+    <galen:Topology rdf:about="&temporalModule;a_9068">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_3598"/>
+    </galen:Topology>
+    <galen:Topology rdf:about="&temporalModule;a_9134">
+        <galen:hasState rdf:resource="&temporalModule;a_2462"/>
+    </galen:Topology>
+    <galen:hollowTopology rdf:about="&temporalModule;a_9150"/>
+    <galen:hollow rdf:about="&temporalModule;a_9233"/>
+    <galen:Topology rdf:about="&temporalModule;a_9280">
+        <galen:hasState rdf:resource="&temporalModule;a_15288"/>
+    </galen:Topology>
+    <galen:Neutrophil rdf:about="&temporalModule;a_9321"/>
+    <galen:hollow rdf:about="&temporalModule;a_9331"/>
+    <galen:hollow rdf:about="&temporalModule;a_9340"/>
+    <galen:hollow rdf:about="&temporalModule;a_9345"/>
+    <galen:hollow rdf:about="&temporalModule;a_9347"/>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_9372">
+        <galen:hasTopology rdf:resource="&temporalModule;a_8331"/>
+    </galen:MicroscopicStructure>
+    <galen:hollowTopology rdf:about="&temporalModule;a_9403"/>
+    <galen:Device rdf:about="&temporalModule;a_9413">
+        <galen:hasTopology rdf:resource="&temporalModule;a_14452"/>
+    </galen:Device>
+    <galen:XRayMachine rdf:about="&temporalModule;a_9447">
+        <galen:hasTopology rdf:resource="&temporalModule;a_9068"/>
+    </galen:XRayMachine>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_9453">
+        <galen:hasTopology rdf:resource="&temporalModule;a_6896"/>
+    </galen:MicroscopicStructure>
+    <galen:Topology rdf:about="&temporalModule;a_9463">
+        <rdf:type rdf:resource="&galen;MRIScanner"/>
+        <galen:hasState rdf:resource="&temporalModule;a_12131"/>
+        <galen:hasTopology rdf:resource="&temporalModule;a_4795"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_9579"/>
+    <galen:XRayMachine rdf:about="&temporalModule;a_9606">
+        <galen:hasTopology rdf:resource="&temporalModule;a_12889"/>
+    </galen:XRayMachine>
+    <galen:SolidStructure rdf:about="&temporalModule;a_9667">
+        <galen:hasTopology rdf:resource="&temporalModule;a_13647"/>
+    </galen:SolidStructure>
+    <galen:Topology rdf:about="&temporalModule;a_9677">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_6336"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_968"/>
+    <galen:hollowTopology rdf:about="&temporalModule;a_9687"/>
+    <galen:Topology rdf:about="&temporalModule;a_9724">
+        <galen:hasQuantity rdf:resource="&temporalModule;a_7470"/>
+    </galen:Topology>
+    <galen:hollow rdf:about="&temporalModule;a_9772"/>
+    <galen:Device rdf:about="&temporalModule;a_9797">
+        <galen:hasTopology rdf:resource="&temporalModule;a_18661"/>
+    </galen:Device>
+    <galen:hollowTopology rdf:about="&temporalModule;a_9817"/>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_9857">
+        <galen:hasTopology rdf:resource="&temporalModule;a_16661"/>
+    </galen:MicroscopicStructure>
+    <galen:Lymphocyte rdf:about="&temporalModule;a_9904"/>
+    <galen:MicroscopicStructure rdf:about="&temporalModule;a_9960">
+        <galen:hasTopology rdf:resource="&temporalModule;a_12062"/>
+    </galen:MicroscopicStructure>
+    <galen:Cell rdf:about="&temporalModule;a_9993"/>
+    <galen:Device rdf:about="&temporalModule;a_9994">
+        <galen:hasTopology rdf:resource="&temporalModule;a_6614"/>
+    </galen:Device>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 0.9.2) http://owlapi.sourceforge.net -->
+
