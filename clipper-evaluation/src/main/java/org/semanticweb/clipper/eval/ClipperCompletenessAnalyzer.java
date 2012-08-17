@@ -15,7 +15,8 @@ public class ClipperCompletenessAnalyzer {
 //		 runOneTest(13, j);
 //		}
 		 //runOneTest(3, 12);
-		 //runOneTest(9, 0);
+		 //
+		//runOneTest(9, 0);
 	}
 
 	public static void runOneTest(int queryIndex, int patternIndex) throws Exception {
