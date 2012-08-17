@@ -175,7 +175,7 @@ public class CQFormater {
 
 			if (symbol instanceof OWLLiteral) {
 				OWLLiteral owlLiteral = (OWLLiteral) symbol;
-				return owlLiteral.getLiteral();
+				return "\"" + owlLiteral.getLiteral() + "\"";
 
 			} else if (symbol instanceof OWLNamedIndividual) {
 				OWLNamedIndividual owlNamedIndividual = (OWLNamedIndividual) symbol;

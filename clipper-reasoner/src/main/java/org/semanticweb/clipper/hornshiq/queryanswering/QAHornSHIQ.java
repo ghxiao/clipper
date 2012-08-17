@@ -931,4 +931,8 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizatoinTime);
 
 	}
+
+	public void clearOntologies() {
+		this.ontologies = Lists.newArrayList();
+	}
 }

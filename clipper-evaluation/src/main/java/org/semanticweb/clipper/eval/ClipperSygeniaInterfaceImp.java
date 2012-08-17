@@ -38,10 +38,6 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 
 	@Override
 	public void initializeSystem() throws Exception {
-		// if (dlvPath == null) {
-		// throw new
-		// IllegalStateException("please call setDlvPath() before initializeSystem() !");
-		// }
 
 		qaHornSHIQ = new QAHornSHIQ();
 		if (dlvPath != null) {
@@ -66,8 +62,8 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 
 		qaHornSHIQ.setDataLogName("tmp.dlv");
 
-		qaHornSHIQ.setNamingStrategy(NamingStrategy.IntEncoding);
-//		qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		// qaHornSHIQ.setNamingStrategy(NamingStrategy.IntEncoding);
+		qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 
 		// ClipperManager.getInstance().setVerboseLevel(0);
 
@@ -87,7 +83,7 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 
 	@Override
 	public void loadQuery(int queryIndex) throws Exception {
-		String queryFile = String.format("%s/Queries/Query_%02d.txt", dataSetRoot, queryIndex);
+		String queryFile = String.format("%s/Queries/Query_%02d.txt", dataSetRoot, queryIndex + 1);
 		System.out.println(queryFile);
 		this.queryFile = queryFile;
 	}
@@ -109,9 +105,10 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 
 	@Override
 	public void clearRepository() throws Exception {
+		qaHornSHIQ.clearOntologies();
 		tbox = null;
 		abox = null;
-		// manager.removeOntology(abox);
+		// manager.removeOntology(abox);	
 	}
 
 	// public static void main(String[] args) {
