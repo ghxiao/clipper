@@ -65,7 +65,7 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 		// qaHornSHIQ.setNamingStrategy(NamingStrategy.IntEncoding);
 		qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 
-		// ClipperManager.getInstance().setVerboseLevel(0);
+		ClipperManager.getInstance().setVerboseLevel(8);
 
 		manager.removeOntology(tbox);
 

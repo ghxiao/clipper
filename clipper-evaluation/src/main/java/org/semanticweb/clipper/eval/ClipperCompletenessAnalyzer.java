@@ -10,13 +10,14 @@ import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 
 public class ClipperCompletenessAnalyzer {
 	public static void main(String[] args) throws Exception {
-		runAllTests();
+		//runAllTests();
 //		for(int j = 0; j < 10; j++){
 //		 runOneTest(13, j);
 //		}
 		 //runOneTest(3, 12);
 		 //
-		//runOneTest(9, 0);
+	//	runOneTest(9, 0);
+		runAllGalenTests();
 	}
 
 	public static void runOneTest(int queryIndex, int patternIndex) throws Exception {
@@ -113,7 +114,7 @@ public class ClipperCompletenessAnalyzer {
 	/**
 	 * 
 	 */
-	private static void runAllTests() {
+	public static void runAllLUBMTests() {
 		String root = (new File(".").getAbsolutePath().toString());
 		root = root + "/src/main/resources/ontologies/LUBM";
 		String ontologyFile = root + "/univ-bench.owl";
@@ -127,4 +128,17 @@ public class ClipperCompletenessAnalyzer {
 		complAnalyzer.doCompletenessAnalysisExperimentAllMappings(mySystem, ontologyFile, datasetFolder);
 	}
 
+	public static void runAllGalenTests() {
+		String root = (new File(".").getAbsolutePath().toString());
+		root = root + "/src/main/resources/ontologies/Galen";
+		String ontologyFile = root + "/moduleU_JIA_procedures.owl";
+		String datasetFolder = root + "/moduleU_JIA_procedures_TB-C_s";
+
+		CompletenessAnalyser complAnalyzer = new CompletenessAnalyser();
+		ClipperSygeniaInterfaceImp mySystem = new ClipperSygeniaInterfaceImp();
+		mySystem.setDataSetRoot(root);
+		mySystem.setDlvPath("/Users/xiao/bin/dlv");
+
+		complAnalyzer.doCompletenessAnalysisExperimentAllMappings(mySystem, ontologyFile, datasetFolder);
+	}
 }
