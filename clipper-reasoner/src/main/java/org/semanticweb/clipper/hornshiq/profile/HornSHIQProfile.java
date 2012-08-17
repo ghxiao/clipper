@@ -55,14 +55,17 @@ public class HornSHIQProfile implements OWLProfile {
 	@Override
 	public OWLProfileReport checkOntology(OWLOntology ontology) {
 		OWL2DLProfile profile = new OWL2DLProfile();
-		//OWLProfileReport report = profile.checkOntology(ontology);
-//		Set<OWLProfileViolation> violations = new HashSet<OWLProfileViolation>();
-//		violations.addAll(report.getViolations());
+		System.out.println(ontology);
+		OWLProfileReport report = profile.checkOntology(ontology);
+		
+		
+		Set<OWLProfileViolation> violations = new HashSet<OWLProfileViolation>();
+		violations.addAll(report.getViolations());
 
-//		OWLOntologyWalker walker = new OWLOntologyWalker(
-//				ontology.getImportsClosure());
 		OWLOntologyWalker walker = new OWLOntologyWalker(
-				ImmutableSet.of( ontology));
+				ontology.getImportsClosure());
+//		OWLOntologyWalker walker = new OWLOntologyWalker(
+//				ImmutableSet.of( ontology));
 		profileObjectVisitor = new HornSHIQProfileObjectVistor(this, walker,
 				ontology.getOWLOntologyManager());
 		
@@ -74,7 +77,7 @@ public class HornSHIQProfile implements OWLProfile {
 //			System.out.println(e.getKey() + " -> " +e.getValue());
 //		}
 //		System.exit(0);
-		Set<OWLProfileViolation> violations = new HashSet<OWLProfileViolation>();
+		//Set<OWLProfileViolation> violations = new HashSet<OWLProfileViolation>();
 		violations.addAll(profileObjectVisitor.getProfileViolations());
 		return new OWLProfileReport(this, violations);
 	}
