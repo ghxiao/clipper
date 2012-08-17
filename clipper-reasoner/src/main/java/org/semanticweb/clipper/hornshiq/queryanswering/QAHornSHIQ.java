@@ -2,19 +2,24 @@ package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
-import it.unical.mat.wrapper.*;
+import it.unical.mat.wrapper.DLVError;
+import it.unical.mat.wrapper.DLVInputProgram;
+import it.unical.mat.wrapper.DLVInputProgramImpl;
+import it.unical.mat.wrapper.DLVInvocation;
+import it.unical.mat.wrapper.DLVInvocationException;
+import it.unical.mat.wrapper.DLVWrapper;
+import it.unical.mat.wrapper.FactHandler;
+import it.unical.mat.wrapper.FactResult;
+import it.unical.mat.wrapper.ModelBufferedHandler;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -32,16 +37,11 @@ import org.semanticweb.clipper.hornshiq.profile.HornALCHIQTransNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQProfile;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
-import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
-import org.semanticweb.clipper.hornshiq.rule.NonDLPredicate;
-import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.util.AnswerParser;
 import org.semanticweb.clipper.util.QueriesRelatedRules;
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.IRI;
-import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
@@ -98,27 +98,10 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	 */
 	public void generateDataLog() {
 
-		// if (this.ontologyName == null || this.dataLogName == null) {
-		// System.out.println("ontologyName and datalogName should be specified!");
-		// } else {
+//		String ans = "ans";
+//		cq.getHead().setPredicate(new NonDLPredicate("ans"));
 
-		// File file = new File(ontologyName);
-		// if (cq == null) {
-		// InternalCQParser cqParser = new InternalCQParser();
-		// cqParser.setQueryString(queryString);
-		// cqParser.setPrefix(queryPrefix);
-		// cq = cqParser.getCq();
-		// }
-
-		// may be useful in the future
-		// if (cq.getHead().getPredicate().getEncoding() != -1)
-		// this.headPredicate = "q" +
-		// cq.getHead().getPredicate().getEncoding();
-		// else
-		String ans = "ans";
-		cq.getHead().setPredicate(new NonDLPredicate("ans"));
-
-		this.headPredicate = ans;
+		this.headPredicate = cq.getHead().getPredicate().toString();
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("% Encoded Input query:" + cq);
 		}
@@ -146,8 +129,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	 */
 	private void reduceRewrittenQueriesToDatalog(TBoxReasoning tb) throws IOException {
 		long starCoutingRelatedRule = System.currentTimeMillis();
-		// this.rewrittenQueries = qr.getUcq();
-		// Set<CQ> ucq = qr.getUcq();
+
 		Set<CQ> ucq = new HashSet<CQ>(rewrittenQueries);
 		QueriesRelatedRules relatedRules = new QueriesRelatedRules(clipperOntology, ucq);
 		relatedRules.setCoreImps(tb.getImpContainer().getImps());
@@ -570,11 +552,6 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 				clipperReport.setNumberOfRewrittenQueries(ucq.size());
 				clipperReport.setNumberOfRewrittenQueriesAndRules(relatedRules.getUcqRelatedDatalogRules().size()
 						+ ucq.size());
-				// System.out
-				// .println("==============================================");
-				// System.out
-				// .println("Total number of Conjunctive queries and related rules: "
-				// + numberOfRewrittenQueriesAndRules);
 				try {
 					PrintStream program = new PrintStream(new FileOutputStream(this.dataLogName));
 					// System.out.println("======================================== ");
