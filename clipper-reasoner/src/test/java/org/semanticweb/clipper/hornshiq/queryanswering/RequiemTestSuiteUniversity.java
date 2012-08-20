@@ -53,7 +53,7 @@ public class RequiemTestSuiteUniversity {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		System.out.println("reasoning time " + qaHornSHIQ.getClipperReport().getReasoningTime() + "milisecond");
 		System.out.println("reasoning time " + qaHornSHIQ.getClipperReport().getQueryRewritingTime() + "milisecond");
 		// Set predictedAnswser = new HashSet<String>();
@@ -147,7 +147,7 @@ public class RequiemTestSuiteUniversity {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		//System.out.println(qaHornSHIQ.get
 		// Check if our answers is the same as correct answers.
 		Set<Set<String>> actualAnswers = new HashSet<Set<String>>();
@@ -186,7 +186,7 @@ public class RequiemTestSuiteUniversity {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// Check if our answers is the same as correct answers.
 		Set<Set<String>> actualAnswers = new HashSet<Set<String>>();
 		List<List<String>> actualAnswersList = qaHornSHIQ.getDecodedAnswers();
@@ -225,7 +225,7 @@ public class RequiemTestSuiteUniversity {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// Check if our answers is the same as correct answers.
 		Set<Set<String>> actualAnswers = new HashSet<Set<String>>();
 		List<List<String>> actualAnswersList = qaHornSHIQ.getDecodedAnswers();
@@ -264,7 +264,7 @@ public class RequiemTestSuiteUniversity {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		//System.out.println(qaHornSHIQ.get
 		// Check if our answers is the same as correct answers.
 		Set<Set<String>> actualAnswers = new HashSet<Set<String>>();
@@ -305,7 +305,7 @@ public class RequiemTestSuiteUniversity {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		//System.out.println(qaHornSHIQ.get
 		// Check if our answers is the same as correct answers.
 		Set<Set<String>> actualAnswers = new HashSet<Set<String>>();
@@ -346,7 +346,7 @@ public class RequiemTestSuiteUniversity {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		//System.out.println(qaHornSHIQ.get
 		// Check if our answers is the same as correct answers.
 		Set<Set<String>> actualAnswers = new HashSet<Set<String>>();

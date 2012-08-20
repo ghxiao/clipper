@@ -96,7 +96,7 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 
 	@Override
 	public long runLoadedQuery() throws Exception {
-		List<List<String>> results = qaHornSHIQ.query();
+		List<List<String>> results = qaHornSHIQ.execQuery();
 		Joiner.on("\n").appendTo(System.out, results);
 		System.out.println();
 		// System.out.println(results);

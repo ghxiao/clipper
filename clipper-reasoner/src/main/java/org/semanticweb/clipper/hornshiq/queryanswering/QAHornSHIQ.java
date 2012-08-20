@@ -711,7 +711,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 	// =================================
 	@Override
-	public List<List<String>> query() {
+	public List<List<String>> execQuery() {
 		generateDataLog();
 
 		this.answers = Lists.newArrayList();

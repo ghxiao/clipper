@@ -50,7 +50,7 @@ public class LUBMQueryTest {
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getAboxDataLog();
 		// qaHornSHIQ.getDataLog();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 
 		System.out.println("reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime() + "  millisecond");
 		System.out
@@ -114,7 +114,7 @@ public class LUBMQueryTest {
 		qaHornSHIQ.setQueryRewriter(rewriter);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		System.out.println("reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime() + "  millisecond");
 		System.out
 				.println("reasoning time: " + qaHornSHIQ.getClipperReport().getQueryRewritingTime() + "  millisecond");
@@ -163,7 +163,7 @@ public class LUBMQueryTest {
 		qaHornSHIQ.setQueryRewriter(rewriter);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		System.out.println("reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime() + "  milliseconds");
 		System.out.println("query rewriting time: " + qaHornSHIQ.getClipperReport().getQueryRewritingTime()
 				+ "  milliseconds");
@@ -258,7 +258,7 @@ public class LUBMQueryTest {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		System.out.println("reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime() + "  milliseconds");
 		System.out.println("query rewriting time: " + qaHornSHIQ.getClipperReport().getQueryRewritingTime()
 				+ "  milliseconds");
@@ -301,7 +301,7 @@ public class LUBMQueryTest {
 		qaHornSHIQ.setCq(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		System.out.println("reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime() + "  milliseconds");
 		System.out.println("query rewriting time: " + qaHornSHIQ.getClipperReport().getQueryRewritingTime()
 				+ "  milliseconds");
@@ -344,7 +344,7 @@ public class LUBMQueryTest {
 		qaHornSHIQ.setCq(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		System.out.println("reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime() + "  milliseconds");
 		System.out.println("query rewriting time: " + qaHornSHIQ.getClipperReport().getQueryRewritingTime()
 				+ "  milliseconds");
@@ -388,7 +388,7 @@ public class LUBMQueryTest {
 		qaHornSHIQ.setCq(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		System.out.println("reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime() + "  milliseconds");
 		System.out.println("query rewriting time: " + qaHornSHIQ.getClipperReport().getQueryRewritingTime()
 				+ "  milliseconds");
@@ -431,7 +431,7 @@ public class LUBMQueryTest {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		System.out.println("reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime() + "  milliseconds");
 		System.out.println("query rewriting time: " + qaHornSHIQ.getClipperReport().getQueryRewritingTime()
 				+ "  milliseconds");
@@ -478,7 +478,7 @@ public class LUBMQueryTest {
 		qaHornSHIQ.setCq(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		System.out.println("reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime() + "  milliseconds");
 		System.out.println("query rewriting time: " + qaHornSHIQ.getClipperReport().getQueryRewritingTime()
 				+ "  milliseconds");
@@ -521,7 +521,7 @@ public class LUBMQueryTest {
 		qaHornSHIQ.setCq(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		System.out.println("reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime() + "  milliseconds");
 		System.out.println("query rewriting time: " + qaHornSHIQ.getClipperReport().getQueryRewritingTime()
 				+ "  milliseconds");
@@ -563,7 +563,7 @@ public class LUBMQueryTest {
 		qaHornSHIQ.setCq(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		System.out.println("reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime() + "  milliseconds");
 		System.out.println("query rewriting time: " + qaHornSHIQ.getClipperReport().getQueryRewritingTime()
 				+ "  milliseconds");
@@ -604,7 +604,7 @@ public class LUBMQueryTest {
 		qaHornSHIQ.setCq(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		System.out.println("reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime() + "  milliseconds");
 		System.out.println("query rewriting time: " + qaHornSHIQ.getClipperReport().getQueryRewritingTime()
 				+ "  milliseconds");
@@ -645,7 +645,7 @@ public class LUBMQueryTest {
 		qaHornSHIQ.setCq(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		System.out.println("reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime() + "  milliseconds");
 		System.out.println("query rewriting time: " + qaHornSHIQ.getClipperReport().getQueryRewritingTime()
 				+ "  milliseconds");

@@ -14,5 +14,5 @@ public interface QueryAnswersingSystem {
 
 	void setQuery(CQ cq);
 
-	List<List<String>> query();
+	List<List<String>> execQuery();
 }
