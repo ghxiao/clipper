@@ -78,8 +78,24 @@ public class QAHornSHIQTest {
 		ClipperManager.getInstance().setVerboseLevel(1);
 		qaHornSHIQ.setDataLogName("TestCaseOntologies/tmp.dlv");
 		List<List<String>> results = qaHornSHIQ.execQuery();
-		assertEquals(1, results.size());
 		Joiner.on("\n").appendTo(System.out, results);
+		assertEquals(1, results.size());
+	}
+	
+	@Test
+	public void testTransitivity02() throws OWLOntologyCreationException, FileNotFoundException, IOException{
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(new File("TestCaseOntologies/trans2.owl"));
+		CQParser cqParser = new CQParser(new File("TestCaseOntologies/trans2.cq"), ImmutableSet.of(ontology));
+		CQ cq = cqParser.parse();
+		qaHornSHIQ.addOntology(ontology);
+		qaHornSHIQ.setQuery(cq);
+		qaHornSHIQ.setQueryRewriter("new");
+		ClipperManager.getInstance().setVerboseLevel(1);
+		qaHornSHIQ.setDataLogName("TestCaseOntologies/tmp.dlv");
+		List<List<String>> results = qaHornSHIQ.execQuery();
+		Joiner.on("\n").appendTo(System.out, results);
+		assertEquals(3, results.size());
 	}
 	
 	public static void main(String[] args) throws OWLOntologyCreationException, FileNotFoundException, IOException{
