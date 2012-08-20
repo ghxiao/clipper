@@ -232,6 +232,11 @@ public class CQGraphRewriter implements QueryRewriter {
 	 */
 	private boolean mergeable(CQGraph g, EnforcedRelation enf, Collection<Variable> leaves) {
 		Collection<CQGraphEdge> leafInterEdges = g.getInterEdges(leaves);
+		
+		if(leafInterEdges.isEmpty())
+			return false;
+		
+		// TODO: check again
 		for (CQGraphEdge edge : leafInterEdges) {
 			Integer role = edge.getRole();
 			int inverseRole = BitSetUtilOpt.inverseRole(role);

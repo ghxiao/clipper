@@ -1,6 +1,5 @@
 package org.semanticweb.clipper.hornshiq.ontology;
 
-
 import gnu.trove.set.hash.TIntHashSet;
 
 import java.util.Set;
@@ -58,7 +57,6 @@ import org.semanticweb.owlapi.model.OWLSubPropertyChainOfAxiom;
 import org.semanticweb.owlapi.model.OWLSymmetricObjectPropertyAxiom;
 import org.semanticweb.owlapi.model.OWLTransitiveObjectPropertyAxiom;
 import org.semanticweb.owlapi.model.SWRLRule;
-
 
 public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Object> {
 
@@ -215,7 +213,8 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Objec
 				if (filler.getClassExpressionType() == ClassExpressionType.OWL_CLASS) {
 					int role = km.getOwlPropertyExpressionEncoder().getValueBySymbol(min.getProperty());
 					int concept2 = km.getOwlClassEncoder().getValueBySymbol((OWLClass) filler);
-					ontology.getAtomSubMinAxioms().add(new ClipperAtomSubMinAxiom(left, role, concept2, min.getCardinality()));
+					ontology.getAtomSubMinAxioms().add(
+							new ClipperAtomSubMinAxiom(left, role, concept2, min.getCardinality()));
 				} else {
 					throw new IllegalStateException();
 				}
@@ -402,14 +401,17 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Objec
 		int p = km.getOwlPropertyExpressionEncoder().getValueBySymbol(axiom.getProperty());
 		int s = km.getOwlIndividualAndLiteralEncoder().getValueBySymbol(axiom.getSubject());
 		int o = km.getOwlIndividualAndLiteralEncoder().getValueBySymbol(axiom.getObject());
-		ontology.getPropertyAssertionAxioms().add(new ClipperPropertyAssertionAxiom(p, s, o));
-		return null;
+		return ontology.getPropertyAssertionAxioms().add(new ClipperPropertyAssertionAxiom(p, s, o));
+		//return null;
 
 	}
 
 	@Override
 	public Object visit(OWLTransitiveObjectPropertyAxiom axiom) {
-		throw new UnsupportedOperationException();
+		int p = km.getOwlPropertyExpressionEncoder().getValueBySymbol(axiom.getProperty());
+		return ontology.getTransitivityAxioms().add(new ClipperTransitivityAxiom(p));
+		// throw null;
+		// throw new UnsupportedOperationException();
 
 	}
 
