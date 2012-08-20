@@ -1,12 +1,13 @@
 v0.2 <2012-08-XX>
-1. using maven build
-2. redesigned API, with all the classes in org.semanticweb.clipper
-3. redesigned CLI, using JCommander
-4. a reimplemented Query Rewriting module using Jung graph representation of the CQs
-5. support for simple datatypes
-6. initial support for full FO semantics of transitive roles in ontologies and CQs
-
+------------------
+1. Using maven build
+2. Redesigned API, with all the classes in org.semanticweb.clipper
+3. Redesigned CLI, using JCommander
+4. Reimplemented Query Rewriting module using Jung graph representation of the CQs
+5. Support for simple datatypes
+6. Initial support for full FO semantics of transitive roles in ontologies and CQs
 
 
 v0.1 <2012-06-30>
-1. Initial release as stand alone runnable jar, this version is used in DL 12 and AAAI 12 paper
+------------------
+1. Initial release as stand an alone runnable jar. This version is used in DL 12 and AAAI 12 paper
