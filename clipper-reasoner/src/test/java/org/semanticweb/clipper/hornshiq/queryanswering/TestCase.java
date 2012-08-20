@@ -64,7 +64,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// expect answer: a1
 		List<String> a1 = new ArrayList<String>();
 		a1.add("q0(\"a\")");
@@ -103,7 +103,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// expect answer: a1
 		List<String> a = new ArrayList<String>();
 		a.add("q0(\"a\")");
@@ -141,7 +141,7 @@ public class TestCase {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 
 		for (List<String> answer : qaHornSHIQ.getDecodedAnswers()) {
 			System.out.println(answer);
@@ -182,7 +182,7 @@ public class TestCase {
 
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// expect 1 answer for q(x) :- Nothing(x) because the ontology is
 		// inconsistent
 		for (List<String> answer : qaHornSHIQ.getDecodedAnswers()) {
@@ -270,7 +270,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// expect answer: a1
 		List<String> a = new ArrayList<String>();
 		a.add("q0(\"a\")");
@@ -306,7 +306,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// expect answer: a1
 		List<String> a = new ArrayList<String>();
 		a.add("q0(\"a\")");
@@ -349,7 +349,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// expect answer: a
 		List<String> a = new ArrayList<String>();
 		a.add("q0(\"a\")");
@@ -394,7 +394,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// assertEquals(qaHornSHIQ.getDecodedAnswers().size(), 0);
 		// expect answer: a
 		List<String> a = new ArrayList<String>();
@@ -436,7 +436,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// assertEquals(qaHornSHIQ.getDecodedAnswers().size(), 0);
 		// expect answer: a
 		List<String> a = new ArrayList<String>();

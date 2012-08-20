@@ -132,7 +132,7 @@ public class ClipperApp {
 		qaHornSHIQ.setDlvPath(cmd.getDlvPath());
 
 		long startTime = System.currentTimeMillis();
-		List<List<String>> answers = qaHornSHIQ.query();
+		List<List<String>> answers = qaHornSHIQ.execQuery();
 		long endTime = System.currentTimeMillis();
 
 		QueryResultPrinter printer = createQueryResultPrinter(cmd.getOutputFormat());

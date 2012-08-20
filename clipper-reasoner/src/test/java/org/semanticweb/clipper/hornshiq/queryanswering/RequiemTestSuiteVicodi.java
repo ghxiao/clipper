@@ -212,7 +212,7 @@ public class RequiemTestSuiteVicodi {
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 
 	}
 	
@@ -249,7 +249,7 @@ public class RequiemTestSuiteVicodi {
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 
 	}
 }

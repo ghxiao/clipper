@@ -322,7 +322,7 @@ public class UOBMQueryTest {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 //		// Set predictedAnswser = new HashSet<String>();
 //		// List<String> ans1= new List<String>();
 //
