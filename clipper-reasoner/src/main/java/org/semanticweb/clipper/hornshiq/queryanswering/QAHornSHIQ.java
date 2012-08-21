@@ -96,7 +96,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	 * @return Datalog program that contains: rewritten queries, completion
 	 *         rules, and ABox assertions
 	 */
-	public void generateDataLog() {
+	public void generateDatalog() {
 
 //		String ans = "ans";
 //		cq.getHead().setPredicate(new NonDLPredicate("ans"));
@@ -712,7 +712,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	// =================================
 	@Override
 	public List<List<String>> execQuery() {
-		generateDataLog();
+		generateDatalog();
 
 		this.answers = Lists.newArrayList();
 

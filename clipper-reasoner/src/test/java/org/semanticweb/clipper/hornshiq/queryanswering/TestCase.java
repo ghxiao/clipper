@@ -485,7 +485,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 		//Expect the rewritten query: q0(X0) :- r3(X2,X3), a(X2), a2(X2), a1(X0), a4(X3), r1(X0,X2).
 		assertEquals(2, qaHornSHIQ.getRewrittenQueries().size());
 
@@ -527,7 +527,7 @@ public class TestCase {
 			// qaHornSHIQ.setQueryString(queryString);
 			qaHornSHIQ.setCq(cq);
 			qaHornSHIQ.setDlvPath("lib/dlv");
-			qaHornSHIQ.generateDataLog();
+			qaHornSHIQ.generateDatalog();
 			//expected rewritten query: q0(X1) :- a1(X1), a(X1), a3(X1), a4(X1).
 			assertEquals(2, qaHornSHIQ.getRewrittenQueries().size());
 			
@@ -572,7 +572,7 @@ public class TestCase {
 			// qaHornSHIQ.setQueryString(queryString);
 			qaHornSHIQ.setCq(cq);
 			qaHornSHIQ.setDlvPath("lib/dlv");
-			qaHornSHIQ.generateDataLog();
+			qaHornSHIQ.generateDatalog();
 			//expect rewritten query: q0(X0) :- a("d"), a4("d"), r1(X0,"d"), a1(X0), r2(X0,"d"), a2("d").
 			assertEquals(2, qaHornSHIQ.getRewrittenQueries().size());
 		}
@@ -615,7 +615,7 @@ public class TestCase {
 				// qaHornSHIQ.setQueryString(queryString);
 				qaHornSHIQ.setCq(cq);
 				qaHornSHIQ.setDlvPath("lib/dlv");
-				qaHornSHIQ.generateDataLog();
+				qaHornSHIQ.generateDatalog();
 				//expect rewritten query: No rewritten query.
 				assertEquals(1, qaHornSHIQ.getRewrittenQueries().size());
 			

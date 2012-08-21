@@ -55,7 +55,7 @@ public class HornSHIQProfile implements OWLProfile {
 	@Override
 	public OWLProfileReport checkOntology(OWLOntology ontology) {
 		OWL2DLProfile profile = new OWL2DLProfile();
-		System.out.println(ontology);
+		//System.out.println(ontology);
 		OWLProfileReport report = profile.checkOntology(ontology);
 		
 		
