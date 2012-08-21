@@ -55,7 +55,7 @@ public class RequiemTestSuiteVicodi {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 	//	qaHornSHIQ.getAnswers();
 
 		DecodeUtility decodeUtility = new DecodeUtility();
@@ -95,7 +95,7 @@ public class RequiemTestSuiteVicodi {
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 
 	}
 	//Q(?0) <- Location(?0)
@@ -135,7 +135,7 @@ public class RequiemTestSuiteVicodi {
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 
 	}
 	
@@ -172,7 +172,7 @@ public class RequiemTestSuiteVicodi {
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 
 	}
 	@Test

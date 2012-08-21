@@ -109,7 +109,7 @@ public class RequiemTestSuiteUniversity {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 		
 		//qaHornSHIQ.getAnswers();
 		// Check if our answers is the same as correct answers.

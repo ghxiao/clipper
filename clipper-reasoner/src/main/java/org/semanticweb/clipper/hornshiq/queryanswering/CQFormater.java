@@ -6,6 +6,7 @@ import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLLiteral;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
+import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 import org.semanticweb.owlapi.model.OWLProperty;
 import org.semanticweb.owlapi.model.OWLPropertyAssertionObject;
 import org.semanticweb.owlapi.model.OWLPropertyExpression;
@@ -20,15 +21,21 @@ public class CQFormater {
 		case LowerCaseFragment:
 			OWLPropertyExpression owlExpression = ClipperManager.getInstance().getOwlPropertyExpressionEncoder()
 					.getSymbolByValue(value);
+			if (owlExpression.isObjectPropertyExpression()) {
+				OWLObjectPropertyExpression ope = (OWLObjectPropertyExpression) owlExpression;
+				if (owlExpression.isAnonymous()) {
+					return "INVERSEOF(" + normalizeIRI(ope.getInverseProperty().getNamedProperty().getIRI()) + ")";
+				} else {
+					OWLProperty property = (OWLProperty) owlExpression;
+					IRI iri = property.getIRI();
+					return normalizeIRI(iri);
+				}
+			} else {
+				OWLProperty property = (OWLProperty) owlExpression;
+				IRI iri = property.getIRI();
+				return normalizeIRI(iri);
+			}
 
-			OWLProperty property = (OWLProperty) owlExpression;
-
-			// if (owlExpression.isAnonymous())
-			// return "INVERSEOF(" +
-			// normalizeIRI(owlExpression.getNamedProperty().getIRI()) + ")";
-			// else {
-			IRI iri = property.getIRI();
-			return normalizeIRI(iri);
 			// }
 
 		case IntEncoding:

@@ -10,14 +10,14 @@ import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 
 public class ClipperCompletenessAnalyzer {
 	public static void main(String[] args) throws Exception {
-		//runAllTests();
+		runAllLUBMTests();
 //		for(int j = 0; j < 10; j++){
 //		 runOneTest(13, j);
 //		}
 		 //runOneTest(3, 12);
 		 //
 	//	runOneTest(9, 0);
-		runAllGalenTests();
+		//runAllGalenTests();
 	}
 
 	public static void runOneTest(int queryIndex, int patternIndex) throws Exception {
