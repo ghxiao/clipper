@@ -231,19 +231,14 @@ public class CQGraphRewriter implements QueryRewriter {
 	 * @return
 	 */
 	private boolean mergeable(CQGraph g, EnforcedRelation enf, Collection<Variable> leaves) {
-<<<<<<< HEAD
 		
 		Set<Term> visited = Sets.newHashSet();
 		
 		Collection<CQGraphEdge> leafInterEdges = g.getInterEdges(leaves);
 		
-=======
-		Collection<CQGraphEdge> leafInterEdges = g.getInterEdges(leaves);
-		
 		if(leafInterEdges.isEmpty())
 			return false;
 		
->>>>>>> 2ba085c6629a2ffb4be77fa1b35001a97ef9952e
 		// TODO: check again
 		for (CQGraphEdge edge : leafInterEdges) {
 			Integer role = edge.getRole();
@@ -258,7 +253,7 @@ public class CQGraphRewriter implements QueryRewriter {
 						&& enfs.matchRolesAndType2(roles, type2).size() == 0) {
 					return false;
 				}
-<<<<<<< HEAD
+
 				visited.add(edge.getSource());
 				visited.add(edge.getDest());
 			}
@@ -267,11 +262,6 @@ public class CQGraphRewriter implements QueryRewriter {
 		return (visited.containsAll(leaves));
 			
 		
-=======
-			}
-		}
-		return true;
->>>>>>> 2ba085c6629a2ffb4be77fa1b35001a97ef9952e
 	}
 
 	public List<CQGraph> getResult() {
