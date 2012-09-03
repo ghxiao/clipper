@@ -47,7 +47,11 @@ public class GenerateDataLogProgram {
 			qaHornSHIQ.setDlvPath(dlvPath);
 		}
 		long startTime = System.currentTimeMillis();
+<<<<<<< HEAD
 		qaHornSHIQ.generateDatalog();
+=======
+		qaHornSHIQ.generateDataLog();
+>>>>>>> 2ba085c6629a2ffb4be77fa1b35001a97ef9952e
 		long endTime = System.currentTimeMillis();
 		
 //		System.out.println("Ontology parsing and normalization time:                      " + qaHornSHIQ.getNormalizationTime() + "  milliseconds");

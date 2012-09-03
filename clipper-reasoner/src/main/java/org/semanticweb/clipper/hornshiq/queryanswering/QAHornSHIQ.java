@@ -84,12 +84,19 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);// default
 		this.ontologies = new ArrayList<OWLOntology>();
 		cqFormater = new CQFormater();
+<<<<<<< HEAD
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);// default
+=======
+>>>>>>> 2ba085c6629a2ffb4be77fa1b35001a97ef9952e
 		// ClipperManager.getInstance().reset();
 	}
 
 	public void setNamingStrategy(NamingStrategy namingStrategy) {
 		ClipperManager.getInstance().setNamingStrategy(namingStrategy);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2ba085c6629a2ffb4be77fa1b35001a97ef9952e
 	}
 
 	/**
@@ -98,6 +105,12 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	 */
 	public void generateDatalog() {
 
+<<<<<<< HEAD
+=======
+//		String ans = "ans";
+//		cq.getHead().setPredicate(new NonDLPredicate("ans"));
+
+>>>>>>> 2ba085c6629a2ffb4be77fa1b35001a97ef9952e
 		this.headPredicate = cq.getHead().getPredicate().toString();
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("% Encoded Input query:" + cq);
