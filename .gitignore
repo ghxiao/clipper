@@ -4,4 +4,4 @@ target
 *~
 catalog-v*.xml
 .classpath
-.project
+.projecttmp.*
