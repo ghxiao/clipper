@@ -53,7 +53,7 @@ public class GenerateDataLog {
 		} else if (purpose.equals("-p")){
 			qaHornSHIQ.setDataLogName(sparqlFile + "Program-" + ontologyFile + "-" + ".dl");
 			qaHornSHIQ.setCq(cq);
-			qaHornSHIQ.generateDataLog();
+			qaHornSHIQ.generateDatalog();
 		}
 //		System.out.println("Ontology parsing and normalization time:                      " + qaHornSHIQ.getNormalizationTime() + "  milliseconds");
 //		System.out.println("Reasoning time:                                               " + qaHornSHIQ.getReasoningTime()

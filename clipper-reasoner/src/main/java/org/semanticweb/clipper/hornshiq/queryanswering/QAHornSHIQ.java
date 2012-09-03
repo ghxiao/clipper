@@ -84,12 +84,12 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);// default
 		this.ontologies = new ArrayList<OWLOntology>();
 		cqFormater = new CQFormater();
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);// default
 		// ClipperManager.getInstance().reset();
 	}
 
 	public void setNamingStrategy(NamingStrategy namingStrategy) {
 		ClipperManager.getInstance().setNamingStrategy(namingStrategy);
-
 	}
 
 	/**
@@ -97,9 +97,6 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	 *         rules, and ABox assertions
 	 */
 	public void generateDatalog() {
-
-//		String ans = "ans";
-//		cq.getHead().setPredicate(new NonDLPredicate("ans"));
 
 		this.headPredicate = cq.getHead().getPredicate().toString();
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {

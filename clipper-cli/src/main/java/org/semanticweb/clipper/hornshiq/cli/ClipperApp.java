@@ -12,6 +12,7 @@ import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.Nam
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
@@ -43,8 +44,13 @@ public class ClipperApp {
 		jc.parse(args);
 
 		ClipperManager.getInstance().setVerboseLevel(co.getVerbose());
-
-		String cmd = jc.getParsedCommand();
+		String cmd = null;
+		try {
+			cmd = jc.getParsedCommand();
+		} catch (Exception ex) {
+			System.err.println(ex.getMessage());
+			help(jc);
+		}
 
 		if (cmd == null) {
 			help(jc);
@@ -74,7 +80,7 @@ public class ClipperApp {
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 
 		String ontologyFileName = cmd.getFiles().get(0);
-		qaHornSHIQ.setOntologyName(ontologyFileName);
+		//qaHornSHIQ.setOntologyName(ontologyFileName);
 
 		qaHornSHIQ.setDataLogName(ontologyFileName + ".dl");
 
@@ -83,7 +89,7 @@ public class ClipperApp {
 		} else if (cmd.isRewritingABoxOnly()) {
 			qaHornSHIQ.getAboxDataLog();
 		} else if (cmd.isRewritingOntologyAndQuery()) {
-			qaHornSHIQ.generateDataLog();
+			qaHornSHIQ.generateDatalog();
 		} else if (cmd.isRewritingTBoxOnly()) {
 			// TODO
 		} else if (cmd.isRewritingTBoxAndQuery()) {
@@ -98,21 +104,22 @@ public class ClipperApp {
 	}
 
 	private void query(CommandLineArgs cla, CommandQuery cmd) {
-		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		// ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		System.setProperty("entityExpansionLimit", "512000");
 
-		String ontologyFileName = cmd.getFiles().get(0);
-		File ontologyFile = new File(ontologyFileName);
-		try {
-			OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(ontologyFile);
-			qaHornSHIQ.addOntology(ontology);
-		} catch (OWLOntologyCreationException e) {
-			e.printStackTrace();
+		for (String ontologyFile : cmd.getOntologyFiles()) {
+			try {
+				OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
+						new File(ontologyFile));
+				qaHornSHIQ.addOntology(ontology);
+			} catch (OWLOntologyCreationException e) {
+				e.printStackTrace();
+			}
 		}
 
 		CQ cq = null;
-		String sparqlFileName = cmd.getFiles().get(1);
+		String sparqlFileName = cmd.getSparqlFile();
 		try {
 			SparqlParser sparqlParser = new SparqlParser(sparqlFileName);
 			cq = sparqlParser.query();
@@ -123,10 +130,9 @@ public class ClipperApp {
 			e.printStackTrace();
 		}
 
-		String sparqlName = new File(sparqlFileName).getName();
+		// String sparqlName = new File(sparqlFileName).getName();
 
-		qaHornSHIQ.setOntologyName(ontologyFileName);
-		qaHornSHIQ.setDataLogName(ontologyFileName + "-" + sparqlName + ".dl");
+		qaHornSHIQ.setDataLogName("tmp.dlv");
 		qaHornSHIQ.setQueryRewriter(cla.getRewriter());
 
 		qaHornSHIQ.setDlvPath(cmd.getDlvPath());
