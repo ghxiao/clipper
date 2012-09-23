@@ -48,7 +48,7 @@ public class QueryRewritingTest {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/simpleRewriting.dl");
+		qaHornSHIQ.setDatalogFileName("AllTestCases/simpleRewriting.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/simpleRewriting.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n" + //
@@ -83,7 +83,7 @@ public class QueryRewritingTest {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting2.dl");
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting2.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting2.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n" + "SELECT ?x1 \n" + "WHERE { \n"
@@ -113,7 +113,7 @@ public class QueryRewritingTest {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting3.dl");
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting3.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n" + "SELECT ?x1 \n" + "WHERE { \n"
@@ -145,7 +145,7 @@ public class QueryRewritingTest {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting3.dl");
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting3.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n" + "SELECT ?x1 \n" + "WHERE { \n"

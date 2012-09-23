@@ -39,7 +39,6 @@ class CommandQuery {
 
 	private String errorMessage;
 
-
 	// TODO: will be supported in the future
 	@Parameter(names = "-clingo", description = "the path to clingo", hidden = true)
 	private String clingoPath;
@@ -64,8 +63,8 @@ class CommandQuery {
 @Parameters(commandNames = { "rewrite" }, separators = "=", commandDescription = "rewrite the query w.r.t. the ontology, and generate a datalog program")
 class CommandRewrite {
 
-	@Parameter(description = "<ontology.owl> [ <cq.sparql> ] ")
-	private List<String> files;
+	@Parameter(description = "<ontology1.owl> ... <ontologyk.owl>")
+	private List<String> ontologyFiles;
 
 	@Parameter(names = { "-tbox-only", "-t" }, description = "only rewrite TBox")
 	private boolean rewritingTBoxOnly;
@@ -86,7 +85,14 @@ class CommandRewrite {
 //	private boolean removingRedundancyRules;
 	@Parameter(names = { "--output-directory", "-d" }, description = "output directory")
 	private String outputDirectory = ".";
+	
+	@Parameter(names = "-cq", description = "<query.cq> query file in CQ format")
+	private String cqFile;
 
+	@Parameter(names = "-sparql", description = "<query.sparql> query file in SPARQL format")
+	private String sparqlFile;
+
+	
 	public void validate() {
 		// TODO
 	}

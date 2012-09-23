@@ -42,7 +42,7 @@ public class GenerateABoxDLProgram {
 		//note that naming strategy shoud be set after create new QAHornSHIQ
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setOntologyName(ontologyFile);
-		qaHornSHIQ.setDataLogName("ABox."+ontologyFile + ".dlABox");
+		qaHornSHIQ.setDatalogFileName("ABox."+ontologyFile + ".dlABox");
 		qaHornSHIQ.setCq(cq);
 		if (dlvPath != null) {
 			qaHornSHIQ.setDlvPath(dlvPath);

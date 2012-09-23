@@ -30,7 +30,7 @@ public class RequiemTestSuiteStockExchange {
 		ClipperManager.getInstance().setVerboseLevel(1);
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/StockExQuery0.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/StockExQuery0.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/stockexchange.owl");
 		//Q(?0) <- StockExchangeMember(?0)
 		String sparql = "PREFIX ub: <http://www.owl-ontologies.com/Ontology1207768242.owl#>\n" + //
@@ -61,7 +61,7 @@ public class RequiemTestSuiteStockExchange {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/StockExQuery01.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/StockExQuery01.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/stockexchange.owl");
 		//Q(?0,?1) <- Person(?0), hasStock(?0,?1), Stock(?1)
 		String sparql = "PREFIX ub: <http://www.owl-ontologies.com/Ontology1207768242.owl#>\n" + //
@@ -94,7 +94,7 @@ public class RequiemTestSuiteStockExchange {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/StockExQuery01.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/StockExQuery01.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/stockexchange.owl");
 		//Q(?0,?1,?2) <- FinantialInstrument(?0), belongsToCompany(?0,?1), Company(?1), hasStock(?1,?2), Stock(?2)
 		String sparql = "PREFIX ub: <http://www.owl-ontologies.com/Ontology1207768242.owl#>\n" + //
@@ -128,7 +128,7 @@ public class RequiemTestSuiteStockExchange {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/StockExQuery03.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/StockExQuery03.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/stockexchange.owl");
 		//Q(?0,?1,?2) <- Person(?0), hasStock(?0,?1), Stock(?1), isListedIn(?1,?2), StockExchangeList(?2)
 		String sparql = "PREFIX ub: <http://www.owl-ontologies.com/Ontology1207768242.owl#>\n" + //
@@ -162,7 +162,7 @@ public class RequiemTestSuiteStockExchange {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/StockExQuery03.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/StockExQuery03.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/stockexchange.owl");
 		//Q(?0,?1,?2,?3) <- FinantialInstrument(?0), belongsToCompany(?0,?1), Company(?1), hasStock(?1,?2), Stock(?2), isListedIn(?1,?3), StockExchangeList(?3)
 		String sparql = "PREFIX ub: <http://www.owl-ontologies.com/Ontology1207768242.owl#>\n" + //

@@ -35,7 +35,7 @@ public class QAHornSHIQTest {
 	//	KaosManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testRoleInclusion.dl");
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testRoleInclusion.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testRoleInclusion.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at.testRoleInclusion.owl#> \n"
@@ -76,7 +76,7 @@ public class QAHornSHIQTest {
 		qaHornSHIQ.setQuery(cq);
 		qaHornSHIQ.setQueryRewriter("new");
 		ClipperManager.getInstance().setVerboseLevel(1);
-		qaHornSHIQ.setDataLogName("TestCaseOntologies/tmp.dlv");
+		qaHornSHIQ.setDatalogFileName("TestCaseOntologies/tmp.dlv");
 		List<List<String>> results = qaHornSHIQ.execQuery();
 		Joiner.on("\n").appendTo(System.out, results);
 		assertEquals(1, results.size());
@@ -92,7 +92,7 @@ public class QAHornSHIQTest {
 		qaHornSHIQ.setQuery(cq);
 		qaHornSHIQ.setQueryRewriter("new");
 		ClipperManager.getInstance().setVerboseLevel(1);
-		qaHornSHIQ.setDataLogName("TestCaseOntologies/tmp.dlv");
+		qaHornSHIQ.setDatalogFileName("TestCaseOntologies/tmp.dlv");
 		List<List<String>> results = qaHornSHIQ.execQuery();
 		Joiner.on("\n").appendTo(System.out, results);
 		assertEquals(3, results.size());

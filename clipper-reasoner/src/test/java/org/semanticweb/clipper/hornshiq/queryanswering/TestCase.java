@@ -43,7 +43,7 @@ public class TestCase {
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testRoleInclusion.dl");
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testRoleInclusion.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testRoleInclusion.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at.testRoleInclusion.owl#> \n"
@@ -82,7 +82,7 @@ public class TestCase {
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testInverseRoleInclusion.dl");
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testInverseRoleInclusion.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testInverseRoleInclusion.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at.testRoleInclusion.owl#> \n"
@@ -119,7 +119,7 @@ public class TestCase {
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testConceptInclusion.dl");
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testConceptInclusion.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testConceptInclusion.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at.testConceptInclusion.owl#> \n"
@@ -162,7 +162,7 @@ public class TestCase {
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testBottomRule.dl");
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testBottomRule.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testBottomRule.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
@@ -247,7 +247,7 @@ public class TestCase {
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testForallRule1.dl");
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testForallRule1.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testForallRule1.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
@@ -286,7 +286,7 @@ public class TestCase {
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testForallRule2.dl");
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testForallRule2.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testForallRule2.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
@@ -323,7 +323,7 @@ public class TestCase {
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testForallRule3.dl");
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testForallRule3.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testForallRule3.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
@@ -367,7 +367,7 @@ public class TestCase {
 		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ
-				.setDataLogName("AllTestCases/testAtMostOne_MergeChildren.dl");
+				.setDatalogFileName("AllTestCases/testAtMostOne_MergeChildren.dl");
 		qaHornSHIQ
 				.setOntologyName("AllTestCases/testAtMostOne_MergeChildren.owl");
 
@@ -412,7 +412,7 @@ public class TestCase {
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/atMostParentChildCollapse.dl");
+		qaHornSHIQ.setDatalogFileName("AllTestCases/atMostParentChildCollapse.dl");
 		qaHornSHIQ
 				.setOntologyName("AllTestCases/atMostParentChildCollapse.owl");
 
@@ -458,7 +458,7 @@ public class TestCase {
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/simpleRewriting.dl");
+		qaHornSHIQ.setDatalogFileName("AllTestCases/simpleRewriting.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/simpleRewriting.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
@@ -500,7 +500,7 @@ public class TestCase {
 			ClipperManager.getInstance().setVerboseLevel(2);
 			ClipperManager.getInstance().setNamingStrategy(
 					NamingStrategy.LowerCaseFragment);
-			qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting2.dl");
+			qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting2.dl");
 			qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting2.owl");
 
 			String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
@@ -543,7 +543,7 @@ public class TestCase {
 			ClipperManager.getInstance().setVerboseLevel(2);
 			ClipperManager.getInstance().setNamingStrategy(
 					NamingStrategy.LowerCaseFragment);
-			qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting3.dl");
+			qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting3.dl");
 			qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
 
 			String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
@@ -586,7 +586,7 @@ public class TestCase {
 				ClipperManager.getInstance().setVerboseLevel(2);
 				ClipperManager.getInstance().setNamingStrategy(
 						NamingStrategy.LowerCaseFragment);
-				qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting3.dl");
+				qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting3.dl");
 				qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
 
 				String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"

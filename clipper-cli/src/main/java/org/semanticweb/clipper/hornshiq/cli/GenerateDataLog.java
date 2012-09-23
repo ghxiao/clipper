@@ -43,15 +43,15 @@ public class GenerateDataLog {
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setOntologyName(ontologyFile);
 		if (purpose.equals("-a")){
-		qaHornSHIQ.setDataLogName("ABox."+ontologyFile + ".dl");
+		qaHornSHIQ.setDatalogFileName("ABox."+ontologyFile + ".dl");
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.getAboxDataLog();
 		} else if (purpose.equals("-t")){
-			qaHornSHIQ.setDataLogName(sparqlFile + "QueryAndRules-" + ontologyFile + "-" + ".dl");
+			qaHornSHIQ.setDatalogFileName(sparqlFile + "QueryAndRules-" + ontologyFile + "-" + ".dl");
 			qaHornSHIQ.setCq(cq);
 			qaHornSHIQ.getQueriesAndCompletionRulesDataLog();
 		} else if (purpose.equals("-p")){
-			qaHornSHIQ.setDataLogName(sparqlFile + "Program-" + ontologyFile + "-" + ".dl");
+			qaHornSHIQ.setDatalogFileName(sparqlFile + "Program-" + ontologyFile + "-" + ".dl");
 			qaHornSHIQ.setCq(cq);
 
 			qaHornSHIQ.generateDatalog();

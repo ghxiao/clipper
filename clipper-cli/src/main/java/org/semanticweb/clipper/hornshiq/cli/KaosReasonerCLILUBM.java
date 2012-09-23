@@ -39,7 +39,7 @@ public class KaosReasonerCLILUBM {
 		// cq.getHead().getPredicate().getEncoding();
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setOntologyName(ontologyFile);
-		qaHornSHIQ.setDataLogName(sparqlFile + "-" + ontologyFile + ".ReducedTBoxdl");
+		qaHornSHIQ.setDatalogFileName(sparqlFile + "-" + ontologyFile + ".ReducedTBoxdl");
 		qaHornSHIQ.setCq(cq);
 		if (dlvPath != null) {
 			qaHornSHIQ.setDlvPath(dlvPath);

@@ -41,7 +41,7 @@ public class GenerateDataLogProgram {
 		//note that naming strategy shoud be set after create new QAHornSHIQ
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setOntologyName(ontologyFile);
-		qaHornSHIQ.setDataLogName(sparqlFile +"-"+ontologyFile + "-" + ".dl");
+		qaHornSHIQ.setDatalogFileName(sparqlFile +"-"+ontologyFile + "-" + ".dl");
 		qaHornSHIQ.setCq(cq);
 		if (dlvPath != null) {
 			qaHornSHIQ.setDlvPath(dlvPath);

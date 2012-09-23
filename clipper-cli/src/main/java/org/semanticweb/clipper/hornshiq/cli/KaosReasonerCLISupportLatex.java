@@ -38,7 +38,7 @@ public class KaosReasonerCLISupportLatex {
 		//cq.getHead().getPredicate().getEncoding();
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setOntologyName(ontologyFile);
-		qaHornSHIQ.setDataLogName(ontologyFile + "-" + sparqlFile +".dl");
+		qaHornSHIQ.setDatalogFileName(ontologyFile + "-" + sparqlFile +".dl");
 		qaHornSHIQ.setCq(cq);
 		if (dlvPath != null) {
 			qaHornSHIQ.setDlvPath(dlvPath);

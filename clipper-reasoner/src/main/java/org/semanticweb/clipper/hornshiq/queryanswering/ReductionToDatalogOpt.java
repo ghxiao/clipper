@@ -421,7 +421,6 @@ public class ReductionToDatalogOpt {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	private void rulesFromTransitiveAxioms(PrintStream program) {

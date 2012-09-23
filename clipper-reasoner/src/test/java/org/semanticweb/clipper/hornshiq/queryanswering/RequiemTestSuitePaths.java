@@ -29,7 +29,7 @@ public class RequiemTestSuitePaths {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(2);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/PathsQuery0.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/PathsQuery0.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
 		//Q(?0) <- edge(?0,?1)
 		String sparql = "PREFIX ub: <http://www.semanticweb.org/ontologies/2008/8/24/Ontology1222256119496.owl#>\n" + //
@@ -60,7 +60,7 @@ public class RequiemTestSuitePaths {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/PathsQuery01.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/PathsQuery01.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
 		//Q(?0) <- edge(?0,?1), edge(?1,?2)
 		String sparql = "PREFIX ub: <http://www.semanticweb.org/ontologies/2008/8/24/Ontology1222256119496.owl#>\n" + //
@@ -92,7 +92,7 @@ public class RequiemTestSuitePaths {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/PathsQuery02.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/PathsQuery02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
 		//Q(?0) <- edge(?0,?1), edge(?1,?2), edge(?2,?3)
 		String sparql = "PREFIX ub: <http://www.semanticweb.org/ontologies/2008/8/24/Ontology1222256119496.owl#>\n" + //
@@ -125,7 +125,7 @@ public class RequiemTestSuitePaths {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/PathsQuery03.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/PathsQuery03.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
 		//Q(?0) <- edge(?0,?1), edge(?1,?2), edge(?2,?3)
 		String sparql = "PREFIX ub: <http://www.semanticweb.org/ontologies/2008/8/24/Ontology1222256119496.owl#>\n" + //
@@ -161,7 +161,7 @@ public class RequiemTestSuitePaths {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/PathsQuery04.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/PathsQuery04.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
 		//Q(?0) <- edge(?0,?1), edge(?1,?2), edge(?2,?3)
 		String sparql = "PREFIX ub: <http://www.semanticweb.org/ontologies/2008/8/24/Ontology1222256119496.owl#>\n" + //

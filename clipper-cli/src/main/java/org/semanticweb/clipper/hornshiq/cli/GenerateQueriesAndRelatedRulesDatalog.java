@@ -45,7 +45,7 @@ public class GenerateQueriesAndRelatedRulesDatalog {
 		//note that naming strategy shoud be set after create new QAHornSHIQ
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setOntologyName(ontologyFile);
-		qaHornSHIQ.setDataLogName(sparqlFile +"-"+ontologyFile + ".dlReducedTBox");
+		qaHornSHIQ.setDatalogFileName(sparqlFile +"-"+ontologyFile + ".dlReducedTBox");
 		qaHornSHIQ.setCq(cq);
 		if (dlvPath != null) {
 			qaHornSHIQ.setDlvPath(dlvPath);

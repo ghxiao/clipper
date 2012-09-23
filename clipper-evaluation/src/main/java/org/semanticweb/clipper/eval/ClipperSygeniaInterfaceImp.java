@@ -60,7 +60,7 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 
 		qaHornSHIQ.addOntology(tboxOntology);
 
-		qaHornSHIQ.setDataLogName("tmp.dlv");
+		qaHornSHIQ.setDatalogFileName("tmp.dlv");
 		
 		qaHornSHIQ.setQueryRewriter("new");
 

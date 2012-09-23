@@ -29,7 +29,7 @@ public class RequiemTestSuiteUniversity {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(2);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/query1.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query1.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>\n"
@@ -83,7 +83,7 @@ public class RequiemTestSuiteUniversity {
 		ClipperManager.getInstance().setVerboseLevel(1);
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/query1.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query1.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		// Q(?0,?1) <- Person(?0), teacherOf(?0,?1), Course(?1)
@@ -121,7 +121,7 @@ public class RequiemTestSuiteUniversity {
 	public void query02() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/query02.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0,?1,?2) <- Student(?0), advisor(?0,?1), FacultyStaff(?1),
@@ -163,7 +163,7 @@ public class RequiemTestSuiteUniversity {
 	public void query03() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/query03.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query03.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0,?1) <- Person(?0), worksFor(?0,?1), Organization(?1)
@@ -200,7 +200,7 @@ public class RequiemTestSuiteUniversity {
 	public void query04() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/query04.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query04.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		// /Q(?0) <- Person(?0), worksFor(?0,?1), University(?1),
@@ -238,7 +238,7 @@ public class RequiemTestSuiteUniversity {
 	public void query07() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/query02.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0,?1,?2) <- Student(?0), advisor(?0,?1), FacultyStaff(?1),
@@ -279,7 +279,7 @@ public class RequiemTestSuiteUniversity {
 	public void query08() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/query02.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0,?1,?2) <- Student(?0), advisor(?0,?1), FacultyStaff(?1),
@@ -320,7 +320,7 @@ public class RequiemTestSuiteUniversity {
 	public void query09() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/query02.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0,?1,?2) <- Student(?0), advisor(?0,?1), FacultyStaff(?1),

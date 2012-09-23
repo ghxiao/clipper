@@ -53,7 +53,6 @@ public class ClipperApp {
 			help(jc);
 		}
 
-
 		if (cmd == null) {
 			help(jc);
 		} else if (cmd.equals("query")) {
@@ -81,12 +80,36 @@ public class ClipperApp {
 		// note that naming strategy should be set after create new QAHornSHIQ
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 
-		String ontologyFileName = cmd.getFiles().get(0);
+		for (String ontologyFile : cmd.getOntologyFiles()) {
+			try {
+				OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
+						new File(ontologyFile));
+				qaHornSHIQ.addOntology(ontology);
+			} catch (OWLOntologyCreationException e) {
+				e.printStackTrace();
+			}
+		}
 
-		qaHornSHIQ.setOntologyName(ontologyFileName);
+		CQ cq = null;
 
+		String sparqlFileName = cmd.getSparqlFile();
 
-		qaHornSHIQ.setDataLogName(ontologyFileName + ".dl");
+		if (sparqlFileName != null) {
+
+			try {
+				SparqlParser sparqlParser = new SparqlParser(sparqlFileName);
+				cq = sparqlParser.query();
+				qaHornSHIQ.setCq(cq);
+			} catch (RecognitionException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		// qaHornSHIQ.setOntologyName(ontologyFileName);
+
+		qaHornSHIQ.setDatalogFileName("tmp.dlv");
 
 		if (cmd.isRewritingOntologyOnly()) {
 			// FIXME
@@ -94,13 +117,11 @@ public class ClipperApp {
 		} else if (cmd.isRewritingABoxOnly()) {
 			qaHornSHIQ.getAboxDataLog();
 		} else if (cmd.isRewritingOntologyAndQuery()) {
-
 			qaHornSHIQ.generateDatalog();
-
 		} else if (cmd.isRewritingTBoxOnly()) {
-			// TODO
+			qaHornSHIQ.getCompletionRulesDataLog();
 		} else if (cmd.isRewritingTBoxAndQuery()) {
-			// TODO
+			qaHornSHIQ.getQueriesAndCompletionRulesDataLog();
 		}
 
 		long totalTime = qaHornSHIQ.getClipperReport().getReasoningTime()
@@ -141,7 +162,7 @@ public class ClipperApp {
 
 		// String sparqlName = new File(sparqlFileName).getName();
 
-		qaHornSHIQ.setDataLogName("tmp.dlv");
+		qaHornSHIQ.setDatalogFileName("tmp.dlv");
 		qaHornSHIQ.setQueryRewriter(cla.getRewriter());
 
 		qaHornSHIQ.setDlvPath(cmd.getDlvPath());

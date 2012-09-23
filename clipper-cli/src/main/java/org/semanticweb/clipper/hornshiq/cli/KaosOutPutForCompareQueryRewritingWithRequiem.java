@@ -41,7 +41,7 @@ public class KaosOutPutForCompareQueryRewritingWithRequiem {
 		//note that naming strategy shoud be set after create new QAHornSHIQ
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setOntologyName(ontologyFile);
-		qaHornSHIQ.setDataLogName(ontologyFile + "-" + sparqlFile +".dl");
+		qaHornSHIQ.setDatalogFileName(ontologyFile + "-" + sparqlFile +".dl");
 		qaHornSHIQ.setCq(cq);
 		if (dlvPath != null) {
 			qaHornSHIQ.setDlvPath(dlvPath);

@@ -28,7 +28,7 @@ public class LUBMQueryTest {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
-		qaHornSHIQ.setDataLogName("TestData/lubm/query1.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/lubm/query1.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>" + "SELECT ?x "
@@ -80,7 +80,7 @@ public class LUBMQueryTest {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
-		qaHornSHIQ.setDataLogName("TestData/lubm/query2.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/lubm/query2.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 		String sparql = " PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>  \n"
 				+ "SELECT ?x ?y ?z \n" + "WHERE {" + "	 ?x a ub:GraduateStudent . \n" + "	 ?y a ub:University . \n"
@@ -140,7 +140,7 @@ public class LUBMQueryTest {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
-		qaHornSHIQ.setDataLogName("TestData/lubm/query3.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/lubm/query3.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n" //
@@ -237,7 +237,7 @@ public class LUBMQueryTest {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
-		qaHornSHIQ.setDataLogName("TestData/lubm/query5.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/lubm/query5.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n" + "SELECT ?X 	"
@@ -281,7 +281,7 @@ public class LUBMQueryTest {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
-		qaHornSHIQ.setDataLogName("TestData/lubm/query6.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/lubm/query6.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n" + "SELECT ?X 	"
@@ -324,7 +324,7 @@ public class LUBMQueryTest {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
-		qaHornSHIQ.setDataLogName("TestData/lubm/query7.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/lubm/query7.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n" + "SELECT ?X ?Y	\n"
@@ -368,7 +368,7 @@ public class LUBMQueryTest {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
-		qaHornSHIQ.setDataLogName("TestData/lubm/query8.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/lubm/query8.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n" + "SELECT ?X ?Y ?Z \n"
@@ -411,7 +411,7 @@ public class LUBMQueryTest {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
-		qaHornSHIQ.setDataLogName("TestData/lubm/query9.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/lubm/query9.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n" + "SELECT ?X ?Y ?Z \n"
@@ -458,7 +458,7 @@ public class LUBMQueryTest {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
-		qaHornSHIQ.setDataLogName("TestData/lubm/query10.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/lubm/query10.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n" + "SELECT ?X "
@@ -501,7 +501,7 @@ public class LUBMQueryTest {
 		// Different results
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/lubm/query11.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/lubm/query11.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n" + "SELECT ?X \n"
@@ -543,7 +543,7 @@ public class LUBMQueryTest {
 	public void query12() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/lubm/query12.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/lubm/query12.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n" + "SELECT ?X ?Y \n"
@@ -585,7 +585,7 @@ public class LUBMQueryTest {
 	public void query13() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/lubm/query13.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/lubm/query13.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n" + "SELECT ?X \n"
@@ -626,7 +626,7 @@ public class LUBMQueryTest {
 	public void query14() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/lubm/query14.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/lubm/query14.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n" + "SELECT ?X \n"
@@ -669,7 +669,7 @@ public class LUBMQueryTest {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("TestData/lubm/queryTest.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/lubm/queryTest.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/lubm1.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>" + " SELECT ?X ?Z "
