@@ -743,7 +743,7 @@ public class CQGraphRewriterLUBMQueryTest {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.getAboxDataLog();
+		qaHornSHIQ.generateABoxDatalog();
 	//	qaHornSHIQ.getAnswers();
 		
 		// Set predictedAnswser = new HashSet<String>();

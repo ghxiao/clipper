@@ -48,7 +48,7 @@ public class GenerateABoxDLProgram {
 			qaHornSHIQ.setDlvPath(dlvPath);
 		}
 		long startTime = System.currentTimeMillis();
-		qaHornSHIQ.getAboxDataLog();
+		qaHornSHIQ.generateABoxDatalog();
 		long endTime = System.currentTimeMillis();
 		
 //		System.out.println("Ontology parsing and normalization time:                      " + qaHornSHIQ.getNormalizationTime() + "  milliseconds");

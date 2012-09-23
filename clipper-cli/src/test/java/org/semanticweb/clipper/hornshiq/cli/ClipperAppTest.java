@@ -28,6 +28,32 @@ public class ClipperAppTest {
 				.main("-v=8 -rewriter=old rewrite -tq src/test/resources/university.owl -sparql src/test/resources/university-q1.sparql"
 						.split("\\ "));
 	}
+	
+	@Test
+	public void testRewriteABoxOnly() {
+
+		ClipperApp
+				.main("-v=8 -rewriter=old rewrite -a src/test/resources/university.owl -sparql src/test/resources/university-q1.sparql"
+						.split("\\ "));
+	}
+	
+	@Test
+	public void testRewriteTBoxOnly() {
+
+		ClipperApp
+				.main("-v=8 -rewriter=old rewrite -t src/test/resources/university.owl"
+						.split("\\ "));
+	}
+	
+	@Test
+	public void testRewriteOntologyOnly() {
+
+		ClipperApp
+				.main("-v=8 -rewriter=old rewrite -o src/test/resources/university.owl"
+						.split("\\ "));
+	}
+
+
 
 	@Test
 	public void testCompletion() {
@@ -59,7 +85,10 @@ public class ClipperAppTest {
 
 	public static void main(String[] args) {
 		//new ClipperAppTest().testRewriteAboxes();
-		new ClipperAppTest().testRewriteTboxAndQuery();
+		//new ClipperAppTest().testRewriteTboxAndQuery();
+		//new ClipperAppTest().testRewriteABoxOnly();
+		//new ClipperAppTest().testRewriteTBoxOnly();
+		new ClipperAppTest().testRewriteOntologyOnly();
 	}
 
 }

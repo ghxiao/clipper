@@ -112,16 +112,24 @@ public class ClipperApp {
 		qaHornSHIQ.setDatalogFileName("tmp.dlv");
 
 		if (cmd.isRewritingOntologyOnly()) {
-			// FIXME
-			qaHornSHIQ.getCompletionRulesDataLog();
+			// -o
+			qaHornSHIQ.generateOntologyDatalog();
+			
 		} else if (cmd.isRewritingABoxOnly()) {
-			qaHornSHIQ.getAboxDataLog();
+			// -a
+			qaHornSHIQ.generateABoxDatalog();
+			
 		} else if (cmd.isRewritingOntologyAndQuery()) {
+			// -oq
 			qaHornSHIQ.generateDatalog();
+			
 		} else if (cmd.isRewritingTBoxOnly()) {
-			qaHornSHIQ.getCompletionRulesDataLog();
+			// -t
+			qaHornSHIQ.generateTBoxRulesDataLog();
+			
 		} else if (cmd.isRewritingTBoxAndQuery()) {
-			qaHornSHIQ.getQueriesAndCompletionRulesDataLog();
+			// -tq
+			qaHornSHIQ.generateQueriesAndCompletionRulesDataLog();
 		}
 
 		long totalTime = qaHornSHIQ.getClipperReport().getReasoningTime()
