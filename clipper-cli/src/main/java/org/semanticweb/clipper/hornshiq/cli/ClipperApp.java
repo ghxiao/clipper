@@ -83,12 +83,13 @@ public class ClipperApp {
 
 		String ontologyFileName = cmd.getFiles().get(0);
 
-		//qaHornSHIQ.setOntologyName(ontologyFileName);
+		qaHornSHIQ.setOntologyName(ontologyFileName);
 
 
 		qaHornSHIQ.setDataLogName(ontologyFileName + ".dl");
 
 		if (cmd.isRewritingOntologyOnly()) {
+			// FIXME
 			qaHornSHIQ.getCompletionRulesDataLog();
 		} else if (cmd.isRewritingABoxOnly()) {
 			qaHornSHIQ.getAboxDataLog();

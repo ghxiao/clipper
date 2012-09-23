@@ -186,7 +186,10 @@ public class CQFormater {
 
 			} else if (symbol instanceof OWLNamedIndividual) {
 				OWLNamedIndividual owlNamedIndividual = (OWLNamedIndividual) symbol;
-				return "\"" + normalizeIRI(owlNamedIndividual.getIRI()) + "\"";
+				return "\"" + (owlNamedIndividual.getIRI()) + "\"";
+				// XXX
+				// TODO: add another option
+//				return "\"" + normalizeIRI(owlNamedIndividual.getIRI()) + "\"";
 			} else {
 				throw new IllegalArgumentException(symbol.toString());
 			}

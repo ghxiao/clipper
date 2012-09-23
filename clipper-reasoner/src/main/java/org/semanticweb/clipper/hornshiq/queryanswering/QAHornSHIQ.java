@@ -604,16 +604,16 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 			System.out.println("ontologyName and datalogName should be specified!");
 		} else {
 			File file = new File(ontologyName);
-			if (cq == null) {
-				InternalCQParser cqParser = new InternalCQParser();
-				cqParser.setQueryString(queryString);
-				cqParser.setPrefix(queryPrefix);
-				cq = cqParser.getCq();
-			}
-			if (cq.getHead().getPredicate().getEncoding() != -1)
-				this.headPredicate = "q" + cq.getHead().getPredicate().getEncoding();
-			else
-				this.headPredicate = "q";
+//			if (cq == null) {
+//				InternalCQParser cqParser = new InternalCQParser();
+//				cqParser.setQueryString(queryString);
+//				cqParser.setPrefix(queryPrefix);
+//				cq = cqParser.getCq();
+//			}
+//			if (cq.getHead().getPredicate().getEncoding() != -1)
+//				this.headPredicate = "q" + cq.getHead().getPredicate().getEncoding();
+//			else
+//				this.headPredicate = "q";
 			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 				System.out.println("% Encoded Input query:" + cq);
 			}
