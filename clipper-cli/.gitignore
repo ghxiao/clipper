@@ -1,0 +1,2 @@
+# over 4G test data, should not be in repo
+src/test/resources/lubm-ex-20/*.*

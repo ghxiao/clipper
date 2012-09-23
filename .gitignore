@@ -7,3 +7,4 @@ catalog-v*.xml
 .projecttmp.*
 tmp.*
 .project
+.pydevproject
