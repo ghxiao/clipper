@@ -107,8 +107,8 @@ public class ClipperApp {
 			}
 		}
 
-		// qaHornSHIQ.setOntologyName(ontologyFileName);
-
+		// TODO: only consider related rules
+		
 		qaHornSHIQ.setDatalogFileName("tmp.dlv");
 
 		if (cmd.isRewritingOntologyOnly()) {

@@ -11,4 +11,4 @@
 
 ## 0.1 （2012-06-30）
 
-* Initial release as stand an alone runnable jar. This version is used in DL 12 and AAAI 12 paper.
+* Initial release as an standalone runnable jar. This version is used in the DL 12 and AAAI 12 paper.

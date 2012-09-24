@@ -120,10 +120,10 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		}
 
 	}
-	
+
 	/**
-	 * @return Datalog program that contains:  completion
-	 *         rules, and ABox assertions
+	 * @return Datalog program that contains: completion rules, and ABox
+	 *         assertions
 	 */
 	public void generateOntologyDatalog() {
 
@@ -229,7 +229,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		// reduction.saveEncodedDataLogProgram(this.dataLogName);
 		reduction.getCompletionRulesDatalogProgram(this.datalogFileName);
 	}
-	
+
 	/**
 	 * @param tb
 	 */
@@ -498,7 +498,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	 * @return Datalog program contains only Abox assertions
 	 * */
 	public void generateABoxDatalog() {
-		
+
 		this.headPredicate = cq.getHead().getPredicate().toString();
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("% Encoded Input query:" + cq);
@@ -510,7 +510,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 		reduceOntologyToDatalog(tb);
 
-		//queryRewriting(tb);
+		// queryRewriting(tb);
 
 		reduceABoxToDatalog(tb);
 
@@ -647,6 +647,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 			if (new File(dlvPath).exists()) {
 				return;
 			}
+			throw new IllegalStateException("DLV file " + dlvPath + " does not exist");
 		} else {
 			dlvPath = System.getenv("HOME") + "/bin/dlv";
 			if (new File(dlvPath).exists()) {
@@ -656,8 +657,8 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 			if (new File(dlvPath).exists()) {
 				return;
 			}
+			throw new IllegalStateException("dlv path is not set, and not on ~/bin/dlv or /usr/bin/dlv");
 		}
-		throw new IllegalStateException("dlv path is not set, and not on ~/bin/dlv or /usr/bin/dlv");
 
 	}
 
@@ -680,7 +681,6 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		this.cq = cq;
 	}
 
-	// @Override
 	public void preprocessOntologies() {
 		long startNormalizatoinTime = System.currentTimeMillis();
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();

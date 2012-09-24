@@ -30,6 +30,14 @@ public class ClipperAppTest {
 	}
 	
 	@Test
+	public void testRewriteAll() {
+
+		ClipperApp
+				.main("-v=8 -rewriter=old rewrite -oq src/test/resources/university.owl -sparql src/test/resources/university-q1.sparql"
+						.split("\\ "));
+	}
+	
+	@Test
 	public void testRewriteABoxOnly() {
 
 		ClipperApp
@@ -88,7 +96,8 @@ public class ClipperAppTest {
 		//new ClipperAppTest().testRewriteTboxAndQuery();
 		//new ClipperAppTest().testRewriteABoxOnly();
 		//new ClipperAppTest().testRewriteTBoxOnly();
-		new ClipperAppTest().testRewriteOntologyOnly();
+		//new ClipperAppTest().testRewriteOntologyOnly();
+		new ClipperAppTest().testRewriteAll();
 	}
 
 }

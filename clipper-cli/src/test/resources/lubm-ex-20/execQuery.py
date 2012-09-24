@@ -8,9 +8,9 @@ shcmd = r'''
 dlv -filter=ans
 '''
 
-shcmd += "q" + q + ".dlv "
+#shcmd += "q" + q + ".dlv "
 
-for univ in range(0:univs):
+#for univ in range(univs):
 shcmd += '''
  q2.dlv LUBM-ex-20.owl.dl University0_0.owl.dl University0_1.owl.dl University0_2.owl.dl \
 University0_3.owl.dl University0_4.owl.dl University0_5.owl.dl  University0_6.owl.dl \
