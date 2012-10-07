@@ -48,12 +48,6 @@ class CommandRewrite extends ReasoningCommandBase {
 	@Parameter(names = { "--output-directory", "-d" }, description = "output directory")
 	private String outputDirectory = ".";
 
-	@Parameter(names = "-cq", description = "<query.cq> query file in CQ format")
-	private String cqFile;
-
-	@Parameter(names = "-sparql", description = "<query.sparql> query file in SPARQL format")
-	private String sparqlFile;
-
 	public boolean validate() {
 		return true;
 	}

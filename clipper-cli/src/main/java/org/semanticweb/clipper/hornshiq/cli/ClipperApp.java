@@ -23,7 +23,9 @@ public class ClipperApp {
 		jc.addCommand(commandRewrite);
 		CommandHelp commandHelp = new CommandHelp(jc);
 		jc.addCommand(commandHelp);
-
+		CommandLoad commandLoad = new CommandLoad(jc);
+		jc.addCommand(commandLoad);
+		
 		jc.setProgramName("clipper.sh");
 
 		jc.parse(args);
@@ -44,6 +46,8 @@ public class ClipperApp {
 			commandQuery.exec();
 		} else if (cmd.equals("rewrite")) {
 			commandRewrite.exec();
+		} else if (cmd.equals("load")) {
+			commandLoad.exec();
 		} else if (cmd.equals("help")) {
 			commandHelp.exec();
 		}
