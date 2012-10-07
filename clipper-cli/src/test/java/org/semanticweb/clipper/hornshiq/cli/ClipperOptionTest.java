@@ -22,11 +22,11 @@ public class ClipperOptionTest {
 		CommandLineArgs co = new CommandLineArgs();
 		JCommander jc = new JCommander(co);
 
-		CommandQuery commandQuery = new CommandQuery();
+		CommandQuery commandQuery = new CommandQuery(jc);
 		jc.addCommand(commandQuery);
-		CommandRewrite commandRewrite = new CommandRewrite();
+		CommandRewrite commandRewrite = new CommandRewrite(jc);
 		jc.addCommand(commandRewrite);
-		CommandHelp commandHelp = new CommandHelp();
+		CommandHelp commandHelp = new CommandHelp(jc);
 		jc.addCommand(commandHelp);
 		// CommandSaturate commandSaturate = new CommandSaturate();
 		// jc.addCommand(commandSaturate);
@@ -43,11 +43,11 @@ public class ClipperOptionTest {
 		CommandLineArgs co = new CommandLineArgs();
 		JCommander jc = new JCommander(co);
 
-		CommandQuery commandQuery = new CommandQuery();
+		CommandQuery commandQuery = new CommandQuery(jc);
 		jc.addCommand(commandQuery);
-		CommandRewrite commandRewrite = new CommandRewrite();
+		CommandRewrite commandRewrite = new CommandRewrite(jc);
 		jc.addCommand(commandRewrite);
-		CommandHelp commandHelp = new CommandHelp();
+		CommandHelp commandHelp = new CommandHelp(jc);
 		jc.addCommand(commandHelp);
 
 		jc.setProgramName("clipper.sh");
@@ -72,11 +72,11 @@ public class ClipperOptionTest {
 		CommandLineArgs co = new CommandLineArgs();
 		JCommander jc = new JCommander(co);
 
-		CommandQuery commandQuery = new CommandQuery();
+		CommandQuery commandQuery = new CommandQuery(jc);
 		jc.addCommand(commandQuery);
-		CommandRewrite commandRewrite = new CommandRewrite();
+		CommandRewrite commandRewrite = new CommandRewrite(jc);
 		jc.addCommand(commandRewrite);
-		CommandHelp commandHelp = new CommandHelp();
+		CommandHelp commandHelp = new CommandHelp(jc);
 		jc.addCommand(commandHelp);
 
 		jc.setProgramName("clipper.sh");
@@ -102,11 +102,11 @@ public class ClipperOptionTest {
 		CommandLineArgs co = new CommandLineArgs();
 		JCommander jc = new JCommander(co);
 
-		CommandQuery commandQuery = new CommandQuery();
+		CommandQuery commandQuery = new CommandQuery(jc);
 		jc.addCommand(commandQuery);
-		CommandRewrite commandRewrite = new CommandRewrite();
+		CommandRewrite commandRewrite = new CommandRewrite(jc);
 		jc.addCommand(commandRewrite);
-		CommandHelp commandHelp = new CommandHelp();
+		CommandHelp commandHelp = new CommandHelp(jc);
 		jc.addCommand(commandHelp);
 		// CommandSaturate commandSaturate = new CommandSaturate();
 		// jc.addCommand(commandSaturate);
@@ -129,11 +129,11 @@ public class ClipperOptionTest {
 		CommandLineArgs co = new CommandLineArgs();
 		JCommander jc = new JCommander(co);
 
-		CommandQuery commandQuery = new CommandQuery();
+		CommandQuery commandQuery = new CommandQuery(jc);
 		jc.addCommand(commandQuery);
-		CommandRewrite commandRewrite = new CommandRewrite();
+		CommandRewrite commandRewrite = new CommandRewrite(jc);
 		jc.addCommand(commandRewrite);
-		CommandHelp commandHelp = new CommandHelp();
+		CommandHelp commandHelp = new CommandHelp(jc);
 		jc.addCommand(commandHelp);
 		// CommandSaturate commandSaturate = new CommandSaturate();
 		// jc.addCommand(commandSaturate);
@@ -150,11 +150,11 @@ public class ClipperOptionTest {
 		CommandLineArgs co = new CommandLineArgs();
 		JCommander jc = new JCommander(co);
 
-		CommandQuery commandQuery = new CommandQuery();
+		CommandQuery commandQuery = new CommandQuery(jc);
 		jc.addCommand(commandQuery);
-		CommandRewrite commandRewrite = new CommandRewrite();
+		CommandRewrite commandRewrite = new CommandRewrite(jc);
 		jc.addCommand(commandRewrite);
-		CommandHelp commandHelp = new CommandHelp();
+		CommandHelp commandHelp = new CommandHelp(jc);
 		jc.addCommand(commandHelp);
 		// CommandSaturate commandSaturate = new CommandSaturate();
 		// jc.addCommand(commandSaturate);

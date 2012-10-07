@@ -1,4 +1,4 @@
-package org.semanticweb.clipper.hornshiq.cli;
+package org.semanticweb.clipper.hornshiq.cli.backup;
 
 import java.io.IOException;
 
@@ -9,14 +9,13 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 
-public class GenerateDataLogProgram {
+public class KaosReasonerCLISupportLatex {
 
 	public static String ontologyFile;
 	public static String sparqlFile;
@@ -38,10 +37,8 @@ public class GenerateDataLogProgram {
 		CQ cq = parseCQ();
 		//cq.getHead().getPredicate().getEncoding();
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		//note that naming strategy shoud be set after create new QAHornSHIQ
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setOntologyName(ontologyFile);
-		qaHornSHIQ.setDatalogFileName(sparqlFile +"-"+ontologyFile + "-" + ".dl");
+		qaHornSHIQ.setDatalogFileName(ontologyFile + "-" + sparqlFile +".dl");
 		qaHornSHIQ.setCq(cq);
 		if (dlvPath != null) {
 			qaHornSHIQ.setDlvPath(dlvPath);
@@ -56,7 +53,7 @@ public class GenerateDataLogProgram {
 //		System.out.println("Reasoning time:                                               " + qaHornSHIQ.getReasoningTime()
 //				+ "  milliseconds");
 //		System.out.println("Query rewriting time:                                         "
-//				+ qaHornSHIQ.getQueryRewritingTime() + "  milliseconds");
+//				+ qaHornSHIQ.getClipperReport().getQueryRewritingTime() + "  milliseconds");
 		long totalTime= qaHornSHIQ.getClipperReport().getReasoningTime() 	+ qaHornSHIQ.getClipperReport().getQueryRewritingTime();
 		System.out.println(qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueries()+ " " + qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueriesAndRules() + " " + totalTime);
 //		System.out.println("Total time for query rewriting (reasoning + rewriting time):  "

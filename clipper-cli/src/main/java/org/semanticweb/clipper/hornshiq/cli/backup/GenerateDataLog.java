@@ -1,4 +1,4 @@
-package org.semanticweb.clipper.hornshiq.cli;
+package org.semanticweb.clipper.hornshiq.cli.backup;
 
 import java.io.IOException;
 
@@ -15,16 +15,13 @@ import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
-/**
- * To generate datalog program contain: queries and related rules, not all completion rules.
- * 
- *
- **/
-public class GenerateQueriesAndRelatedRulesDatalog {
+
+public class GenerateDataLog {
 
 	public static String ontologyFile;
 	public static String sparqlFile;
-	public static String dlvPath;
+//	public static String dlvPath;
+	public static String purpose;
 
 	/**
 	 * @param args
@@ -45,21 +42,26 @@ public class GenerateQueriesAndRelatedRulesDatalog {
 		//note that naming strategy shoud be set after create new QAHornSHIQ
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setOntologyName(ontologyFile);
-		qaHornSHIQ.setDatalogFileName(sparqlFile +"-"+ontologyFile + ".dlReducedTBox");
+		if (purpose.equals("-a")){
+		qaHornSHIQ.setDatalogFileName("ABox."+ontologyFile + ".dl");
 		qaHornSHIQ.setCq(cq);
-		if (dlvPath != null) {
-			qaHornSHIQ.setDlvPath(dlvPath);
+		qaHornSHIQ.generateABoxDatalog();
+		} else if (purpose.equals("-t")){
+			qaHornSHIQ.setDatalogFileName(sparqlFile + "QueryAndRules-" + ontologyFile + "-" + ".dl");
+			qaHornSHIQ.setCq(cq);
+			qaHornSHIQ.generateQueriesAndCompletionRulesDataLog();
+		} else if (purpose.equals("-p")){
+			qaHornSHIQ.setDatalogFileName(sparqlFile + "Program-" + ontologyFile + "-" + ".dl");
+			qaHornSHIQ.setCq(cq);
+
+			qaHornSHIQ.generateDatalog();
 		}
-		long startTime = System.currentTimeMillis();
-		qaHornSHIQ.getQueriesAndRelatedRulesDataLog();
-		long endTime = System.currentTimeMillis();
-		
 //		System.out.println("Ontology parsing and normalization time:                      " + qaHornSHIQ.getNormalizationTime() + "  milliseconds");
 //		System.out.println("Reasoning time:                                               " + qaHornSHIQ.getReasoningTime()
 //				+ "  milliseconds");
 //		System.out.println("Query rewriting time:                                         "
 //				+ qaHornSHIQ.getQueryRewritingTime() + "  milliseconds");
-		long totalTime= qaHornSHIQ.getClipperReport().getReasoningTime() 	+ qaHornSHIQ.getClipperReport().getQueryRewritingTime() + qaHornSHIQ.getClipperReport().getCoutingRealtedRulesTime();
+		long totalTime= qaHornSHIQ.getClipperReport().getReasoningTime() 	+ qaHornSHIQ.getClipperReport().getQueryRewritingTime();
 		System.out.println(qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueries()+ " " + qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueriesAndRules() + " " + totalTime);
 //		System.out.println("Total time for query rewriting (reasoning + rewriting time):  "
 //				+ totalTime + "  milliseconds");
@@ -88,9 +90,9 @@ public class GenerateQueriesAndRelatedRulesDatalog {
 			} else if (args[i].equals("-sparql")) {
 				sparqlFile = args[i + 1];
 				i += 2;
-			} else if (args[i].equals("-dlv")) {
-				dlvPath = args[i + 1];
-				i += 2;
+			} else if (args[i].equals("-p") || args[i].equals("-t") || args[i].equals("-a")) {
+				purpose = args[i];
+				i += 1;
 			} else if (args[i].equals("-verbose")) {
 				ClipperManager.getInstance().setVerboseLevel(Integer.parseInt(args[i + 1]));
 				i += 2;
@@ -99,7 +101,7 @@ public class GenerateQueriesAndRelatedRulesDatalog {
 			}
 		}
 
-		if (ontologyFile != null && sparqlFile != null && dlvPath != null) {
+		if (ontologyFile != null && sparqlFile != null && purpose != null) {
 			return true;
 		}
 
@@ -109,13 +111,13 @@ public class GenerateQueriesAndRelatedRulesDatalog {
 	private static void printUsage() {
 
 		String usage = //
-		"Usage: kaos -ontology <ontology_file> -sparql <sparql_file> -dlv <dlv_path> [-verbose <verbose_level>]\n" + //
+		"Usage: kaos -ontology <ontology_file> -sparql <sparql_file> <purpose> [-verbose <verbose_level>]\n" + //
 				"  <ontology_file>\n" + //
 				"    the ontology file to be read, which has to be in Horn-SHIQ fragment \n" + //
 				"  <sparql_file>\n" + //
 				"    the sparql file to be query, which has to be a Conjunctive Query. \n" + //
-				"  <dlv_path>\n" + //
-				"    the path of dlv \n" + //
+				"  <purpose>\n" + //
+				"    -p Completed program, -t queries and completion rules, -a Abox \n" + //
 				"  <verbose_level>\n" + //
 				"    Specify verbose category (default: 0)\n" + "\n" + //
 				"Example: java -jar kaos.jar -ontology university.owl -sparql q1.sparql -dlv /usr/bin/dlv " //

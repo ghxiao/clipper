@@ -1,7 +1,5 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class ClipperAppTest {
@@ -92,12 +90,13 @@ public class ClipperAppTest {
 	}
 
 	public static void main(String[] args) {
+		new ClipperAppTest().testQuery();
 		//new ClipperAppTest().testRewriteAboxes();
 		//new ClipperAppTest().testRewriteTboxAndQuery();
 		//new ClipperAppTest().testRewriteABoxOnly();
 		//new ClipperAppTest().testRewriteTBoxOnly();
 		//new ClipperAppTest().testRewriteOntologyOnly();
-		new ClipperAppTest().testRewriteAll();
+		//new ClipperAppTest().testRewriteAll();
 	}
 
 }

@@ -1,4 +1,4 @@
-package org.semanticweb.clipper.hornshiq.cli;
+package org.semanticweb.clipper.hornshiq.cli.backup;
 
 import java.io.IOException;
 
@@ -16,12 +16,11 @@ import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 
-public class GenerateABoxDLProgram {
+public class GenerateDataLogProgram {
 
 	public static String ontologyFile;
 	public static String sparqlFile;
 	public static String dlvPath;
-	public static String dlProgram;
 
 	/**
 	 * @param args
@@ -42,13 +41,15 @@ public class GenerateABoxDLProgram {
 		//note that naming strategy shoud be set after create new QAHornSHIQ
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ.setOntologyName(ontologyFile);
-		qaHornSHIQ.setDatalogFileName("ABox."+ontologyFile + ".dlABox");
+		qaHornSHIQ.setDatalogFileName(sparqlFile +"-"+ontologyFile + "-" + ".dl");
 		qaHornSHIQ.setCq(cq);
 		if (dlvPath != null) {
 			qaHornSHIQ.setDlvPath(dlvPath);
 		}
 		long startTime = System.currentTimeMillis();
-		qaHornSHIQ.generateABoxDatalog();
+
+		qaHornSHIQ.generateDatalog();
+
 		long endTime = System.currentTimeMillis();
 		
 //		System.out.println("Ontology parsing and normalization time:                      " + qaHornSHIQ.getNormalizationTime() + "  milliseconds");
@@ -60,10 +61,10 @@ public class GenerateABoxDLProgram {
 		System.out.println(qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueries()+ " " + qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueriesAndRules() + " " + totalTime);
 //		System.out.println("Total time for query rewriting (reasoning + rewriting time):  "
 //				+ totalTime + "  milliseconds");
-//		System.out.println("Time of running datalog program:                              " + qaHornSHIQ.getClipperReport().getDatalogRunTime() + "  milliseconds");
-//		System.out.println("Time for output answer  :                                     " + qaHornSHIQ.getClipperReport().getOutputAnswerTime() + "  milliseconds");
-//		System.out.println("Time for counting queries realted rules (just for benchmark): " + qaHornSHIQ.getClipperReport().getCoutingRealtedRulesTime() + "  milliseconds");
-//		long runningTime= endTime -startTime - qaHornSHIQ.getClipperReport().getCoutingRealtedRulesTime();
+//		System.out.println("Time of running datalog program:                              " + qaHornSHIQ.getDatalogRunTime() + "  milliseconds");
+//		System.out.println("Time for output answer  :                                     " + qaHornSHIQ.getOutputAnswerTime() + "  milliseconds");
+//		System.out.println("Time for counting queries realted rules (just for benchmark): " + qaHornSHIQ.getCoutingRealtedRulesTime() + "  milliseconds");
+//		long runningTime= endTime -startTime - qaHornSHIQ.getCoutingRealtedRulesTime();
 //		System.out.println("Total running time of the whole system:                       " + runningTime + "  milliseconds");
 	}
 

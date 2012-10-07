@@ -1,23 +1,8 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-
-import org.antlr.runtime.RecognitionException;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
-import org.semanticweb.clipper.hornshiq.queryanswering.ClipperReport;
-import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
-import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
-import org.semanticweb.owlapi.apibinding.OWLManager;
-
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import com.beust.jcommander.JCommander;
-import com.google.common.io.Files;
 
 public class ClipperApp {
 
@@ -32,11 +17,11 @@ public class ClipperApp {
 		CommandLineArgs co = new CommandLineArgs();
 		JCommander jc = new JCommander(co);
 
-		CommandQuery commandQuery = new CommandQuery();
+		CommandQuery commandQuery = new CommandQuery(jc);
 		jc.addCommand(commandQuery);
-		CommandRewrite commandRewrite = new CommandRewrite();
+		CommandRewrite commandRewrite = new CommandRewrite(jc);
 		jc.addCommand(commandRewrite);
-		CommandHelp commandHelp = new CommandHelp();
+		CommandHelp commandHelp = new CommandHelp(jc);
 		jc.addCommand(commandHelp);
 
 		jc.setProgramName("clipper.sh");
@@ -50,189 +35,22 @@ public class ClipperApp {
 			cmd = jc.getParsedCommand();
 		} catch (Exception ex) {
 			System.err.println(ex.getMessage());
-			help(jc);
+			commandHelp.exec();
 		}
 
 		if (cmd == null) {
-			help(jc);
+			//help(jc);
+			commandHelp.exec();
 		} else if (cmd.equals("query")) {
-			query(co, commandQuery);
+			//query(co, commandQuery);
+			commandQuery.exec();
 		} else if (cmd.equals("rewrite")) {
-			rewrite(co, commandRewrite);
+			//rewrite(co, commandRewrite);
+			commandRewrite.exec();
 		} else if (cmd.equals("help")) {
-			help(jc);
+			//help(jc);
+			commandHelp.exec();
 		}
-	}
-
-	/**
-	 * @param jc
-	 */
-	private void help(JCommander jc) {
-		System.out.println("Clipper reasoner [v0.2]");
-		System.out.println();
-		jc.usage();
-	}
-
-	private void rewrite(CommandLineArgs co, CommandRewrite cmd) {
-		System.setProperty("entityExpansionLimit", "512000");
-
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		// note that naming strategy should be set after create new QAHornSHIQ
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
-
-		for (String ontologyFile : cmd.getOntologyFiles()) {
-			try {
-				OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
-						new File(ontologyFile));
-				qaHornSHIQ.addOntology(ontology);
-			} catch (OWLOntologyCreationException e) {
-				e.printStackTrace();
-			}
-		}
-
-		CQ cq = null;
-
-		String sparqlFileName = cmd.getSparqlFile();
-
-		if (sparqlFileName != null) {
-
-			try {
-				SparqlParser sparqlParser = new SparqlParser(sparqlFileName);
-				cq = sparqlParser.query();
-				qaHornSHIQ.setCq(cq);
-			} catch (RecognitionException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
-		// TODO: only consider related rules
-		
-		qaHornSHIQ.setDatalogFileName("tmp.dlv");
-
-		if (cmd.isRewritingOntologyOnly()) {
-			// -o
-			qaHornSHIQ.generateOntologyDatalog();
-			
-		} else if (cmd.isRewritingABoxOnly()) {
-			// -a
-			qaHornSHIQ.generateABoxDatalog();
-			
-		} else if (cmd.isRewritingOntologyAndQuery()) {
-			// -oq
-			qaHornSHIQ.generateDatalog();
-			
-		} else if (cmd.isRewritingTBoxOnly()) {
-			// -t
-			qaHornSHIQ.generateTBoxRulesDataLog();
-			
-		} else if (cmd.isRewritingTBoxAndQuery()) {
-			// -tq
-			qaHornSHIQ.generateQueriesAndCompletionRulesDataLog();
-		}
-
-		long totalTime = qaHornSHIQ.getClipperReport().getReasoningTime()
-				+ qaHornSHIQ.getClipperReport().getQueryRewritingTime();
-		System.out.println(qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueries() + " "
-				+ qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueriesAndRules() + " " + totalTime);
-
-	}
-
-	private void query(CommandLineArgs cla, CommandQuery cmd) {
-
-		// ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		System.setProperty("entityExpansionLimit", "512000");
-
-		for (String ontologyFile : cmd.getOntologyFiles()) {
-			try {
-				OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
-						new File(ontologyFile));
-				qaHornSHIQ.addOntology(ontology);
-			} catch (OWLOntologyCreationException e) {
-				e.printStackTrace();
-			}
-		}
-
-		CQ cq = null;
-		String sparqlFileName = cmd.getSparqlFile();
-
-		try {
-			SparqlParser sparqlParser = new SparqlParser(sparqlFileName);
-			cq = sparqlParser.query();
-			qaHornSHIQ.setCq(cq);
-		} catch (RecognitionException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		// String sparqlName = new File(sparqlFileName).getName();
-
-		qaHornSHIQ.setDatalogFileName("tmp.dlv");
-		qaHornSHIQ.setQueryRewriter(cla.getRewriter());
-
-		qaHornSHIQ.setDlvPath(cmd.getDlvPath());
-
-		long startTime = System.currentTimeMillis();
-		List<List<String>> answers = qaHornSHIQ.execQuery();
-		long endTime = System.currentTimeMillis();
-
-		QueryResultPrinter printer = createQueryResultPrinter(cmd.getOutputFormat());
-
-		printer.print(cq.getHead(), answers);
-
-		if (ClipperManager.getInstance().getVerboseLevel() > 0) {
-			statistics(qaHornSHIQ.getClipperReport(), startTime, endTime);
-		}
-
-	}
-
-	/**
-	 * @param cmd
-	 * @return
-	 */
-	private QueryResultPrinter createQueryResultPrinter(String format) {
-		QueryResultPrinter printer = null;
-		// String outputFormat = cmd.getOutputFormat();
-		if (format.equals("csv")) {
-			printer = new CsvQueryResultPrinter();
-		} else if (format.equals("table")) {
-			printer = new TableQueryResultPrinter();
-		} else if (format.equals("html")) {
-			printer = new HtmlQueryResultPrinter();
-		} else if (format.equals("terms")) {
-			// TODO
-		}
-		return printer;
-	}
-
-	/**
-	 * @param qaHornSHIQ
-	 * @param startTime
-	 * @param endTime
-	 */
-	private void statistics(ClipperReport clipperReport, long startTime, long endTime) {
-		System.out.println("Ontology parsing and normalization time:                      "
-				+ clipperReport.getNormalizationTime() + "  milliseconds");
-		System.out.println("Reasoning time:                                               "
-				+ clipperReport.getReasoningTime() + "  milliseconds");
-		System.out.println("Query rewriting time:                                         "
-				+ clipperReport.getQueryRewritingTime() + "  milliseconds");
-		long totalTime = clipperReport.getReasoningTime() + clipperReport.getQueryRewritingTime();
-		System.out.println("Total time for query rewriting (reasoning + rewriting time):  " + totalTime
-				+ "  milliseconds");
-		System.out.println("Total rules/rewritten queries: " + clipperReport.getNumberOfRewrittenQueriesAndRules());
-		System.out.println("Time of running datalog program:                              "
-				+ clipperReport.getDatalogRunTime() + "  milliseconds");
-		System.out.println("Time for output answer  :                                     "
-				+ clipperReport.getOutputAnswerTime() + "  milliseconds");
-		System.out.println("Time for counting queries realted rules (just for benchmark): "
-				+ clipperReport.getCoutingRealtedRulesTime() + "  milliseconds");
-		long runningTime = endTime - startTime - clipperReport.getCoutingRealtedRulesTime();
-		System.out.println("Total running time of the whole system:                       " + runningTime
-				+ "  milliseconds");
 	}
 
 }

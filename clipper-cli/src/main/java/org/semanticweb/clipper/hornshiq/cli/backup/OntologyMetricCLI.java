@@ -1,4 +1,4 @@
-package org.semanticweb.clipper.hornshiq.cli;
+package org.semanticweb.clipper.hornshiq.cli.backup;
 
 import java.io.File;
 import java.util.HashSet;
