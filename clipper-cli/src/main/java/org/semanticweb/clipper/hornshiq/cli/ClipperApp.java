@@ -39,16 +39,12 @@ public class ClipperApp {
 		}
 
 		if (cmd == null) {
-			//help(jc);
 			commandHelp.exec();
 		} else if (cmd.equals("query")) {
-			//query(co, commandQuery);
 			commandQuery.exec();
 		} else if (cmd.equals("rewrite")) {
-			//rewrite(co, commandRewrite);
 			commandRewrite.exec();
 		} else if (cmd.equals("help")) {
-			//help(jc);
 			commandHelp.exec();
 		}
 	}

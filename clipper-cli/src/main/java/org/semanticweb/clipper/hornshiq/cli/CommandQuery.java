@@ -22,20 +22,11 @@ import com.beust.jcommander.Parameters;
 
 @Getter
 @Parameters(commandNames = { "query" }, separators = "=", commandDescription = "answerting conjunctive query")
-class CommandQuery extends CommandBase {
+class CommandQuery extends ReasoningCommandBase {
 
 	public CommandQuery(JCommander jc) {
 		super(jc);
 	}
-
-	@Parameter(description = "<ontology1.owl> ... <ontologyk.owl>")
-	private List<String> ontologyFiles;
-
-	@Parameter(names = "-cq", description = "<query.cq> query file in CQ format")
-	private String cqFile;
-
-	@Parameter(names = "-sparql", description = "<query.sparql> query file in SPARQL format")
-	private String sparqlFile;
 
 	@Parameter(names = "-dlv", description = "the path to dlv")
 	private String dlvPath;
@@ -43,9 +34,6 @@ class CommandQuery extends CommandBase {
 	@Parameter(names = { "-f", "-output-format" }, description = "output format, possible values: { table | csv | atoms | html }")
 	private String outputFormat = "table";
 
-	@Getter
-	private String errorMessage;
-	
 	@Getter
 	@Parameter(names = { "-r", "-rewriter" }, description = "rewriter", hidden = true)
 	private String rewriter = "new";
@@ -145,25 +133,41 @@ class CommandQuery extends CommandBase {
 	 * @param startTime
 	 * @param endTime
 	 */
-	private void statistics(ClipperReport clipperReport, long startTime, long endTime) {
-		System.out.println("Ontology parsing and normalization time:                      "
-				+ clipperReport.getNormalizationTime() + "  milliseconds");
-		System.out.println("Reasoning time:                                               "
-				+ clipperReport.getReasoningTime() + "  milliseconds");
-		System.out.println("Query rewriting time:                                         "
-				+ clipperReport.getQueryRewritingTime() + "  milliseconds");
-		long totalTime = clipperReport.getReasoningTime() + clipperReport.getQueryRewritingTime();
-		System.out.println("Total time for query rewriting (reasoning + rewriting time):  " + totalTime
-				+ "  milliseconds");
-		System.out.println("Total rules/rewritten queries: " + clipperReport.getNumberOfRewrittenQueriesAndRules());
-		System.out.println("Time of running datalog program:                              "
-				+ clipperReport.getDatalogRunTime() + "  milliseconds");
-		System.out.println("Time for output answer  :                                     "
-				+ clipperReport.getOutputAnswerTime() + "  milliseconds");
-		System.out.println("Time for counting queries realted rules (just for benchmark): "
-				+ clipperReport.getCoutingRealtedRulesTime() + "  milliseconds");
-		long runningTime = endTime - startTime - clipperReport.getCoutingRealtedRulesTime();
-		System.out.println("Total running time of the whole system:                       " + runningTime
-				+ "  milliseconds");
+	private void statistics(ClipperReport clipperReport, long startTime,
+			long endTime) {
+		System.out
+				.println("Ontology parsing and normalization time:                      "
+						+ clipperReport.getNormalizationTime()
+						+ "  milliseconds");
+		System.out
+				.println("Reasoning time:                                               "
+						+ clipperReport.getReasoningTime() + "  milliseconds");
+		System.out
+				.println("Query rewriting time:                                         "
+						+ clipperReport.getQueryRewritingTime()
+						+ "  milliseconds");
+		long totalTime = clipperReport.getReasoningTime()
+				+ clipperReport.getQueryRewritingTime();
+		System.out
+				.println("Total time for query rewriting (reasoning + rewriting time):  "
+						+ totalTime + "  milliseconds");
+		System.out.println("Total rules/rewritten queries: "
+				+ clipperReport.getNumberOfRewrittenQueriesAndRules());
+		System.out
+				.println("Time of running datalog program:                              "
+						+ clipperReport.getDatalogRunTime() + "  milliseconds");
+		System.out
+				.println("Time for output answer  :                                     "
+						+ clipperReport.getOutputAnswerTime()
+						+ "  milliseconds");
+		System.out
+				.println("Time for counting queries realted rules (just for benchmark): "
+						+ clipperReport.getCoutingRealtedRulesTime()
+						+ "  milliseconds");
+		long runningTime = endTime - startTime
+				- clipperReport.getCoutingRealtedRulesTime();
+		System.out
+				.println("Total running time of the whole system:                       "
+						+ runningTime + "  milliseconds");
 	}
 }

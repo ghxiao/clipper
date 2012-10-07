@@ -22,14 +22,11 @@ import com.beust.jcommander.Parameters;
 
 @Getter
 @Parameters(commandNames = { "rewrite" }, separators = "=", commandDescription = "rewrite the query w.r.t. the ontology, and generate a datalog program")
-class CommandRewrite extends CommandBase {
+class CommandRewrite extends ReasoningCommandBase {
 
 	public CommandRewrite(JCommander jc) {
 		super(jc);
 	}
-
-	@Parameter(description = "<ontology1.owl> ... <ontologyk.owl>")
-	private List<String> ontologyFiles;
 
 	@Parameter(names = { "-tbox-only", "-t" }, description = "only rewrite TBox")
 	private boolean rewritingTBoxOnly;
@@ -60,11 +57,6 @@ class CommandRewrite extends CommandBase {
 
 	public boolean validate() {
 		return true;
-	}
-
-	@Override
-	String getErrorMessage() {
-		return null;
 	}
 
 	@Override
@@ -109,24 +101,15 @@ class CommandRewrite extends CommandBase {
 
 		qaHornSHIQ.setDatalogFileName("tmp.dlv");
 
-		if (cmd.isRewritingOntologyOnly()) {
-			// -o
+		if (cmd.isRewritingOntologyOnly()) { // -o
 			qaHornSHIQ.generateOntologyDatalog();
-
-		} else if (cmd.isRewritingABoxOnly()) {
-			// -a
+		} else if (cmd.isRewritingABoxOnly()) { // -a
 			qaHornSHIQ.generateABoxDatalog();
-
-		} else if (cmd.isRewritingOntologyAndQuery()) {
-			// -oq
+		} else if (cmd.isRewritingOntologyAndQuery()) { // -oq
 			qaHornSHIQ.generateDatalog();
-
-		} else if (cmd.isRewritingTBoxOnly()) {
-			// -t
+		} else if (cmd.isRewritingTBoxOnly()) { // -t
 			qaHornSHIQ.generateTBoxRulesDataLog();
-
-		} else if (cmd.isRewritingTBoxAndQuery()) {
-			// -tq
+		} else if (cmd.isRewritingTBoxAndQuery()) { // -tq
 			qaHornSHIQ.generateQueriesAndCompletionRulesDataLog();
 		}
 
