@@ -49,7 +49,7 @@ public class GenerateDataLog {
 		} else if (purpose.equals("-t")){
 			qaHornSHIQ.setDatalogFileName(sparqlFile + "QueryAndRules-" + ontologyFile + "-" + ".dl");
 			qaHornSHIQ.setCq(cq);
-			qaHornSHIQ.generateQueriesAndCompletionRulesDataLog();
+			qaHornSHIQ.generateQueriesAndCompletionRulesDatalog();
 		} else if (purpose.equals("-p")){
 			qaHornSHIQ.setDatalogFileName(sparqlFile + "Program-" + ontologyFile + "-" + ".dl");
 			qaHornSHIQ.setCq(cq);

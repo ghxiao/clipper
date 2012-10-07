@@ -300,7 +300,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	 * @return Datalog program contains: rewritten queries, completion rules,
 	 *         (no facts)
 	 * */
-	public void generateQueriesAndCompletionRulesDataLog() {
+	public void generateQueriesAndCompletionRulesDatalog() {
 
 		this.headPredicate = cq.getHead().getPredicate().toString();
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
@@ -328,7 +328,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	/**
 	 * @return Datalog program contains: rewritten queries, completion rules
 	 * */
-	public void generateTBoxRulesDataLog() {
+	public void generateTBoxRulesDatalog() {
 
 		preprocessOntologies();
 

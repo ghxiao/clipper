@@ -47,7 +47,7 @@ public class GenerateQueriesAndRulesDLProgram {
 			qaHornSHIQ.setDlvPath(dlvPath);
 		}
 		long startTime = System.currentTimeMillis();
-		qaHornSHIQ.generateQueriesAndCompletionRulesDataLog();
+		qaHornSHIQ.generateQueriesAndCompletionRulesDatalog();
 		long endTime = System.currentTimeMillis();
 		
 //		System.out.println("Ontology parsing and normalization time:                      " + qaHornSHIQ.getNormalizationTime() + "  milliseconds");

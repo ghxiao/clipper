@@ -2,7 +2,8 @@ package org.semanticweb.clipper.hornshiq.cli;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
+
+import lombok.Getter;
 
 import org.antlr.runtime.RecognitionException;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
@@ -13,8 +14,6 @@ import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-
-import lombok.Getter;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
@@ -108,9 +107,9 @@ class CommandRewrite extends ReasoningCommandBase {
 		} else if (cmd.isRewritingOntologyAndQuery()) { // -oq
 			qaHornSHIQ.generateDatalog();
 		} else if (cmd.isRewritingTBoxOnly()) { // -t
-			qaHornSHIQ.generateTBoxRulesDataLog();
+			qaHornSHIQ.generateTBoxRulesDatalog();
 		} else if (cmd.isRewritingTBoxAndQuery()) { // -tq
-			qaHornSHIQ.generateQueriesAndCompletionRulesDataLog();
+			qaHornSHIQ.generateQueriesAndCompletionRulesDatalog();
 		}
 
 		long totalTime = qaHornSHIQ.getClipperReport().getReasoningTime()
