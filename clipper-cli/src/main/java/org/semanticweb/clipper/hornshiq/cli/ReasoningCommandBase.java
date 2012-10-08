@@ -25,11 +25,13 @@ public abstract class ReasoningCommandBase extends CommandBase {
 	@Parameter(names = "-sparql", description = "<query.sparql> query file in SPARQL format")
 	protected String sparqlFile;
 
+	@Parameter(names = { "-r", "-rewriter" }, description = "rewriter", hidden = true)
+	protected String rewriter = "new";
+	
 	public ReasoningCommandBase(JCommander jc) {
 		super(jc);
 	}
 
-	@Getter
 	protected String errorMessage;
 
 }

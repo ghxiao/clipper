@@ -499,7 +499,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	 * */
 	public void generateABoxDatalog() {
 
-		this.headPredicate = cq.getHead().getPredicate().toString();
+		//this.headPredicate = cq.getHead().getPredicate().toString();
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("% Encoded Input query:" + cq);
 		}
