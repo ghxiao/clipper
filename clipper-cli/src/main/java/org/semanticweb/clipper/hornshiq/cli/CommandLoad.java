@@ -3,16 +3,15 @@ package org.semanticweb.clipper.hornshiq.cli;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
+import lombok.Getter;
+
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.AxiomType;
-import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLClassExpression;
@@ -24,8 +23,6 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.util.ShortFormProvider;
 import org.semanticweb.owlapi.util.SimpleShortFormProvider;
-
-import lombok.Getter;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
@@ -42,6 +39,12 @@ public class CommandLoad extends ReasoningCommandBase {
 	@Parameter(names = "-jdbcUrl", description = "JDBC URL")
 	private String jdbcUrl;
 
+	@Parameter(names = "-user", description = "User")
+	private String user;
+	
+	@Parameter(names = "-password", description = "Password")
+	private String password = "";
+
 	@Override
 	boolean validate() {
 		// TODO Auto-generated method stub
@@ -51,15 +54,15 @@ public class CommandLoad extends ReasoningCommandBase {
 	@Override
 	void exec() {
 		long t1 = System.currentTimeMillis();
-		String url = "jdbc:postgresql://localhost/dlvdb_university";
+		// String url = "jdbc:postgresql://localhost/dlvdb_university";
 		Properties props = new Properties();
-		props.setProperty("user", "xiao");
-		props.setProperty("password", "");
+		props.setProperty("user", this.getUser());
+		props.setProperty("password", this.getPassword());
 		// props.setProperty("ssl", "true");
 		Connection conn = null;
 		Statement stmt = null;
 		try {
-			conn = DriverManager.getConnection(url, props);
+			conn = DriverManager.getConnection(jdbcUrl, props);
 			stmt = conn.createStatement();
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
@@ -79,10 +82,12 @@ public class CommandLoad extends ReasoningCommandBase {
 				insertConcepts(stmt, sfp, ontology);
 
 				insertObjectRoles(stmt, sfp, ontology);
-				
+
 				insertIndividuals(stmt, ontology);
 
 				insertConceptAssertions(stmt, sfp, ontology);
+				
+				insertObjectRoleAssertions(stmt, sfp, ontology);
 
 				stmt.close();
 			} catch (OWLOntologyCreationException e) {
@@ -96,26 +101,6 @@ public class CommandLoad extends ReasoningCommandBase {
 		long t2 = System.currentTimeMillis();
 		System.out.println("TIME: " + (t2 - t1));
 
-	}
-
-	private void insertConceptAssertions(Statement stmt, ShortFormProvider sfp,
-			OWLOntology ontology) throws SQLException {
-		Set<OWLClassAssertionAxiom> classAssertionAxioms = ontology
-				.getAxioms(AxiomType.CLASS_ASSERTION, false);
-
-		for (OWLClassAssertionAxiom axiom : classAssertionAxioms) {
-			OWLClassExpression classExpression = axiom
-					.getClassExpression();
-			String tableName = sfp.getShortForm(classExpression
-					.asOWLClass()).toLowerCase();
-			String sql = String
-					.format("INSERT INTO concept_assertion (concept , individual)            "
-							+ "SELECT predicate_name.id, individual_name.id                  "
-							+ "FROM predicate_name, individual_name                          "
-							+ "WHERE predicate_name.name = '%s' and individual_name.name = '%s'",
-							tableName, axiom.getIndividual());
-			stmt.executeUpdate(sql);
-		}
 	}
 
 	private void insertIndividuals(Statement stmt, OWLOntology ontology)
@@ -139,25 +124,63 @@ public class CommandLoad extends ReasoningCommandBase {
 		for (OWLClass cls : classes) {
 			String clsName = sfp.getShortForm(cls).toLowerCase();
 			String sql = String.format(
-					"INSERT INTO predicate_name (name) VALUES ('%s')",
-					clsName);
+					"INSERT INTO predicate_name (name) VALUES ('%s')", clsName);
 			stmt.execute(sql);
 		}
 	}
-	
+
 	private void insertObjectRoles(Statement stmt, ShortFormProvider sfp,
 			OWLOntology ontology) throws SQLException {
 
-		Set<OWLObjectProperty> objectProperties = ontology.getObjectPropertiesInSignature(false);
-		
-		
-		for (OWLObjectProperty cls : objectProperties) {
-			String clsName = sfp.getShortForm(cls).toLowerCase();
+		Set<OWLObjectProperty> objectProperties = ontology
+				.getObjectPropertiesInSignature(false);
+
+		for (OWLObjectProperty property : objectProperties) {
+			String propertyName = sfp.getShortForm(property).toLowerCase();
 			String sql = String.format(
-					"INSERT INTO predicate_name (name) VALUES ('%s')",
-					clsName);
+					"INSERT INTO predicate_name (name) VALUES ('%s')", propertyName);
 			stmt.execute(sql);
 		}
 	}
 
+	private void insertConceptAssertions(Statement stmt, ShortFormProvider sfp,
+			OWLOntology ontology) throws SQLException {
+		Set<OWLClassAssertionAxiom> classAssertionAxioms = ontology.getAxioms(
+				AxiomType.CLASS_ASSERTION, false);
+
+		for (OWLClassAssertionAxiom axiom : classAssertionAxioms) {
+			OWLClassExpression classExpression = axiom.getClassExpression();
+			String tableName = sfp.getShortForm(classExpression.asOWLClass())
+					.toLowerCase();
+			String sql = String
+					.format("INSERT INTO concept_assertion (concept , individual)            "
+							+ "SELECT predicate_name.id, individual_name.id                  "
+							+ "FROM predicate_name, individual_name                          "
+							+ "WHERE predicate_name.name = '%s' and individual_name.name = '%s'",
+							tableName, axiom.getIndividual());
+			stmt.executeUpdate(sql);
+		}
+	}
+
+	private void insertObjectRoleAssertions(Statement stmt,
+			ShortFormProvider sfp, OWLOntology ontology) throws SQLException {
+		Set<OWLObjectPropertyAssertionAxiom> objectRoleAssertionAxioms = ontology
+				.getAxioms(AxiomType.OBJECT_PROPERTY_ASSERTION, false);
+
+		for (OWLObjectPropertyAssertionAxiom axiom : objectRoleAssertionAxioms) {
+			OWLObjectProperty property = axiom.getProperty()
+					.asOWLObjectProperty();
+
+			String tableName = sfp.getShortForm(property).toLowerCase();
+			String sql = String
+					.format("INSERT INTO object_role_assertion (object_role, a, b)            "
+							+ "SELECT predicate_name.id, ind1.id, ind2.id                  "
+							+ "FROM predicate_name, individual_name as ind1, individual_name as ind2 "
+							+ "WHERE predicate_name.name = '%s' and ind1.name = '%s' and ind2.name = '%s'",
+							tableName, axiom.getSubject(), axiom.getObject());
+//			System.out.println(sql);
+//			System.out.println();
+			stmt.executeUpdate(sql);
+		}
+	}
 }

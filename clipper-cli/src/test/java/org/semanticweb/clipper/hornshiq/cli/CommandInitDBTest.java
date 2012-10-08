@@ -10,7 +10,7 @@ public class CommandInitDBTest {
 	public void test() {
 
 		ClipperApp.main(String.format(
-				"init src/test/resources/lubm-ex-20/University1_1.owl -jdbcUrl=jdbc:postgresql://localhost/dlvdb_university -user=xiao")
+				"init -jdbcUrl=jdbc:postgresql://localhost/dlvdb_university -user=xiao")
 				.split("\\ "));
 
 	}

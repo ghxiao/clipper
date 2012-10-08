@@ -64,8 +64,6 @@ public class CommandInitDB extends ReasoningCommandBase {
 		//long t1 = System.currentTimeMillis();
 		// String url = "jdbc:postgresql://localhost/dlvdb_university";
 		Properties props = new Properties();
-//		props.setProperty("user", "xiao");
-//		props.setProperty("password", "");
 		props.setProperty("user", this.getUser());
 		props.setProperty("password", this.getPassword());
 		

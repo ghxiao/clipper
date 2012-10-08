@@ -63,8 +63,6 @@ CREATE TABLE object_role_assertion (
 
 ALTER TABLE public.object_role_assertion OWNER TO xiao;
 
-ALTER TABLE public.result OWNER TO xiao;
-
 ALTER TABLE ONLY concept_assertion
     ADD CONSTRAINT concept_assertion_pkey PRIMARY KEY (concept, individual);
 
@@ -196,9 +194,9 @@ ALTER TABLE ONLY object_role_assertion
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
 
-REVOKE ALL ON SCHEMA public FROM PUBLIC;
+--REVOKE ALL ON SCHEMA public FROM PUBLIC;
 --REVOKE ALL ON SCHEMA public FROM postgres;
 --GRANT ALL ON SCHEMA public TO postgres;
-GRANT ALL ON SCHEMA public TO PUBLIC;
+--GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
