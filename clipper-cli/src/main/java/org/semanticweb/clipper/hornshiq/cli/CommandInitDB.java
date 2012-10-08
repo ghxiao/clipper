@@ -67,7 +67,7 @@ public class CommandInitDB extends ReasoningCommandBase {
 //		props.setProperty("user", "xiao");
 //		props.setProperty("password", "");
 		props.setProperty("user", this.getUser());
-		props.setProperty("pasword", this.getPassword());
+		props.setProperty("password", this.getPassword());
 		
 		// props.setProperty("ssl", "true");
 		Connection conn = null;
