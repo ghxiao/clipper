@@ -30,6 +30,7 @@ public abstract class ReasoningCommandBase extends CommandBase {
 	
 	public ReasoningCommandBase(JCommander jc) {
 		super(jc);
+		jc.addCommand(this);
 	}
 
 	protected String errorMessage;

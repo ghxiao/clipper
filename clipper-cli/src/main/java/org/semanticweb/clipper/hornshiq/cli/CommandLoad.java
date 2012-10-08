@@ -17,6 +17,7 @@ import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
+import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
@@ -75,44 +76,13 @@ public class CommandLoad extends ReasoningCommandBase {
 				ontology = manager.loadOntologyFromOntologyDocument(new File(
 						ontologyFile));
 
-				Set<OWLClass> classes = ontology.getClassesInSignature();
+				insertConcepts(stmt, sfp, ontology);
 
-				for (OWLClass cls : classes) {
-					String clsName = sfp.getShortForm(cls).toLowerCase();
-					String sql = String.format(
-							"INSERT INTO predicate_name (name) VALUES ('%s')",
-							clsName);
-					stmt.execute(sql);
-				}
+				insertObjectRoles(stmt, sfp, ontology);
+				
+				insertIndividuals(stmt, ontology);
 
-				Set<OWLNamedIndividual> individuals = ontology
-						.getIndividualsInSignature();
-
-				for (OWLNamedIndividual ind : individuals) {
-					// String indName = sfp.getShortForm(ind).toLowerCase();
-					String sql = String.format(
-							"INSERT INTO individual_name (name) VALUES ('%s')",
-							ind.toString());
-					stmt.execute(sql);
-				}
-
-				Set<OWLClassAssertionAxiom> classAssertionAxioms = ontology
-						.getAxioms(AxiomType.CLASS_ASSERTION, false);
-
-				for (OWLClassAssertionAxiom axiom : classAssertionAxioms) {
-					OWLClassExpression classExpression = axiom
-							.getClassExpression();
-					String tableName = sfp.getShortForm(classExpression
-							.asOWLClass()).toLowerCase();
-					String sql = String
-							.format("INSERT INTO concept_assertion (concept , individual)            "
-									+ "SELECT predicate_name.id, individual_name.id                  "
-									+ "FROM predicate_name, individual_name                          "
-									+ "WHERE predicate_name.name = '%s' and individual_name.name = '%s'",
-									tableName, axiom.getIndividual());
-					stmt.executeUpdate(sql);
-
-				}
+				insertConceptAssertions(stmt, sfp, ontology);
 
 				stmt.close();
 			} catch (OWLOntologyCreationException e) {
@@ -126,6 +96,68 @@ public class CommandLoad extends ReasoningCommandBase {
 		long t2 = System.currentTimeMillis();
 		System.out.println("TIME: " + (t2 - t1));
 
+	}
+
+	private void insertConceptAssertions(Statement stmt, ShortFormProvider sfp,
+			OWLOntology ontology) throws SQLException {
+		Set<OWLClassAssertionAxiom> classAssertionAxioms = ontology
+				.getAxioms(AxiomType.CLASS_ASSERTION, false);
+
+		for (OWLClassAssertionAxiom axiom : classAssertionAxioms) {
+			OWLClassExpression classExpression = axiom
+					.getClassExpression();
+			String tableName = sfp.getShortForm(classExpression
+					.asOWLClass()).toLowerCase();
+			String sql = String
+					.format("INSERT INTO concept_assertion (concept , individual)            "
+							+ "SELECT predicate_name.id, individual_name.id                  "
+							+ "FROM predicate_name, individual_name                          "
+							+ "WHERE predicate_name.name = '%s' and individual_name.name = '%s'",
+							tableName, axiom.getIndividual());
+			stmt.executeUpdate(sql);
+		}
+	}
+
+	private void insertIndividuals(Statement stmt, OWLOntology ontology)
+			throws SQLException {
+		Set<OWLNamedIndividual> individuals = ontology
+				.getIndividualsInSignature();
+
+		for (OWLNamedIndividual ind : individuals) {
+			// String indName = sfp.getShortForm(ind).toLowerCase();
+			String sql = String.format(
+					"INSERT INTO individual_name (name) VALUES ('%s')",
+					ind.toString());
+			stmt.execute(sql);
+		}
+	}
+
+	private void insertConcepts(Statement stmt, ShortFormProvider sfp,
+			OWLOntology ontology) throws SQLException {
+		Set<OWLClass> classes = ontology.getClassesInSignature();
+
+		for (OWLClass cls : classes) {
+			String clsName = sfp.getShortForm(cls).toLowerCase();
+			String sql = String.format(
+					"INSERT INTO predicate_name (name) VALUES ('%s')",
+					clsName);
+			stmt.execute(sql);
+		}
+	}
+	
+	private void insertObjectRoles(Statement stmt, ShortFormProvider sfp,
+			OWLOntology ontology) throws SQLException {
+
+		Set<OWLObjectProperty> objectProperties = ontology.getObjectPropertiesInSignature(false);
+		
+		
+		for (OWLObjectProperty cls : objectProperties) {
+			String clsName = sfp.getShortForm(cls).toLowerCase();
+			String sql = String.format(
+					"INSERT INTO predicate_name (name) VALUES ('%s')",
+					clsName);
+			stmt.execute(sql);
+		}
 	}
 
 }
