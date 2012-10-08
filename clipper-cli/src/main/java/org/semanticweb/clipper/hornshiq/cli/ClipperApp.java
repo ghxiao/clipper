@@ -18,13 +18,15 @@ public class ClipperApp {
 		JCommander jc = new JCommander(co);
 
 		CommandQuery commandQuery = new CommandQuery(jc);
-		jc.addCommand(commandQuery);
+	
 		CommandRewrite commandRewrite = new CommandRewrite(jc);
-		jc.addCommand(commandRewrite);
+	
 		CommandHelp commandHelp = new CommandHelp(jc);
-		jc.addCommand(commandHelp);
+	
 		CommandLoad commandLoad = new CommandLoad(jc);
-		jc.addCommand(commandLoad);
+	
+		CommandInitDB commandInitDB = new CommandInitDB(jc);
+	
 		
 		jc.setProgramName("clipper.sh");
 
@@ -48,6 +50,8 @@ public class ClipperApp {
 			commandRewrite.exec();
 		} else if (cmd.equals("load")) {
 			commandLoad.exec();
+		} else if (cmd.equals("init")) {
+			commandInitDB.exec();
 		} else if (cmd.equals("help")) {
 			commandHelp.exec();
 		}

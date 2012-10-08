@@ -81,19 +81,22 @@ public class ClipperAppTest {
 
 	@Test
 	public void testRewriteAbox() {
-
+		long t1 = System.currentTimeMillis();
 		int j = 0;
 		int i = 0;
 		ClipperApp.main(String.format(
-				"-v=8 -rewriter=old rewrite src/test/resources/lubm-ex-20/University%d_%d.owl -a", j, i).split("\\ "));
+				"-v=0 rewrite -rewriter=old src/test/resources/lubm-ex-20/University%d_%d.owl -a", j, i).split("\\ "));
+		long t2 = System.currentTimeMillis();
+		System.out.println("TIME: " + (t2 - t1));
+
 
 	}
 
 	public static void main(String[] args) {
-		new ClipperAppTest().testQuery();
+		//new ClipperAppTest().testQuery();
 		//new ClipperAppTest().testRewriteAboxes();
 		//new ClipperAppTest().testRewriteTboxAndQuery();
-		//new ClipperAppTest().testRewriteABoxOnly();
+		new ClipperAppTest().testRewriteAbox();
 		//new ClipperAppTest().testRewriteTBoxOnly();
 		//new ClipperAppTest().testRewriteOntologyOnly();
 		//new ClipperAppTest().testRewriteAll();

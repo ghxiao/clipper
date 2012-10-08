@@ -34,10 +34,6 @@ class CommandQuery extends ReasoningCommandBase {
 	@Parameter(names = { "-f", "-output-format" }, description = "output format, possible values: { table | csv | atoms | html }")
 	private String outputFormat = "table";
 	
-	@Getter
-	@Parameter(names = { "-r", "-rewriter" }, description = "rewriter", hidden = true)
-	private String rewriter = "new";
-
 	// TODO: will be supported in the future
 	@Parameter(names = "-clingo", description = "the path to clingo", hidden = true)
 	private String clingoPath;
