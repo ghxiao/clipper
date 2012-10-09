@@ -12,7 +12,4 @@ public class CommandLineArgs {
 	@Parameter(names = { "-v", "-verbose" }, description = "Level of verbosity")
 	private Integer verbose = 1;
 
-	@Getter
-	@Parameter(names = { "-r", "-rewriter" }, description = "rewriter", hidden = true)
-	private String rewriter = "new";
 }

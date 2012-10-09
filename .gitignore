@@ -8,3 +8,4 @@ catalog-v*.xml
 tmp.*
 .project
 .pydevproject
+bin
