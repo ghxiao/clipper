@@ -109,7 +109,6 @@ public class CommandLoad extends ReasoningCommandBase {
 				.getIndividualsInSignature();
 
 		for (OWLNamedIndividual ind : individuals) {
-			// String indName = sfp.getShortForm(ind).toLowerCase();
 			String sql = String.format(
 					"INSERT INTO individual_name (name) VALUES ('%s')",
 					ind.toString());
@@ -130,11 +129,9 @@ public class CommandLoad extends ReasoningCommandBase {
 			sql = String.format("DROP TABLE IF EXISTS %s CASCADE", clsName);
 
 			stmt.execute(sql);
-						
+
 			sql = String.format("CREATE TABLE %s ("
 					+ "individual integer NOT NULL )", clsName);
-			
-			System.err.println(sql);
 
 			stmt.execute(sql);
 		}
@@ -153,15 +150,14 @@ public class CommandLoad extends ReasoningCommandBase {
 					propertyName);
 			stmt.execute(sql);
 
-			sql = String.format("DROP TABLE IF EXISTS %s CASCADE", propertyName);
+			sql = String
+					.format("DROP TABLE IF EXISTS %s CASCADE", propertyName);
 
 			stmt.execute(sql);
-			
+
 			sql = String.format("CREATE TABLE %s (" //
 					+ "a integer NOT NULL, " //
 					+ "b integer NOT NULL" + " )", propertyName);
-			
-			System.err.println(sql);
 
 			stmt.execute(sql);
 		}
@@ -182,6 +178,7 @@ public class CommandLoad extends ReasoningCommandBase {
 							+ "FROM predicate_name, individual_name                          "
 							+ "WHERE predicate_name.name = '%s' and individual_name.name = '%s'",
 							tableName, axiom.getIndividual());
+
 			stmt.executeUpdate(sql);
 		}
 	}
@@ -202,8 +199,7 @@ public class CommandLoad extends ReasoningCommandBase {
 							+ "FROM predicate_name, individual_name as ind1, individual_name as ind2 "
 							+ "WHERE predicate_name.name = '%s' and ind1.name = '%s' and ind2.name = '%s'",
 							tableName, axiom.getSubject(), axiom.getObject());
-			// System.out.println(sql);
-			// System.out.println();
+
 			stmt.executeUpdate(sql);
 		}
 	}

@@ -132,7 +132,7 @@ public class CommandInitDB extends ReasoningCommandBase {
 			sql = String.format("CREATE TABLE %s ("
 					+ "individual integer NOT NULL )", clsName);
 
-			System.err.println(sql);
+			//System.err.println(sql);
 
 			stmt.execute(sql);
 		}
@@ -156,7 +156,7 @@ public class CommandInitDB extends ReasoningCommandBase {
 					+ "a integer NOT NULL, " //
 					+ "b integer NOT NULL" + " )", propertyName);
 
-			System.err.println(sql);
+			//System.err.println(sql);
 
 			stmt.execute(sql);
 		}
