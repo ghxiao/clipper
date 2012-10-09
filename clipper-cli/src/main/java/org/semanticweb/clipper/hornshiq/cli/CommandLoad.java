@@ -119,7 +119,7 @@ public class CommandLoad extends ReasoningCommandBase {
 
 	private void insertConcepts(Statement stmt, ShortFormProvider sfp,
 			OWLOntology ontology) throws SQLException {
-		Set<OWLClass> classes = ontology.getClassesInSignature();
+		Set<OWLClass> classes = ontology.getClassesInSignature(true);
 
 		for (OWLClass cls : classes) {
 			String clsName = sfp.getShortForm(cls).toLowerCase();
@@ -127,8 +127,14 @@ public class CommandLoad extends ReasoningCommandBase {
 					"INSERT INTO predicate_name (name) VALUES ('%s')", clsName);
 			stmt.execute(sql);
 
+			sql = String.format("DROP TABLE IF EXISTS %s CASCADE", clsName);
+
+			stmt.execute(sql);
+						
 			sql = String.format("CREATE TABLE %s ("
 					+ "individual integer NOT NULL )", clsName);
+			
+			System.err.println(sql);
 
 			stmt.execute(sql);
 		}
@@ -138,7 +144,7 @@ public class CommandLoad extends ReasoningCommandBase {
 			OWLOntology ontology) throws SQLException {
 
 		Set<OWLObjectProperty> objectProperties = ontology
-				.getObjectPropertiesInSignature(false);
+				.getObjectPropertiesInSignature(true);
 
 		for (OWLObjectProperty property : objectProperties) {
 			String propertyName = sfp.getShortForm(property).toLowerCase();
@@ -147,9 +153,15 @@ public class CommandLoad extends ReasoningCommandBase {
 					propertyName);
 			stmt.execute(sql);
 
+			sql = String.format("DROP TABLE IF EXISTS %s CASCADE", propertyName);
+
+			stmt.execute(sql);
+			
 			sql = String.format("CREATE TABLE %s (" //
 					+ "a integer NOT NULL, " //
 					+ "b integer NOT NULL" + " )", propertyName);
+			
+			System.err.println(sql);
 
 			stmt.execute(sql);
 		}

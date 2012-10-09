@@ -46,10 +46,10 @@ public class CommandInitDB extends ReasoningCommandBase {
 
 	@Parameter(names = "-jdbcUrl", description = "JDBC URL")
 	private String jdbcUrl;
-	
+
 	@Parameter(names = "-user", description = "User")
 	private String user;
-	
+
 	@Parameter(names = "-password", description = "Password")
 	private String password = "";
 
@@ -61,12 +61,12 @@ public class CommandInitDB extends ReasoningCommandBase {
 
 	@Override
 	void exec() {
-		//long t1 = System.currentTimeMillis();
+		// long t1 = System.currentTimeMillis();
 		// String url = "jdbc:postgresql://localhost/dlvdb_university";
 		Properties props = new Properties();
 		props.setProperty("user", this.getUser());
 		props.setProperty("password", this.getPassword());
-		
+
 		// props.setProperty("ssl", "true");
 		Connection conn = null;
 		Statement stmt = null;
@@ -87,7 +87,25 @@ public class CommandInitDB extends ReasoningCommandBase {
 			}
 
 			String sql = sb.toString();
+
 			stmt.execute(sql);
+			OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+
+			ShortFormProvider sfp = new SimpleShortFormProvider();
+
+			OWLOntology ontology = null;
+			for (String ontologyFile : this.getOntologyFiles()) {
+				try {
+					ontology = manager
+							.loadOntologyFromOntologyDocument(new File(
+									ontologyFile));
+					insertConcepts(stmt, sfp, ontology);
+					insertObjectRoles(stmt, sfp, ontology);
+				} catch (OWLOntologyCreationException e) {
+					e.printStackTrace();
+				}
+			}
+
 			stmt.close();
 			conn.close();
 		} catch (SQLException e1) {
@@ -98,6 +116,50 @@ public class CommandInitDB extends ReasoningCommandBase {
 			e.printStackTrace();
 		}
 
+	}
+
+	private void insertConcepts(Statement stmt, ShortFormProvider sfp,
+			OWLOntology ontology) throws SQLException {
+		Set<OWLClass> classes = ontology.getClassesInSignature(true);
+
+		for (OWLClass cls : classes) {
+			String clsName = sfp.getShortForm(cls).toLowerCase();
+
+			String sql = String.format("DROP TABLE IF EXISTS %s CASCADE", clsName);
+
+			stmt.execute(sql);
+
+			sql = String.format("CREATE TABLE %s ("
+					+ "individual integer NOT NULL )", clsName);
+
+			System.err.println(sql);
+
+			stmt.execute(sql);
+		}
+	}
+
+	private void insertObjectRoles(Statement stmt, ShortFormProvider sfp,
+			OWLOntology ontology) throws SQLException {
+
+		Set<OWLObjectProperty> objectProperties = ontology
+				.getObjectPropertiesInSignature(true);
+
+		for (OWLObjectProperty property : objectProperties) {
+			String propertyName = sfp.getShortForm(property).toLowerCase();
+
+			String sql = String
+					.format("DROP TABLE IF EXISTS %s CASCADE", propertyName);
+
+			stmt.execute(sql);
+
+			sql = String.format("CREATE TABLE %s (" //
+					+ "a integer NOT NULL, " //
+					+ "b integer NOT NULL" + " )", propertyName);
+
+			System.err.println(sql);
+
+			stmt.execute(sql);
+		}
 	}
 
 }
