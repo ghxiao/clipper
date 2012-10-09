@@ -155,7 +155,7 @@ public class CommandGenerateMapFile extends ReasoningCommandBase {
 
 			String s = String
 					.format("USE %s(a, b) \n"
-							+ "AS (\"SELECT a,b FROM concept_assertion, predicate_name \n"
+							+ "AS (\"SELECT a,b FROM object_property_assertion, predicate_name \n"
 							+ "WHERE object_property_assertion.object_property=predicate_name.id and  predicate_name.name='%s'\") \n"
 							+ "MAPTO %s(integer, integer).", propertyName,
 							propertyName, propertyName);
