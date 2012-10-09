@@ -108,7 +108,7 @@ public class CommandGenerateMapFile extends ReasoningCommandBase {
 		s += "CREATE result3 (att1,att2,att3) MAPTO result3 (integer,integer,integer) KEEP_AFTER_EXECUTION. \n";
 		s += "CREATE result4 (att1,att2,att3,att4) MAPTO result4 (integer,integer,integer,integer) KEEP_AFTER_EXECUTION. \n";
 		s += "CREATE result5 (att1,att2,att3,att4,att5) MAPTO result5 (integer,integer,integer,integer,integer) KEEP_AFTER_EXECUTION. \n";
-		s += "CREATE result6 (att1,att2,att3,att4,att5,att6)) MAPTO result6 (integer,integer,integer,integer,integer,integer) KEEP_AFTER_EXECUTION. \n";
+		s += "CREATE result6 (att1,att2,att3,att4,att5,att6) MAPTO result6 (integer,integer,integer,integer,integer,integer) KEEP_AFTER_EXECUTION. \n";
 
 		System.out.println(s);
 	}
