@@ -27,6 +27,7 @@ public class ClipperApp {
 	
 		CommandInitDB commandInitDB = new CommandInitDB(jc);
 	
+		CommandGenerateMapFile commandGenerateMapFile = new CommandGenerateMapFile(jc);
 		
 		jc.setProgramName("clipper.sh");
 
@@ -54,6 +55,8 @@ public class ClipperApp {
 			commandInitDB.exec();
 		} else if (cmd.equals("help")) {
 			commandHelp.exec();
+		} else if (cmd.equals("gen")){
+			commandGenerateMapFile.exec();
 		}
 	}
 
