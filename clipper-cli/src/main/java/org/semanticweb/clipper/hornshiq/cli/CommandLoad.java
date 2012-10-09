@@ -41,7 +41,7 @@ public class CommandLoad extends ReasoningCommandBase {
 
 	@Parameter(names = "-user", description = "User")
 	private String user;
-	
+
 	@Parameter(names = "-password", description = "Password")
 	private String password = "";
 
@@ -86,7 +86,7 @@ public class CommandLoad extends ReasoningCommandBase {
 				insertIndividuals(stmt, ontology);
 
 				insertConceptAssertions(stmt, sfp, ontology);
-				
+
 				insertObjectRoleAssertions(stmt, sfp, ontology);
 
 				stmt.close();
@@ -126,6 +126,11 @@ public class CommandLoad extends ReasoningCommandBase {
 			String sql = String.format(
 					"INSERT INTO predicate_name (name) VALUES ('%s')", clsName);
 			stmt.execute(sql);
+
+			sql = String.format("CREATE TABLE %s ("
+					+ "individual integer NOT NULL )", clsName);
+
+			stmt.execute(sql);
 		}
 	}
 
@@ -138,7 +143,14 @@ public class CommandLoad extends ReasoningCommandBase {
 		for (OWLObjectProperty property : objectProperties) {
 			String propertyName = sfp.getShortForm(property).toLowerCase();
 			String sql = String.format(
-					"INSERT INTO predicate_name (name) VALUES ('%s')", propertyName);
+					"INSERT INTO predicate_name (name) VALUES ('%s')",
+					propertyName);
+			stmt.execute(sql);
+
+			sql = String.format("CREATE TABLE %s (" //
+					+ "a integer NOT NULL, " //
+					+ "b integer NOT NULL" + " )", propertyName);
+
 			stmt.execute(sql);
 		}
 	}
@@ -178,8 +190,8 @@ public class CommandLoad extends ReasoningCommandBase {
 							+ "FROM predicate_name, individual_name as ind1, individual_name as ind2 "
 							+ "WHERE predicate_name.name = '%s' and ind1.name = '%s' and ind2.name = '%s'",
 							tableName, axiom.getSubject(), axiom.getObject());
-//			System.out.println(sql);
-//			System.out.println();
+			// System.out.println(sql);
+			// System.out.println();
 			stmt.executeUpdate(sql);
 		}
 	}
