@@ -86,18 +86,26 @@ public class CommandLoad extends DBCommandBase {
 
 	}
 
-
-
-	private void insertIndividuals(Statement stmt, OWLOntology ontology)
-			throws SQLException {
+	private void insertIndividuals(Statement stmt, OWLOntology ontology) {
 		Set<OWLNamedIndividual> individuals = ontology
 				.getIndividualsInSignature();
 
 		for (OWLNamedIndividual ind : individuals) {
-			String sql = String.format(
-					"INSERT INTO individual_name (name) VALUES ('%s')",
-					ind.toString());
-			stmt.execute(sql);
+			// String sql = String.format(
+			// "INSERT INTO individual_name (name) VALUES ('%s')",
+			// ind.toString());
+
+			String sql = String
+					.format("insert INTO individual_name (name)"
+							+ "SELECT ('%s')"
+							+ "WHERE NOT EXISTS (SELECT * FROM individual_name WHERE name='%s')  ",
+							ind.toString(), ind.toString());
+
+			try {
+				stmt.execute(sql);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -107,8 +115,11 @@ public class CommandLoad extends DBCommandBase {
 
 		for (OWLClass cls : classes) {
 			String clsName = sfp.getShortForm(cls).toLowerCase();
-			String sql = String.format(
-					"INSERT INTO predicate_name (name) VALUES ('%s')", clsName);
+			String sql = String
+					.format("INSERT INTO predicate_name (name)"
+							+ "SELECT ('%s')"
+							+ "WHERE NOT EXISTS (SELECT * FROM predicate_name WHERE name='%s')  ",
+							clsName, clsName);
 			stmt.execute(sql);
 
 			sql = String.format("DROP TABLE IF EXISTS %s CASCADE", clsName);
@@ -130,9 +141,11 @@ public class CommandLoad extends DBCommandBase {
 
 		for (OWLObjectProperty property : objectProperties) {
 			String propertyName = sfp.getShortForm(property).toLowerCase();
-			String sql = String.format(
-					"INSERT INTO predicate_name (name) VALUES ('%s')",
-					propertyName);
+			String sql = String
+					.format("INSERT INTO predicate_name (name)"
+							+ "SELECT ('%s')"
+							+ "WHERE NOT EXISTS (SELECT * FROM predicate_name WHERE name='%s')  ",
+							propertyName, propertyName);
 			stmt.execute(sql);
 
 			sql = String
@@ -161,7 +174,10 @@ public class CommandLoad extends DBCommandBase {
 					.format("INSERT INTO concept_assertion (concept , individual)            "
 							+ "SELECT predicate_name.id, individual_name.id                  "
 							+ "FROM predicate_name, individual_name                          "
-							+ "WHERE predicate_name.name = '%s' and individual_name.name = '%s'",
+							+ "WHERE predicate_name.name = '%s' and individual_name.name = '%s'"
+							+ "AND NOT EXISTS (SELECT * FROM concept_assertion "
+							+ "WHERE predicate_name.id = concept_assertion.concept "
+							+ "   AND individual_name.id = concept_assertion.individual)",
 							tableName, axiom.getIndividual());
 
 			stmt.executeUpdate(sql);
@@ -182,7 +198,11 @@ public class CommandLoad extends DBCommandBase {
 					.format("INSERT INTO object_role_assertion (object_role, a, b)            "
 							+ "SELECT predicate_name.id, ind1.id, ind2.id                  "
 							+ "FROM predicate_name, individual_name as ind1, individual_name as ind2 "
-							+ "WHERE predicate_name.name = '%s' and ind1.name = '%s' and ind2.name = '%s'",
+							+ "WHERE predicate_name.name = '%s' and ind1.name = '%s' and ind2.name = '%s'"
+							+ "AND NOT EXISTS (SELECT * FROM object_role_assertion "
+							+ "WHERE predicate_name.id = object_role_assertion.object_role "
+							+ "   AND ind1.id = object_role_assertion.a"
+							+ "   AND ind2.id = object_role_assertion.b)",
 							tableName, axiom.getSubject(), axiom.getObject());
 
 			stmt.executeUpdate(sql);
