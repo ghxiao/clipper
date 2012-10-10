@@ -57,8 +57,8 @@ public class CommandLoad extends DBCommandBase {
 		ShortFormProvider sfp = new SimpleShortFormProvider();
 
 		OWLOntology ontology = null;
-		for (String ontologyFile : this.getOntologyFiles()) {
-			try {
+		try {
+			for (String ontologyFile : this.getOntologyFiles()) {
 				ontology = manager.loadOntologyFromOntologyDocument(new File(
 						ontologyFile));
 
@@ -72,14 +72,19 @@ public class CommandLoad extends DBCommandBase {
 
 				insertObjectRoleAssertions(stmt, sfp, ontology);
 
-				stmt.close();
-			} catch (OWLOntologyCreationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				manager.removeOntology(ontology);
+
+				stmt.executeBatch();
+				
+				System.err.println(ontologyFile + " loaded!");
 			}
+			stmt.close();
+		} catch (OWLOntologyCreationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		long t2 = System.currentTimeMillis();
 		System.out.println("TIME: " + (t2 - t1));
@@ -102,7 +107,8 @@ public class CommandLoad extends DBCommandBase {
 							ind.toString(), ind.toString());
 
 			try {
-				stmt.execute(sql);
+				stmt.addBatch(sql);
+				//stmt.execute(sql);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -120,16 +126,20 @@ public class CommandLoad extends DBCommandBase {
 							+ "SELECT ('%s')"
 							+ "WHERE NOT EXISTS (SELECT * FROM predicate_name WHERE name='%s')  ",
 							clsName, clsName);
-			stmt.execute(sql);
+			stmt.addBatch(sql);
+			//stmt.execute(sql);
+
 
 			sql = String.format("DROP TABLE IF EXISTS %s CASCADE", clsName);
 
-			stmt.execute(sql);
+			stmt.addBatch(sql);
+			//stmt.execute(sql);
 
 			sql = String.format("CREATE TABLE %s ("
 					+ "individual integer NOT NULL )", clsName);
 
-			stmt.execute(sql);
+			stmt.addBatch(sql);
+			//stmt.execute(sql);
 		}
 	}
 
@@ -146,18 +156,21 @@ public class CommandLoad extends DBCommandBase {
 							+ "SELECT ('%s')"
 							+ "WHERE NOT EXISTS (SELECT * FROM predicate_name WHERE name='%s')  ",
 							propertyName, propertyName);
-			stmt.execute(sql);
+			stmt.addBatch(sql);
+			//stmt.execute(sql);
 
 			sql = String
 					.format("DROP TABLE IF EXISTS %s CASCADE", propertyName);
 
-			stmt.execute(sql);
+			stmt.addBatch(sql);
+			//stmt.execute(sql);
 
 			sql = String.format("CREATE TABLE %s (" //
 					+ "a integer NOT NULL, " //
 					+ "b integer NOT NULL" + " )", propertyName);
 
-			stmt.execute(sql);
+			stmt.addBatch(sql);
+			//stmt.execute(sql);
 		}
 	}
 
@@ -180,7 +193,8 @@ public class CommandLoad extends DBCommandBase {
 							+ "   AND individual_name.id = concept_assertion.individual)",
 							tableName, axiom.getIndividual());
 
-			stmt.executeUpdate(sql);
+			stmt.addBatch(sql);
+			//stmt.execute(sql);
 		}
 	}
 
@@ -205,7 +219,8 @@ public class CommandLoad extends DBCommandBase {
 							+ "   AND ind2.id = object_role_assertion.b)",
 							tableName, axiom.getSubject(), axiom.getObject());
 
-			stmt.executeUpdate(sql);
+			stmt.addBatch(sql);
+			//stmt.execute(sql);
 		}
 	}
 }
