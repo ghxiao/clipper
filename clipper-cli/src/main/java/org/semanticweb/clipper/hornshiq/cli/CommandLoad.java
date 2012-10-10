@@ -2,6 +2,7 @@ package org.semanticweb.clipper.hornshiq.cli;
 
 import java.io.File;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Set;
@@ -30,6 +31,8 @@ import com.beust.jcommander.Parameters;
 @Parameters(commandNames = { "load" }, separators = "=", commandDescription = "Load ABox facts to Database")
 public class CommandLoad extends DBCommandBase {
 
+	private Connection conn;
+
 	public CommandLoad(JCommander jc) {
 		super(jc);
 	}
@@ -43,8 +46,7 @@ public class CommandLoad extends DBCommandBase {
 	@Override
 	void exec() {
 		long t1 = System.currentTimeMillis();
-		// String url = "jdbc:postgresql://localhost/dlvdb_university";
-		Connection conn = createConnection();
+		conn = createConnection();
 
 		Statement stmt = null;
 		try {
@@ -75,7 +77,7 @@ public class CommandLoad extends DBCommandBase {
 				manager.removeOntology(ontology);
 
 				stmt.executeBatch();
-				
+
 				System.err.println(ontologyFile + " loaded!");
 			}
 			stmt.close();
@@ -95,23 +97,42 @@ public class CommandLoad extends DBCommandBase {
 		Set<OWLNamedIndividual> individuals = ontology
 				.getIndividualsInSignature();
 
-		for (OWLNamedIndividual ind : individuals) {
-			// String sql = String.format(
-			// "INSERT INTO individual_name (name) VALUES ('%s')",
-			// ind.toString());
+		String sql = "insert INTO individual_name (name)"
+				+ "SELECT (?)"
+				+ "WHERE NOT EXISTS (SELECT * FROM individual_name WHERE name=?)  ";
 
-			String sql = String
-					.format("insert INTO individual_name (name)"
-							+ "SELECT ('%s')"
-							+ "WHERE NOT EXISTS (SELECT * FROM individual_name WHERE name='%s')  ",
-							ind.toString(), ind.toString());
+		try {
+			conn.setAutoCommit(false);
 
-			try {
-				stmt.addBatch(sql);
-				//stmt.execute(sql);
-			} catch (SQLException e) {
-				e.printStackTrace();
+			PreparedStatement preparedStatement = conn.prepareStatement(sql);
+
+			for (OWLNamedIndividual ind : individuals) {
+				preparedStatement.setString(1, ind.toString());
+				preparedStatement.setString(2, ind.toString());
+				preparedStatement.executeUpdate();
+				// String sql = String.format(
+				// "INSERT INTO individual_name (name) VALUES ('%s')",
+				// ind.toString());
+
+				// String sql = String
+				// .format("insert INTO individual_name (name)"
+				// + "SELECT ('%s')"
+				// +
+				// "WHERE NOT EXISTS (SELECT * FROM individual_name WHERE name='%s')  ",
+				// ind.toString(), ind.toString());
+
+				// try {
+				// stmt.addBatch(sql);
+				// // stmt.execute(sql);
+				// } catch (SQLException e) {
+				// e.printStackTrace();
+				// }
+
+				conn.commit();
 			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 	}
 
@@ -127,19 +148,18 @@ public class CommandLoad extends DBCommandBase {
 							+ "WHERE NOT EXISTS (SELECT * FROM predicate_name WHERE name='%s')  ",
 							clsName, clsName);
 			stmt.addBatch(sql);
-			//stmt.execute(sql);
-
+			// stmt.execute(sql);
 
 			sql = String.format("DROP TABLE IF EXISTS %s CASCADE", clsName);
 
 			stmt.addBatch(sql);
-			//stmt.execute(sql);
+			// stmt.execute(sql);
 
 			sql = String.format("CREATE TABLE %s ("
 					+ "individual integer NOT NULL )", clsName);
 
 			stmt.addBatch(sql);
-			//stmt.execute(sql);
+			// stmt.execute(sql);
 		}
 	}
 
@@ -157,20 +177,20 @@ public class CommandLoad extends DBCommandBase {
 							+ "WHERE NOT EXISTS (SELECT * FROM predicate_name WHERE name='%s')  ",
 							propertyName, propertyName);
 			stmt.addBatch(sql);
-			//stmt.execute(sql);
+			// stmt.execute(sql);
 
 			sql = String
 					.format("DROP TABLE IF EXISTS %s CASCADE", propertyName);
 
 			stmt.addBatch(sql);
-			//stmt.execute(sql);
+			// stmt.execute(sql);
 
 			sql = String.format("CREATE TABLE %s (" //
 					+ "a integer NOT NULL, " //
 					+ "b integer NOT NULL" + " )", propertyName);
 
 			stmt.addBatch(sql);
-			//stmt.execute(sql);
+			// stmt.execute(sql);
 		}
 	}
 
@@ -179,22 +199,40 @@ public class CommandLoad extends DBCommandBase {
 		Set<OWLClassAssertionAxiom> classAssertionAxioms = ontology.getAxioms(
 				AxiomType.CLASS_ASSERTION, false);
 
+		String sql = "INSERT INTO concept_assertion (concept , individual)            "
+				+ "SELECT predicate_name.id, individual_name.id                  "
+				+ "FROM predicate_name, individual_name                          "
+				+ "WHERE predicate_name.name = ? and individual_name.name = ?"
+				+ "AND NOT EXISTS (SELECT * FROM concept_assertion "
+				+ "WHERE predicate_name.id = concept_assertion.concept "
+				+ "   AND individual_name.id = concept_assertion.individual)";
+
+		PreparedStatement preparedStatement = conn.prepareStatement(sql);
+		
 		for (OWLClassAssertionAxiom axiom : classAssertionAxioms) {
 			OWLClassExpression classExpression = axiom.getClassExpression();
 			String tableName = sfp.getShortForm(classExpression.asOWLClass())
 					.toLowerCase();
-			String sql = String
-					.format("INSERT INTO concept_assertion (concept , individual)            "
-							+ "SELECT predicate_name.id, individual_name.id                  "
-							+ "FROM predicate_name, individual_name                          "
-							+ "WHERE predicate_name.name = '%s' and individual_name.name = '%s'"
-							+ "AND NOT EXISTS (SELECT * FROM concept_assertion "
-							+ "WHERE predicate_name.id = concept_assertion.concept "
-							+ "   AND individual_name.id = concept_assertion.individual)",
-							tableName, axiom.getIndividual());
+			
+			preparedStatement.setString(1, tableName);
+			preparedStatement.setString(2, axiom.getIndividual().toString());
+			preparedStatement.executeUpdate();
+			conn.commit();
+			// String sql = String
+			// .format("INSERT INTO concept_assertion (concept , individual)            "
+			// +
+			// "SELECT predicate_name.id, individual_name.id                  "
+			// +
+			// "FROM predicate_name, individual_name                          "
+			// +
+			// "WHERE predicate_name.name = '%s' and individual_name.name = '%s'"
+			// + "AND NOT EXISTS (SELECT * FROM concept_assertion "
+			// + "WHERE predicate_name.id = concept_assertion.concept "
+			// + "   AND individual_name.id = concept_assertion.individual)",
+			// tableName, axiom.getIndividual());
 
-			stmt.addBatch(sql);
-			//stmt.execute(sql);
+			//stmt.addBatch(sql);
+			// stmt.execute(sql);
 		}
 	}
 
@@ -220,7 +258,7 @@ public class CommandLoad extends DBCommandBase {
 							tableName, axiom.getSubject(), axiom.getObject());
 
 			stmt.addBatch(sql);
-			//stmt.execute(sql);
+			// stmt.execute(sql);
 		}
 	}
 }
