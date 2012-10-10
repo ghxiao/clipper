@@ -2,22 +2,15 @@ package org.semanticweb.clipper.hornshiq.cli;
 
 import java.io.File;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Properties;
 import java.util.Set;
 
 import lombok.Getter;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLClassExpression;
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
-import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
@@ -25,25 +18,15 @@ import org.semanticweb.owlapi.util.ShortFormProvider;
 import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
 import com.beust.jcommander.JCommander;
-import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 
 @Getter
 @Parameters(commandNames = { "gen" }, separators = "=", commandDescription = "Load ABox facts to Database")
-public class CommandGenerateMapFile extends ReasoningCommandBase {
+public class CommandGenerateMapFile extends DBCommandBase {
 
 	public CommandGenerateMapFile(JCommander jc) {
 		super(jc);
 	}
-
-	@Parameter(names = "-jdbcUrl", description = "JDBC URL")
-	private String jdbcUrl;
-
-	@Parameter(names = "-user", description = "User")
-	private String user;
-
-	@Parameter(names = "-password", description = "Password")
-	private String password = "";
 
 	@Override
 	boolean validate() {
@@ -55,17 +38,12 @@ public class CommandGenerateMapFile extends ReasoningCommandBase {
 	void exec() {
 		long t1 = System.currentTimeMillis();
 		// String url = "jdbc:postgresql://localhost/dlvdb_university";
-		Properties props = new Properties();
-		props.setProperty("user", this.getUser());
-		props.setProperty("password", this.getPassword());
-		// props.setProperty("ssl", "true");
-		Connection conn = null;
+		Connection conn = createConnection();
+
 		Statement stmt = null;
 		try {
-			conn = DriverManager.getConnection(jdbcUrl, props);
 			stmt = conn.createStatement();
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -114,10 +92,10 @@ public class CommandGenerateMapFile extends ReasoningCommandBase {
 	}
 
 	private void header() {
-		String[] split = jdbcUrl.split("/");
+		String[] split = getJdbcUrl().split("/");
 		String database = split[split.length - 1];
 		String head = String.format("USEDB %s:%s:%s LIKE POSTGRES.", database,
-				user, password);
+				getUser(), getPassword());
 		System.out.println(head);
 		System.out.println();
 

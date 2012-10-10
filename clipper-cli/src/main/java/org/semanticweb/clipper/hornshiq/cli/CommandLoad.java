@@ -2,10 +2,8 @@ package org.semanticweb.clipper.hornshiq.cli;
 
 import java.io.File;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Properties;
 import java.util.Set;
 
 import lombok.Getter;
@@ -30,20 +28,11 @@ import com.beust.jcommander.Parameters;
 
 @Getter
 @Parameters(commandNames = { "load" }, separators = "=", commandDescription = "Load ABox facts to Database")
-public class CommandLoad extends ReasoningCommandBase {
+public class CommandLoad extends DBCommandBase {
 
 	public CommandLoad(JCommander jc) {
 		super(jc);
 	}
-
-	@Parameter(names = "-jdbcUrl", description = "JDBC URL")
-	private String jdbcUrl;
-
-	@Parameter(names = "-user", description = "User")
-	private String user;
-
-	@Parameter(names = "-password", description = "Password")
-	private String password = "";
 
 	@Override
 	boolean validate() {
@@ -55,20 +44,14 @@ public class CommandLoad extends ReasoningCommandBase {
 	void exec() {
 		long t1 = System.currentTimeMillis();
 		// String url = "jdbc:postgresql://localhost/dlvdb_university";
-		Properties props = new Properties();
-		props.setProperty("user", this.getUser());
-		props.setProperty("password", this.getPassword());
-		// props.setProperty("ssl", "true");
-		Connection conn = null;
+		Connection conn = createConnection();
+
 		Statement stmt = null;
 		try {
-			conn = DriverManager.getConnection(jdbcUrl, props);
 			stmt = conn.createStatement();
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
 		ShortFormProvider sfp = new SimpleShortFormProvider();
@@ -102,6 +85,8 @@ public class CommandLoad extends ReasoningCommandBase {
 		System.out.println("TIME: " + (t2 - t1));
 
 	}
+
+
 
 	private void insertIndividuals(Statement stmt, OWLOntology ontology)
 			throws SQLException {
