@@ -2,10 +2,9 @@ package org.semanticweb.clipper.hornshiq.cli;
 
 import java.io.File;
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Properties;
 import java.util.Set;
 
 import lombok.Getter;
@@ -30,20 +29,13 @@ import com.beust.jcommander.Parameters;
 
 @Getter
 @Parameters(commandNames = { "load" }, separators = "=", commandDescription = "Load ABox facts to Database")
-public class CommandLoad extends ReasoningCommandBase {
+public class CommandLoad extends DBCommandBase {
+
+	private Connection conn;
 
 	public CommandLoad(JCommander jc) {
 		super(jc);
 	}
-
-	@Parameter(names = "-jdbcUrl", description = "JDBC URL")
-	private String jdbcUrl;
-
-	@Parameter(names = "-user", description = "User")
-	private String user;
-
-	@Parameter(names = "-password", description = "Password")
-	private String password = "";
 
 	@Override
 	boolean validate() {
@@ -54,28 +46,21 @@ public class CommandLoad extends ReasoningCommandBase {
 	@Override
 	void exec() {
 		long t1 = System.currentTimeMillis();
-		// String url = "jdbc:postgresql://localhost/dlvdb_university";
-		Properties props = new Properties();
-		props.setProperty("user", this.getUser());
-		props.setProperty("password", this.getPassword());
-		// props.setProperty("ssl", "true");
-		Connection conn = null;
+		conn = createConnection();
+
 		Statement stmt = null;
 		try {
-			conn = DriverManager.getConnection(jdbcUrl, props);
 			stmt = conn.createStatement();
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
 		ShortFormProvider sfp = new SimpleShortFormProvider();
 
 		OWLOntology ontology = null;
-		for (String ontologyFile : this.getOntologyFiles()) {
-			try {
+		try {
+			for (String ontologyFile : this.getOntologyFiles()) {
 				ontology = manager.loadOntologyFromOntologyDocument(new File(
 						ontologyFile));
 
@@ -89,30 +74,65 @@ public class CommandLoad extends ReasoningCommandBase {
 
 				insertObjectRoleAssertions(stmt, sfp, ontology);
 
-				stmt.close();
-			} catch (OWLOntologyCreationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				manager.removeOntology(ontology);
+
+				stmt.executeBatch();
+
+				System.err.println(ontologyFile + " loaded!");
 			}
+			stmt.close();
+		} catch (OWLOntologyCreationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		long t2 = System.currentTimeMillis();
 		System.out.println("TIME: " + (t2 - t1));
 
 	}
 
-	private void insertIndividuals(Statement stmt, OWLOntology ontology)
-			throws SQLException {
+	private void insertIndividuals(Statement stmt, OWLOntology ontology) {
 		Set<OWLNamedIndividual> individuals = ontology
 				.getIndividualsInSignature();
 
-		for (OWLNamedIndividual ind : individuals) {
-			String sql = String.format(
-					"INSERT INTO individual_name (name) VALUES ('%s')",
-					ind.toString());
-			stmt.execute(sql);
+		String sql = "insert INTO individual_name (name)"
+				+ "SELECT (?)"
+				+ "WHERE NOT EXISTS (SELECT * FROM individual_name WHERE name=?)  ";
+
+		try {
+			conn.setAutoCommit(false);
+
+			PreparedStatement preparedStatement = conn.prepareStatement(sql);
+
+			for (OWLNamedIndividual ind : individuals) {
+				preparedStatement.setString(1, ind.toString());
+				preparedStatement.setString(2, ind.toString());
+				preparedStatement.executeUpdate();
+				// String sql = String.format(
+				// "INSERT INTO individual_name (name) VALUES ('%s')",
+				// ind.toString());
+
+				// String sql = String
+				// .format("insert INTO individual_name (name)"
+				// + "SELECT ('%s')"
+				// +
+				// "WHERE NOT EXISTS (SELECT * FROM individual_name WHERE name='%s')  ",
+				// ind.toString(), ind.toString());
+
+				// try {
+				// stmt.addBatch(sql);
+				// // stmt.execute(sql);
+				// } catch (SQLException e) {
+				// e.printStackTrace();
+				// }
+
+				conn.commit();
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 	}
 
@@ -122,18 +142,24 @@ public class CommandLoad extends ReasoningCommandBase {
 
 		for (OWLClass cls : classes) {
 			String clsName = sfp.getShortForm(cls).toLowerCase();
-			String sql = String.format(
-					"INSERT INTO predicate_name (name) VALUES ('%s')", clsName);
-			stmt.execute(sql);
+			String sql = String
+					.format("INSERT INTO predicate_name (name)"
+							+ "SELECT ('%s')"
+							+ "WHERE NOT EXISTS (SELECT * FROM predicate_name WHERE name='%s')  ",
+							clsName, clsName);
+			stmt.addBatch(sql);
+			// stmt.execute(sql);
 
 			sql = String.format("DROP TABLE IF EXISTS %s CASCADE", clsName);
 
-			stmt.execute(sql);
+			stmt.addBatch(sql);
+			// stmt.execute(sql);
 
 			sql = String.format("CREATE TABLE %s ("
 					+ "individual integer NOT NULL )", clsName);
 
-			stmt.execute(sql);
+			stmt.addBatch(sql);
+			// stmt.execute(sql);
 		}
 	}
 
@@ -145,21 +171,26 @@ public class CommandLoad extends ReasoningCommandBase {
 
 		for (OWLObjectProperty property : objectProperties) {
 			String propertyName = sfp.getShortForm(property).toLowerCase();
-			String sql = String.format(
-					"INSERT INTO predicate_name (name) VALUES ('%s')",
-					propertyName);
-			stmt.execute(sql);
+			String sql = String
+					.format("INSERT INTO predicate_name (name)"
+							+ "SELECT ('%s')"
+							+ "WHERE NOT EXISTS (SELECT * FROM predicate_name WHERE name='%s')  ",
+							propertyName, propertyName);
+			stmt.addBatch(sql);
+			// stmt.execute(sql);
 
 			sql = String
 					.format("DROP TABLE IF EXISTS %s CASCADE", propertyName);
 
-			stmt.execute(sql);
+			stmt.addBatch(sql);
+			// stmt.execute(sql);
 
 			sql = String.format("CREATE TABLE %s (" //
 					+ "a integer NOT NULL, " //
 					+ "b integer NOT NULL" + " )", propertyName);
 
-			stmt.execute(sql);
+			stmt.addBatch(sql);
+			// stmt.execute(sql);
 		}
 	}
 
@@ -168,18 +199,40 @@ public class CommandLoad extends ReasoningCommandBase {
 		Set<OWLClassAssertionAxiom> classAssertionAxioms = ontology.getAxioms(
 				AxiomType.CLASS_ASSERTION, false);
 
+		String sql = "INSERT INTO concept_assertion (concept , individual)            "
+				+ "SELECT predicate_name.id, individual_name.id                  "
+				+ "FROM predicate_name, individual_name                          "
+				+ "WHERE predicate_name.name = ? and individual_name.name = ?"
+				+ "AND NOT EXISTS (SELECT * FROM concept_assertion "
+				+ "WHERE predicate_name.id = concept_assertion.concept "
+				+ "   AND individual_name.id = concept_assertion.individual)";
+
+		PreparedStatement preparedStatement = conn.prepareStatement(sql);
+		
 		for (OWLClassAssertionAxiom axiom : classAssertionAxioms) {
 			OWLClassExpression classExpression = axiom.getClassExpression();
 			String tableName = sfp.getShortForm(classExpression.asOWLClass())
 					.toLowerCase();
-			String sql = String
-					.format("INSERT INTO concept_assertion (concept , individual)            "
-							+ "SELECT predicate_name.id, individual_name.id                  "
-							+ "FROM predicate_name, individual_name                          "
-							+ "WHERE predicate_name.name = '%s' and individual_name.name = '%s'",
-							tableName, axiom.getIndividual());
+			
+			preparedStatement.setString(1, tableName);
+			preparedStatement.setString(2, axiom.getIndividual().toString());
+			preparedStatement.executeUpdate();
+			conn.commit();
+			// String sql = String
+			// .format("INSERT INTO concept_assertion (concept , individual)            "
+			// +
+			// "SELECT predicate_name.id, individual_name.id                  "
+			// +
+			// "FROM predicate_name, individual_name                          "
+			// +
+			// "WHERE predicate_name.name = '%s' and individual_name.name = '%s'"
+			// + "AND NOT EXISTS (SELECT * FROM concept_assertion "
+			// + "WHERE predicate_name.id = concept_assertion.concept "
+			// + "   AND individual_name.id = concept_assertion.individual)",
+			// tableName, axiom.getIndividual());
 
-			stmt.executeUpdate(sql);
+			//stmt.addBatch(sql);
+			// stmt.execute(sql);
 		}
 	}
 
@@ -197,10 +250,15 @@ public class CommandLoad extends ReasoningCommandBase {
 					.format("INSERT INTO object_role_assertion (object_role, a, b)            "
 							+ "SELECT predicate_name.id, ind1.id, ind2.id                  "
 							+ "FROM predicate_name, individual_name as ind1, individual_name as ind2 "
-							+ "WHERE predicate_name.name = '%s' and ind1.name = '%s' and ind2.name = '%s'",
+							+ "WHERE predicate_name.name = '%s' and ind1.name = '%s' and ind2.name = '%s'"
+							+ "AND NOT EXISTS (SELECT * FROM object_role_assertion "
+							+ "WHERE predicate_name.id = object_role_assertion.object_role "
+							+ "   AND ind1.id = object_role_assertion.a"
+							+ "   AND ind2.id = object_role_assertion.b)",
 							tableName, axiom.getSubject(), axiom.getObject());
 
-			stmt.executeUpdate(sql);
+			stmt.addBatch(sql);
+			// stmt.execute(sql);
 		}
 	}
 }
