@@ -17,7 +17,7 @@ public class CommandRewriteTest {
 	public void testCQ() {
 
 		String[] args = { "rewrite", "src/test/resources/lubm-ex-20/LUBM-ex-20.owl",
-				"-cq=src/test/resources/lubm-ex-20/q5.cq" };
+				"-cq=src/test/resources/lubm-ex-20/q5.cq", "-output-datalog=src/test/resources/lubm-ex-20/q5-rew.dlv" };
 
 		ClipperApp.main(args);
 	}
