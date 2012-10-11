@@ -1,19 +1,14 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
-import java.io.File;
-import java.io.IOException;
+import java.util.Set;
 
 import lombok.Getter;
 
-import org.antlr.runtime.RecognitionException;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
-import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
@@ -45,8 +40,8 @@ class CommandRewrite extends ReasoningCommandBase {
 	// @Parameter(names = { "--remove-redundancy", "-r" }, description =
 	// "remove redundancy rules w.r.t the query")
 	// private boolean removingRedundancyRules;
-	@Parameter(names = { "--output-directory", "-d" }, description = "output directory")
-	private String outputDirectory = ".";
+	@Parameter(names = { "-output-datalog", "-d" }, description = "output datalog file (if not specified, the output will be stdout)")
+	private String datalog = "output.dlv";
 
 	public boolean validate() {
 		return true;
@@ -61,49 +56,29 @@ class CommandRewrite extends ReasoningCommandBase {
 		ClipperManager.getInstance().setNamingStrategy(
 				NamingStrategy.LowerCaseFragment);
 
-		CommandRewrite cmd = this;
-		for (String ontologyFile : cmd.getOntologyFiles()) {
-			try {
-				OWLOntology ontology = OWLManager.createOWLOntologyManager()
-						.loadOntologyFromOntologyDocument(
-								new File(ontologyFile));
-				qaHornSHIQ.addOntology(ontology);
-			} catch (OWLOntologyCreationException e) {
-				e.printStackTrace();
-			}
-		}
+		Set<OWLOntology> ontologies = loadOntologies();
 
-		CQ cq = null;
+		qaHornSHIQ.setOntologies(ontologies);
 
-		String sparqlFileName = cmd.getSparqlFile();
+		CQ cq = parseCQ(ontologies);
 
-		if (sparqlFileName != null) {
-
-			try {
-				SparqlParser sparqlParser = new SparqlParser(sparqlFileName);
-				cq = sparqlParser.query();
-				qaHornSHIQ.setCq(cq);
-			} catch (RecognitionException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
+		qaHornSHIQ.setCq(cq);
 		// TODO: only consider related rules
 
-		qaHornSHIQ.setDatalogFileName("tmp.dlv");
+		qaHornSHIQ.setDatalogFileName(datalog);
 
-		if (cmd.isRewritingOntologyOnly()) { // -o
+		if (this.isRewritingOntologyOnly()) { // -o
 			qaHornSHIQ.generateOntologyDatalog();
-		} else if (cmd.isRewritingABoxOnly()) { // -a
+		} else if (this.isRewritingABoxOnly()) { // -a
 			qaHornSHIQ.generateABoxDatalog();
-		} else if (cmd.isRewritingOntologyAndQuery()) { // -oq
-			qaHornSHIQ.generateDatalog();
-		} else if (cmd.isRewritingTBoxOnly()) { // -t
+		} else if (this.isRewritingTBoxOnly()) { // -t
 			qaHornSHIQ.generateTBoxRulesDatalog();
-		} else if (cmd.isRewritingTBoxAndQuery()) { // -tq
+		} else if (this.isRewritingTBoxAndQuery()) { // -tq
 			qaHornSHIQ.generateQueriesAndCompletionRulesDatalog();
+		} else if (this.isRewritingOntologyAndQuery()) { // -oq
+			qaHornSHIQ.generateDatalog();
+		} else { // rewrite everything by default
+			qaHornSHIQ.generateDatalog();
 		}
 
 		long totalTime = qaHornSHIQ.getClipperReport().getReasoningTime()

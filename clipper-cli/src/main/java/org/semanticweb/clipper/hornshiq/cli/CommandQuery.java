@@ -1,27 +1,23 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
-import org.antlr.runtime.RecognitionException;
+import lombok.Getter;
+
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperReport;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
+import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
-import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-
-import lombok.Getter;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 
 @Getter
-@Parameters(commandNames = { "query" }, separators = "=", commandDescription = "answerting conjunctive query")
+@Parameters(commandNames = { "query" }, separators = "=", commandDescription = "answering conjunctive query")
 class CommandQuery extends ReasoningCommandBase {
 
 	public CommandQuery(JCommander jc) {
@@ -37,6 +33,9 @@ class CommandQuery extends ReasoningCommandBase {
 	// TODO: will be supported in the future
 	@Parameter(names = "-clingo", description = "the path to clingo", hidden = true)
 	private String clingoPath;
+	
+	@Parameter(names = { "-output-datalog", "-d" }, description = "output datalog file (if not specified, the output will be stdout)")
+	private String datalog = "tmp.dlv";
 
 	@Override
 	public boolean validate() {
@@ -55,46 +54,29 @@ class CommandQuery extends ReasoningCommandBase {
 
 	@Override
 	public void exec() {
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		System.setProperty("entityExpansionLimit", "512000");
 
-		CommandQuery cmd = this;
-		for (String ontologyFile : cmd.getOntologyFiles()) {
-			try {
-				OWLOntology ontology = OWLManager.createOWLOntologyManager()
-						.loadOntologyFromOntologyDocument(
-								new File(ontologyFile));
-				qaHornSHIQ.addOntology(ontology);
-			} catch (OWLOntologyCreationException e) {
-				e.printStackTrace();
-			}
-		}
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		// note that naming strategy should be set after create new QAHornSHIQ
+		ClipperManager.getInstance().setNamingStrategy(
+				NamingStrategy.LowerCaseFragment);
 
-		CQ cq = null;
-		String sparqlFileName = cmd.getSparqlFile();
+		Set<OWLOntology> ontologies = loadOntologies();
 
-		try {
-			SparqlParser sparqlParser = new SparqlParser(sparqlFileName);
-			cq = sparqlParser.query();
-			qaHornSHIQ.setCq(cq);
-		} catch (RecognitionException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		qaHornSHIQ.setOntologies(ontologies);
 
-		// String sparqlName = new File(sparqlFileName).getName();
+		CQ cq = parseCQ(ontologies);
 
-		qaHornSHIQ.setDatalogFileName("tmp.dlv");
-		qaHornSHIQ.setQueryRewriter(cmd.getRewriter());
+		qaHornSHIQ.setDatalogFileName(this.datalog);
+		qaHornSHIQ.setQueryRewriter(this.getRewriter());
 
-		qaHornSHIQ.setDlvPath(cmd.getDlvPath());
+		qaHornSHIQ.setDlvPath(this.getDlvPath());
 
 		long startTime = System.currentTimeMillis();
 		List<List<String>> answers = qaHornSHIQ.execQuery();
 		long endTime = System.currentTimeMillis();
 
-		QueryResultPrinter printer = createQueryResultPrinter(cmd
+		QueryResultPrinter printer = createQueryResultPrinter(this
 				.getOutputFormat());
 
 		printer.print(cq.getHead(), answers);
@@ -106,12 +88,12 @@ class CommandQuery extends ReasoningCommandBase {
 	}
 
 	/**
-	 * @param cmd
+	 * @param this
 	 * @return
 	 */
 	private QueryResultPrinter createQueryResultPrinter(String format) {
 		QueryResultPrinter printer = null;
-		// String outputFormat = cmd.getOutputFormat();
+		// String outputFormat = this.getOutputFormat();
 		if (format.equals("csv")) {
 			printer = new CsvQueryResultPrinter();
 		} else if (format.equals("table")) {
