@@ -38,14 +38,14 @@ public class CommandGenerateMapFile extends DBCommandBase {
 	void exec() {
 		long t1 = System.currentTimeMillis();
 		// String url = "jdbc:postgresql://localhost/dlvdb_university";
-		Connection conn = createConnection();
+//		Connection conn = createConnection();
 
 		Statement stmt = null;
-		try {
-			stmt = conn.createStatement();
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
+//		try {
+//			stmt = conn.createStatement();
+//		} catch (SQLException e1) {
+//			e1.printStackTrace();
+//		}
 
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
@@ -65,7 +65,7 @@ public class CommandGenerateMapFile extends DBCommandBase {
 
 				mapResults();
 
-				stmt.close();
+//				stmt.close();
 			} catch (OWLOntologyCreationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -108,12 +108,18 @@ public class CommandGenerateMapFile extends DBCommandBase {
 		for (OWLClass cls : classes) {
 			String clsName = sfp.getShortForm(cls).toLowerCase();
 
+//			String s = String
+//					.format("USE %s(individual) \n"
+//							+ "AS (\"SELECT individual FROM concept_assertion, predicate_name \n"
+//							+ "WHERE concept_assertion.concept=predicate_name.id and  predicate_name.name='%s'\") \n"
+//							+ "MAPTO %s(integer).", clsName, clsName, clsName);
+
 			String s = String
 					.format("USE %s(individual) \n"
-							+ "AS (\"SELECT individual FROM concept_assertion, predicate_name \n"
-							+ "WHERE concept_assertion.concept=predicate_name.id and  predicate_name.name='%s'\") \n"
+							+ "AS (\"SELECT individual FROM '%s'\") \n"
 							+ "MAPTO %s(integer).", clsName, clsName, clsName);
 
+			
 			System.out.println(s);
 			System.out.println();
 			// String sql = String.format(
@@ -133,8 +139,7 @@ public class CommandGenerateMapFile extends DBCommandBase {
 
 			String s = String
 					.format("USE %s(a, b) \n"
-							+ "AS (\"SELECT a,b FROM object_role_assertion, predicate_name \n"
-							+ "WHERE object_role_assertion.object_role=predicate_name.id and  predicate_name.name='%s'\") \n"
+							+ "AS (\"SELECT a,b FROM '%s'\") \n"
 							+ "MAPTO %s(integer, integer).", propertyName,
 							propertyName, propertyName);
 
