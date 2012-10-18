@@ -3,8 +3,12 @@ package org.semanticweb.clipper.hornshiq.cli;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import lombok.Getter;
@@ -26,7 +30,6 @@ import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameters;
 
-
 @Parameters(commandNames = { "load" }, separators = "=", commandDescription = "Load ABox facts to Database")
 public class CommandLoad extends DBCommandBase {
 
@@ -41,6 +44,9 @@ public class CommandLoad extends DBCommandBase {
 		// TODO Auto-generated method stub
 		return true;
 	}
+
+	Map<String, Integer> concept2IdMap = new HashMap<String, Integer>();
+	Map<String, Integer> individual2IdMap = new HashMap<String, Integer>();;
 
 	@Override
 	void exec() {
@@ -63,19 +69,19 @@ public class CommandLoad extends DBCommandBase {
 				ontology = manager.loadOntologyFromOntologyDocument(new File(
 						ontologyFile));
 
-				insertConcepts(stmt, sfp, ontology);
-
-				insertObjectRoles(stmt, sfp, ontology);
+				// insertConcepts(stmt, sfp, ontology);
+				//
+				// insertObjectRoles(stmt, sfp, ontology);
 
 				insertIndividuals(stmt, ontology);
 
-				insertConceptAssertions(stmt, sfp, ontology);
-
-				insertObjectRoleAssertions(stmt, sfp, ontology);
-
-				manager.removeOntology(ontology);
-
-				stmt.executeBatch();
+				// insertConceptAssertions(stmt, sfp, ontology);
+				//
+				// insertObjectRoleAssertions(stmt, sfp, ontology);
+				//
+				// manager.removeOntology(ontology);
+				//
+				// stmt.executeBatch();
 
 				System.err.println(ontologyFile + " loaded!");
 			}
@@ -92,46 +98,121 @@ public class CommandLoad extends DBCommandBase {
 
 	}
 
+	@SuppressWarnings("unused")
 	private void insertIndividuals(Statement stmt, OWLOntology ontology) {
 		Set<OWLNamedIndividual> individuals = ontology
 				.getIndividualsInSignature();
 
-		String sql = "insert INTO individual_name (name)"
-				+ "SELECT (?)"
-				+ "WHERE NOT EXISTS (SELECT * FROM individual_name WHERE name=?)  ";
+		if (true) {
+			StringBuilder valuesBuilder = new StringBuilder();
 
-		try {
-			conn.setAutoCommit(false);
+			Set<String> newInds = new HashSet<String>();
 
-			PreparedStatement preparedStatement = conn.prepareStatement(sql);
-
+			boolean first = true;
 			for (OWLNamedIndividual ind : individuals) {
-				preparedStatement.setString(1, ind.toString());
-				preparedStatement.setString(2, ind.toString());
-				preparedStatement.executeUpdate();
-				// String sql = String.format(
-				// "INSERT INTO individual_name (name) VALUES ('%s')",
-				// ind.toString());
+				newInds.add(ind.toString());
+				if (!first)
+					valuesBuilder.append(",");
+				first = false;
+				valuesBuilder.append("('").append(ind).append("')");
+			}
 
-				// String sql = String
-				// .format("insert INTO individual_name (name)"
-				// + "SELECT ('%s')"
-				// +
-				// "WHERE NOT EXISTS (SELECT * FROM individual_name WHERE name='%s')  ",
-				// ind.toString(), ind.toString());
+			StringBuilder sqlBuilder1 = new StringBuilder();
 
-				// try {
-				// stmt.addBatch(sql);
-				// // stmt.execute(sql);
-				// } catch (SQLException e) {
-				// e.printStackTrace();
+			sqlBuilder1.append("SELECT individual_name.name FROM (VALUES ");
+			sqlBuilder1.append(valuesBuilder.toString());
+			sqlBuilder1
+					.append(") AS foo (name), individual_name WHERE foo.name = individual_name.name");
+
+			StringBuilder sqlBuilder2 = new StringBuilder();
+			sqlBuilder2.append("SELECT COUNT(*) FROM (VALUES ");
+			sqlBuilder2.append(valuesBuilder.toString());
+			sqlBuilder2.append(") AS foo (name)");
+
+			StringBuilder sqlBuilder3 = new StringBuilder();
+
+			sqlBuilder3
+					.append("SELECT individual_name.id, individual_name.name FROM (VALUES ");
+			sqlBuilder3.append(valuesBuilder.toString());
+			sqlBuilder3
+					.append(") AS foo (name), individual_name WHERE foo.name = individual_name.name");
+
+			try {
+				Set<String> existingInds = new HashSet<String>();
+				Statement statement = conn.createStatement();
+				//System.out.println(sqlBuilder1);
+				ResultSet rs = statement.executeQuery(sqlBuilder1.toString());
+				while (rs.next()) {
+					String ind = rs.getString(1);
+					existingInds.add(ind);
+				}
+
+				newInds.removeAll(existingInds);
+
+				if (newInds.size() > 0) {
+
+					StringBuilder newValuesBuilder = new StringBuilder();
+					first = true;
+					for (String ind : newInds) {
+						if (!first)
+							newValuesBuilder.append(",");
+						first = false;
+						newValuesBuilder.append("('").append(ind).append("')");
+					}
+
+					StringBuilder sqlBuilder4 = new StringBuilder();
+
+					sqlBuilder4
+							.append("INSERT INTO individual_name(name) VALUES ");
+					sqlBuilder4.append(newValuesBuilder.toString());
+					System.err.println(sqlBuilder4);
+					int i = statement.executeUpdate(sqlBuilder4.toString());
+					System.err.println("i=" + i);
+				}
+				//
+				// System.out.println(sqlBuilder2);
+				// ResultSet rs2 =
+				// statement.executeQuery(sqlBuilder2.toString());
+				// while (rs2.next()) {
+				// System.out.println(rs2.getInt(1));
 				// }
 
-				conn.commit();
+				//System.out.println(sqlBuilder3);
+				ResultSet rs3 = statement.executeQuery(sqlBuilder3.toString());
+				while (rs3.next()) {
+					//System.out.println(rs3.getInt(1) + " " + rs3.getString(2));
+					individual2IdMap.put(rs3.getString(2), rs3.getInt(1));
+				}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
 			}
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+		}
+
+		if (false) {
+			String sql = "insert INTO individual_name (name)"
+					+ "SELECT (?)"
+					+ "WHERE NOT EXISTS (SELECT * FROM individual_name WHERE name=?)  ";
+
+			try {
+				conn.setAutoCommit(false);
+
+				PreparedStatement preparedStatement = conn
+						.prepareStatement(sql);
+
+				for (OWLNamedIndividual ind : individuals) {
+					preparedStatement.setString(1, ind.toString());
+					preparedStatement.setString(2, ind.toString());
+					preparedStatement.executeUpdate();
+
+					conn.commit();
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 	}
 
@@ -207,12 +288,12 @@ public class CommandLoad extends DBCommandBase {
 				+ "   AND individual_name.id = concept_assertion.individual)";
 
 		PreparedStatement preparedStatement = conn.prepareStatement(sql);
-		
+
 		for (OWLClassAssertionAxiom axiom : classAssertionAxioms) {
 			OWLClassExpression classExpression = axiom.getClassExpression();
 			String tableName = sfp.getShortForm(classExpression.asOWLClass())
 					.toLowerCase();
-			
+
 			preparedStatement.setString(1, tableName);
 			preparedStatement.setString(2, axiom.getIndividual().toString());
 			preparedStatement.executeUpdate();
@@ -230,7 +311,7 @@ public class CommandLoad extends DBCommandBase {
 			// + "   AND individual_name.id = concept_assertion.individual)",
 			// tableName, axiom.getIndividual());
 
-			//stmt.addBatch(sql);
+			// stmt.addBatch(sql);
 			// stmt.execute(sql);
 		}
 	}
