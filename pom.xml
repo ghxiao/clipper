@@ -58,20 +58,17 @@
 	</properties>
 
 
-
-
 	<repositories>
 		<repository>
-			<id>clipper-reasoner-snapshots</id>
-			<!-- <url>http://clipper-reasoner.googlecode.com/svn/m2/snapshots</url> -->
+			<id>ghxiao-mvn-repo-snapshots</id>
 			<url>https://github.com/ghxiao/ghxiao-mvn-repo/raw/master/snapshots</url>
 		</repository>
 		<repository>
-			<id>clipper-reasoner-releases</id>
+			<id>ghxiao-mvn-repo-releases</id>
 			<url>https://github.com/ghxiao/ghxiao-mvn-repo/raw/master/releases</url>
-			<!-- <url>http://clipper-reasoner.googlecode.com/svn/m2/releases</url> -->
 		</repository>
 	</repositories>
+	
 	<build>
 		<pluginManagement>
 			<plugins>

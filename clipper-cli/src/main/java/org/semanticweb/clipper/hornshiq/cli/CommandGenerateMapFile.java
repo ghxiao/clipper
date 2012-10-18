@@ -38,14 +38,6 @@ public class CommandGenerateMapFile extends DBCommandBase {
 	void exec() {
 		long t1 = System.currentTimeMillis();
 		// String url = "jdbc:postgresql://localhost/dlvdb_university";
-		Connection conn = createConnection();
-
-		Statement stmt = null;
-		try {
-			stmt = conn.createStatement();
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
 
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
@@ -59,13 +51,12 @@ public class CommandGenerateMapFile extends DBCommandBase {
 
 				header();
 
-				mapConcepts(stmt, sfp, ontology);
+				mapConcepts(sfp, ontology);
 
-				mapObjectRoles(stmt, sfp, ontology);
+				mapObjectRoles(sfp, ontology);
 
 				mapResults();
 
-				stmt.close();
 			} catch (OWLOntologyCreationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -101,8 +92,8 @@ public class CommandGenerateMapFile extends DBCommandBase {
 
 	}
 
-	private void mapConcepts(Statement stmt, ShortFormProvider sfp,
-			OWLOntology ontology) throws SQLException {
+	private void mapConcepts(ShortFormProvider sfp, OWLOntology ontology)
+			throws SQLException {
 		Set<OWLClass> classes = ontology.getClassesInSignature();
 
 		for (OWLClass cls : classes) {
@@ -122,8 +113,8 @@ public class CommandGenerateMapFile extends DBCommandBase {
 		}
 	}
 
-	private void mapObjectRoles(Statement stmt, ShortFormProvider sfp,
-			OWLOntology ontology) throws SQLException {
+	private void mapObjectRoles(ShortFormProvider sfp, OWLOntology ontology)
+			throws SQLException {
 
 		Set<OWLObjectProperty> objectProperties = ontology
 				.getObjectPropertiesInSignature(false);
