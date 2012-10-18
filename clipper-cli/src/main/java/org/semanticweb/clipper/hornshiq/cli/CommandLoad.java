@@ -27,7 +27,7 @@ import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 
-@Getter
+
 @Parameters(commandNames = { "load" }, separators = "=", commandDescription = "Load ABox facts to Database")
 public class CommandLoad extends DBCommandBase {
 
