@@ -54,6 +54,13 @@ We use [maven build system](http://maven.apache.org) and [Git](http://git-scm.co
 	  $ git clone https://github.com/ghxiao/clipper.git clipper
 	  $ cd clipper
 	  $ ./mvn_build.sh
+	  
+For clipper project developer, consider putting the following into
+your bash config file (~/.bash_profile or ~/.bash_rc)
+
+    export CLIPPER_HOME=$HOME/Projects/clipper/clipper-distribution/target/clipper 
+    export PATH=$CLIPPER_HOME:$PATH
+
 
 # References
 
@@ -61,6 +68,9 @@ We use [maven build system](http://maven.apache.org) and [Git](http://git-scm.co
 Query Rewriting for Horn-SHIQ plus Rules. _AAAI 2012_. [pdf](http://www.kr.tuwien.ac.at/staff/xiao/pub/2012/eostx2012-aaai-hshiq.pdf)
 
 [2] Thomas Eiter, Magdalena Ortiz, Mantas Šimkus, Trung-Kien Tran, and Guohui Xiao. Towards Practical Query Answering for Horn SHIQ. _DL 2012_. [pdf](http://www.kr.tuwien.ac.at/staff/xiao/pub/2012/eostx2012-dl-hshiq.pdf)
+
+
+
 
 ## Links 
 
