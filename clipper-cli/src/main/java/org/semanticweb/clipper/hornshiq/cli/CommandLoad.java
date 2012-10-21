@@ -46,6 +46,7 @@ public class CommandLoad extends DBCommandBase {
 	}
 
 	Map<String, Integer> concept2IdMap = new HashMap<String, Integer>();
+	Map<String, Integer> objectRole2IdMap = new HashMap<String, Integer>();
 	Map<String, Integer> individual2IdMap = new HashMap<String, Integer>();;
 
 	@Override
@@ -98,13 +99,13 @@ public class CommandLoad extends DBCommandBase {
 
 	}
 
-	@SuppressWarnings("unused")
+	//@SuppressWarnings("unused")
 	private void insertIndividuals(Statement stmt, OWLOntology ontology) {
 		Set<OWLNamedIndividual> individuals = ontology
 				.getIndividualsInSignature();
 
 		if (true) {
-			StringBuilder valuesBuilder = new StringBuilder();
+			StringBuilder exisitingValuesBuilder = new StringBuilder();
 
 			Set<String> newInds = new HashSet<String>();
 
@@ -112,28 +113,28 @@ public class CommandLoad extends DBCommandBase {
 			for (OWLNamedIndividual ind : individuals) {
 				newInds.add(ind.toString());
 				if (!first)
-					valuesBuilder.append(",");
+					exisitingValuesBuilder.append(",");
 				first = false;
-				valuesBuilder.append("('").append(ind).append("')");
+				exisitingValuesBuilder.append("('").append(ind).append("')");
 			}
 
-			StringBuilder sqlBuilder1 = new StringBuilder();
+			StringBuilder sqlExistingNamesBuilder = new StringBuilder();
 
-			sqlBuilder1.append("SELECT individual_name.name FROM (VALUES ");
-			sqlBuilder1.append(valuesBuilder.toString());
-			sqlBuilder1
+			sqlExistingNamesBuilder.append("SELECT individual_name.name FROM (VALUES ");
+			sqlExistingNamesBuilder.append(exisitingValuesBuilder.toString());
+			sqlExistingNamesBuilder
 					.append(") AS foo (name), individual_name WHERE foo.name = individual_name.name");
 
-			StringBuilder sqlBuilder2 = new StringBuilder();
-			sqlBuilder2.append("SELECT COUNT(*) FROM (VALUES ");
-			sqlBuilder2.append(valuesBuilder.toString());
-			sqlBuilder2.append(") AS foo (name)");
+			StringBuilder sqlCountNewValuesBuilder = new StringBuilder();
+			sqlCountNewValuesBuilder.append("SELECT COUNT(*) FROM (VALUES ");
+			sqlCountNewValuesBuilder.append(exisitingValuesBuilder.toString());
+			sqlCountNewValuesBuilder.append(") AS foo (name)");
 
 			StringBuilder sqlBuilder3 = new StringBuilder();
 
 			sqlBuilder3
 					.append("SELECT individual_name.id, individual_name.name FROM (VALUES ");
-			sqlBuilder3.append(valuesBuilder.toString());
+			sqlBuilder3.append(exisitingValuesBuilder.toString());
 			sqlBuilder3
 					.append(") AS foo (name), individual_name WHERE foo.name = individual_name.name");
 
@@ -141,7 +142,7 @@ public class CommandLoad extends DBCommandBase {
 				Set<String> existingInds = new HashSet<String>();
 				Statement statement = conn.createStatement();
 				//System.out.println(sqlBuilder1);
-				ResultSet rs = statement.executeQuery(sqlBuilder1.toString());
+				ResultSet rs = statement.executeQuery(sqlExistingNamesBuilder.toString());
 				while (rs.next()) {
 					String ind = rs.getString(1);
 					existingInds.add(ind);
