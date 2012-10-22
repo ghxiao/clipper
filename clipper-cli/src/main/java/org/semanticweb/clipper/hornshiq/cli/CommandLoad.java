@@ -1,6 +1,7 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
 import java.io.File;
+import java.io.PrintStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -70,17 +71,17 @@ public class CommandLoad extends DBCommandBase {
 				ontology = manager.loadOntologyFromOntologyDocument(new File(
 						ontologyFile));
 
-				// insertConcepts(stmt, sfp, ontology);
+				insertConcepts(stmt, sfp, ontology);
 				//
-				// insertObjectRoles(stmt, sfp, ontology);
+				insertObjectRoles(stmt, sfp, ontology);
 
 				insertIndividuals(stmt, ontology);
 
-				// insertConceptAssertions(stmt, sfp, ontology);
+				insertConceptAssertionsOld(stmt, sfp, ontology);
 				//
-				// insertObjectRoleAssertions(stmt, sfp, ontology);
+				insertObjectRoleAssertions(stmt, sfp, ontology);
 				//
-				// manager.removeOntology(ontology);
+				manager.removeOntology(ontology);
 				//
 				// stmt.executeBatch();
 
@@ -88,10 +89,8 @@ public class CommandLoad extends DBCommandBase {
 			}
 			stmt.close();
 		} catch (OWLOntologyCreationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		long t2 = System.currentTimeMillis();
@@ -99,7 +98,7 @@ public class CommandLoad extends DBCommandBase {
 
 	}
 
-	//@SuppressWarnings("unused")
+	// @SuppressWarnings("unused")
 	private void insertIndividuals(Statement stmt, OWLOntology ontology) {
 		Set<OWLNamedIndividual> individuals = ontology
 				.getIndividualsInSignature();
@@ -120,7 +119,8 @@ public class CommandLoad extends DBCommandBase {
 
 			StringBuilder sqlExistingNamesBuilder = new StringBuilder();
 
-			sqlExistingNamesBuilder.append("SELECT individual_name.name FROM (VALUES ");
+			sqlExistingNamesBuilder
+					.append("SELECT individual_name.name FROM (VALUES ");
 			sqlExistingNamesBuilder.append(exisitingValuesBuilder.toString());
 			sqlExistingNamesBuilder
 					.append(") AS foo (name), individual_name WHERE foo.name = individual_name.name");
@@ -141,8 +141,9 @@ public class CommandLoad extends DBCommandBase {
 			try {
 				Set<String> existingInds = new HashSet<String>();
 				Statement statement = conn.createStatement();
-				//System.out.println(sqlBuilder1);
-				ResultSet rs = statement.executeQuery(sqlExistingNamesBuilder.toString());
+				// System.out.println(sqlBuilder1);
+				ResultSet rs = statement.executeQuery(sqlExistingNamesBuilder
+						.toString());
 				while (rs.next()) {
 					String ind = rs.getString(1);
 					existingInds.add(ind);
@@ -178,10 +179,11 @@ public class CommandLoad extends DBCommandBase {
 				// System.out.println(rs2.getInt(1));
 				// }
 
-				//System.out.println(sqlBuilder3);
+				// System.out.println(sqlBuilder3);
 				ResultSet rs3 = statement.executeQuery(sqlBuilder3.toString());
 				while (rs3.next()) {
-					//System.out.println(rs3.getInt(1) + " " + rs3.getString(2));
+					// System.out.println(rs3.getInt(1) + " " +
+					// rs3.getString(2));
 					individual2IdMap.put(rs3.getString(2), rs3.getInt(1));
 				}
 
@@ -228,19 +230,19 @@ public class CommandLoad extends DBCommandBase {
 							+ "SELECT ('%s')"
 							+ "WHERE NOT EXISTS (SELECT * FROM predicate_name WHERE name='%s')  ",
 							clsName, clsName);
-			stmt.addBatch(sql);
-			// stmt.execute(sql);
+			//stmt.addBatch(sql);
+			 stmt.execute(sql);
 
-			sql = String.format("DROP TABLE IF EXISTS %s CASCADE", clsName);
-
-			stmt.addBatch(sql);
-			// stmt.execute(sql);
-
-			sql = String.format("CREATE TABLE %s ("
-					+ "individual integer NOT NULL )", clsName);
-
-			stmt.addBatch(sql);
-			// stmt.execute(sql);
+//			sql = String.format("DROP TABLE IF EXISTS %s CASCADE", clsName);
+//
+//			stmt.addBatch(sql);
+//			 stmt.execute(sql);
+//
+//			sql = String.format("CREATE TABLE %s ("
+//					+ "individual integer NOT NULL )", clsName);
+//
+//			stmt.addBatch(sql);
+//			 stmt.execute(sql);
 		}
 	}
 
@@ -257,70 +259,123 @@ public class CommandLoad extends DBCommandBase {
 							+ "SELECT ('%s')"
 							+ "WHERE NOT EXISTS (SELECT * FROM predicate_name WHERE name='%s')  ",
 							propertyName, propertyName);
-			stmt.addBatch(sql);
-			// stmt.execute(sql);
+			//stmt.addBatch(sql);
+			 stmt.execute(sql);
 
 			sql = String
 					.format("DROP TABLE IF EXISTS %s CASCADE", propertyName);
 
-			stmt.addBatch(sql);
-			// stmt.execute(sql);
+			//stmt.addBatch(sql);
+			 stmt.execute(sql);
 
 			sql = String.format("CREATE TABLE %s (" //
 					+ "a integer NOT NULL, " //
 					+ "b integer NOT NULL" + " )", propertyName);
 
-			stmt.addBatch(sql);
-			// stmt.execute(sql);
+			//stmt.addBatch(sql);
+			 stmt.execute(sql);
 		}
 	}
+
+	 private void insertConceptAssertionsOld(Statement stmt, ShortFormProvider
+	 sfp,
+	 OWLOntology ontology) throws SQLException {
+	 Set<OWLClassAssertionAxiom> classAssertionAxioms = ontology.getAxioms(
+	 AxiomType.CLASS_ASSERTION, false);
+	
+	 String sql =
+	 "INSERT INTO concept_assertion (concept , individual)            "
+	 + "SELECT predicate_name.id, individual_name.id                  "
+	 + "FROM predicate_name, individual_name                          "
+	 + "WHERE predicate_name.name = ? and individual_name.name = ?"
+	 + "AND NOT EXISTS (SELECT * FROM concept_assertion "
+	 + "WHERE predicate_name.id = concept_assertion.concept "
+	 + "   AND individual_name.id = concept_assertion.individual)";
+	
+	 PreparedStatement preparedStatement = conn.prepareStatement(sql);
+	
+	 for (OWLClassAssertionAxiom axiom : classAssertionAxioms) {
+	 OWLClassExpression classExpression = axiom.getClassExpression();
+	 String tableName = sfp.getShortForm(classExpression.asOWLClass())
+	 .toLowerCase();
+	
+	 preparedStatement.setString(1, tableName);
+	 preparedStatement.setString(2, axiom.getIndividual().toString());
+	 preparedStatement.executeUpdate();
+	 //conn.commit();
+	 }
+	 }
 
 	private void insertConceptAssertions(Statement stmt, ShortFormProvider sfp,
 			OWLOntology ontology) throws SQLException {
 		Set<OWLClassAssertionAxiom> classAssertionAxioms = ontology.getAxioms(
 				AxiomType.CLASS_ASSERTION, false);
 
-		String sql = "INSERT INTO concept_assertion (concept , individual)            "
+		String createRuleFormat = "CREATE RULE \"%1$s_on_duplicate_ignore\" AS ON INSERT TO \"%1$s\" \n"
+				+ " WHERE EXISTS(SELECT 1 FROM %1$s \n"
+				+ "           WHERE (%2$s, %3$s)=(NEW.%2$s, NEW.%3$s)) \n"
+				+ " DO INSTEAD NOTHING;";
+		
+		String createRuleSql = String.format(createRuleFormat, "concept_assertion", "concept", "individual");
+		
+		//Statement stmt = conn.createStatement();
+		
+		System.err.println(createRuleSql);
+		
+		stmt.execute(createRuleSql);
+
+		String insertFormat = "WITH  cname_iname (cname, iname) AS (VALUES %s)  "
+				+ "INSERT INTO concept_assertion (concept, individual) "
 				+ "SELECT predicate_name.id, individual_name.id                  "
-				+ "FROM predicate_name, individual_name                          "
-				+ "WHERE predicate_name.name = ? and individual_name.name = ?"
-				+ "AND NOT EXISTS (SELECT * FROM concept_assertion "
-				+ "WHERE predicate_name.id = concept_assertion.concept "
-				+ "   AND individual_name.id = concept_assertion.individual)";
+				+ "FROM predicate_name, individual_name, cname_iname             "
+				+ "WHERE predicate_name.name = cname_iname.cname "
+				+ "    and individual_name.name = cname_iname.iname";
+		
 
-		PreparedStatement preparedStatement = conn.prepareStatement(sql);
-
+		StringBuilder valuesBuilder = new StringBuilder(); 
+		boolean first = true;
+		//int i = 0;
 		for (OWLClassAssertionAxiom axiom : classAssertionAxioms) {
+			//i++;
+//			if (i > 3) break;
 			OWLClassExpression classExpression = axiom.getClassExpression();
 			String tableName = sfp.getShortForm(classExpression.asOWLClass())
 					.toLowerCase();
 
-			preparedStatement.setString(1, tableName);
-			preparedStatement.setString(2, axiom.getIndividual().toString());
-			preparedStatement.executeUpdate();
-			conn.commit();
-			// String sql = String
-			// .format("INSERT INTO concept_assertion (concept , individual)            "
-			// +
-			// "SELECT predicate_name.id, individual_name.id                  "
-			// +
-			// "FROM predicate_name, individual_name                          "
-			// +
-			// "WHERE predicate_name.name = '%s' and individual_name.name = '%s'"
-			// + "AND NOT EXISTS (SELECT * FROM concept_assertion "
-			// + "WHERE predicate_name.id = concept_assertion.concept "
-			// + "   AND individual_name.id = concept_assertion.individual)",
-			// tableName, axiom.getIndividual());
+			if (!first)
+				valuesBuilder.append(",");
+			first = false;
+			valuesBuilder.append("('").append(tableName).append("', '").append(axiom.getIndividual()) .append("')");
 
-			// stmt.addBatch(sql);
-			// stmt.execute(sql);
 		}
+		
+		String insertSql = String.format(insertFormat, valuesBuilder.toString());
+		//System.err.println(insertSql);
+		stmt.execute(insertSql);
+		
+		String dropRuleSql = String.format("DROP RULE \"%1$s_on_duplicate_ignore\" ON \"%1$s\"", "concept_assertion");
+		System.err.println(dropRuleSql);
+		stmt.execute(dropRuleSql);
+
 	}
 
 	private void insertObjectRoleAssertions(Statement stmt,
 			ShortFormProvider sfp, OWLOntology ontology) throws SQLException {
 		Set<OWLObjectPropertyAssertionAxiom> objectRoleAssertionAxioms = ontology
 				.getAxioms(AxiomType.OBJECT_PROPERTY_ASSERTION, false);
+		
+//		String createRuleFormat = "CREATE RULE \"%1$s_on_duplicate_ignore\" AS ON INSERT TO \"%1$s\" \n"
+//				+ " WHERE EXISTS(SELECT 1 FROM %1$s \n"
+//				+ "           WHERE (%2$s, %3$s, %4$s)=(NEW.%2$s, NEW.%3$s, NEW.%4$s)) \n"
+//				+ " DO INSTEAD NOTHING;";
+//		
+//		String createRuleSql = String.format(createRuleFormat, "object_role_assertion", "object_role", "a", "b");
+//		
+//		//Statement stmt = conn.createStatement();
+//		
+//		System.err.println(createRuleSql);
+//		
+//		stmt.execute(createRuleSql);
 
 		for (OWLObjectPropertyAssertionAxiom axiom : objectRoleAssertionAxioms) {
 			OWLObjectProperty property = axiom.getProperty()
@@ -338,8 +393,8 @@ public class CommandLoad extends DBCommandBase {
 							+ "   AND ind2.id = object_role_assertion.b)",
 							tableName, axiom.getSubject(), axiom.getObject());
 
-			stmt.addBatch(sql);
-			// stmt.execute(sql);
+			//stmt.addBatch(sql);
+			 stmt.execute(sql);
 		}
 	}
 }

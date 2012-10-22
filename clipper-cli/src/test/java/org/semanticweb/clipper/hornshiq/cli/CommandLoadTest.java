@@ -12,4 +12,5 @@ public class CommandLoadTest {
 						.format("load src/test/resources/lubm-ex-20/University1_1.owl -jdbcUrl=jdbc:postgresql://localhost/dlvdb_university -user=xiao")
 						.split("\\ "));
 	}
+	
 }
