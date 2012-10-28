@@ -12,6 +12,16 @@ public class CommandRewriteTest {
 
 		ClipperApp.main(args);
 	}
+
+	@Test
+	public void testRewriteQ1() {
+
+		String[] args = { "rewrite", "src/test/resources/lubm-ex-20/LUBM-ex-20.owl",
+				"-sparql=src/test/resources/lubm-ex-20/query/q1.sparql",
+				"-output-datalog=src/test/resources/lubm-ex-20/query/q1.rew.dlv" };
+
+		ClipperApp.main(args);
+	}
 	
 	@Test
 	public void testRewriteQ2() {
