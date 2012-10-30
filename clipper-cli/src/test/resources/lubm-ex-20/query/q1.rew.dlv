@@ -15,7 +15,7 @@ person(X) :- faculty(X).
 course(X) :- subj13course(X).
 department(X) :- subj5department(X).
 publication(X) :- software(X).
-professor(X) :- subj20professor(X).
+student(X) :- subj17student(X).
 professor(X) :- subj7professor(X).
 professor(X) :- subj8professor(X).
 student(X) :- undergraduatestudent(X).
@@ -32,7 +32,7 @@ professor(X) :- subj13professor(X).
 department(X) :- subj20department(X).
 department(X) :- subj3department(X).
 student(X) :- subj8student(X).
-student(X) :- subj17student(X).
+professor(X) :- subj20professor(X).
 professor(X) :- subj5professor(X).
 course(X) :- subj2course(X).
 person(X) :- dean(X).
@@ -46,9 +46,9 @@ department(X) :- subj4department(X).
 student(X) :- subj12student(X).
 employee(X) :- dean(X).
 professor(X) :- associateprofessor(X).
-department(X) :- subj16department(X).
 student(X) :- subj1student(X).
 professor(X) :- dean(X).
+course(X) :- subj9course(X).
 organization(X) :- college(X).
 department(X) :- subj14department(X).
 publication(X) :- manual(X).
@@ -60,11 +60,13 @@ exam(X) :- bachelorexam(X).
 department(X) :- subj7department(X).
 course(X) :- subj15course(X).
 professor(X) :- exdean(X).
+department(X) :- subj16department(X).
 administrativestaff(X) :- clericalstaff(X).
+professor(X) :- subj15professor(X).
 professor(X) :- subj16professor(X).
 work(X) :- course(X).
-course(X) :- subj9course(X).
 department(X) :- subj1department(X).
+organization(X) :- program(X).
 course(X) :- subj7course(X).
 professor(X) :- subj2professor(X).
 course(X) :- subj14course(X).
@@ -80,10 +82,8 @@ professor(X) :- subj4professor(X).
 course(X) :- subj1course(X).
 course(X) :- graduatecourse(X).
 publication(X) :- book(X).
-professor(X) :- subj15professor(X).
 professor(X) :- subj6professor(X).
 student(X) :- subj5student(X).
-organization(X) :- program(X).
 student(X) :- subj3student(X).
 professor(X) :- subj18professor(X).
 department(X) :- subj17department(X).

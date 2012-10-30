@@ -3,7 +3,7 @@ package org.semanticweb.clipper.hornshiq.cli;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameters;
 
-@Parameters(commandNames = { "help" }, commandDescription = "Print the usage")
+@Parameters(commandNames = { "help", "-h", "--help", "-help" }, commandDescription = "Print the usage")
 class CommandHelp extends CommandBase {
 
 	public CommandHelp(JCommander jc) {

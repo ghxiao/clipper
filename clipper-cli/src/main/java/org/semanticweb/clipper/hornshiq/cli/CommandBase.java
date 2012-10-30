@@ -8,6 +8,7 @@ public abstract class CommandBase {
 
 	public CommandBase(JCommander jc) {
 		this.jc = jc;
+		jc.addCommand(this);
 	}
 
 	abstract boolean validate();
