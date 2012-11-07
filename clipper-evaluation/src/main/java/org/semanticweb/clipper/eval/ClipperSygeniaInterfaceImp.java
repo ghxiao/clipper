@@ -8,8 +8,8 @@ import lombok.Setter;
 import org.oxford.comlab.compass.SystemInterface;
 import org.semanticweb.clipper.cqparser.CQParser;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
@@ -65,7 +65,7 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 		qaHornSHIQ.setQueryRewriter("new");
 
 		// qaHornSHIQ.setNamingStrategy(NamingStrategy.IntEncoding);
-		qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMET);
 
 		ClipperManager.getInstance().setVerboseLevel(0);
 		//ClipperManager.getInstance().setVerboseLevel(8);

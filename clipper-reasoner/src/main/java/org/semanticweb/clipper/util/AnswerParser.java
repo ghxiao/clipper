@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.coode.owl.krssparser.NameResolverStrategy;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
+import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
 
 public class AnswerParser {
 	private List<String> answers;
@@ -68,7 +68,7 @@ public class AnswerParser {
 
 		for (int i = 1; i < tokens.length; i++) {
 			String indiString = tokens[i];
-			if (ClipperManager.getInstance().getNamingStrategy() == NamingStrategy.IntEncoding) {
+			if (ClipperManager.getInstance().getNamingStrategy() == NamingStrategy.INT_ENCODING) {
 				String decodedIndividual = getDecodedIndividual(indiString);
 				decodedAnswers.add(decodedIndividual);
 			} else {

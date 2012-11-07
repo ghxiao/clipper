@@ -14,7 +14,6 @@ import org.antlr.runtime.TokenStream;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
@@ -29,7 +28,7 @@ public class RequiemTestSuiteVicodi {
 	public void query1() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/VicodiQuery0.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/vicodi.owl");

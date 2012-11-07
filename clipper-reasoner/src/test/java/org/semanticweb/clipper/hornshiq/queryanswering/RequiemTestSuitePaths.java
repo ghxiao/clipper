@@ -14,7 +14,6 @@ import org.antlr.runtime.TokenStream;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;

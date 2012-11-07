@@ -54,14 +54,6 @@ public class ReductionToDatalogOpt {
 
 	// private NamingStrategy namingStrategy;
 
-	public enum NamingStrategy {
-		// OriginalName,
-		/** Using fragment for predicate and constants, with lower case ininital */
-		LowerCaseFragment,
-		/** Everything has an integer encoding */
-		IntEncoding,
-	}
-
 	/*
 	 * Constructor
 	 * 

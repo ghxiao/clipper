@@ -20,7 +20,6 @@ import org.semanticweb.clipper.hornshiq.profile.HornSHIQProfile;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt;
 import org.semanticweb.clipper.hornshiq.queryanswering.TBoxReasoningOpt;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.util.PrintingUtilities;
 import org.semanticweb.clipper.util.SymbolEncoder;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -132,7 +131,7 @@ public class TBoxReasoningOptTest {
 		//
 		// reduction.getEncodedDataLogProgram(datalogFileName);
 
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMET);
 		System.out.println("==========Datalog Program=============");
 		reduction.saveEncodedDataLogProgram(datalogFileName);
 	}

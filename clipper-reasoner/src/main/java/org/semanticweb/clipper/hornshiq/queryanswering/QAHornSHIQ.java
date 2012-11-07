@@ -36,7 +36,6 @@ import org.semanticweb.clipper.hornshiq.profile.HornALCHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQTransNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQProfile;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 import org.semanticweb.clipper.util.AnswerParser;
@@ -81,11 +80,11 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 	public QAHornSHIQ() {
 		decodedAnswers = new ArrayList<List<String>>();
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);// default
+		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);// default
 		this.ontologies = new ArrayList<OWLOntology>();
 		cqFormater = new CQFormater();
 
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);// default
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMET);// default
 
 		// ClipperManager.getInstance().reset();
 	}
@@ -661,10 +660,6 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		}
 
 	}
-
-	// public QAHornSHIQ(String dlv) {
-	// this.ontologies = Lists.newArrayList();
-	// }
 
 	@Override
 	public void addOntology(OWLOntology ontology) {
