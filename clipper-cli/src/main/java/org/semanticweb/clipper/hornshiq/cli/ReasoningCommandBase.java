@@ -9,6 +9,7 @@ import java.util.Set;
 
 import org.antlr.runtime.RecognitionException;
 import org.semanticweb.clipper.cqparser.CQParser;
+import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -38,9 +39,12 @@ public abstract class ReasoningCommandBase extends CommandBase {
 	@Parameter(names = "-sparql", description = "<query.sparql> query file in SPARQL format")
 	protected String sparqlFile;
 
+	@Parameter(names = "-name", description = "")
+	protected NamingStrategy namingStrategy = NamingStrategy.LOWER_CASE_FRAGMET;
+
 	@Parameter(names = { "-r", "-rewriter" }, description = "rewriter", hidden = true)
 	protected String rewriter = "new";
-	
+
 	public ReasoningCommandBase(JCommander jc) {
 		super(jc);
 		jc.addCommand(this);
@@ -48,9 +52,9 @@ public abstract class ReasoningCommandBase extends CommandBase {
 
 	protected CQ parseCQ(Set<OWLOntology> ontologies) {
 		CQ cq = null;
-	
+
 		if (sparqlFile != null) {
-	
+
 			try {
 				SparqlParser sparqlParser = new SparqlParser(sparqlFile);
 				cq = sparqlParser.query();
@@ -70,19 +74,19 @@ public abstract class ReasoningCommandBase extends CommandBase {
 				e.printStackTrace();
 			}
 		}
-	
+
 		return cq;
 	}
 
 	protected Set<OWLOntology> loadOntologies() {
 		Set<OWLOntology> ontologies = new HashSet<OWLOntology>();
-	
+
 		for (String ontologyFile : this.getOntologyFiles()) {
 			try {
 				OWLOntology ontology = OWLManager.createOWLOntologyManager()
 						.loadOntologyFromOntologyDocument(
 								new File(ontologyFile));
-	
+
 				ontologies.add(ontology);
 			} catch (OWLOntologyCreationException e) {
 				e.printStackTrace();
