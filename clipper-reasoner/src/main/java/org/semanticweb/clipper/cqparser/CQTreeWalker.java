@@ -32,18 +32,18 @@ public class CQTreeWalker {
 		return node.getChildren();
 	}
 
-//	public List<DLLogRule> walkRootNode(CommonTree root) {
-//
-//		List<DLLogRule> rules = new ArrayList<DLLogRule>();
-//
-//		List<CommonTree> children = childrenOf(root);
-//
-//		for (CommonTree node : children) {
-//			rules.add(walkRuleNode(node));
-//		}
-//
-//		return rules;
-//	}
+	public List<CQ> walkUCQNode(CommonTree root) {
+
+		List<CQ> rules = new ArrayList<CQ>();
+
+		List<CommonTree> children = childrenOf(root);
+
+		for (CommonTree node : children) {
+			rules.add(walkRuleNode(node));
+		}
+
+		return rules;
+	}
 
 	public CQ walkRuleNode(CommonTree ruleNode) {
 
