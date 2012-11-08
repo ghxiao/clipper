@@ -1,5 +1,5 @@
 CREATE OR REPLACE VIEW v_worksFor AS 
-SELECT name_0.id AS att1, name_1.id AS att2, name_0.name AS x1, name_1.name AS x2
+SELECT name_1.id AS att1, name_0.id AS att2, name_1.name AS x1, name_0.name AS x2
 FROM (
 SELECT ora_0.b AS x1, ora_0.a AS x2
 FROM  object_role_assertion ora_0

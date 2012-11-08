@@ -1,17 +1,16 @@
 CREATE OR REPLACE VIEW v_q5 AS 
-SELECT DISTINCT v_publication.att1, name_0.name
+(
+SELECT 
+v_Publication_1.att1 AS att1 
 FROM 
-  public.v_publication, 
-  public.v_publicationauthor v_publicationauthor_professor, 
-  public.v_student, 
-  public.v_publicationauthor v_publicationauthor_student, 
-  public.v_professor,
-  individual_name name_0
+v_Professor v_Professor_1,
+v_Publication v_Publication_1,
+v_publicationAuthor v_publicationAuthor_1,
+v_publicationAuthor v_publicationAuthor_2,
+v_Student v_Student_1
 WHERE 
-  v_publication.att1 = v_publicationauthor_professor.att1 AND
-  v_publicationauthor_professor.x2 = v_professor.att1 AND
-  v_publication.att1 = v_publicationauthor_student.att1 AND
-  v_publicationauthor_student.x2 = v_student.att1 AND
-  v_publication.att1 = name_0.id
-  ;
- 
+v_Student_1.att1 = v_publicationAuthor_1.att2
+ AND v_Professor_1.att1 = v_publicationAuthor_2.att2
+ AND v_Publication_1.att1 = v_publicationAuthor_1.att1
+ AND v_Publication_1.att1 = v_publicationAuthor_2.att1
+)
