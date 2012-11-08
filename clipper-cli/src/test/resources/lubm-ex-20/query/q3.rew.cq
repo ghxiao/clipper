@@ -1,0 +1,2 @@
+ans(?0) :- memberOf(?0,?2), Department(?2), subOrganizationOf(?2,?1), University(?1), degreeFrom(?0,?1), Faculty(?0).
+ans(?0) :- Department(?2), memberOf(?0,?2), subOrganizationOf(?2,?1), Faculty(?0), degreeFrom(?0,?1).

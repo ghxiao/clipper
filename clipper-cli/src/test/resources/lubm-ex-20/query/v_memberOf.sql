@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW v_worksFor AS 
+CREATE OR REPLACE VIEW v_memberOf AS 
 SELECT name_0.id AS att1, name_1.id AS att2, name_0.name AS x1, name_1.name AS x2
 FROM (
 SELECT ora_0.b AS x1, ora_0.a AS x2
@@ -11,6 +11,18 @@ WHERE ora_0.object_role=151
 UNION 
 SELECT ora_0.b AS x1, ora_0.a AS x2
 FROM  object_role_assertion ora_0
+WHERE ora_0.object_role=165
+UNION 
+SELECT ora_0.a AS x1, ora_0.b AS x2
+FROM  object_role_assertion ora_0
+WHERE ora_0.object_role=158
+UNION 
+SELECT ora_0.a AS x1, ora_0.b AS x2
+FROM  object_role_assertion ora_0
+WHERE ora_0.object_role=132
+UNION 
+SELECT ora_0.b AS x1, ora_0.a AS x2
+FROM  object_role_assertion ora_0
 WHERE ora_0.object_role=160
 UNION 
 SELECT ora_0.b AS x1, ora_0.a AS x2
@@ -20,6 +32,10 @@ UNION
 SELECT ora_0.b AS x1, ora_0.a AS x2
 FROM  object_role_assertion ora_0
 WHERE ora_0.object_role=170
+UNION 
+SELECT ora_0.b AS x1, ora_0.a AS x2
+FROM  object_role_assertion ora_0
+WHERE ora_0.object_role=159
 UNION 
 SELECT ora_0.a AS x1, ora_0.b AS x2
 FROM  object_role_assertion ora_0
