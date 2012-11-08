@@ -1,4 +1,4 @@
-CREATE OR REPLACE v_q4 AS 
+CREATE OR REPLACE VIEW v_q4 AS 
 (
 SELECT 
 v_Subj3Department_1.att1 AS att1 , v_Subj4Department_1.att1 AS att2 
