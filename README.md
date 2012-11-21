@@ -1,6 +1,6 @@
 # Introduction 
 
-Clipper is a Reasoner for conjunctive query answering over Horn-SHIQ via 	query rewriting. 
+Clipper is a Reasoner for conjunctive query answering over Horn-SHIQ ontology via query rewriting. 
 
 # Usage from CLI
 
@@ -27,7 +27,7 @@ Usage: clipper.sh [options] [command] [command options]
           -dlv                  the path to dlv
 
     rewrite      rewrite the query w.r.t. the ontology, and generate a datalog program
-      Usage: rewrite [options] <ontology.owl> [ <cq.sparql> ]       
+      Usage: rewrite [options] <ontology.owl> [ -sparql <cq.sparql> ]       
         Options:
           --abox-only, -a             only rewrite ABox
                                       Default: false
@@ -35,14 +35,13 @@ Usage: clipper.sh [options] [command] [command options]
                                       Default: false
           --ontology-only, -o         only rewrite ontology (= TBox + ABox)
                                       Default: false
-          --output-directory, -d      output directory
-                                      Default: .
           --remove-redundancy, -r     remove redundancy rules w.r.t the query
                                       Default: false
           --tbox-and-query, -tq       only rewrite TBox and query
                                       Default: false
           --tbox-only, -t             only rewrite TBox
                                       Default: false
+          -output-datalog, -d         output datalog file 
 
     help      Print the usage
       Usage: help [options]
