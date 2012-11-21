@@ -29,7 +29,7 @@ EOF
 
 ontology_file=$dir/LUBM-ex-20.owl
 
-sparql_file=$dir/q4.sparql
+sparql_file=$dir/q6.sparql
 
 rew_dlv_file=`echo $sparql_file | sed "s/\.sparql$/\.rew\.dlv/g"`
 
@@ -86,7 +86,7 @@ function create_view_for_body_atoms(){
         $owlgres_rewrite --query $name.sparql --viewname v_$name --viewcols $arity \
             --db $DB_NAME --user $DB_USER --passwd "$DB_PASSWD" --shcemas public \
             | grep -v "Query reformulation" \
-            | sed 's/SELECT name_0.name AS x1, name_1.name AS x2/SELECT name_0.id AS att1, name_1.id AS att2, name_0.name AS x1, name_1.name AS x2/g' \
+            | sed 's/SELECT name_0.name AS x1, name_1.name AS x2/SELECT name_1.id AS att1, name_0.id AS att2, name_1.name AS x1, name_0.name AS x2/g' \
             | sed 's/^SELECT name_0.name AS x1$/SELECT name_0.id AS att1, name_0.name AS name/g' \
             >> v_$name.sql
 
