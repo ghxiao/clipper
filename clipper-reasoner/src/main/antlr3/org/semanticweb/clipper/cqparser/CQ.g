@@ -15,8 +15,8 @@ tokens {
   NON_DL_PREDICATE;
   ATOM_LIST;
   TERM_LIST;
+  RULE_LIST;
 }
-// END:header 
 
 @header{
 package org.semanticweb.clipper.cqparser;
@@ -39,6 +39,12 @@ import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 @members{
 
       Set<OWLOntology> ontologies;
+      
+      public CQParser(String string, Set<OWLOntology> ontologies)
+        throws FileNotFoundException, IOException {
+        this(new CommonTokenStream(new CQLexer(new ANTLRStringStream(string))));
+        this.ontologies = ontologies;
+      }
   
 		  public CQParser(InputStream istream, Set<OWLOntology> ontologies) throws FileNotFoundException, IOException {
 		    this(new CommonTokenStream(new CQLexer(new ANTLRInputStream(istream))));
@@ -73,16 +79,44 @@ import org.semanticweb.owlapi.util.SimpleShortFormProvider;
         CQ cq = walker.walkRuleNode(t);
         return cq;
       }
+      
+      public CQ parseCQ() {
+        return parse();
+      }
+      
+      public List<CQ> parseUCQ() {
+        ucq_return r = null;
+        try {
+          r = ucq();
+        } catch (RecognitionException e) {
+          e.printStackTrace();
+        }
+        CommonTree t = (CommonTree) r.getTree();
+
+        //System.out.println(t.toStringTree());
+        CommonTreeNodeStream nodes = new CommonTreeNodeStream(t);
+        // AST nodes have payloads that point into token stream
+        nodes.setTokenStream(input);
+
+        ShortFormProvider sfp = new SimpleShortFormProvider();
+        BidirectionalShortFormProvider bsfp = new BidirectionalShortFormProviderAdapter(ontologies, sfp);
+
+        CQTreeWalker walker = new CQTreeWalker(bsfp);
+
+        List<CQ> ucq = walker.walkUCQNode(t);
+        return ucq;
+      }
 }
 
 @lexer::header{
 package org.semanticweb.clipper.cqparser;
 }
   
-  
+ucq: 
+  cq* -> ^(RULE_LIST cq*);
   
 cq:
-head (':-' | '<-') body  -> ^(RULE head body);
+  head (':-' | '<-') body '.'?  -> ^(RULE head body);
   //head (':-' | '<-') body COMMENT_LINE? -> ^(RULE head body);
   
   /*head (':-' | '<-') body '.' -> ^(RULE head body);*/
@@ -118,8 +152,9 @@ term:
   variable -> ^(VARIABLE variable) 
   | constant -> ^(CONSTANT constant);
 
+// TODO: FIXIT X1 can be parsed as variable
 variable:
-  '?'! INT;
+  ('?' | 'X') ! INT;
   
 constant:
   LOWER_LEADING_ID;

@@ -14,7 +14,6 @@ import org.antlr.runtime.TokenStream;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
@@ -28,7 +27,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	public void query1() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
 		qaHornSHIQ.setDatalogFileName("TestData/lubm/query1.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
@@ -78,7 +77,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	public void query2() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
 		qaHornSHIQ.setDatalogFileName("TestData/lubm/query2.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 		String sparql = " PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>  \n"
@@ -138,7 +137,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	public void query3() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
 		qaHornSHIQ.setDatalogFileName("TestData/lubm/query3.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
@@ -235,7 +234,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	public void query5() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
 		qaHornSHIQ.setDatalogFileName("TestData/lubm/query5.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
@@ -284,7 +283,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	public void query6() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
 		qaHornSHIQ.setDatalogFileName("TestData/lubm/query6.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
@@ -332,7 +331,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	public void query7() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
 		qaHornSHIQ.setDatalogFileName("TestData/lubm/query7.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
@@ -383,7 +382,7 @@ public class CQGraphRewriterLUBMQueryTest {
 		//WITH DIFFERENT RESULTS
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
 		qaHornSHIQ.setDatalogFileName("TestData/lubm/query8.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
@@ -433,7 +432,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	public void query9() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
 		qaHornSHIQ.setDatalogFileName("TestData/lubm/query9.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
@@ -485,7 +484,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	public void query10() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
 		qaHornSHIQ.setDatalogFileName("TestData/lubm/query10.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/full-lubm-wo-dt.owl");
 
@@ -717,7 +716,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	public void queryTest() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMET);
 		qaHornSHIQ.setDatalogFileName("TestData/lubm/queryTest.dl");
 		qaHornSHIQ.setOntologyName("TestData/lubm/lubm1.owl");
 

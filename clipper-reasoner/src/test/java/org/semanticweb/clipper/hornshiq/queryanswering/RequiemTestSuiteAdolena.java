@@ -14,7 +14,6 @@ import org.antlr.runtime.TokenStream;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
@@ -30,7 +29,7 @@ public class RequiemTestSuiteAdolena {
 		ClipperManager.getInstance().setVerboseLevel(1);
 	
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setNamingStrategy(NamingStrategy.IntEncoding);
+		qaHornSHIQ.setNamingStrategy(NamingStrategy.INT_ENCODING);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/AdolenaQuery0.dl");
 		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/adolena.owl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/miniAdolena.owl");

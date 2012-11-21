@@ -3,7 +3,6 @@ package org.semanticweb.clipper.hornshiq.queryanswering;
 import lombok.Getter;
 import lombok.Setter;
 
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.util.SymbolEncoder;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLClass;

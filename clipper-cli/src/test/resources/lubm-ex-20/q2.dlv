@@ -1,3 +1,0 @@
-takesCourse(x, f(x)) :- student(X).
-takesCourse(x, f(x)) :- graduatestudent(X).
-ans(X, Y) :- subj3student(X), subj3student(Y), takesCourse(X,Z), takesCourse(Y,Z).

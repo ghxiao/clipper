@@ -17,14 +17,17 @@ public class CQFormater {
 	}
 
 	public String getBinaryPredicate(int value) {
+		OWLPropertyExpression owlExpression = ClipperManager.getInstance()
+				.getOwlPropertyExpressionEncoder().getSymbolByValue(value);
 		switch (ClipperManager.getInstance().getNamingStrategy()) {
-		case LowerCaseFragment:
-			OWLPropertyExpression owlExpression = ClipperManager.getInstance().getOwlPropertyExpressionEncoder()
-					.getSymbolByValue(value);
+		case LOWER_CASE_FRAGMET:
 			if (owlExpression.isObjectPropertyExpression()) {
 				OWLObjectPropertyExpression ope = (OWLObjectPropertyExpression) owlExpression;
 				if (owlExpression.isAnonymous()) {
-					return "INVERSEOF(" + normalizeIRI(ope.getInverseProperty().getNamedProperty().getIRI()) + ")";
+					// should not happen
+					return "INVERSEOF("
+							+ normalizeIRI(ope.getInverseProperty()
+									.getNamedProperty().getIRI()) + ")";
 				} else {
 					OWLProperty property = (OWLProperty) owlExpression;
 					IRI iri = property.getIRI();
@@ -36,24 +39,46 @@ public class CQFormater {
 				return normalizeIRI(iri);
 			}
 
-			// }
-
-		case IntEncoding:
+		case INT_ENCODING:
 			return "r" + value;
+		case FRAGMENT:
+			if (owlExpression.isObjectPropertyExpression()) {
+				OWLObjectPropertyExpression ope = (OWLObjectPropertyExpression) owlExpression;
+				if (owlExpression.isAnonymous()) {
+					// should not happen
+					return "INVERSEOF("
+							+ normalizeIRI(ope.getInverseProperty()
+									.getNamedProperty().getIRI()) + ")";
+				} else {
+					OWLProperty property = (OWLProperty) owlExpression;
+					IRI iri = property.getIRI();
+					return fragmentIRI(iri);
+				}
+			} else {
+				OWLProperty property = (OWLProperty) owlExpression;
+				IRI iri = property.getIRI();
+				return fragmentIRI(iri);
+			}
+		default:
+			throw new IllegalStateException("Not possible");
 		}
-		throw new IllegalStateException("Not possible");
+
 	}
 
 	public String getUnaryPredicate(int value) {
+		IRI iri = ClipperManager.getInstance().getOwlClassEncoder()
+				.getSymbolByValue(value).getIRI();
 		switch (ClipperManager.getInstance().getNamingStrategy()) {
-		case LowerCaseFragment:
-			IRI iri = ClipperManager.getInstance().getOwlClassEncoder().getSymbolByValue(value).getIRI();
-
+		case LOWER_CASE_FRAGMET:
 			return normalizeIRI(iri);
-		case IntEncoding:
+		case INT_ENCODING:
 			return "c" + value;
+		case FRAGMENT:
+			return fragmentIRI(iri);
+		default:
+			throw new IllegalStateException("Not possible");
 		}
-		throw new IllegalStateException("Not possible");
+
 	}
 
 	public String normalizeIRI(IRI iri) {
@@ -66,7 +91,18 @@ public class CQFormater {
 			return iriString.substring(i).replace("_-", "").toLowerCase();
 
 		}
+	}
 
+	public String fragmentIRI(IRI iri) {
+		String fragment = iri.getFragment();
+		if (fragment != null) {
+			return fragment;
+		} else {
+			final String iriString = iri.toString();
+			int i = iriString.lastIndexOf('/') + 1;
+			return iriString.substring(i);
+
+		}
 	}
 
 	/**
@@ -82,7 +118,8 @@ public class CQFormater {
 		sb.append(" :- ");
 		boolean first = true;
 		for (Atom b : cq.getBody()) {
-			if (b.getPredicate().getEncoding() != ClipperManager.getInstance().getThing()) {
+			if (b.getPredicate().getEncoding() != ClipperManager.getInstance()
+					.getThing()) {
 				if (!first) {
 					sb.append(", ");
 				}
@@ -118,11 +155,13 @@ public class CQFormater {
 	private String formatAtom(Atom atom) {
 		StringBuilder sb = new StringBuilder();
 		if (atom.getPredicate().getArity() == 1) {
-			String predicateStr = getUnaryPredicate(atom.getPredicate().getEncoding());
+			String predicateStr = getUnaryPredicate(atom.getPredicate()
+					.getEncoding());
 
 			sb.append(predicateStr);
 		} else if (atom.getPredicate().getArity() == 2) {
-			String predicateStr = getBinaryPredicate(atom.getPredicate().getEncoding());
+			String predicateStr = getBinaryPredicate(atom.getPredicate()
+					.getEncoding());
 
 			sb.append(predicateStr);
 		} else
@@ -175,9 +214,10 @@ public class CQFormater {
 	// convert term to lower case format
 	public String getConstant(int value) {
 		switch (ClipperManager.getInstance().getNamingStrategy()) {
-		case LowerCaseFragment:
-
-			final OWLPropertyAssertionObject symbol = ClipperManager.getInstance().getOwlIndividualAndLiteralEncoder()
+		case LOWER_CASE_FRAGMET:
+		case FRAGMENT:
+			final OWLPropertyAssertionObject symbol = ClipperManager
+					.getInstance().getOwlIndividualAndLiteralEncoder()
 					.getSymbolByValue(value);
 
 			if (symbol instanceof OWLLiteral) {
@@ -189,13 +229,14 @@ public class CQFormater {
 				return "\"" + (owlNamedIndividual.getIRI()) + "\"";
 				// XXX
 				// TODO: add another option
-//				return "\"" + normalizeIRI(owlNamedIndividual.getIRI()) + "\"";
+				// return "\"" + normalizeIRI(owlNamedIndividual.getIRI()) +
+				// "\"";
 			} else {
 				throw new IllegalArgumentException(symbol.toString());
 			}
 
 			// IRI iri = symbol.getIRI();
-		case IntEncoding:
+		case INT_ENCODING:
 			return "d" + value;
 		}
 		throw new IllegalStateException("Not possible");

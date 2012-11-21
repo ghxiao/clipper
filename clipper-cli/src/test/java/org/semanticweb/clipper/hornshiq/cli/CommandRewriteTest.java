@@ -14,6 +14,35 @@ public class CommandRewriteTest {
 	}
 	
 	@Test
+	public void testName() {
+
+		String[] args = { "rewrite", "src/test/resources/lubm-ex-20/LUBM-ex-20.owl",
+				"-sparql=src/test/resources/lubm-ex-20/query/q5.sparql" , "-name=Fragment"};
+
+		ClipperApp.main(args);
+	}
+
+	@Test
+	public void testRewriteQ1() {
+
+		String[] args = { "rewrite", "src/test/resources/lubm-ex-20/LUBM-ex-20.owl",
+				"-sparql=src/test/resources/lubm-ex-20/query/q1.sparql",
+				"-output-datalog=src/test/resources/lubm-ex-20/query/q1.rew.dlv" };
+
+		ClipperApp.main(args);
+	}
+	
+	@Test
+	public void testRewriteQ2() {
+
+		String[] args = { "rewrite", "src/test/resources/lubm-ex-20/LUBM-ex-20.owl",
+				"-sparql=src/test/resources/lubm-ex-20/query/q2.sparql",
+				"-output-datalog=src/test/resources/lubm-ex-20/query/q2.rew.dlv" };
+
+		ClipperApp.main(args);
+	}
+	
+	@Test
 	public void testCQ() {
 
 		String[] args = { "rewrite", "src/test/resources/lubm-ex-20/LUBM-ex-20.owl",

@@ -15,7 +15,6 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.junit.Test;
 import org.semanticweb.clipper.cqparser.CQParser;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
@@ -34,7 +33,7 @@ public class QAHornSHIQTest {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 	//	KaosManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LowerCaseFragment);
+				NamingStrategy.LOWER_CASE_FRAGMET);
 		qaHornSHIQ.setDatalogFileName("AllTestCases/testRoleInclusion.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testRoleInclusion.owl");
 

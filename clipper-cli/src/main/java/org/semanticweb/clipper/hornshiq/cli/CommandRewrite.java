@@ -7,8 +7,8 @@ import java.util.Set;
 import lombok.Getter;
 
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
@@ -58,9 +58,11 @@ class CommandRewrite extends ReasoningCommandBase {
 
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		// note that naming strategy should be set after create new QAHornSHIQ
-		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LowerCaseFragment);
+//		ClipperManager.getInstance().setNamingStrategy(
+//				NamingStrategy.LOWER_CASE_FRAGMET);
 
+		ClipperManager.getInstance().setNamingStrategy(this.namingStrategy);
+		
 		Set<OWLOntology> ontologies = loadOntologies();
 
 		qaHornSHIQ.setOntologies(ontologies);
