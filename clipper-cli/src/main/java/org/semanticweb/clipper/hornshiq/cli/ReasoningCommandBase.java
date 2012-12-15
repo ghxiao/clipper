@@ -87,6 +87,8 @@ public abstract class ReasoningCommandBase extends CommandBase {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		} else {
+			throw new IllegalStateException();
 		}
 
 		return cq;

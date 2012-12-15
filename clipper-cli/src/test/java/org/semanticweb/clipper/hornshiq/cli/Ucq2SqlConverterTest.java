@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.junit.Test;
 import org.semanticweb.clipper.cqparser.CQParser;
-import org.semanticweb.clipper.cqparser.CQParserTest;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.util.Ucq2SqlConverter;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -33,7 +32,7 @@ public class Ucq2SqlConverterTest {
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
 		OWLOntology ontology = manager.loadOntologyFromOntologyDocument(IRI
-				.create(CQParserTest.class.getResource("/LUBM-ex-20.owl")));
+				.create(Ucq2SqlConverterTest.class.getResource("/LUBM-ex-20.owl")));
 
 		// String s =
 		// "ans(?0,?1) :- worksFor(?1,?3), Faculty(?1), Course(?2), memberOf(?0,?3), Student(?0), takesCourse(?0,?2), Department(?3), teacherOf(?1,?2).";

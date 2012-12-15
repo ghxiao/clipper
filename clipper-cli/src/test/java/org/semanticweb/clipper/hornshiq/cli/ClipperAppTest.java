@@ -15,7 +15,8 @@ public class ClipperAppTest {
 	public void testQuery() {
 
 		ClipperApp
-				.main("-v=8 -rewriter=old query src/test/resources/university.owl -sparql src/test/resources/university-q1.sparql"
+				.main(("-v=8 query -rewriter=old  src/test/resources/university.owl " +
+                        "-sparql src/test/resources/university-q1.sparql")
 						.split("\\ "));
 	}
 	
