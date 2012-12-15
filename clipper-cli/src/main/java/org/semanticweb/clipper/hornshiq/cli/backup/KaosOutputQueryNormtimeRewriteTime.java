@@ -38,7 +38,7 @@ public class KaosOutputQueryNormtimeRewriteTime {
 		// cq.getHead().getPredicate().getEncoding();
 		CQ cq = parseCQ();
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMET);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setOntologyName(ontologyFile);
 		qaHornSHIQ.setDatalogFileName(sparqlFile + "-" + ontologyFile + ".ReducedTBoxdl");
 		qaHornSHIQ.setCq(cq);

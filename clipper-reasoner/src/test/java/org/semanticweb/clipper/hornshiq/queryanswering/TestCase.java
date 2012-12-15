@@ -11,8 +11,6 @@ import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
-import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
@@ -41,7 +39,7 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMET);
+				NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("AllTestCases/testRoleInclusion.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testRoleInclusion.owl");
 
@@ -80,7 +78,7 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMET);
+				NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("AllTestCases/testInverseRoleInclusion.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testInverseRoleInclusion.owl");
 
@@ -117,7 +115,7 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMET);
+				NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("AllTestCases/testConceptInclusion.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testConceptInclusion.owl");
 
@@ -160,7 +158,7 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMET);
+				NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("AllTestCases/testBottomRule.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testBottomRule.owl");
 
@@ -245,7 +243,7 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMET);
+				NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("AllTestCases/testForallRule1.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testForallRule1.owl");
 
@@ -284,7 +282,7 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMET);
+				NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("AllTestCases/testForallRule2.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testForallRule2.owl");
 
@@ -321,7 +319,7 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMET);
+				NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("AllTestCases/testForallRule3.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testForallRule3.owl");
 
@@ -364,7 +362,7 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMET);
+				NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ
 				.setDatalogFileName("AllTestCases/testAtMostOne_MergeChildren.dl");
 		qaHornSHIQ
@@ -410,7 +408,7 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMET);
+				NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("AllTestCases/atMostParentChildCollapse.dl");
 		qaHornSHIQ
 				.setOntologyName("AllTestCases/atMostParentChildCollapse.owl");
@@ -456,7 +454,7 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMET);
+				NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("AllTestCases/simpleRewriting.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/simpleRewriting.owl");
 
@@ -498,7 +496,7 @@ public class TestCase {
 			QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 			ClipperManager.getInstance().setVerboseLevel(2);
 			ClipperManager.getInstance().setNamingStrategy(
-					NamingStrategy.LOWER_CASE_FRAGMET);
+					NamingStrategy.LOWER_CASE_FRAGMENT);
 			qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting2.dl");
 			qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting2.owl");
 
@@ -541,7 +539,7 @@ public class TestCase {
 			QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 			ClipperManager.getInstance().setVerboseLevel(2);
 			ClipperManager.getInstance().setNamingStrategy(
-					NamingStrategy.LOWER_CASE_FRAGMET);
+					NamingStrategy.LOWER_CASE_FRAGMENT);
 			qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting3.dl");
 			qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
 
@@ -584,7 +582,7 @@ public class TestCase {
 				QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 				ClipperManager.getInstance().setVerboseLevel(2);
 				ClipperManager.getInstance().setNamingStrategy(
-						NamingStrategy.LOWER_CASE_FRAGMET);
+						NamingStrategy.LOWER_CASE_FRAGMENT);
 				qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting3.dl");
 				qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
 

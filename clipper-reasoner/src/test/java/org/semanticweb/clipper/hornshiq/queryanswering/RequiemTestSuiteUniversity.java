@@ -1,8 +1,5 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import static org.junit.Assert.*;
-
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,12 +9,9 @@ import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
-import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
-import org.semanticweb.clipper.util.GetLUBMAnswers;
 
 import java.util.List;
 
@@ -80,7 +74,7 @@ public class RequiemTestSuiteUniversity {
 	public void query1() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMET);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query1.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");

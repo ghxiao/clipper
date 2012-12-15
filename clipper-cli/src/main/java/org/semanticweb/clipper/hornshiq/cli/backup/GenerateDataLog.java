@@ -40,7 +40,7 @@ public class GenerateDataLog {
 		//cq.getHead().getPredicate().getEncoding();
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		//note that naming strategy shoud be set after create new QAHornSHIQ
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMET);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setOntologyName(ontologyFile);
 		if (purpose.equals("-a")){
 		qaHornSHIQ.setDatalogFileName("ABox."+ontologyFile + ".dl");

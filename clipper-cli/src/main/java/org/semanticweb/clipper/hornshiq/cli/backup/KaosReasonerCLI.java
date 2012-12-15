@@ -35,7 +35,7 @@ public class KaosReasonerCLI {
 			System.exit(1);
 		}
 		
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMET);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		
 		System.setProperty("entityExpansionLimit", "512000");
 		CQ cq = parseCQ();

@@ -33,7 +33,7 @@ public class QAHornSHIQTest {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 	//	KaosManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMET);
+				NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("AllTestCases/testRoleInclusion.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testRoleInclusion.owl");
 

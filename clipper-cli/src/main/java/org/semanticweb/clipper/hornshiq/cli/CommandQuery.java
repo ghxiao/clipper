@@ -59,7 +59,7 @@ class CommandQuery extends ReasoningCommandBase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		// note that naming strategy should be set after create new QAHornSHIQ
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMET);
+				NamingStrategy.LOWER_CASE_FRAGMENT);
 
 		Set<OWLOntology> ontologies = loadOntologies();
 

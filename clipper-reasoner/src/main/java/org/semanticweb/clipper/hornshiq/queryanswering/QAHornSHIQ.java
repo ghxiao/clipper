@@ -84,7 +84,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		this.ontologies = new ArrayList<OWLOntology>();
 		cqFormater = new CQFormater();
 
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMET);// default
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);// default
 
 		// ClipperManager.getInstance().reset();
 	}

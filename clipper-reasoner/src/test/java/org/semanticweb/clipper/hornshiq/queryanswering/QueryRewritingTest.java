@@ -4,12 +4,8 @@ import static org.junit.Assert.assertTrue;
 import gnu.trove.set.hash.TIntHashSet;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.antlr.runtime.ANTLRStringStream;
@@ -46,7 +42,7 @@ public class QueryRewritingTest {
 	public void testBasicRewriting() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMET);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("AllTestCases/simpleRewriting.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/simpleRewriting.owl");
 
@@ -81,7 +77,7 @@ public class QueryRewritingTest {
 	public void testQueryRewriting2() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMET);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting2.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting2.owl");
 
@@ -111,7 +107,7 @@ public class QueryRewritingTest {
 	public void testQueryRewriting3() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMET);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting3.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
 
@@ -143,7 +139,7 @@ public class QueryRewritingTest {
 	public void testQueryRewriting4() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMET);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting3.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
 

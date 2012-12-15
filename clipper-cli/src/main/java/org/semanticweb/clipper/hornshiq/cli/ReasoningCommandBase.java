@@ -11,11 +11,9 @@ import java.util.Set;
 import com.google.common.io.CharStreams;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryFactory;
-import org.antlr.runtime.RecognitionException;
 import org.semanticweb.clipper.cqparser.CQParser;
 import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 import org.semanticweb.clipper.sparql.SparqlToCQConverter;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
@@ -48,7 +46,7 @@ public abstract class ReasoningCommandBase extends CommandBase {
     protected String sparqlString;
 
 	@Parameter(names = "-name", description = "")
-	protected NamingStrategy namingStrategy = NamingStrategy.LOWER_CASE_FRAGMET;
+	protected NamingStrategy namingStrategy = NamingStrategy.LOWER_CASE_FRAGMENT;
 
 	@Parameter(names = { "-r", "-rewriter" }, description = "rewriter", hidden = true)
 	protected String rewriter = "new";

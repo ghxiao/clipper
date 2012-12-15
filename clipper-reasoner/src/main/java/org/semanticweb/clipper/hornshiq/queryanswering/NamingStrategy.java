@@ -5,7 +5,7 @@ public enum NamingStrategy {
 	/** Using fragment for predicate with original case, full iri for constants */
 	FRAGMENT,
 	/** Using fragment for predicate and with lower case initial, full iri for constants */
-	LOWER_CASE_FRAGMET,
+	LOWER_CASE_FRAGMENT,
 	/** Everything has an integer encoding */
 	INT_ENCODING,
 }

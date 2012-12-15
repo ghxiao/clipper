@@ -65,7 +65,7 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 		qaHornSHIQ.setQueryRewriter("new");
 
 		// qaHornSHIQ.setNamingStrategy(NamingStrategy.IntEncoding);
-		qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMET);
+		qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 
 		ClipperManager.getInstance().setVerboseLevel(0);
 		//ClipperManager.getInstance().setVerboseLevel(8);

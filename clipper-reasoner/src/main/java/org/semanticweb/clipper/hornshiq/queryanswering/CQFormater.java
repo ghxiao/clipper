@@ -20,7 +20,7 @@ public class CQFormater {
 		OWLPropertyExpression owlExpression = ClipperManager.getInstance()
 				.getOwlPropertyExpressionEncoder().getSymbolByValue(value);
 		switch (ClipperManager.getInstance().getNamingStrategy()) {
-		case LOWER_CASE_FRAGMET:
+		case LOWER_CASE_FRAGMENT:
 			if (owlExpression.isObjectPropertyExpression()) {
 				OWLObjectPropertyExpression ope = (OWLObjectPropertyExpression) owlExpression;
 				if (owlExpression.isAnonymous()) {
@@ -69,7 +69,7 @@ public class CQFormater {
 		IRI iri = ClipperManager.getInstance().getOwlClassEncoder()
 				.getSymbolByValue(value).getIRI();
 		switch (ClipperManager.getInstance().getNamingStrategy()) {
-		case LOWER_CASE_FRAGMET:
+		case LOWER_CASE_FRAGMENT:
 			return normalizeIRI(iri);
 		case INT_ENCODING:
 			return "c" + value;
@@ -214,7 +214,7 @@ public class CQFormater {
 	// convert term to lower case format
 	public String getConstant(int value) {
 		switch (ClipperManager.getInstance().getNamingStrategy()) {
-		case LOWER_CASE_FRAGMET:
+		case LOWER_CASE_FRAGMENT:
 		case FRAGMENT:
 			final OWLPropertyAssertionObject symbol = ClipperManager
 					.getInstance().getOwlIndividualAndLiteralEncoder()

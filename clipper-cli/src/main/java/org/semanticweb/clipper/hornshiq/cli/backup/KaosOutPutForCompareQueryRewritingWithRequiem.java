@@ -39,7 +39,7 @@ public class KaosOutPutForCompareQueryRewritingWithRequiem {
 		//cq.getHead().getPredicate().getEncoding();
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		//note that naming strategy shoud be set after create new QAHornSHIQ
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMET);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setOntologyName(ontologyFile);
 		qaHornSHIQ.setDatalogFileName(ontologyFile + "-" + sparqlFile +".dl");
 		qaHornSHIQ.setCq(cq);
