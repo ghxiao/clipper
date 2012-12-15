@@ -76,13 +76,13 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	private Collection<OWLOntology> ontologies;
 	private ClipperHornSHIQOntology clipperOntology;
 
-	private CQFormater cqFormater;
+	private CQFormatter cqFormatter;
 
 	public QAHornSHIQ() {
 		decodedAnswers = new ArrayList<List<String>>();
 		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);// default
 		this.ontologies = new ArrayList<OWLOntology>();
-		cqFormater = new CQFormater();
+		cqFormatter = new CQFormatter();
 
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);// default
 
@@ -155,7 +155,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 			System.out.println("==============================================");
 			System.out.println("Rewritten queries: ");
 			for (CQ query : ucq)
-				System.out.println(cqFormater.formatQuery(query));
+				System.out.println(cqFormatter.formatQuery(query));
 			System.out.println("==============================================");
 			System.out.println("Datalog related to rewritten queries: ");
 			for (Rule rule : relatedRules.getUcqRelatedDatalogRules()) {
@@ -169,7 +169,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		BufferedWriter out = new BufferedWriter(fstream);
 		out.write("% rewritten queries:\n");
 		for (CQ query : ucq)
-			out.write(cqFormater.formatQuery(query) + "\n");
+			out.write(cqFormatter.formatQuery(query) + "\n");
 		// for (Rule rule : relatedRules.getUcqRelatedDatalogRules()) {
 		// out.write(rule + "\n");
 		// }
@@ -458,7 +458,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 					}
 					program.println("% rewritten queries ");
 					for (CQ query : ucq)
-						program.println(cqFormater.formatQuery(query));
+						program.println(cqFormatter.formatQuery(query));
 
 					program.close();
 
@@ -478,7 +478,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		System.out.print("{ ");
 		while (iterator.hasNext()) {
 			int index = iterator.next();
-			System.out.print(cqFormater.getUnaryPredicate(index) + ",");
+			System.out.print(cqFormatter.getUnaryPredicate(index) + ",");
 		}
 		System.out.print(" } ");
 	}
@@ -488,7 +488,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		System.out.print("{ ");
 		while (iterator.hasNext()) {
 			int index = iterator.next();
-			System.out.print(cqFormater.getBinaryPredicate(index) + ",");
+			System.out.print(cqFormatter.getBinaryPredicate(index) + ",");
 		}
 		System.out.print(" } ");
 	}

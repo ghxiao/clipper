@@ -17,7 +17,7 @@ import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperPropertyAssertionAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
-import org.semanticweb.clipper.hornshiq.queryanswering.CQFormater;
+import org.semanticweb.clipper.hornshiq.queryanswering.CQFormatter;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
 import org.semanticweb.clipper.hornshiq.queryanswering.HornImplication;
@@ -56,10 +56,10 @@ public class QueriesRelatedRules {
 	protected final int TOP_PROPERTY = 0;
 	protected final int BOTTOM_PROPERTY = 2;
 
-	CQFormater cqFormater;
+	CQFormatter cqFormatter;
 
 	public QueriesRelatedRules(ClipperHornSHIQOntology ont_bs, Set<CQ> rewrittenUcq) {
-		cqFormater = new CQFormater();
+		cqFormatter = new CQFormatter();
 		allValuesFromAxioms = ont_bs.getAtomSubAllAxioms();
 		maxOneCardinalityAxioms = ont_bs.getAtomSubMaxOneAxioms();
 		subObjectPropertyAxioms = ont_bs.getSubPropertyAxioms();
@@ -128,7 +128,7 @@ public class QueriesRelatedRules {
 		while (iterator.hasNext()) {
 			int index = iterator.next();
 			if (index != THING) {
-				strBody.add(cqFormater.getUnaryPredicate(index) + "(X)");
+				strBody.add(cqFormatter.getUnaryPredicate(index) + "(X)");
 				// strBody.add("c" + index + "(X)");
 			}
 		}
@@ -192,7 +192,7 @@ public class QueriesRelatedRules {
 
 			Rule rule = new Rule();
 			// rule.setHead("c" + imp.getHead() + "(X)");
-			rule.setHead(cqFormater.getUnaryPredicate(imp.getHead()) + "(X)");
+			rule.setHead(cqFormatter.getUnaryPredicate(imp.getHead()) + "(X)");
 			rule.setBody(getEncodedBodyOfImp(imp.getBody()));
 			if (rule.isNotTrivial()) {
 				DLPredicate headPredicate = new DLPredicate(imp.getHead(), 1);
@@ -219,11 +219,11 @@ public class QueriesRelatedRules {
 			int ic = axiom.getConcept2();
 			int ir = axiom.getRole();
 			int ia = axiom.getConcept1();
-			rule.setHead(cqFormater.getUnaryPredicate(ic) + "(Y)");
+			rule.setHead(cqFormatter.getUnaryPredicate(ic) + "(Y)");
 			if (ia != ClipperManager.getInstance().getThing())
-				rule.addAtomToBody(cqFormater.getUnaryPredicate(ia) + "(X)");
+				rule.addAtomToBody(cqFormatter.getUnaryPredicate(ia) + "(X)");
 			final String s;
-			s = cqFormater.getBinaryAtomWithoutInverse(ir, "X", "Y");
+			s = cqFormatter.getBinaryAtomWithoutInverse(ir, "X", "Y");
 			rule.addAtomToBody(s);
 
 			Predicate cPredicate = new DLPredicate(ic, 1);
@@ -260,8 +260,8 @@ public class QueriesRelatedRules {
 			// if (!(sup % 2 == 1 && sup % 2 == 1)) {
 			Rule rule = new Rule();
 			if (!(subRole % 2 == 1 && superRole % 2 == 1)) {
-				rule.setHead(cqFormater.getBinaryAtomWithoutInverse(superRole, "X", "Y"));
-				rule.addAtomToBody(cqFormater.getBinaryAtomWithoutInverse(subRole, "X", "Y"));
+				rule.setHead(cqFormatter.getBinaryAtomWithoutInverse(superRole, "X", "Y"));
+				rule.addAtomToBody(cqFormatter.getBinaryAtomWithoutInverse(subRole, "X", "Y"));
 
 				Predicate headPredicate = new DLPredicate(superRole, 2);
 				Set<Predicate> bodyPredicates = new HashSet<Predicate>();
@@ -300,8 +300,8 @@ public class QueriesRelatedRules {
 			Rule rule = new Rule();
 			int r1 = ax.getRole1();
 			int r2 = ax.getRole2();
-			rule.setHead(cqFormater.getBinaryAtomWithoutInverse(r1, "X", "Y"));
-			rule.addAtomToBody(cqFormater.getBinaryAtomWithoutInverse(r2, "Y", "X"));
+			rule.setHead(cqFormatter.getBinaryAtomWithoutInverse(r1, "X", "Y"));
+			rule.addAtomToBody(cqFormatter.getBinaryAtomWithoutInverse(r2, "Y", "X"));
 
 			Predicate headPredicate = new DLPredicate(r1, 2);
 			Set<Predicate> bodyPredicates = new HashSet<Predicate>();
@@ -318,8 +318,8 @@ public class QueriesRelatedRules {
 			// program.println(rule);
 
 			Rule rule2 = new Rule();
-			rule2.setHead(cqFormater.getBinaryAtomWithoutInverse(r2, "Y", "X"));
-			rule2.addAtomToBody(cqFormater.getBinaryAtomWithoutInverse(r1, "X", "Y"));
+			rule2.setHead(cqFormatter.getBinaryAtomWithoutInverse(r2, "Y", "X"));
+			rule2.addAtomToBody(cqFormatter.getBinaryAtomWithoutInverse(r1, "X", "Y"));
 			Set<Predicate> body2Predicates = new HashSet<Predicate>();
 			body2Predicates.add(headPredicate);
 
@@ -363,7 +363,7 @@ public class QueriesRelatedRules {
 						// create head of the rule. Each element of Type2 is a
 						// head.
 						Rule rule = new Rule();
-						rule.setHead(cqFormater.getUnaryPredicate(index) + "(Y)");
+						rule.setHead(cqFormatter.getUnaryPredicate(index) + "(Y)");
 
 						Predicate headPredicate = new DLPredicate(index, 1);
 						Set<Predicate> bodyPredicates = new HashSet<Predicate>();
@@ -375,18 +375,18 @@ public class QueriesRelatedRules {
 						bodyPredicates.addAll(getPredicatesFromSet(enfRelation.getType1()));
 
 						if (ia != ClipperManager.getInstance().getThing())
-							rule.addAtomToBody(cqFormater.getUnaryPredicate(ia) + "(X)");
+							rule.addAtomToBody(cqFormatter.getUnaryPredicate(ia) + "(X)");
 
 						Predicate iaPredicate = new DLPredicate(ia, 1);
 						bodyPredicates.add(iaPredicate);
 
-						rule.addAtomToBody(cqFormater.getBinaryAtomWithoutInverse(ir, "X", "Y"));
+						rule.addAtomToBody(cqFormatter.getBinaryAtomWithoutInverse(ir, "X", "Y"));
 
 						Predicate irPredicate = new DLPredicate(ir, 2);
 						bodyPredicates.add(irPredicate);
 
 						if (ic != ClipperManager.getInstance().getThing())
-							rule.addAtomToBody(cqFormater.getUnaryPredicate(ic) + "(Y)");
+							rule.addAtomToBody(cqFormatter.getUnaryPredicate(ic) + "(Y)");
 
 						Predicate icPredicate = new DLPredicate(ic, 2);
 						bodyPredicates.add(icPredicate);
@@ -406,7 +406,7 @@ public class QueriesRelatedRules {
 						int index2 = iterator2.next();
 						Rule rule = new Rule();
 
-						rule.setHead(cqFormater.getBinaryAtomWithoutInverse(index2, "X", "Y"));
+						rule.setHead(cqFormatter.getBinaryAtomWithoutInverse(index2, "X", "Y"));
 						Predicate headPredicate = new DLPredicate(index2, 2);
 
 						Set<Predicate> bodyPredicates = new HashSet<Predicate>();
@@ -415,16 +415,16 @@ public class QueriesRelatedRules {
 						bodyPredicates.addAll(getPredicatesFromSet(enfRelation.getType1()));
 
 						if (ia != ClipperManager.getInstance().getThing())
-							rule.addAtomToBody(cqFormater.getUnaryPredicate(ia) + "(X)");
+							rule.addAtomToBody(cqFormatter.getUnaryPredicate(ia) + "(X)");
 						Predicate iaPredicate = new DLPredicate(ia, 1);
 						bodyPredicates.add(iaPredicate);
 
-						rule.addAtomToBody(cqFormater.getBinaryAtomWithoutInverse(ir, "X", "Y"));
+						rule.addAtomToBody(cqFormatter.getBinaryAtomWithoutInverse(ir, "X", "Y"));
 						Predicate irPredicate = new DLPredicate(ir, 2);
 						bodyPredicates.add(irPredicate);
 
 						if (ic != ClipperManager.getInstance().getThing())
-							rule.addAtomToBody(cqFormater.getUnaryPredicate(ic) + "(Y)");
+							rule.addAtomToBody(cqFormatter.getUnaryPredicate(ic) + "(Y)");
 						Predicate icPredicate = new DLPredicate(ic, 1);
 						bodyPredicates.add(icPredicate);
 

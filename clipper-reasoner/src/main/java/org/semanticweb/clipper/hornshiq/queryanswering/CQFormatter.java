@@ -11,9 +11,9 @@ import org.semanticweb.owlapi.model.OWLProperty;
 import org.semanticweb.owlapi.model.OWLPropertyAssertionObject;
 import org.semanticweb.owlapi.model.OWLPropertyExpression;
 
-public class CQFormater {
+public class CQFormatter {
 
-	public CQFormater() {
+	public CQFormatter() {
 	}
 
 	public String getBinaryPredicate(int value) {

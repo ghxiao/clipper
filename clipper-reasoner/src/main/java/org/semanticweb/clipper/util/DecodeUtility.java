@@ -3,7 +3,7 @@ package org.semanticweb.clipper.util;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
 
-import org.semanticweb.clipper.hornshiq.queryanswering.CQFormater;
+import org.semanticweb.clipper.hornshiq.queryanswering.CQFormatter;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
@@ -12,17 +12,17 @@ import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 
 public class DecodeUtility {
 	
-	CQFormater cqFormater = new CQFormater();
+	CQFormatter cqFormatter = new CQFormatter();
 	
 	public String decodeQuery(CQ conjunctiveQuery) {
 		String decodedQuery = new String();
 		int headPredicateCode = conjunctiveQuery.getHead().getPredicate().getEncoding();
 		int headPredicateArity = conjunctiveQuery.getHead().getPredicate().getArity();
 		if (headPredicateArity == 1) {
-			decodedQuery += cqFormater.getUnaryPredicate(headPredicateCode);
+			decodedQuery += cqFormatter.getUnaryPredicate(headPredicateCode);
 			decodedQuery += "<--";
 		} else if (headPredicateArity == 2) {
-			decodedQuery += cqFormater.getBinaryPredicate(headPredicateCode);
+			decodedQuery += cqFormatter.getBinaryPredicate(headPredicateCode);
 			decodedQuery += "<--";
 		}
 
@@ -30,10 +30,10 @@ public class DecodeUtility {
 			int atomPredicateCode = atom.getPredicate().getEncoding();
 			int atomArity = atom.getPredicate().getArity();
 			if (atomArity == 1) {
-				decodedQuery += cqFormater.getUnaryPredicate(atomPredicateCode);
+				decodedQuery += cqFormatter.getUnaryPredicate(atomPredicateCode);
 				decodedQuery += "<--";
 			} else if (atomArity == 2) {
-				decodedQuery += cqFormater.getBinaryPredicate(atomPredicateCode);
+				decodedQuery += cqFormatter.getBinaryPredicate(atomPredicateCode);
 				decodedQuery += ",";
 			}
 		}
