@@ -84,6 +84,7 @@ public class CQFormatter {
 	public String normalizeIRI(IRI iri) {
 		String fragment = iri.getFragment();
 		if (fragment != null) {
+            fragment = replaceUmlauts(fragment);
 			return fragment.replaceAll("[_-]", "").toLowerCase();
 		} else {
 			final String iriString = iri.toString();
@@ -93,7 +94,18 @@ public class CQFormatter {
 		}
 	}
 
-	public String fragmentIRI(IRI iri) {
+    static String replaceUmlauts(String string) {
+        string=string.replaceAll("Ä", "Ae");
+        string=string.replaceAll("Ö", "Oe");
+        string=string.replaceAll("Ü", "Ue");
+        string=string.replaceAll("ä", "ae");
+        string=string.replaceAll("ö", "oe");
+        string=string.replaceAll("ü", "ue");
+        string=string.replaceAll("ß", "ss");
+        return string;
+    }
+
+    public String fragmentIRI(IRI iri) {
 		String fragment = iri.getFragment();
 		if (fragment != null) {
 			return fragment;
