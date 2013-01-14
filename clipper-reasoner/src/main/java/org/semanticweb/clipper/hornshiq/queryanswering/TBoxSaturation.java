@@ -17,7 +17,7 @@ import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
 
 
-public class TBoxReasoning {
+public class TBoxSaturation {
 
 	private IndexedHornImpContainer impContainer;
 	private IndexedEnfContainer enfContainer;
@@ -82,7 +82,7 @@ public class TBoxReasoning {
 
 	}
 
-	public TBoxReasoning(ClipperHornSHIQOntology ont_bs) {
+	public TBoxSaturation(ClipperHornSHIQOntology ont_bs) {
 		init(ont_bs);
 	}
 
@@ -589,7 +589,7 @@ public class TBoxReasoning {
 	/**
 	 * Apply the saturation rules on TBox
 	 */
-	public void reasoning() {
+	public void saturate() {
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("Start reasoning");
 			System.out.println(" IMP size: " + enfContainer.getEnfs().size());

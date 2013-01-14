@@ -106,7 +106,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		try {
 			preprocessOntologies();
 
-			TBoxReasoning tb = saturateTbox();
+			TBoxSaturation tb = saturateTbox();
 
 			reduceOntologyToDatalog(tb);
 
@@ -128,7 +128,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 		preprocessOntologies();
 
-		TBoxReasoning tb = saturateTbox();
+		TBoxSaturation tb = saturateTbox();
 
 		reduceOntologyToDatalog(tb);
 
@@ -138,7 +138,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	 * @param tb
 	 * @throws IOException
 	 */
-	private void reduceRewrittenQueriesToDatalog(TBoxReasoning tb) throws IOException {
+	private void reduceRewrittenQueriesToDatalog(TBoxSaturation tb) throws IOException {
 		long starCoutingRelatedRule = System.currentTimeMillis();
 
 		Set<CQ> ucq = new HashSet<CQ>(rewrittenQueries);
@@ -180,7 +180,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	/**
 	 * @param tb
 	 */
-	private void queryRewriting(TBoxReasoning tb) {
+	private void queryRewriting(TBoxSaturation tb) {
 		QueryRewriter qr = createQueryRewriter(clipperOntology, tb);
 
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
@@ -209,7 +209,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	/**
 	 * @param tb
 	 */
-	private void reduceOntologyToDatalog(TBoxReasoning tb) {
+	private void reduceOntologyToDatalog(TBoxSaturation tb) {
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology);
 		// reduction.setNamingStrategy(this.namingStrategy);
 		reduction.setCoreImps(tb.getImpContainer().getImps());
@@ -220,7 +220,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	/**
 	 * @param tb
 	 */
-	private void reduceTBoxToDatalog(TBoxReasoning tb) {
+	private void reduceTBoxToDatalog(TBoxSaturation tb) {
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology);
 		// reduction.setNamingStrategy(this.namingStrategy);
 		reduction.setCoreImps(tb.getImpContainer().getImps());
@@ -232,7 +232,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	/**
 	 * @param tb
 	 */
-	private void reduceABoxToDatalog(TBoxReasoning tb) {
+	private void reduceABoxToDatalog(TBoxSaturation tb) {
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology);
 		// reduction.setNamingStrategy(this.namingStrategy);
 		reduction.setCoreImps(tb.getImpContainer().getImps());
@@ -244,12 +244,12 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	/**
 	 * @return
 	 */
-	private TBoxReasoning saturateTbox() {
-		TBoxReasoning tb = new TBoxReasoning(clipperOntology);
+	private TBoxSaturation saturateTbox() {
+		TBoxSaturation tb = new TBoxSaturation(clipperOntology);
 		// ///////////////////////////////////////////////
 		// Evaluate reasoning time
 		long reasoningBegin = System.currentTimeMillis();
-		tb.reasoning();
+		tb.saturate();
 		long reasoningEnd = System.currentTimeMillis();
 		clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
 		// end of evaluating reasoning time
@@ -261,7 +261,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	 * @param tb
 	 * @return
 	 */
-	private QueryRewriter createQueryRewriter(ClipperHornSHIQOntology onto_bs, TBoxReasoning tb) {
+	private QueryRewriter createQueryRewriter(ClipperHornSHIQOntology onto_bs, TBoxSaturation tb) {
 		QueryRewriter qr;
 		if (queryRewriter.equals("old")) {
 			qr = new QueryRewriting(tb.getEnfContainer(), tb.getInverseRoleAxioms(), tb.getAllValuesFromAxioms());
@@ -310,7 +310,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 			preprocessOntologies();
 
-			TBoxReasoning tb = saturateTbox();
+			TBoxSaturation tb = saturateTbox();
 
 			reduceTBoxToDatalog(tb);
 
@@ -331,7 +331,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 		preprocessOntologies();
 
-		TBoxReasoning tb = saturateTbox();
+		TBoxSaturation tb = saturateTbox();
 
 		reduceTBoxToDatalog(tb);
 
@@ -380,11 +380,11 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 					}
 				}
 
-				TBoxReasoning tb = new TBoxReasoning(onto_bs);
+				TBoxSaturation tb = new TBoxSaturation(onto_bs);
 				// ///////////////////////////////////////////////
 				// Evaluate reasoning time
 				long reasoningBegin = System.currentTimeMillis();
-				tb.reasoning();
+				tb.saturate();
 				long reasoningEnd = System.currentTimeMillis();
 				clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
 				// end of evaluating reasoning time
@@ -505,7 +505,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 		preprocessOntologies();
 
-		TBoxReasoning tb = saturateTbox();
+		TBoxSaturation tb = saturateTbox();
 
 		reduceOntologyToDatalog(tb);
 
