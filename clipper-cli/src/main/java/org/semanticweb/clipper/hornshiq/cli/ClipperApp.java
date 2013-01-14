@@ -18,16 +18,19 @@ public class ClipperApp {
 		JCommander jc = new JCommander(co);
 
 		CommandQuery commandQuery = new CommandQuery(jc);
-	
+
 		CommandRewrite commandRewrite = new CommandRewrite(jc);
-	
+
 		CommandHelp commandHelp = new CommandHelp(jc);
-	
+
 		CommandLoad commandLoad = new CommandLoad(jc);
-	
+
 		CommandInitDB commandInitDB = new CommandInitDB(jc);
-	
-		CommandGenerateMapFile commandGenerateMapFile = new CommandGenerateMapFile(jc);
+
+		CommandGenerateMapFile commandGenerateMapFile = new CommandGenerateMapFile(
+				jc);
+
+		CommandPythonOntology commandPythonOntology = new CommandPythonOntology(jc);
 		
 		jc.setProgramName("clipper.sh");
 
@@ -55,8 +58,10 @@ public class ClipperApp {
 			commandInitDB.exec();
 		} else if (cmd.equals("help")) {
 			commandHelp.exec();
-		} else if (cmd.equals("gen")){
+		} else if (cmd.equals("gen")) {
 			commandGenerateMapFile.exec();
+		} else if (cmd.equals("pex")) {
+			commandPythonOntology.exec();
 		}
 	}
 

@@ -244,7 +244,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	/**
 	 * @return
 	 */
-	private TBoxSaturation saturateTbox() {
+	public TBoxSaturation saturateTbox() {
 		TBoxSaturation tb = new TBoxSaturation(clipperOntology);
 		// ///////////////////////////////////////////////
 		// Evaluate reasoning time
