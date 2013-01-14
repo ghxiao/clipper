@@ -11,3 +11,8 @@ WHERE {
 
 #q3(x)   <- Faculty(x), degreeFrom(x,y), University(y),
 #           subOrganizationOf(z,y), Department(z), memberOf(x,z)
+
+# x
+# | \
+# |  \
+# y -- z
