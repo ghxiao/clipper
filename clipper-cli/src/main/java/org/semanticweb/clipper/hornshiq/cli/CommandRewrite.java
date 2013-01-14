@@ -1,23 +1,17 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
-import java.io.File;
-import java.util.HashSet;
 import java.util.Set;
 
 import lombok.Getter;
 
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
-import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
-import com.google.common.collect.ImmutableSet;
 
 @Getter
 @Parameters(commandNames = { "rewrite" }, separators = "=", commandDescription = "rewrite the query w.r.t. the ontology, and generate a datalog program")
@@ -48,6 +42,7 @@ class CommandRewrite extends ReasoningCommandBase {
 	@Parameter(names = { "-output-datalog", "-d" }, description = "output datalog file (if not specified, the output will be stdout)")
 	private String datalog = "output.dlv";
 
+	@Override
 	public boolean validate() {
 		return true;
 	}
