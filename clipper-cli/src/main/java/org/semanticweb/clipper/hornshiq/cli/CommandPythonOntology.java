@@ -65,16 +65,18 @@ public class CommandPythonOntology extends ReasoningCommandBase {
 	}
 
 	private String enf2Pex(EnforcedRelation e, int axid) {
-
+		final int thing = ClipperManager.getInstance().getThing();
 		final StringBuilder sb = new StringBuilder();
 		sb.append("ExistenceAxiom(");
 		sb.append("[");
 		e.getType1().forEach(new TIntProcedure() {
 			@Override
 			public boolean execute(int arg0) {
-				sb.append("'").append(formatter.getUnaryPredicate(arg0))
-						.append("', ");
-				return false;
+				if (arg0 != thing) {
+					sb.append("'").append(formatter.getUnaryPredicate(arg0))
+							.append("', ");
+				}
+				return true;
 			}
 		});
 		sb.append("], [");
@@ -85,19 +87,21 @@ public class CommandPythonOntology extends ReasoningCommandBase {
 					sb.append("('").append(formatter.getBinaryPredicate(r))
 							.append("', 'name'), ");
 				else
-					sb.append("('")
-							.append(formatter.getBinaryPredicate(r - 1))
+					sb.append("('").append(formatter.getBinaryPredicate(r - 1))
 							.append("', 'inv'), ");
-				return false;
+				return true;
 			}
 		});
 		sb.append("], [");
 		e.getType2().forEach(new TIntProcedure() {
 			@Override
 			public boolean execute(int arg0) {
-				sb.append("'").append(formatter.getUnaryPredicate(arg0))
-						.append("', ");
-				return false;
+				if (arg0 != thing) {
+
+					sb.append("'").append(formatter.getUnaryPredicate(arg0))
+							.append("', ");
+				}
+				return true;
 			}
 		});
 		sb.append("]");
