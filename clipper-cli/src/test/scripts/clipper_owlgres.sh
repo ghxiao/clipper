@@ -83,6 +83,9 @@ function create_view_for_body_atoms(){
 
         echo "CREATE OR REPLACE VIEW v_$name AS " > v_$name.sql
 
+		# for some strange reasons, in the output, the order of name_1 and name_2 is switched
+		# so we have to fix this in the sed part
+		# TODO: 
         $owlgres_rewrite --query $name.sparql --viewname v_$name --viewcols $arity \
             --db $DB_NAME --user $DB_USER --passwd "$DB_PASSWD" --shcemas public \
             | grep -v "Query reformulation" \
