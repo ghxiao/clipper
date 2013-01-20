@@ -5,9 +5,10 @@ owlgres_rewrite=$OWLGRESROOT/sh/queryRewrite
 
 dir=/Users/xiao/Dropbox/Projects/clipper/clipper-cli/src/test/resources/lubm-ex-20/query
 
-DB_NAME=owlgres_modlubm
+#DB_NAME=owlgres_modlubm
+DB_NAME=owlgres_modlubm_1_hole_20
 DB_USER=xiao
-DB_PASSWD=
+DB_PASSWD=1234
 
 TEMPLATE1=$(cat <<EOF 
 PREFIX ub:<http://swat.cse.lehigh.edu/onto/univ-bench.owl#>
@@ -37,43 +38,27 @@ ${clipper_cli} -verbose=0 rewrite  $ontology_file -sparql=$sparql_file -name=FRA
 
 rew_rules=$(cat $rew_dlv_file | grep '^ans(')
 
-# echo $rew_rules
-
-# cat $rew_dlv_file | grep '^ans' | grep -o -e '\([a-zA-Z0-9]\)\+([^)]*)' | sort
-
-body_atoms=$(cat $rew_dlv_file | grep '^ans' )
-
-
-#
-# create_view_for_body_atoms($rew_dlv_file, $DB_NAME, $DB_USER,
-# $DB_PASSWD)
-# 
 function create_view_for_body_atoms(){
-
-#    rew_dlv_file=$1
-#    DB_NAME=$2
-#    DB_USER=$3
-#    DB_PASSWD=$4
-
-    body_atoms=$(cat $rew_dlv_file \
-        | grep '^ans' \
-        | grep -o -e '\([a-zA-Z0-9]\)\+([^)]*)' \
-        | grep -v '^ans(' \
-        | sed 's/(X[0-9]*/(X/g' | sed 's/,X[0-9]*/,Y/g' \
-        | sed 's/(X)/:1/g' \
-        | sed 's/(X,Y)/:2/g' \
-        | sort | uniq)
-
-#echo $body_atoms
+	# body_atoms is a list of 'pred_name:arity'
+    body_atoms=$(cat $rew_dlv_file  | \
+        # filter the rows with ans(...) 
+	    grep '^ans' | \
+        # extract all the atoms
+	    grep -o -e '\([a-zA-Z0-9]\)\+([^)]*)' | \
+        # exclude ans(...)
+        grep -v '^ans(' | \
+        sed 's/(X[0-9]*/(X/g' | sed 's/,X[0-9]*/,Y/g' | \
+        sed 's/([A-Z])/:1/g' | \
+        sed 's/([A-Z],[A-Z])/:2/g' | \
+        sort | uniq)
 
 # CREATE VIEW for each body atom
 
     for atom in $body_atoms; do
-#    echo $atom
         tmp=(${atom//:/ }) 
         name=${tmp[0]}
         arity=${tmp[1]}
-#    printf "%s/%s" $name $arity
+        printf "%s/%s   " $name $arity
         case $arity in
             1 ) printf "$TEMPLATE1 \n" $name > $name.sparql
                 ;;
@@ -86,15 +71,17 @@ function create_view_for_body_atoms(){
 		# for some strange reasons, in the output, the order of name_1 and name_2 is switched
 		# so we have to fix this in the sed part
 		# TODO: 
-        $owlgres_rewrite --query $name.sparql --viewname v_$name --viewcols $arity \
-            --db $DB_NAME --user $DB_USER --passwd "$DB_PASSWD" --shcemas public \
-            | grep -v "Query reformulation" \
-            | sed 's/SELECT name_0.name AS x1, name_1.name AS x2/SELECT name_1.id AS att1, name_0.id AS att2, name_1.name AS x1, name_0.name AS x2/g' \
-            | sed 's/^SELECT name_0.name AS x1$/SELECT name_0.id AS att1, name_0.name AS name/g' \
-            >> v_$name.sql
 
-#    echo "DROP VIEW IF EXISTS v_$name" | psql -d $DB_NAME -U $DB_USER
-#        cat v_$name.sql | psql -d $DB_NAME -U $DB_USER
+		# call owlgres queryRewrite
+        $owlgres_rewrite --query $name.sparql --viewname v_$name --viewcols $arity \
+            --db $DB_NAME --user $DB_USER --passwd "$DB_PASSWD" --shcemas public | \
+        	# remove the header line like "Query reformulation produced 24 queries"
+            grep -v "Query reformulation" | \
+            # For object property, change output of att1 and att2 to ids  
+            sed 's/SELECT name_0.name AS x1, name_1.name AS x2/SELECT name_1.id AS att1, name_0.id AS att2, name_1.name AS x1, name_0.name AS x2/g' | \
+            # For concept, change output of att1 to id
+            sed 's/^SELECT name_0.name AS x1$/SELECT name_0.id AS att1, name_0.name AS name/g' \
+            >> v_$name.sql
 
         echo $name.sparql " -> " v_$name.sql
     done

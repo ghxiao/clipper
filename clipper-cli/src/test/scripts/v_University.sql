@@ -47,6 +47,6 @@ WHERE ora_0.object_role=138
 UNION 
 SELECT ora_0.b AS x1
 FROM  object_role_assertion ora_0
-WHERE ora_0.object_role=149
+WHERE ora_0.object_role=148
 ) as innerRel , individual_name name_0
 WHERE  innerRel.x1=name_0.id 

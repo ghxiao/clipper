@@ -75,11 +75,11 @@ WHERE ca_0.concept=109
 UNION 
 SELECT ca_0.individual AS x1
 FROM  concept_assertion ca_0
-WHERE ca_0.concept=31
+WHERE ca_0.concept=7
 UNION 
 SELECT ca_0.individual AS x1
 FROM  concept_assertion ca_0
-WHERE ca_0.concept=7
+WHERE ca_0.concept=31
 UNION 
 SELECT ca_0.individual AS x1
 FROM  concept_assertion ca_0
