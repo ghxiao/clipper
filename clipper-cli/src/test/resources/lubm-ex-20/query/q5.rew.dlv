@@ -9,7 +9,6 @@ Person(X) :- Director(X).
 Employee(X) :- ResearchAssistant(X).
 Publication(X) :- Specification(X).
 Person(X) :- Student(X).
-Publication(X) :- Software(X).
 Employee(X) :- Faculty(X).
 Department(X) :- Subj10Department(X).
 Professor(X) :- Dean(X).
@@ -19,11 +18,14 @@ Department(X) :- Subj5Department(X).
 Student(X) :- UndergraduateStudent(X).
 Faculty(X) :- Lecturer(X).
 Professor(X) :- Subj7Professor(X).
+Exam(X) :- BachelorExam(X).
 Professor(X) :- AssistantProfessor(X).
-Course(X) :- Subj17Course(X).
 Person(X) :- Employee(X).
+Course(X) :- Subj17Course(X).
 Course(X) :- Subj12Course(X).
+Work(X) :- Exam(X).
 Student(X) :- Subj15Student(X).
+Department(X) :- Subj19Department(X).
 Professor(X) :- Chair(X).
 Professor(X) :- Subj13Professor(X).
 Student(X) :- Subj8Student(X).
@@ -44,6 +46,7 @@ Employee(X) :- Dean(X).
 Department(X) :- Subj20Department(X).
 Student(X) :- Subj1Student(X).
 Department(X) :- Subj9Department(X).
+Publication(X) :- Software(X).
 Professor(X) :- Subj16Professor(X).
 Faculty(X) :- Professor(X).
 Organization(X) :- College(X).
@@ -56,13 +59,13 @@ Student(X) :- Subj7Student(X).
 Department(X) :- Subj7Department(X).
 Department(X) :- Subj14Department(X).
 Work(X) :- ExamRecord(X).
-Exam(X) :- BachelorExam(X).
-Work(X) :- Exam(X).
 Course(X) :- Subj15Course(X).
 Professor(X) :- ExDean(X).
 AdministrativeStaff(X) :- ClericalStaff(X).
 Professor(X) :- Subj5Professor(X).
 Course(X) :- Subj9Course(X).
+Professor(X) :- Subj15Professor(X).
+Organization(X) :- Program(X).
 Student(X) :- Subj9Student(X).
 Professor(X) :- Subj17Professor(X).
 Course(X) :- Subj7Course(X).
@@ -78,11 +81,9 @@ Course(X) :- GraduateCourse(X).
 Professor(X) :- Subj2Professor(X).
 Department(X) :- Subj1Department(X).
 Department(X) :- Subj17Department(X).
-Organization(X) :- Program(X).
 AdministrativeStaff(X) :- SystemsStaff(X).
 Professor(X) :- Subj11Professor(X).
 Student(X) :- Subj3Student(X).
-Professor(X) :- Subj15Professor(X).
 Course(X) :- Subj6Course(X).
 Student(X) :- Subj5Student(X).
 Professor(X) :- Subj6Professor(X).
@@ -122,7 +123,6 @@ Publication(X) :- Article(X).
 Work(X) :- Research(X).
 Article(X) :- ConferencePaper(X).
 Person(X) :- Chair(X).
-Department(X) :- Subj19Department(X).
 Department(X) :- Subj13Department(X).
 Professor(X) :- Subj18Professor(X).
 Student(X) :- Subj4Student(X).
@@ -186,4 +186,4 @@ isPartOfUniversity(Y,X) :- hasFaculty(X,Y).
 degreeFrom(X,Y) :- hasAlumnus(Y,X).
 hasAlumnus(Y,X) :- degreeFrom(X,Y).
 % rewritten queries:
-ans(X0) :- Student(X2), Professor(X1), publicationAuthor(X0,X1), Publication(X0), publicationAuthor(X0,X2).
+ans(X) :- Student(Z), Professor(Y), Publication(X), publicationAuthor(X,Z), publicationAuthor(X,Y).

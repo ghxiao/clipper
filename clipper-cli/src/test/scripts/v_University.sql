@@ -1,5 +1,5 @@
 CREATE OR REPLACE VIEW v_University AS 
-SELECT name_0.id AS att1, name_0.name AS name
+SELECT innerRel.x1 AS att1
 FROM (
 SELECT ora_0.b AS x1
 FROM  object_role_assertion ora_0
@@ -48,5 +48,4 @@ UNION
 SELECT ora_0.b AS x1
 FROM  object_role_assertion ora_0
 WHERE ora_0.object_role=148
-) as innerRel , individual_name name_0
-WHERE  innerRel.x1=name_0.id 
+) as innerRel

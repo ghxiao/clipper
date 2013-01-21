@@ -68,20 +68,37 @@ function create_view_for_body_atoms(){
 
         echo "CREATE OR REPLACE VIEW v_$name AS " > v_$name.sql
 
-		# for some strange reasons, in the output, the order of name_1 and name_2 is switched
-		# so we have to fix this in the sed part
-		# TODO: 
+		# # call owlgres queryRewrite
+        # $owlgres_rewrite --query $name.sparql --viewname v_$name --viewcols $arity \
+        #     --db $DB_NAME --user $DB_USER --passwd "$DB_PASSWD" --shcemas public | \
+        # 	# remove the header line like "Query reformulation produced 24 queries"
+        #     grep -v "Query reformulation" | \
+        #     # For object property, change output of att1 and att2 to
+        #     # ids. 
+		#     # for some strange reasons, in the output, the order of
+        #     # name_1 and name_2 is switched, we have to walk around it
+        #     sed 's/SELECT name_0.name AS x1, name_1.name AS x2/SELECT name_1.id AS att1, name_0.id AS att2, name_1.name AS x1, name_0.name AS x2/g' | \
+        #     # For concept, change output of att1 to id
+        #     sed 's/^SELECT name_0.name AS x1$/SELECT name_0.id AS att1, name_0.name AS name/g' \
+        #     >> v_$name.sql
 
-		# call owlgres queryRewrite
         $owlgres_rewrite --query $name.sparql --viewname v_$name --viewcols $arity \
             --db $DB_NAME --user $DB_USER --passwd "$DB_PASSWD" --shcemas public | \
         	# remove the header line like "Query reformulation produced 24 queries"
-            grep -v "Query reformulation" | \
-            # For object property, change output of att1 and att2 to ids  
-            sed 's/SELECT name_0.name AS x1, name_1.name AS x2/SELECT name_1.id AS att1, name_0.id AS att2, name_1.name AS x1, name_0.name AS x2/g' | \
+            grep -v "Query reformulation"  | \
+            # For object property, change output of att1 and att2 to
+            # ids. 
+		    # for some strange reasons, in the output, the order of
+            # name_1 and name_2 is switched, we have to walk around it
+            # sed 's/SELECT name_0.name AS x1, name_1.name AS x2/SELECT name_1.id AS att1, name_0.id AS att2, name_1.name AS x1, name_0.name AS x2/g' | \
             # For concept, change output of att1 to id
-            sed 's/^SELECT name_0.name AS x1$/SELECT name_0.id AS att1, name_0.name AS name/g' \
-            >> v_$name.sql
+            sed 's/SELECT name_0.name AS x1, name_1.name AS x2/SELECT innerRel.x1 AS att1, innerRel.x0 AS att2/g' | \
+            sed 's/^SELECT name_0.name AS x1$/SELECT innerRel.x1 AS att1/g' | \
+            sed 's/) as innerRel , individual_name name_0, individual_name name_1/) as innerRel/g' | \
+            sed 's/) as innerRel , individual_name name_0/) as innerRel/g' | \
+            grep -v "WHERE  innerRel.x1=name_0.id" | \
+            grep -v "AND innerRel.x2=name_1.id" \
+           >> v_$name.sql
 
         echo $name.sparql " -> " v_$name.sql
     done

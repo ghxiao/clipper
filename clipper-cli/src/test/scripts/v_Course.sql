@@ -1,5 +1,5 @@
 CREATE OR REPLACE VIEW v_Course AS 
-SELECT name_0.id AS att1, name_0.name AS name
+SELECT innerRel.x1 AS att1
 FROM (
 SELECT ca_0.individual AS x1
 FROM  concept_assertion ca_0
@@ -45,13 +45,13 @@ SELECT ora_0.b AS x1
 FROM  object_role_assertion ora_0
 WHERE ora_0.object_role=147
 UNION 
-SELECT ora_0.b AS x1
-FROM  object_role_assertion ora_0
-WHERE ora_0.object_role=146
-UNION 
 SELECT ca_0.individual AS x1
 FROM  concept_assertion ca_0
 WHERE ca_0.concept=117
+UNION 
+SELECT ora_0.b AS x1
+FROM  object_role_assertion ora_0
+WHERE ora_0.object_role=146
 UNION 
 SELECT ca_0.individual AS x1
 FROM  concept_assertion ca_0
@@ -103,14 +103,13 @@ WHERE ca_0.concept=121
 UNION 
 SELECT ca_0.individual AS x1
 FROM  concept_assertion ca_0
+WHERE ca_0.concept=122
+UNION 
+SELECT ca_0.individual AS x1
+FROM  concept_assertion ca_0
 WHERE ca_0.concept=120
 UNION 
 SELECT ca_0.individual AS x1
 FROM  concept_assertion ca_0
-WHERE ca_0.concept=123
-UNION 
-SELECT ca_0.individual AS x1
-FROM  concept_assertion ca_0
 WHERE ca_0.concept=44
-) as innerRel , individual_name name_0
-WHERE  innerRel.x1=name_0.id 
+) as innerRel
