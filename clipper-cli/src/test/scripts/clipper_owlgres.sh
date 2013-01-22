@@ -92,7 +92,7 @@ function create_view_for_body_atoms(){
             # name_1 and name_2 is switched, we have to walk around it
             # sed 's/SELECT name_0.name AS x1, name_1.name AS x2/SELECT name_1.id AS att1, name_0.id AS att2, name_1.name AS x1, name_0.name AS x2/g' | \
             # For concept, change output of att1 to id
-            sed 's/SELECT name_0.name AS x1, name_1.name AS x2/SELECT innerRel.x1 AS att1, innerRel.x0 AS att2/g' | \
+            sed 's/SELECT name_0.name AS x1, name_1.name AS x2/SELECT innerRel.x2 AS att1, innerRel.x1 AS att2/g' | \
             sed 's/^SELECT name_0.name AS x1$/SELECT innerRel.x1 AS att1/g' | \
             sed 's/) as innerRel , individual_name name_0, individual_name name_1/) as innerRel/g' | \
             sed 's/) as innerRel , individual_name name_0/) as innerRel/g' | \
