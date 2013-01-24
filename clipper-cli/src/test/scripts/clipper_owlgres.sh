@@ -30,7 +30,9 @@ EOF
 
 ontology_file=$dir/LUBM-ex-20.owl
 
-sparql_file=$dir/q6.sparql
+#sparql_file=$dir/q6.sparql
+
+sparql_file=$HOME/Dropbox/krrepos/tractableQueriesLightweightDLs/reasoner/data/lecture.sparql
 
 rew_dlv_file=`echo $sparql_file | sed "s/\.sparql$/\.rew\.dlv/g"`
 
@@ -47,9 +49,9 @@ function create_view_for_body_atoms(){
 	    grep -o -e '\([a-zA-Z0-9]\)\+([^)]*)' | \
         # exclude ans(...)
         grep -v '^ans(' | \
-        sed 's/(X[0-9]*/(X/g' | sed 's/,X[0-9]*/,Y/g' | \
-        sed 's/([A-Z])/:1/g' | \
-        sed 's/([A-Z],[A-Z])/:2/g' | \
+        sed 's/([A-Z][0-9]*/(X/g' | sed 's/,A-Z[0-9]*/,Y/g' | \
+        sed 's/([A-Z][0-9]*)/:1/g' | \
+        sed 's/([A-Z][0-9]*,[A-Z][0-9]*)/:2/g' | \
         sort | uniq)
 
 # CREATE VIEW for each body atom

@@ -1,5 +1,7 @@
 package org.semanticweb.clipper.util;
 
+import java.io.File;
+import java.io.FileReader;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -10,13 +12,19 @@ import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.Predicate;
 import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
+import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
+import org.semanticweb.clipper.sparql.SparqlToCQConverter;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.Multiset.Entry;
+import com.google.common.io.CharStreams;
+import com.hp.hpl.jena.query.Query;
+import com.hp.hpl.jena.query.QueryFactory;
 
 public class Ucq2SqlConverter {
 
@@ -24,14 +32,23 @@ public class Ucq2SqlConverter {
 
 	String viewName;
 
+	public String convert(CQ cq) {
+		return convert(Lists.newArrayList(cq));
+	}
+
+	public String convert(List<CQ> ucq) {
+		return convert(ucq, null);
+	}
+
 	public String convert(List<CQ> ucq, String viewName) {
 
 		this.viewName = viewName;
-		
+
 		builder = new StringBuilder();
-		
-		builder.append(String.format("CREATE OR REPLACE VIEW %s AS \n",
-				viewName));
+
+		if (viewName != null)
+			builder.append(String.format("CREATE OR REPLACE VIEW %s AS \n",
+					viewName));
 
 		boolean first = true;
 
@@ -99,7 +116,7 @@ public class Ucq2SqlConverter {
 
 		first = true;
 		for (Entry<Predicate> e : predicates.entrySet()) {
-			
+
 			Predicate predicate = e.getElement();
 			int count = e.getCount();
 			for (i = 1; i <= count; i++) {
@@ -164,14 +181,12 @@ public class Ucq2SqlConverter {
 							builder.append(String.format(
 									"v_%s_%d.att%d = v_%s_%d.att%d\n",
 									firstPredicate, 1, firstK, thisPredicate,
-									atom2IndexMap.get(thisAtom) , j + 1));
+									atom2IndexMap.get(thisAtom), j + 1));
 						}
 
 				}
 			}
 		}
 	}
-	
-	
 
 }

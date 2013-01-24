@@ -29,6 +29,8 @@ public class ClipperApp {
 
 		CommandGenerateMapFile commandGenerateMapFile = new CommandGenerateMapFile(
 				jc);
+		
+		CommandSparqlToSQL commandSparqlToSQL = new CommandSparqlToSQL(jc);
 
 		CommandPythonOntology commandPythonOntology = new CommandPythonOntology(jc);
 		
@@ -62,6 +64,8 @@ public class ClipperApp {
 			commandGenerateMapFile.exec();
 		} else if (cmd.equals("pex")) {
 			commandPythonOntology.exec();
+		} else if (cmd.endsWith("sparql2sql")){
+			commandSparqlToSQL.exec();
 		}
 	}
 
