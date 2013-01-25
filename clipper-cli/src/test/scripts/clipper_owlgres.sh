@@ -32,7 +32,7 @@ ontology_file=$dir/LUBM-ex-20.owl
 
 #sparql_file=$dir/q6.sparql
 
-sparql_file=$HOME/Dropbox/krrepos/tractableQueriesLightweightDLs/reasoner/data/long-added.sparql
+sparql_file=$HOME/Dropbox/krrepos/tractableQueriesLightweightDLs/reasoner/data/vocabulary.sparql
 
 rew_dlv_file=`echo $sparql_file | sed "s/\.sparql$/\.rew\.dlv/g"`
 

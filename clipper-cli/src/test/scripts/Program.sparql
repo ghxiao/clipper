@@ -1,0 +1,5 @@
+PREFIX ub:<http://swat.cse.lehigh.edu/onto/univ-bench.owl#>
+SELECT ?X
+WHERE {  
+	?X a ub:Program .
+} 
