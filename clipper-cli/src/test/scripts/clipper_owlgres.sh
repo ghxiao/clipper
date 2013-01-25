@@ -98,8 +98,10 @@ function create_view_for_body_atoms(){
             sed 's/^SELECT name_0.name AS x1$/SELECT innerRel.x1 AS att1/g' | \
             sed 's/) as innerRel , individual_name name_0, individual_name name_1/) as innerRel/g' | \
             sed 's/) as innerRel , individual_name name_0/) as innerRel/g' | \
+            sed 's/SELECT x1, name_0.name AS x2/SELECT x1 AS att0, x2 AS att1/g' | \
             grep -v "WHERE  innerRel.x1=name_0.id" | \
-            grep -v "AND innerRel.x2=name_1.id" \
+            grep -v "AND innerRel.x2=name_1.id" | \
+            grep -v "WHERE  innerRel.x2=name_0.id" \
            >> v_$name.sql
 
         echo $name.sparql " -> " v_$name.sql
