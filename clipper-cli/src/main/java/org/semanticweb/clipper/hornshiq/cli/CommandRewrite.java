@@ -53,18 +53,21 @@ class CommandRewrite extends ReasoningCommandBase {
 
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		// note that naming strategy should be set after create new QAHornSHIQ
-//		ClipperManager.getInstance().setNamingStrategy(
-//				NamingStrategy.LOWER_CASE_FRAGMENT);
+		// ClipperManager.getInstance().setNamingStrategy(
+		// NamingStrategy.LOWER_CASE_FRAGMENT);
 
 		ClipperManager.getInstance().setNamingStrategy(this.namingStrategy);
-		
+
 		Set<OWLOntology> ontologies = loadOntologies();
 
 		qaHornSHIQ.setOntologies(ontologies);
 
-		CQ cq = parseCQ(ontologies);
+		if (rewritingOntologyAndQuery || rewritingTBoxAndQuery) {
 
-		qaHornSHIQ.setCq(cq);
+			CQ cq = parseCQ(ontologies);
+
+			qaHornSHIQ.setCq(cq);
+		}
 		// TODO: only consider related rules
 
 		qaHornSHIQ.setDatalogFileName(datalog);
@@ -86,11 +89,15 @@ class CommandRewrite extends ReasoningCommandBase {
 		long totalTime = qaHornSHIQ.getClipperReport().getReasoningTime()
 				+ qaHornSHIQ.getClipperReport().getQueryRewritingTime();
 
-        if (ClipperManager.getInstance().getVerboseLevel() > 1) {
-            System.err.println("rewritten queries : " + qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueries());
-            System.err.println("rewritten queries + rules : " + qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueriesAndRules());
-            System.err.println("total time : " + totalTime + "ms");
-        }
-    }
+		if (ClipperManager.getInstance().getVerboseLevel() > 1) {
+			System.err.println("rewritten queries : "
+					+ qaHornSHIQ.getClipperReport()
+							.getNumberOfRewrittenQueries());
+			System.err.println("rewritten queries + rules : "
+					+ qaHornSHIQ.getClipperReport()
+							.getNumberOfRewrittenQueriesAndRules());
+			System.err.println("total time : " + totalTime + "ms");
+		}
+	}
 
 }
