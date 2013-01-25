@@ -1,3 +1,4 @@
+DROP VIEW v_researchInterest CASCADE;
 CREATE OR REPLACE VIEW v_researchInterest AS 
 SELECT x1 AS att0, x2 AS att1
 FROM (

@@ -1,3 +1,4 @@
+DROP VIEW v_ResearchAssistant CASCADE;
 CREATE OR REPLACE VIEW v_ResearchAssistant AS 
 SELECT innerRel.x1 AS att1
 FROM (

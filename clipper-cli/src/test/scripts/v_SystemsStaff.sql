@@ -1,3 +1,4 @@
+DROP VIEW v_SystemsStaff CASCADE;
 CREATE OR REPLACE VIEW v_SystemsStaff AS 
 SELECT innerRel.x1 AS att1
 FROM (

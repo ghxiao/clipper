@@ -1,3 +1,4 @@
+DROP VIEW v_Organization CASCADE;
 CREATE OR REPLACE VIEW v_Organization AS 
 SELECT innerRel.x1 AS att1
 FROM (

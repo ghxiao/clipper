@@ -1,3 +1,4 @@
+DROP VIEW v_JournalArticle CASCADE;
 CREATE OR REPLACE VIEW v_JournalArticle AS 
 SELECT innerRel.x1 AS att1
 FROM (

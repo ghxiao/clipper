@@ -1,3 +1,4 @@
+DROP VIEW v_Schedule CASCADE;
 CREATE OR REPLACE VIEW v_Schedule AS 
 SELECT innerRel.x1 AS att1
 FROM (

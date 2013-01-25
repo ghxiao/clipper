@@ -1,3 +1,4 @@
+DROP VIEW v_Manual CASCADE;
 CREATE OR REPLACE VIEW v_Manual AS 
 SELECT innerRel.x1 AS att1
 FROM (

@@ -1,3 +1,4 @@
+DROP VIEW v_Program CASCADE;
 CREATE OR REPLACE VIEW v_Program AS 
 SELECT innerRel.x1 AS att1
 FROM (

@@ -1,3 +1,4 @@
+DROP VIEW v_Subj3Department CASCADE;
 CREATE OR REPLACE VIEW v_Subj3Department AS 
 SELECT innerRel.x1 AS att1
 FROM (

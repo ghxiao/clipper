@@ -1,3 +1,4 @@
+DROP VIEW v_UndergraduateStudent CASCADE;
 CREATE OR REPLACE VIEW v_UndergraduateStudent AS 
 SELECT innerRel.x1 AS att1
 FROM (

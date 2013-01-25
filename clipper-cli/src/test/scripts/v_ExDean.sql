@@ -1,3 +1,4 @@
+DROP VIEW v_ExDean CASCADE;
 CREATE OR REPLACE VIEW v_ExDean AS 
 SELECT innerRel.x1 AS att1
 FROM (

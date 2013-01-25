@@ -68,21 +68,8 @@ function create_view_for_body_atoms(){
                 ;;
         esac
 
-        echo "CREATE OR REPLACE VIEW v_$name AS " > v_$name.sql
-
-		# # call owlgres queryRewrite
-        # $owlgres_rewrite --query $name.sparql --viewname v_$name --viewcols $arity \
-        #     --db $DB_NAME --user $DB_USER --passwd "$DB_PASSWD" --shcemas public | \
-        # 	# remove the header line like "Query reformulation produced 24 queries"
-        #     grep -v "Query reformulation" | \
-        #     # For object property, change output of att1 and att2 to
-        #     # ids. 
-		#     # for some strange reasons, in the output, the order of
-        #     # name_1 and name_2 is switched, we have to walk around it
-        #     sed 's/SELECT name_0.name AS x1, name_1.name AS x2/SELECT name_1.id AS att1, name_0.id AS att2, name_1.name AS x1, name_0.name AS x2/g' | \
-        #     # For concept, change output of att1 to id
-        #     sed 's/^SELECT name_0.name AS x1$/SELECT name_0.id AS att1, name_0.name AS name/g' \
-        #     >> v_$name.sql
+		echo "DROP VIEW v_$name CASCADE;"  > v_$name.sql
+        echo "CREATE OR REPLACE VIEW v_$name AS " >> v_$name.sql
 
         $owlgres_rewrite --query $name.sparql --viewname v_$name --viewcols $arity \
             --db $DB_NAME --user $DB_USER --passwd "$DB_PASSWD" --shcemas public | \
@@ -101,7 +88,7 @@ function create_view_for_body_atoms(){
             sed 's/SELECT x1, name_0.name AS x2/SELECT x1 AS att0, x2 AS att1/g' | \
             grep -v "WHERE  innerRel.x1=name_0.id" | \
             grep -v "AND innerRel.x2=name_1.id" | \
-            grep -v "WHERE  innerRel.x2=name_0.id" \
+            grep -v "WHERE  innerRel.x2=name_0.id"  \
            >> v_$name.sql
 
         echo $name.sparql " -> " v_$name.sql

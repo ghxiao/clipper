@@ -1,3 +1,4 @@
+DROP VIEW v_ClericalStaff CASCADE;
 CREATE OR REPLACE VIEW v_ClericalStaff AS 
 SELECT innerRel.x1 AS att1
 FROM (

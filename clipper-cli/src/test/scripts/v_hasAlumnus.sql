@@ -1,3 +1,4 @@
+DROP VIEW v_hasAlumnus CASCADE;
 CREATE OR REPLACE VIEW v_hasAlumnus AS 
 SELECT innerRel.x2 AS att1, innerRel.x1 AS att2
 FROM (

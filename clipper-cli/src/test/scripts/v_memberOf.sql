@@ -1,3 +1,4 @@
+DROP VIEW v_memberOf CASCADE;
 CREATE OR REPLACE VIEW v_memberOf AS 
 SELECT innerRel.x2 AS att1, innerRel.x1 AS att2
 FROM (

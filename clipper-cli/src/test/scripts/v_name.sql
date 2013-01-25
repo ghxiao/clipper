@@ -1,3 +1,4 @@
+DROP VIEW v_name CASCADE;
 CREATE OR REPLACE VIEW v_name AS 
 SELECT x1 AS att0, x2 AS att1
 FROM (
