@@ -32,11 +32,11 @@ ontology_file=$dir/LUBM-ex-20.owl
 
 #sparql_file=$dir/q6.sparql
 
-sparql_file=$HOME/Dropbox/krrepos/tractableQueriesLightweightDLs/reasoner/data/lecture.sparql
+sparql_file=$HOME/Dropbox/krrepos/tractableQueriesLightweightDLs/reasoner/data/long-added.sparql
 
 rew_dlv_file=`echo $sparql_file | sed "s/\.sparql$/\.rew\.dlv/g"`
 
-${clipper_cli} -verbose=0 rewrite  $ontology_file -sparql=$sparql_file -name=FRAGMENT -output-datalog=$rew_dlv_file
+${clipper_cli} -verbose=0 rewrite -oq $ontology_file -sparql=$sparql_file -name=FRAGMENT -output-datalog=$rew_dlv_file
 
 rew_rules=$(cat $rew_dlv_file | grep '^ans(')
 
