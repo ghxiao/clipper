@@ -60,6 +60,15 @@ your bash config file (~/.bash_profile or ~/.bash_rc)
     export CLIPPER_HOME=$HOME/Projects/clipper/clipper-distribution/target/clipper 
     export PATH=$CLIPPER_HOME:$PATH
 
+# Development in Eclipse
+
+Clipper is developed in Eclipse using [m2e](http://eclipse.org/m2e/)
+and [lombok](http://projectlombok.org/) plugins.
+
+1. Download the souce code via git.
+2. In eclipse, import the project by "File" -> "Import" -> "Maven" ->
+   "Existing Maven Projects" and point to Root directory of clipper
+
 
 # References
 
