@@ -12,19 +12,19 @@ Clipper is a Reasoner for conjunctive query answering over Horn-SHIQ ontology vi
 3. Download [DLV](http://www.dlvsystem.com/dlvsystem/index.php/DLV) to your local machine
 4. Run `clipper.sh` 
 
-```
+3```
 Usage: clipper.sh [options] [command] [command options]
   Options:
     -v, -verbose   Level of verbosity
                    Default: 1
   Commands:
     query      answerting conjunctive query
-      Usage: query [options] <ontology.owl> <cq.sparql>      
+      Usage: query [options] <ontology.owl> -sparql <cq.sparql>    
         Options:
           -f, --output-format   output format, possible values: { table | csv |
                                 atoms | html }
                                 Default: table
-          -dlv                  the path to dlv
+          -dlv                  the location of dlv (e.g. /usr/local/bin/dlv)
 
     rewrite      rewrite the query w.r.t. the ontology, and generate a datalog program
       Usage: rewrite [options] <ontology.owl> [ -sparql <cq.sparql> ]       
