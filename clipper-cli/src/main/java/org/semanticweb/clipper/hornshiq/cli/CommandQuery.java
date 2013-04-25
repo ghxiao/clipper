@@ -81,7 +81,7 @@ class CommandQuery extends ReasoningCommandBase {
 
 		printer.print(cq.getHead(), answers);
 
-		if (ClipperManager.getInstance().getVerboseLevel() > 0) {
+		if (ClipperManager.getInstance().getVerboseLevel() > 1) {
 			statistics(qaHornSHIQ.getClipperReport(), startTime, endTime);
 		}
 

@@ -8,7 +8,9 @@ public class CommandRewriteTest {
 	public void testSparql() {
 
 		String[] args = { "rewrite", "src/test/resources/lubm-ex-20/LUBM-ex-20.owl",
-				"-sparql=src/test/resources/lubm-ex-20/q5.sparql" };
+		//		"-sparql=src/test/resources/lubm-ex-20/q5.sparql"
+				"-sparql=src/test/resources/lubm-ex-20/query4.sparql"
+		};
 
 		ClipperApp.main(args);
 	}
@@ -49,5 +51,9 @@ public class CommandRewriteTest {
 				"-cq=src/test/resources/lubm-ex-20/q5.cq", "-output-datalog=src/test/resources/lubm-ex-20/q5-rew.dlv" };
 
 		ClipperApp.main(args);
+	}
+	
+	public static void main(String[] args){
+		new CommandRewriteTest().testName();
 	}
 }

@@ -62,7 +62,7 @@ class CommandRewrite extends ReasoningCommandBase {
 
 		qaHornSHIQ.setOntologies(ontologies);
 
-		if (rewritingOntologyAndQuery || rewritingTBoxAndQuery) {
+		if (rewritingOntologyAndQuery || rewritingTBoxAndQuery || this.cqFile != null || this.sparqlFile != null || this.sparqlString != null) {
 
 			CQ cq = parseCQ(ontologies);
 

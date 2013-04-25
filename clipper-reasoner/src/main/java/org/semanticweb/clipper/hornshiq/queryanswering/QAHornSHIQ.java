@@ -537,7 +537,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		// Creates an instance of DLVInvocation
 
 		// Creates an instance of DLVInputProgram
-		if (ClipperManager.getInstance().getVerboseLevel() > 0)
+		if (ClipperManager.getInstance().getVerboseLevel() > 1)
 			System.out.println("===========Answers for the query ========");
 
 		try {
@@ -556,7 +556,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 				@Override
 				public void handleResult(DLVInvocation obsd, FactResult res) {
 					String answerString = res.toString();
-					if (ClipperManager.getInstance().getVerboseLevel() > 0)
+					if (ClipperManager.getInstance().getVerboseLevel() > 1)
 						System.out.println(answerString);
 					answers.add(answerString);
 				}
@@ -598,7 +598,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		answerParser.parse();
 		this.decodedAnswers = answerParser.getDecodedAnswers();
 
-		if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
+		if (ClipperManager.getInstance().getVerboseLevel() > 1) {
 			System.out.println("=============Decoded answers ==============");
 		}
 

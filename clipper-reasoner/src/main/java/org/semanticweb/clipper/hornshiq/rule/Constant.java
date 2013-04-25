@@ -41,7 +41,7 @@ public class Constant implements Term {
 	public Constant(String text) {
 		this.name = text;
 		// TODO: compute value
-
+		this.value = -1;
 	}
 
 	@Override

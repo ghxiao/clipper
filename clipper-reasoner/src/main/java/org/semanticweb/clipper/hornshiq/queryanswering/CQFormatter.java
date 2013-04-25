@@ -84,7 +84,7 @@ public class CQFormatter {
 	public String normalizeIRI(IRI iri) {
 		String fragment = iri.getFragment();
 		if (fragment != null) {
-            fragment = replaceUmlauts(fragment);
+			fragment = replaceUmlauts(fragment);
 			return fragment.replaceAll("[_-]", "").toLowerCase();
 		} else {
 			final String iriString = iri.toString();
@@ -94,18 +94,18 @@ public class CQFormatter {
 		}
 	}
 
-    static String replaceUmlauts(String string) {
-        string=string.replaceAll("Ä", "Ae");
-        string=string.replaceAll("Ö", "Oe");
-        string=string.replaceAll("Ü", "Ue");
-        string=string.replaceAll("ä", "ae");
-        string=string.replaceAll("ö", "oe");
-        string=string.replaceAll("ü", "ue");
-        string=string.replaceAll("ß", "ss");
-        return string;
-    }
+	static String replaceUmlauts(String string) {
+		string = string.replaceAll("Ä", "Ae");
+		string = string.replaceAll("Ö", "Oe");
+		string = string.replaceAll("Ü", "Ue");
+		string = string.replaceAll("ä", "ae");
+		string = string.replaceAll("ö", "oe");
+		string = string.replaceAll("ü", "ue");
+		string = string.replaceAll("ß", "ss");
+		return string;
+	}
 
-    public String fragmentIRI(IRI iri) {
+	public String fragmentIRI(IRI iri) {
 		String fragment = iri.getFragment();
 		if (fragment != null) {
 			return fragment;
@@ -123,9 +123,7 @@ public class CQFormatter {
 	 * */
 	String formatQuery(CQ cq) {
 		StringBuilder sb = new StringBuilder();
-		// if
-		// (ClipperManager.getInstance().getNamingStrategy().equals(NamingStrategy.IntEncoding))
-		// {
+
 		sb.append(cq.getHead());
 		sb.append(" :- ");
 		boolean first = true;
@@ -141,25 +139,6 @@ public class CQFormatter {
 		}
 		sb.append(".");
 		return sb.toString();
-
-		// } else {
-		// sb.append(cq.getHead());
-		// sb.append(" :- ");
-		// boolean first = true;
-		// for (Atom b : cq.getBody()) {
-		// if (b.getPredicate().getEncoding() !=
-		// ClipperManager.getInstance().getThing()) {
-		// if (!first) {
-		// sb.append(", ");
-		// }
-		// first = false;
-		// sb.append(lowerCaseFormOfAtom(b));
-		// }
-		// }
-		// sb.append(".");
-		// return sb.toString();
-		//
-		// }
 
 	}
 
@@ -186,42 +165,23 @@ public class CQFormatter {
 			}
 			first = false;
 			if (!t.isVariable()) {
-				sb.append(getConstant(t.getIndex()));
+				// TODO: check again
+				if (t.getIndex() == -1) {
+					String name = t.getName();
+					if (name.startsWith("<") && name.endsWith(">")) {
+						name = name.substring(1, name.length() - 1);
+					} else if (name.startsWith("\"") && name.endsWith("\"")) {
+						name = name.substring(1, name.length() - 1);
+					}
+					sb.append('\"' + name + '\"');
+				} else
+					sb.append(getConstant(t.getIndex()));
 			} else
 				sb.append(t);
 		}
 		sb.append(")");
 		return sb.toString();
 	}
-
-	// // ============================================
-	// private String lowerCaseFormOfAtom(Atom atom) {
-	// StringBuilder sb = new StringBuilder();
-	// if (atom.getPredicate().getArity() == 1) {
-	// String predicateStr =
-	// getUnaryPredicate(atom.getPredicate().getEncoding());
-	// sb.append(predicateStr);
-	// } else if (atom.getPredicate().getArity() == 2) {
-	// String predicateStr =
-	// getBinaryPredicate(atom.getPredicate().getEncoding());
-	// sb.append(predicateStr);
-	// } else
-	// sb.append(atom.getPredicate());
-	// sb.append("(");
-	// boolean first = true;
-	// for (Term t : atom.getTerms()) {
-	// if (!first) {
-	// sb.append(",");
-	// }
-	// first = false;
-	// if (!t.isVariable()) {
-	// sb.append(getConstant(t.getIndex()));
-	// } else
-	// sb.append(t);
-	// }
-	// sb.append(")");
-	// return sb.toString();
-	// }
 
 	// convert term to lower case format
 	public String getConstant(int value) {
