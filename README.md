@@ -10,7 +10,7 @@ Clipper is a Reasoner for conjunctive query answering over Horn-SHIQ ontology vi
 
 3. Run `clipper.sh` 
 
-3```
+```
 Usage: clipper.sh [options] [command] [command options]
   Options:
     -v, -verbose   Level of verbosity
