@@ -27,6 +27,8 @@ public class Constant implements Term {
 		Constant other = (Constant) obj;
 		if (value != other.value)
 			return false;
+		if (value == -1 && other.value == -1)
+			return name.equals(other.name);
 		return true;
 	}
 
