@@ -52,12 +52,6 @@ We use [maven build system](http://maven.apache.org) and [Git](http://git-scm.co
 	  $ cd clipper
 	  $ ./mvn_build.sh
 	  
-For clipper project developer, consider putting the following into
-your bash config file (~/.bash_profile or ~/.bash_rc)
-
-    export CLIPPER_HOME=$HOME/Projects/clipper/clipper-distribution/target/clipper 
-    export PATH=$CLIPPER_HOME:$PATH
-
 # Development in Eclipse
 
 Clipper is developed in Eclipse using [m2e](http://eclipse.org/m2e/)
@@ -81,7 +75,7 @@ Guohui Xiao. Towards Practical Query Answering for Horn SHIQ. T.
 In Y. Kazakov, D. Lembo, and F.
 Wolter, editors, _Proceedings of the 2012 International Workshop on
 Description Logics, DL-2012, Rome, Italy_, June 7-10, 2012, volume 846
-of CEUR Workshop Proceed- ings. CEUR-WS.org, 2012. [pdf](http://www.kr.tuwien.ac.at/staff/xiao/pub/2012/eostx2012-dl-hshiq.pdf)
+of CEUR Workshop Proceedings. CEUR-WS.org, 2012. [pdf](http://www.kr.tuwien.ac.at/staff/xiao/pub/2012/eostx2012-dl-hshiq.pdf)
 
 
 
