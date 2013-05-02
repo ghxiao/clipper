@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ -n "${JAVA_HOME}" -a -x "${JAVA_HOME}/bin/java" ]; then
 	java="${JAVA_HOME}/bin/java"
