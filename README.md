@@ -5,12 +5,10 @@ Clipper is a Reasoner for conjunctive query answering over Horn-SHIQ ontology vi
 # Usage from CLI
 
 1. Download the latest version of clipper-vx.zip and unzip it
-2. Set env variable CLIPPER_HOME to the where you extracted 
-
-   `$ export CLIPPER_HOME=/path/to/clipper.sh`
 
 3. Download [DLV](http://www.dlvsystem.com/dlvsystem/index.php/DLV) to your local machine
-4. Run `clipper.sh` 
+
+3. Run `clipper.sh` 
 
 3```
 Usage: clipper.sh [options] [command] [command options]
