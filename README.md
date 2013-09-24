@@ -87,3 +87,5 @@ of CEUR Workshop Proceedings. CEUR-WS.org, 2012. [pdf](http://www.kr.tuwien.ac.a
 * [Clipper @ TUWien](http://www.kr.tuwien.ac.at/research/systems/clipper/index.html)
 
 Contact: xiao(a)kr.tuwien.ac.at
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ghxiao/clipper/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
