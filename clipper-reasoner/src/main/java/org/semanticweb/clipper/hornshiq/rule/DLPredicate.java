@@ -3,7 +3,9 @@ package org.semanticweb.clipper.hornshiq.rule;
 import lombok.Getter;
 import lombok.Setter;
 
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.owlapi.model.OWLEntity;
+import org.semanticweb.owlapi.model.OWLProperty;
 import org.semanticweb.owlapi.util.ShortFormProvider;
 import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
@@ -53,13 +55,20 @@ public class DLPredicate implements Predicate {
 
 	public DLPredicate(OWLEntity entity) {
 		this.owlEntity = entity;
-		// TODO compute encoding
-		if (entity.isBottomEntity() || entity.isTopEntity()) {
+
+		if (entity.isBottomEntity()) {
 			this.arity = 0;
+			this.encoding = ClipperManager.getInstance().getNothing();
+		} else if (entity.isTopEntity()) {
+			this.arity = 0;
+			this.encoding = ClipperManager.getInstance().getThing();
 		} else if (entity.isOWLClass()) {
 			this.arity = 1;
+			this.encoding = ClipperManager.getInstance().getOwlClassEncoder().getValueBySymbol(entity.asOWLClass());
 		} else if (entity.isOWLObjectProperty() || entity.isOWLDataProperty()) {
 			this.arity = 2;
+			this.encoding = ClipperManager.getInstance().getOwlPropertyExpressionEncoder()
+					.getValueBySymbol((OWLProperty) entity);
 		} else {
 			throw new IllegalArgumentException();
 		}
@@ -82,6 +91,7 @@ public class DLPredicate implements Predicate {
 
 	}
 
+	@Override
 	public boolean isDLPredicate() {
 		return true;
 	}

@@ -1,0 +1,1619 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl11 "http://www.w3.org/2006/12/owl11#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl11xml "http://www.w3.org/2006/12/owl11-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY galen_protege "http://krono.act.uji.es/Links/ontologies/galen.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://krono.act.uji.es/Links/ontologies/temporalModule.owl#"
+     xml:base="http://krono.act.uji.es/Links/ontologies/temporalModule.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl11="http://www.w3.org/2006/12/owl11#"
+     xmlns:owl11xml="http://www.w3.org/2006/12/owl11-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:galen_protege="http://krono.act.uji.es/Links/ontologies/galen.owl#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Attribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;Attribute"/>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ConstructiveAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;ConstructiveAttribute">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;DomainAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#DomainAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;DomainAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;Attribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#FeatureStateAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;FeatureStateAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;ModifierAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#FunctionalAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;FunctionalAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;ConstructiveAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#InverseConstructiveAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;InverseConstructiveAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;InverseDomainAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#InverseContainmentAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;InverseContainmentAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;InverseDelimitingAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#InverseDelimitingAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;InverseDelimitingAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;InverseStructuralAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#InverseDomainAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;InverseDomainAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;Attribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#InverseFeatureStateAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;InverseFeatureStateAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;InverseModifierAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#InverseFunctionalAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;InverseFunctionalAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;InverseConstructiveAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#InverseModifierAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;InverseModifierAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;InverseDomainAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#InverseStructuralAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;InverseStructuralAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;InverseConstructiveAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#InverseStructuralModifierAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;InverseStructuralModifierAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;isFeatureOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#InverseSubstanceModifierAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;InverseSubstanceModifierAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;isFeatureOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#LocativeAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;LocativeAttribute">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;ConstructiveAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ModifierAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;ModifierAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;DomainAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#PartitiveAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;PartitiveAttribute">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;ConstructiveAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ProcessLocativeAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;ProcessLocativeAttribute">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;LocativeAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ProcessModifierAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;ProcessModifierAttribute">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;hasFeature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ProcessPartitiveAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;ProcessPartitiveAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;PartitiveAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#StructuralAppearanceModifier -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;StructuralAppearanceModifier">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;StructuralModifierAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#StructuralModifierAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;StructuralModifierAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;hasFeature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#SubstanceModifierAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;SubstanceModifierAttribute">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;hasFeature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#TemporalModifierAttribute -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;TemporalModifierAttribute">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;hasFeature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#actsOn -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;actsOn">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;FunctionalAttribute"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;ProcessLocativeAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#hasCountability -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;hasCountability">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;StructuralAppearanceModifier"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#hasDuration -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;hasDuration">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;TemporalModifierAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#hasFeature -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;hasFeature">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;FeatureStateAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#hasGoal -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;hasGoal">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;FunctionalAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#hasPhysicalState -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;hasPhysicalState">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;SubstanceModifierAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#hasProcessActivity -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;hasProcessActivity">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;ProcessModifierAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#hasQuantity -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;hasQuantity">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;hasState"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#hasShape -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;hasShape">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;StructuralAppearanceModifier"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#hasState -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;hasState">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;FeatureStateAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#hasSubprocess -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;hasSubprocess">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;ProcessPartitiveAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#hasTopology -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;hasTopology">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;StructuralAppearanceModifier"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#isConcentrationOf -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;isConcentrationOf">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;InverseSubstanceModifierAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#isCountConcentrationOf -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;isCountConcentrationOf">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;isDimensionOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#isDimensionOf -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;isDimensionOf">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;InverseStructuralModifierAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#isDissolvedWithin -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;isDissolvedWithin">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;isMixedThroughout"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#isFeatureOf -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;isFeatureOf">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;InverseFeatureStateAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#isInSuspensionWithin -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;isInSuspensionWithin">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;isMixedThroughout"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#isMixedThroughout -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;isMixedThroughout">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;InverseContainmentAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#isOutcomeOf -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;isOutcomeOf">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;InverseFunctionalAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#isToDetermine -->
+
+    <owl:ObjectProperty rdf:about="&galen_protege;isToDetermine">
+        <rdfs:subPropertyOf rdf:resource="&galen_protege;hasGoal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#AbsoluteMeasurement -->
+
+    <owl:Class rdf:about="&galen_protege;AbsoluteMeasurement">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Dimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#AbsoluteShapeState -->
+
+    <owl:Class rdf:about="&galen_protege;AbsoluteShapeState">
+        <rdfs:subClassOf rdf:resource="&galen_protege;ShapeState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#AbstractState -->
+
+    <owl:Class rdf:about="&galen_protege;AbstractState">
+        <rdfs:subClassOf rdf:resource="&galen_protege;State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#AbstractStatus -->
+
+    <owl:Class rdf:about="&galen_protege;AbstractStatus">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Status"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ActivityState -->
+
+    <owl:Class rdf:about="&galen_protege;ActivityState">
+        <rdfs:subClassOf rdf:resource="&galen_protege;ProcessState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Appearance -->
+
+    <owl:Class rdf:about="&galen_protege;Appearance">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Morphology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#AppearanceState -->
+
+    <owl:Class rdf:about="&galen_protege;AppearanceState">
+        <rdfs:subClassOf rdf:resource="&galen_protege;MorphologyState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Aspect -->
+
+    <owl:Class rdf:about="&galen_protege;Aspect">
+        <rdfs:subClassOf rdf:resource="&galen_protege;ModifierConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Behaviour -->
+
+    <owl:Class rdf:about="&galen_protege;Behaviour">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Blood -->
+
+    <owl:Class rdf:about="&galen_protege;Blood">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Tissue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#BloodComponents -->
+
+    <owl:Class rdf:about="&galen_protege;BloodComponents">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Cell"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#BodyFluid -->
+
+    <owl:Class rdf:about="&galen_protege;BodyFluid">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&galen_protege;BodySubstance"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;hasPhysicalState"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&galen_protege;hasState"/>
+                                        <owl:someValuesFrom rdf:resource="&galen_protege;liquid"/>
+                                    </owl:Restriction>
+                                    <rdf:Description rdf:about="&galen_protege;PhysicalState"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#BodyProcess -->
+
+    <owl:Class rdf:about="&galen_protege;BodyProcess">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#BodySubstance -->
+
+    <owl:Class rdf:about="&galen_protege;BodySubstance">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Substance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Cell -->
+
+    <owl:Class rdf:about="&galen_protege;Cell">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&galen_protege;hasTopology"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&galen_protege;hasState"/>
+                                <owl:someValuesFrom rdf:resource="&galen_protege;hollow"/>
+                            </owl:Restriction>
+                            <rdf:Description rdf:about="&galen_protege;Topology"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="&galen_protege;MicroscopicStructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ChemicalSubstance -->
+
+    <owl:Class rdf:about="&galen_protege;ChemicalSubstance">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Substance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ClinicalAct -->
+
+    <owl:Class rdf:about="&galen_protege;ClinicalAct">
+        <rdfs:subClassOf rdf:resource="&galen_protege;VolitionalAct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ComplexChemicals -->
+
+    <owl:Class rdf:about="&galen_protege;ComplexChemicals">
+        <rdfs:subClassOf rdf:resource="&galen_protege;ChemicalSubstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Concentration -->
+
+    <owl:Class rdf:about="&galen_protege;Concentration">
+        <rdfs:subClassOf rdf:resource="&galen_protege;SubstanceFeature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#CountConcentration -->
+
+    <owl:Class rdf:about="&galen_protege;CountConcentration">
+        <rdfs:subClassOf rdf:resource="&galen_protege;AbsoluteMeasurement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#CountabilityStatus -->
+
+    <owl:Class rdf:about="&galen_protege;CountabilityStatus">
+        <rdfs:subClassOf rdf:resource="&galen_protege;AbstractStatus"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Device -->
+
+    <owl:Class rdf:about="&galen_protege;Device">
+        <rdfs:subClassOf rdf:resource="&galen_protege;SolidStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&galen_protege;hasCountability"/>
+                <owl:someValuesFrom rdf:resource="&galen_protege;discrete"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Dimension -->
+
+    <owl:Class rdf:about="&galen_protege;Dimension">
+        <rdfs:subClassOf rdf:resource="&galen_protege;StructuralFeature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Displacement -->
+
+    <owl:Class rdf:about="&galen_protege;Displacement">
+        <rdfs:subClassOf rdf:resource="&galen_protege;LinearStructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#DomainCategory -->
+
+    <owl:Class rdf:about="&galen_protege;DomainCategory">
+        <rdfs:subClassOf rdf:resource="&galen_protege;TopCategory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Duration -->
+
+    <owl:Class rdf:about="&galen_protege;Duration">
+        <rdfs:subClassOf rdf:resource="&galen_protege;TemporalFeature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Erythrocyte -->
+
+    <owl:Class rdf:about="&galen_protege;Erythrocyte">
+        <rdfs:subClassOf rdf:resource="&galen_protege;BloodComponents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ErythrocyteCount -->
+
+    <owl:Class rdf:about="&galen_protege;ErythrocyteCount">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;isCountConcentrationOf"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&galen_protege;Erythrocyte"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&galen_protege;isInSuspensionWithin"/>
+                                        <owl:someValuesFrom rdf:resource="&galen_protege;LiquidBlood"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <rdf:Description rdf:about="&galen_protege;CountConcentration"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ErythrocyteCountProcedure -->
+
+    <owl:Class rdf:about="&galen_protege;ErythrocyteCountProcedure">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;isToDetermine"/>
+                        <owl:someValuesFrom rdf:resource="&galen_protege;ErythrocyteCount"/>
+                    </owl:Restriction>
+                    <rdf:Description rdf:about="&galen_protege;InvestigationAct"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ErythrocyteSedimentation -->
+
+    <owl:Class rdf:about="&galen_protege;ErythrocyteSedimentation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&galen_protege;Sedimentation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;actsOn"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&galen_protege;Erythrocyte"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&galen_protege;isInSuspensionWithin"/>
+                                        <owl:someValuesFrom rdf:resource="&galen_protege;LiquidBlood"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ErythrocyteSedimentationRate -->
+
+    <owl:Class rdf:about="&galen_protege;ErythrocyteSedimentationRate">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&galen_protege;Displacement"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;isOutcomeOf"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&galen_protege;hasDuration"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&galen_protege;hasQuantity"/>
+                                                        <owl:someValuesFrom rdf:resource="&galen_protege;OneHour"/>
+                                                    </owl:Restriction>
+                                                    <rdf:Description rdf:about="&galen_protege;Duration"/>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&galen_protege;hasProcessActivity"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&galen_protege;hasState"/>
+                                                        <owl:someValuesFrom rdf:resource="&galen_protege;active"/>
+                                                    </owl:Restriction>
+                                                    <rdf:Description rdf:about="&galen_protege;ProcessActivity"/>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <rdf:Description rdf:about="&galen_protege;ErythrocyteSedimentation"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Feature -->
+
+    <owl:Class rdf:about="&galen_protege;Feature">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Aspect"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#GeneralisedStructure -->
+
+    <owl:Class rdf:about="&galen_protege;GeneralisedStructure">
+        <rdfs:subClassOf rdf:resource="&galen_protege;DomainCategory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#GeneralisedSubstance -->
+
+    <owl:Class rdf:about="&galen_protege;GeneralisedSubstance">
+        <rdfs:subClassOf rdf:resource="&galen_protege;DomainCategory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#GenericBodyProcess -->
+
+    <owl:Class rdf:about="&galen_protege;GenericBodyProcess">
+        <rdfs:subClassOf rdf:resource="&galen_protege;BodyProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Haemoglobin -->
+
+    <owl:Class rdf:about="&galen_protege;Haemoglobin">
+        <owl:equivalentClass rdf:resource="&galen_protege;Hemoglobin"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#HaemoglobinConcentration -->
+
+    <owl:Class rdf:about="&galen_protege;HaemoglobinConcentration">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&galen_protege;Concentration"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;isConcentrationOf"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&galen_protege;Haemoglobin"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&galen_protege;isDissolvedWithin"/>
+                                        <owl:someValuesFrom rdf:resource="&galen_protege;LiquidBlood"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#HaemoglobinConcentrationProcedure -->
+
+    <owl:Class rdf:about="&galen_protege;HaemoglobinConcentrationProcedure">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;isToDetermine"/>
+                        <owl:someValuesFrom rdf:resource="&galen_protege;HaemoglobinConcentration"/>
+                    </owl:Restriction>
+                    <rdf:Description rdf:about="&galen_protege;InvestigationAct"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Hemoglobin -->
+
+    <owl:Class rdf:about="&galen_protege;Hemoglobin">
+        <rdfs:subClassOf rdf:resource="&galen_protege;ComplexChemicals"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#HollowStructure -->
+
+    <owl:Class rdf:about="&galen_protege;HollowStructure">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&galen_protege;SolidStructure"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;hasTopology"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&galen_protege;hasState"/>
+                                        <owl:someValuesFrom rdf:resource="&galen_protege;hollow"/>
+                                    </owl:Restriction>
+                                    <rdf:Description rdf:about="&galen_protege;Topology"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ImagingDevice -->
+
+    <owl:Class rdf:about="&galen_protege;ImagingDevice">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#InvestigationAct -->
+
+    <owl:Class rdf:about="&galen_protege;InvestigationAct">
+        <rdfs:subClassOf rdf:resource="&galen_protege;ClinicalAct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#LinearStructure -->
+
+    <owl:Class rdf:about="&galen_protege;LinearStructure">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&galen_protege;hasShape"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&galen_protege;hasState"/>
+                                <owl:someValuesFrom rdf:resource="&galen_protege;linear"/>
+                            </owl:Restriction>
+                            <rdf:Description rdf:about="&galen_protege;Shape"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="&galen_protege;PhysicalStructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Liquid -->
+
+    <owl:Class rdf:about="&galen_protege;Liquid">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;hasPhysicalState"/>
+                        <owl:someValuesFrom rdf:resource="&galen_protege;liquidState"/>
+                    </owl:Restriction>
+                    <rdf:Description rdf:about="&galen_protege;Substance"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#LiquidBlood -->
+
+    <owl:Class rdf:about="&galen_protege;LiquidBlood">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;hasPhysicalState"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&galen_protege;hasState"/>
+                                        <owl:someValuesFrom rdf:resource="&galen_protege;liquid"/>
+                                    </owl:Restriction>
+                                    <rdf:Description rdf:about="&galen_protege;PhysicalState"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <rdf:Description rdf:about="&galen_protege;Blood"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Lymphocyte -->
+
+    <owl:Class rdf:about="&galen_protege;Lymphocyte">
+        <rdfs:subClassOf rdf:resource="&galen_protege;BloodComponents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#LymphocyteCount -->
+
+    <owl:Class rdf:about="&galen_protege;LymphocyteCount">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&galen_protege;CountConcentration"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;isCountConcentrationOf"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&galen_protege;isInSuspensionWithin"/>
+                                        <owl:someValuesFrom rdf:resource="&galen_protege;LiquidBlood"/>
+                                    </owl:Restriction>
+                                    <rdf:Description rdf:about="&galen_protege;Lymphocyte"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#LymphocyteCountProcedure -->
+
+    <owl:Class rdf:about="&galen_protege;LymphocyteCountProcedure">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&galen_protege;InvestigationAct"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;isToDetermine"/>
+                        <owl:someValuesFrom rdf:resource="&galen_protege;LymphocyteCount"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#MRIScanner -->
+
+    <owl:Class rdf:about="&galen_protege;MRIScanner">
+        <rdfs:subClassOf rdf:resource="&galen_protege;ImagingDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#MicroscopicStructure -->
+
+    <owl:Class rdf:about="&galen_protege;MicroscopicStructure">
+        <rdfs:subClassOf rdf:resource="&galen_protege;SolidStructure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&galen_protege;hasCountability"/>
+                <owl:someValuesFrom rdf:resource="&galen_protege;discrete"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ModifierConcept -->
+
+    <owl:Class rdf:about="&galen_protege;ModifierConcept">
+        <rdfs:subClassOf rdf:resource="&galen_protege;DomainCategory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Morphology -->
+
+    <owl:Class rdf:about="&galen_protege;Morphology">
+        <rdfs:subClassOf rdf:resource="&galen_protege;StructuralFeature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#MorphologyState -->
+
+    <owl:Class rdf:about="&galen_protege;MorphologyState">
+        <rdfs:subClassOf rdf:resource="&galen_protege;StructuralState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Neutrophil -->
+
+    <owl:Class rdf:about="&galen_protege;Neutrophil">
+        <rdfs:subClassOf rdf:resource="&galen_protege;BloodComponents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#NeutrophilCount -->
+
+    <owl:Class rdf:about="&galen_protege;NeutrophilCount">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&galen_protege;CountConcentration"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;isCountConcentrationOf"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&galen_protege;isInSuspensionWithin"/>
+                                        <owl:someValuesFrom rdf:resource="&galen_protege;LiquidBlood"/>
+                                    </owl:Restriction>
+                                    <rdf:Description rdf:about="&galen_protege;Neutrophil"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#NeutrophilCountProcedure -->
+
+    <owl:Class rdf:about="&galen_protege;NeutrophilCountProcedure">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;isToDetermine"/>
+                        <owl:someValuesFrom rdf:resource="&galen_protege;NeutrophilCount"/>
+                    </owl:Restriction>
+                    <rdf:Description rdf:about="&galen_protege;InvestigationAct"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#NumericQuantity -->
+
+    <owl:Class rdf:about="&galen_protege;NumericQuantity">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Quantity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#OneHour -->
+
+    <owl:Class rdf:about="&galen_protege;OneHour">
+        <rdfs:subClassOf rdf:resource="&galen_protege;TemporalValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#PhysicalState -->
+
+    <owl:Class rdf:about="&galen_protege;PhysicalState">
+        <rdfs:subClassOf rdf:resource="&galen_protege;SubstanceFeature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#PhysicalStateState -->
+
+    <owl:Class rdf:about="&galen_protege;PhysicalStateState">
+        <rdfs:subClassOf rdf:resource="&galen_protege;SubstanceState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#PhysicalStructure -->
+
+    <owl:Class rdf:about="&galen_protege;PhysicalStructure">
+        <rdfs:subClassOf rdf:resource="&galen_protege;GeneralisedStructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Platelet -->
+
+    <owl:Class rdf:about="&galen_protege;Platelet">
+        <rdfs:subClassOf rdf:resource="&galen_protege;BloodComponents"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#PlateletCount -->
+
+    <owl:Class rdf:about="&galen_protege;PlateletCount">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;isCountConcentrationOf"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&galen_protege;Platelet"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&galen_protege;isInSuspensionWithin"/>
+                                        <owl:someValuesFrom rdf:resource="&galen_protege;LiquidBlood"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <rdf:Description rdf:about="&galen_protege;CountConcentration"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#PlateletCountProcedure -->
+
+    <owl:Class rdf:about="&galen_protege;PlateletCountProcedure">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;isToDetermine"/>
+                        <owl:someValuesFrom rdf:resource="&galen_protege;PlateletCount"/>
+                    </owl:Restriction>
+                    <rdf:Description rdf:about="&galen_protege;InvestigationAct"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Process -->
+
+    <owl:Class rdf:about="&galen_protege;Process">
+        <rdfs:subClassOf rdf:resource="&galen_protege;DomainCategory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ProcessActivity -->
+
+    <owl:Class rdf:about="&galen_protege;ProcessActivity">
+        <rdfs:subClassOf rdf:resource="&galen_protege;ProcessFeature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ProcessFeature -->
+
+    <owl:Class rdf:about="&galen_protege;ProcessFeature">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Feature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ProcessState -->
+
+    <owl:Class rdf:about="&galen_protege;ProcessState">
+        <rdfs:subClassOf rdf:resource="&galen_protege;State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Quantity -->
+
+    <owl:Class rdf:about="&galen_protege;Quantity">
+        <rdfs:subClassOf rdf:resource="&galen_protege;AbstractState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Sedimentation -->
+
+    <owl:Class rdf:about="&galen_protege;Sedimentation">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Transport"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Shape -->
+
+    <owl:Class rdf:about="&galen_protege;Shape">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Morphology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#ShapeState -->
+
+    <owl:Class rdf:about="&galen_protege;ShapeState">
+        <rdfs:subClassOf rdf:resource="&galen_protege;MorphologyState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#SolidStructure -->
+
+    <owl:Class rdf:about="&galen_protege;SolidStructure">
+        <rdfs:subClassOf rdf:resource="&galen_protege;PhysicalStructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#State -->
+
+    <owl:Class rdf:about="&galen_protege;State">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Aspect"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Status -->
+
+    <owl:Class rdf:about="&galen_protege;Status">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Aspect"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#StructuralFeature -->
+
+    <owl:Class rdf:about="&galen_protege;StructuralFeature">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Feature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#StructuralState -->
+
+    <owl:Class rdf:about="&galen_protege;StructuralState">
+        <rdfs:subClassOf rdf:resource="&galen_protege;State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Substance -->
+
+    <owl:Class rdf:about="&galen_protege;Substance">
+        <rdfs:subClassOf rdf:resource="&galen_protege;GeneralisedSubstance"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&galen_protege;hasCountability"/>
+                <owl:someValuesFrom rdf:resource="&galen_protege;infinitelyDivisible"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#SubstanceFeature -->
+
+    <owl:Class rdf:about="&galen_protege;SubstanceFeature">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Feature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#SubstanceState -->
+
+    <owl:Class rdf:about="&galen_protege;SubstanceState">
+        <rdfs:subClassOf rdf:resource="&galen_protege;State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#TemporalFeature -->
+
+    <owl:Class rdf:about="&galen_protege;TemporalFeature">
+        <rdfs:subClassOf rdf:resource="&galen_protege;ProcessFeature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#TemporalValue -->
+
+    <owl:Class rdf:about="&galen_protege;TemporalValue">
+        <rdfs:subClassOf rdf:resource="&galen_protege;NumericQuantity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Tissue -->
+
+    <owl:Class rdf:about="&galen_protege;Tissue">
+        <rdfs:subClassOf rdf:resource="&galen_protege;BodySubstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#TopCategory -->
+
+    <owl:Class rdf:about="&galen_protege;TopCategory"/>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Topology -->
+
+    <owl:Class rdf:about="&galen_protege;Topology">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Appearance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#TopologyState -->
+
+    <owl:Class rdf:about="&galen_protege;TopologyState">
+        <rdfs:subClassOf rdf:resource="&galen_protege;AppearanceState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#Transport -->
+
+    <owl:Class rdf:about="&galen_protege;Transport">
+        <rdfs:subClassOf rdf:resource="&galen_protege;GenericBodyProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#VolitionalAct -->
+
+    <owl:Class rdf:about="&galen_protege;VolitionalAct">
+        <rdfs:subClassOf rdf:resource="&galen_protege;Behaviour"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#WestergrenESRProcedure -->
+
+    <owl:Class rdf:about="&galen_protege;WestergrenESRProcedure">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;hasSubprocess"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&galen_protege;Sedimentation"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&galen_protege;hasDuration"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&galen_protege;hasQuantity"/>
+                                                        <owl:someValuesFrom rdf:resource="&galen_protege;OneHour"/>
+                                                    </owl:Restriction>
+                                                    <rdf:Description rdf:about="&galen_protege;Duration"/>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="&galen_protege;actsOn"/>
+                                        <owl:someValuesFrom>
+                                            <owl:Class>
+                                                <owl:intersectionOf rdf:parseType="Collection">
+                                                    <rdf:Description rdf:about="&galen_protege;Erythrocyte"/>
+                                                    <owl:Restriction>
+                                                        <owl:onProperty rdf:resource="&galen_protege;isInSuspensionWithin"/>
+                                                        <owl:someValuesFrom rdf:resource="&galen_protege;LiquidBlood"/>
+                                                    </owl:Restriction>
+                                                </owl:intersectionOf>
+                                            </owl:Class>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <rdf:Description rdf:about="&galen_protege;InvestigationAct"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#XRayMachine -->
+
+    <owl:Class rdf:about="&galen_protege;XRayMachine">
+        <rdfs:subClassOf rdf:resource="&galen_protege;ImagingDevice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#active -->
+
+    <owl:Class rdf:about="&galen_protege;active">
+        <rdfs:subClassOf rdf:resource="&galen_protege;ActivityState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#discrete -->
+
+    <owl:Class rdf:about="&galen_protege;discrete">
+        <rdfs:subClassOf rdf:resource="&galen_protege;CountabilityStatus"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#hollow -->
+
+    <owl:Class rdf:about="&galen_protege;hollow">
+        <rdfs:subClassOf rdf:resource="&galen_protege;TopologyState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#hollowTopology -->
+
+    <owl:Class rdf:about="&galen_protege;hollowTopology">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;hasState"/>
+                        <owl:someValuesFrom rdf:resource="&galen_protege;hollow"/>
+                    </owl:Restriction>
+                    <rdf:Description rdf:about="&galen_protege;Topology"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#infinitelyDivisible -->
+
+    <owl:Class rdf:about="&galen_protege;infinitelyDivisible">
+        <rdfs:subClassOf rdf:resource="&galen_protege;mass"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#linear -->
+
+    <owl:Class rdf:about="&galen_protege;linear">
+        <rdfs:subClassOf rdf:resource="&galen_protege;AbsoluteShapeState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#liquid -->
+
+    <owl:Class rdf:about="&galen_protege;liquid">
+        <rdfs:subClassOf rdf:resource="&galen_protege;PhysicalStateState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#liquidState -->
+
+    <owl:Class rdf:about="&galen_protege;liquidState">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&galen_protege;hasState"/>
+                        <owl:someValuesFrom rdf:resource="&galen_protege;liquid"/>
+                    </owl:Restriction>
+                    <rdf:Description rdf:about="&galen_protege;PhysicalState"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://krono.act.uji.es/Links/ontologies/galen_protege.owl#mass -->
+
+    <owl:Class rdf:about="&galen_protege;mass">
+        <rdfs:subClassOf rdf:resource="&galen_protege;CountabilityStatus"/>
+    </owl:Class>
+</rdf:RDF>

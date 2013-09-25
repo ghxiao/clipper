@@ -10,7 +10,6 @@ import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 
-
 public class SparqlParserTest {
 
 	@Test
@@ -47,7 +46,8 @@ public class SparqlParserTest {
 				"PREFIX abc: <http://example.com/exampleOntology#>\n" + //
 				"SELECT ?capital ?country\n" + //
 				"WHERE {\n" + //
-				"  ?x a abc:City ;\n " + "     abc:cityname ?capital ;\n" + //
+				"  ?x a abc:City ;\n " + //
+				"     abc:cityname ?capital ;\n" + //
 				"     abc:isCapitalOf ?y .\n" + //
 				"  ?y abc:countryname ?country ;\n" + //
 				"     abc:isInContinent abc:Africa .\n" + //
@@ -63,10 +63,9 @@ public class SparqlParserTest {
 		TokenStream tokenStream = new CommonTokenStream(lexer);
 		SparqlParser parser = new SparqlParser(tokenStream);
 		CQ query = parser.query();
-		
+
 		System.out.println(query);
-		
-		
+
 		System.out.println("-----------------------------------------");
 		System.out.println();
 	}

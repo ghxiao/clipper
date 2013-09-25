@@ -2,13 +2,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<name>Clipper Command Line Interface</name>
-	
+
 	<parent>
 		<artifactId>clipper-parent</artifactId>
 		<groupId>org.semanticweb.clipper</groupId>
 		<version>0.2-SNAPSHOT</version>
 	</parent>
-	
+
 	<artifactId>clipper-cli</artifactId>
 	<dependencies>
 		<dependency>
@@ -20,7 +20,13 @@
 		<dependency>
 			<groupId>com.beust</groupId>
 			<artifactId>jcommander</artifactId>
-			<version>1.26</version>
+			<version>1.30</version>
+		</dependency>
+
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.1-901-1.jdbc4</version>
 		</dependency>
 	</dependencies>
 

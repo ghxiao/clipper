@@ -1,0 +1,3 @@
+ans(X) :- publication(X), publicationauthor(X,Y), professor(Y), publicationauthor(X,Z), student(Z).
+%publicationauthor(f(X), X) :- faculty(X).
+%ans(X, Y) :-  publicationauthor(X,Y), professor(Y).

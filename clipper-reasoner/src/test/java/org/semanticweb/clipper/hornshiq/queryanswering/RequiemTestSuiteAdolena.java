@@ -14,7 +14,6 @@ import org.antlr.runtime.TokenStream;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
@@ -30,8 +29,8 @@ public class RequiemTestSuiteAdolena {
 		ClipperManager.getInstance().setVerboseLevel(1);
 	
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setNamingStrategy(NamingStrategy.IntEncoding);
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/AdolenaQuery0.dl");
+		qaHornSHIQ.setNamingStrategy(NamingStrategy.INT_ENCODING);
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/AdolenaQuery0.dl");
 		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/adolena.owl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/miniAdolena.owl");
 		// Q(?0) <- Device(?0), assistsWith(?0,?1)
@@ -56,7 +55,7 @@ public class RequiemTestSuiteAdolena {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 
 	}
 
@@ -67,7 +66,7 @@ public class RequiemTestSuiteAdolena {
 	    QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		// qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ
-				.setDataLogName("TestData/requiem/EvalDL09/AdolenaQuery01.dl");
+				.setDatalogFileName("TestData/requiem/EvalDL09/AdolenaQuery01.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/adolena.owl");
 		// Q(?0) <- Device(?0), assistsWith(?0,?1), UpperLimbMobility(?1)
 		String sparql = "PREFIX ub: <http://ksg.meraka.co.za/adolena.owl#>\n" + //
@@ -91,7 +90,7 @@ public class RequiemTestSuiteAdolena {
 		qaHornSHIQ.setDlvPath("lib/dlv");
 
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 
 	}
 
@@ -101,7 +100,7 @@ public class RequiemTestSuiteAdolena {
 		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ
-				.setDataLogName("TestData/requiem/EvalDL09/AdolenaQuery02.dl");
+				.setDatalogFileName("TestData/requiem/EvalDL09/AdolenaQuery02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		// Q(?0) <- Device(?0), assistsWith(?0,?1), Hear(?1), affects(?2,?1),
 		// Autism(?2)
@@ -131,7 +130,7 @@ public class RequiemTestSuiteAdolena {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 
 	}
 
@@ -141,7 +140,7 @@ public class RequiemTestSuiteAdolena {
 		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ
-				.setDataLogName("TestData/requiem/EvalDL09/AdolenaQuery03.dl");
+				.setDatalogFileName("TestData/requiem/EvalDL09/AdolenaQuery03.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		// Q(?0) <- Device(?0), assistsWith(?0,?1), PhysicalAbility(?1)
 		String sparql = "PREFIX ub: <http://ksg.meraka.co.za/adolena.owl#>\n" + //
@@ -164,7 +163,7 @@ public class RequiemTestSuiteAdolena {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 
 	}
 
@@ -173,7 +172,7 @@ public class RequiemTestSuiteAdolena {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ
-				.setDataLogName("TestData/requiem/EvalDL09/AdolenaQuery04.dl");
+				.setDatalogFileName("TestData/requiem/EvalDL09/AdolenaQuery04.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/adolena.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0) <- Device(?0), assistsWith(?0,?1), PhysicalAbility(?1),
@@ -203,7 +202,7 @@ public class RequiemTestSuiteAdolena {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 
 	}
 }

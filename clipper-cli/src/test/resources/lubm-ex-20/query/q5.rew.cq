@@ -1,0 +1,1 @@
+ans(?0) :- Student(?2), Professor(?1), publicationAuthor(?0,?1), Publication(?0), publicationAuthor(?0,?2).

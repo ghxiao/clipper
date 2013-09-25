@@ -4,12 +4,8 @@ import static org.junit.Assert.assertTrue;
 import gnu.trove.set.hash.TIntHashSet;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.antlr.runtime.ANTLRStringStream;
@@ -20,7 +16,6 @@ import org.antlr.runtime.TokenStream;
 import org.junit.Before;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
@@ -47,8 +42,8 @@ public class QueryRewritingTest {
 	public void testBasicRewriting() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/simpleRewriting.dl");
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setDatalogFileName("AllTestCases/simpleRewriting.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/simpleRewriting.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n" + //
@@ -75,15 +70,15 @@ public class QueryRewritingTest {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 	}
 
 	@Test
 	public void testQueryRewriting2() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting2.dl");
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting2.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting2.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n" + "SELECT ?x1 \n" + "WHERE { \n"
@@ -103,7 +98,7 @@ public class QueryRewritingTest {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 		// expected rewritten query: q0(X1) :- a1(X1), a(X1), a3(X1), a4(X1).
 
 	}
@@ -112,8 +107,8 @@ public class QueryRewritingTest {
 	public void testQueryRewriting3() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting3.dl");
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting3.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n" + "SELECT ?x1 \n" + "WHERE { \n"
@@ -135,7 +130,7 @@ public class QueryRewritingTest {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 		// expect rewritten query: q0(X0) :- a("d"), a4("d"), r1(X0,"d"),
 		// a1(X0), r2(X0,"d"), a2("d").
 	}
@@ -144,8 +139,8 @@ public class QueryRewritingTest {
 	public void testQueryRewriting4() throws RecognitionException {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting3.dl");
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting3.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n" + "SELECT ?x1 \n" + "WHERE { \n"
@@ -167,7 +162,7 @@ public class QueryRewritingTest {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 		// expect rewritten query: No rewritten query.
 
 	}

@@ -10,23 +10,17 @@ import java.io.PrintStream;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
-import org.semanticweb.clipper.hornshiq.profile.ClipperHornSHIQOntologyConverter;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntologyConverter;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQTransNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQProfile;
-import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt;
-import org.semanticweb.clipper.hornshiq.queryanswering.TBoxReasoningOpt;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.util.PrintingUtilities;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.profiles.OWLProfileReport;
-
-import antlr.debug.NewLineEvent;
 
 public class ReductionToDatalogOptTest {
 	@Test
@@ -59,14 +53,14 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		System.out.println("==========Datalog Program=============");
@@ -115,14 +109,14 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		System.out.println("==========Datalog Program=============");
@@ -171,7 +165,7 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -180,7 +174,7 @@ public class ReductionToDatalogOptTest {
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		System.out.println("==========Datalog Program=============");
 		try {
 			PrintStream program = new PrintStream(new FileOutputStream("TestCaseOntologies/ruleR3DataLog.dl"));
@@ -228,14 +222,14 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		System.out.println("==========Datalog Program=============");
@@ -284,7 +278,7 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -339,7 +333,7 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -349,7 +343,7 @@ public class ReductionToDatalogOptTest {
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		System.out.println("==========Datalog Program=============");
 		try {
 			PrintStream program = new PrintStream(new FileOutputStream("TestCaseOntologies/ruleR6DataLog.dl"));
@@ -396,14 +390,14 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		PrintingUtilities printer = new PrintingUtilities();
@@ -454,14 +448,14 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		// printer.printReachBottom(tb.getReachBottoms());
@@ -513,7 +507,7 @@ public class ReductionToDatalogOptTest {
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(normalizedOnt3);
 
-		for (ClipperAxiom ax : onto_bs.getAxioms()) {
+		for (ClipperAxiom ax : onto_bs.getAllAxioms()) {
 			System.out.println(ax);
 		}
 
@@ -522,7 +516,7 @@ public class ReductionToDatalogOptTest {
 		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		PrintingUtilities printer = new PrintingUtilities();
 		// printer.printReachBottom(tb.getReachBottoms());
 		// reduction.getDataLogcProgram("TestCaseOntologies/tes01Datalog.dl");

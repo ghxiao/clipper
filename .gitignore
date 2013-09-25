@@ -4,8 +4,12 @@ target
 *~
 catalog-v*.xml
 .classpath
-<<<<<<< HEAD
 .projecttmp.*
-=======
+tmp.*
 .project
->>>>>>> b9dfdcb6d264ec5fa6b2c143e072bda32d7fef8b
+.pydevproject
+bin
+
+*.iml
+.idea
+

@@ -11,9 +11,6 @@ import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
-import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
@@ -42,8 +39,8 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testRoleInclusion.dl");
+				NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testRoleInclusion.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testRoleInclusion.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at.testRoleInclusion.owl#> \n"
@@ -64,7 +61,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// expect answer: a1
 		List<String> a1 = new ArrayList<String>();
 		a1.add("q0(\"a\")");
@@ -81,8 +78,8 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testInverseRoleInclusion.dl");
+				NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testInverseRoleInclusion.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testInverseRoleInclusion.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at.testRoleInclusion.owl#> \n"
@@ -103,7 +100,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// expect answer: a1
 		List<String> a = new ArrayList<String>();
 		a.add("q0(\"a\")");
@@ -118,8 +115,8 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testConceptInclusion.dl");
+				NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testConceptInclusion.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testConceptInclusion.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at.testConceptInclusion.owl#> \n"
@@ -141,7 +138,7 @@ public class TestCase {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 
 		for (List<String> answer : qaHornSHIQ.getDecodedAnswers()) {
 			System.out.println(answer);
@@ -161,8 +158,8 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testBottomRule.dl");
+				NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testBottomRule.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testBottomRule.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
@@ -182,7 +179,7 @@ public class TestCase {
 
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// expect 1 answer for q(x) :- Nothing(x) because the ontology is
 		// inconsistent
 		for (List<String> answer : qaHornSHIQ.getDecodedAnswers()) {
@@ -246,8 +243,8 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testForallRule1.dl");
+				NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testForallRule1.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testForallRule1.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
@@ -270,7 +267,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// expect answer: a1
 		List<String> a = new ArrayList<String>();
 		a.add("q0(\"a\")");
@@ -285,8 +282,8 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testForallRule2.dl");
+				NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testForallRule2.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testForallRule2.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
@@ -306,7 +303,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// expect answer: a1
 		List<String> a = new ArrayList<String>();
 		a.add("q0(\"a\")");
@@ -322,8 +319,8 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/testForallRule3.dl");
+				NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setDatalogFileName("AllTestCases/testForallRule3.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/testForallRule3.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
@@ -349,7 +346,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// expect answer: a
 		List<String> a = new ArrayList<String>();
 		a.add("q0(\"a\")");
@@ -365,9 +362,9 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LowerCaseFragment);
+				NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ
-				.setDataLogName("AllTestCases/testAtMostOne_MergeChildren.dl");
+				.setDatalogFileName("AllTestCases/testAtMostOne_MergeChildren.dl");
 		qaHornSHIQ
 				.setOntologyName("AllTestCases/testAtMostOne_MergeChildren.owl");
 
@@ -394,7 +391,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// assertEquals(qaHornSHIQ.getDecodedAnswers().size(), 0);
 		// expect answer: a
 		List<String> a = new ArrayList<String>();
@@ -411,8 +408,8 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/atMostParentChildCollapse.dl");
+				NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setDatalogFileName("AllTestCases/atMostParentChildCollapse.dl");
 		qaHornSHIQ
 				.setOntologyName("AllTestCases/atMostParentChildCollapse.owl");
 
@@ -436,7 +433,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 		// assertEquals(qaHornSHIQ.getDecodedAnswers().size(), 0);
 		// expect answer: a
 		List<String> a = new ArrayList<String>();
@@ -457,8 +454,8 @@ public class TestCase {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LowerCaseFragment);
-		qaHornSHIQ.setDataLogName("AllTestCases/simpleRewriting.dl");
+				NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setDatalogFileName("AllTestCases/simpleRewriting.dl");
 		qaHornSHIQ.setOntologyName("AllTestCases/simpleRewriting.owl");
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
@@ -485,7 +482,7 @@ public class TestCase {
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 		//Expect the rewritten query: q0(X0) :- r3(X2,X3), a(X2), a2(X2), a1(X0), a4(X3), r1(X0,X2).
 		assertEquals(2, qaHornSHIQ.getRewrittenQueries().size());
 
@@ -499,8 +496,8 @@ public class TestCase {
 			QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 			ClipperManager.getInstance().setVerboseLevel(2);
 			ClipperManager.getInstance().setNamingStrategy(
-					NamingStrategy.LowerCaseFragment);
-			qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting2.dl");
+					NamingStrategy.LOWER_CASE_FRAGMENT);
+			qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting2.dl");
 			qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting2.owl");
 
 			String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
@@ -527,7 +524,7 @@ public class TestCase {
 			// qaHornSHIQ.setQueryString(queryString);
 			qaHornSHIQ.setCq(cq);
 			qaHornSHIQ.setDlvPath("lib/dlv");
-			qaHornSHIQ.generateDataLog();
+			qaHornSHIQ.generateDatalog();
 			//expected rewritten query: q0(X1) :- a1(X1), a(X1), a3(X1), a4(X1).
 			assertEquals(2, qaHornSHIQ.getRewrittenQueries().size());
 			
@@ -542,8 +539,8 @@ public class TestCase {
 			QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 			ClipperManager.getInstance().setVerboseLevel(2);
 			ClipperManager.getInstance().setNamingStrategy(
-					NamingStrategy.LowerCaseFragment);
-			qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting3.dl");
+					NamingStrategy.LOWER_CASE_FRAGMENT);
+			qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting3.dl");
 			qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
 
 			String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
@@ -572,7 +569,7 @@ public class TestCase {
 			// qaHornSHIQ.setQueryString(queryString);
 			qaHornSHIQ.setCq(cq);
 			qaHornSHIQ.setDlvPath("lib/dlv");
-			qaHornSHIQ.generateDataLog();
+			qaHornSHIQ.generateDatalog();
 			//expect rewritten query: q0(X0) :- a("d"), a4("d"), r1(X0,"d"), a1(X0), r2(X0,"d"), a2("d").
 			assertEquals(2, qaHornSHIQ.getRewrittenQueries().size());
 		}
@@ -585,8 +582,8 @@ public class TestCase {
 				QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 				ClipperManager.getInstance().setVerboseLevel(2);
 				ClipperManager.getInstance().setNamingStrategy(
-						NamingStrategy.LowerCaseFragment);
-				qaHornSHIQ.setDataLogName("AllTestCases/testQueryRewriting3.dl");
+						NamingStrategy.LOWER_CASE_FRAGMENT);
+				qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting3.dl");
 				qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
 
 				String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
@@ -615,7 +612,7 @@ public class TestCase {
 				// qaHornSHIQ.setQueryString(queryString);
 				qaHornSHIQ.setCq(cq);
 				qaHornSHIQ.setDlvPath("lib/dlv");
-				qaHornSHIQ.generateDataLog();
+				qaHornSHIQ.generateDatalog();
 				//expect rewritten query: No rewritten query.
 				assertEquals(1, qaHornSHIQ.getRewrittenQueries().size());
 			

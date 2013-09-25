@@ -1,0 +1,15 @@
+PREFIX ub:<http://swat.cse.lehigh.edu/onto/univ-bench.owl#>
+SELECT ?X ?Y
+WHERE {  
+	?X a ub:Student .
+	?X ub:takesCourse ?Z .
+	?Z a ub:Course .	
+	?Y ub:teacherOf ?Z .
+	?Y a ub:Faculty .
+	?Y ub:worksFor ?U .
+	?U a ub:Department .
+	?X ub:memberOf ?U .
+}
+
+#q1(x,y) <- Student(x), takesCourse(x,z), Course(z), teacherOf(y,z),
+#           Faculty(y), worksFor(y,u), Department(u), memberOf(x,u)

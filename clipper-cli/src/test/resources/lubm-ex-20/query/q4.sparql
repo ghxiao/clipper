@@ -1,0 +1,16 @@
+PREFIX ub:<http://swat.cse.lehigh.edu/onto/univ-bench.owl#>
+SELECT ?X ?Y
+WHERE {  
+	 ?X a ub:Subj3Department . 
+	 ?Y a ub:Subj4Department .
+     ?Z a ub:Professor .
+     ?Z ub:memberOf ?X . 
+     ?U ub:publicationAuthor ?Z .
+     ?V a ub:Professor . 
+	 ?V ub:memberOf ?Y . 
+	 ?U ub:publicationAuthor ?V .
+}
+
+#q4(x,y) <- Subj3Department(x), Subj4Department(y),
+#           Professor(z), memberOf(z,x), publicationAuthor(u,z),
+#           Professor(v), memberOf(v,y), publicationAuthor(u,v)

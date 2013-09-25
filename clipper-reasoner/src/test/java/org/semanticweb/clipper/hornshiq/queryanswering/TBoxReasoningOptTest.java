@@ -6,30 +6,20 @@ import gnu.trove.set.hash.TIntHashSet;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
 
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
-import org.semanticweb.clipper.hornshiq.profile.ClipperHornSHIQOntologyConverter;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntologyConverter;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQTransNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQNormalizer;
-import org.semanticweb.clipper.hornshiq.profile.HornSHIQProfile;
-import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt;
-import org.semanticweb.clipper.hornshiq.queryanswering.TBoxReasoningOpt;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.util.PrintingUtilities;
 import org.semanticweb.clipper.util.SymbolEncoder;
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.profiles.OWLProfileReport;
 
 
 public class TBoxReasoningOptTest {
@@ -132,7 +122,7 @@ public class TBoxReasoningOptTest {
 		//
 		// reduction.getEncodedDataLogProgram(datalogFileName);
 
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		System.out.println("==========Datalog Program=============");
 		reduction.saveEncodedDataLogProgram(datalogFileName);
 	}

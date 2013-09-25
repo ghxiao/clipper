@@ -7,13 +7,15 @@ import lombok.Setter;
 
 import org.oxford.comlab.compass.SystemInterface;
 import org.semanticweb.clipper.cqparser.CQParser;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
 
 public class ClipperSygeniaInterfaceImp implements SystemInterface {
@@ -36,11 +38,11 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 
 	@Override
 	public void initializeSystem() throws Exception {
-		if (dlvPath == null) {
-			throw new IllegalStateException("please call setDlvPath() before initializeSystem() !");
-		}
 
-		qaHornSHIQ = new QAHornSHIQ(dlvPath);
+		qaHornSHIQ = new QAHornSHIQ();
+		if (dlvPath != null) {
+			qaHornSHIQ.setDlvPath(dlvPath);
+		}
 	}
 
 	@Override
@@ -58,14 +60,23 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 
 		qaHornSHIQ.addOntology(tboxOntology);
 
+		qaHornSHIQ.setDatalogFileName("tmp.dlv");
+		
+		qaHornSHIQ.setQueryRewriter("new");
+
+		// qaHornSHIQ.setNamingStrategy(NamingStrategy.IntEncoding);
+		qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
+
+		ClipperManager.getInstance().setVerboseLevel(0);
+		//ClipperManager.getInstance().setVerboseLevel(8);
+
 		manager.removeOntology(tbox);
 
-		
 		OWLOntology aboxOntology = manager.loadOntologyFromOntologyDocument(aBoxFile);
 		this.abox = aboxOntology;
 
 		qaHornSHIQ.addOntology(aboxOntology);
-		manager.removeOntology(abox);
+		// manager.removeOntology(abox);
 
 		CQParser parser = new CQParser(new File(queryFile), ImmutableSet.of(tbox, aboxOntology));
 		CQ cq = parser.parse();
@@ -75,7 +86,7 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 
 	@Override
 	public void loadQuery(int queryIndex) throws Exception {
-		String queryFile = String.format("%s/Queries/Query_%02d.txt", dataSetRoot, queryIndex);
+		String queryFile = String.format("%s/Queries/Query_%02d.txt", dataSetRoot, queryIndex + 1);
 		System.out.println(queryFile);
 		this.queryFile = queryFile;
 	}
@@ -88,15 +99,24 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 
 	@Override
 	public long runLoadedQuery() throws Exception {
-		List<List<String>> results = qaHornSHIQ.query();
-
+		List<List<String>> results = qaHornSHIQ.execQuery();
+		Joiner.on("\n").appendTo(System.out, results);
+		System.out.println();
+		// System.out.println(results);
 		return results.size();
 	}
 
 	@Override
 	public void clearRepository() throws Exception {
-//		manager.removeOntology(tbox);
-//		manager.removeOntology(abox);
+		qaHornSHIQ.clearOntologies();
+		tbox = null;
+		abox = null;
+		// manager.removeOntology(abox);	
 	}
 
+	// public static void main(String[] args) {
+	// ClipperApp
+	// .main("-v=1 -rewriter=new query src/main/resources/ontologies/LUBM/univ-bench_TB-C_s/Query_01/Q(X0X44)-GraduateStudent(X0)takesCourse(X0X44)/Pattern_a_0;a_1;_D_.owl src/test/resources/university-q1.sparql"
+	// .split("\\ "));
+	// }
 }

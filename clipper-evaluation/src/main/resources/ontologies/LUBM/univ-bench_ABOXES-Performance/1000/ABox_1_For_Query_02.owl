@@ -1,0 +1,1636 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY univ-bench "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl_ABox_1_Query_02#"
+     xml:base="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl_ABox_1_Query_02"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:univ-bench="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <owl:imports rdf:resource="file:/Users/xiao/Documents/workspace/sygenia/examples/ontologies/LUBM/univ-bench.owl"/>
+    </owl:Ontology>
+    <owl:ObjectProperty rdf:about="&univ-bench;headOf"/>
+    <owl:ObjectProperty rdf:about="&univ-bench;member"/>
+    <owl:ObjectProperty rdf:about="&univ-bench;memberOf"/>
+    <owl:ObjectProperty rdf:about="&univ-bench;subOrganizationOf"/>
+    <owl:ObjectProperty rdf:about="&univ-bench;undergraduateDegreeFrom"/>
+    <owl:ObjectProperty rdf:about="&univ-bench;worksFor"/>
+    <owl:Class rdf:about="&univ-bench;Department"/>
+    <owl:Class rdf:about="&univ-bench;GraduateStudent"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_10033">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15488"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_10041"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_10062">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10941"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_5948"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_10101">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1727"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_10105">
+        <univ-bench:member rdf:resource="&univ-bench;a_14189"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4812"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_10155">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_14642"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_8109"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_10160"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_10168">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_18720"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_2388"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_10230">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4789"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_103">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2879"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_10334">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_10754"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_10357"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_10373">
+        <univ-bench:member rdf:resource="&univ-bench;a_11284"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7218"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_10389">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6668"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_10407">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2347"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_10455">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11036"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_11355"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_10503">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15129"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_1052">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19070"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_8519"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_10549"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_10566">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10549"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_10603"/>
+    <rdf:Description rdf:about="&univ-bench;a_10645"/>
+    <rdf:Description rdf:about="&univ-bench;a_10700"/>
+    <rdf:Description rdf:about="&univ-bench;a_10711"/>
+    <rdf:Description rdf:about="&univ-bench;a_10714"/>
+    <rdf:Description rdf:about="&univ-bench;a_10754"/>
+    <rdf:Description rdf:about="&univ-bench;a_10757"/>
+    <rdf:Description rdf:about="&univ-bench;a_10811"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_10863">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_11311"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_17532"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_10877">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6829"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_10941"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_10959">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15910"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_2730"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_10968">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4989"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_11011"/>
+    <rdf:Description rdf:about="&univ-bench;a_11036"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_11062">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2126"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_11107">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_18704"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_11124"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_11163">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_19673"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_11167">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_9215"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_9563"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_11232"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_11284">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_7218"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_11311"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_11355">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_11036"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_11401">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13834"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_11455">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_11551"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_726"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_1146">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_12320"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_1306"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_11462">
+        <univ-bench:member rdf:resource="&univ-bench;a_10334"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10754"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_11464">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4056"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_11471"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_11475">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9673"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_11479">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_8027"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_95"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_11485">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_4053"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_5053"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_11551">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_726"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_11605"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_11633">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_10757"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_8064"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_1165"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_1169">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_14314"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_1777"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_11759">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_10603"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_11774">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_13931"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_5611"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_11811">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7255"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_11855"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_11927">
+        <univ-bench:member rdf:resource="&univ-bench;a_12198"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1363"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_1193"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_1195">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_18525"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_8519"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_11985"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_12022">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_2403"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_8953"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_12089"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_12198">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_1363"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_1224"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_12275">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5118"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_12290">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_8333"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_9171"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_12314">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9363"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_12320"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_12365">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_11471"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_1772"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_12381">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_14109"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_15924"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_12514">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_18996"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_1254">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_13421"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_16230"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_12542">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12872"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_12599">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_9410"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_12625"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_12645">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17099"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_12712"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_12745">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15236"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_12752">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16268"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_12781">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9597"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_12799"/>
+    <rdf:Description rdf:about="&univ-bench;a_12816"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_12817">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5914"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_7189"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_12822">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_5967"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_12872"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_12873">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_137"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_12938">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8042"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_12939"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_12963">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_13489"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_18142"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_12991">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_11011"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_4419"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_5066"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_13022">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15030"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_3464"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_13025"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_1306">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12320"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_13068">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_5130"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_9047"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_13088">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14096"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_13184">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_12275"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_5118"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_13208">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_3653"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_9000"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_13247">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_10389"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_6668"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_13325">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_3145"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_5181"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_13335">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7917"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_13421"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_13489">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18142"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_13506">
+        <univ-bench:member rdf:resource="&univ-bench;a_19118"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9152"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_13603"/>
+    <rdf:Description rdf:about="&univ-bench;a_1363"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_1366">
+        <univ-bench:member rdf:resource="&univ-bench;a_3252"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7280"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_13680">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16345"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_9115"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_13687">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15817"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_13698">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_12938"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_8042"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_137">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_12542"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_12872"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_13713">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_12089"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_13744">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13025"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_19152"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_1379"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_13828">
+        <univ-bench:member rdf:resource="&univ-bench;a_12514"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18996"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_13834"/>
+    <rdf:Description rdf:about="&univ-bench;a_13846"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_13857">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17081"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_6010"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_13931"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_1399">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8300"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_14022"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_14030">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_11062"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_2126"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_1404">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_17135"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_2034"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_14096"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_14109">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15924"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_14165">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_626"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_14182">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18620"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_14189">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_4812"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_14262">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13846"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_14291">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8022"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_14297">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10160"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_14314"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_14344">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19755"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_14381"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_14385">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5374"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_14441"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_14453">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_4891"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_6943"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_14454">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6653"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_14524">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_1576"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_8162"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_14540">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_12939"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_2545"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_14541">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_6075"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_14543">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_17007"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_7326"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_14580">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_11811"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_7255"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_14642"/>
+    <rdf:Description rdf:about="&univ-bench;a_14678"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_14721">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_18696"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_14738">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_15070"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_17298"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_14747"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_14777">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_19297"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_14800">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_12873"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_137"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_14850"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_14872">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4359"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_14899">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_18285"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_14913"/>
+    <rdf:Description rdf:about="&univ-bench;a_1493"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_1502">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15784"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_15030"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_15050">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5578"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_15070"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_15095">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12799"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_16122"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_15118"/>
+    <rdf:Description rdf:about="&univ-bench;a_15129"/>
+    <rdf:Description rdf:about="&univ-bench;a_1514"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_15147">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_103"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_2879"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_15179">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12712"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_1519">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_13846"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_14262"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_15236"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_15237">
+        <univ-bench:member rdf:resource="&univ-bench;a_14721"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18696"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_15283">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14913"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_467"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_15290">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1165"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_15297"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_15318">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15118"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_19906"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_15322">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_15050"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_5578"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_15367">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_17655"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_5966"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_15389">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8461"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_15395"/>
+    <rdf:Description rdf:about="&univ-bench;a_15488"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_15517">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_5490"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_15524"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_15539">
+        <univ-bench:member rdf:resource="&univ-bench;a_14777"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19297"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_15545">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10811"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_15584">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5439"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_15639">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_15859"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_16156"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_15644">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_15838"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_18038"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_15663">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_19698"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_3978"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_15741">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17308"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_9224"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_1576">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8162"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_15784"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_15805">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12089"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_13713"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_15817"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_15826">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_7107"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_15838"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_15859">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16156"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_15910">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5154"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_15924"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_15960">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_5530"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_9527"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_1604">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_11855"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_616"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_16041">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_1193"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_4329"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_16045">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_16494"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_16122">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_12799"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_16156"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_16160">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14747"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_16172">
+        <univ-bench:member rdf:resource="&univ-bench;a_16626"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8399"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_16193">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_17098"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_16230">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13421"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_16233"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_16255">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_14182"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_18620"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_16268"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_16269">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_10033"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_15488"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_16345"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_16352">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3454"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_16365">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12816"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_16640"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_1641">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15395"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_16410">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_13603"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_5863"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_1646">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_18204"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_16489">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8734"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_16494"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_16626">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_8399"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_16640">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_12816"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_16698">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19827"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_16700">
+        <univ-bench:member rdf:resource="&univ-bench;a_15517"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5490"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_16868">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_7111"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_8700"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_1688">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_1514"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_873"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_16911">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_14454"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_6653"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_16913">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_10357"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_969"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_16925">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_17407"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_3029"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_16970">
+        <univ-bench:member rdf:resource="&univ-bench;a_16045"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16494"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_17002">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_2933"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_9380"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_17006">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_12745"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_15236"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_17007"/>
+    <rdf:Description rdf:about="&univ-bench;a_17081"/>
+    <rdf:Description rdf:about="&univ-bench;a_17098"/>
+    <rdf:Description rdf:about="&univ-bench;a_17099"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_17135">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2034"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_17144">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4170"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_17204">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8665"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_1727"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_17298">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15070"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_17308"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_17349">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_451"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_6002"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_17371">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_2244"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_4961"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_17407"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_17411">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_17204"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_8665"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_17527">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_16489"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_8734"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_17532">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11311"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_17625"/>
+    <rdf:Description rdf:about="&univ-bench;a_17655"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_17692">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_77"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_17719">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_284"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_820"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_1772">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11471"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_1773">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_13687"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_15817"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_1777">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14314"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_17776"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_17798">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_1868"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_17825">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_10711"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_18244"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_17838">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_12314"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_9363"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_17868">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8624"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_17870">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_10645"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_19209"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_17945">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_442"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_7017"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_17973">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15297"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_180">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_18320"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_6856"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_18038">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15838"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_18142"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_18145">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_12752"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_16268"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_18204"/>
+    <rdf:Description rdf:about="&univ-bench;a_18212"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_18244">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10711"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_18285"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_18292">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_17776"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_19449"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_18294">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_18212"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_6754"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_18305">
+        <univ-bench:member rdf:resource="&univ-bench;a_12599"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9410"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_18320">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6856"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_18368">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9773"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_18381">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_12625"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_4317"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_18415"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_18471">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7988"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_18496"/>
+    <rdf:Description rdf:about="&univ-bench;a_18512"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_18525">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8519"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_18620"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_18633">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_2350"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_9690"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_1868"/>
+    <rdf:Description rdf:about="&univ-bench;a_18696"/>
+    <rdf:Description rdf:about="&univ-bench;a_18704"/>
+    <rdf:Description rdf:about="&univ-bench;a_18720"/>
+    <rdf:Description rdf:about="&univ-bench;a_18728"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_18917">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_10041"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_9104"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_18996"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19008">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_3119"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_6343"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19048">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_15910"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_5154"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_19053">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5573"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_19070"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19090">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_531"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_6114"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19118">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_9152"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19152">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_13025"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_19153">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10714"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19187">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_19646"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_2174"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_19209">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10645"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_19221"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19230">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_3314"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_9245"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_19231">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2216"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19277">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_10407"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_2347"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_19297"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19433">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_10968"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_4989"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_19445">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7044"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_19449">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17776"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_19496">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14678"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19534">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_9725"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_1957">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_18471"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_7988"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19570">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_10877"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_6829"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_19626">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5613"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_19646">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2174"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_19663">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11985"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_19673"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_19698">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3978"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19736">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_14381"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_5805"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_19749"/>
+    <rdf:Description rdf:about="&univ-bench;a_19755"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19788">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_13088"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_14096"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19807">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_16233"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_19827"/>
+    <rdf:Description rdf:about="&univ-bench;a_19887"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19906">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_15118"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_19912"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_19923">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_14850"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_3445"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_19989">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7001"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_2034"/>
+    <rdf:Description rdf:about="&univ-bench;a_2075"/>
+    <rdf:Description rdf:about="&univ-bench;a_2126"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_2129">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_7968"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_2174"/>
+    <rdf:Description rdf:about="&univ-bench;a_2216"/>
+    <rdf:Description rdf:about="&univ-bench;a_2244"/>
+    <rdf:Description rdf:about="&univ-bench;a_2347"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_2350">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9690"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_2371">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_12645"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_17099"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_2388">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18720"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_2403">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8953"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_2483">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14441"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_3108"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_2515">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_11985"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_19663"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_2521">
+        <univ-bench:member rdf:resource="&univ-bench;a_11107"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18704"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_2545">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12939"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_2608">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18728"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_2633">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_11464"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_4056"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_2659">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_7316"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_9251"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_2707">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_10700"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_6609"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_2730">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_15910"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_281">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_17144"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_4170"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_2829">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_19989"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_7001"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_284">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_820"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_2843">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_14678"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_19496"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_2863"/>
+    <rdf:Description rdf:about="&univ-bench;a_2879"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_2933">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9380"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_3029">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17407"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_3108">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_14441"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_3119">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6343"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_3145">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5181"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_3225"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_3252">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_7280"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_3292">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_14291"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_8022"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_3314"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_3445">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14850"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_3454"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_3464">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_15030"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_3484">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_3819"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_7984"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_3507">
+        <univ-bench:member rdf:resource="&univ-bench;a_1646"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18204"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_3516">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_11401"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_13834"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_3521">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_18415"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_3531">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_16698"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_19827"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_36">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3843"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_3617">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_10230"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_4789"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_3653"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_3686">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_11605"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_7309"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_3705"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_3709">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_19887"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_5363"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_3757">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_10549"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_10566"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_3799">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9455"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_3808">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10603"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_11759"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_3819">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7984"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_3843"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_3844">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_10503"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_15129"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_3856">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19749"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_3866">
+        <univ-bench:member rdf:resource="&univ-bench;a_16193"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17098"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_3887">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_3705"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_7844"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_3978"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_4021">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19912"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_4053"/>
+    <rdf:Description rdf:about="&univ-bench;a_4056"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_4064">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_15389"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_8461"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_4071">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5079"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_4083">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_18496"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_4128">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_2075"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_4165">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_13335"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_7917"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_4170"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_4262">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_1379"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_6473"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_4278">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_3225"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_5529"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_4317">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_12625"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_4329">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1193"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_4347">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_19221"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_4359"/>
+    <rdf:Description rdf:about="&univ-bench;a_4382"/>
+    <rdf:Description rdf:about="&univ-bench;a_4419"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_442">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7017"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_4465">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_17868"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_8624"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_4468">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_15524"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_4484">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_10714"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_19153"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_4507">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_3799"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_9455"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_451">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6002"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_4576">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_14022"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_6019"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_467">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_14913"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_4742">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4382"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_9575"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_4789"/>
+    <rdf:Description rdf:about="&univ-bench;a_4812"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_4891">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6943"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_4917">
+        <univ-bench:member rdf:resource="&univ-bench;a_15826"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7107"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_4961">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2244"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_4989"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_5053">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4053"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_5059">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_16233"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_19807"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_5066">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11011"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_5079"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_5101">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6518"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_8937"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_5118"/>
+    <rdf:Description rdf:about="&univ-bench;a_5130"/>
+    <rdf:Description rdf:about="&univ-bench;a_5154"/>
+    <rdf:Description rdf:about="&univ-bench;a_5181"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_531">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6114"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_5363">
+        <univ-bench:member rdf:resource="&univ-bench;a_14541"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19887"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_6075"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_5374"/>
+    <rdf:Description rdf:about="&univ-bench;a_5439"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_5451">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_5683"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_8849"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_5490"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_5495">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19221"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_4347"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_5529">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3225"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_5530">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9527"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_5562">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_12781"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_9597"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_5573"/>
+    <rdf:Description rdf:about="&univ-bench;a_5578"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_5611">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13931"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_5613"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_5634">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17625"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_5683"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_5721">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_10811"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_15545"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_5755">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11232"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_5805">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14381"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_5814">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_15584"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_5439"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_5815">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_4071"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_5079"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_5863">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_13603"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_5914"/>
+    <rdf:Description rdf:about="&univ-bench;a_593"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_5948">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_10941"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_5966">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17655"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_5967"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_5979">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_17625"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_5634"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_6002"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_6010">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_17081"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_6019">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14022"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_6063">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_15524"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_4468"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_6075"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_6103">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2075"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_4128"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_6114"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_616">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11855"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_6161">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_14385"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_5374"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_6206">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9945"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_626"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_6296">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_1502"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_15784"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_6339">
+        <univ-bench:member rdf:resource="&univ-bench;a_17692"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_77"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_6343"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_6402">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_11475"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_9673"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_6449">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7045"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_6473">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1379"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_6476">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_2863"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_8049"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_6518"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_652">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11124"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_6609">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10700"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_6650">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_1165"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_15290"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_6653"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_6664">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18512"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_6668"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_6754">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18212"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_6804">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_1493"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_7198"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_6821">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_16352"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_3454"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_6829"/>
+    <rdf:Description rdf:about="&univ-bench;a_6856"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_6943">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_19626"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_5613"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_6973">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8937"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_7001"/>
+    <rdf:Description rdf:about="&univ-bench;a_7017"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_7040">
+        <rdf:type rdf:resource="&univ-bench;Department"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18496"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_19749"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_3856"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_4083"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_7044"/>
+    <rdf:Description rdf:about="&univ-bench;a_7045"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_7076">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_593"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_7107"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_7111">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_8700"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_7189">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_5914"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_7198">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1493"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_7218"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_7221">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_6449"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_7045"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_7255"/>
+    <rdf:Description rdf:about="&univ-bench;a_726"/>
+    <rdf:Description rdf:about="&univ-bench;a_7280"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_7309">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_11605"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_7316"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_7326">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_17007"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_747">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_14165"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_626"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_7603">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_14872"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_4359"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_77"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_777">
+        <univ-bench:member rdf:resource="&univ-bench;a_12991"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_4419"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_779">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_15297"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_17973"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_7844">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3705"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_7860">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_19912"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_4021"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_7882">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_10160"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_14297"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_7907">
+        <univ-bench:member rdf:resource="&univ-bench;a_11163"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_19673"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_7917"/>
+    <rdf:Description rdf:about="&univ-bench;a_7968"/>
+    <rdf:Description rdf:about="&univ-bench;a_7984"/>
+    <rdf:Description rdf:about="&univ-bench;a_7988"/>
+    <rdf:Description rdf:about="&univ-bench;a_8022"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_8027">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_95"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_8033">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_12712"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_15179"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_8037">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_11124"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_652"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_8042"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_8049">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_2863"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_8057">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_19053"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_5573"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_8064">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10757"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_8096">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_1399"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_8300"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_8109">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_14642"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_813">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_11232"/>
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_5755"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_8162"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_8187">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1224"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_820"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_8257">
+        <univ-bench:member rdf:resource="&univ-bench;a_2129"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7968"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_8300"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_8327">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18415"/>
+        <univ-bench:member rdf:resource="&univ-bench;a_3521"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_8333">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9171"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_8363">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_593"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_7076"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_8399"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_8418">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_14747"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_16160"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_8426">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_14344"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_19755"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_8461"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_8519">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_19070"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_8572">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_18512"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_6664"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_8624"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_8627">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_18368"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_9773"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_8665"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_8699">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_6206"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_9945"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_87">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_19445"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_7044"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_8700"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_873">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1514"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_8734"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_8735">
+        <univ-bench:member rdf:resource="&univ-bench;a_14899"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_18285"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_8849">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5683"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_8937">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_6518"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_8953"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_8977">
+        <univ-bench:member rdf:resource="&univ-bench;a_17798"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_1868"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_9000">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3653"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_9047">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5130"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_9104">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10041"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_9115">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_16345"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_9141">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_18728"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_2608"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_9152"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_9166">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_6973"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_8937"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_9171"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_9215">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9563"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_9224">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_17308"/>
+    </univ-bench:GraduateStudent>
+    <univ-bench:Department rdf:about="&univ-bench;a_9234">
+        <univ-bench:member rdf:resource="&univ-bench;a_12822"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_5967"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_9245">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_3314"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_9251">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_7316"/>
+    </univ-bench:Department>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_926">
+        <univ-bench:worksFor rdf:resource="&univ-bench;a_10101"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_1727"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_9363"/>
+    <rdf:Description rdf:about="&univ-bench;a_9380"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_9398">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_1224"/>
+        <univ-bench:headOf rdf:resource="&univ-bench;a_8187"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_9410"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_9430">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_15395"/>
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_1641"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_9455"/>
+    <rdf:Description rdf:about="&univ-bench;a_95"/>
+    <rdf:Description rdf:about="&univ-bench;a_9527"/>
+    <rdf:Description rdf:about="&univ-bench;a_9563"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_9575">
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_4382"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_9597"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_9611">
+        <univ-bench:memberOf rdf:resource="&univ-bench;a_19231"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_2216"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_9673"/>
+    <univ-bench:Department rdf:about="&univ-bench;a_9686">
+        <univ-bench:member rdf:resource="&univ-bench;a_19534"/>
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_9725"/>
+    </univ-bench:Department>
+    <univ-bench:Department rdf:about="&univ-bench;a_969">
+        <univ-bench:subOrganizationOf rdf:resource="&univ-bench;a_10357"/>
+    </univ-bench:Department>
+    <rdf:Description rdf:about="&univ-bench;a_9690"/>
+    <rdf:Description rdf:about="&univ-bench;a_9725"/>
+    <rdf:Description rdf:about="&univ-bench;a_9773"/>
+    <univ-bench:GraduateStudent rdf:about="&univ-bench;a_9908">
+        <univ-bench:headOf rdf:resource="&univ-bench;a_36"/>
+        <univ-bench:undergraduateDegreeFrom rdf:resource="&univ-bench;a_3843"/>
+    </univ-bench:GraduateStudent>
+    <rdf:Description rdf:about="&univ-bench;a_9945"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 0.9.2) http://owlapi.sourceforge.net -->
+

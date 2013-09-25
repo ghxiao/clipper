@@ -138,7 +138,7 @@ selectQuery
     
      )
     {
-      NonDLPredicate ans = new NonDLPredicate(0, outputVars.size());
+      NonDLPredicate ans = new NonDLPredicate("ans", outputVars.size());
       head = new Atom(ans, outputVars);
       //System.out.println("head: " + head);
     }
@@ -329,7 +329,7 @@ verb
     : 
     varOrIRIref {
 	   this.currentArity = 2;  
-	   int p = ClipperManager.getInstance().getOwlObjectPropertyExpressionEncoder().getValueBySymbol(
+	   int p = ClipperManager.getInstance().getOwlPropertyExpressionEncoder().getValueBySymbol(
 	     OWLManager.getOWLDataFactory().getOWLObjectProperty(IRI.create(getFullName( $varOrIRIref.text))));
 		 currentPredicate = new DLPredicate(p, currentArity);   
     }
@@ -381,7 +381,7 @@ graphTerm returns [Constant constant]
     : iriRef {
     String quotedIRIText = $iriRef.text;
     String iri = quotedIRIText.substring(1, quotedIRIText.length()-1);
-      int c = ClipperManager.getInstance().getOwlIndividualEncoder().getValueBySymbol(OWLManager.getOWLDataFactory().getOWLNamedIndividual(IRI.create(iri)));
+      int c = ClipperManager.getInstance().getOwlIndividualAndLiteralEncoder().getValueBySymbol(OWLManager.getOWLDataFactory().getOWLNamedIndividual(IRI.create(iri)));
       $constant = new Constant(c);
     
      }

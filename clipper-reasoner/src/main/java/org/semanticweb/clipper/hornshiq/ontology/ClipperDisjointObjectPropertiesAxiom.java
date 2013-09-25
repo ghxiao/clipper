@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ClipperDisjointObjectPropertiesAxiom implements ClipperAxiom {
+public class ClipperDisjointObjectPropertiesAxiom implements ClipperTBoxAxiom {
 
 	int role1, role2;
 

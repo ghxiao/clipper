@@ -8,7 +8,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class ClipperSubPropertyAxiom implements ClipperAxiom {
+public class ClipperSubPropertyAxiom implements ClipperTBoxAxiom {
 	int role1, role2;
 
 	@Override

@@ -3,37 +3,31 @@ package org.semanticweb.clipper.util;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import lombok.Getter;
+
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMaxOneAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperConceptAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperObjectPropertyAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperPropertyAssertionAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
-import org.semanticweb.clipper.hornshiq.queryanswering.Constraint;
+import org.semanticweb.clipper.hornshiq.queryanswering.CQFormatter;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
 import org.semanticweb.clipper.hornshiq.queryanswering.HornImplication;
-import org.semanticweb.clipper.hornshiq.queryanswering.HornImplicationRelation;
 import org.semanticweb.clipper.hornshiq.queryanswering.IndexedEnfContainer;
 import org.semanticweb.clipper.hornshiq.queryanswering.IndexedHornImpContainer;
-import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.Rule;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
 import org.semanticweb.clipper.hornshiq.rule.Predicate;
-import org.semanticweb.owlapi.model.IRI;
-
-
 
 /**
  * @author kien
@@ -49,11 +43,12 @@ public class QueriesRelatedRules {
 	private List<ClipperSubPropertyAxiom> subObjectPropertyAxioms;
 	private List<ClipperInversePropertyOfAxiom> inverseObjectPropertyAxioms;
 	private List<ClipperAtomSubMaxOneAxiom> maxOneCardinalityAxioms;
-	private List<ClipperConceptAssertionAxiom> conceptAssertionAxioms;
-	private List<ClipperObjectPropertyAssertionAxiom> roleAssertionAxioms;
+
 	private Set<CQ> ucq;
-	private Set<Rule> ucqRelatedDatalogRules; // contain datalog rules related
-												// to ucq
+
+	@Getter
+	private Set<Rule> ucqRelatedDatalogRules; // datalog rules related
+
 	private Set<Predicate> ucqRelatedBodyPredicates;
 	public int numberOfRelatedDatalogRules = 0;
 	protected final int NOTHING = 1;
@@ -61,54 +56,14 @@ public class QueriesRelatedRules {
 	protected final int TOP_PROPERTY = 0;
 	protected final int BOTTOM_PROPERTY = 2;
 
-	/*
-	 * Constructor
-	 * 
-	 * @param: input Ontology
-	 * 
-	 * @param: Name of generated datalog file
-	 */
-	public QueriesRelatedRules() {
+	CQFormatter cqFormatter;
 
-		// this.namingStrategy = NamingStrategy.IntEncoding;
-	}
-
-	public Set<CQ> getUcq() {
-		return ucq;
-	}
-
-	public void setUcq(Set<CQ> ucq) {
-		this.ucq = ucq;
-	}
-
-	public Set<Rule> getUcqRelatedDatalogRules() {
-		return ucqRelatedDatalogRules;
-	}
-
-	public void setUcqRelatedDatalogRules(Set<Rule> ucqRelatedDatalogRules) {
-		this.ucqRelatedDatalogRules = ucqRelatedDatalogRules;
-	}
-
-	public int getNumberOfRelatedDatalogRules() {
-		return numberOfRelatedDatalogRules;
-	}
-
-	public void setNumberOfRelatedDatalogRules(int numberOfRelatedDatalogRules) {
-		this.numberOfRelatedDatalogRules = numberOfRelatedDatalogRules;
-	}
-
-	public void setNamingStrategy(NamingStrategy strategy) {
-		// this.namingStrategy = strategy;
-	}
-
-	public QueriesRelatedRules(ClipperHornSHIQOntology ont_bs,
-			Set<CQ> rewrittenUcq) {
+	public QueriesRelatedRules(ClipperHornSHIQOntology ont_bs, Set<CQ> rewrittenUcq) {
+		cqFormatter = new CQFormatter();
 		allValuesFromAxioms = ont_bs.getAtomSubAllAxioms();
 		maxOneCardinalityAxioms = ont_bs.getAtomSubMaxOneAxioms();
 		subObjectPropertyAxioms = ont_bs.getSubPropertyAxioms();
 		inverseObjectPropertyAxioms = ont_bs.getInversePropertyOfAxioms();
-		conceptAssertionAxioms = ont_bs.getConceptAssertionAxioms();
-		roleAssertionAxioms = ont_bs.getRoleAssertionAxioms();
 		subObjectPropertyAxioms = ont_bs.getSubPropertyAxioms();
 
 		ucq = rewrittenUcq;
@@ -173,15 +128,14 @@ public class QueriesRelatedRules {
 		while (iterator.hasNext()) {
 			int index = iterator.next();
 			if (index != THING) {
-				strBody.add(getUnaryPredicate(index) + "(X)");
+				strBody.add(cqFormatter.getUnaryPredicate(index) + "(X)");
 				// strBody.add("c" + index + "(X)");
 			}
 		}
 		return strBody;
 	}
 
-	private boolean addDatalogRule(Predicate headPredicate,
-			Set<Predicate> bodyPredicates, Rule addedRule) {
+	private boolean addDatalogRule(Predicate headPredicate, Set<Predicate> bodyPredicates, Rule addedRule) {
 
 		// if Predicate in HEAD of datalog rule appears on body of
 		// conjunctive
@@ -226,8 +180,7 @@ public class QueriesRelatedRules {
 
 		boolean updated = false;
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-			System.out
-					.println("%==========rules From Imps in Counting Related rules=============");
+			System.out.println("%==========rules From Imps in Counting Related rules=============");
 		}
 		// Rule rule = new Rule();
 		Set<HornImplication> removedImps = new HashSet<HornImplication>();
@@ -239,12 +192,11 @@ public class QueriesRelatedRules {
 
 			Rule rule = new Rule();
 			// rule.setHead("c" + imp.getHead() + "(X)");
-			rule.setHead(getUnaryPredicate(imp.getHead()) + "(X)");
+			rule.setHead(cqFormatter.getUnaryPredicate(imp.getHead()) + "(X)");
 			rule.setBody(getEncodedBodyOfImp(imp.getBody()));
 			if (rule.isNotTrivial()) {
 				DLPredicate headPredicate = new DLPredicate(imp.getHead(), 1);
-				Set<Predicate> bodyPredicates = getPredicatesFromSet(imp
-						.getBody());
+				Set<Predicate> bodyPredicates = getPredicatesFromSet(imp.getBody());
 				if (addDatalogRule(headPredicate, bodyPredicates, rule)) {
 					updated = true;
 					removedImps.add(imp);
@@ -259,8 +211,7 @@ public class QueriesRelatedRules {
 	public boolean rulesFromValueRestrictions() {
 		boolean updated = false;
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-			System.out
-					.println("%==========rules From Value Restrictions ============");
+			System.out.println("%==========rules From Value Restrictions ============");
 		}
 		Set<ClipperAtomSubAllAxiom> removedAxioms = new HashSet<ClipperAtomSubAllAxiom>();
 		for (ClipperAtomSubAllAxiom axiom : allValuesFromAxioms) {
@@ -268,11 +219,11 @@ public class QueriesRelatedRules {
 			int ic = axiom.getConcept2();
 			int ir = axiom.getRole();
 			int ia = axiom.getConcept1();
-			rule.setHead(getUnaryPredicate(ic) + "(Y)");
+			rule.setHead(cqFormatter.getUnaryPredicate(ic) + "(Y)");
 			if (ia != ClipperManager.getInstance().getThing())
-				rule.addAtomToBody(getUnaryPredicate(ia) + "(X)");
+				rule.addAtomToBody(cqFormatter.getUnaryPredicate(ia) + "(X)");
 			final String s;
-			s = getBinaryAtomWithoutInverse(ir, "X", "Y");
+			s = cqFormatter.getBinaryAtomWithoutInverse(ir, "X", "Y");
 			rule.addAtomToBody(s);
 
 			Predicate cPredicate = new DLPredicate(ic, 1);
@@ -309,9 +260,8 @@ public class QueriesRelatedRules {
 			// if (!(sup % 2 == 1 && sup % 2 == 1)) {
 			Rule rule = new Rule();
 			if (!(subRole % 2 == 1 && superRole % 2 == 1)) {
-				rule.setHead(getBinaryAtomWithoutInverse(superRole, "X", "Y"));
-				rule.addAtomToBody(getBinaryAtomWithoutInverse(subRole, "X",
-						"Y"));
+				rule.setHead(cqFormatter.getBinaryAtomWithoutInverse(superRole, "X", "Y"));
+				rule.addAtomToBody(cqFormatter.getBinaryAtomWithoutInverse(subRole, "X", "Y"));
 
 				Predicate headPredicate = new DLPredicate(superRole, 2);
 				Set<Predicate> bodyPredicates = new HashSet<Predicate>();
@@ -341,8 +291,7 @@ public class QueriesRelatedRules {
 	public boolean rulesFromInverseRoleAxioms() {
 		boolean updated = false;
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-			System.out
-					.println("%==========rules From inverse role axioms===================");
+			System.out.println("%==========rules From inverse role axioms===================");
 		}
 
 		Set<ClipperInversePropertyOfAxiom> removedAxioms = new HashSet<ClipperInversePropertyOfAxiom>();
@@ -351,8 +300,8 @@ public class QueriesRelatedRules {
 			Rule rule = new Rule();
 			int r1 = ax.getRole1();
 			int r2 = ax.getRole2();
-			rule.setHead(getBinaryAtomWithoutInverse(r1, "X", "Y"));
-			rule.addAtomToBody(getBinaryAtomWithoutInverse(r2, "Y", "X"));
+			rule.setHead(cqFormatter.getBinaryAtomWithoutInverse(r1, "X", "Y"));
+			rule.addAtomToBody(cqFormatter.getBinaryAtomWithoutInverse(r2, "Y", "X"));
 
 			Predicate headPredicate = new DLPredicate(r1, 2);
 			Set<Predicate> bodyPredicates = new HashSet<Predicate>();
@@ -369,8 +318,8 @@ public class QueriesRelatedRules {
 			// program.println(rule);
 
 			Rule rule2 = new Rule();
-			rule2.setHead(getBinaryAtomWithoutInverse(r2, "Y", "X"));
-			rule2.addAtomToBody(getBinaryAtomWithoutInverse(r1, "X", "Y"));
+			rule2.setHead(cqFormatter.getBinaryAtomWithoutInverse(r2, "Y", "X"));
+			rule2.addAtomToBody(cqFormatter.getBinaryAtomWithoutInverse(r1, "X", "Y"));
 			Set<Predicate> body2Predicates = new HashSet<Predicate>();
 			body2Predicates.add(headPredicate);
 
@@ -393,8 +342,7 @@ public class QueriesRelatedRules {
 	public boolean rulesFromNumberRestrictionAndEnfs() {
 		boolean updated = false;
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-			System.out
-					.println("%==========rules From NumberRestrictions And Enfs===================");
+			System.out.println("%==========rules From NumberRestrictions And Enfs===================");
 		}
 		Set<Rule> generatedRules = new HashSet<Rule>();
 		for (ClipperAtomSubMaxOneAxiom subClassAxiom : maxOneCardinalityAxioms) {// 2
@@ -403,8 +351,7 @@ public class QueriesRelatedRules {
 			int ic = subClassAxiom.getConcept2();
 			for (EnforcedRelation enfRelation : coreEnfs) {
 				if (enfRelation.getRoles().contains(ir)
-						&& (enfRelation.getRoles().size() > 1 || enfRelation
-								.getType2().size() > 1)
+						&& (enfRelation.getRoles().size() > 1 || enfRelation.getType2().size() > 1)
 						&& enfRelation.getType2().contains(ic)) {// 3
 
 					// =========Each element of Type2 is a head of a rule ======
@@ -416,7 +363,7 @@ public class QueriesRelatedRules {
 						// create head of the rule. Each element of Type2 is a
 						// head.
 						Rule rule = new Rule();
-						rule.setHead(getUnaryPredicate(index) + "(Y)");
+						rule.setHead(cqFormatter.getUnaryPredicate(index) + "(Y)");
 
 						Predicate headPredicate = new DLPredicate(index, 1);
 						Set<Predicate> bodyPredicates = new HashSet<Predicate>();
@@ -425,23 +372,21 @@ public class QueriesRelatedRules {
 						rule.setHeadPredicatArity(1);
 						rule.setBody(getEncodedBodyOfImp(enfRelation.getType1()));
 
-						bodyPredicates.addAll(getPredicatesFromSet(enfRelation
-								.getType1()));
+						bodyPredicates.addAll(getPredicatesFromSet(enfRelation.getType1()));
 
 						if (ia != ClipperManager.getInstance().getThing())
-							rule.addAtomToBody(getUnaryPredicate(ia) + "(X)");
+							rule.addAtomToBody(cqFormatter.getUnaryPredicate(ia) + "(X)");
 
 						Predicate iaPredicate = new DLPredicate(ia, 1);
 						bodyPredicates.add(iaPredicate);
 
-						rule.addAtomToBody(getBinaryAtomWithoutInverse(ir, "X",
-								"Y"));
+						rule.addAtomToBody(cqFormatter.getBinaryAtomWithoutInverse(ir, "X", "Y"));
 
 						Predicate irPredicate = new DLPredicate(ir, 2);
 						bodyPredicates.add(irPredicate);
 
 						if (ic != ClipperManager.getInstance().getThing())
-							rule.addAtomToBody(getUnaryPredicate(ic) + "(Y)");
+							rule.addAtomToBody(cqFormatter.getUnaryPredicate(ic) + "(Y)");
 
 						Predicate icPredicate = new DLPredicate(ic, 2);
 						bodyPredicates.add(icPredicate);
@@ -450,8 +395,7 @@ public class QueriesRelatedRules {
 						if (rule.isNotTrivial()) {
 							// System.out.println(rule);
 							generatedRules.add(rule);
-							if (addDatalogRule(headPredicate, bodyPredicates,
-									rule))
+							if (addDatalogRule(headPredicate, bodyPredicates, rule))
 								updated = true;
 
 						}
@@ -462,28 +406,25 @@ public class QueriesRelatedRules {
 						int index2 = iterator2.next();
 						Rule rule = new Rule();
 
-						rule.setHead(getBinaryAtomWithoutInverse(index2, "X",
-								"Y"));
+						rule.setHead(cqFormatter.getBinaryAtomWithoutInverse(index2, "X", "Y"));
 						Predicate headPredicate = new DLPredicate(index2, 2);
 
 						Set<Predicate> bodyPredicates = new HashSet<Predicate>();
 
 						rule.setBody(getEncodedBodyOfImp(enfRelation.getType1()));
-						bodyPredicates.addAll(getPredicatesFromSet(enfRelation
-								.getType1()));
+						bodyPredicates.addAll(getPredicatesFromSet(enfRelation.getType1()));
 
 						if (ia != ClipperManager.getInstance().getThing())
-							rule.addAtomToBody(getUnaryPredicate(ia) + "(X)");
+							rule.addAtomToBody(cqFormatter.getUnaryPredicate(ia) + "(X)");
 						Predicate iaPredicate = new DLPredicate(ia, 1);
 						bodyPredicates.add(iaPredicate);
 
-						rule.addAtomToBody(getBinaryAtomWithoutInverse(ir, "X",
-								"Y"));
+						rule.addAtomToBody(cqFormatter.getBinaryAtomWithoutInverse(ir, "X", "Y"));
 						Predicate irPredicate = new DLPredicate(ir, 2);
 						bodyPredicates.add(irPredicate);
 
 						if (ic != ClipperManager.getInstance().getThing())
-							rule.addAtomToBody(getUnaryPredicate(ic) + "(Y)");
+							rule.addAtomToBody(cqFormatter.getUnaryPredicate(ic) + "(Y)");
 						Predicate icPredicate = new DLPredicate(ic, 1);
 						bodyPredicates.add(icPredicate);
 
@@ -493,8 +434,7 @@ public class QueriesRelatedRules {
 						if (rule.isNotTrivial()) {
 							// System.out.println(rule);
 							generatedRules.add(rule);
-							if (addDatalogRule(headPredicate, bodyPredicates,
-									rule))
+							if (addDatalogRule(headPredicate, bodyPredicates, rule))
 								updated = true;
 
 						}
@@ -516,8 +456,7 @@ public class QueriesRelatedRules {
 
 	public void countUCQRelatedRules() {
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-			System.out
-					.println("==============Datalog rules which are related to UCQ :================ ");
+			System.out.println("==============Datalog rules which are related to UCQ :================ ");
 		}
 		// System.out.println("======================================== ");
 		// System.out.println("Facts from Role assertions: ");
@@ -525,63 +464,9 @@ public class QueriesRelatedRules {
 		initializeUcqRelatedBodyPredicates();
 		boolean updated = true;
 		while (updated) {
-			updated = rulesFromImps() || rulesFromValueRestrictions()
-					|| rulesFromRoleInclusions()
-					|| rulesFromInverseRoleAxioms()
-					|| rulesFromNumberRestrictionAndEnfs();
+			updated = rulesFromImps() || rulesFromValueRestrictions() || rulesFromRoleInclusions()
+					|| rulesFromInverseRoleAxioms() || rulesFromNumberRestrictionAndEnfs();
 		}
-	}
-
-	private String getBinaryPredicate(int value) {
-		switch (ClipperManager.getInstance().getNamingStrategy()) {
-		case LowerCaseFragment:
-			IRI iri = ClipperManager.getInstance()
-					.getOwlObjectPropertyExpressionEncoder()
-					.getSymbolByValue(value).asOWLObjectProperty().getIRI();
-			return normalize(iri);
-		case IntEncoding:
-			return "r" + value;
-		}
-		throw new IllegalStateException("Not possible");
-	}
-
-	private String getUnaryPredicate(int value) {
-		switch (ClipperManager.getInstance().getNamingStrategy()) {
-		case LowerCaseFragment:
-			IRI iri = ClipperManager.getInstance().getOwlClassEncoder()
-					.getSymbolByValue(value).getIRI();
-
-			return normalize(iri);
-		case IntEncoding:
-			return "c" + value;
-		}
-		throw new IllegalStateException("Not possible");
-	}
-
-	private String normalize(IRI iri) {
-		String fragment = iri.getFragment();
-		if (fragment != null) {
-			return fragment.replaceAll("[_-]", "").toLowerCase();
-		} else {
-			final String iriString = iri.toString();
-			int i = iriString.lastIndexOf('/') + 1;
-			return iriString.substring(i).replace("_-", "").toLowerCase();
-
-		}
-
-	}
-
-	// =====================================================
-	protected String getBinaryAtomWithoutInverse(int v, String var1, String var2) {
-		final String s;
-		if (v % 2 == 0) {
-			s = getBinaryPredicate(v) + "(" + var1 + "," + var2 + ")";
-		} else {
-			// int inverseOfr = ir + 1;
-			int inverseOfr = v - 1;
-			s = getBinaryPredicate(inverseOfr) + "(" + var2 + "," + var1 + ")";
-		}
-		return s;
 	}
 
 	// ====================================================
@@ -594,12 +479,12 @@ public class QueriesRelatedRules {
 		while (iterator.hasNext()) {
 			int p = iterator.next();
 			String classIRI = ClipperManager.getInstance()
-					//
-					.getOwlClassEncoder().getSymbolByValue(p).getIRI()
-					.toString();
+			//
+					.getOwlClassEncoder().getSymbolByValue(p).getIRI().toString();
 			if (classIRI.startsWith("http://www.example.org/fresh#SOME_fresh"))
 				return true;
 		}
 		return false;
 	}
+
 }

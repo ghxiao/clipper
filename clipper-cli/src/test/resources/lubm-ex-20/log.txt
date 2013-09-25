@@ -1,0 +1,780 @@
+------------------------------
+/tmp/modlubm/University0_0.owl
+------------------------------
+External Seed=0 Interal Seed=0
+
+CLASS INSTANCE# TOTAL-SO-FAR
+----------------------------
+University 218 218
+Department 1 1
+Faculty 0 0
+Professor 0 0
+FullProfessor 10 10
+AssociateProfessor 14 14
+AssistantProfessor 10 10
+Lecturer 7 7
+Student 0 0
+UndergraduateStudent 532 532
+GraduateStudent 146 146
+TeachingAssistant 29 29
+ResearchAssistant 39 39
+Course 60 60
+GraduateCourse 62 62
+Publication 385 385
+Chair 0 0
+Research 0 0
+ResearchGroup 10 10
+
+TOTAL: 1523
+TOTAL SO FAR: 1523
+
+PROPERTY INSTANCE# TOTAL-SO-FAR
+-------------------------------
+name 1228 1228
+takesCourse 1511 1511
+teacherOf 98 98
+undergraduateDegreeFrom 151 151
+mastersDegreeFrom 33 33
+doctoralDegreeFrom 32 32
+advisor 212 212
+memberOf 530 530
+publicationAuthor 769 769
+headOf 1 1
+teachingAssistantOf 29 29
+researchInterest 34 34
+emailAddress 719 719
+telephone 719 719
+subOrganizationOf 11 11
+worksFor 35 35
+
+TOTAL: 6112
+TOTAL SO FAR: 6112
+
+------------------------------
+/tmp/modlubm/University0_1.owl
+------------------------------
+External Seed=0 Interal Seed=0
+
+CLASS INSTANCE# TOTAL-SO-FAR
+----------------------------
+University 195 413
+Department 1 2
+Faculty 0 0
+Professor 0 0
+FullProfessor 8 18
+AssociateProfessor 14 28
+AssistantProfessor 10 20
+Lecturer 5 12
+Student 0 0
+UndergraduateStudent 443 975
+GraduateStudent 138 284
+TeachingAssistant 31 60
+ResearchAssistant 45 84
+Course 51 111
+GraduateCourse 56 118
+Publication 371 756
+Chair 0 0
+Research 0 0
+ResearchGroup 17 27
+
+TOTAL: 1385
+TOTAL SO FAR: 2908
+
+PROPERTY INSTANCE# TOTAL-SO-FAR
+-------------------------------
+name 1097 2325
+takesCourse 1269 2780
+teacherOf 88 186
+undergraduateDegreeFrom 143 294
+mastersDegreeFrom 23 56
+doctoralDegreeFrom 28 60
+advisor 212 424
+memberOf 466 996
+publicationAuthor 744 1513
+headOf 1 2
+teachingAssistantOf 31 60
+researchInterest 32 66
+emailAddress 618 1337
+telephone 618 1337
+subOrganizationOf 18 29
+worksFor 32 67
+
+TOTAL: 5420
+TOTAL SO FAR: 11532
+
+------------------------------
+/tmp/modlubm/University0_2.owl
+------------------------------
+External Seed=0 Interal Seed=0
+
+CLASS INSTANCE# TOTAL-SO-FAR
+----------------------------
+University 181 594
+Department 1 3
+Faculty 0 0
+Professor 0 0
+FullProfessor 8 26
+AssociateProfessor 11 39
+AssistantProfessor 9 29
+Lecturer 6 18
+Student 0 0
+UndergraduateStudent 380 1355
+GraduateStudent 118 402
+TeachingAssistant 24 84
+ResearchAssistant 34 118
+Course 52 163
+GraduateCourse 54 172
+Publication 333 1089
+Chair 0 0
+Research 0 0
+ResearchGroup 11 38
+
+TOTAL: 1222
+TOTAL SO FAR: 4130
+
+PROPERTY INSTANCE# TOTAL-SO-FAR
+-------------------------------
+name 972 3297
+takesCourse 1060 3840
+teacherOf 82 268
+undergraduateDegreeFrom 127 421
+mastersDegreeFrom 26 82
+doctoralDegreeFrom 27 87
+advisor 175 599
+memberOf 403 1399
+publicationAuthor 623 2136
+headOf 1 3
+teachingAssistantOf 24 84
+researchInterest 28 94
+emailAddress 532 1869
+telephone 532 1869
+subOrganizationOf 12 41
+worksFor 29 96
+
+TOTAL: 4653
+TOTAL SO FAR: 16185
+
+------------------------------
+/tmp/modlubm/University0_3.owl
+------------------------------
+External Seed=0 Interal Seed=0
+
+CLASS INSTANCE# TOTAL-SO-FAR
+----------------------------
+University 214 808
+Department 1 4
+Faculty 0 0
+Professor 0 0
+FullProfessor 9 35
+AssociateProfessor 12 51
+AssistantProfessor 11 40
+Lecturer 7 25
+Student 0 0
+UndergraduateStudent 402 1757
+GraduateStudent 131 533
+TeachingAssistant 28 112
+ResearchAssistant 40 158
+Course 59 222
+GraduateCourse 59 231
+Publication 375 1464
+Chair 0 0
+Research 0 0
+ResearchGroup 18 56
+
+TOTAL: 1366
+TOTAL SO FAR: 5496
+
+PROPERTY INSTANCE# TOTAL-SO-FAR
+-------------------------------
+name 1066 4363
+takesCourse 1166 5006
+teacherOf 100 368
+undergraduateDegreeFrom 149 570
+mastersDegreeFrom 28 110
+doctoralDegreeFrom 36 123
+advisor 185 784
+memberOf 424 1823
+publicationAuthor 694 2830
+headOf 1 4
+teachingAssistantOf 28 112
+researchInterest 32 126
+emailAddress 572 2441
+telephone 572 2441
+subOrganizationOf 19 60
+worksFor 32 128
+
+TOTAL: 5104
+TOTAL SO FAR: 21289
+
+------------------------------
+/tmp/modlubm/University0_4.owl
+------------------------------
+External Seed=0 Interal Seed=0
+
+CLASS INSTANCE# TOTAL-SO-FAR
+----------------------------
+University 176 984
+Department 1 5
+Faculty 0 0
+Professor 0 0
+FullProfessor 10 45
+AssociateProfessor 11 62
+AssistantProfessor 8 48
+Lecturer 7 32
+Student 0 0
+UndergraduateStudent 431 2188
+GraduateStudent 109 642
+TeachingAssistant 26 138
+ResearchAssistant 30 188
+Course 57 279
+GraduateCourse 47 278
+Publication 273 1737
+Chair 0 0
+Research 0 0
+ResearchGroup 19 75
+
+TOTAL: 1205
+TOTAL SO FAR: 6701
+
+PROPERTY INSTANCE# TOTAL-SO-FAR
+-------------------------------
+name 954 5317
+takesCourse 1212 6218
+teacherOf 82 450
+undergraduateDegreeFrom 119 689
+mastersDegreeFrom 27 137
+doctoralDegreeFrom 29 152
+advisor 177 961
+memberOf 420 2243
+publicationAuthor 568 3398
+headOf 1 5
+teachingAssistantOf 26 138
+researchInterest 29 155
+emailAddress 576 3017
+telephone 576 3017
+subOrganizationOf 20 80
+worksFor 29 157
+
+TOTAL: 4845
+TOTAL SO FAR: 26134
+
+------------------------------
+/tmp/modlubm/University0_5.owl
+------------------------------
+External Seed=0 Interal Seed=0
+
+CLASS INSTANCE# TOTAL-SO-FAR
+----------------------------
+University 168 1152
+Department 1 6
+Faculty 0 0
+Professor 0 0
+FullProfessor 7 52
+AssociateProfessor 10 72
+AssistantProfessor 8 56
+Lecturer 6 38
+Student 0 0
+UndergraduateStudent 307 2495
+GraduateStudent 116 758
+TeachingAssistant 28 166
+ResearchAssistant 34 222
+Course 49 328
+GraduateCourse 50 328
+Publication 303 2040
+Chair 0 0
+Research 0 0
+ResearchGroup 14 89
+
+TOTAL: 1101
+TOTAL SO FAR: 7802
+
+PROPERTY INSTANCE# TOTAL-SO-FAR
+-------------------------------
+name 857 6174
+takesCourse 905 7123
+teacherOf 78 528
+undergraduateDegreeFrom 119 808
+mastersDegreeFrom 25 162
+doctoralDegreeFrom 23 175
+advisor 152 1113
+memberOf 325 2568
+publicationAuthor 593 3991
+headOf 1 6
+teachingAssistantOf 28 166
+researchInterest 25 180
+emailAddress 454 3471
+telephone 454 3471
+subOrganizationOf 15 95
+worksFor 19 176
+
+TOTAL: 4073
+TOTAL SO FAR: 30207
+
+------------------------------
+/tmp/modlubm/University0_6.owl
+------------------------------
+External Seed=0 Interal Seed=0
+
+CLASS INSTANCE# TOTAL-SO-FAR
+----------------------------
+University 202 1354
+Department 1 7
+Faculty 0 0
+Professor 0 0
+FullProfessor 7 59
+AssociateProfessor 12 84
+AssistantProfessor 11 67
+Lecturer 7 45
+Student 0 0
+UndergraduateStudent 315 2810
+GraduateStudent 148 906
+TeachingAssistant 33 199
+ResearchAssistant 46 268
+Course 56 384
+GraduateCourse 60 388
+Publication 306 2346
+Chair 0 0
+Research 0 0
+ResearchGroup 19 108
+
+TOTAL: 1223
+TOTAL SO FAR: 9025
+
+PROPERTY INSTANCE# TOTAL-SO-FAR
+-------------------------------
+name 923 7097
+takesCourse 969 8092
+teacherOf 84 612
+undergraduateDegreeFrom 144 952
+mastersDegreeFrom 32 194
+doctoralDegreeFrom 25 200
+advisor 194 1307
+memberOf 374 2942
+publicationAuthor 671 4662
+headOf 1 7
+teachingAssistantOf 33 199
+researchInterest 30 210
+emailAddress 500 3971
+telephone 500 3971
+subOrganizationOf 20 115
+worksFor 28 204
+
+TOTAL: 4528
+TOTAL SO FAR: 34735
+
+------------------------------
+/tmp/modlubm/University0_7.owl
+------------------------------
+External Seed=0 Interal Seed=0
+
+CLASS INSTANCE# TOTAL-SO-FAR
+----------------------------
+University 181 1535
+Department 1 8
+Faculty 0 0
+Professor 0 0
+FullProfessor 9 68
+AssociateProfessor 10 94
+AssistantProfessor 11 78
+Lecturer 7 52
+Student 0 0
+UndergraduateStudent 325 3135
+GraduateStudent 127 1033
+TeachingAssistant 30 229
+ResearchAssistant 31 299
+Course 57 441
+GraduateCourse 55 443
+Publication 347 2693
+Chair 0 0
+Research 0 0
+ResearchGroup 13 121
+
+TOTAL: 1204
+TOTAL SO FAR: 10229
+
+PROPERTY INSTANCE# TOTAL-SO-FAR
+-------------------------------
+name 949 8046
+takesCourse 937 9029
+teacherOf 91 703
+undergraduateDegreeFrom 121 1073
+mastersDegreeFrom 29 223
+doctoralDegreeFrom 30 230
+advisor 156 1463
+memberOf 357 3299
+publicationAuthor 687 5349
+headOf 1 8
+teachingAssistantOf 30 229
+researchInterest 30 240
+emailAddress 489 4460
+telephone 489 4460
+subOrganizationOf 14 129
+worksFor 31 235
+
+TOTAL: 4441
+TOTAL SO FAR: 39176
+
+------------------------------
+/tmp/modlubm/University0_8.owl
+------------------------------
+External Seed=0 Interal Seed=0
+
+CLASS INSTANCE# TOTAL-SO-FAR
+----------------------------
+University 199 1734
+Department 1 9
+Faculty 0 0
+Professor 0 0
+FullProfessor 7 75
+AssociateProfessor 14 108
+AssistantProfessor 11 89
+Lecturer 5 57
+Student 0 0
+UndergraduateStudent 349 3484
+GraduateStudent 144 1177
+TeachingAssistant 32 261
+ResearchAssistant 42 341
+Course 58 499
+GraduateCourse 57 500
+Publication 320 3013
+Chair 0 0
+Research 0 0
+ResearchGroup 18 139
+
+TOTAL: 1257
+TOTAL SO FAR: 11486
+
+PROPERTY INSTANCE# TOTAL-SO-FAR
+-------------------------------
+name 966 9012
+takesCourse 1061 10090
+teacherOf 91 794
+undergraduateDegreeFrom 141 1214
+mastersDegreeFrom 28 251
+doctoralDegreeFrom 29 259
+advisor 178 1641
+memberOf 398 3697
+publicationAuthor 696 6045
+headOf 1 9
+teachingAssistantOf 32 261
+researchInterest 32 272
+emailAddress 530 4990
+telephone 530 4990
+subOrganizationOf 19 148
+worksFor 27 262
+
+TOTAL: 4759
+TOTAL SO FAR: 43935
+
+------------------------------
+/tmp/modlubm/University0_9.owl
+------------------------------
+External Seed=0 Interal Seed=0
+
+CLASS INSTANCE# TOTAL-SO-FAR
+----------------------------
+University 173 1907
+Department 1 10
+Faculty 0 0
+Professor 0 0
+FullProfessor 9 84
+AssociateProfessor 11 119
+AssistantProfessor 10 99
+Lecturer 5 62
+Student 0 0
+UndergraduateStudent 390 3874
+GraduateStudent 110 1287
+TeachingAssistant 25 286
+ResearchAssistant 31 372
+Course 53 552
+GraduateCourse 53 553
+Publication 264 3277
+Chair 0 0
+Research 0 0
+ResearchGroup 18 157
+
+TOTAL: 1153
+TOTAL SO FAR: 12639
+
+PROPERTY INSTANCE# TOTAL-SO-FAR
+-------------------------------
+name 906 9918
+takesCourse 1148 11238
+teacherOf 89 883
+undergraduateDegreeFrom 112 1326
+mastersDegreeFrom 32 283
+doctoralDegreeFrom 28 287
+advisor 178 1819
+memberOf 390 4087
+publicationAuthor 546 6591
+headOf 1 10
+teachingAssistantOf 25 286
+researchInterest 30 302
+emailAddress 535 5525
+telephone 535 5525
+subOrganizationOf 19 167
+worksFor 23 285
+
+TOTAL: 4597
+TOTAL SO FAR: 48532
+
+-------------------------------
+/tmp/modlubm/University0_10.owl
+-------------------------------
+External Seed=0 Interal Seed=0
+
+CLASS INSTANCE# TOTAL-SO-FAR
+----------------------------
+University 217 2124
+Department 1 11
+Faculty 0 0
+Professor 0 0
+FullProfessor 9 93
+AssociateProfessor 14 133
+AssistantProfessor 11 110
+Lecturer 5 67
+Student 0 0
+UndergraduateStudent 355 4229
+GraduateStudent 146 1433
+TeachingAssistant 31 317
+ResearchAssistant 46 418
+Course 62 614
+GraduateCourse 61 614
+Publication 388 3665
+Chair 0 0
+Research 0 0
+ResearchGroup 20 177
+
+TOTAL: 1366
+TOTAL SO FAR: 14005
+
+PROPERTY INSTANCE# TOTAL-SO-FAR
+-------------------------------
+name 1052 10970
+takesCourse 1059 12297
+teacherOf 96 979
+undergraduateDegreeFrom 148 1474
+mastersDegreeFrom 35 318
+doctoralDegreeFrom 33 320
+advisor 181 2000
+memberOf 407 4494
+publicationAuthor 768 7359
+headOf 1 11
+teachingAssistantOf 31 317
+researchInterest 34 336
+emailAddress 540 6065
+telephone 540 6065
+subOrganizationOf 21 188
+worksFor 33 318
+
+TOTAL: 4979
+TOTAL SO FAR: 53511
+
+-------------------------------
+/tmp/modlubm/University0_11.owl
+-------------------------------
+External Seed=0 Interal Seed=0
+
+CLASS INSTANCE# TOTAL-SO-FAR
+----------------------------
+University 190 2314
+Department 1 12
+Faculty 0 0
+Professor 0 0
+FullProfessor 8 101
+AssociateProfessor 12 145
+AssistantProfessor 11 121
+Lecturer 6 73
+Student 0 0
+UndergraduateStudent 332 4561
+GraduateStudent 122 1555
+TeachingAssistant 30 347
+ResearchAssistant 32 450
+Course 58 672
+GraduateCourse 57 671
+Publication 349 4014
+Chair 0 0
+Research 0 0
+ResearchGroup 13 190
+
+TOTAL: 1221
+TOTAL SO FAR: 15226
+
+PROPERTY INSTANCE# TOTAL-SO-FAR
+-------------------------------
+name 956 11926
+takesCourse 945 13242
+teacherOf 85 1064
+undergraduateDegreeFrom 129 1603
+mastersDegreeFrom 32 350
+doctoralDegreeFrom 28 348
+advisor 161 2161
+memberOf 379 4873
+publicationAuthor 654 8013
+headOf 1 12
+teachingAssistantOf 30 347
+researchInterest 31 367
+emailAddress 491 6556
+telephone 491 6556
+subOrganizationOf 14 202
+worksFor 28 346
+
+TOTAL: 4455
+TOTAL SO FAR: 57966
+
+-------------------------------
+/tmp/modlubm/University0_12.owl
+-------------------------------
+External Seed=0 Interal Seed=0
+
+CLASS INSTANCE# TOTAL-SO-FAR
+----------------------------
+University 196 2510
+Department 1 13
+Faculty 0 0
+Professor 0 0
+FullProfessor 8 109
+AssociateProfessor 13 158
+AssistantProfessor 11 132
+Lecturer 6 79
+Student 0 0
+UndergraduateStudent 327 4888
+GraduateStudent 124 1679
+TeachingAssistant 29 376
+ResearchAssistant 31 481
+Course 62 734
+GraduateCourse 58 729
+Publication 369 4383
+Chair 0 0
+Research 0 0
+ResearchGroup 10 200
+
+TOTAL: 1245
+TOTAL SO FAR: 16471
+
+PROPERTY INSTANCE# TOTAL-SO-FAR
+-------------------------------
+name 979 12905
+takesCourse 946 14188
+teacherOf 100 1164
+undergraduateDegreeFrom 131 1734
+mastersDegreeFrom 31 381
+doctoralDegreeFrom 33 381
+advisor 175 2336
+memberOf 367 5240
+publicationAuthor 665 8678
+headOf 1 13
+teachingAssistantOf 29 376
+researchInterest 32 399
+emailAddress 489 7045
+telephone 489 7045
+subOrganizationOf 11 213
+worksFor 30 376
+
+TOTAL: 4508
+TOTAL SO FAR: 62474
+
+-------------------------------
+/tmp/modlubm/University0_13.owl
+-------------------------------
+External Seed=0 Interal Seed=0
+
+CLASS INSTANCE# TOTAL-SO-FAR
+----------------------------
+University 172 2682
+Department 1 14
+Faculty 0 0
+Professor 0 0
+FullProfessor 8 117
+AssociateProfessor 10 168
+AssistantProfessor 8 140
+Lecturer 7 86
+Student 0 0
+UndergraduateStudent 364 5252
+GraduateStudent 127 1806
+TeachingAssistant 25 401
+ResearchAssistant 36 517
+Course 49 783
+GraduateCourse 47 776
+Publication 306 4689
+Chair 0 0
+Research 0 0
+ResearchGroup 12 212
+
+TOTAL: 1172
+TOTAL SO FAR: 17643
+
+PROPERTY INSTANCE# TOTAL-SO-FAR
+-------------------------------
+name 927 13832
+takesCourse 1093 15281
+teacherOf 76 1240
+undergraduateDegreeFrom 122 1856
+mastersDegreeFrom 21 402
+doctoralDegreeFrom 28 409
+advisor 176 2512
+memberOf 378 5618
+publicationAuthor 651 9329
+headOf 1 14
+teachingAssistantOf 25 401
+researchInterest 26 425
+emailAddress 524 7569
+telephone 524 7569
+subOrganizationOf 13 226
+worksFor 29 405
+
+TOTAL: 4614
+TOTAL SO FAR: 67088
+
+-------------------------------
+/tmp/modlubm/University0_14.owl
+-------------------------------
+External Seed=0 Interal Seed=0
+
+CLASS INSTANCE# TOTAL-SO-FAR
+----------------------------
+University 196 2878
+Department 1 15
+Faculty 0 0
+Professor 0 0
+FullProfessor 8 125
+AssociateProfessor 13 181
+AssistantProfessor 9 149
+Lecturer 7 93
+Student 0 0
+UndergraduateStudent 303 5555
+GraduateStudent 126 1932
+TeachingAssistant 31 432
+ResearchAssistant 32 549
+Course 57 840
+GraduateCourse 58 834
+Publication 275 4964
+Chair 0 0
+Research 0 0
+ResearchGroup 13 225
+
+TOTAL: 1129
+TOTAL SO FAR: 18772
+
+PROPERTY INSTANCE# TOTAL-SO-FAR
+-------------------------------
+name 857 14689
+takesCourse 951 16232
+teacherOf 85 1325
+undergraduateDegreeFrom 133 1989
+mastersDegreeFrom 32 434
+doctoralDegreeFrom 30 439
+advisor 182 2694
+memberOf 338 5956
+publicationAuthor 615 9944
+headOf 1 15
+teachingAssistantOf 31 432
+researchInterest 30 455
+emailAddress 466 8035
+telephone 466 8035
+subOrganizationOf 14 240
+worksFor 25 430
+
+TOTAL: 4256
+TOTAL SO FAR: 71344
+

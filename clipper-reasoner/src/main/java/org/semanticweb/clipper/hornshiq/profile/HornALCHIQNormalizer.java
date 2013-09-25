@@ -79,28 +79,10 @@ public class HornALCHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 
 	private OWLDataFactory factory;
 
-	private Set<OWLClass> classesInSignature = new HashSet<OWLClass>();; // used
-	// to
-	// check
-	// used
-	// Class
-	// Name
-	// when
-	// creating
-	// a
-	// new
-	// fresh
-	// concept
-	// name
-	private Set<OWLObjectProperty> objectPropertiesInSignature = new HashSet<OWLObjectProperty>();// used
-	// when
-	// creating
-	// a
-	// new
-	// fresh
-	// role
-	// name
+	private Set<OWLClass> classesInSignature = new HashSet<OWLClass>();;
 
+	private Set<OWLObjectProperty> objectPropertiesInSignature = new HashSet<OWLObjectProperty>();// used
+	
 	private Set<OWLInverseObjectPropertiesAxiom> newInverseAxioms = new HashSet<OWLInverseObjectPropertiesAxiom>();
 
 	@Override
@@ -124,8 +106,7 @@ public class HornALCHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 		this.factory = manager.getOWLDataFactory();
 
 		classesInSignature = ontology.getClassesInSignature();
-		objectPropertiesInSignature.addAll(ontology
-				.getObjectPropertiesInSignature());
+		objectPropertiesInSignature.addAll(ontology.getObjectPropertiesInSignature());
 
 		OWLOntologyID ontologyID = ont.getOntologyID();
 		ontologyIRI = ontologyID.getOntologyIRI();
@@ -143,9 +124,8 @@ public class HornALCHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 	}
 
 	private OWLClass createNewFreshConcept() {
-		OWLClass newC = factory.getOWLClass(IRI
-				.create("http://www.example.org/fresh#"
-						+ "_eliminatedtransfresh_" + freshClassCounter));
+		OWLClass newC = factory.getOWLClass(IRI.create("http://www.example.org/fresh#" + "_eliminatedtransfresh_"
+				+ freshClassCounter));
 		freshClassCounter++;
 		return newC;
 	}
@@ -153,9 +133,10 @@ public class HornALCHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 	private boolean isTransitiveRole(OWLObjectPropertyExpression r) {
 		if (r.isTransitive(ontology))
 			return true;
-		for (OWLObjectPropertyExpression invOfR: r.getInverses(ontology)){
-			if (invOfR.isTransitive(ontology)) return true;
-	//		System.out.println(invOfR);
+		for (OWLObjectPropertyExpression invOfR : r.getInverses(ontology)) {
+			if (invOfR.isTransitive(ontology))
+				return true;
+			// System.out.println(invOfR);
 		}
 		return false;
 	}
@@ -175,28 +156,24 @@ public class HornALCHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 			OWLObjectAllValuesFrom allValueFrom = (OWLObjectAllValuesFrom) superClass;
 			OWLClass a = subClass.asOWLClass();
 			OWLObjectPropertyExpression r = allValueFrom.getProperty();
-					
+
 			OWLClass b = allValueFrom.getFiller().asOWLClass();
 
 			if (isTransitiveRole(r)) {
 
 				OWLClass bt = createNewFreshConcept();
-				OWLClassExpression hasAllSubRoleFromBT = factory
-						.getOWLObjectAllValuesFrom(r, bt);
-				OWLSubClassOfAxiom newAxiom1 = factory.getOWLSubClassOfAxiom(a,
-						hasAllSubRoleFromBT);
-		//		System.out.println(newAxiom1);
+				OWLClassExpression hasAllSubRoleFromBT = factory.getOWLObjectAllValuesFrom(r, bt);
+				OWLSubClassOfAxiom newAxiom1 = factory.getOWLSubClassOfAxiom(a, hasAllSubRoleFromBT);
+				// System.out.println(newAxiom1);
 				manager.addAxiom(normalizedOnt, newAxiom1);
 				// allValuesFromAxioms.add(newAxiom1);
 
-				OWLSubClassOfAxiom newAxiom2 = factory.getOWLSubClassOfAxiom(
-						bt, hasAllSubRoleFromBT);
-		//		System.out.println(newAxiom2);
+				OWLSubClassOfAxiom newAxiom2 = factory.getOWLSubClassOfAxiom(bt, hasAllSubRoleFromBT);
+				// System.out.println(newAxiom2);
 				manager.addAxiom(normalizedOnt, newAxiom2);
 
-				OWLSubClassOfAxiom newAxiom3 = factory.getOWLSubClassOfAxiom(
-						bt, b);
-		//		System.out.println(newAxiom3);
+				OWLSubClassOfAxiom newAxiom3 = factory.getOWLSubClassOfAxiom(bt, b);
+				// System.out.println(newAxiom3);
 				manager.addAxiom(normalizedOnt, newAxiom3);
 			}
 			// If sub-role of r is transitive Then do the same thing as if r
@@ -211,25 +188,21 @@ public class HornALCHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 					return null;
 				for (OWLSubObjectPropertyOfAxiom roleAx : subObjectPropertyAxiomSet) {
 					OWLObjectPropertyExpression subRole = roleAx.getSubProperty();
-							
+
 					// if the sub role of r is transitive
 					if (isTransitiveRole(subRole)) {
 						OWLClass bt = createNewFreshConcept();
-						OWLClassExpression hasAllSubRoleFromBT = factory
-								.getOWLObjectAllValuesFrom(subRole, bt);
-						OWLSubClassOfAxiom newAxiom1 = factory
-								.getOWLSubClassOfAxiom(a, hasAllSubRoleFromBT);
-			//			System.out.println(newAxiom1);
+						OWLClassExpression hasAllSubRoleFromBT = factory.getOWLObjectAllValuesFrom(subRole, bt);
+						OWLSubClassOfAxiom newAxiom1 = factory.getOWLSubClassOfAxiom(a, hasAllSubRoleFromBT);
+						// System.out.println(newAxiom1);
 						manager.addAxiom(normalizedOnt, newAxiom1);
 
-						OWLSubClassOfAxiom newAxiom2 = factory
-								.getOWLSubClassOfAxiom(bt, hasAllSubRoleFromBT);
-			//			System.out.println(newAxiom2);
+						OWLSubClassOfAxiom newAxiom2 = factory.getOWLSubClassOfAxiom(bt, hasAllSubRoleFromBT);
+						// System.out.println(newAxiom2);
 						manager.addAxiom(normalizedOnt, newAxiom2);
 
-						OWLSubClassOfAxiom newAxiom3 = factory
-								.getOWLSubClassOfAxiom(bt, b);
-			//			System.out.println(newAxiom3);
+						OWLSubClassOfAxiom newAxiom3 = factory.getOWLSubClassOfAxiom(bt, b);
+						// System.out.println(newAxiom3);
 						manager.addAxiom(normalizedOnt, newAxiom3);
 					}
 				}
@@ -386,8 +359,9 @@ public class HornALCHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 
 	@Override
 	public Object visit(OWLDataPropertyAssertionAxiom axiom) {
-
-		throw new IllegalArgumentException(axiom.toString());
+		manager.addAxiom(normalizedOnt, axiom);
+		return null;
+		// throw new IllegalArgumentException(axiom.toString());
 
 	}
 
@@ -428,6 +402,8 @@ public class HornALCHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 
 	@Override
 	public Object visit(OWLTransitiveObjectPropertyAxiom axiom) {
+		// XXX
+		manager.addAxiom(normalizedOnt, axiom);
 		return null;
 	}
 

@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.owlapi.model.ClassExpressionType;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
@@ -138,33 +139,31 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 		OWLClassExpression subClass = axiom.getSubClass();
 		OWLClassExpression superClass = axiom.getSuperClass();
 
-//		// (C0- -> C1+) ~> (~C1+ -> ~C0-)
-//		if (!(subClass.accept(sub0) && superClass.accept(super1))) {
-//			System.out.println(axiom);
-//
-//			OWLClassExpression newSub = factory.getOWLObjectComplementOf(
-//					superClass).getNNF();
-//			OWLClassExpression newSuper = factory.getOWLObjectComplementOf(
-//					subClass).getNNF();
-//
-//			
-//			
-//			if (!(newSub.accept(sub0) && newSuper.accept(super1))) {
-//				throw new IllegalArgumentException(axiom
-//						+ "is not in Horn fragment");
-//			}
-//
-//			factory.getOWLSubClassOfAxiom(newSub, newSuper).accept(this);
-//
-//		}
+		// // (C0- -> C1+) ~> (~C1+ -> ~C0-)
+		// if (!(subClass.accept(sub0) && superClass.accept(super1))) {
+		// System.out.println(axiom);
+		//
+		// OWLClassExpression newSub = factory.getOWLObjectComplementOf(
+		// superClass).getNNF();
+		// OWLClassExpression newSuper = factory.getOWLObjectComplementOf(
+		// subClass).getNNF();
+		//
+		//
+		//
+		// if (!(newSub.accept(sub0) && newSuper.accept(super1))) {
+		// throw new IllegalArgumentException(axiom
+		// + "is not in Horn fragment");
+		// }
+		//
+		// factory.getOWLSubClassOfAxiom(newSub, newSuper).accept(this);
+		//
+		// }
 		if (!((axiom.getSubClass().accept(sub0) //
-				&& axiom.getSuperClass().accept(
-						super1)) //
-				|| (axiom.getSubClass().accept(sub1) //
-				&& axiom.getSuperClass().accept(
-						super0)))) {
-//			throw new IllegalArgumentException(axiom
-//					+ "is not in Horn fragment");
+		&& axiom.getSuperClass().accept(super1)) //
+		|| (axiom.getSubClass().accept(sub1) //
+		&& axiom.getSuperClass().accept(super0)))) {
+			// throw new IllegalArgumentException(axiom
+			// + "is not in Horn fragment");
 			System.err.println("Warning: " + axiom + "is not in Horn fragment");
 		}
 		// simple case: A subclass C
@@ -207,17 +206,14 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 							// manager.addAxiom(normalizedOnt, factory
 							// .getOWLSubClassOfAxiom(op, freshClass));
 							//
-							factory.getOWLSubClassOfAxiom(op, freshClass)
-									.accept(this);
+							factory.getOWLSubClassOfAxiom(op, freshClass).accept(this);
 						} else {
 							newOps.add(op);
 						}
 					}
 
-					manager.addAxiom(normalizedOnt, factory
-							.getOWLSubClassOfAxiom(
-									factory.getOWLObjectIntersectionOf(newOps),
-									superClass));
+					manager.addAxiom(normalizedOnt,
+							factory.getOWLSubClassOfAxiom(factory.getOWLObjectIntersectionOf(newOps), superClass));
 				}
 
 			}
@@ -229,14 +225,12 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 				if (filler.getClassExpressionType() == ClassExpressionType.OWL_CLASS) {
 					manager.addAxiom(normalizedOnt, axiom);
 				} else {
-					//OWLClass freshClass = getFreshClass("some_");
+					// OWLClass freshClass = getFreshClass("some_");
 					OWLClass freshClass = getFreshClass();
-					factory.getOWLSubClassOfAxiom(
-							factory.getOWLObjectSomeValuesFrom(
-									some.getProperty(), freshClass), superClass) //
+					factory.getOWLSubClassOfAxiom(factory.getOWLObjectSomeValuesFrom(some.getProperty(), freshClass),
+							superClass) //
 							.accept(this);
-					factory.getOWLSubClassOfAxiom(filler, freshClass).accept(
-							this);
+					factory.getOWLSubClassOfAxiom(filler, freshClass).accept(this);
 				}
 			}
 			// or(A', B) subclass C
@@ -257,24 +251,20 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 				}
 				if (normalized) {
 					for (OWLClassExpression op : operands) {
-						manager.addAxiom(normalizedOnt,
-								factory.getOWLSubClassOfAxiom(op, superClass));
+						manager.addAxiom(normalizedOnt, factory.getOWLSubClassOfAxiom(op, superClass));
 					}
 				} else {
 					for (OWLClassExpression op : operands) {
 						if (!(op.getClassExpressionType() == ClassExpressionType.OWL_CLASS)) {
 							OWLClass freshClass = getFreshClass();
 							newOps.add(freshClass);
-							manager.addAxiom(normalizedOnt, factory
-									.getOWLSubClassOfAxiom(op, freshClass));
+							manager.addAxiom(normalizedOnt, factory.getOWLSubClassOfAxiom(op, freshClass));
 						} else {
 							newOps.add(op);
 						}
 					}
 
-					factory.getOWLSubClassOfAxiom(
-							factory.getOWLObjectUnionOf(newOps), superClass)
-							.accept(this);
+					factory.getOWLSubClassOfAxiom(factory.getOWLObjectUnionOf(newOps), superClass).accept(this);
 				}
 
 			}
@@ -297,23 +287,18 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 				if (operands.size() == 2) {
 					rest = iterator.next();
 				} else /* operands.size() > 2 */{
-					HashSet<OWLClassExpression> newOps = new HashSet<OWLClassExpression>(
-							operands);
+					HashSet<OWLClassExpression> newOps = new HashSet<OWLClassExpression>(operands);
 					newOps.remove(first);
 					rest = factory.getOWLObjectUnionOf(newOps);
 				}
 
 				factory.getOWLSubClassOfAxiom(subClass, fresh).accept(this);
 				if (first.accept(super0)) {
-					factory.getOWLSubClassOfAxiom(
-							factory.getOWLObjectIntersectionOf(fresh,//
-									factory.getOWLObjectComplementOf(first)
-											.getNNF()), rest).accept(this);
+					factory.getOWLSubClassOfAxiom(factory.getOWLObjectIntersectionOf(fresh,//
+							factory.getOWLObjectComplementOf(first).getNNF()), rest).accept(this);
 				} else {
-					factory.getOWLSubClassOfAxiom(
-							factory.getOWLObjectIntersectionOf(fresh,//
-									factory.getOWLObjectComplementOf(rest)
-											.getNNF()), fresh)//
+					factory.getOWLSubClassOfAxiom(factory.getOWLObjectIntersectionOf(fresh,//
+							factory.getOWLObjectComplementOf(rest).getNNF()), fresh)//
 							.accept(this);
 				}
 			}
@@ -333,13 +318,10 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 					manager.addAxiom(normalizedOnt, axiom);
 				} else {
 					OWLClass freshClass = getFreshClass("SOME_");
-					factory.getOWLSubClassOfAxiom(
-							subClass,
-							factory.getOWLObjectSomeValuesFrom(
-									some.getProperty(), freshClass)) //
+					factory.getOWLSubClassOfAxiom(subClass,
+							factory.getOWLObjectSomeValuesFrom(some.getProperty(), freshClass)) //
 							.accept(this);
-					factory.getOWLSubClassOfAxiom(freshClass, filler).accept(
-							this);
+					factory.getOWLSubClassOfAxiom(freshClass, filler).accept(this);
 				}
 			}
 
@@ -351,13 +333,10 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 					manager.addAxiom(normalizedOnt, axiom);
 				} else {
 					OWLClass freshClass = getFreshClass();
-					factory.getOWLSubClassOfAxiom(
-							subClass,
-							factory.getOWLObjectAllValuesFrom(
-									all.getProperty(), freshClass)) //
+					factory.getOWLSubClassOfAxiom(subClass,
+							factory.getOWLObjectAllValuesFrom(all.getProperty(), freshClass)) //
 							.accept(this);
-					factory.getOWLSubClassOfAxiom(freshClass, filler).accept(
-							this);
+					factory.getOWLSubClassOfAxiom(freshClass, filler).accept(this);
 				}
 			}
 
@@ -370,14 +349,10 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 					manager.addAxiom(normalizedOnt, axiom);
 				} else {
 					OWLClass freshClass = getFreshClass();
-					factory.getOWLSubClassOfAxiom(
-							subClass,
-							factory.getOWLObjectMaxCardinality(
-									max.getCardinality(), max.getProperty(),
-									freshClass)) //
+					factory.getOWLSubClassOfAxiom(subClass,
+							factory.getOWLObjectMaxCardinality(max.getCardinality(), max.getProperty(), freshClass)) //
 							.accept(this);
-					factory.getOWLSubClassOfAxiom(freshClass, filler).accept(
-							this);
+					factory.getOWLSubClassOfAxiom(freshClass, filler).accept(this);
 				}
 			}
 
@@ -390,14 +365,10 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 					manager.addAxiom(normalizedOnt, axiom);
 				} else {
 					OWLClass freshClass = getFreshClass();
-					factory.getOWLSubClassOfAxiom(
-							subClass,
-							factory.getOWLObjectMinCardinality(
-									min.getCardinality(), min.getProperty(),
-									freshClass)) //
+					factory.getOWLSubClassOfAxiom(subClass,
+							factory.getOWLObjectMinCardinality(min.getCardinality(), min.getProperty(), freshClass)) //
 							.accept(this);
-					factory.getOWLSubClassOfAxiom(freshClass, filler).accept(
-							this);
+					factory.getOWLSubClassOfAxiom(freshClass, filler).accept(this);
 				}
 			}
 
@@ -406,10 +377,8 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 				OWLObjectComplementOf c = (OWLObjectComplementOf) superClass;
 				OWLClassExpression operand = c.getOperand();
 				OWLClass freshClass = getFreshClass();
-				factory.getOWLSubClassOfAxiom(subClass, freshClass)
-						.accept(this);
-				factory.getOWLSubClassOfAxiom(
-						factory.getOWLObjectIntersectionOf(freshClass, operand),
+				factory.getOWLSubClassOfAxiom(subClass, freshClass).accept(this);
+				factory.getOWLSubClassOfAxiom(factory.getOWLObjectIntersectionOf(freshClass, operand),
 						factory.getOWLNothing()) //
 						.accept(this);
 			}
@@ -614,8 +583,13 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 
 	@Override
 	public Object visit(OWLDataPropertyAssertionAxiom axiom) {
-
-		throw new IllegalArgumentException(axiom.toString());
+//		if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
+//			System.err.println("skiping " + axiom);
+//		}
+		manager.addAxiom(normalizedOnt, axiom);
+		
+		return null;
+		// throw new IllegalArgumentException(axiom.toString());
 
 	}
 

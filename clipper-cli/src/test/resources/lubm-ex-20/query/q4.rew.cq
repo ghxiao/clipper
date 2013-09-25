@@ -1,0 +1,2 @@
+ans(?0,?1) :- Professor(?2), Subj4Department(?1), memberOf(?4,?1), Subj3Department(?0), Professor(?4), publicationAuthor(?3,?2), publicationAuthor(?3,?4), memberOf(?2,?0).
+ans(?0,?1) :- Faculty(?3), Subj4Department(?1), Subj3Department(?0), memberOf(?3,?1), memberOf(?3,?0), Professor(?3).

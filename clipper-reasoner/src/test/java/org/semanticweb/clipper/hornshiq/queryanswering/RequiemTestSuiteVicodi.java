@@ -14,7 +14,6 @@ import org.antlr.runtime.TokenStream;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
-import org.semanticweb.clipper.hornshiq.queryanswering.ReductionToDatalogOpt.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
@@ -29,9 +28,9 @@ public class RequiemTestSuiteVicodi {
 	public void query1() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
+		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		qaHornSHIQ.setDataLogName("TestData/requiem/EvalDL09/VicodiQuery0.dl");
+		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/VicodiQuery0.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/vicodi.owl");
 		//Q(?0) <- Location(?0)
 		String sparql = "PREFIX ub:<http://vicodi.org/ontology#> \n" + //
@@ -55,7 +54,7 @@ public class RequiemTestSuiteVicodi {
 		qaHornSHIQ.setCq(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 	//	qaHornSHIQ.getAnswers();
 
 		DecodeUtility decodeUtility = new DecodeUtility();
@@ -71,7 +70,7 @@ public class RequiemTestSuiteVicodi {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ
-				.setDataLogName("TestData/requiem/EvalDL09/VicodiQuery01.dl");
+				.setDatalogFileName("TestData/requiem/EvalDL09/VicodiQuery01.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/vicodi.owl");
 		//Q(?0,?1) <- Military-Person(?0), hasRole(?1,?0), related(?0,?2)
 		String sparql = "PREFIX ub: <http://vicodi.org/ontology#>\n" + //
@@ -95,7 +94,7 @@ public class RequiemTestSuiteVicodi {
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 
 	}
 	//Q(?0) <- Location(?0)
@@ -111,7 +110,7 @@ public class RequiemTestSuiteVicodi {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ
-				.setDataLogName("TestData/requiem/EvalDL09/VicodiQuery02.dl");
+				.setDatalogFileName("TestData/requiem/EvalDL09/VicodiQuery02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/vicodi.owl");
 		//Q(?0,?1) <- Time-Dependant-Relation(?0), hasRelationMember(?0,?1), Event(?1)
 		String sparql = "PREFIX ub: <http://vicodi.org/ontology#>\n" + //
@@ -135,7 +134,7 @@ public class RequiemTestSuiteVicodi {
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 
 	}
 	
@@ -147,7 +146,7 @@ public class RequiemTestSuiteVicodi {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ
-				.setDataLogName("TestData/requiem/EvalDL09/VicodiQuery4.dl");
+				.setDatalogFileName("TestData/requiem/EvalDL09/VicodiQuery4.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/vicodi.owl");
 		//Q(?0,?1) <- Object(?0), hasRole(?0,?1), Symbol(?1)
 		String sparql = "PREFIX ub: <http://vicodi.org/ontology#>\n" + //
@@ -172,7 +171,7 @@ public class RequiemTestSuiteVicodi {
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.generateDataLog();
+		qaHornSHIQ.generateDatalog();
 
 	}
 	@Test
@@ -183,7 +182,7 @@ public class RequiemTestSuiteVicodi {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ
-				.setDataLogName("TestData/requiem/EvalDL09/VicodiQuery04.dl");
+				.setDatalogFileName("TestData/requiem/EvalDL09/VicodiQuery04.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/vicodi.owl");
 
 		String sparql = "PREFIX ub: <http://vicodi.org/ontology#>\n" + //
@@ -212,7 +211,7 @@ public class RequiemTestSuiteVicodi {
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 
 	}
 	
@@ -224,7 +223,7 @@ public class RequiemTestSuiteVicodi {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ
-				.setDataLogName("TestData/requiem/EvalDL09/VicodiQuery04.dl");
+				.setDatalogFileName("TestData/requiem/EvalDL09/VicodiQuery04.dl");
 		qaHornSHIQ.setOntologyName("/home/kien/Downloads/ontologies/galen/galen.owl");
 	//	Q1(x):- horn(x),hasstate(x,y), cellmorphologystate(y).
 		String sparql = "PREFIX ub: <http://www.galen.com/ontology#>\n" + //
@@ -249,7 +248,7 @@ public class RequiemTestSuiteVicodi {
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		
 		// qaHornSHIQ.getModel();
-		qaHornSHIQ.query();
+		qaHornSHIQ.execQuery();
 
 	}
 }

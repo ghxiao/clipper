@@ -1,0 +1,8 @@
+PREFIX ub:<http://swat.cse.lehigh.edu/onto/univ-bench.owl#>
+SELECT ?X ?Y
+WHERE {  
+	?X a ub:Subj3Student .	
+        ?Y a ub:Subj4Student .
+        ?X ub:takesCourse ?Z .
+        ?Y ub:takesCourse ?Z .
+}

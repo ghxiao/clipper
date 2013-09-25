@@ -1,0 +1,18 @@
+PREFIX ub:<http://swat.cse.lehigh.edu/onto/univ-bench.owl#>
+SELECT ?X
+WHERE {  
+	 ?X a ub:Faculty . 
+	 ?X ub:degreeFrom ?Y . 
+	 ?Y a ub:University .
+     ?Z ub:subOrganizationOf ?Y . 
+     ?Z a ub:Department . 
+     ?X ub:memberOf ?Z .
+}
+
+#q3(x)   <- Faculty(x), degreeFrom(x,y), University(y),
+#           subOrganizationOf(z,y), Department(z), memberOf(x,z)
+
+# x
+# | \
+# |  \
+# y -- z
