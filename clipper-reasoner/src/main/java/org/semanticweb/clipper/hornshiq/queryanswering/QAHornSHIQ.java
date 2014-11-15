@@ -518,6 +518,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	// =================================
 	@Override
 	public List<List<String>> execQuery() {
+
 		generateDatalog();
 
 		this.answers = Lists.newArrayList();
@@ -677,7 +678,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	}
 
 	public void preprocessOntologies() {
-		long startNormalizatoinTime = System.currentTimeMillis();
+		long startNormalizationTime = System.currentTimeMillis();
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		OWLOntology combinedOntology = null;
 		try {
@@ -697,7 +698,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		this.clipperOntology = onto_bs;
 
 		long endNormalizationTime = System.currentTimeMillis();
-		this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizatoinTime);
+		this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizationTime);
 
 	}
 

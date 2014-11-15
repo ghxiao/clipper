@@ -17,6 +17,10 @@ public class AndSubAtomAxiomTest {
 		left.add(2);
 		int right = 1;
 		ClipperAndSubAtomAxiom axiom = new ClipperAndSubAtomAxiom(left, right);
-		assertEquals("{0, 2} SubClassOf 1", axiom.toString());
+
+		assertTrue(axiom.getLeft().contains(0));
+		assertTrue(axiom.getLeft().contains(2));
+		assertFalse(axiom.getLeft().contains(1));
+		//assertEquals("{0, 2} SubClassOf 1", axiom.toString());
 	}
 }

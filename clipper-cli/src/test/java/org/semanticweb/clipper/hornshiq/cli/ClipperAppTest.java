@@ -94,10 +94,10 @@ public class ClipperAppTest {
 	}
 
 	public static void main(String[] args) {
-		//new ClipperAppTest().testQuery();
+		new ClipperAppTest().testQuery();
 		//new ClipperAppTest().testRewriteAboxes();
 		//new ClipperAppTest().testRewriteTboxAndQuery();
-		new ClipperAppTest().testRewriteAbox();
+		//new ClipperAppTest().testRewriteAbox();
 		//new ClipperAppTest().testRewriteTBoxOnly();
 		//new ClipperAppTest().testRewriteOntologyOnly();
 		//new ClipperAppTest().testRewriteAll();

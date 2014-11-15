@@ -1,4 +1,4 @@
-r("d1","d2").
-s("d2","d2").
-d("d2").
-a("d1").
+r("test:case#d1","test:case#d2").
+s("test:case#d2","test:case#d2").
+d("test:case#d2").
+a("test:case#d1").
