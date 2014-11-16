@@ -114,7 +114,8 @@ public class TBoxReasoningOptTest {
 		// printer.printHornCoreImps(tb.getCoreImps());
 		// printer.printCoreEnfs(tb.getCoreEnfs());
 
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
+		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs, cqFormatter);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		// reduction.setNamingStrategy(NamingStrategy.LowerCaseFragment);

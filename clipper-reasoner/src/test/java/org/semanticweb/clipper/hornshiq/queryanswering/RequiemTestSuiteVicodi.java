@@ -46,7 +46,7 @@ public class RequiemTestSuiteVicodi {
 		qaHornSHIQ.generateDatalog();
 	//	qaHornSHIQ.getAnswers();
 
-		DecodeUtility decodeUtility = new DecodeUtility();
+		DecodeUtility decodeUtility = new DecodeUtility(NamingStrategy.INT_ENCODING);
 		System.out.println("Decoded query : " +decodeUtility.decodeQuery(cq));
 		
 	}

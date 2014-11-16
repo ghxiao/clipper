@@ -13,13 +13,16 @@ import org.semanticweb.owlapi.model.OWLPropertyExpression;
 
 public class CQFormatter {
 
-	public CQFormatter() {
+	NamingStrategy namingStrategy;
+
+	public CQFormatter(NamingStrategy namingStrategy) {
+		this.namingStrategy = namingStrategy;
 	}
 
 	public String getBinaryPredicate(int value) {
 		OWLPropertyExpression owlExpression = ClipperManager.getInstance()
 				.getOwlPropertyExpressionEncoder().getSymbolByValue(value);
-		switch (ClipperManager.getInstance().getNamingStrategy()) {
+		switch (namingStrategy) {
 		case LOWER_CASE_FRAGMENT:
 			if (owlExpression.isObjectPropertyExpression()) {
 				OWLObjectPropertyExpression ope = (OWLObjectPropertyExpression) owlExpression;
@@ -68,7 +71,7 @@ public class CQFormatter {
 	public String getUnaryPredicate(int value) {
 		IRI iri = ClipperManager.getInstance().getOwlClassEncoder()
 				.getSymbolByValue(value).getIRI();
-		switch (ClipperManager.getInstance().getNamingStrategy()) {
+		switch (namingStrategy) {
 		case LOWER_CASE_FRAGMENT:
 			return normalizeIRI(iri);
 		case INT_ENCODING:
@@ -185,7 +188,7 @@ public class CQFormatter {
 
 	// convert term to lower case format
 	public String getConstant(int value) {
-		switch (ClipperManager.getInstance().getNamingStrategy()) {
+		switch (namingStrategy) {
 		case LOWER_CASE_FRAGMENT:
 		case FRAGMENT:
 			final OWLPropertyAssertionObject symbol = ClipperManager

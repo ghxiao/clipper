@@ -43,6 +43,7 @@ public class ClipperManager {
 	@Setter
 	private int verboseLevel;
 
+	@Deprecated // should not use this as global variable
 	@Getter
 	@Setter
 	private NamingStrategy namingStrategy;

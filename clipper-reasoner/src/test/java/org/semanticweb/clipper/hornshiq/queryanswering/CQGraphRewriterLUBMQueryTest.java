@@ -29,8 +29,6 @@ import java.util.List;
 public class CQGraphRewriterLUBMQueryTest {
 
 
-
-
 	@Test
 	public void query1() throws RecognitionException, OWLOntologyCreationException {
 
@@ -332,8 +330,9 @@ public class CQGraphRewriterLUBMQueryTest {
 	private static void testLUBMQuery(String ontologyFile, String sparqlString, String answerFile, String tmpDatalogFile) throws OWLOntologyCreationException, RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
+		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
 		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		ClipperManager.getInstance().setVerboseLevel(1);
 
 		qaHornSHIQ.setDatalogFileName(tmpDatalogFile);
@@ -374,8 +373,8 @@ public class CQGraphRewriterLUBMQueryTest {
 
 		assertEquals(expectedAnswers.size(), actualAnswers.size());
 
-		List<String> expected = expectedAnswers.iterator().next();
-		List<String> actual = actualAnswers.iterator().next();
+		//List<String> expected = expectedAnswers.iterator().next();
+		//List<String> actual = actualAnswers.iterator().next();
 
 		//assertEquals(expectedAnswers, actualAnswers);
 	}

@@ -383,7 +383,7 @@ public class TestCase {
 		TokenStream tokenStream = new CommonTokenStream(lexer);
 		SparqlParser parser = new SparqlParser(tokenStream);
 		CQ cq = parser.query();
-		DecodeUtility decodeUtility = new DecodeUtility();
+		DecodeUtility decodeUtility = new DecodeUtility(NamingStrategy.LOWER_CASE_FRAGMENT);
 		System.out.println("Decoded query : " + decodeUtility.decodeQuery(cq));
 
 		String queryString = cq.toString();
@@ -425,7 +425,7 @@ public class TestCase {
 		TokenStream tokenStream = new CommonTokenStream(lexer);
 		SparqlParser parser = new SparqlParser(tokenStream);
 		CQ cq = parser.query();
-		DecodeUtility decodeUtility = new DecodeUtility();
+		DecodeUtility decodeUtility = new DecodeUtility(NamingStrategy.LOWER_CASE_FRAGMENT);
 		System.out.println("Decoded query : " + decodeUtility.decodeQuery(cq));
 
 		String queryString = cq.toString();

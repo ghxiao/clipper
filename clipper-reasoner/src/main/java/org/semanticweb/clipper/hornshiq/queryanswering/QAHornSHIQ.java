@@ -75,9 +75,12 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		decodedAnswers = new ArrayList<>();
 		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);// default
 		this.ontologies = new ArrayList<OWLOntology>();
-		cqFormatter = new CQFormatter();
 
+		NamingStrategy namingStrategy = NamingStrategy.LOWER_CASE_FRAGMENT;
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);// default
+		cqFormatter = new CQFormatter(namingStrategy);
+
+
 
 		// ClipperManager.getInstance().reset();
 	}
@@ -135,7 +138,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		long starCoutingRelatedRule = System.currentTimeMillis();
 
 		Set<CQ> ucq = new HashSet<CQ>(rewrittenQueries);
-		QueriesRelatedRules relatedRules = new QueriesRelatedRules(clipperOntology, ucq);
+		QueriesRelatedRules relatedRules = new QueriesRelatedRules(clipperOntology, ucq, cqFormatter);
 		relatedRules.setCoreImps(tb.getImpContainer().getImps());
 		relatedRules.setCoreEnfs(tb.getEnfContainer().getEnfs());
 		relatedRules.countUCQRelatedRules();
@@ -203,7 +206,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	 * @param tb
 	 */
 	private void reduceOntologyToDatalog(TBoxSaturation tb) {
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology);
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology, cqFormatter);
 		// reduction.setNamingStrategy(this.namingStrategy);
 		reduction.setCoreImps(tb.getImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getEnfContainer().getEnfs());
@@ -214,7 +217,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	 * @param tb
 	 */
 	private void reduceTBoxToDatalog(TBoxSaturation tb) {
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology);
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology, cqFormatter);
 		// reduction.setNamingStrategy(this.namingStrategy);
 		reduction.setCoreImps(tb.getImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getEnfContainer().getEnfs());
@@ -226,7 +229,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	 * @param tb
 	 */
 	private void reduceABoxToDatalog(TBoxSaturation tb) {
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology);
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology, cqFormatter);
 		// reduction.setNamingStrategy(this.namingStrategy);
 		reduction.setCoreImps(tb.getImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getEnfContainer().getEnfs());
@@ -419,7 +422,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 				this.rewrittenQueries = qr.getUcq();
 				long starCoutingRelatedRule = System.currentTimeMillis();
 				Set<CQ> ucq = qr.getUcq();
-				QueriesRelatedRules relatedRules = new QueriesRelatedRules(onto_bs, ucq);
+				QueriesRelatedRules relatedRules = new QueriesRelatedRules(onto_bs, ucq, cqFormatter);
 				relatedRules.setCoreImps(tb.getImpContainer().getImps());
 				relatedRules.setCoreEnfs(tb.getEnfContainer().getEnfs());
 				relatedRules.countUCQRelatedRules();
@@ -748,7 +751,6 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	public void setQueryRewriter(String queryRewriter) {
 		this.queryRewriter = queryRewriter;
 	}
-
 
 	public void setCq(CQ cq) {
 		this.cq = cq;

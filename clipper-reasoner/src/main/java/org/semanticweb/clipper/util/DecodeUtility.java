@@ -5,6 +5,7 @@ import gnu.trove.set.hash.TIntHashSet;
 
 import org.semanticweb.clipper.hornshiq.queryanswering.CQFormatter;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.owlapi.model.IRI;
@@ -12,7 +13,11 @@ import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 
 public class DecodeUtility {
 	
-	CQFormatter cqFormatter = new CQFormatter();
+	CQFormatter cqFormatter;
+
+	public DecodeUtility(NamingStrategy namingStrategy){
+		this.cqFormatter = new CQFormatter(namingStrategy);
+	}
 	
 	public String decodeQuery(CQ conjunctiveQuery) {
 		String decodedQuery = new String();

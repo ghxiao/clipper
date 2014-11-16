@@ -50,7 +50,7 @@ public class ReductionToDatalogOpt {
 	protected final int TOP_PROPERTY = 0;
 	protected final int BOTTOM_PROPERTY = 2;
 
-	CQFormatter cqFormatter = new CQFormatter();
+	CQFormatter cqFormatter;
 
 	// private NamingStrategy namingStrategy;
 
@@ -61,8 +61,8 @@ public class ReductionToDatalogOpt {
 	 * 
 	 * @param: Name of generated datalog file
 	 */
-	public ReductionToDatalogOpt() {
-
+	public ReductionToDatalogOpt(CQFormatter cqFormatter) {
+		this.cqFormatter = cqFormatter;
 		// this.namingStrategy = NamingStrategy.IntEncoding;
 	}
 
@@ -70,7 +70,8 @@ public class ReductionToDatalogOpt {
 	// // this.namingStrategy = strategy;
 	// }
 
-	public ReductionToDatalogOpt(ClipperHornSHIQOntology ont_bs) {
+	public ReductionToDatalogOpt(ClipperHornSHIQOntology ont_bs, CQFormatter cqFormatter) {
+		this.cqFormatter = cqFormatter;
 		// this.namingStrategy = NamingStrategy.IntEncoding;
 
 		// KaosManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);

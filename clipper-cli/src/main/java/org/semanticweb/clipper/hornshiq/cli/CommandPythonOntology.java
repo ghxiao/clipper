@@ -52,7 +52,7 @@ public class CommandPythonOntology extends ReasoningCommandBase {
 
 		IndexedEnfContainer enfs = saturation.getEnfContainer();
 
-		formatter = new CQFormatter();
+		formatter = new CQFormatter(NamingStrategy.FRAGMENT);
 
 		int axid = 0;
 
