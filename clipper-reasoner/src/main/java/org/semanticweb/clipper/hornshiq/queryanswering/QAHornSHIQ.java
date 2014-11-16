@@ -79,7 +79,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	private CQFormatter cqFormatter;
 
 	public QAHornSHIQ() {
-		decodedAnswers = new ArrayList<List<String>>();
+		decodedAnswers = new ArrayList<>();
 		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);// default
 		this.ontologies = new ArrayList<OWLOntology>();
 		cqFormatter = new CQFormatter();

@@ -15,15 +15,19 @@ import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
-import org.semanticweb.clipper.util.GetLUBMAnswers;
+import org.semanticweb.clipper.util.LUBMAnswerFileParser;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import java.util.List;
 
-
+/**
+ * TO run the test, put DLV into ~/bin/dlv
+ *
+ */
 public class CQGraphRewriterLUBMQueryTest {
+
 
 
 
@@ -31,7 +35,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	public void query1() throws RecognitionException, OWLOntologyCreationException {
 
 		String tmpDatalogFile = "TestData/lubm/query1.dl";
-		String ontologyFile = "TestData/lubm/full-lubm-wo-dt.owl";
+		String ontologyFile = "TestData/lubm/full-lubm.owl";
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>"+
 				"SELECT ?x "+
 				"		WHERE {"+
@@ -50,7 +54,7 @@ public class CQGraphRewriterLUBMQueryTest {
 
 
 		String tmpDatalogFile = "TestData/lubm/query2.dl";
-		String ontologyFile = "TestData/lubm/full-lubm-wo-dt.owl";
+		String ontologyFile = "TestData/lubm/full-lubm.owl";
 		String sparql = " PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>  \n"
 				+ "SELECT ?x ?y ?z \n"
 				+ "WHERE {"
@@ -71,7 +75,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	public void query3() throws RecognitionException, OWLOntologyCreationException {
 
 		String tmpDatalogFile = "TestData/lubm/query2.dl";
-		String ontologyFile = "TestData/lubm/full-lubm-wo-dt.owl";
+		String ontologyFile = "TestData/lubm/full-lubm.owl";
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X 	"
 				+ "WHERE { \n"
@@ -85,7 +89,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	@Test
 	public void query4() throws RecognitionException, OWLOntologyCreationException {
 		String tmpDatalogFile = "TestData/lubm/query4.dl";
-		String ontologyFile = "TestData/lubm/full-lubm-wo-dt.owl";
+		String ontologyFile = "TestData/lubm/full-lubm.owl";
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X ?Y1 ?Y2 ?Y3 	"
 				+ "WHERE { \n"
@@ -94,6 +98,7 @@ public class CQGraphRewriterLUBMQueryTest {
 				+ "?X ub:name ?Y1 . \n "
 				+ "?X ub:emailAddress ?Y2 .\n"
 				+ "?X ub:telephone ?Y3 . \n" + "} \n";
+
 		String answerFile = "TestData/lubm/answers_query4.txt";
 
 		testLUBMQuery(ontologyFile, sparql, answerFile, tmpDatalogFile);
@@ -102,7 +107,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	@Test
 	public void query5() throws RecognitionException, OWLOntologyCreationException {
 		String tmpDatalogFile = "TestData/lubm/query5.dl";
-		String ontologyFile = "TestData/lubm/full-lubm-wo-dt.owl";
+		String ontologyFile = "TestData/lubm/full-lubm.owl";
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X 	"
 				+ "WHERE { \n"
@@ -118,7 +123,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	@Test
 	public void query6() throws RecognitionException, OWLOntologyCreationException {
 		String tmpDatalogFile = "TestData/lubm/query6.dl";
-		String ontologyFile = "TestData/lubm/full-lubm-wo-dt.owl";
+		String ontologyFile = "TestData/lubm/full-lubm.owl";
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X 	"
@@ -136,7 +141,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	public void query7() throws RecognitionException, OWLOntologyCreationException {
 
 		String tmpDatalogFile = "TestData/lubm/query7.dl";
-		String ontologyFile = "TestData/lubm/full-lubm-wo-dt.owl";
+		String ontologyFile = "TestData/lubm/full-lubm.owl";
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X ?Y	\n"
 				+ "WHERE { \n"
@@ -156,7 +161,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	public void query8() throws RecognitionException, OWLOntologyCreationException {
 
 		String tmpDatalogFile = "TestData/lubm/query8.dl";
-		String ontologyFile = "TestData/lubm/full-lubm-wo-dt.owl";
+		String ontologyFile = "TestData/lubm/full-lubm.owl";
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X ?Y ?Z \n"
@@ -175,7 +180,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	@Test
 	public void query9() throws RecognitionException, OWLOntologyCreationException {
 		String tmpDatalogFile = "TestData/lubm/query9.dl";
-		String ontologyFile = "TestData/lubm/full-lubm-wo-dt.owl";
+		String ontologyFile = "TestData/lubm/full-lubm.owl";
 
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
@@ -197,7 +202,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	@Test
 	public void query10() throws RecognitionException, OWLOntologyCreationException {
 		String tmpDatalogFile = "TestData/lubm/query10.dl";
-		String ontologyFile = "TestData/lubm/full-lubm-wo-dt.owl";
+		String ontologyFile = "TestData/lubm/full-lubm.owl";
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X "
@@ -212,10 +217,8 @@ public class CQGraphRewriterLUBMQueryTest {
 
 	@Test
 	public void query11() throws RecognitionException, OWLOntologyCreationException {
-		// Different results
-
 		String tmpDatalogFile = "TestData/lubm/query11.dl";
-		String ontologyFile = "TestData/lubm/full-lubm-wo-dt.owl";
+		String ontologyFile = "TestData/lubm/full-lubm.owl";
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X \n"
@@ -234,7 +237,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	public void query12() throws RecognitionException, OWLOntologyCreationException {
 
 		String tmpDatalogFile = "TestData/lubm/query12.dl";
-		String ontologyFile = "TestData/lubm/full-lubm-wo-dt.owl";
+		String ontologyFile = "TestData/lubm/full-lubm.owl";
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X ?Y \n"
@@ -253,7 +256,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	public void query13() throws RecognitionException, OWLOntologyCreationException {
 
 		String tmpDatalogFile = "TestData/lubm/query13.dl";
-		String ontologyFile = "TestData/lubm/full-lubm-wo-dt.owl";
+		String ontologyFile = "TestData/lubm/full-lubm.owl";
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X \n"
@@ -271,7 +274,7 @@ public class CQGraphRewriterLUBMQueryTest {
 	public void query14() throws RecognitionException, OWLOntologyCreationException {
 
 		String tmpDatalogFile = "TestData/lubm/query14.dl";
-		String ontologyFile = "TestData/lubm/full-lubm-wo-dt.owl";
+		String ontologyFile = "TestData/lubm/full-lubm.owl";
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X \n" + "WHERE {?X a ub:UndergraduateStudent .}";
@@ -330,6 +333,8 @@ public class CQGraphRewriterLUBMQueryTest {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
+		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
+		ClipperManager.getInstance().setVerboseLevel(1);
 
 		qaHornSHIQ.setDatalogFileName(tmpDatalogFile);
 
@@ -349,11 +354,7 @@ public class CQGraphRewriterLUBMQueryTest {
 
 		String queryString = cq.toString();
 		System.out.println(queryString);
-		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setCq(cq);
-		//qaHornSHIQ.setDlvPath("lib/dlv");
-//		qaHornSHIQ.getAboxDataLog();
-		//	qaHornSHIQ.getDataLog();
 		qaHornSHIQ.execQuery();
 
 
@@ -361,18 +362,22 @@ public class CQGraphRewriterLUBMQueryTest {
 				+ "  millisecond");
 		System.out.println("reasoning time: "
 				+ qaHornSHIQ.getClipperReport().getQueryRewritingTime() + "  millisecond");
-		Set<Set<String>> actualAnswers = new HashSet<Set<String>>();
+		Set<List<String>> actualAnswers = new HashSet<>();
 		List<List<String>> actualAnswersList = qaHornSHIQ.getDecodedAnswers();
 		for (List<String> listAnswer : actualAnswersList) {
-			Set<String> setAnswer = new HashSet<String>(listAnswer);
-			actualAnswers.add(setAnswer);
+			//List<String> setAnswer = new HashSet<String>(listAnswer);
+			actualAnswers.add(listAnswer);
 		}
-		GetLUBMAnswers lubmAnswers = new GetLUBMAnswers();
+		LUBMAnswerFileParser answerParser = new LUBMAnswerFileParser();
 
-		lubmAnswers.readAnswers(answerFile);
+		Set<List<String>> expectedAnswers = answerParser.readAnswers(answerFile);
 
+		assertEquals(expectedAnswers.size(), actualAnswers.size());
 
-		assertEquals(lubmAnswers.getAnswers(), actualAnswers);
+		List<String> expected = expectedAnswers.iterator().next();
+		List<String> actual = actualAnswers.iterator().next();
+
+		//assertEquals(expectedAnswers, actualAnswers);
 	}
 
 

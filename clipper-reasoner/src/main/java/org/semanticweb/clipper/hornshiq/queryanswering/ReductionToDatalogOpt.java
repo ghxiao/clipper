@@ -365,7 +365,7 @@ public class ReductionToDatalogOpt {
 			int ir = a.getRole();
 			int ind1 = a.getIndividual1();
 			int ind2 = a.getIndividual2();
-			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 4) {
 				System.out.println(cqFormatter.getBinaryPredicate(ir) + "(" + cqFormatter.getConstant(ind1) + ","
 						+ cqFormatter.getConstant(ind2) + ").");
 			}
@@ -378,7 +378,7 @@ public class ReductionToDatalogOpt {
 		for (ClipperConceptAssertionAxiom ca : conceptAssertionAxioms) {
 			int ic = ca.getConcept();
 			int iInd = ca.getIndividual();
-			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 4) {
 				System.out.println(cqFormatter.getUnaryPredicate(ic) + "(" + cqFormatter.getConstant(iInd) + ").");
 			}
 			program.println(cqFormatter.getUnaryPredicate(ic) + "(" + cqFormatter.getConstant(iInd) + ").");

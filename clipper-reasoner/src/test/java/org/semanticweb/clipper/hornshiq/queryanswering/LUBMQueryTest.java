@@ -14,7 +14,7 @@ import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
-import org.semanticweb.clipper.util.GetLUBMAnswers;
+import org.semanticweb.clipper.util.LUBMAnswerFileParser;
 
 import java.util.List;
 
@@ -57,7 +57,7 @@ public class LUBMQueryTest {
 			Set<String> setAnswer = new HashSet<String>(listAnswer);
 			actualAnswers.add(setAnswer);
 		}
-		GetLUBMAnswers lubmAnswers = new GetLUBMAnswers();
+		LUBMAnswerFileParser lubmAnswers = new LUBMAnswerFileParser();
 		lubmAnswers.readAnswers("TestData/lubm/answers_query1.txt");
 
 		assertEquals(lubmAnswers.getAnswers(), actualAnswers);
@@ -121,7 +121,7 @@ public class LUBMQueryTest {
 			Set<String> setAnswer = new HashSet<String>(listAnswer);
 			actualAnswers.add(setAnswer);
 		}
-		GetLUBMAnswers lubmAnswers = new GetLUBMAnswers();
+		LUBMAnswerFileParser lubmAnswers = new LUBMAnswerFileParser();
 		lubmAnswers.readAnswers("TestData/lubm/answers_query2.txt");
 		assertEquals(lubmAnswers.getAnswers(), actualAnswers);
 	}
@@ -172,7 +172,7 @@ public class LUBMQueryTest {
 			Set<String> setAnswer = new HashSet<String>(listAnswer);
 			actualAnswers.add(setAnswer);
 		}
-		GetLUBMAnswers lubmAnswers = new GetLUBMAnswers();
+		LUBMAnswerFileParser lubmAnswers = new LUBMAnswerFileParser();
 		lubmAnswers.readAnswers("TestData/lubm/answers_query3.txt");
 		assertEquals(lubmAnswers.getAnswers(), actualAnswers);
 	}
@@ -267,7 +267,7 @@ public class LUBMQueryTest {
 			Set<String> setAnswer = new HashSet<String>(listAnswer);
 			actualAnswers.add(setAnswer);
 		}
-		GetLUBMAnswers lubmAnswers = new GetLUBMAnswers();
+		LUBMAnswerFileParser lubmAnswers = new LUBMAnswerFileParser();
 		lubmAnswers.readAnswers("TestData/lubm/answers_query5.txt");
 		assertEquals(lubmAnswers.getAnswers(), actualAnswers);
 	}
@@ -310,7 +310,7 @@ public class LUBMQueryTest {
 			Set<String> setAnswer = new HashSet<String>(listAnswer);
 			actualAnswers.add(setAnswer);
 		}
-		GetLUBMAnswers lubmAnswers = new GetLUBMAnswers();
+		LUBMAnswerFileParser lubmAnswers = new LUBMAnswerFileParser();
 		lubmAnswers.readAnswers("TestData/lubm/answers_query6.txt");
 		assertEquals(lubmAnswers.getAnswers(), actualAnswers);
 	}
@@ -353,7 +353,7 @@ public class LUBMQueryTest {
 			Set<String> setAnswer = new HashSet<String>(listAnswer);
 			actualAnswers.add(setAnswer);
 		}
-		GetLUBMAnswers lubmAnswers = new GetLUBMAnswers();
+		LUBMAnswerFileParser lubmAnswers = new LUBMAnswerFileParser();
 		lubmAnswers.readAnswers("TestData/lubm/answers_query7.txt");
 		assertEquals(lubmAnswers.getAnswers(), actualAnswers);
 	}
@@ -397,7 +397,7 @@ public class LUBMQueryTest {
 			Set<String> setAnswer = new HashSet<String>(listAnswer);
 			actualAnswers.add(setAnswer);
 		}
-		GetLUBMAnswers lubmAnswers = new GetLUBMAnswers();
+		LUBMAnswerFileParser lubmAnswers = new LUBMAnswerFileParser();
 		lubmAnswers.readAnswers("TestData/lubm/answers_query8.txt");
 		assertEquals(lubmAnswers.getAnswers(), actualAnswers);
 	}
@@ -487,7 +487,7 @@ public class LUBMQueryTest {
 			Set<String> setAnswer = new HashSet<String>(listAnswer);
 			actualAnswers.add(setAnswer);
 		}
-		GetLUBMAnswers lubmAnswers = new GetLUBMAnswers();
+		LUBMAnswerFileParser lubmAnswers = new LUBMAnswerFileParser();
 		lubmAnswers.readAnswers("TestData/lubm/answers_query10.txt");
 		assertEquals(lubmAnswers.getAnswers(), actualAnswers);
 	}
@@ -530,7 +530,7 @@ public class LUBMQueryTest {
 			Set<String> setAnswer = new HashSet<String>(listAnswer);
 			actualAnswers.add(setAnswer);
 		}
-		GetLUBMAnswers lubmAnswers = new GetLUBMAnswers();
+		LUBMAnswerFileParser lubmAnswers = new LUBMAnswerFileParser();
 		lubmAnswers.readAnswers("TestData/lubm/answers_query11.txt");
 		assertEquals(lubmAnswers.getAnswers(), actualAnswers);
 	}
@@ -572,7 +572,7 @@ public class LUBMQueryTest {
 			Set<String> setAnswer = new HashSet<String>(listAnswer);
 			actualAnswers.add(setAnswer);
 		}
-		GetLUBMAnswers lubmAnswers = new GetLUBMAnswers();
+		LUBMAnswerFileParser lubmAnswers = new LUBMAnswerFileParser();
 		lubmAnswers.readAnswers("TestData/lubm/answers_query12.txt");
 		assertEquals(lubmAnswers.getAnswers(), actualAnswers);
 	}
@@ -613,7 +613,7 @@ public class LUBMQueryTest {
 			Set<String> setAnswer = new HashSet<String>(listAnswer);
 			actualAnswers.add(setAnswer);
 		}
-		GetLUBMAnswers lubmAnswers = new GetLUBMAnswers();
+		LUBMAnswerFileParser lubmAnswers = new LUBMAnswerFileParser();
 		lubmAnswers.readAnswers("TestData/lubm/answers_query13.txt");
 		assertEquals(lubmAnswers.getAnswers(), actualAnswers);
 	}
@@ -655,7 +655,7 @@ public class LUBMQueryTest {
 			Set<String> setAnswer = new HashSet<String>(listAnswer);
 			actualAnswers.add(setAnswer);
 		}
-		GetLUBMAnswers lubmAnswers = new GetLUBMAnswers();
+		LUBMAnswerFileParser lubmAnswers = new LUBMAnswerFileParser();
 		lubmAnswers.readAnswers("TestData/lubm/answers_query14.txt");
 		assertEquals(lubmAnswers.getAnswers(), actualAnswers);
 	}

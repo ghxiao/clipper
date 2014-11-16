@@ -6,22 +6,25 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class GetLUBMAnswers {
-	private Set<Set<String>> predictedAnswers;
+public class LUBMAnswerFileParser {
 
-	public GetLUBMAnswers() {
-		predictedAnswers = new HashSet<Set<String>>();
+	private HashSet<List<String>> predictedAnswers;
+
+	public LUBMAnswerFileParser() {
 	}
 
-	public Set<Set<String>> getAnswers() {
+	public Set<List<String>> getAnswers() {
 		return predictedAnswers;
 	}
 
-	public void readAnswers(String answerFilePath) {
+	public Set<List<String>> readAnswers(String answerFile) {
+		predictedAnswers = new HashSet<List<String>>();
+
+
 		try {
 			// Open the file that is the first
 			// command line parameter
-			FileInputStream fstream = new FileInputStream(answerFilePath);
+			FileInputStream fstream = new FileInputStream(answerFile);
 			// Get the object of DataInputStream
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
@@ -34,11 +37,16 @@ public class GetLUBMAnswers {
 				// Read File Line By Line
 				while ((strLine = br.readLine()) != null) {
 					// Print the content on the console
-					Set<String> answerTuple = new HashSet<String>();
+					List<String> answerTuple = new ArrayList<String>();
 					String[] answers = strLine.split("\\s+");
 					// System.out.println(answers.length);
 					for (String s : answers) {
-						answerTuple.add("<" + s + ">");
+						//answerTuple.add("<" + s + ">");
+						// URI
+						if(s.startsWith("http://")){
+							s = "<" + s + ">";
+						}
+						answerTuple.add(s);
 					}
 					// System.out.println(answerTuple.size());
 					predictedAnswers.add(answerTuple);
@@ -51,6 +59,8 @@ public class GetLUBMAnswers {
 		} catch (Exception e) {// Catch exception if any
 			System.err.println("Error: " + e.getMessage());
 		}
+
+		return predictedAnswers;
 	}
 	// public static void main (String[] args){
 	// CheckLUBMAnswer c = new CheckLUBMAnswer();
