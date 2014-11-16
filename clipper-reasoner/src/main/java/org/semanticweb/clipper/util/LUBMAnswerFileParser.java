@@ -18,7 +18,7 @@ public class LUBMAnswerFileParser {
 	}
 
 	public Set<List<String>> readAnswers(String answerFile) {
-		predictedAnswers = new HashSet<List<String>>();
+		predictedAnswers = new HashSet<>();
 
 
 		try {
@@ -37,23 +37,16 @@ public class LUBMAnswerFileParser {
 				// Read File Line By Line
 				while ((strLine = br.readLine()) != null) {
 					// Print the content on the console
-					List<String> answerTuple = new ArrayList<String>();
+					List<String> answerTuple = new ArrayList<>();
 					String[] answers = strLine.split("\\s+");
-					// System.out.println(answers.length);
 					for (String s : answers) {
 						//answerTuple.add("<" + s + ">");
-						// URI
-						if(s.startsWith("http://")){
-							s = "<" + s + ">";
-						}
-						answerTuple.add(s);
+						answerTuple.add("\""+s+"\"");
 					}
-					// System.out.println(answerTuple.size());
+
 					predictedAnswers.add(answerTuple);
-					// System.out.println(strLine);
 				}
 			}
-			// Close the input stream
 			in.close();
 
 		} catch (Exception e) {// Catch exception if any

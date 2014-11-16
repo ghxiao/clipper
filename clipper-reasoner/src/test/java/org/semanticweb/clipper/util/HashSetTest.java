@@ -4,6 +4,8 @@ import java.util.*;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class HashSetTest {
 
 	@Test
@@ -31,5 +33,19 @@ public class HashSetTest {
 		System.out.printf("Whole list:%n%s%n", nav);
 		System.out.printf("Key floor before Sunday: %s%n", nav.floorKey("Sunday"));
 	}
+
+	@Test
+	public void testEquals(){
+		Set<Set<String>> setOfSet1 = new HashSet<>();
+		setOfSet1.add(new HashSet<>(Arrays.asList("a", "b")));
+		setOfSet1.add(new HashSet<>(Arrays.asList("d", "c")));
+
+		Set<Set<String>> setOfSet2 = new HashSet<>();
+		setOfSet2.add(new HashSet<>(Arrays.asList("c", "d")));
+		setOfSet2.add(new HashSet<>(Arrays.asList("b", "a")));
+
+		assertEquals(setOfSet1, setOfSet2);
+	}
+
 
 }

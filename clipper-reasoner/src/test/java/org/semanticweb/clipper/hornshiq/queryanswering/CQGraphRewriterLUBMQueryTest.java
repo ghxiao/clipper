@@ -1,5 +1,6 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 import java.io.File;
@@ -357,26 +358,39 @@ public class CQGraphRewriterLUBMQueryTest {
 		qaHornSHIQ.execQuery();
 
 
-		System.out.println("reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime()
+		System.out.println("TBox reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime()
 				+ "  millisecond");
-		System.out.println("reasoning time: "
+		System.out.println("Query rewriting time: "
 				+ qaHornSHIQ.getClipperReport().getQueryRewritingTime() + "  millisecond");
-		Set<List<String>> actualAnswers = new HashSet<>();
+
 		List<List<String>> actualAnswersList = qaHornSHIQ.getDecodedAnswers();
-		for (List<String> listAnswer : actualAnswersList) {
-			//List<String> setAnswer = new HashSet<String>(listAnswer);
-			actualAnswers.add(listAnswer);
-		}
+
+		Set<List<String>> actualAnswers = new HashSet<>(actualAnswersList);
+
 		LUBMAnswerFileParser answerParser = new LUBMAnswerFileParser();
 
 		Set<List<String>> expectedAnswers = answerParser.readAnswers(answerFile);
 
+		int n = 0;
+
+		for(List<String> actual : actualAnswers) {
+			boolean b = expectedAnswers.contains(actual);
+
+			if(!b){
+				n++;
+				System.out.println("missing" + actual);
+			}
+
+		}
+
+		System.out.println("expected : " + expectedAnswers.size());
+		System.out.println("actual   : " + n);
+
+
 		assertEquals(expectedAnswers.size(), actualAnswers.size());
 
-		//List<String> expected = expectedAnswers.iterator().next();
-		//List<String> actual = actualAnswers.iterator().next();
+//		assertEquals(expectedAnswers, actualAnswers);
 
-		//assertEquals(expectedAnswers, actualAnswers);
 	}
 
 

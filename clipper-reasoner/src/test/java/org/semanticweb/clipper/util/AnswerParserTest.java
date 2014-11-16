@@ -14,6 +14,7 @@ import org.semanticweb.clipper.hornshiq.profile.HornALCHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQTransNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQProfile;
+import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
 import org.semanticweb.clipper.util.AnswerParser;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
@@ -62,7 +63,7 @@ public class AnswerParserTest {
 		String s="q1(d1,d2)";
 		List<String> answers = new ArrayList<String>();
 		answers.add(s);
-		AnswerParser parser= new AnswerParser();
+		AnswerParser parser= new AnswerParser(NamingStrategy.INT_ENCODING);
 		parser.setAnswers(answers);
 		parser.parse();
 		System.out.println(parser.getDecodedAnswers());

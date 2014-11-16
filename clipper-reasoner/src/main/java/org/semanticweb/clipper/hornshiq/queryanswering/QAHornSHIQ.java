@@ -70,22 +70,21 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	private ClipperHornSHIQOntology clipperOntology;
 
 	private CQFormatter cqFormatter;
+	private NamingStrategy namingStrategy;
 
 	public QAHornSHIQ() {
 		decodedAnswers = new ArrayList<>();
 		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);// default
 		this.ontologies = new ArrayList<OWLOntology>();
 
-		NamingStrategy namingStrategy = NamingStrategy.LOWER_CASE_FRAGMENT;
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);// default
+		setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);// default
 		cqFormatter = new CQFormatter(namingStrategy);
-
-
 
 		// ClipperManager.getInstance().reset();
 	}
 
 	public void setNamingStrategy(NamingStrategy namingStrategy) {
+		this.namingStrategy = namingStrategy;
 		ClipperManager.getInstance().setNamingStrategy(namingStrategy);
 	}
 
@@ -588,7 +587,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		}
 
 		long starOutputAnswer = System.currentTimeMillis();
-		AnswerParser answerParser = new AnswerParser();
+		AnswerParser answerParser = new AnswerParser(namingStrategy);
 
 		this.decodedAnswers.clear();
 		answerParser.setAnswers(this.answers);
@@ -755,7 +754,6 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	public void setCq(CQ cq) {
 		this.cq = cq;
 	}
-
 
 	public void setDlvPath(String dlvPath) {
 		this.dlvPath = dlvPath;

@@ -11,11 +11,14 @@ import org.semanticweb.owlapi.model.OWLProperty;
 import org.semanticweb.owlapi.model.OWLPropertyAssertionObject;
 import org.semanticweb.owlapi.model.OWLPropertyExpression;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 public class CQFormatter {
 
 	NamingStrategy namingStrategy;
 
 	public CQFormatter(NamingStrategy namingStrategy) {
+		checkNotNull(namingStrategy);
 		this.namingStrategy = namingStrategy;
 	}
 
