@@ -1,5 +1,6 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
+import com.google.common.collect.Lists;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
 import it.unical.mat.wrapper.DLVError;
@@ -11,23 +12,6 @@ import it.unical.mat.wrapper.DLVWrapper;
 import it.unical.mat.wrapper.FactHandler;
 import it.unical.mat.wrapper.FactResult;
 import it.unical.mat.wrapper.ModelBufferedHandler;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import lombok.Getter;
-import lombok.Setter;
-
 import org.semanticweb.clipper.QueryAnswersingSystem;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
@@ -46,15 +30,24 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.profiles.OWLProfileReport;
 
-import com.google.common.collect.Lists;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-@Getter
-@Setter
 public class QAHornSHIQ implements QueryAnswersingSystem {
 
 	private String datalogFileName;
 	private String ontologyName;
-	private String queryFileName;
+
 	private String queryString;
 	private String queryPrefix;
 	private String datalogEngine = "dlv";
@@ -705,4 +698,65 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	public void clearOntologies() {
 		this.ontologies = Lists.newArrayList();
 	}
+
+
+	public String getQueryString() {
+		return this.queryString;
+	}
+
+
+	public List<String> getAnswers() {
+		return this.answers;
+	}
+
+	public List<List<String>> getDecodedAnswers() {
+		return this.decodedAnswers;
+	}
+
+	public CQ getCq() {
+		return this.cq;
+	}
+
+	public ClipperReport getClipperReport() {
+		return this.clipperReport;
+	}
+
+	public Collection<CQ> getRewrittenQueries() {
+		return this.rewrittenQueries;
+	}
+
+	public String getDlvPath() {
+		return this.dlvPath;
+	}
+
+	public Collection<OWLOntology> getOntologies() {
+		return this.ontologies;
+	}
+
+	public void setDatalogFileName(String datalogFileName) {
+		this.datalogFileName = datalogFileName;
+	}
+
+	public void setOntologyName(String ontologyName) {
+		this.ontologyName = ontologyName;
+	}
+
+	public void setQueryString(String queryString) {
+		this.queryString = queryString;
+	}
+
+	public void setQueryRewriter(String queryRewriter) {
+		this.queryRewriter = queryRewriter;
+	}
+
+
+	public void setCq(CQ cq) {
+		this.cq = cq;
+	}
+
+
+	public void setDlvPath(String dlvPath) {
+		this.dlvPath = dlvPath;
+	}
+
 }
