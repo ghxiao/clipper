@@ -62,79 +62,39 @@ public class TBoxSaturationTest {
 	 * @throws RecognitionException
 	 */
 	@Test
-	public void testRoleInclusionWithInverse() throws RecognitionException {
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMENT);
-		qaHornSHIQ.setDatalogFileName("AllTestCases/testInverseRoleInclusion.dl");
-		qaHornSHIQ.setOntologyName("AllTestCases/testInverseRoleInclusion.owl");
+	public void testRoleInclusionWithInverse() throws RecognitionException, OWLOntologyCreationException {
+		String tempDatalogFile = "AllTestCases/testInverseRoleInclusion.dl";
+
+		String ontologyFile = "AllTestCases/testInverseRoleInclusion.owl";
+
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at.testRoleInclusion.owl#> \n"
 				+ "SELECT ?x1 \n"
 				+ "WHERE { \n"
 				+ "  ?x2    uri:R2 ?x1  . \n"
 				+ "} \n";
-		System.out.println(sparql);
 
-		CharStream stream = new ANTLRStringStream(sparql);
-		SparqlLexer lexer = new SparqlLexer(stream);
-		TokenStream tokenStream = new CommonTokenStream(lexer);
-		SparqlParser parser = new SparqlParser(tokenStream);
-		CQ cq = parser.query();
+		testQuery(ontologyFile, sparql, 1, tempDatalogFile);
 
-		String queryString = cq.toString();
-		System.out.println(queryString);
-		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCQ(cq);
-		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.execQuery();
-		// expect answer: a1
-		List<String> a = new ArrayList<String>();
-		a.add("q0(\"a\")");
-		assertEquals(a, qaHornSHIQ.getAnswers());
 	}
 
 	/**
 	 * Test case 3. Test Concept Inclusion
 	 * **/
 	@Test
-	public void testConceptInclusion() throws RecognitionException {
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMENT);
-		qaHornSHIQ.setDatalogFileName("AllTestCases/testConceptInclusion.dl");
-		qaHornSHIQ.setOntologyName("AllTestCases/testConceptInclusion.owl");
+	public void testConceptInclusion() throws RecognitionException, OWLOntologyCreationException {
+
+		String tempDatalogFile = "AllTestCases/testConceptInclusion.dl";
+
+		String ontologyFile = "AllTestCases/testConceptInclusion.owl";
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at.testConceptInclusion.owl#> \n"
 				+ "SELECT ?x1 \n"
 				+ "WHERE { \n"
 				+ "  ?x1    uri:R ?x2  . \n"
 				+ "  ?x2 a  uri:B2 . \n " + "} \n";
-		System.out.println(sparql);
 
-		CharStream stream = new ANTLRStringStream(sparql);
-		SparqlLexer lexer = new SparqlLexer(stream);
-		TokenStream tokenStream = new CommonTokenStream(lexer);
-		SparqlParser parser = new SparqlParser(tokenStream);
-		CQ cq = parser.query();
-
-		String queryString = cq.toString();
-		System.out.println(queryString);
-		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCQ(cq);
-		qaHornSHIQ.setDlvPath("lib/dlv");
-
-		qaHornSHIQ.execQuery();
-
-		for (List<String> answer : qaHornSHIQ.getDecodedAnswers()) {
-			System.out.println(answer);
-		}
-		// expect answer: a1
-		List<String> a = new ArrayList<String>();
-		a.add("q0(\"a1\")");
-		assertEquals(a, qaHornSHIQ.getAnswers());
+		testQuery(ontologyFile, sparql, 1, tempDatalogFile);
 	}
 
 	/**
@@ -142,43 +102,17 @@ public class TBoxSaturationTest {
 	 * Test Bottom rule
 	 * **/
 	@Test
-	public void testBottomRule() throws RecognitionException {
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMENT);
-		qaHornSHIQ.setDatalogFileName("AllTestCases/testBottomRule.dl");
-		qaHornSHIQ.setOntologyName("AllTestCases/testBottomRule.owl");
+	public void testBottomRule() throws RecognitionException, OWLOntologyCreationException {
+
+		String tempDatalogFile = "AllTestCases/testBottomRule.dl";
+
+		String ontologyFile = "AllTestCases/testBottomRule.owl";
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
 				+ "SELECT ?x1 \n" + "WHERE { \n"
 				+ "  ?x1  a  uri:Nothing  . \n" + "} \n";
 
-		System.out.println(sparql);
-
-		CharStream stream = new ANTLRStringStream(sparql);
-		SparqlLexer lexer = new SparqlLexer(stream);
-		TokenStream tokenStream = new CommonTokenStream(lexer);
-		SparqlParser parser = new SparqlParser(tokenStream);
-		CQ cq = parser.query();
-
-		String queryString = cq.toString();
-		System.out.println(queryString);
-
-		qaHornSHIQ.setCQ(cq);
-		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.execQuery();
-		// expect 1 answer for q(x) :- Nothing(x) because the ontology is
-		// inconsistent
-		for (List<String> answer : qaHornSHIQ.getDecodedAnswers()) {
-			System.out.println(answer);
-		}
-
-//		List<String> a = new ArrayList<String>();
-//		a.add("q0(\"a\")");
-//		assertEquals(a, qaHornSHIQ.getAnswers());
-		assertEquals(1, qaHornSHIQ.getAnswers().size());
-
+		testQuery(ontologyFile, sparql, 1, tempDatalogFile);
 	}
 
 	/**
@@ -229,75 +163,37 @@ public class TBoxSaturationTest {
 	 * 
 	 * **/
 	@Test
-	public void testForallRule1() throws RecognitionException {
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMENT);
-		qaHornSHIQ.setDatalogFileName("AllTestCases/testForallRule1.dl");
-		qaHornSHIQ.setOntologyName("AllTestCases/testForallRule1.owl");
+	public void testForallRule1() throws RecognitionException, OWLOntologyCreationException {
+
+		String tempDatalogFile = "AllTestCases/testForallRule1.dl";
+
+		String ontologyFile = "AllTestCases/testForallRule1.owl";
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
 				+ "SELECT ?x \n" + "WHERE { \n" + "  ?x  a  uri:A  . \n"
 				+ "  ?x  a  uri:M  . \n" + "  ?x    uri:R ?y . \n"
 				+ "  ?y  a  uri:N  . \n" + "  ?y  a  uri:B  . \n" +
-
 				"} \n";
 
-		System.out.println(sparql);
-
-		CharStream stream = new ANTLRStringStream(sparql);
-		SparqlLexer lexer = new SparqlLexer(stream);
-		TokenStream tokenStream = new CommonTokenStream(lexer);
-		SparqlParser parser = new SparqlParser(tokenStream);
-		CQ cq = parser.query();
-
-		String queryString = cq.toString();
-		System.out.println(queryString);
-		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCQ(cq);
-		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.execQuery();
-		// expect answer: a1
-		List<String> a = new ArrayList<String>();
-		a.add("q0(\"a\")");
-		assertEquals(a, qaHornSHIQ.getAnswers());
+		testQuery(ontologyFile, sparql, 1, tempDatalogFile);
 	}
 
 	/**
 	 * Test case 7 in the thesis
 	 * **/
 	@Test
-	public void testForallRule2() throws RecognitionException {
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMENT);
-		qaHornSHIQ.setDatalogFileName("AllTestCases/testForallRule2.dl");
-		qaHornSHIQ.setOntologyName("AllTestCases/testForallRule2.owl");
+	public void testForallRule2() throws RecognitionException, OWLOntologyCreationException {
+
+		String tempDatalogFile = "AllTestCases/testForallRule2.dl";
+
+		String ontologyFile = "AllTestCases/testForallRule2.owl";
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
 				+ "SELECT ?x \n" + "WHERE { \n" + "  ?x  a  uri:B ; \n"
 				+ "      a  uri:M . \n " + "} \n";
-		// expect no answer
-		System.out.println(sparql);
 
-		CharStream stream = new ANTLRStringStream(sparql);
-		SparqlLexer lexer = new SparqlLexer(stream);
-		TokenStream tokenStream = new CommonTokenStream(lexer);
-		SparqlParser parser = new SparqlParser(tokenStream);
-		CQ cq = parser.query();
+		testQuery(ontologyFile, sparql, 1, tempDatalogFile);
 
-		String queryString = cq.toString();
-		System.out.println(queryString);
-		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCQ(cq);
-		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.execQuery();
-		// expect answer: a1
-		List<String> a = new ArrayList<String>();
-		a.add("q0(\"a\")");
-		assertEquals(a, qaHornSHIQ.getAnswers());
 	}
 
 	/**
@@ -305,42 +201,22 @@ public class TBoxSaturationTest {
 	 * Test rule: \forall_3
 	 * **/
 	@Test
-	public void testForallRule3() throws RecognitionException {
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMENT);
-		qaHornSHIQ.setDatalogFileName("AllTestCases/testForallRule3.dl");
-		qaHornSHIQ.setOntologyName("AllTestCases/testForallRule3.owl");
+	public void testForallRule3() throws RecognitionException, OWLOntologyCreationException {
+		String tempDatalogFile = "AllTestCases/testForallRule3.dl";
+
+		String ontologyFile = "AllTestCases/testForallRule3.owl";
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
-				+ "SELECT ?x \n" 
-				+ "WHERE { \n" 
+				+ "SELECT ?x \n"
+				+ "WHERE { \n"
 				+ "  ?x  a  uri:A  ; \n"
-				+ "      a  uri:C  ; \n" 
+				+ "      a  uri:C  ; \n"
 				+ "         uri:R ?y . \n"
 				+ "  ?y  a  uri:B1  ; \n"
 				+ "      a  uri:B2  . \n"
 				+ "} \n";
-		// expect no answer
-		System.out.println(sparql);
 
-		CharStream stream = new ANTLRStringStream(sparql);
-		SparqlLexer lexer = new SparqlLexer(stream);
-		TokenStream tokenStream = new CommonTokenStream(lexer);
-		SparqlParser parser = new SparqlParser(tokenStream);
-		CQ cq = parser.query();
-
-		String queryString = cq.toString();
-		System.out.println(queryString);
-		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCQ(cq);
-		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.execQuery();
-		// expect answer: a
-		List<String> a = new ArrayList<String>();
-		a.add("q0(\"a\")");
-		assertEquals(a, qaHornSHIQ.getAnswers());
+		testQuery(ontologyFile, sparql, 1, tempDatalogFile);
 	}
 
 	/**
@@ -348,45 +224,21 @@ public class TBoxSaturationTest {
 	 * @throws RecognitionException
 	 */
 	@Test
-	public void testAtMostOne_MergeChildren() throws RecognitionException {
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMENT);
-		qaHornSHIQ
-				.setDatalogFileName("AllTestCases/testAtMostOne_MergeChildren.dl");
-		qaHornSHIQ
-				.setOntologyName("AllTestCases/testAtMostOne_MergeChildren.owl");
+	public void testAtMostOne_MergeChildren() throws RecognitionException, OWLOntologyCreationException {
+		String tempDatalogFile = "AllTestCases/testAtMostOne_MergeChildren.dl";
+
+		String ontologyFile = "AllTestCases/testAtMostOne_MergeChildren.owl";
 
 		String sparql = "PREFIX ub: <http://www.kr.tuwien.ac.at#> \n"
-				+ "SELECT ?x \n" 
-				+ "WHERE { \n" 
+				+ "SELECT ?x \n"
+				+ "WHERE { \n"
 				+ "  ?x    ub:R ?y . \n"
-				+ "  ?y  a ub:B  ;	" 
-				+ "    a ub:C1  ;	" 
+				+ "  ?y  a ub:B  ;	"
+				+ "    a ub:C1  ;	"
 				+ "    a ub:C2  .	"
 				+ "} \n";
-		System.out.println(sparql);
 
-		CharStream stream = new ANTLRStringStream(sparql);
-		SparqlLexer lexer = new SparqlLexer(stream);
-		TokenStream tokenStream = new CommonTokenStream(lexer);
-		SparqlParser parser = new SparqlParser(tokenStream);
-		CQ cq = parser.query();
-		DecodeUtility decodeUtility = new DecodeUtility(NamingStrategy.LOWER_CASE_FRAGMENT);
-		System.out.println("Decoded query : " + decodeUtility.decodeQuery(cq));
-
-		String queryString = cq.toString();
-		System.out.println(queryString);
-		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCQ(cq);
-		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.execQuery();
-		// assertEquals(qaHornSHIQ.getDecodedAnswers().size(), 0);
-		// expect answer: a
-		List<String> a = new ArrayList<String>();
-		a.add("q0(\"a\")");
-		assertEquals(a, qaHornSHIQ.getAnswers());
+		testQuery(ontologyFile, sparql, 1, tempDatalogFile);
 	}
 
 	/**
@@ -394,41 +246,19 @@ public class TBoxSaturationTest {
 	 * @throws RecognitionException
 	 */
 	@Test
-	public void testAtMostOne_ParentChildCollapse() throws RecognitionException {
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMENT);
-		qaHornSHIQ.setDatalogFileName("AllTestCases/atMostParentChildCollapse.dl");
-		qaHornSHIQ
-				.setOntologyName("AllTestCases/atMostParentChildCollapse.owl");
+	public void testAtMostOne_ParentChildCollapse() throws RecognitionException, OWLOntologyCreationException {
+
+		String tempDatalogFile = "AllTestCases/atMostParentChildCollapse.dl";
+
+		String ontologyFile = "AllTestCases/atMostParentChildCollapse.owl";
 
 		String sparql = "PREFIX ub: <http://www.kr.tuwien.ac.at/testcase02.owl#> \n"
 				+ "SELECT ?x \n"
 				+ "WHERE { \n"
 				+ "  ?x  a  ub:A  . \n"
 				+ "  ?x  a  ub:B  .	" + "} \n";
-		System.out.println(sparql);
 
-		CharStream stream = new ANTLRStringStream(sparql);
-		SparqlLexer lexer = new SparqlLexer(stream);
-		TokenStream tokenStream = new CommonTokenStream(lexer);
-		SparqlParser parser = new SparqlParser(tokenStream);
-		CQ cq = parser.query();
-		DecodeUtility decodeUtility = new DecodeUtility(NamingStrategy.LOWER_CASE_FRAGMENT);
-		System.out.println("Decoded query : " + decodeUtility.decodeQuery(cq));
-
-		String queryString = cq.toString();
-		System.out.println(queryString);
-		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCQ(cq);
-		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.execQuery();
-		// assertEquals(qaHornSHIQ.getDecodedAnswers().size(), 0);
-		// expect answer: a
-		List<String> a = new ArrayList<String>();
-		a.add("q0(\"a\")");
-		assertEquals(a, qaHornSHIQ.getAnswers());
+		testQuery(ontologyFile, sparql, 1, tempDatalogFile);
 	}
 	
 	/////////////////////////////////////////////////////////////////////

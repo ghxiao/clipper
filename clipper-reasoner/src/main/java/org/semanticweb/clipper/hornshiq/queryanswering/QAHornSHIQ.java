@@ -702,21 +702,12 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	}
 
 
-	public String getQueryString() {
-		return this.queryString;
-	}
-
-
 	public List<String> getAnswers() {
 		return this.answers;
 	}
 
 	public List<List<String>> getDecodedAnswers() {
 		return this.decodedAnswers;
-	}
-
-	public CQ getCq() {
-		return this.cq;
 	}
 
 	public ClipperReport getClipperReport() {
