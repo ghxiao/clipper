@@ -2,6 +2,7 @@ package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,13 +16,16 @@ import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 import org.semanticweb.clipper.util.DecodeUtility;
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 
 /**
  * @author kien
  * 
  */
-public class TestCase {
+public class TBoxSaturationTest {
 
 	// /////////////////////////////////////////////////////////
 	// Really test the whole system from here.
@@ -35,37 +39,21 @@ public class TestCase {
 	 * Test case 1
 	 */
 	@Test
-	public void testRoleInclusion() throws RecognitionException {
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMENT);
-		qaHornSHIQ.setDatalogFileName("AllTestCases/testRoleInclusion.dl");
-		qaHornSHIQ.setOntologyName("AllTestCases/testRoleInclusion.owl");
+	public void testRoleInclusion() throws RecognitionException, OWLOntologyCreationException {
 
+
+		String ontologyFile = "AllTestCases/testRoleInclusion.owl";
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at.testRoleInclusion.owl#> \n"
 				+ "SELECT ?x1 \n"
 				+ "WHERE { \n"
 				+ "  ?x1    uri:R2 ?x2  . \n"
 				+ "} \n";
-		System.out.println(sparql);
-
-		CharStream stream = new ANTLRStringStream(sparql);
-		SparqlLexer lexer = new SparqlLexer(stream);
-		TokenStream tokenStream = new CommonTokenStream(lexer);
-		SparqlParser parser = new SparqlParser(tokenStream);
-		CQ cq = parser.query();
-
-		String queryString = cq.toString();
-		System.out.println(queryString);
-		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
-		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.execQuery();
+		String tempDatalogFile = "AllTestCases/testRoleInclusion.dl";
+		testQuery(ontologyFile, sparql, 1, tempDatalogFile);
 		// expect answer: a1
-		List<String> a1 = new ArrayList<String>();
-		a1.add("q0(\"a\")");
-		assertEquals(a1, qaHornSHIQ.getAnswers());
+//		List<String> a1 = new ArrayList<String>();
+//		a1.add("q0(\"a\")");
+//		assertEquals(a1, qaHornSHIQ.getAnswers());
 	}
 
 	/**
@@ -98,7 +86,7 @@ public class TestCase {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		qaHornSHIQ.execQuery();
 		// expect answer: a1
@@ -135,7 +123,7 @@ public class TestCase {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 
 		qaHornSHIQ.execQuery();
@@ -177,7 +165,7 @@ public class TestCase {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		qaHornSHIQ.execQuery();
 		// expect 1 answer for q(x) :- Nothing(x) because the ontology is
@@ -185,9 +173,11 @@ public class TestCase {
 		for (List<String> answer : qaHornSHIQ.getDecodedAnswers()) {
 			System.out.println(answer);
 		}
-		List<String> a = new ArrayList<String>();
-		a.add("q0(\"a\")");
-		assertEquals(a, qaHornSHIQ.getAnswers());
+
+//		List<String> a = new ArrayList<String>();
+//		a.add("q0(\"a\")");
+//		assertEquals(a, qaHornSHIQ.getAnswers());
+		assertEquals(1, qaHornSHIQ.getAnswers().size());
 
 	}
 
@@ -220,7 +210,7 @@ public class TestCase {
 //		String queryString = cq.toString();
 //		System.out.println(queryString);
 //		// qaHornSHIQ.setQueryString(queryString);
-//		qaHornSHIQ.setCq(cq);
+//		qaHornSHIQ.setCQ(cq);
 //		qaHornSHIQ.setDlvPath("lib/dlv");
 //		qaHornSHIQ.runDatalogEngine();
 //		// expect 1 answer for q(x) :- Nothing(x) because the ontology is
@@ -265,7 +255,7 @@ public class TestCase {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		qaHornSHIQ.execQuery();
 		// expect answer: a1
@@ -301,7 +291,7 @@ public class TestCase {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		qaHornSHIQ.execQuery();
 		// expect answer: a1
@@ -344,7 +334,7 @@ public class TestCase {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		qaHornSHIQ.execQuery();
 		// expect answer: a
@@ -389,7 +379,7 @@ public class TestCase {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		qaHornSHIQ.execQuery();
 		// assertEquals(qaHornSHIQ.getDecodedAnswers().size(), 0);
@@ -431,7 +421,7 @@ public class TestCase {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		qaHornSHIQ.execQuery();
 		// assertEquals(qaHornSHIQ.getDecodedAnswers().size(), 0);
@@ -480,7 +470,7 @@ public class TestCase {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		qaHornSHIQ.generateDatalog();
 		//Expect the rewritten query: q0(X0) :- r3(X2,X3), a(X2), a2(X2), a1(X0), a4(X3), r1(X0,X2).
@@ -522,7 +512,7 @@ public class TestCase {
 			String queryString = cq.toString();
 			System.out.println(queryString);
 			// qaHornSHIQ.setQueryString(queryString);
-			qaHornSHIQ.setCq(cq);
+			qaHornSHIQ.setCQ(cq);
 			qaHornSHIQ.setDlvPath("lib/dlv");
 			qaHornSHIQ.generateDatalog();
 			//expected rewritten query: q0(X1) :- a1(X1), a(X1), a3(X1), a4(X1).
@@ -567,7 +557,7 @@ public class TestCase {
 			String queryString = cq.toString();
 			System.out.println(queryString);
 			// qaHornSHIQ.setQueryString(queryString);
-			qaHornSHIQ.setCq(cq);
+			qaHornSHIQ.setCQ(cq);
 			qaHornSHIQ.setDlvPath("lib/dlv");
 			qaHornSHIQ.generateDatalog();
 			//expect rewritten query: q0(X0) :- a("d"), a4("d"), r1(X0,"d"), a1(X0), r2(X0,"d"), a2("d").
@@ -610,11 +600,57 @@ public class TestCase {
 				String queryString = cq.toString();
 				System.out.println(queryString);
 				// qaHornSHIQ.setQueryString(queryString);
-				qaHornSHIQ.setCq(cq);
+				qaHornSHIQ.setCQ(cq);
 				qaHornSHIQ.setDlvPath("lib/dlv");
 				qaHornSHIQ.generateDatalog();
 				//expect rewritten query: No rewritten query.
 				assertEquals(1, qaHornSHIQ.getRewrittenQueries().size());
 			
 	}
+
+	private static void testQuery(String ontologyFile, String sparqlString, int expected, String tmpDatalogFile) throws OWLOntologyCreationException, RecognitionException {
+		System.setProperty("entityExpansionLimit", "512000");
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
+		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
+		//qaHornSHIQ.setQueryRewriter("new");
+		ClipperManager.getInstance().setVerboseLevel(1);
+
+		qaHornSHIQ.setDatalogFileName(tmpDatalogFile);
+
+		qaHornSHIQ.setOntologyName(ontologyFile);
+		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
+				new File(ontologyFile));
+		qaHornSHIQ.addOntology(ontology);
+
+
+		System.out.println(sparqlString);
+
+		CharStream stream = new ANTLRStringStream(sparqlString);
+		SparqlLexer lexer = new SparqlLexer(stream);
+		TokenStream tokenStream = new CommonTokenStream(lexer);
+		SparqlParser parser = new SparqlParser(tokenStream);
+		CQ cq = parser.query();
+
+		String queryString = cq.toString();
+		System.out.println(queryString);
+		qaHornSHIQ.setCQ(cq);
+		qaHornSHIQ.execQuery();
+
+
+		System.out.println("TBox reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime()
+				+ "  millisecond");
+		System.out.println("Query rewriting time: "
+				+ qaHornSHIQ.getClipperReport().getQueryRewritingTime() + "  millisecond");
+
+		List<String> actualAnswers = qaHornSHIQ.getAnswers();
+
+
+		assertEquals(expected, actualAnswers.size());
+
+
+
+	}
+
 }

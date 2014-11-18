@@ -312,7 +312,7 @@ public class CQGraphRewriterLUBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		qaHornSHIQ.generateABoxDatalog();
 	//	qaHornSHIQ.getAnswers();
@@ -334,6 +334,7 @@ public class CQGraphRewriterLUBMQueryTest {
 		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
 		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setQueryRewriter("new");
 		ClipperManager.getInstance().setVerboseLevel(1);
 
 		qaHornSHIQ.setDatalogFileName(tmpDatalogFile);
@@ -354,7 +355,7 @@ public class CQGraphRewriterLUBMQueryTest {
 
 		String queryString = cq.toString();
 		System.out.println(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.execQuery();
 
 
@@ -371,25 +372,25 @@ public class CQGraphRewriterLUBMQueryTest {
 
 		Set<List<String>> expectedAnswers = answerParser.readAnswers(answerFile);
 
-		int n = 0;
+//		int n = 0;
 
-		for(List<String> actual : actualAnswers) {
-			boolean b = expectedAnswers.contains(actual);
+//		for(List<String> actual : actualAnswers) {
+//			boolean b = expectedAnswers.contains(actual);
+//
+//			if(!b){
+//				n++;
+//				System.out.println("missing" + actual);
+//			}
+//
+//		}
 
-			if(!b){
-				n++;
-				System.out.println("missing" + actual);
-			}
-
-		}
-
-		System.out.println("expected : " + expectedAnswers.size());
-		System.out.println("actual   : " + n);
+//		System.out.println("expected : " + expectedAnswers.size());
+//		System.out.println("actual   : " + n);
 
 
 		assertEquals(expectedAnswers.size(), actualAnswers.size());
 
-//		assertEquals(expectedAnswers, actualAnswers);
+		assertEquals(expectedAnswers, actualAnswers);
 
 	}
 

@@ -751,7 +751,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		this.queryRewriter = queryRewriter;
 	}
 
-	public void setCq(CQ cq) {
+	public void setCQ(CQ cq) {
 		this.cq = cq;
 	}
 

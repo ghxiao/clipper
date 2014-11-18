@@ -66,7 +66,7 @@ class CommandRewrite extends ReasoningCommandBase {
 
 			CQ cq = parseCQ(ontologies);
 
-			qaHornSHIQ.setCq(cq);
+			qaHornSHIQ.setCQ(cq);
 		}
 		// TODO: only consider related rules
 

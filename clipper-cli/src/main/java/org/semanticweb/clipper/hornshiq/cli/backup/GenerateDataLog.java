@@ -44,15 +44,15 @@ public class GenerateDataLog {
 		qaHornSHIQ.setOntologyName(ontologyFile);
 		if (purpose.equals("-a")){
 		qaHornSHIQ.setDatalogFileName("ABox."+ontologyFile + ".dl");
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.generateABoxDatalog();
 		} else if (purpose.equals("-t")){
 			qaHornSHIQ.setDatalogFileName(sparqlFile + "QueryAndRules-" + ontologyFile + "-" + ".dl");
-			qaHornSHIQ.setCq(cq);
+			qaHornSHIQ.setCQ(cq);
 			qaHornSHIQ.generateQueriesAndCompletionRulesDatalog();
 		} else if (purpose.equals("-p")){
 			qaHornSHIQ.setDatalogFileName(sparqlFile + "Program-" + ontologyFile + "-" + ".dl");
-			qaHornSHIQ.setCq(cq);
+			qaHornSHIQ.setCQ(cq);
 
 			qaHornSHIQ.generateDatalog();
 		}

@@ -42,7 +42,7 @@ public class LUBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getAboxDataLog();
 		// qaHornSHIQ.getDataLog();
@@ -106,7 +106,7 @@ public class LUBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setQueryRewriter(rewriter);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
@@ -155,7 +155,7 @@ public class LUBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setQueryRewriter(rewriter);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
@@ -205,7 +205,7 @@ public class LUBMQueryTest {
 	// String queryString = cq.toString();
 	// System.out.println(queryString);
 	// // qaHornSHIQ.setQueryString(queryString);
-	// qaHornSHIQ.setCq(cq);
+	// qaHornSHIQ.setCQ(cq);
 	// qaHornSHIQ.setDlvPath("lib/dlv");
 	// // qaHornSHIQ.getModel();
 	// qaHornSHIQ.getAnswers();
@@ -251,7 +251,7 @@ public class LUBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.execQuery();
@@ -294,7 +294,7 @@ public class LUBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.execQuery();
@@ -337,7 +337,7 @@ public class LUBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.execQuery();
@@ -381,7 +381,7 @@ public class LUBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.execQuery();
@@ -424,7 +424,7 @@ public class LUBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.execQuery();
@@ -471,7 +471,7 @@ public class LUBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.execQuery();
@@ -514,7 +514,7 @@ public class LUBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.execQuery();
@@ -556,7 +556,7 @@ public class LUBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.execQuery();
@@ -597,7 +597,7 @@ public class LUBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.execQuery();
@@ -638,7 +638,7 @@ public class LUBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		// qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.execQuery();
@@ -682,7 +682,7 @@ public class LUBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		qaHornSHIQ.generateABoxDatalog();
 		// qaHornSHIQ.getAnswers();

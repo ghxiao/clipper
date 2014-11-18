@@ -40,7 +40,7 @@ public class RequiemTestSuiteVicodi {
 		
 		
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.generateDatalog();
@@ -79,7 +79,7 @@ public class RequiemTestSuiteVicodi {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		
 		// qaHornSHIQ.getModel();
@@ -119,7 +119,7 @@ public class RequiemTestSuiteVicodi {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		
 		// qaHornSHIQ.getModel();
@@ -156,7 +156,7 @@ public class RequiemTestSuiteVicodi {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		
 		// qaHornSHIQ.getModel();
@@ -196,7 +196,7 @@ public class RequiemTestSuiteVicodi {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		
 		// qaHornSHIQ.getModel();
@@ -233,7 +233,7 @@ public class RequiemTestSuiteVicodi {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		
 		// qaHornSHIQ.getModel();

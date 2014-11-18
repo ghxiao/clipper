@@ -41,7 +41,7 @@ public class KaosOutputQueryNormtimeRewriteTime {
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setOntologyName(ontologyFile);
 		qaHornSHIQ.setDatalogFileName(sparqlFile + "-" + ontologyFile + ".ReducedTBoxdl");
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		if (dlvPath != null) {
 			qaHornSHIQ.setDlvPath(dlvPath);
 		}

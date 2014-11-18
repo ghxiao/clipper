@@ -41,7 +41,7 @@ public class UOBMQueryTest {
 //		String queryString = cq.toString();
 //		System.out.println(queryString);
 //		// qaHornSHIQ.setQueryString(queryString);
-//		qaHornSHIQ.setCq(cq);
+//		qaHornSHIQ.setCQ(cq);
 //		qaHornSHIQ.setDlvPath("lib/dlv");
 //		// qaHornSHIQ.getModel();
 //		qaHornSHIQ.getAnswers();
@@ -86,7 +86,7 @@ public class UOBMQueryTest {
 //		String queryString = cq.toString();
 //		System.out.println(queryString);
 //		// qaHornSHIQ.setQueryString(queryString);
-//		qaHornSHIQ.setCq(cq);
+//		qaHornSHIQ.setCQ(cq);
 //		qaHornSHIQ.setDlvPath("lib/dlv");
 //		// qaHornSHIQ.getModel();
 //		qaHornSHIQ.getAnswers();
@@ -131,7 +131,7 @@ public class UOBMQueryTest {
 //		String queryString = cq.toString();
 //		System.out.println(queryString);
 //		// qaHornSHIQ.setQueryString(queryString);
-//		qaHornSHIQ.setCq(cq);
+//		qaHornSHIQ.setCQ(cq);
 //		qaHornSHIQ.setDlvPath("lib/dlv");
 //		// qaHornSHIQ.getModel();
 //		qaHornSHIQ.getAnswers();
@@ -176,7 +176,7 @@ public class UOBMQueryTest {
 //		String queryString = cq.toString();
 //		System.out.println(queryString);
 //		// qaHornSHIQ.setQueryString(queryString);
-//		qaHornSHIQ.setCq(cq);
+//		qaHornSHIQ.setCQ(cq);
 //		qaHornSHIQ.setDlvPath("lib/dlv");
 //		// qaHornSHIQ.getModel();
 //		qaHornSHIQ.getAnswers();
@@ -220,7 +220,7 @@ public class UOBMQueryTest {
 //		String queryString = cq.toString();
 //		System.out.println(queryString);
 //		// qaHornSHIQ.setQueryString(queryString);
-//		qaHornSHIQ.setCq(cq);
+//		qaHornSHIQ.setCQ(cq);
 //		qaHornSHIQ.setDlvPath("lib/dlv");
 //		// qaHornSHIQ.getModel();
 //		qaHornSHIQ.getAnswers();
@@ -265,7 +265,7 @@ public class UOBMQueryTest {
 //		String queryString = cq.toString();
 //		System.out.println(queryString);
 //		// qaHornSHIQ.setQueryString(queryString);
-//		qaHornSHIQ.setCq(cq);
+//		qaHornSHIQ.setCQ(cq);
 //		qaHornSHIQ.setDlvPath("lib/dlv");
 //		// qaHornSHIQ.getModel();
 //		qaHornSHIQ.getAnswers();
@@ -308,7 +308,7 @@ public class UOBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setCQ(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.execQuery();
