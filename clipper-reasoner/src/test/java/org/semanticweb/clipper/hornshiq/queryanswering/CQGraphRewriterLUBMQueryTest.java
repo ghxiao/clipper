@@ -312,7 +312,7 @@ public class CQGraphRewriterLUBMQueryTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCQ(cq);
+		qaHornSHIQ.setQuery(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		qaHornSHIQ.generateABoxDatalog();
 	//	qaHornSHIQ.getAnswers();
@@ -355,7 +355,7 @@ public class CQGraphRewriterLUBMQueryTest {
 
 		String queryString = cq.toString();
 		System.out.println(queryString);
-		qaHornSHIQ.setCQ(cq);
+		qaHornSHIQ.setQuery(cq);
 		qaHornSHIQ.execQuery();
 
 

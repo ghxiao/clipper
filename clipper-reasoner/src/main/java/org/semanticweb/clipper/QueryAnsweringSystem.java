@@ -6,9 +6,8 @@ import java.util.List;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.owlapi.model.OWLOntology;
 
-public interface QueryAnswersingSystem {
+public interface QueryAnsweringSystem {
 
-	void setOntologies(Collection<OWLOntology> ontologies);
 
 	void addOntology(OWLOntology ontology);
 

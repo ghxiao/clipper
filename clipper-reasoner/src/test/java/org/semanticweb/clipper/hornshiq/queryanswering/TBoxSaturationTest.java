@@ -3,7 +3,6 @@ package org.semanticweb.clipper.hornshiq.queryanswering;
 import static org.junit.Assert.*;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.antlr.runtime.ANTLRStringStream;
@@ -15,7 +14,6 @@ import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
-import org.semanticweb.clipper.util.DecodeUtility;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
@@ -144,7 +142,7 @@ public class TBoxSaturationTest {
 //		String queryString = cq.toString();
 //		System.out.println(queryString);
 //		// qaHornSHIQ.setQueryString(queryString);
-//		qaHornSHIQ.setCQ(cq);
+//		qaHornSHIQ.setQuery(cq);
 //		qaHornSHIQ.setDlvPath("lib/dlv");
 //		qaHornSHIQ.runDatalogEngine();
 //		// expect 1 answer for q(x) :- Nothing(x) because the ontology is
@@ -300,7 +298,7 @@ public class TBoxSaturationTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCQ(cq);
+		qaHornSHIQ.setQuery(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		qaHornSHIQ.generateDatalog();
 		//Expect the rewritten query: q0(X0) :- r3(X2,X3), a(X2), a2(X2), a1(X0), a4(X3), r1(X0,X2).
@@ -342,7 +340,7 @@ public class TBoxSaturationTest {
 			String queryString = cq.toString();
 			System.out.println(queryString);
 			// qaHornSHIQ.setQueryString(queryString);
-			qaHornSHIQ.setCQ(cq);
+			qaHornSHIQ.setQuery(cq);
 			qaHornSHIQ.setDlvPath("lib/dlv");
 			qaHornSHIQ.generateDatalog();
 			//expected rewritten query: q0(X1) :- a1(X1), a(X1), a3(X1), a4(X1).
@@ -387,7 +385,7 @@ public class TBoxSaturationTest {
 			String queryString = cq.toString();
 			System.out.println(queryString);
 			// qaHornSHIQ.setQueryString(queryString);
-			qaHornSHIQ.setCQ(cq);
+			qaHornSHIQ.setQuery(cq);
 			qaHornSHIQ.setDlvPath("lib/dlv");
 			qaHornSHIQ.generateDatalog();
 			//expect rewritten query: q0(X0) :- a("d"), a4("d"), r1(X0,"d"), a1(X0), r2(X0,"d"), a2("d").
@@ -430,7 +428,7 @@ public class TBoxSaturationTest {
 				String queryString = cq.toString();
 				System.out.println(queryString);
 				// qaHornSHIQ.setQueryString(queryString);
-				qaHornSHIQ.setCQ(cq);
+				qaHornSHIQ.setQuery(cq);
 				qaHornSHIQ.setDlvPath("lib/dlv");
 				qaHornSHIQ.generateDatalog();
 				//expect rewritten query: No rewritten query.
@@ -465,7 +463,7 @@ public class TBoxSaturationTest {
 
 		String queryString = cq.toString();
 		System.out.println(queryString);
-		qaHornSHIQ.setCQ(cq);
+		qaHornSHIQ.setQuery(cq);
 		qaHornSHIQ.execQuery();
 
 

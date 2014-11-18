@@ -37,7 +37,7 @@ public class RequiemTestSuiteStockExchange {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCQ(cq);
+		qaHornSHIQ.setQuery(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.execQuery();
@@ -70,7 +70,7 @@ public class RequiemTestSuiteStockExchange {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCQ(cq);
+		qaHornSHIQ.setQuery(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.execQuery();
@@ -105,7 +105,7 @@ public class RequiemTestSuiteStockExchange {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCQ(cq);
+		qaHornSHIQ.setQuery(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.execQuery();
@@ -139,7 +139,7 @@ public class RequiemTestSuiteStockExchange {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCQ(cq);
+		qaHornSHIQ.setQuery(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.execQuery();
@@ -175,7 +175,7 @@ public class RequiemTestSuiteStockExchange {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCQ(cq);
+		qaHornSHIQ.setQuery(cq);
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.generateDatalog();

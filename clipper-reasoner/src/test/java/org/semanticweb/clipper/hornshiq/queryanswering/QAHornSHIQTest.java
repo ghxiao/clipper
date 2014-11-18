@@ -53,7 +53,7 @@ public class QAHornSHIQTest {
 		String queryString = cq.toString();
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setCQ(cq);
+		qaHornSHIQ.setQuery(cq);
 
 		qaHornSHIQ.execQuery();
 		// expect answer: a1

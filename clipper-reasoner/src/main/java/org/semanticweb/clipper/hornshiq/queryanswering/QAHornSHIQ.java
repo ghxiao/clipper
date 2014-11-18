@@ -12,7 +12,7 @@ import it.unical.mat.wrapper.DLVWrapper;
 import it.unical.mat.wrapper.FactHandler;
 import it.unical.mat.wrapper.FactResult;
 import it.unical.mat.wrapper.ModelBufferedHandler;
-import org.semanticweb.clipper.QueryAnswersingSystem;
+import org.semanticweb.clipper.QueryAnsweringSystem;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntologyConverter;
@@ -43,7 +43,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class QAHornSHIQ implements QueryAnswersingSystem {
+public class QAHornSHIQ implements QueryAnsweringSystem {
 
 	private String datalogFileName;
 	private String ontologyName;
@@ -101,11 +101,11 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		try {
 			preprocessOntologies();
 
-			TBoxSaturation tb = saturateTbox();
+			TBoxSaturation tb = saturateTBox();
 
 			reduceOntologyToDatalog(tb);
 
-			queryRewriting(tb);
+			rewriteQuery(tb);
 
 			reduceRewrittenQueriesToDatalog(tb);
 
@@ -123,7 +123,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 		preprocessOntologies();
 
-		TBoxSaturation tb = saturateTbox();
+		TBoxSaturation tb = saturateTBox();
 
 		reduceOntologyToDatalog(tb);
 
@@ -175,7 +175,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	/**
 	 * @param tb
 	 */
-	private void queryRewriting(TBoxSaturation tb) {
+	private void rewriteQuery(TBoxSaturation tb) {
 		QueryRewriter qr = createQueryRewriter(clipperOntology, tb);
 
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
@@ -239,7 +239,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	/**
 	 * @return
 	 */
-	public TBoxSaturation saturateTbox() {
+	public TBoxSaturation saturateTBox() {
 		TBoxSaturation tb = new TBoxSaturation(clipperOntology);
 		// ///////////////////////////////////////////////
 		// Evaluate reasoning time
@@ -305,11 +305,11 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 			preprocessOntologies();
 
-			TBoxSaturation tb = saturateTbox();
+			TBoxSaturation tb = saturateTBox();
 
 			reduceTBoxToDatalog(tb);
 
-			queryRewriting(tb);
+			rewriteQuery(tb);
 
 			reduceRewrittenQueriesToDatalog(tb);
 		} catch (IOException e) {
@@ -326,7 +326,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 		preprocessOntologies();
 
-		TBoxSaturation tb = saturateTbox();
+		TBoxSaturation tb = saturateTBox();
 
 		reduceTBoxToDatalog(tb);
 
@@ -500,11 +500,11 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 		preprocessOntologies();
 
-		TBoxSaturation tb = saturateTbox();
+		TBoxSaturation tb = saturateTBox();
 
 		reduceOntologyToDatalog(tb);
 
-		// queryRewriting(tb);
+		// rewriteQuery(tb);
 
 		reduceABoxToDatalog(tb);
 
@@ -662,15 +662,6 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		this.ontologies.add(ontology);
 	}
 
-	@Override
-	public void setOntologies(Collection<OWLOntology> ontologies) {
-		this.ontologies = ontologies;
-	}
-
-	@Override
-	public void setQuery(CQ cq) {
-		this.cq = cq;
-	}
 
 	public void preprocessOntologies() {
 		long startNormalizationTime = System.currentTimeMillis();
@@ -718,9 +709,6 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		return this.rewrittenQueries;
 	}
 
-	public String getDlvPath() {
-		return this.dlvPath;
-	}
 
 	public Collection<OWLOntology> getOntologies() {
 		return this.ontologies;
@@ -742,7 +730,8 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		this.queryRewriter = queryRewriter;
 	}
 
-	public void setCQ(CQ cq) {
+	@Override
+	public void setQuery(CQ cq) {
 		this.cq = cq;
 	}
 
@@ -750,4 +739,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		this.dlvPath = dlvPath;
 	}
 
+	public void setOntologies(Set<OWLOntology> ontologies) {
+		this.ontologies = ontologies;
+	}
 }

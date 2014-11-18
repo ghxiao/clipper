@@ -42,7 +42,7 @@ public class GenerateQueriesAndRulesDLProgram {
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setOntologyName(ontologyFile);
 		qaHornSHIQ.setDatalogFileName(sparqlFile +"-"+ontologyFile + ".dlTBox");
-		qaHornSHIQ.setCQ(cq);
+		qaHornSHIQ.setQuery(cq);
 		if (dlvPath != null) {
 			qaHornSHIQ.setDlvPath(dlvPath);
 		}
