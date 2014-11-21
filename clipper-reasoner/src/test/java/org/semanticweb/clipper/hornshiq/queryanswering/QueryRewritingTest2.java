@@ -8,11 +8,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.antlr.runtime.ANTLRStringStream;
-import org.antlr.runtime.CharStream;
-import org.antlr.runtime.CommonTokenStream;
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.TokenStream;
 import org.junit.Before;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
@@ -24,8 +19,6 @@ import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
 import org.semanticweb.clipper.hornshiq.rule.NonDLPredicate;
 import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
-import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
-import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 
 /**
  * 
@@ -195,7 +188,7 @@ public class QueryRewritingTest2 {
 		enfs.add(s34_r2_s3);
 		System.out.println("Enfs :" + enfs);
 		List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<ClipperInversePropertyOfAxiom>();
-		QueryRewriting qr = new QueryRewriting(enfs, inversePropertyOfAxioms);
+		HSHIQQueryRewriter qr = new HSHIQQueryRewriter(enfs, inversePropertyOfAxioms);
 		System.out.println("Rewriting queries:");
 		qr.rewrite(cq);
 		Set<CQ> ucq = qr.getUcq();
@@ -287,7 +280,7 @@ public class QueryRewritingTest2 {
 		enfs.add(s34_r2_s3);
 		System.out.println("Enfs :" + enfs);
 		List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<ClipperInversePropertyOfAxiom>();
-		QueryRewriting qr = new QueryRewriting(enfs, inversePropertyOfAxioms);
+		HSHIQQueryRewriter qr = new HSHIQQueryRewriter(enfs, inversePropertyOfAxioms);
 		System.out.println("Rewriting queries:");
 		qr.rewrite(cq);
 		for (CQ query : qr.getUcq())
@@ -367,7 +360,7 @@ public class QueryRewritingTest2 {
 		System.out.println("Enfs :" + enfs);
 		System.out.println("Enfs :" + inversePropertyOfAxioms);
 
-		QueryRewriting qr = new QueryRewriting(enfs, inversePropertyOfAxioms);
+		HSHIQQueryRewriter qr = new HSHIQQueryRewriter(enfs, inversePropertyOfAxioms);
 		System.out.println("Rewriting queries:");
 		qr.rewrite(cq);
 		for (CQ query : qr.getUcq())
@@ -458,7 +451,7 @@ public class QueryRewritingTest2 {
 		System.out.println("Enfs :" + enfs);
 		System.out.println("Enfs :" + inversePropertyOfAxioms);
 
-		QueryRewriting qr = new QueryRewriting(enfs, inversePropertyOfAxioms);
+		HSHIQQueryRewriter qr = new HSHIQQueryRewriter(enfs, inversePropertyOfAxioms);
 		System.out.println("Rewriting queries:");
 		qr.rewrite(cq);
 		Set<CQ> ucq = qr.getUcq();
@@ -517,7 +510,7 @@ public class QueryRewritingTest2 {
 		System.out.println("Enfs :" + enfs);
 		System.out.println("Invs :" + inversePropertyOfAxioms);
 
-		QueryRewriting qr = new QueryRewriting(enfs, inversePropertyOfAxioms);
+		HSHIQQueryRewriter qr = new HSHIQQueryRewriter(enfs, inversePropertyOfAxioms);
 		System.out.println("Rewriting queries:");
 		qr.rewrite(cq);
 		Set<CQ> ucq = qr.getUcq();
@@ -581,7 +574,7 @@ public class QueryRewritingTest2 {
 		System.out.println("Enfs :" + enfs);
 		System.out.println("Enfs :" + inversePropertyOfAxioms);
 
-		QueryRewriting qr = new QueryRewriting(enfs, inversePropertyOfAxioms);
+		HSHIQQueryRewriter qr = new HSHIQQueryRewriter(enfs, inversePropertyOfAxioms);
 		System.out.println("Rewriting queries:");
 		qr.rewrite(cq);
 		Set<CQ> ucq = qr.getUcq();
@@ -635,7 +628,7 @@ public class QueryRewritingTest2 {
 		System.out.println("Enfs :" + enfs);
 		System.out.println("Enfs :" + inversePropertyOfAxioms);
 
-		QueryRewriting qr = new QueryRewriting(enfs, inversePropertyOfAxioms);
+		HSHIQQueryRewriter qr = new HSHIQQueryRewriter(enfs, inversePropertyOfAxioms);
 		System.out.println("Rewriting queries:");
 		qr.rewrite(cq);
 		Set<CQ> ucq = qr.getUcq();

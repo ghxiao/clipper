@@ -13,7 +13,7 @@ import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
 
 @Getter
-public class QueryRewriting implements QueryRewriter {
+public class HSHIQQueryRewriter implements QueryRewriter {
 
 	private IndexedEnfContainer enfContainer;
 	private List<ClipperAtomSubAllAxiom> allValuesFromAxioms;
@@ -21,15 +21,15 @@ public class QueryRewriting implements QueryRewriter {
 
 	private Set<CQ> ucq;
 
-	public QueryRewriting(IndexedEnfContainer indexEnfs, List<ClipperInversePropertyOfAxiom> inversePropertyAxioms,
-			List<ClipperAtomSubAllAxiom> allValuesFromAxs) {
+	public HSHIQQueryRewriter(IndexedEnfContainer indexEnfs, List<ClipperInversePropertyOfAxiom> inversePropertyAxioms,
+							  List<ClipperAtomSubAllAxiom> allValuesFromAxs) {
 		this.enfContainer = indexEnfs;
 		this.inversePropertyOfAxioms = inversePropertyAxioms;
 		this.allValuesFromAxioms = allValuesFromAxs;
 		ucq = new HashSet<CQ>();
 	}
 
-	public QueryRewriting(Set<EnforcedRelation> enfs, List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms) {
+	public HSHIQQueryRewriter(Set<EnforcedRelation> enfs, List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms) {
 		this.enfContainer = new IndexedEnfContainer();
 		this.enfContainer.addAll(enfs);
 		this.inversePropertyOfAxioms = inversePropertyOfAxioms;

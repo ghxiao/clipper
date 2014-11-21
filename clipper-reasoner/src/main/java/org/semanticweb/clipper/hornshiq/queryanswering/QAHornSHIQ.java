@@ -259,7 +259,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 	private QueryRewriter createQueryRewriter(ClipperHornSHIQOntology onto_bs, TBoxReasoner tb) {
 		QueryRewriter qr;
 		if (queryRewriter.equals("old")) {
-			qr = new QueryRewriting(tb.getEnfContainer(), tb.getInverseRoleAxioms(), tb.getAllValuesFromAxioms());
+			qr = new HSHIQQueryRewriter(tb.getEnfContainer(), tb.getInverseRoleAxioms(), tb.getAllValuesFromAxioms());
 		} else {
 			qr = new CQGraphRewriter(onto_bs, tb.getEnfContainer());
 		}
@@ -392,7 +392,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 				// reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 				// reduction.getCompletionRulesDatalogProgram(this.dataLogName);
 
-				QueryRewriting qr = new QueryRewriting(tb.getEnfContainer(), tb.getInverseRoleAxioms(),
+				HSHIQQueryRewriter qr = new HSHIQQueryRewriter(tb.getEnfContainer(), tb.getInverseRoleAxioms(),
 						tb.getAllValuesFromAxioms());
 				// QueryRewriting qr = new QueryRewriting(tb.getEnfContainer(),
 				// tb.getInverseRoleAxioms(), tb.getAllValuesFromAxioms());
