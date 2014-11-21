@@ -268,13 +268,10 @@ public class TBoxSaturationTest {
 	 * @throws RecognitionException
 	 */
 	@Test
-	public void testBasicRewriting() throws RecognitionException {
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		ClipperManager.getInstance().setVerboseLevel(2);
-		ClipperManager.getInstance().setNamingStrategy(
-				NamingStrategy.LOWER_CASE_FRAGMENT);
-		qaHornSHIQ.setDatalogFileName("AllTestCases/simpleRewriting.dl");
-		qaHornSHIQ.setOntologyName("AllTestCases/simpleRewriting.owl");
+	public void testBasicRewriting() throws RecognitionException, OWLOntologyCreationException {
+		String tempDatalogFile = "AllTestCases/simpleRewriting.dl";
+
+		String ontologyFile = "AllTestCases/simpleRewriting.owl";
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
 				+ "SELECT ?x1 \n"
@@ -287,153 +284,93 @@ public class TBoxSaturationTest {
 				+ "  ?x3   a uri:A3  . \n"
 				+ "  ?x4   a uri:A4  . \n"
 				+ "} \n";
+
 		System.out.println(sparql);
 
-		CharStream stream = new ANTLRStringStream(sparql);
-		SparqlLexer lexer = new SparqlLexer(stream);
-		TokenStream tokenStream = new CommonTokenStream(lexer);
-		SparqlParser parser = new SparqlParser(tokenStream);
-		CQ cq = parser.query();
-
-		String queryString = cq.toString();
-		System.out.println(queryString);
-		// qaHornSHIQ.setQueryString(queryString);
-		qaHornSHIQ.setQuery(cq);
-		qaHornSHIQ.setDlvPath("lib/dlv");
-		qaHornSHIQ.generateDatalog();
-		//Expect the rewritten query: q0(X0) :- r3(X2,X3), a(X2), a2(X2), a1(X0), a4(X3), r1(X0,X2).
-		assertEquals(2, qaHornSHIQ.getRewrittenQueries().size());
-
+		testRewriter(ontologyFile, sparql, 2, tempDatalogFile);
 	}
-		/**
-		 * Test case 2
-		 * @throws RecognitionException
-		 */
-		@Test
-		public void testQueryRewriting2() throws RecognitionException {
-			QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-			ClipperManager.getInstance().setVerboseLevel(2);
-			ClipperManager.getInstance().setNamingStrategy(
-					NamingStrategy.LOWER_CASE_FRAGMENT);
-			qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting2.dl");
-			qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting2.owl");
 
-			String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
-					+ "SELECT ?x1 \n"
-					+ "WHERE { \n"
-					+ "  ?x1   a uri:A1  ; \n"
-					+ "          uri:R1 ?x2 . \n"
-					+ "  ?x2   a uri:A2  ; \n"
-					+ "          uri:R2 ?x3 ; \n"
-					+ "          uri:R3 ?x4 . \n"
-					+ "  ?x3   a uri:A3  . \n"
-					+ "  ?x4   a uri:A4  . \n"
-					+ "} \n";
-			System.out.println(sparql);
+	/**
+	 * Test case 2
+	 * @throws RecognitionException
+	 */
+	@Test
+	public void testQueryRewriting2() throws RecognitionException, OWLOntologyCreationException {
 
-			CharStream stream = new ANTLRStringStream(sparql);
-			SparqlLexer lexer = new SparqlLexer(stream);
-			TokenStream tokenStream = new CommonTokenStream(lexer);
-			SparqlParser parser = new SparqlParser(tokenStream);
-			CQ cq = parser.query();
+		String tempDatalogFile = "AllTestCases/testQueryRewriting2.dl";
 
-			String queryString = cq.toString();
-			System.out.println(queryString);
-			// qaHornSHIQ.setQueryString(queryString);
-			qaHornSHIQ.setQuery(cq);
-			qaHornSHIQ.setDlvPath("lib/dlv");
-			qaHornSHIQ.generateDatalog();
-			//expected rewritten query: q0(X1) :- a1(X1), a(X1), a3(X1), a4(X1).
-			assertEquals(2, qaHornSHIQ.getRewrittenQueries().size());
-			
+		String ontologyFile = "AllTestCases/testQueryRewriting2.owl";
+
+		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
+				+ "SELECT ?x1 \n"
+				+ "WHERE { \n"
+				+ "  ?x1   a uri:A1  ; \n"
+				+ "          uri:R1 ?x2 . \n"
+				+ "  ?x2   a uri:A2  ; \n"
+				+ "          uri:R2 ?x3 ; \n"
+				+ "          uri:R3 ?x4 . \n"
+				+ "  ?x3   a uri:A3  . \n"
+				+ "  ?x4   a uri:A4  . \n"
+				+ "} \n";
+
+		//expected rewritten query: q0(X1) :- a1(X1), a(X1), a3(X1), a4(X1).
+		testRewriter(ontologyFile, sparql, 2, tempDatalogFile);
 	}
 		
-		/**
-		 * Test case 3
-		 * @throws RecognitionException
-		 */
-		@Test
-		public void testQueryRewriting3() throws RecognitionException {
-			QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-			ClipperManager.getInstance().setVerboseLevel(2);
-			ClipperManager.getInstance().setNamingStrategy(
-					NamingStrategy.LOWER_CASE_FRAGMENT);
-			qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting3.dl");
-			qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
+	/**
+	 * Test case 3
+	 * @throws RecognitionException
+	 */
+	@Test
+	public void testQueryRewriting3() throws RecognitionException, OWLOntologyCreationException {
 
-			String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
-					+ "SELECT ?x1 \n"
-					+ "WHERE { \n"
-					+ "  ?x1   a uri:A1  ; \n"
-					+ "          uri:R2 ?x2 ; \n"
-					+ "          uri:R1 <d> . \n"
-					+ "   <d>    a uri:A4  ; \n"
-					+ "          uri:R4 ?x3 . \n"
-					+ "  ?x3   a uri:A3  . \n"
-					+ "  ?x2   a uri:A2  ; \n"
-					+ "          uri:R3 ?x3 . \n"
-					
-					+ "} \n";
-			System.out.println(sparql);
+		String tempDatalogFile = "AllTestCases/testQueryRewriting3.dl";
 
-			CharStream stream = new ANTLRStringStream(sparql);
-			SparqlLexer lexer = new SparqlLexer(stream);
-			TokenStream tokenStream = new CommonTokenStream(lexer);
-			SparqlParser parser = new SparqlParser(tokenStream);
-			CQ cq = parser.query();
+		String ontologyFile = "AllTestCases/testQueryRewriting3.owl";
 
-			String queryString = cq.toString();
-			System.out.println(queryString);
-			// qaHornSHIQ.setQueryString(queryString);
-			qaHornSHIQ.setQuery(cq);
-			qaHornSHIQ.setDlvPath("lib/dlv");
-			qaHornSHIQ.generateDatalog();
-			//expect rewritten query: q0(X0) :- a("d"), a4("d"), r1(X0,"d"), a1(X0), r2(X0,"d"), a2("d").
-			assertEquals(2, qaHornSHIQ.getRewrittenQueries().size());
-		}
-			/**
-			 * Test case 4
-			 * @throws RecognitionException
-			 */
-			@Test
-			public void testQueryRewriting4() throws RecognitionException {
-				QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-				ClipperManager.getInstance().setVerboseLevel(2);
-				ClipperManager.getInstance().setNamingStrategy(
-						NamingStrategy.LOWER_CASE_FRAGMENT);
-				qaHornSHIQ.setDatalogFileName("AllTestCases/testQueryRewriting3.dl");
-				qaHornSHIQ.setOntologyName("AllTestCases/testQueryRewriting3.owl");
+		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
+				+ "SELECT ?x1 \n"
+				+ "WHERE { \n"
+				+ "  ?x1   a uri:A1  ; \n"
+				+ "          uri:R2 ?x2 ; \n"
+				+ "          uri:R1 <d> . \n"
+				+ "   <d>    a uri:A4  ; \n"
+				+ "          uri:R4 ?x3 . \n"
+				+ "  ?x3   a uri:A3  . \n"
+				+ "  ?x2   a uri:A2  ; \n"
+				+ "          uri:R3 ?x3 . \n"
 
-				String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
-						+ "SELECT ?x1 \n"
-						+ "WHERE { \n"
-						+ "  ?x1   a uri:A1  ; \n"
-						+ "          uri:R2 <d2> ; \n"
-						+ "          uri:R1 <d> . \n"
-						+ "   <d>    a uri:A4  ; \n"
-						+ "          uri:R4 ?x3 . \n"
-						+ "  ?x3   a uri:A3  . \n"
-						+ "  <d2>   a uri:A2  ; \n"
-						+ "          uri:R3 ?x3 . \n"
-						
-						+ "} \n";
-				System.out.println(sparql);
+				+ "} \n";
 
-				CharStream stream = new ANTLRStringStream(sparql);
-				SparqlLexer lexer = new SparqlLexer(stream);
-				TokenStream tokenStream = new CommonTokenStream(lexer);
-				SparqlParser parser = new SparqlParser(tokenStream);
-				CQ cq = parser.query();
+		//expect rewritten query: q0(X0) :- a("d"), a4("d"), r1(X0,"d"), a1(X0), r2(X0,"d"), a2("d").
+		testRewriter(ontologyFile, sparql, 2, tempDatalogFile);
+	}
+	/**
+	 * Test case 4
+	 * @throws RecognitionException
+	 */
+	@Test
+	public void testQueryRewriting4() throws RecognitionException, OWLOntologyCreationException {
 
-				String queryString = cq.toString();
-				System.out.println(queryString);
-				// qaHornSHIQ.setQueryString(queryString);
-				qaHornSHIQ.setQuery(cq);
-				qaHornSHIQ.setDlvPath("lib/dlv");
-				qaHornSHIQ.generateDatalog();
-				//expect rewritten query: No rewritten query.
-				assertEquals(1, qaHornSHIQ.getRewrittenQueries().size());
-			
+		String tempDatalogFile = "AllTestCases/testQueryRewriting3.dl";
+
+		String ontologyFile = "AllTestCases/testQueryRewriting3.owl";
+
+		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
+				+ "SELECT ?x1 \n"
+				+ "WHERE { \n"
+				+ "  ?x1   a uri:A1  ; \n"
+				+ "          uri:R2 <d2> ; \n"
+				+ "          uri:R1 <d> . \n"
+				+ "   <d>    a uri:A4  ; \n"
+				+ "          uri:R4 ?x3 . \n"
+				+ "  ?x3   a uri:A3  . \n"
+				+ "  <d2>   a uri:A2  ; \n"
+				+ "          uri:R3 ?x3 . \n"
+				+ "} \n";
+
+		//expect rewritten query: q0(X0) :- a("d"), a4("d"), r1(X0,"d"), a1(X0), r2(X0,"d"), a2("d").
+		testRewriter(ontologyFile, sparql, 1, tempDatalogFile);
 	}
 
 	private static void testQuery(String ontologyFile, String sparqlString, int expected, String tmpDatalogFile) throws OWLOntologyCreationException, RecognitionException {
@@ -476,9 +413,45 @@ public class TBoxSaturationTest {
 
 
 		assertEquals(expected, actualAnswers.size());
+	}
+
+	private static void testRewriter(String ontologyFile, String sparqlString, int expected, String tmpDatalogFile) throws OWLOntologyCreationException, RecognitionException {
+		System.setProperty("entityExpansionLimit", "512000");
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
+		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
+		qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
+		//qaHornSHIQ.setQueryRewriter("new");
+		ClipperManager.getInstance().setVerboseLevel(1);
+
+		qaHornSHIQ.setDatalogFileName(tmpDatalogFile);
+
+		qaHornSHIQ.setOntologyName(ontologyFile);
+		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
+				new File(ontologyFile));
+		qaHornSHIQ.addOntology(ontology);
 
 
+		System.out.println(sparqlString);
 
+		CharStream stream = new ANTLRStringStream(sparqlString);
+		SparqlLexer lexer = new SparqlLexer(stream);
+		TokenStream tokenStream = new CommonTokenStream(lexer);
+		SparqlParser parser = new SparqlParser(tokenStream);
+		CQ cq = parser.query();
+
+		String queryString = cq.toString();
+		System.out.println(queryString);
+		qaHornSHIQ.setQuery(cq);
+		qaHornSHIQ.execQuery();
+
+
+		System.out.println("TBox reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime()
+				+ "  millisecond");
+		System.out.println("Query rewriting time: "
+				+ qaHornSHIQ.getClipperReport().getQueryRewritingTime() + "  millisecond");
+
+		assertEquals(expected, qaHornSHIQ.getRewrittenQueries().size());
 	}
 
 }
