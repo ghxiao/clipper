@@ -23,7 +23,7 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
  * @author kien
  * 
  */
-public class TBoxSaturationTest {
+public class TBoxReasonerTest {
 
 	// /////////////////////////////////////////////////////////
 	// Really test the whole system from here.

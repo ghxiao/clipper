@@ -17,7 +17,7 @@ import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
 
 
-public class TBoxSaturation {
+public class TBoxReasoner {
 
 	private IndexedHornImpContainer impContainer;
 	private IndexedEnfContainer enfContainer;
@@ -82,7 +82,7 @@ public class TBoxSaturation {
 
 	}
 
-	public TBoxSaturation(ClipperHornSHIQOntology ont_bs) {
+	public TBoxReasoner(ClipperHornSHIQOntology ont_bs) {
 		init(ont_bs);
 	}
 
@@ -91,51 +91,24 @@ public class TBoxSaturation {
 		return impContainer;
 	}
 
-	public void setImpContainer(IndexedHornImpContainer impContainer) {
-		this.impContainer = impContainer;
-	}
-
 	public IndexedEnfContainer getEnfContainer() {
 		return enfContainer;
-	}
-
-	public void setEnfContainer(IndexedEnfContainer enfContainer) {
-		this.enfContainer = enfContainer;
 	}
 
 	public List<ClipperAtomSubAllAxiom> getAllValuesFromAxioms() {
 		return allValuesFromAxioms;
 	}
 
-	public void setAllValuesFromAxioms(List<ClipperAtomSubAllAxiom> allValuesFromAxioms) {
-		this.allValuesFromAxioms = allValuesFromAxioms;
-	}
-
 	public List<ClipperSubPropertyAxiom> getSubObjectPropertyAxioms() {
 		return subObjectPropertyAxioms;
-	}
-
-	public void setSubObjectPropertyAxioms(
-			List<ClipperSubPropertyAxiom> subObjectPropertyAxioms) {
-		this.subObjectPropertyAxioms = subObjectPropertyAxioms;
 	}
 
 	public List<ClipperInversePropertyOfAxiom> getInverseRoleAxioms() {
 		return inverseRoleAxioms;
 	}
 
-	public void setInverseRoleAxioms(
-			List<ClipperInversePropertyOfAxiom> inverseRoleAxioms) {
-		this.inverseRoleAxioms = inverseRoleAxioms;
-	}
-
 	public List<ClipperAtomSubMaxOneAxiom> getMaxOneCardinalityAxioms() {
 		return maxOneCardinalityAxioms;
-	}
-
-	public void setMaxOneCardinalityAxioms(
-			List<ClipperAtomSubMaxOneAxiom> maxOneCardinalityAxioms) {
-		this.maxOneCardinalityAxioms = maxOneCardinalityAxioms;
 	}
 
 	public TIntHashSet getAboxTypes() {
@@ -338,9 +311,7 @@ public class TBoxSaturation {
 
 	/**
 	 * Rule: \sqsubseteq_2
-	 * 
-	 * @param enfs
-	 *            set of EnforcedRealtion object
+	 *
 	 * @param imps
 	 *            set of HornImplication object
 	 * @return
@@ -591,7 +562,7 @@ public class TBoxSaturation {
 	 */
 	public void saturate() {
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-			System.out.println("Start reasoning");
+			System.out.println("Start TBox reasoning");
 			System.out.println(" IMP size: " + enfContainer.getEnfs().size());
 			System.out.println(" ENF size: " + impContainer.getImps().size());
 			System.out.println(" ABoxType size: " + this.aboxTypes.size());

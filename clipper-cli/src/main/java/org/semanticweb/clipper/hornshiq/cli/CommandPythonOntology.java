@@ -10,7 +10,7 @@ import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
 import org.semanticweb.clipper.hornshiq.queryanswering.IndexedEnfContainer;
 import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
-import org.semanticweb.clipper.hornshiq.queryanswering.TBoxSaturation;
+import org.semanticweb.clipper.hornshiq.queryanswering.TBoxReasoner;
 import org.semanticweb.owlapi.model.OWLOntology;
 
 import lombok.Getter;
@@ -45,7 +45,7 @@ public class CommandPythonOntology extends ReasoningCommandBase {
 
 		qaHornSHIQ.preprocessOntologies();
 
-		TBoxSaturation saturation = qaHornSHIQ.saturateTBox();
+		TBoxReasoner saturation = qaHornSHIQ.saturateTBox();
 
 		IndexedEnfContainer enfs = saturation.getEnfContainer();
 
