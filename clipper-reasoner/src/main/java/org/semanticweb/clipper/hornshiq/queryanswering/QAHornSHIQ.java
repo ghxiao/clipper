@@ -134,15 +134,15 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 	 * @throws IOException
 	 */
 	private void reduceRewrittenQueriesToDatalog(TBoxReasoner tb) throws IOException {
-		long starCoutingRelatedRule = System.currentTimeMillis();
+		long starCountingRelatedRule = System.currentTimeMillis();
 
 		Set<CQ> ucq = new HashSet<CQ>(rewrittenQueries);
 		QueriesRelatedRules relatedRules = new QueriesRelatedRules(clipperOntology, ucq, cqFormatter);
 		relatedRules.setCoreImps(tb.getImpContainer().getImps());
 		relatedRules.setCoreEnfs(tb.getEnfContainer().getEnfs());
 		relatedRules.countUCQRelatedRules();
-		long endCoutingRelatedRule = System.currentTimeMillis();
-		this.clipperReport.setCoutingRealtedRulesTime(endCoutingRelatedRule - starCoutingRelatedRule);
+		long endCountingRelatedRule = System.currentTimeMillis();
+		this.clipperReport.setCoutingRealtedRulesTime(endCountingRelatedRule - starCountingRelatedRule);
 
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("==============================================");
