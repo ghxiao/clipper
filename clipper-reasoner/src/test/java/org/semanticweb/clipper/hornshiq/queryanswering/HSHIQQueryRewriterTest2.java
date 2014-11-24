@@ -24,7 +24,7 @@ import org.semanticweb.clipper.hornshiq.rule.Variable;
  * 
  * Test all cases when rewriting step can be applicable. See more in the thesis.
  */
-public class QueryRewritingTest2 {
+public class HSHIQQueryRewriterTest2 {
 
 	TIntHashSet s1; // {11}
 	TIntHashSet s2; // {2}
