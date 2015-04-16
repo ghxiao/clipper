@@ -62,6 +62,7 @@ public class ClipperAppTest {
 
 
 
+
 	@Test
 	public void testCompletion() {
 
@@ -91,6 +92,13 @@ public class ClipperAppTest {
 		System.out.println("TIME: " + (t2 - t1));
 
 
+	}
+
+	@Test
+	public void testRewriteNPD() {
+		ClipperApp
+				.main("-v=8 rewrite -o /Users/xiao/npd-v2.owl -d /Users/xiao/npd-v2.dl"
+						.split("\\ "));
 	}
 
 	public static void main(String[] args) {

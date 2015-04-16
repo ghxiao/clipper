@@ -113,17 +113,20 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 
 	@Override
 	public Object visit(OWLSubAnnotationPropertyOfAxiom axiom) {
-		throw new IllegalArgumentException(axiom.toString());
+		return null;
+//		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	@Override
 	public Object visit(OWLAnnotationPropertyDomainAxiom axiom) {
-		throw new IllegalArgumentException(axiom.toString());
+		return null;
+//		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	@Override
 	public Object visit(OWLAnnotationPropertyRangeAxiom axiom) {
-		throw new IllegalArgumentException(axiom.toString());
+		return null;
+//		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	/*
@@ -540,14 +543,16 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 	public Object visit(OWLDataPropertyRangeAxiom axiom) {
 		// TODO Check
 		// throw new IllegalArgumentException(axiom.toString());
-		manager.addAxiom(normalizedOnt, axiom);
+		//manager.addAxiom(normalizedOnt, axiom);
 		return null;
 	}
 
 	@Override
 	public Object visit(OWLFunctionalDataPropertyAxiom axiom) {
+		// TODO: check
+		return null;
 
-		throw new IllegalArgumentException(axiom.toString());
+//		throw new IllegalArgumentException(axiom.toString());
 
 	}
 
@@ -608,8 +613,9 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 
 	@Override
 	public Object visit(OWLSubDataPropertyOfAxiom axiom) {
-
-		throw new IllegalArgumentException(axiom.toString());
+		// TODO: FIXIT
+		return null;
+//		throw new IllegalArgumentException(axiom.toString());
 
 	}
 
@@ -625,7 +631,8 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 	@Override
 	public Object visit(OWLSameIndividualAxiom axiom) {
 
-		throw new IllegalArgumentException(axiom.toString());
+		return null;
+//		throw new IllegalArgumentException(axiom.toString());
 
 	}
 

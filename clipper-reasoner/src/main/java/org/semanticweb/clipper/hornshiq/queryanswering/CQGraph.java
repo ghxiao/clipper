@@ -1,25 +1,5 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import lombok.Data;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-
-import org.semanticweb.clipper.hornshiq.rule.Atom;
-import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.rule.Constant;
-import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
-import org.semanticweb.clipper.hornshiq.rule.NonDLPredicate;
-import org.semanticweb.clipper.hornshiq.rule.Predicate;
-import org.semanticweb.clipper.hornshiq.rule.Term;
-import org.semanticweb.clipper.hornshiq.rule.Variable;
-
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
@@ -27,8 +7,11 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
-
 import edu.uci.ics.jung.graph.DirectedSparseMultigraph;
+import lombok.NonNull;
+import org.semanticweb.clipper.hornshiq.rule.*;
+
+import java.util.*;
 
 /**
  * Direct Graph Representation of a Conjunctive Query
@@ -418,11 +401,16 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 
 }
 
-@Data
-@RequiredArgsConstructor
 class CQGraphEdge {
 
-	@Override
+    @java.beans.ConstructorProperties({"source", "dest", "role"})
+    public CQGraphEdge(Term source, Term dest, Integer role) {
+        this.source = source;
+        this.dest = dest;
+        this.role = role;
+    }
+
+    @Override
 	public String toString() {
 		return "<" + source + ", " + dest + ">[" + role + "]";
 	}
@@ -433,4 +421,63 @@ class CQGraphEdge {
 	@NonNull
 	private Integer role;
 
+    @NonNull
+    public Term getSource() {
+        return this.source;
+    }
+
+    @NonNull
+    public Term getDest() {
+        return this.dest;
+    }
+
+    @NonNull
+    public Integer getRole() {
+        return this.role;
+    }
+
+    public void setSource(Term source) {
+        this.source = source;
+    }
+
+    public void setDest(Term dest) {
+        this.dest = dest;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
+    }
+
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (!(o instanceof CQGraphEdge)) return false;
+        final CQGraphEdge other = (CQGraphEdge) o;
+        if (!other.canEqual((Object) this)) return false;
+        final Object this$source = this.source;
+        final Object other$source = other.source;
+        if (this$source == null ? other$source != null : !this$source.equals(other$source)) return false;
+        final Object this$dest = this.dest;
+        final Object other$dest = other.dest;
+        if (this$dest == null ? other$dest != null : !this$dest.equals(other$dest)) return false;
+        final Object this$role = this.role;
+        final Object other$role = other.role;
+        if (this$role == null ? other$role != null : !this$role.equals(other$role)) return false;
+        return true;
+    }
+
+    public int hashCode() {
+        final int PRIME = 59;
+        int result = 1;
+        final Object $source = this.source;
+        result = result * PRIME + ($source == null ? 0 : $source.hashCode());
+        final Object $dest = this.dest;
+        result = result * PRIME + ($dest == null ? 0 : $dest.hashCode());
+        final Object $role = this.role;
+        result = result * PRIME + ($role == null ? 0 : $role.hashCode());
+        return result;
+    }
+
+    protected boolean canEqual(Object other) {
+        return other instanceof CQGraphEdge;
+    }
 }
