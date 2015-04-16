@@ -1,7 +1,6 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
 import gnu.trove.procedure.TIntProcedure;
-import gnu.trove.set.hash.TIntHashSet;
 
 import java.util.Set;
 
@@ -11,9 +10,7 @@ import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
 import org.semanticweb.clipper.hornshiq.queryanswering.IndexedEnfContainer;
 import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
-import org.semanticweb.clipper.hornshiq.queryanswering.TBoxSaturation;
-import org.semanticweb.clipper.util.BitSetUtil;
-import org.semanticweb.clipper.util.BitSetUtilOpt;
+import org.semanticweb.clipper.hornshiq.queryanswering.TBoxReasoner;
 import org.semanticweb.owlapi.model.OWLOntology;
 
 import lombok.Getter;
@@ -48,11 +45,11 @@ public class CommandPythonOntology extends ReasoningCommandBase {
 
 		qaHornSHIQ.preprocessOntologies();
 
-		TBoxSaturation saturation = qaHornSHIQ.saturateTbox();
+		TBoxReasoner saturation = qaHornSHIQ.saturateTBox();
 
 		IndexedEnfContainer enfs = saturation.getEnfContainer();
 
-		formatter = new CQFormatter();
+		formatter = new CQFormatter(NamingStrategy.FRAGMENT);
 
 		int axid = 0;
 

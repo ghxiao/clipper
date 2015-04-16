@@ -23,6 +23,7 @@ import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
 import org.semanticweb.clipper.hornshiq.queryanswering.HornImplication;
 import org.semanticweb.clipper.hornshiq.queryanswering.IndexedEnfContainer;
 import org.semanticweb.clipper.hornshiq.queryanswering.IndexedHornImpContainer;
+import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.queryanswering.Rule;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
@@ -58,8 +59,8 @@ public class QueriesRelatedRules {
 
 	CQFormatter cqFormatter;
 
-	public QueriesRelatedRules(ClipperHornSHIQOntology ont_bs, Set<CQ> rewrittenUcq) {
-		cqFormatter = new CQFormatter();
+	public QueriesRelatedRules(ClipperHornSHIQOntology ont_bs, Set<CQ> rewrittenUcq, CQFormatter cqFormatter) {
+		this.cqFormatter = cqFormatter;
 		allValuesFromAxioms = ont_bs.getAtomSubAllAxioms();
 		maxOneCardinalityAxioms = ont_bs.getAtomSubMaxOneAxioms();
 		subObjectPropertyAxioms = ont_bs.getSubPropertyAxioms();

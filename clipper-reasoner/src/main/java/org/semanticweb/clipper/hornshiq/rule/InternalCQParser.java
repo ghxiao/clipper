@@ -11,7 +11,7 @@ import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 
-
+@Deprecated // only for some internal test
 public class InternalCQParser {
 	private CQ cq;
 	private String queryString;

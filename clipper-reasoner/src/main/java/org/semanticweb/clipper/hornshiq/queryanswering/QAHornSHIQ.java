@@ -1,5 +1,6 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
+import com.google.common.collect.Lists;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
 import it.unical.mat.wrapper.DLVError;
@@ -11,24 +12,7 @@ import it.unical.mat.wrapper.DLVWrapper;
 import it.unical.mat.wrapper.FactHandler;
 import it.unical.mat.wrapper.FactResult;
 import it.unical.mat.wrapper.ModelBufferedHandler;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import lombok.Getter;
-import lombok.Setter;
-
-import org.semanticweb.clipper.QueryAnswersingSystem;
+import org.semanticweb.clipper.QueryAnsweringSystem;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntologyConverter;
@@ -46,15 +30,24 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.profiles.OWLProfileReport;
 
-import com.google.common.collect.Lists;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-@Getter
-@Setter
-public class QAHornSHIQ implements QueryAnswersingSystem {
+public class QAHornSHIQ implements QueryAnsweringSystem {
 
 	private String datalogFileName;
 	private String ontologyName;
-	private String queryFileName;
+
 	private String queryString;
 	private String queryPrefix;
 	private String datalogEngine = "dlv";
@@ -77,19 +70,21 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	private ClipperHornSHIQOntology clipperOntology;
 
 	private CQFormatter cqFormatter;
+	private NamingStrategy namingStrategy;
 
 	public QAHornSHIQ() {
-		decodedAnswers = new ArrayList<List<String>>();
+		decodedAnswers = new ArrayList<>();
 		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);// default
 		this.ontologies = new ArrayList<OWLOntology>();
-		cqFormatter = new CQFormatter();
 
-		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);// default
+		setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);// default
+		cqFormatter = new CQFormatter(namingStrategy);
 
 		// ClipperManager.getInstance().reset();
 	}
 
 	public void setNamingStrategy(NamingStrategy namingStrategy) {
+		this.namingStrategy = namingStrategy;
 		ClipperManager.getInstance().setNamingStrategy(namingStrategy);
 	}
 
@@ -106,11 +101,11 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		try {
 			preprocessOntologies();
 
-			TBoxSaturation tb = saturateTbox();
+			TBoxReasoner tb = saturateTBox();
 
 			reduceOntologyToDatalog(tb);
 
-			queryRewriting(tb);
+			rewriteQuery(tb);
 
 			reduceRewrittenQueriesToDatalog(tb);
 
@@ -128,7 +123,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 		preprocessOntologies();
 
-		TBoxSaturation tb = saturateTbox();
+		TBoxReasoner tb = saturateTBox();
 
 		reduceOntologyToDatalog(tb);
 
@@ -138,16 +133,16 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	 * @param tb
 	 * @throws IOException
 	 */
-	private void reduceRewrittenQueriesToDatalog(TBoxSaturation tb) throws IOException {
-		long starCoutingRelatedRule = System.currentTimeMillis();
+	private void reduceRewrittenQueriesToDatalog(TBoxReasoner tb) throws IOException {
+		long starCountingRelatedRule = System.currentTimeMillis();
 
 		Set<CQ> ucq = new HashSet<CQ>(rewrittenQueries);
-		QueriesRelatedRules relatedRules = new QueriesRelatedRules(clipperOntology, ucq);
+		QueriesRelatedRules relatedRules = new QueriesRelatedRules(clipperOntology, ucq, cqFormatter);
 		relatedRules.setCoreImps(tb.getImpContainer().getImps());
 		relatedRules.setCoreEnfs(tb.getEnfContainer().getEnfs());
 		relatedRules.countUCQRelatedRules();
-		long endCoutingRelatedRule = System.currentTimeMillis();
-		this.clipperReport.setCoutingRealtedRulesTime(endCoutingRelatedRule - starCoutingRelatedRule);
+		long endCountingRelatedRule = System.currentTimeMillis();
+		this.clipperReport.setCoutingRealtedRulesTime(endCountingRelatedRule - starCountingRelatedRule);
 
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("==============================================");
@@ -180,7 +175,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	/**
 	 * @param tb
 	 */
-	private void queryRewriting(TBoxSaturation tb) {
+	private void rewriteQuery(TBoxReasoner tb) {
 		QueryRewriter qr = createQueryRewriter(clipperOntology, tb);
 
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
@@ -209,8 +204,8 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	/**
 	 * @param tb
 	 */
-	private void reduceOntologyToDatalog(TBoxSaturation tb) {
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology);
+	private void reduceOntologyToDatalog(TBoxReasoner tb) {
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology, cqFormatter);
 		// reduction.setNamingStrategy(this.namingStrategy);
 		reduction.setCoreImps(tb.getImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getEnfContainer().getEnfs());
@@ -220,8 +215,8 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	/**
 	 * @param tb
 	 */
-	private void reduceTBoxToDatalog(TBoxSaturation tb) {
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology);
+	private void reduceTBoxToDatalog(TBoxReasoner tb) {
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology, cqFormatter);
 		// reduction.setNamingStrategy(this.namingStrategy);
 		reduction.setCoreImps(tb.getImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getEnfContainer().getEnfs());
@@ -232,8 +227,8 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	/**
 	 * @param tb
 	 */
-	private void reduceABoxToDatalog(TBoxSaturation tb) {
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology);
+	private void reduceABoxToDatalog(TBoxReasoner tb) {
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology, cqFormatter);
 		// reduction.setNamingStrategy(this.namingStrategy);
 		reduction.setCoreImps(tb.getImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getEnfContainer().getEnfs());
@@ -244,8 +239,8 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	/**
 	 * @return
 	 */
-	public TBoxSaturation saturateTbox() {
-		TBoxSaturation tb = new TBoxSaturation(clipperOntology);
+	public TBoxReasoner saturateTBox() {
+		TBoxReasoner tb = new TBoxReasoner(clipperOntology);
 		// ///////////////////////////////////////////////
 		// Evaluate reasoning time
 		long reasoningBegin = System.currentTimeMillis();
@@ -261,10 +256,10 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	 * @param tb
 	 * @return
 	 */
-	private QueryRewriter createQueryRewriter(ClipperHornSHIQOntology onto_bs, TBoxSaturation tb) {
+	private QueryRewriter createQueryRewriter(ClipperHornSHIQOntology onto_bs, TBoxReasoner tb) {
 		QueryRewriter qr;
 		if (queryRewriter.equals("old")) {
-			qr = new QueryRewriting(tb.getEnfContainer(), tb.getInverseRoleAxioms(), tb.getAllValuesFromAxioms());
+			qr = new HSHIQQueryRewriter(tb.getEnfContainer(), tb.getInverseRoleAxioms(), tb.getAllValuesFromAxioms());
 		} else {
 			qr = new CQGraphRewriter(onto_bs, tb.getEnfContainer());
 		}
@@ -310,11 +305,11 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 			preprocessOntologies();
 
-			TBoxSaturation tb = saturateTbox();
+			TBoxReasoner tb = saturateTBox();
 
 			reduceTBoxToDatalog(tb);
 
-			queryRewriting(tb);
+			rewriteQuery(tb);
 
 			reduceRewrittenQueriesToDatalog(tb);
 		} catch (IOException e) {
@@ -331,7 +326,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 		preprocessOntologies();
 
-		TBoxSaturation tb = saturateTbox();
+		TBoxReasoner tb = saturateTBox();
 
 		reduceTBoxToDatalog(tb);
 
@@ -380,7 +375,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 					}
 				}
 
-				TBoxSaturation tb = new TBoxSaturation(onto_bs);
+				TBoxReasoner tb = new TBoxReasoner(onto_bs);
 				// ///////////////////////////////////////////////
 				// Evaluate reasoning time
 				long reasoningBegin = System.currentTimeMillis();
@@ -397,7 +392,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 				// reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 				// reduction.getCompletionRulesDatalogProgram(this.dataLogName);
 
-				QueryRewriting qr = new QueryRewriting(tb.getEnfContainer(), tb.getInverseRoleAxioms(),
+				HSHIQQueryRewriter qr = new HSHIQQueryRewriter(tb.getEnfContainer(), tb.getInverseRoleAxioms(),
 						tb.getAllValuesFromAxioms());
 				// QueryRewriting qr = new QueryRewriting(tb.getEnfContainer(),
 				// tb.getInverseRoleAxioms(), tb.getAllValuesFromAxioms());
@@ -426,7 +421,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 				this.rewrittenQueries = qr.getUcq();
 				long starCoutingRelatedRule = System.currentTimeMillis();
 				Set<CQ> ucq = qr.getUcq();
-				QueriesRelatedRules relatedRules = new QueriesRelatedRules(onto_bs, ucq);
+				QueriesRelatedRules relatedRules = new QueriesRelatedRules(onto_bs, ucq, cqFormatter);
 				relatedRules.setCoreImps(tb.getImpContainer().getImps());
 				relatedRules.setCoreEnfs(tb.getEnfContainer().getEnfs());
 				relatedRules.countUCQRelatedRules();
@@ -505,11 +500,11 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 
 		preprocessOntologies();
 
-		TBoxSaturation tb = saturateTbox();
+		TBoxReasoner tb = saturateTBox();
 
 		reduceOntologyToDatalog(tb);
 
-		// queryRewriting(tb);
+		// rewriteQuery(tb);
 
 		reduceABoxToDatalog(tb);
 
@@ -518,6 +513,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 	// =================================
 	@Override
 	public List<List<String>> execQuery() {
+
 		generateDatalog();
 
 		this.answers = Lists.newArrayList();
@@ -591,7 +587,7 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		}
 
 		long starOutputAnswer = System.currentTimeMillis();
-		AnswerParser answerParser = new AnswerParser();
+		AnswerParser answerParser = new AnswerParser(namingStrategy);
 
 		this.decodedAnswers.clear();
 		answerParser.setAnswers(this.answers);
@@ -666,18 +662,9 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		this.ontologies.add(ontology);
 	}
 
-	@Override
-	public void setOntologies(Collection<OWLOntology> ontologies) {
-		this.ontologies = ontologies;
-	}
-
-	@Override
-	public void setQuery(CQ cq) {
-		this.cq = cq;
-	}
 
 	public void preprocessOntologies() {
-		long startNormalizatoinTime = System.currentTimeMillis();
+		long startNormalizationTime = System.currentTimeMillis();
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		OWLOntology combinedOntology = null;
 		try {
@@ -697,11 +684,62 @@ public class QAHornSHIQ implements QueryAnswersingSystem {
 		this.clipperOntology = onto_bs;
 
 		long endNormalizationTime = System.currentTimeMillis();
-		this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizatoinTime);
+		this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizationTime);
 
 	}
 
 	public void clearOntologies() {
 		this.ontologies = Lists.newArrayList();
+	}
+
+
+	public List<String> getAnswers() {
+		return this.answers;
+	}
+
+	public List<List<String>> getDecodedAnswers() {
+		return this.decodedAnswers;
+	}
+
+	public ClipperReport getClipperReport() {
+		return this.clipperReport;
+	}
+
+	public Collection<CQ> getRewrittenQueries() {
+		return this.rewrittenQueries;
+	}
+
+
+	public Collection<OWLOntology> getOntologies() {
+		return this.ontologies;
+	}
+
+	public void setDatalogFileName(String datalogFileName) {
+		this.datalogFileName = datalogFileName;
+	}
+
+	public void setOntologyName(String ontologyName) {
+		this.ontologyName = ontologyName;
+	}
+
+	public void setQueryString(String queryString) {
+		this.queryString = queryString;
+	}
+
+	public void setQueryRewriter(String queryRewriter) {
+		this.queryRewriter = queryRewriter;
+	}
+
+	@Override
+	public void setQuery(CQ cq) {
+		this.cq = cq;
+	}
+
+	public void setDlvPath(String dlvPath) {
+		this.dlvPath = dlvPath;
+	}
+
+	public void setOntologies(Set<OWLOntology> ontologies) {
+		this.ontologies = ontologies;
 	}
 }

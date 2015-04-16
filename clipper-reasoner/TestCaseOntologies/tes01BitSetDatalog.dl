@@ -6,4 +6,4 @@ c(Y) :- r(X,Y), a(X).
 b(Y) :- r(X,Y), a(X).
 nothing(Y) :- r(X,Y), a(X).
 topobjectproperty(X,Y) :- r(X,Y), a(X).
-a("a").
+a("http://www.semanticweb.org/ontologies/inc.owl#a").

@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * SubClassOf(concept1, role 1 max concept2)
+ * SubClassOf(concept1, role max 1 concept2)
  * */
 @Data
 @AllArgsConstructor
@@ -23,6 +23,6 @@ public class ClipperAtomSubMaxOneAxiom implements ClipperTBoxAxiom {
 			r = "inv(" + r + ")";
 		}
 
-		return String.format("%d SubClassOf %s max1 %d", concept1, r, concept2);
+		return String.format("%d SubClassOf %s max 1 %d", concept1, r, concept2);
 	}
 }

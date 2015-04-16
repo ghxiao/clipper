@@ -50,7 +50,7 @@ public class ReductionToDatalogOpt {
 	protected final int TOP_PROPERTY = 0;
 	protected final int BOTTOM_PROPERTY = 2;
 
-	CQFormatter cqFormatter = new CQFormatter();
+	CQFormatter cqFormatter;
 
 	// private NamingStrategy namingStrategy;
 
@@ -61,8 +61,8 @@ public class ReductionToDatalogOpt {
 	 * 
 	 * @param: Name of generated datalog file
 	 */
-	public ReductionToDatalogOpt() {
-
+	public ReductionToDatalogOpt(CQFormatter cqFormatter) {
+		this.cqFormatter = cqFormatter;
 		// this.namingStrategy = NamingStrategy.IntEncoding;
 	}
 
@@ -70,7 +70,8 @@ public class ReductionToDatalogOpt {
 	// // this.namingStrategy = strategy;
 	// }
 
-	public ReductionToDatalogOpt(ClipperHornSHIQOntology ont_bs) {
+	public ReductionToDatalogOpt(ClipperHornSHIQOntology ont_bs, CQFormatter cqFormatter) {
+		this.cqFormatter = cqFormatter;
 		// this.namingStrategy = NamingStrategy.IntEncoding;
 
 		// KaosManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
@@ -365,7 +366,7 @@ public class ReductionToDatalogOpt {
 			int ir = a.getRole();
 			int ind1 = a.getIndividual1();
 			int ind2 = a.getIndividual2();
-			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 4) {
 				System.out.println(cqFormatter.getBinaryPredicate(ir) + "(" + cqFormatter.getConstant(ind1) + ","
 						+ cqFormatter.getConstant(ind2) + ").");
 			}
@@ -378,7 +379,7 @@ public class ReductionToDatalogOpt {
 		for (ClipperConceptAssertionAxiom ca : conceptAssertionAxioms) {
 			int ic = ca.getConcept();
 			int iInd = ca.getIndividual();
-			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+			if (ClipperManager.getInstance().getVerboseLevel() >= 4) {
 				System.out.println(cqFormatter.getUnaryPredicate(ic) + "(" + cqFormatter.getConstant(iInd) + ").");
 			}
 			program.println(cqFormatter.getUnaryPredicate(ic) + "(" + cqFormatter.getConstant(iInd) + ").");

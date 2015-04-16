@@ -69,7 +69,7 @@ class CommandQuery extends ReasoningCommandBase {
 
 		qaHornSHIQ.setDatalogFileName(this.datalog);
 		qaHornSHIQ.setQueryRewriter(this.getRewriter());
-		qaHornSHIQ.setCq(cq);
+		qaHornSHIQ.setQuery(cq);
 		qaHornSHIQ.setDlvPath(this.getDlvPath());
 
 		long startTime = System.currentTimeMillis();

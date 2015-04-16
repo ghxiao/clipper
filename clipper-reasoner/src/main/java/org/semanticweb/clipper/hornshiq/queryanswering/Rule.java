@@ -11,10 +11,7 @@ import java.util.Set;
 public class Rule {
 	private String head;
 	private Set<String> body;
-	private int headPredicate = -1; // default =-1; means that this value is not
-									// set
-	private int headPredicatArity = -1;// default =-1; means that this value is
-										// not set
+	// not set
 
 	// ================
 	public Rule() {
@@ -27,9 +24,6 @@ public class Rule {
 		return head;
 	}
 
-	public Set<String> getBody() {
-		return body;
-	}
 
 	public void setBody(Set<String> body) {
 		this.body = body;
@@ -39,20 +33,14 @@ public class Rule {
 		head = h;
 	}
 
-	public int getHeadPredicate() {
-		return headPredicate;
-	}
 
 	public void setHeadPredicate(int headPredicate) {
-		this.headPredicate = headPredicate;
+		int headPredicate1 = headPredicate;
 	}
 
-	public int getHeadPredicatArity() {
-		return headPredicatArity;
-	}
 
 	public void setHeadPredicatArity(int headPredicatArity) {
-		this.headPredicatArity = headPredicatArity;
+		int headPredicatArity1 = headPredicatArity;
 	}
 
 	public void addAtomToBody(String s) {
@@ -74,7 +62,7 @@ public class Rule {
 
 	@Override
 	public String toString() {
-		String rule = new String();
+		String rule = "";
 		rule = rule + head + " :- ";
 		int i = 0;
 		int n = body.size();

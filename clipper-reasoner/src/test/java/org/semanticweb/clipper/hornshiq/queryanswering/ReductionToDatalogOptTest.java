@@ -59,7 +59,9 @@ public class ReductionToDatalogOptTest {
 
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
+		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
@@ -115,7 +117,9 @@ public class ReductionToDatalogOptTest {
 
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
+		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
@@ -171,7 +175,9 @@ public class ReductionToDatalogOptTest {
 
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
+		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
@@ -228,7 +234,9 @@ public class ReductionToDatalogOptTest {
 
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
+		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
@@ -284,7 +292,9 @@ public class ReductionToDatalogOptTest {
 
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
+		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		System.out.println("==========Datalog Program=============");
@@ -339,7 +349,9 @@ public class ReductionToDatalogOptTest {
 
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
+		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		
@@ -396,7 +408,9 @@ public class ReductionToDatalogOptTest {
 
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
+		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
@@ -454,7 +468,9 @@ public class ReductionToDatalogOptTest {
 
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
+		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
@@ -513,7 +529,9 @@ public class ReductionToDatalogOptTest {
 
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(onto_bs);
+		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);

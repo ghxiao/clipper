@@ -3,6 +3,7 @@ package org.semanticweb.clipper.hornshiq.profile;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+import java.io.InputStream;
 
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
@@ -26,9 +27,10 @@ public class BitSetNormalHornALCHIQOntologyConverterTest {
 	// original
 	@Test
 	public void testNormalizeLUBM2() throws OWLOntologyCreationException, OWLOntologyStorageException {
-		File file = new File("TestData/univ-bench.owl");
+		//File file = new File("TestData/univ-bench.owl");
+		InputStream stream = BitSetNormalHornALCHIQOntologyConverterTest.class.getResourceAsStream("/ontologies/LUBM/univ-bench.owl");
 		OWLOntologyManager man = OWLManager.createOWLOntologyManager();
-		OWLOntology ontology = man.loadOntologyFromOntologyDocument(file);
+		OWLOntology ontology = man.loadOntologyFromOntologyDocument(stream);
 
 		System.out.println(ontology);
 

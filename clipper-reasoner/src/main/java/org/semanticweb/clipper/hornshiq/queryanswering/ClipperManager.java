@@ -1,19 +1,12 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import org.semanticweb.clipper.util.SymbolEncoder;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLDataProperty;
-import org.semanticweb.owlapi.model.OWLIndividual;
-import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 import org.semanticweb.owlapi.model.OWLPropertyAssertionObject;
 import org.semanticweb.owlapi.model.OWLPropertyExpression;
 
 public class ClipperManager {
-	@Getter
 	private SymbolEncoder<OWLClass> owlClassEncoder;
 
 	/**
@@ -21,30 +14,21 @@ public class ClipperManager {
 	 * OWLDataPropertyExpression
 	 */
 	@SuppressWarnings("rawtypes")
-	@Getter
 	private SymbolEncoder<OWLPropertyExpression> owlPropertyExpressionEncoder;
 
 	/**
 	 * encoder for both OWLIndividual and OWLLiteral
 	 */
-	@Getter
 	private SymbolEncoder<OWLPropertyAssertionObject> owlIndividualAndLiteralEncoder;
 
-	@Getter
 	private int thing;
-	@Getter
 	private int nothing;
-	@Getter
 	private int topProperty;
-	@Getter
 	private int bottomProperty;
 
-	@Getter
-	@Setter
 	private int verboseLevel;
 
-	@Getter
-	@Setter
+	@Deprecated // should not use this as global variable
 	private NamingStrategy namingStrategy;
 
 	private static ClipperManager instance = new ClipperManager();
@@ -75,4 +59,49 @@ public class ClipperManager {
 		return instance;
 	}
 
+	public SymbolEncoder<OWLClass> getOwlClassEncoder() {
+		return this.owlClassEncoder;
+	}
+
+	public SymbolEncoder<OWLPropertyExpression> getOwlPropertyExpressionEncoder() {
+		return this.owlPropertyExpressionEncoder;
+	}
+
+	public SymbolEncoder<OWLPropertyAssertionObject> getOwlIndividualAndLiteralEncoder() {
+		return this.owlIndividualAndLiteralEncoder;
+	}
+
+	public int getThing() {
+		return this.thing;
+	}
+
+	public int getNothing() {
+		return this.nothing;
+	}
+
+	public int getTopProperty() {
+		return this.topProperty;
+	}
+
+	public int getBottomProperty() {
+		return this.bottomProperty;
+	}
+
+	public int getVerboseLevel() {
+		return this.verboseLevel;
+	}
+
+	@Deprecated
+	public NamingStrategy getNamingStrategy() {
+		return this.namingStrategy;
+	}
+
+	public void setVerboseLevel(int verboseLevel) {
+		this.verboseLevel = verboseLevel;
+	}
+
+	@Deprecated
+	public void setNamingStrategy(NamingStrategy namingStrategy) {
+		this.namingStrategy = namingStrategy;
+	}
 }

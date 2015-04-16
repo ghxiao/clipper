@@ -11,17 +11,13 @@ public class AnswerParser {
 	private List<String> answers;
 	private List<List<String>> decodedAnswers;
 	private String prefix = null;
-
-	public List<String> getAnswers() {
-		return answers;
-	}
+	NamingStrategy namingStrategy;
 
 	public void setAnswers(List<String> answers) {
 		this.answers = answers;
 	}
 
 	public List<List<String>> getDecodedAnswers() {
-
 		return decodedAnswers;
 	}
 
@@ -33,7 +29,8 @@ public class AnswerParser {
 		this.prefix = prefix;
 	}
 
-	public AnswerParser() {
+	public AnswerParser(NamingStrategy namingStrategy) {
+		this.namingStrategy = namingStrategy;
 		answers = new ArrayList<String>();
 		decodedAnswers = new ArrayList<List<String>>();
 	}
@@ -62,13 +59,13 @@ public class AnswerParser {
 
 	private List<String> getDecodedAnswer(String answer) {
 		List<String> decodedAnswers = new ArrayList<String>();
-		String delims = "[\\(\\),]+";
+		String delims = "[\\(\\),]+\\s*";
 		String s = answer;
 		String[] tokens = s.split(delims);
 
 		for (int i = 1; i < tokens.length; i++) {
 			String indiString = tokens[i];
-			if (ClipperManager.getInstance().getNamingStrategy() == NamingStrategy.INT_ENCODING) {
+			if (namingStrategy == NamingStrategy.INT_ENCODING) {
 				String decodedIndividual = getDecodedIndividual(indiString);
 				decodedAnswers.add(decodedIndividual);
 			} else {
@@ -79,10 +76,8 @@ public class AnswerParser {
 	}
 
 	public void parse() {
-
 		for (String answer : answers) {
 			List<String> decodedAnswer = getDecodedAnswer(answer);
-
 			decodedAnswers.add(decodedAnswer);
 		}
 	}

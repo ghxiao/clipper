@@ -2,21 +2,14 @@ package org.semanticweb.clipper.hornshiq.rule;
 
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
-
-@Data
-@AllArgsConstructor
 public class CQ {
 	Atom head;
 	Set<Atom> body;
@@ -27,7 +20,13 @@ public class CQ {
 		body = new HashSet<Atom>();
 	}
 
-	
+	@java.beans.ConstructorProperties({"head", "body"})
+	public CQ(Atom head, Set<Atom> body) {
+		this.head = head;
+		this.body = body;
+	}
+
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -279,5 +278,49 @@ public class CQ {
 			qPrime.setHead(newHead);
 		}
 		return qPrime;
+	}
+
+	public Atom getHead() {
+		return this.head;
+	}
+
+	public Set<Atom> getBody() {
+		return this.body;
+	}
+
+	public void setHead(Atom head) {
+		this.head = head;
+	}
+
+	public void setBody(Set<Atom> body) {
+		this.body = body;
+	}
+
+	public boolean equals(Object o) {
+		if (o == this) return true;
+		if (!(o instanceof CQ)) return false;
+		final CQ other = (CQ) o;
+		if (!other.canEqual((Object) this)) return false;
+		final Object this$head = this.head;
+		final Object other$head = other.head;
+		if (this$head == null ? other$head != null : !this$head.equals(other$head)) return false;
+		final Object this$body = this.body;
+		final Object other$body = other.body;
+		if (this$body == null ? other$body != null : !this$body.equals(other$body)) return false;
+		return true;
+	}
+
+	public int hashCode() {
+		final int PRIME = 59;
+		int result = 1;
+		final Object $head = this.head;
+		result = result * PRIME + ($head == null ? 0 : $head.hashCode());
+		final Object $body = this.body;
+		result = result * PRIME + ($body == null ? 0 : $body.hashCode());
+		return result;
+	}
+
+	protected boolean canEqual(Object other) {
+		return other instanceof CQ;
 	}
 }

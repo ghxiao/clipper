@@ -56,7 +56,9 @@ class CommandRewrite extends ReasoningCommandBase {
 		// ClipperManager.getInstance().setNamingStrategy(
 		// NamingStrategy.LOWER_CASE_FRAGMENT);
 
-		ClipperManager.getInstance().setNamingStrategy(this.namingStrategy);
+		qaHornSHIQ.setNamingStrategy(this.namingStrategy);
+
+		//ClipperManager.getInstance().setNamingStrategy(this.namingStrategy);
 
 		Set<OWLOntology> ontologies = loadOntologies();
 
@@ -66,7 +68,7 @@ class CommandRewrite extends ReasoningCommandBase {
 
 			CQ cq = parseCQ(ontologies);
 
-			qaHornSHIQ.setCq(cq);
+			qaHornSHIQ.setQuery(cq);
 		}
 		// TODO: only consider related rules
 

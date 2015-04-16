@@ -62,6 +62,7 @@ public class ClipperAppTest {
 
 
 
+
 	@Test
 	public void testCompletion() {
 
@@ -93,11 +94,18 @@ public class ClipperAppTest {
 
 	}
 
+	@Test
+	public void testRewriteNPD() {
+		ClipperApp
+				.main("-v=8 rewrite -o /Users/xiao/npd-v2.owl -d /Users/xiao/npd-v2.dl"
+						.split("\\ "));
+	}
+
 	public static void main(String[] args) {
-		//new ClipperAppTest().testQuery();
+		new ClipperAppTest().testQuery();
 		//new ClipperAppTest().testRewriteAboxes();
 		//new ClipperAppTest().testRewriteTboxAndQuery();
-		new ClipperAppTest().testRewriteAbox();
+		//new ClipperAppTest().testRewriteAbox();
 		//new ClipperAppTest().testRewriteTBoxOnly();
 		//new ClipperAppTest().testRewriteOntologyOnly();
 		//new ClipperAppTest().testRewriteAll();
