@@ -1,5 +1,6 @@
 package org.semanticweb.clipper.hornshiq.rule;
 
+import com.google.common.collect.Sets;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
@@ -23,6 +24,11 @@ public class CQ {
 	public CQ(Atom head, Set<Atom> body) {
 		this.head = head;
 		this.body = body;
+	}
+
+	public CQ(Atom head, Atom body) {
+		this.head = head;
+		this.body = Sets.newHashSet(body);
 	}
 
 	@Override

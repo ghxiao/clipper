@@ -6,10 +6,7 @@ import gnu.trove.set.hash.TIntHashSet;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMaxOneAxiom;
@@ -19,7 +16,14 @@ import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperPropertyAssertionAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperTransitivityAxiom;
-import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.clipper.hornshiq.rule.Atom;
+import org.semanticweb.clipper.hornshiq.rule.CQ;
+import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
+import org.semanticweb.clipper.hornshiq.rule.Variable;
+import org.semanticweb.clipper.util.SymbolEncoder;
+import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLEntity;
+import org.semanticweb.owlapi.model.OWLPropertyExpression;
 
 /*
  * This class is used to create datalog program from the representation of KB
@@ -31,6 +35,15 @@ import org.semanticweb.owlapi.model.IRI;
  *         FIXME:
  */
 public class ReductionToDatalogOpt {
+
+	private static final SymbolEncoder<OWLClass> owlClassEncoder = ClipperManager.getInstance().getOwlClassEncoder();
+
+	private static final SymbolEncoder<OWLPropertyExpression> owlPropertyExpressionEncoder
+			= ClipperManager.getInstance().getOwlPropertyExpressionEncoder();
+
+	private static final Variable varX = new Variable("X");
+	private static final Variable varY = new Variable("Y");
+	private static final Variable varZ = new Variable("Z");
 
 	private IndexedHornImpContainer indexImps;
 	private IndexedEnfContainer indexEnfs;
@@ -45,10 +58,10 @@ public class ReductionToDatalogOpt {
 	private List<ClipperPropertyAssertionAxiom> roleAssertionAxioms;
 	private List<ClipperTransitivityAxiom> transAxioms;
 
-	protected final int NOTHING = 1;
-	protected final int THING = 0;
-	protected final int TOP_PROPERTY = 0;
-	protected final int BOTTOM_PROPERTY = 2;
+	protected static final int NOTHING = 1;
+	protected static final int THING = 0;
+	protected static final int TOP_PROPERTY = 0;
+	protected static final int BOTTOM_PROPERTY = 2;
 
 	CQFormatter cqFormatter;
 
@@ -90,9 +103,26 @@ public class ReductionToDatalogOpt {
 		transAxioms = ont_bs.getTransitivityAxioms();
 	}
 
+	private static DLPredicate getClassPredicate(int index) {
+		return new DLPredicate(owlClassEncoder.getSymbolByValue(index));
+	}
+
+	private static DLPredicate getPropertyPredicate(int index) {
+		// v % 2 == 0
+		return new DLPredicate((OWLEntity)owlPropertyExpressionEncoder.getSymbolByValue(index));
+	}
+
+	// no inverse
+	private static Atom getBinaryAtom(int index, Variable var1, Variable var2){
+		if (index % 2 == 0) {
+			return new Atom(getPropertyPredicate(index), var1, var2);
+		} else {
+			return new Atom(getPropertyPredicate(index - 1), var2, var1);
+		}
+	}
 
 	private Set<String> getEncodedBodyOfImp(TIntHashSet body) {
-		Set<String> strBody = new HashSet<String>();
+		Set<String> strBody = new HashSet<>();
 		TIntIterator iterator = body.iterator();
 		while (iterator.hasNext()) {
 			int index = iterator.next();
@@ -103,6 +133,20 @@ public class ReductionToDatalogOpt {
 		}
 		return strBody;
 	}
+
+	private static Set<Atom> getClassAtoms(TIntHashSet body, Variable var) {
+		Set<Atom> atoms = new HashSet<>();
+		TIntIterator iterator = body.iterator();
+		while (iterator.hasNext()) {
+			int index = iterator.next();
+			if (index != THING) {
+				atoms.add(new Atom(getClassPredicate(index), var));
+			}
+		}
+		return atoms;
+	}
+
+
 
 	public void setCoreImps(Collection<HornImplication> coreImps) {
 		this.coreImps = coreImps;
@@ -140,6 +184,35 @@ public class ReductionToDatalogOpt {
 		}
 	}
 
+	public List<CQ> rulesFromImps() {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+			System.out.println("%==========rules From Imps=============");
+		}
+
+		List<CQ> result = new ArrayList<>();
+
+		for (HornImplication imp : coreImps) {
+
+			if (existentialInTheBodby(imp)) {
+				continue;
+			}
+
+			int impHead = imp.getHead();
+			DLPredicate headPredicate = getClassPredicate(impHead);
+			Atom headAtom = new Atom(headPredicate, varX);
+			Set<Atom> bodyAtoms = getClassAtoms(imp.getBody(), varX);
+			CQ cq = new CQ(headAtom, bodyAtoms);
+
+			if (cq.isNotTrivial()) {
+				result.add(cq);
+			}
+		}
+
+		return result;
+	}
+
+
+
 	private boolean existentialInTheBodby(HornImplication imp) {
 		TIntHashSet body = imp.getBody();
 		TIntIterator iterator = body.iterator();
@@ -151,6 +224,31 @@ public class ReductionToDatalogOpt {
 				return true;
 		}
 		return false;
+	}
+
+	// subclassOf( A, R only C)
+	public List<CQ> rulesFromValueRestrictions() {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+			System.out.println("%==========rules From Value Restrictions ============");
+		}
+		List<CQ> result = new ArrayList<>();
+		for (ClipperAtomSubAllAxiom axiom : allValuesFromAxioms) {
+
+			int ic = axiom.getConcept2();
+			int ir = axiom.getRole();
+			int ia = axiom.getConcept1();
+
+			Atom headAtom = new Atom(getClassPredicate(ic), varY);
+			Set<Atom> bodyAtoms = new HashSet<>();
+			if (ia != ClipperManager.getInstance().getThing()) {
+				bodyAtoms.add(new Atom(getClassPredicate(ia), varX));
+			}
+
+			bodyAtoms.add(getBinaryAtom(ir, varX, varY));
+			CQ cq = new CQ(headAtom, bodyAtoms);
+			result.add(cq);
+		}
+		return result;
 	}
 
 	// subclassOf( A, R only C)
@@ -176,6 +274,27 @@ public class ReductionToDatalogOpt {
 			}
 			program.println(rule);
 		}
+	}
+
+	// SubRole (sub, super)
+	public List<CQ> rulesFromRoleInclusions() {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+			System.out.println("%==========rules From Sub Roles Axioms =====");
+		}
+		List<CQ> result = new ArrayList<>();
+
+		for (ClipperSubPropertyAxiom subRoleAxiom : subObjectPropertyAxioms) {
+			int sup = subRoleAxiom.getRole2();
+			int sub = subRoleAxiom.getRole1();
+			if (!(sub % 2 == 1 && sup % 2 == 1)) {
+				Atom head = getBinaryAtom(sup, varX, varY);
+				Atom body = getBinaryAtom(sub, varX, varY);
+				CQ cq = new CQ(head, body);
+				result.add(cq);
+			}
+		}
+
+		return result;
 	}
 
 	// SubRole (sub, super)
