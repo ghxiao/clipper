@@ -52,7 +52,6 @@ public class ReductionToDatalogOpt {
 
 	CQFormatter cqFormatter;
 
-	// private NamingStrategy namingStrategy;
 
 	/*
 	 * Constructor
@@ -63,19 +62,10 @@ public class ReductionToDatalogOpt {
 	 */
 	public ReductionToDatalogOpt(CQFormatter cqFormatter) {
 		this.cqFormatter = cqFormatter;
-		// this.namingStrategy = NamingStrategy.IntEncoding;
 	}
-
-	// public void setNamingStrategy(NamingStrategy strategy) {
-	// // this.namingStrategy = strategy;
-	// }
 
 	public ReductionToDatalogOpt(ClipperHornSHIQOntology ont_bs, CQFormatter cqFormatter) {
 		this.cqFormatter = cqFormatter;
-		// this.namingStrategy = NamingStrategy.IntEncoding;
-
-		// KaosManager.getInstance().setNamingStrategy(NamingStrategy.IntEncoding);
-		// KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 
 		indexImps = new IndexedHornImpContainer();
 		indexEnfs = new IndexedEnfContainer();
@@ -100,9 +90,6 @@ public class ReductionToDatalogOpt {
 		transAxioms = ont_bs.getTransitivityAxioms();
 	}
 
-	// getters and setters
-
-	// end of getters and setters
 
 	private Set<String> getEncodedBodyOfImp(TIntHashSet body) {
 		Set<String> strBody = new HashSet<String>();
@@ -111,30 +98,10 @@ public class ReductionToDatalogOpt {
 			int index = iterator.next();
 			if (index != THING) {
 				strBody.add(cqFormatter.getUnaryPredicate(index) + "(X)");
-				// strBody.add("c" + index + "(X)");
+
 			}
 		}
 		return strBody;
-	}
-
-	public IndexedHornImpContainer getIndexImps() {
-		return indexImps;
-	}
-
-	public void setIndexImps(IndexedHornImpContainer indexImps) {
-		this.indexImps = indexImps;
-	}
-
-	public IndexedEnfContainer getIndexEnfs() {
-		return indexEnfs;
-	}
-
-	public void setIndexEnfs(IndexedEnfContainer indexEnfs) {
-		this.indexEnfs = indexEnfs;
-	}
-
-	public Collection<HornImplication> getCoreImps() {
-		return coreImps;
 	}
 
 	public void setCoreImps(Collection<HornImplication> coreImps) {
@@ -179,7 +146,6 @@ public class ReductionToDatalogOpt {
 		while (iterator.hasNext()) {
 			int p = iterator.next();
 			String classIRI = ClipperManager.getInstance()
-			//
 					.getOwlClassEncoder().getSymbolByValue(p).getIRI().toString();
 			if (classIRI.startsWith("http://www.example.org/fresh#SOME_fresh"))
 				return true;
@@ -212,7 +178,7 @@ public class ReductionToDatalogOpt {
 		}
 	}
 
-	// SubRole (sup, super)
+	// SubRole (sub, super)
 	public void rulesFromRoleInclusions(PrintStream program) {
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("%==========rules From Sub Roles Axioms =====");
@@ -220,8 +186,6 @@ public class ReductionToDatalogOpt {
 		for (ClipperSubPropertyAxiom subRoleAxiom : subObjectPropertyAxioms) {
 			int sup = subRoleAxiom.getRole2();
 			int sub = subRoleAxiom.getRole1();
-			// don't care about subroleAxiom of anonymous roles
-			// if (!(sup % 2 == 1 && sup % 2 == 1)) {
 			Rule rule = new Rule();
 			if (!(sub % 2 == 1 && sup % 2 == 1)) {
 				rule.setHead(cqFormatter.getBinaryAtomWithoutInverse(sup, "X", "Y"));
@@ -374,8 +338,6 @@ public class ReductionToDatalogOpt {
 					+ cqFormatter.getConstant(ind2) + ").");
 
 		}
-		// System.out.println("======================================== ");
-		// System.out.println("Facts from Class assertions: ");
 		for (ClipperConceptAssertionAxiom ca : conceptAssertionAxioms) {
 			int ic = ca.getConcept();
 			int iInd = ca.getIndividual();
@@ -397,8 +359,6 @@ public class ReductionToDatalogOpt {
 		}
 		try {
 			PrintStream program = new PrintStream(new FileOutputStream(generatedDataLogFile));
-			// System.out.println("======================================== ");
-			// System.out.println("Facts from Role assertions: ");
 
 			// ruleForBottomConcept(program);
 			rulesFromImps(program);
@@ -448,16 +408,7 @@ public class ReductionToDatalogOpt {
 		}
 		try {
 			PrintStream program = new PrintStream(new FileOutputStream(generatedDataLogFile));
-			// System.out.println("======================================== ");
-			// System.out.println("Facts from Role assertions: ");
 
-			// ruleForBottomConcept(program);
-			// rulesFromImps(program);
-			// rulesFromValueRestrictions(program);
-			// rulesFromRoleInclusions(program);
-			// rulesFromInverseRoleAxioms(program);
-			// rulesFromNumberRestrictions(program);
-			// rulesFromNumberRestrictionAndEnfs(program);
 			rulesFromABoxAssertions(program);
 			program.close();
 
@@ -488,7 +439,6 @@ public class ReductionToDatalogOpt {
 			rulesFromInverseRoleAxioms(program);
 			rulesFromNumberRestrictions(program);
 			rulesFromNumberRestrictionAndEnfs(program);
-			// rulesFromABoxAssertions(program);
 			program.close();
 
 		} catch (FileNotFoundException e) {
@@ -496,55 +446,4 @@ public class ReductionToDatalogOpt {
 		}
 
 	}
-
-	// private String getConstant(int value) {
-	// switch (ClipperManager.getInstance().getNamingStrategy()) {
-	// case LowerCaseFragment:
-	// IRI iri = ClipperManager.getInstance().getOwlIndividualEncoder()
-	// .getSymbolByValue(value).asOWLNamedIndividual().getIRI();
-	// return "\"" + normalize(iri) + "\"";
-	// case IntEncoding:
-	// return "d" + value;
-	// }
-	// throw new IllegalStateException("Not possible");
-	// }
-	//
-	// private String getBinaryPredicate(int value) {
-	// switch (ClipperManager.getInstance().getNamingStrategy()) {
-	// case LowerCaseFragment:
-	// IRI iri = ClipperManager.getInstance()
-	// .getOwlObjectPropertyExpressionEncoder()
-	// .getSymbolByValue(value).asOWLObjectProperty().getIRI();
-	// return normalize(iri);
-	// case IntEncoding:
-	// return "r" + value;
-	// }
-	// throw new IllegalStateException("Not possible");
-	// }
-	//
-	// private String getUnaryPredicate(int value) {
-	// switch (ClipperManager.getInstance().getNamingStrategy()) {
-	// case LowerCaseFragment:
-	// IRI iri = ClipperManager.getInstance().getOwlClassEncoder()
-	// .getSymbolByValue(value).getIRI();
-	//
-	// return normalize(iri);
-	// case IntEncoding:
-	// return "c" + value;
-	// }
-	// throw new IllegalStateException("Not possible");
-	// }
-	//
-	// private String normalize(IRI iri) {
-	// String fragment = iri.getFragment();
-	// if (fragment != null) {
-	// return fragment.replaceAll("[_-]", "").toLowerCase();
-	// } else {
-	// final String iriString = iri.toString();
-	// int i = iriString.lastIndexOf('/') + 1;
-	// return iriString.substring(i).replace("_-", "").toLowerCase();
-	//
-	// }
-	//
-	// }
 }

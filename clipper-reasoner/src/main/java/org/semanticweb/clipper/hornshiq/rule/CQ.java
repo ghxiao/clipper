@@ -17,15 +17,13 @@ public class CQ {
 	
 	public CQ() {
 		head = new Atom();
-		body = new HashSet<Atom>();
+		body = new HashSet<>();
 	}
 
-	@java.beans.ConstructorProperties({"head", "body"})
 	public CQ(Atom head, Set<Atom> body) {
 		this.head = head;
 		this.body = body;
 	}
-
 
 	@Override
 	public String toString() {
@@ -165,11 +163,9 @@ public class CQ {
 		TIntIterator iterator = type.iterator();
 		while (iterator.hasNext()) {
 			int i = iterator.next();
-			// for (int i = type.nextSetBit(0); i >= 0; i = type.nextSetBit(i +
-			// 1)) {
 			if (i != ClipperManager.getInstance().getThing()) {
 				Predicate predicate = new DLPredicate(i, 1);
-				List<Term> terms = new ArrayList<Term>();
+				List<Term> terms = new ArrayList<>();
 				terms.add(x);
 				Atom newAtom = new Atom(predicate, terms);
 				if (!body.contains(newAtom) && !addedAtoms.contains(newAtom)) {

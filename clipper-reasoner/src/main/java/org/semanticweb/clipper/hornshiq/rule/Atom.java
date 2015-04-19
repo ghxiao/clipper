@@ -13,7 +13,6 @@ public class Atom {
 		this(predicate, Arrays.asList(terms));
 	}
 
-	@java.beans.ConstructorProperties({"predicate", "terms"})
 	public Atom(Predicate predicate, List<Term> terms) {
 		this.predicate = predicate;
 		this.terms = terms;
@@ -59,14 +58,13 @@ public class Atom {
 		if (o == this) return true;
 		if (!(o instanceof Atom)) return false;
 		final Atom other = (Atom) o;
-		if (!other.canEqual((Object) this)) return false;
+		if (!other.canEqual(this)) return false;
 		final Object this$predicate = this.predicate;
 		final Object other$predicate = other.predicate;
 		if (this$predicate == null ? other$predicate != null : !this$predicate.equals(other$predicate)) return false;
 		final Object this$terms = this.terms;
 		final Object other$terms = other.terms;
-		if (this$terms == null ? other$terms != null : !this$terms.equals(other$terms)) return false;
-		return true;
+		return !(this$terms == null ? other$terms != null : !this$terms.equals(other$terms));
 	}
 
 	public int hashCode() {

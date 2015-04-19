@@ -39,23 +39,23 @@ public class ClipperHornSHIQOntology {
 	TIntHashSet aboxConcepts;
 
 	public ClipperHornSHIQOntology() {
-		this.andSubAtomAxioms = new ArrayList<ClipperAndSubAtomAxiom>();
-		this.atomSubMaxOneAxioms = new ArrayList<ClipperAtomSubMaxOneAxiom>();
-		this.atomSubMinAxioms = new ArrayList<ClipperAtomSubMinAxiom>();
-		this.atomSubSomeAxioms = new ArrayList<ClipperAtomSubSomeAxiom>();
-		this.atomSubAllAxioms = new ArrayList<ClipperAtomSubAllAxiom>();
-		this.conceptAssertionAxioms = new ArrayList<ClipperConceptAssertionAxiom>();
-		this.disjointObjectPropertiesAxioms = new ArrayList<ClipperDisjointObjectPropertiesAxiom>();
-		this.propertyAssertionAxioms = new ArrayList<ClipperPropertyAssertionAxiom>();
-		this.someSubAtomAxioms = new ArrayList<ClipperSomeSubAtomAxiom>();
-		this.subPropertyAxioms = new ArrayList<ClipperSubPropertyAxiom>();
-		this.inversePropertyOfAxioms = new ArrayList<ClipperInversePropertyOfAxiom>();
-		this.transitivityAxioms = new ArrayList<ClipperTransitivityAxiom>();
+		this.andSubAtomAxioms = new ArrayList<>();
+		this.atomSubMaxOneAxioms = new ArrayList<>();
+		this.atomSubMinAxioms = new ArrayList<>();
+		this.atomSubSomeAxioms = new ArrayList<>();
+		this.atomSubAllAxioms = new ArrayList<>();
+		this.conceptAssertionAxioms = new ArrayList<>();
+		this.disjointObjectPropertiesAxioms = new ArrayList<>();
+		this.propertyAssertionAxioms = new ArrayList<>();
+		this.someSubAtomAxioms = new ArrayList<>();
+		this.subPropertyAxioms = new ArrayList<>();
+		this.inversePropertyOfAxioms = new ArrayList<>();
+		this.transitivityAxioms = new ArrayList<>();
 	}
 
 	public List<ClipperAxiom> getAllAxioms() {
 
-		List<ClipperAxiom> result = new ArrayList<ClipperAxiom>();
+		List<ClipperAxiom> result = new ArrayList<>();
 		result.addAll(andSubAtomAxioms);
 		result.addAll(atomSubAllAxioms);
 		result.addAll(atomSubMaxOneAxioms);
