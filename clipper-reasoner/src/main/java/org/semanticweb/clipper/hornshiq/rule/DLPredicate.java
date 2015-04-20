@@ -15,6 +15,10 @@ public class DLPredicate implements Predicate {
 
 	ShortFormProvider sfp = new SimpleShortFormProvider();
 
+	public OWLEntity getOwlEntity(){
+		return owlEntity;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -56,11 +60,11 @@ public class DLPredicate implements Predicate {
 	public DLPredicate(OWLEntity entity) {
 		this.owlEntity = entity;
 
-		if (entity.isBottomEntity()) {
-			this.arity = 0;
+		if (entity.isOWLClass() && entity.isBottomEntity()) {
+			this.arity = 1;
 			this.encoding = ClipperManager.getInstance().getNothing();
-		} else if (entity.isTopEntity()) {
-			this.arity = 0;
+		} else if (entity.isOWLClass() &&  entity.isTopEntity()) {
+			this.arity = 1;
 			this.encoding = ClipperManager.getInstance().getThing();
 		} else if (entity.isOWLClass()) {
 			this.arity = 1;
