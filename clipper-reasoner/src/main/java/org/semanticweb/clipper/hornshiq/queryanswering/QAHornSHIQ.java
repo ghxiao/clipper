@@ -130,6 +130,29 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 	}
 
 	/**
+	 * @return Datalog program that contains: completion rules, and ABox
+	 *         assertions
+	 */
+	@SuppressWarnings("unused")
+	public List<CQ> rewriteOntology() {
+
+		preprocessOntologies();
+
+		TBoxReasoner tb = saturateTBox();
+
+
+		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology, cqFormatter);
+		// reduction.setNamingStrategy(this.namingStrategy);
+		reduction.setCoreImps(tb.getImpContainer().getImps());
+		reduction.setCoreEnfs(tb.getEnfContainer().getEnfs());
+
+		List<CQ> program = reduction.getCompletionRulesDatalogProgram();
+		return program;
+
+		//reduction.saveEncodedDataLogProgram(this.datalogFileName);
+	}
+
+	/**
 	 * @param tb
 	 * @throws IOException
 	 */

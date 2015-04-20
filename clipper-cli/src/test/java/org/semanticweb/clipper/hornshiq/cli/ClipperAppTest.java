@@ -61,8 +61,6 @@ public class ClipperAppTest {
 	}
 
 
-
-
 	@Test
 	public void testCompletion() {
 
@@ -98,7 +96,7 @@ public class ClipperAppTest {
 	public void testRewriteNPD() {
 		ClipperApp
 				.main("-v=8 rewrite -o /Users/xiao/npd-v2.owl -d /Users/xiao/npd-v2.dl"
-						.split("\\ "));
+						.split(" "));
 	}
 
 	public static void main(String[] args) {

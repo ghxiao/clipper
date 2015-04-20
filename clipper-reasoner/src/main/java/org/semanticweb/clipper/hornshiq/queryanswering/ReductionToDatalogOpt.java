@@ -1,5 +1,7 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
 
@@ -211,8 +213,6 @@ public class ReductionToDatalogOpt {
 		return result;
 	}
 
-
-
 	private boolean existentialInTheBodby(HornImplication imp) {
 		TIntHashSet body = imp.getBody();
 		TIntIterator iterator = body.iterator();
@@ -224,6 +224,33 @@ public class ReductionToDatalogOpt {
 				return true;
 		}
 		return false;
+	}
+
+
+
+	// subclassOf( A, R only C)
+	public void rulesFromValueRestrictions(PrintStream program) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+			System.out.println("%==========rules From Value Restrictions ============");
+		}
+		Rule rule = new Rule();
+		for (ClipperAtomSubAllAxiom axiom : allValuesFromAxioms) {
+			rule.clear();
+			int ic = axiom.getConcept2();
+			int ir = axiom.getRole();
+			int ia = axiom.getConcept1();
+
+			rule.setHead(cqFormatter.getUnaryPredicate(ic) + "(Y)");
+			if (ia != ClipperManager.getInstance().getThing())
+				rule.addAtomToBody(cqFormatter.getUnaryPredicate(ia) + "(X)");
+			final String s;
+			s = cqFormatter.getBinaryAtomWithoutInverse(ir, "X", "Y");
+			rule.addAtomToBody(s);
+			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+				System.out.println(rule);
+			}
+			program.println(rule);
+		}
 	}
 
 	// subclassOf( A, R only C)
@@ -251,28 +278,25 @@ public class ReductionToDatalogOpt {
 		return result;
 	}
 
-	// subclassOf( A, R only C)
-	public void rulesFromValueRestrictions(PrintStream program) {
-		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-			System.out.println("%==========rules From Value Restrictions ============");
-		}
-		Rule rule = new Rule();
-		for (ClipperAtomSubAllAxiom axiom : allValuesFromAxioms) {
-			rule.clear();
-			int ic = axiom.getConcept2();
-			int ir = axiom.getRole();
-			int ia = axiom.getConcept1();
 
-			rule.setHead(cqFormatter.getUnaryPredicate(ic) + "(Y)");
-			if (ia != ClipperManager.getInstance().getThing())
-				rule.addAtomToBody(cqFormatter.getUnaryPredicate(ia) + "(X)");
-			final String s;
-			s = cqFormatter.getBinaryAtomWithoutInverse(ir, "X", "Y");
-			rule.addAtomToBody(s);
-			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-				System.out.println(rule);
+
+	// SubRole (sub, super)
+	public void rulesFromRoleInclusions(PrintStream program) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+			System.out.println("%==========rules From Sub Roles Axioms =====");
+		}
+		for (ClipperSubPropertyAxiom subRoleAxiom : subObjectPropertyAxioms) {
+			int sup = subRoleAxiom.getRole2();
+			int sub = subRoleAxiom.getRole1();
+			Rule rule = new Rule();
+			if (!(sub % 2 == 1 && sup % 2 == 1)) {
+				rule.setHead(cqFormatter.getBinaryAtomWithoutInverse(sup, "X", "Y"));
+				rule.addAtomToBody(cqFormatter.getBinaryAtomWithoutInverse(sub, "X", "Y"));
+				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+					System.out.println(rule);
+				}
+				program.println(rule);
 			}
-			program.println(rule);
 		}
 	}
 
@@ -295,26 +319,6 @@ public class ReductionToDatalogOpt {
 		}
 
 		return result;
-	}
-
-	// SubRole (sub, super)
-	public void rulesFromRoleInclusions(PrintStream program) {
-		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-			System.out.println("%==========rules From Sub Roles Axioms =====");
-		}
-		for (ClipperSubPropertyAxiom subRoleAxiom : subObjectPropertyAxioms) {
-			int sup = subRoleAxiom.getRole2();
-			int sub = subRoleAxiom.getRole1();
-			Rule rule = new Rule();
-			if (!(sub % 2 == 1 && sup % 2 == 1)) {
-				rule.setHead(cqFormatter.getBinaryAtomWithoutInverse(sup, "X", "Y"));
-				rule.addAtomToBody(cqFormatter.getBinaryAtomWithoutInverse(sub, "X", "Y"));
-				if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-					System.out.println(rule);
-				}
-				program.println(rule);
-			}
-		}
 	}
 
 	// InverseRole(r1, r2)
@@ -343,6 +347,30 @@ public class ReductionToDatalogOpt {
 		}
 	}
 
+	// InverseRole(r1, r2)
+	public List<CQ> rulesFromInverseRoleAxioms() {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+			System.out.println("%==========rules From inverse role axioms===================");
+		}
+
+		List<CQ> result = new ArrayList<>();
+		Rule rule = new Rule();
+		for (ClipperInversePropertyOfAxiom ax : inverseObjectPropertyAxioms) {
+			CQ cq = new CQ();
+
+			int r1 = ax.getRole1();
+			int r2 = ax.getRole2();
+
+			cq = new CQ(getBinaryAtom(r1, varX, varY), getBinaryAtom(r2, varY, varX));
+			result.add(cq);
+
+			cq = new CQ(getBinaryAtom(r2, varY, varX), getBinaryAtom(r1, varX, varY));
+			result.add(cq);
+
+		}
+		return result;
+	}
+
 	// SubclassOf( A, R max 1 C)
 	public void rulesFromNumberRestrictions(PrintStream program) {
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
@@ -368,6 +396,45 @@ public class ReductionToDatalogOpt {
 			program.println(constraint);
 		}
 	}
+
+	// SubclassOf( A, R max 1 C)
+	// TODO: handle empty head and `Y!=Z`
+	/*public List<CQ> rulesFromNumberRestrictions() {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+			System.out.println("%==========rules From NumberRestrictions ===================");
+		}
+		for (ClipperAtomSubMaxOneAxiom subClassAxiom : maxOneCardinalityAxioms) {
+			int ia = subClassAxiom.getConcept1();
+			int ir = subClassAxiom.getRole();
+			int ic = subClassAxiom.getConcept2();
+			Constraint constraint = new Constraint();
+			List<Atom> bodyAtoms = new ArrayList<>();
+			if (ia != THING) {
+				//constraint.addAtomToBody(cqFormatter.getUnaryPredicate(ia) + "(X)");
+
+				bodyAtoms.add(new Atom(getClassPredicate(ia), varX));
+			}
+
+			if (ic != THING) {
+				bodyAtoms.add(new Atom(getClassPredicate(ic), varY));
+				bodyAtoms.add(new Atom(getClassPredicate(ic), varZ));
+			}
+
+			bodyAtoms.add(getBinaryAtom(ir, varX, varY));
+			bodyAtoms.add(getBinaryAtom(ir, varX, varZ));
+
+			constraint.addAtomToBody(cqFormatter.getBinaryAtomWithoutInverse(ir, "X", "Y"));
+			constraint.addAtomToBody(cqFormatter.getBinaryAtomWithoutInverse(ir, "X", "Z"));
+			constraint.addAtomToBody("Y !=Z");
+			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+				System.out.println(constraint);
+			}
+			program.println(constraint);
+		}
+	}*/
+
+
+
 
 	public void rulesFromNumberRestrictionAndEnfs(PrintStream program) {// 1
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
@@ -439,6 +506,11 @@ public class ReductionToDatalogOpt {
 			program.println(r);
 		}
 	}
+
+
+	// TODO
+	//	public void rulesFromNumberRestrictionAndEnfs() {// 1
+	//	}
 
 	public void rulesFromABoxAssertions(PrintStream program) {
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
@@ -518,6 +590,27 @@ public class ReductionToDatalogOpt {
 
 	}
 
+	private List<CQ> rulesFromTransitiveAxioms() {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+			System.out.println("%Rules From Transitive Assertions");
+		}
+
+		List<CQ> result = Lists.newArrayList();
+
+		for (ClipperTransitivityAxiom a : transAxioms) {
+
+			int ir = a.getRole();
+
+			Atom head = getBinaryAtom(ir, varX, varZ);
+			HashSet<Atom> body = Sets.newHashSet(getBinaryAtom(ir, varX, varY), getBinaryAtom(ir, varY, varZ));
+			result.add(new CQ(head, body));
+
+		}
+
+		return result;
+
+	}
+
 	/**
 	 * @return DATALOG program contain only ABox assertions
 	 * */
@@ -563,6 +656,19 @@ public class ReductionToDatalogOpt {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
 
+	public List<CQ> getCompletionRulesDatalogProgram() {
+		List<CQ> program = Lists.newArrayList();
+		// ruleForBottomConcept(program);
+		program.addAll(rulesFromImps());
+		program.addAll(rulesFromValueRestrictions());
+		program.addAll(rulesFromRoleInclusions());
+		program.addAll(rulesFromInverseRoleAxioms());
+		// not implemented
+		// program.addAll(rulesFromNumberRestrictions());
+		// not implemented
+		// program.addAll(rulesFromNumberRestrictionAndEnfs());
+		return program;
 	}
 }
