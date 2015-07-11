@@ -43,7 +43,7 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 	/**
 	 * construct a CQGraph from a CQ
 	 * 
-	 * @param cq
+	 * @param cq a Conjunctive Query
 	 */
 	public CQGraph(CQ cq) {
 		super();
@@ -77,13 +77,9 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 	public CQGraph deepCopy() {
 		CQGraph g = new CQGraph();
 
-		for (Term vertex : this.getVertices()) {
-			g.addVertex(vertex);
-		}
+        this.getVertices().forEach(g::addVertex);
 
-		for (CQGraphEdge edge : this.getEdges()) {
-			g.addEdge(edge);
-		}
+        this.getEdges().forEach(g::addEdge);
 
 		// g.roles.putAll(this.roles);
 		g.concepts.putAll(this.concepts);

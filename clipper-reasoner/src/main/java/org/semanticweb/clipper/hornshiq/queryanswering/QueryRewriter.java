@@ -5,6 +5,6 @@ import org.semanticweb.clipper.hornshiq.rule.CQ;
 
 public interface QueryRewriter {
 
-	public abstract Collection<CQ> rewrite(CQ query);
+	Collection<CQ> rewrite(CQ query);
 
 }
