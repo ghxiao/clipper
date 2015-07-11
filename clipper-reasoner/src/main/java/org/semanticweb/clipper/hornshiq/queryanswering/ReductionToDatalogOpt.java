@@ -665,6 +665,7 @@ public class ReductionToDatalogOpt {
 		program.addAll(rulesFromValueRestrictions());
 		program.addAll(rulesFromRoleInclusions());
 		program.addAll(rulesFromInverseRoleAxioms());
+        program.addAll(rulesFromTransitiveAxioms());
 		// not implemented
 		// program.addAll(rulesFromNumberRestrictions());
 		// not implemented

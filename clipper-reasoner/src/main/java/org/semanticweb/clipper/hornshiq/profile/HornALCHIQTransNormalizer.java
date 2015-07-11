@@ -157,7 +157,14 @@ public class HornALCHIQTransNormalizer implements OWLAxiomVisitorEx<Object> {
 
 			OWLObjectSomeValuesFrom objectSomeExpress = (OWLObjectSomeValuesFrom) subClass;
 			OWLClassExpression filler = objectSomeExpress.getFiller();
-			OWLClass a = filler.asOWLClass();
+
+            if(filler.isAnonymous()){
+                // FIXME!!
+                return null;
+            }
+
+            OWLClass a = filler.asOWLClass();
+
 			OWLObjectPropertyExpression r = objectSomeExpress.getProperty();
 			OWLClass b = superClass.asOWLClass();
 

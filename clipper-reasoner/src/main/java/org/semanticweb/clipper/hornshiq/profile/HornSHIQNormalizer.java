@@ -477,7 +477,8 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 	@Override
 	public Object visit(OWLDisjointObjectPropertiesAxiom axiom) {
 		// TODO
-		throw new IllegalArgumentException(axiom.toString());
+        return null;
+//		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	// range(r) = C ~> T subclass all(r, C)
@@ -638,8 +639,11 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 
 	@Override
 	public Object visit(OWLSubPropertyChainOfAxiom axiom) {
+        // FIXME: check how far we can go
 
-		throw new IllegalArgumentException(axiom.toString());
+        return null;
+		//throw new IllegalArgumentException(axiom.toString());
+
 
 	}
 
