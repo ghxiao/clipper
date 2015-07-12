@@ -98,7 +98,7 @@ public class CQGraphTest {
 		ImmutableList<Integer> type = ImmutableList.of(3, 4);
 
 		Map<CQGraphEdge, Integer> emptyMap = Maps.newHashMap();
-		g.clip(vs, g.getInEdges(vertex), emptyMap, type);
+		g = g.clip(vs, g.getInEdges(vertex), emptyMap, type);
 		System.out.println("Clip off " + vertex);
 		System.out.println(g);
 
@@ -128,7 +128,7 @@ public class CQGraphTest {
 		ImmutableList<Integer> type = ImmutableList.of(3, 4);
 
 		Map<CQGraphEdge, Integer> emptyMap = Maps.newHashMap();
-		g.clip(vs, g.getInEdges(vertex), emptyMap, type);
+		g = g.clip(vs, g.getInEdges(vertex), emptyMap, type);
 		System.out.println("Clip off " + vertex);
 		System.out.println(g);
 
@@ -159,7 +159,7 @@ public class CQGraphTest {
 		ImmutableList<Integer> type = ImmutableList.of(6);
 
 		Map<CQGraphEdge, Integer> emptyMap = Maps.newHashMap();
-		g.clip(vs, g.getInEdges(vertex), emptyMap, type);
+		g = g.clip(vs, g.getInEdges(vertex), emptyMap, type);
 		System.out.println("Clip off " + vertex);
 		System.out.println(g);
 		System.out.println(g.toCQ());
@@ -186,7 +186,7 @@ public class CQGraphTest {
 
 		List<Integer> type = Lists.newArrayList(3, 4);
 		Map<CQGraphEdge, Integer> emptyMap = Maps.newHashMap();
-		g.clip(vs, g.getInEdges(vs), emptyMap, type);
+		g = g.clip(vs, g.getInEdges(vs), emptyMap, type);
 		System.out.println("Clip off " + vertex);
 		System.out.println(g);
 
@@ -213,7 +213,7 @@ public class CQGraphTest {
 
 		List<Integer> type = Lists.newArrayList(3, 4);
 		Map<CQGraphEdge, Integer> emptyMap = Maps.newHashMap();
-		g.clip(vertex, g.getInEdges(vertex), emptyMap, type);
+        g = g.clip(vertex, g.getInEdges(vertex), emptyMap, type);
 
 		System.out.println("Clip off " + vertex);
 		System.out.println(g);
@@ -274,7 +274,7 @@ public class CQGraphTest {
 		CQGraphEdge edge = new CQGraphEdge(new Variable(1), new Variable(2), 2);
 		Map<CQGraphEdge, Integer> map = ImmutableMap.of(edge, 4);
 		List<Integer> type = Lists.newArrayList(3, 4);
-		g.clip(vertex, g.getInEdges(vertex), map, type);
+        g = g.clip(vertex, g.getInEdges(vertex), map, type);
 
 		System.out.println("Clip off " + vertex);
 		System.out.println(g);
@@ -306,7 +306,7 @@ public class CQGraphTest {
 		CQGraphEdge edge2 = new CQGraphEdge(new Variable(1), new Variable(2), 6);
 		Map<CQGraphEdge, Integer> map = ImmutableMap.of(edge1, 4, edge2, 8);
 		List<Integer> type = Lists.newArrayList(3, 4);
-		g.clip(vertex, g.getInEdges(vertex), map, type);
+        g = g.clip(vertex, g.getInEdges(vertex), map, type);
 
 		System.out.println("Clip off " + vertex);
 		System.out.println(g);
@@ -338,7 +338,7 @@ public class CQGraphTest {
 		CQGraphEdge edge2 = new CQGraphEdge(new Variable(1), new Variable(2), 6);
 		Map<CQGraphEdge, Integer> map = ImmutableMap.of(edge1, 4, edge2, 8);
 		List<Integer> type = Lists.newArrayList(3, 4);
-		g.clip(vertices, g.getInEdges(vertices), map, type);
+        g = g.clip(vertices, g.getInEdges(vertices), map, type);
 
 		System.out.println("Clip off " + vertices);
 		System.out.println(g);
@@ -373,7 +373,7 @@ public class CQGraphTest {
 		// 6);
 		Map<CQGraphEdge, Integer> map = ImmutableMap.of(edge1, 4);
 		List<Integer> type = Lists.newArrayList(3, 4);
-		g.clip(vertices, g.getInEdges(vertices), map, type);
+        g = g.clip(vertices, g.getInEdges(vertices), map, type);
 
 		System.out.println("Clip off " + vertices);
 		System.out.println(g);
@@ -409,7 +409,7 @@ public class CQGraphTest {
 		// 6);
 		Map<CQGraphEdge, Integer> map = ImmutableMap.of();
 		List<Integer> type = Lists.newArrayList(3, 4);
-		g.clip(vertices, g.getInEdges(vertices), map, type);
+        g = g.clip(vertices, g.getInEdges(vertices), map, type);
 
 		System.out.println("Clip off " + vertices);
 		System.out.println(g);
@@ -444,7 +444,7 @@ public class CQGraphTest {
 		// 6);
 		Map<CQGraphEdge, Integer> map = ImmutableMap.of(edge1, 2);
 		List<Integer> type = Lists.newArrayList(3, 4);
-		g.clip(vertices, g.getInEdges(vertices), map, type);
+        g = g.clip(vertices, g.getInEdges(vertices), map, type);
 
 		System.out.println("Clip off " + vertices);
 		System.out.println(g);
@@ -480,7 +480,7 @@ public class CQGraphTest {
 		// 6);
 		Map<CQGraphEdge, Integer> map = ImmutableMap.of(edge1, 4);
 		List<Integer> type = Lists.newArrayList(3, 4);
-		g.clip(vertices, g.getInEdges(vertices), map, type);
+        g = g.clip(vertices, g.getInEdges(vertices), map, type);
 
 		System.out.println("Clip off " + vertices);
 		System.out.println(g);
@@ -516,7 +516,7 @@ public class CQGraphTest {
 		// 6);
 		Map<CQGraphEdge, Integer> map = ImmutableMap.of(edge1, 2);
 		List<Integer> type = Lists.newArrayList(3, 4);
-		g.clip(vertices, g.getInEdges(vertices), map, type);
+        g = g.clip(vertices, g.getInEdges(vertices), map, type);
 
 		System.out.println("Clip off " + vertices);
 		System.out.println(g);
@@ -552,7 +552,7 @@ public class CQGraphTest {
 		// 6);
 		Map<CQGraphEdge, Integer> map = ImmutableMap.of(edge1, 2);
 		List<Integer> type = Lists.newArrayList(3, 4);
-		g.clip(vertices, g.getInEdges(vertices), map, type);
+        g = g.clip(vertices, g.getInEdges(vertices), map, type);
 
 		System.out.println("Clip off " + vertices);
 		System.out.println(g);
@@ -599,7 +599,7 @@ public class CQGraphTest {
 		// 6);
 		Map<CQGraphEdge, Integer> map = ImmutableMap.of(edge1, 2);
 		List<Integer> type = Lists.newArrayList(3, 0);
-		g.clip(vertices, g.getInEdges(vertices), map, type);
+        g = g.clip(vertices, g.getInEdges(vertices), map, type);
 
 		System.out.println("Clip off " + vertices);
 		System.out.println(g);

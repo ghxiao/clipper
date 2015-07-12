@@ -22,97 +22,111 @@ import java.util.*;
 @SuppressWarnings("serial")
 public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 
-	/**
-	 * distinguished (answer, output) variables
-	 */
-	private List<Variable> answerVariables = Lists.newArrayList();
+    /**
+     * distinguished (answer, output) variables
+     */
+    private List<Variable> answerVariables = Lists.newArrayList();
 
-	/**
-	 * the map from the Variables to list of concepts
-	 */
-	private Multimap<Term, Integer> concepts = HashMultimap.create();
+    /**
+     * the map from the Variables to list of concepts
+     */
+    private Multimap<Term, Integer> concepts = HashMultimap.create();
 
-	private String headPredicateName;
+    private String headPredicateName;
 
-	/**
-	 * never use
-	 */
-	private CQGraph() {
-	}
+    /**
+     * never use
+     */
+    private CQGraph() {
+    }
 
-	/**
-	 * construct a CQGraph from a CQ
-	 * 
-	 * @param cq a Conjunctive Query
-	 */
-	public CQGraph(CQ cq) {
-		super();
+    /**
+     * construct a CQGraph from a CQ
+     *
+     * @param cq a Conjunctive Query
+     */
+    public CQGraph(CQ cq) {
+        super();
 
-		this.headPredicateName = cq.getHead().getPredicate().toString();
-		
-		for (Atom atom : cq.getBody()) {
-			Predicate predicate = atom.getPredicate();
-			List<Term> terms = atom.getTerms();
-			if (predicate.getArity() == 2) {
-				CQGraphEdge edge = new CQGraphEdge(terms.get(0), terms.get(1), predicate.getEncoding());
-				this.addEdge(edge);
-			} else if (predicate.getArity() == 1) {
-				Term var = terms.get(0);
-				this.addVertex(var);
-				concepts.put(var, predicate.getEncoding());
-			}
-		}
+        this.headPredicateName = cq.getHead().getPredicate().toString();
 
-		for (Term t : cq.getHead().getTerms()) {
-			Variable var = (Variable) t;
-			answerVariables.add(var);
-		}
+        for (Atom atom : cq.getBody()) {
+            Predicate predicate = atom.getPredicate();
+            List<Term> terms = atom.getTerms();
+            if (predicate.getArity() == 2) {
+                CQGraphEdge edge = new CQGraphEdge(terms.get(0), terms.get(1), predicate.getEncoding());
+                this.addEdge(edge);
+            } else if (predicate.getArity() == 1) {
+                Term var = terms.get(0);
+                this.addVertex(var);
+                concepts.put(var, predicate.getEncoding());
+            }
+        }
 
-	}
+        for (Term t : cq.getHead().getTerms()) {
+            Variable var = (Variable) t;
+            answerVariables.add(var);
+        }
 
-	private void addEdge(CQGraphEdge edge) {
-		this.addEdge(edge, edge.getSource(), edge.getDest());
-	}
+    }
 
-	public CQGraph deepCopy() {
-		CQGraph g = new CQGraph();
+    private void addEdge(CQGraphEdge edge) {
+        this.addEdge(edge, edge.getSource(), edge.getDest());
+    }
+
+    public CQGraph deepCopy() {
+        CQGraph g = new CQGraph();
 
         this.getVertices().forEach(g::addVertex);
 
         this.getEdges().forEach(g::addEdge);
 
-		// g.roles.putAll(this.roles);
-		g.concepts.putAll(this.concepts);
-		g.answerVariables.addAll(this.answerVariables);
-		g.headPredicateName = this.headPredicateName;
-		
-		return g;
+        // g.roles.putAll(this.roles);
+        g.concepts.putAll(this.concepts);
+        g.answerVariables.addAll(this.answerVariables);
+        g.headPredicateName = this.headPredicateName;
 
-	}
+        return g;
 
-	public void focus(Collection<Variable> leaves) {
-		List<CQGraphEdge> outEdges = this.getOutEdges(leaves);
-		List<CQGraphEdge> revertedEdges = new ArrayList<CQGraphEdge>();
-		for (CQGraphEdge outEdge : outEdges) {
-			CQGraphEdge inEdge = inverseEdge(outEdge);
-			revertedEdges.add(inEdge);
-		}
+    }
 
-		for (CQGraphEdge outEdge : outEdges) {
-			this.removeEdge(outEdge);
-		}
+    public void focus(Collection<Variable> leaves) {
+        List<CQGraphEdge> outEdges = this.getOutEdges(leaves);
+        List<CQGraphEdge> revertedEdges = new ArrayList<CQGraphEdge>();
+        for (CQGraphEdge outEdge : outEdges) {
+            CQGraphEdge inEdge = inverseEdge(outEdge);
+            revertedEdges.add(inEdge);
+        }
 
-		for (CQGraphEdge revertedEdge : revertedEdges) {
-			this.addEdge(revertedEdge);
-		}
-	}
+        for (CQGraphEdge outEdge : outEdges) {
+            this.removeEdge(outEdge);
+        }
 
-	public void clip(Collection<Variable> leaves, //
+        for (CQGraphEdge revertedEdge : revertedEdges) {
+            this.addEdge(revertedEdge);
+        }
+    }
+
+    /*
+     * No side effect
+     */
+    public CQGraph clip(Collection<Variable> leaves, //
+                      Collection<CQGraphEdge> edges, //
+                      Map<CQGraphEdge, Integer> map, //
+                      List<Integer> type) {
+        CQGraph cqGraphClone = this.deepCopy();
+        cqGraphClone.clip0(leaves,edges,map,type);
+        return cqGraphClone;
+    }
+
+
+	private void clip0(Collection<Variable> leaves, //
 			Collection<CQGraphEdge> edges, //
 			Map<CQGraphEdge, Integer> map, //
 			List<Integer> type) {
 
-		boolean distinguished = false;
+
+        boolean distinguished = false;
 
 		// Term newLeaf;
 
@@ -399,7 +413,6 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 
 class CQGraphEdge {
 
-    @java.beans.ConstructorProperties({"source", "dest", "role"})
     public CQGraphEdge(Term source, Term dest, Integer role) {
         this.source = source;
         this.dest = dest;
@@ -448,7 +461,7 @@ class CQGraphEdge {
         if (o == this) return true;
         if (!(o instanceof CQGraphEdge)) return false;
         final CQGraphEdge other = (CQGraphEdge) o;
-        if (!other.canEqual((Object) this)) return false;
+        if (!other.canEqual(this)) return false;
         final Object this$source = this.source;
         final Object other$source = other.source;
         if (this$source == null ? other$source != null : !this$source.equals(other$source)) return false;

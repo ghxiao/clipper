@@ -177,14 +177,13 @@ public class CQGraphRewriter implements QueryRewriter {
 			log.debug("mergable = {}", mergeable);
 
 			if (mergeable) {
-				CQGraph g1 = g.deepCopy();
 
 				List<Integer> type = toList(enf.getType1());
 
 				log.debug("cq(g) = {}", g.toCQ());
 				log.debug("edges = {}; map = {}", edges, map);
 				log.debug("type = {}", type);
-				g1.clip(leaves, edges, map, type);
+				CQGraph g1 = g.clip(leaves, edges, map, type);
 
 				CQ cq = g1.toCQ();
 				// if (!redundant(g1)) {
