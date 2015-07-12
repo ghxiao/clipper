@@ -47,7 +47,7 @@ public class CQGraphRewriter implements QueryRewriter {
 
 	private SelfLoopComponentCluster slcc;
 
-	public CQGraphRewriter(ClipperHornSHIQOntology ontology, IndexedEnfContainer enfs) {
+    public CQGraphRewriter(ClipperHornSHIQOntology ontology, IndexedEnfContainer enfs) {
 		this.ontology = ontology;
 		this.enfs = enfs;
 		checker = new CQGraphHomomorphismChecker();
@@ -235,7 +235,13 @@ public class CQGraphRewriter implements QueryRewriter {
 	 * @return
 	 */
 	private boolean mergeable(CQGraph g, EnforcedRelation enf, Collection<Variable> leaves) {
-		
+
+        if (leaves.size() == 1){
+            return true;
+        }
+
+        // FIXME: general case is to be fixed
+
 		Set<Term> visited = Sets.newHashSet();
 		
 		Collection<CQGraphEdge> leafInterEdges = g.getInterEdges(leaves);

@@ -18,6 +18,8 @@ import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 
+import static org.junit.Assert.assertEquals;
+
 public class CQGraphRewriterTest {
 
 	// @Test
@@ -92,6 +94,67 @@ public class CQGraphRewriterTest {
 	// // assertEquals(4, g.getEdgeCount());
 	//
 	// }
+
+    /**
+     * Example 2 in TR
+     *
+     *
+     * T = {  A subclassOf (r and r3 and r4^-) some (B and A3) }
+     *
+     * q(X1) :- A1(X1), A2(X2), A3(X3), A4(X4), r1(X1, X4), r2(X1, X2), r3(X2, X3), r4(X3, X4).
+     *
+     * q can be rewritten to :
+     *
+     * q(X1) :- A1(X1), A(X3), A2(X3), A4(X3), r1(X1, X3), r2(X1, X3)
+     *
+     *
+     *
+     * The following encodings are used in the test case
+     *
+     *  A -> 2, A1 -> 3, A2 -> 4, A3 -> 5, A4 -> 6, B -> 7
+     *
+     *  r -> 4, r1 -> 6, r2 -> 8, r3 -> 10, r4 -> 12
+     *
+     */
+    @Test
+    public void test_Example2() throws IOException {
+        ClipperHornSHIQOntology ontology = new ClipperHornSHIQOntology();
+
+        IndexedEnfContainer enfs = new IndexedEnfContainer();
+
+        enfs.add(new EnforcedRelation(
+                // T, A
+                new TIntHashSet(new int[] { 0, 2 }), //
+                // T2, T2, r, r3, r4-
+                new TIntHashSet(new int[] { 0, 1, 4, 10, 13 }),
+                // B, A3
+                new TIntHashSet(new int[] { 5, 7 })));
+
+        CQGraphRewriter rewriter = new CQGraphRewriter(ontology, enfs);
+
+        /*
+         * q(X1) :- A1(X1), A2(X2), A3(X3), A4(X4), r1(X1, X4), r2(X1, X2), r3(X2, X3), r4(X3, X4).
+         */
+        String s = "q(X1) :- c3(X1), c4(X2), c5(X3), c6(X4), r4(X1, X4), r8(X1, X2), r10(X2, X3), r12(X3, X4).";
+        System.out.println(s);
+        InternalCQParser parser = new InternalCQParser();
+        parser.setQueryString(s);
+        CQ cq = parser.getCq();
+        CQGraph g = new CQGraph(cq);
+
+        List<CQGraph> ucq = rewriter.rewrite(g);
+
+        int i = 0;
+        for (CQGraph rg : ucq) {
+            System.out.print(i + ": ");
+            System.out.println(rg.toCQ());
+            i++;
+        }
+
+
+        assertEquals(ucq.size(), 2);
+        // Joiner.on("\n").appendTo(System.out, ucq);
+    }
 
 	@Test
 	public void test() throws IOException {
