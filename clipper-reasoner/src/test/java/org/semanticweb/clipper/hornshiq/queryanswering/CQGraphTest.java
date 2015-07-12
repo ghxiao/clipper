@@ -34,7 +34,7 @@ public class CQGraphTest {
 
 		Set<Variable> v0 = Collections.singleton(new Variable(0));
 
-		g.focus(v0);
+		g = g.focus(v0);
 		System.out.println("Select " + v0);
 		System.out.println(g);
 	}
@@ -90,7 +90,7 @@ public class CQGraphTest {
 		// Vertex vertex = g.findVertex(0);
 		Variable vertex = new Variable(0);
 		ImmutableSet<Variable> vs = ImmutableSet.of(vertex);
-		g.focus(vs);
+		g = g.focus(vs);
 		System.out.println("Select " + vertex);
 		System.out.println(g);
 
@@ -120,7 +120,7 @@ public class CQGraphTest {
 		// Vertex vertex = g.findVertex(0);
 		Variable vertex = new Variable(0);
 		ImmutableSet<Variable> vs = ImmutableSet.of(vertex);
-		g.focus(vs);
+		g = g.focus(vs);
 		System.out.println("Select " + vertex);
 		System.out.println(g);
 
@@ -151,7 +151,7 @@ public class CQGraphTest {
 		// Vertex vertex = g.findVertex(0);
 		Variable vertex = new Variable(2);
 		ImmutableSet<Variable> vs = ImmutableSet.of(vertex);
-		g.focus(vs);
+		g = g.focus(vs);
 		System.out.println("Select " + vertex);
 		System.out.println(g);
 
@@ -180,7 +180,7 @@ public class CQGraphTest {
 
 		Variable vertex = new Variable(0);
 		ImmutableList<Variable> vs = ImmutableList.of(vertex);
-		g.focus(vs);
+		g = g.focus(vs);
 		System.out.println("Select " + vertex);
 		System.out.println(g);
 
@@ -206,7 +206,7 @@ public class CQGraphTest {
 		System.out.println();
 
 		Set<Variable> vertex = ImmutableSet.of(new Variable(0));
-		g.focus(vertex);
+		g = g.focus(vertex);
 		System.out.println("Select " + vertex);
 		System.out.println(g);
 		System.out.println();
@@ -234,7 +234,7 @@ public class CQGraphTest {
 		System.out.println();
 
 		Set<Variable> vertex = ImmutableSet.of(new Variable(2));
-		g.focus(vertex);
+		g = g.focus(vertex);
 		System.out.println("Select " + vertex);
 		System.out.println(g);
 		System.out.println();
@@ -264,7 +264,7 @@ public class CQGraphTest {
 		System.out.println();
 
 		Set<Variable> vertex = ImmutableSet.of(new Variable(2));
-		g.focus(vertex);
+		g = g.focus(vertex);
 		System.out.println("Select " + vertex);
 		System.out.println(g);
 		System.out.println();
@@ -295,7 +295,7 @@ public class CQGraphTest {
 		System.out.println();
 
 		Set<Variable> vertex = ImmutableSet.of(new Variable(2));
-		g.focus(vertex);
+		g = g.focus(vertex);
 		System.out.println("Select " + vertex);
 		System.out.println(g);
 		System.out.println();
@@ -327,7 +327,7 @@ public class CQGraphTest {
 		System.out.println();
 
 		Set<Variable> vertices = ImmutableSet.of(new Variable(2), new Variable(3));
-		g.focus(vertices);
+		g = g.focus(vertices);
 		System.out.println("Select " + vertices);
 		System.out.println(g);
 		System.out.println();
@@ -361,7 +361,7 @@ public class CQGraphTest {
 		// Set<Variable> vertices = ImmutableSet.of(new Variable(2), new
 		// Variable(3));
 		Set<Variable> vertices = ImmutableSet.of(new Variable(2));
-		g.focus(vertices);
+		g = g.focus(vertices);
 		System.out.println("Select " + vertices);
 		System.out.println(g);
 		System.out.println();
@@ -396,7 +396,7 @@ public class CQGraphTest {
 		// Set<Variable> vertices = ImmutableSet.of(new Variable(2), new
 		// Variable(3));
 		Set<Variable> vertices = ImmutableSet.of(new Variable(3));
-		g.focus(vertices);
+		g = g.focus(vertices);
 		System.out.println("Select " + vertices);
 		System.out.println(g);
 		System.out.println();
@@ -432,7 +432,7 @@ public class CQGraphTest {
 		// Set<Variable> vertices = ImmutableSet.of(new Variable(2), new
 		// Variable(3));
 		Set<Variable> vertices = ImmutableSet.of(new Variable(3));
-		g.focus(vertices);
+		g = g.focus(vertices);
 		System.out.println("Select " + vertices);
 		System.out.println(g);
 		System.out.println();
@@ -468,7 +468,7 @@ public class CQGraphTest {
 		// Set<Variable> vertices = ImmutableSet.of(new Variable(2), new
 		// Variable(3));
 		Set<Variable> vertices = ImmutableSet.of(new Variable(3));
-		g.focus(vertices);
+		g = g.focus(vertices);
 		System.out.println("Select " + vertices);
 		System.out.println(g);
 		System.out.println();
@@ -504,7 +504,7 @@ public class CQGraphTest {
 		// Set<Variable> vertices = ImmutableSet.of(new Variable(2), new
 		// Variable(3));
 		Set<Variable> vertices = ImmutableSet.of(new Variable(3), new Variable(3));
-		g.focus(vertices);
+		g = g.focus(vertices);
 		System.out.println("Select " + vertices);
 		System.out.println(g);
 		System.out.println();
@@ -540,7 +540,7 @@ public class CQGraphTest {
 		// Set<Variable> vertices = ImmutableSet.of(new Variable(2), new
 		// Variable(3));
 		Set<Variable> vertices = ImmutableSet.of(new Variable(3), new Variable(3));
-		g.focus(vertices);
+		g = g.focus(vertices);
 		System.out.println("Select " + vertices);
 		System.out.println(g);
 		System.out.println();
@@ -587,7 +587,7 @@ public class CQGraphTest {
 		// Set<Variable> vertices = ImmutableSet.of(new Variable(2), new
 		// Variable(3));
 		Set<Variable> vertices = ImmutableSet.of(new Variable(3), new Variable(3));
-		g.focus(vertices);
+		g = g.focus(vertices);
 		System.out.println("Select " + vertices);
 		System.out.println(g);
 		System.out.println();

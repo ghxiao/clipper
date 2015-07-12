@@ -90,7 +90,14 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 
     }
 
-    public void focus(Collection<Variable> leaves) {
+
+    public CQGraph focus(Collection<Variable> leaves) {
+        CQGraph newCQGraph = this.deepCopy();
+        newCQGraph.focus0(leaves);
+        return newCQGraph;
+    }
+
+    private void focus0(Collection<Variable> leaves) {
         List<CQGraphEdge> outEdges = this.getOutEdges(leaves);
         List<CQGraphEdge> revertedEdges = new ArrayList<CQGraphEdge>();
         for (CQGraphEdge outEdge : outEdges) {
@@ -114,9 +121,9 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
                       Collection<CQGraphEdge> edges, //
                       Map<CQGraphEdge, Integer> map, //
                       List<Integer> type) {
-        CQGraph cqGraphClone = this.deepCopy();
-        cqGraphClone.clip0(leaves,edges,map,type);
-        return cqGraphClone;
+        CQGraph newCQGraph = this.deepCopy();
+        newCQGraph.clip0(leaves, edges, map, type);
+        return newCQGraph;
     }
 
 
