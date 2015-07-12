@@ -166,19 +166,21 @@ public class CQGraphRewriterTest {
         assertTrue(ucq1BodyString.contains("c4(X3)"));
 
     }
-
     /**
      * Example 3 in TR
      *
      *
-     * T = {  A subclassOf (r and r1^- and r2^-) some B }
+     * <pre>
+     * T = {
+     *   A subClassOf (r and r1^- and r2^-) some B
+     * }
      *
-     * q(X1) :- C(X1), B(X2), r1(X1, X2), r1(X3, X2), r2(X2, X4).
+     *  q(X1) :- C(X1), B(X2), r1(X1, X2), r1(X3, X2), r2(X2, X4).
+     * </pre>
      *
      * q can be rewritten to :
      *
      * q(X2) :- C(X2), A(X2)
-     *
      *
      *
      * The following encodings are used in the test case
@@ -226,6 +228,9 @@ public class CQGraphRewriterTest {
 
         assertEquals(ucq.size(), 3);
 
+        /**
+         * TODO: the order of the rewrting results might change
+         */
 
         assertEquals(3, ucq.get(1).getVertexCount());
         String ucq1BodyString = ucq.get(1).toCQ().toString();
@@ -241,6 +246,91 @@ public class CQGraphRewriterTest {
         assertEquals(1, ucq.get(2).getVertexCount());
         assertTrue(ucq1BodyString.contains("c8(X2)"));
         assertTrue(ucq1BodyString.contains("c2(X2)"));
+
+    }
+    /**
+     * Example 4 in TR
+     *
+     *
+     * <pre>
+     * T = {
+     *   r1 o r1 subPropertyOf r1,
+     *   A subClassOf (r and r1^- and r2^-) some B
+     * }
+     *
+     *  q(X1) :- C(X1), B(X2), r1(X1, X2), r1(X3, X2), r2(X2, X4).
+     * </pre>
+     *
+     * q can be rewritten to :
+     *
+     * q(X2) :- C(X2), A(X2)
+     *
+     *
+     * The following encodings are used in the test case
+     *
+     *  A -> 2, A1 -> 3, A2 -> 4, A3 -> 5, A4 -> 6, B -> 7, C -> 8
+     *
+     *  r -> 4, r1 -> 6, r2 -> 8, r3 -> 10, r4 -> 12
+     *
+     */
+    @Test
+    public void test_Example4() throws IOException {
+        ClipperHornSHIQOntology ontology = new ClipperHornSHIQOntology();
+
+        ontology.getTransitivityAxioms().add(new ClipperTransitivityAxiom(6));
+
+        IndexedEnfContainer enfs = new IndexedEnfContainer();
+
+        enfs.add(new EnforcedRelation(
+                // T, A
+                new TIntHashSet(new int[] { 0, 2 }), //
+                // T^2, T^2, r and r1^- and r2^-
+                new TIntHashSet(new int[] { 0, 1, 6, 7, 9 }),
+                // B
+                new TIntHashSet(new int[] { 7 })));
+
+        CQGraphRewriter rewriter = new CQGraphRewriter(ontology, enfs);
+
+        /*
+         * q(X1) :- C(X1), B(X2), r1(X1, X2), r1(X3, X2), r2(X2, X4).
+         */
+        String s = "q(X1) :- c8(X1), c7(X2), r6(X1, X2), r6(X3, X2), r8(X2, X4).";
+        System.out.println(s);
+        InternalCQParser parser = new InternalCQParser();
+        parser.setQueryString(s);
+        CQ cq = parser.getCq();
+        CQGraph g = new CQGraph(cq);
+
+        List<CQGraph> ucq = rewriter.rewrite(g);
+
+        int i = 0;
+        for (CQGraph rg : ucq) {
+            System.out.print(i + ": ");
+            System.out.println(rg.toCQ());
+            i++;
+        }
+
+
+//        assertEquals(ucq.size(), 3);
+//
+//        /**
+//         * TODO: the order of the rewriting results might change
+//         */
+//
+//        assertEquals(3, ucq.get(1).getVertexCount());
+//        String ucq1BodyString = ucq.get(1).toCQ().toString();
+//        assertTrue(ucq1BodyString.contains("r8(X3,X4)"));
+//        assertTrue(ucq1BodyString.contains("r6(X1,X3)"));
+//        assertTrue(ucq1BodyString.contains("c8(X1)"));
+//        assertTrue(ucq1BodyString.contains("c2(X3)"));
+//        assertTrue(ucq1BodyString.contains("c7(X3)"));
+//
+//
+//        ucq1BodyString = ucq.get(2).toCQ().toString();
+//
+//        assertEquals(1, ucq.get(2).getVertexCount());
+//        assertTrue(ucq1BodyString.contains("c8(X2)"));
+//        assertTrue(ucq1BodyString.contains("c2(X2)"));
 
     }
 
@@ -303,12 +393,12 @@ public class CQGraphRewriterTest {
 		enfs.add(new EnforcedRelation(new TIntHashSet(new int[] { 0, 2 }), //
 				new TIntHashSet(new int[] { 0, 1, 2 }), //
 				new TIntHashSet(new int[] { 0, 3 })));
-		enfs.add(new EnforcedRelation(new TIntHashSet(new int[] { 0, 4 }), //
-				new TIntHashSet(new int[] { 0, 1, 4 }), //
-				new TIntHashSet(new int[] { 0, 5 })));
-		enfs.add(new EnforcedRelation(new TIntHashSet(new int[] { 0, 6 }), //
-				new TIntHashSet(new int[] { 0, 1, 6 }), //
-				new TIntHashSet(new int[] { 0, 7 })));
+		enfs.add(new EnforcedRelation(new TIntHashSet(new int[]{0, 4}), //
+                new TIntHashSet(new int[]{0, 1, 4}), //
+                new TIntHashSet(new int[]{0, 5 })));
+		enfs.add(new EnforcedRelation(new TIntHashSet(new int[]{0, 6}), //
+                new TIntHashSet(new int[]{0, 1, 6}), //
+                new TIntHashSet(new int[]{0, 7 })));
 
 		CQGraphRewriter rewriter = new CQGraphRewriter(ontology, enfs);
 
