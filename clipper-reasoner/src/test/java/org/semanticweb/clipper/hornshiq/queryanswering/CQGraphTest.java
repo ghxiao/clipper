@@ -222,6 +222,9 @@ public class CQGraphTest {
 		assertEquals(3, g.getEdgeCount());
 	}
 
+    /**
+     * FIXME
+     */
 	@Test
 	public void testClip04() {
 		String s = "q()  :- r2(X1, X2), r2(X2, X3), c1(X1), c2(X2), c3(X3).";
@@ -347,6 +350,9 @@ public class CQGraphTest {
 		assertEquals(2, g.getEdgeCount());
 	}
 
+    /**
+     * FIXME
+     */
 	@Test
 	public void testClip08() {
 		String s = "q()  :- r2(X1, X2), r2(X2, X3), r3(X3, X4), c1(X1), c2(X2), c3(X3), c4(X4), r6(X1, X2).";

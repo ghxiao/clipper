@@ -24,15 +24,17 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.Sets;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
  * TODO: Ongoing  work
  */
-@Slf4j
 public class CQGraphRewriter implements QueryRewriter {
 
 	// final Logger log = LoggerFactory.getLogger(CQGraphRewriter.class);
+    private final Logger log = LoggerFactory.getLogger(CQGraphRewriter.class);
 
 	CQGraphHomomorphismChecker checker;
 
@@ -108,7 +110,7 @@ public class CQGraphRewriter implements QueryRewriter {
 	public void rewrite(CQGraph g, Collection<Variable> leaves) {
 		log.debug("leaves = {}", leaves);
 
-		g.focus(leaves);
+		g = g.focus(leaves);
 
 		List<CQGraphEdge> edges = g.getInEdges(leaves);
 		// Edge with non-simple roles to sub roles map
