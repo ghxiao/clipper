@@ -45,7 +45,7 @@ public class CQGraphHomomorphismCheckerTest {
 		boolean b = checker.check(idMap, g1, g2);
 		System.out.println(b);
 
-		// CQGraphHomomorphismChecker.isHomomorphism(g, g);
+		// CQGraphHomomorphismChecker.isContainedIn(g, g);
 	}
 
 	@Test
@@ -77,7 +77,7 @@ public class CQGraphHomomorphismCheckerTest {
 		assertTrue(b);
 		System.out.println(b);
 
-		// CQGraphHomomorphismChecker.isHomomorphism(g, g);
+		// CQGraphHomomorphismChecker.isContainedIn(g, g);
 	}
 
 	@Test
@@ -102,7 +102,7 @@ public class CQGraphHomomorphismCheckerTest {
 		// Map<Term, Term> idMap = ImmutableMap.<Term, Term> of(x0, x1, x1, x0,
 		// x2, x2);
 
-		assertTrue(checker.isHomomorphism(g1, g2));
+		assertTrue(checker.isContainedIn(g1, g2));
 	}
 
 	@Test
@@ -127,7 +127,7 @@ public class CQGraphHomomorphismCheckerTest {
 		// Map<Term, Term> idMap = ImmutableMap.<Term, Term> of(x0, x1, x1, x0,
 		// x2, x2);
 
-		assertTrue(checker.isHomomorphism(g1, g2));
+		assertTrue(checker.isContainedIn(g1, g2));
 	}
 
 	@Test
@@ -153,7 +153,7 @@ public class CQGraphHomomorphismCheckerTest {
 		// Map<Term, Term> idMap = ImmutableMap.<Term, Term> of(x0, x1, x1, x0,
 		// x2, x2);
 
-		assertTrue(checker.isHomomorphism(g1, g2));
+		assertTrue(checker.isContainedIn(g1, g2));
 		System.out.println(checker.getMap());
 	}
 

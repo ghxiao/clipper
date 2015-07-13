@@ -15,7 +15,6 @@ import java.util.Stack;
 
 public class HomomorphismUtilities {
 
-
     public static boolean extendHomomorphism(SubstitutionBuilder sb, Atom from, Atom to) {
 
         if ((from.getArity() != to.getArity()) || !(from.getPredicate().equals(to.getPredicate())))

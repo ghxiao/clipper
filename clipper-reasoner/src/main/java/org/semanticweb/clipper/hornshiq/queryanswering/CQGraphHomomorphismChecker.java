@@ -40,7 +40,7 @@ import com.google.common.collect.Sets;
  * 
  */
 
-public class CQGraphHomomorphismChecker {
+public class CQGraphHomomorphismChecker implements ICQGraphHomomorphismChecker {
 	// Map<Variable, Variable> map;
 	private CQGraph g1;
 	private CQGraph g2;
@@ -60,7 +60,8 @@ public class CQGraphHomomorphismChecker {
 		visited = Sets.newHashSet();
 	}
 
-	public boolean isHomomorphism(CQGraph g1, CQGraph g2) {
+	@Override
+    public boolean isContainedIn(CQGraph g1, CQGraph g2) {
 
 		this.g1 = g1;
 		this.g2 = g2;

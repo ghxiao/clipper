@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import lombok.extern.slf4j.Slf4j;
-
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
@@ -200,7 +198,7 @@ public class CQGraphRewriter implements QueryRewriter {
 
 	public boolean redundant(CQGraph g1) {
 		for (CQGraph g : resultGraphs) {
-			if (checker.isHomomorphism(g, g1)) {
+			if (checker.isContainedIn(g, g1)) {
 				Map<Term, Term> map = checker.getMap();
 				System.out.println(Strings.repeat("-", 80));
 				System.out.println(g.toCQ());

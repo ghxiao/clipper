@@ -1,5 +1,6 @@
 package org.semanticweb.clipper.hornshiq.rule;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
@@ -13,22 +14,22 @@ import java.util.Set;
 
 public class CQ {
 	Atom head;
-	Set<Atom> body;
+	List<Atom> body;
 
 	
 	public CQ() {
 		head = new Atom();
-		body = new HashSet<>();
+		body = new ArrayList<>();
 	}
 
-	public CQ(Atom head, Set<Atom> body) {
+	public CQ(Atom head, List<Atom> body) {
 		this.head = head;
 		this.body = body;
 	}
 
 	public CQ(Atom head, Atom body) {
 		this.head = head;
-		this.body = Sets.newHashSet(body);
+		this.body = Lists.newArrayList(body);
 	}
 
 	@Override
@@ -164,8 +165,8 @@ public class CQ {
 
 	// If there is enf(T1,R,T2) such that R contains Rho, T2 contain type of X
 	// Then substitute all role wich contain X by T1(X)
-	private Set<Atom> addTypeOfXToBody(Term x, TIntHashSet type, Set<Atom> body) {
-		Set<Atom> addedAtoms = new HashSet<Atom>();
+	private List<Atom> addTypeOfXToBody(Term x, TIntHashSet type, List<Atom> body) {
+        List<Atom> addedAtoms = new ArrayList<Atom>();
 		TIntIterator iterator = type.iterator();
 		while (iterator.hasNext()) {
 			int i = iterator.next();
@@ -245,7 +246,7 @@ public class CQ {
 				}
 			}
 			// add type(x) to the body
-			Set<Atom> currentBody = qPrime.getBody();
+			List<Atom> currentBody = qPrime.getBody();
 			qPrime.body.addAll(addTypeOfXToBody(x, type, currentBody));
 			// compute head
 			Atom newHead = computeNewHead(x, this.head);
@@ -273,7 +274,7 @@ public class CQ {
 				}
 			}
 			// at type(x) to the body
-			Set<Atom> currentBody = qPrime.getBody();
+			List<Atom> currentBody = qPrime.getBody();
 			qPrime.body.addAll(addTypeOfXToBody(individual, type, currentBody));
 			// compute head
 			Atom newHead = computeNewHead(x, individual, this.head);
@@ -286,7 +287,7 @@ public class CQ {
 		return this.head;
 	}
 
-	public Set<Atom> getBody() {
+	public List<Atom> getBody() {
 		return this.body;
 	}
 
@@ -294,7 +295,7 @@ public class CQ {
 		this.head = head;
 	}
 
-	public void setBody(Set<Atom> body) {
+	public void setBody(List<Atom> body) {
 		this.body = body;
 	}
 

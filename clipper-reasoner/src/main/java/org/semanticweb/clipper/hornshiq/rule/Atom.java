@@ -80,4 +80,12 @@ public class Atom {
 	protected boolean canEqual(Object other) {
 		return other instanceof Atom;
 	}
+
+    public int getArity() {
+        return terms.size();
+    }
+
+    public Term getTerm(int i) {
+        return terms.get(i);
+    }
 }
