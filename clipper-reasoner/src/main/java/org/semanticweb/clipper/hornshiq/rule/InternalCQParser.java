@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.google.common.collect.Lists;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
@@ -76,7 +77,7 @@ public class InternalCQParser {
 		// for (int i = 0; i < tokensBody.length; i++)
 		// System.out.println(tokensBody[i]);
 		// //
-		Set<Atom> body = new HashSet<Atom>();
+		List<Atom> body = Lists.newArrayList();
 		for (String atomString : tokensBody)
 			body.add(getAtomFromAtomString(atomString));
 		this.cq.setBody(body);
@@ -317,8 +318,8 @@ public class InternalCQParser {
 		// for (int i = 0; i < tokensBody.length; i++)
 		// System.out.println(tokensBody[i]);
 		// //
-		Set<Atom> body = new HashSet<Atom>();
-		for (String atomString : tokensBody)
+		List<Atom> body = Lists.newArrayList();
+        for (String atomString : tokensBody)
 			body.add(getBodyAtomFromString(atomString));
 		this.cq.setBody(body);
 	}

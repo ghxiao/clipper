@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import com.google.common.collect.Lists;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.Constant;
@@ -36,7 +37,7 @@ public class SparqlToCQConverter {
 	 */
 	public CQ compileQuery(Query query) {
 
-		Set<Atom> body = new HashSet<Atom>();
+		List<Atom> body = Lists.newArrayList();
 		List<Term> ansVars = new ArrayList<Term>();
 		List<Var> projectVars = query.getProjectVars();
 		for (Var var : projectVars) {

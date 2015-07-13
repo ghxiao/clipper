@@ -43,10 +43,12 @@ options {
 package org.semanticweb.clipper.hornshiq.sparql;
  
 import java.io.IOException;
-   import java.util.Map;
+import java.util.Map;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.HashSet;
+
+import com.google.common.collect.Lists;
 
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.Term;
@@ -73,7 +75,7 @@ package org.semanticweb.clipper.hornshiq.sparql;
   CQ cq = new CQ();
   List<Term> outputVars = new ArrayList<Term>();
   Atom head;
-  Set<Atom> body = new HashSet<Atom>();
+  List<Atom> body = Lists.newArrayList();
   
   Atom currentBodyAtom;
   Predicate currentPredicate;

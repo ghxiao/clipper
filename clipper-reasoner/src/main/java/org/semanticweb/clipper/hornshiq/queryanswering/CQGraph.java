@@ -376,7 +376,7 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 	}
 
 	public CQ toCQ() {
-		Set<Atom> bodyAtoms = new HashSet<Atom>();
+		List<Atom> bodyAtoms = new ArrayList<Atom>();
 		for (CQGraphEdge e : this.getEdges()) {
 			Term firstVar = e.getSource();
 			Term secondVar = e.getDest();

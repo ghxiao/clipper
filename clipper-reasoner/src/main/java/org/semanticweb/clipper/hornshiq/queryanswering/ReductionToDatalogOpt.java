@@ -136,8 +136,8 @@ public class ReductionToDatalogOpt {
 		return strBody;
 	}
 
-	private static Set<Atom> getClassAtoms(TIntHashSet body, Variable var) {
-		Set<Atom> atoms = new HashSet<>();
+	private static List<Atom> getClassAtoms(TIntHashSet body, Variable var) {
+		List<Atom> atoms = new ArrayList<>();
 		TIntIterator iterator = body.iterator();
 		while (iterator.hasNext()) {
 			int index = iterator.next();
@@ -202,7 +202,7 @@ public class ReductionToDatalogOpt {
 			int impHead = imp.getHead();
 			DLPredicate headPredicate = getClassPredicate(impHead);
 			Atom headAtom = new Atom(headPredicate, varX);
-			Set<Atom> bodyAtoms = getClassAtoms(imp.getBody(), varX);
+			List<Atom> bodyAtoms = getClassAtoms(imp.getBody(), varX);
 			CQ cq = new CQ(headAtom, bodyAtoms);
 
 			if (cq.isNotTrivial()) {
@@ -266,7 +266,7 @@ public class ReductionToDatalogOpt {
 			int ia = axiom.getConcept1();
 
 			Atom headAtom = new Atom(getClassPredicate(ic), varY);
-			Set<Atom> bodyAtoms = new HashSet<>();
+			List<Atom> bodyAtoms = Lists.newArrayList();
 			if (ia != ClipperManager.getInstance().getThing()) {
 				bodyAtoms.add(new Atom(getClassPredicate(ia), varX));
 			}
@@ -602,7 +602,7 @@ public class ReductionToDatalogOpt {
 			int ir = a.getRole();
 
 			Atom head = getBinaryAtom(ir, varX, varZ);
-			HashSet<Atom> body = Sets.newHashSet(getBinaryAtom(ir, varX, varY), getBinaryAtom(ir, varY, varZ));
+			List<Atom> body = Lists.newArrayList(getBinaryAtom(ir, varX, varY), getBinaryAtom(ir, varY, varZ));
 			result.add(new CQ(head, body));
 
 		}

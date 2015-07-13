@@ -1,5 +1,6 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
+import com.google.common.collect.Lists;
 import gnu.trove.set.hash.TIntHashSet;
 
 import java.util.*;
@@ -108,11 +109,11 @@ public class HSHIQQueryRewriter implements QueryRewriter {
 	private CQ preprocessQuery(CQ q) {
 		CQ newQuery = new CQ();
 		newQuery.setHead(q.getHead());
-		Set<Atom> bodyAtoms = q.getBody();
-		Set<Atom> copyBodyAtoms = new HashSet<Atom>();
+		List<Atom> bodyAtoms = q.getBody();
+        List<Atom> copyBodyAtoms = Lists.newArrayList();
 		copyBodyAtoms.addAll(bodyAtoms);
 
-		Set<Atom> newBodyAtoms = new HashSet<Atom>();
+		List<Atom> newBodyAtoms = Lists.newArrayList();
 		newBodyAtoms.addAll(bodyAtoms);
 
 		Iterator<Atom> iter = bodyAtoms.iterator();

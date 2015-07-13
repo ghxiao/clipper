@@ -66,7 +66,7 @@ public class CQTreeWalker {
 
 		// TODO: negative body
 
-		return new CQ(headNonDLAtoms.iterator().next(), Sets.newHashSet(bodyPositiveDLAtoms));
+		return new CQ(headNonDLAtoms.iterator().next(), bodyPositiveDLAtoms);
 
 	}
 

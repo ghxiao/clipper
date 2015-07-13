@@ -1,6 +1,8 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import static org.junit.Assert.assertTrue;
+
+import com.google.common.collect.Lists;
 import gnu.trove.set.hash.TIntHashSet;
 
 import java.util.ArrayList;
@@ -159,8 +161,8 @@ public class HSHIQQueryRewriterTest2 {
 
 		Atom body3 = new Atom(b, terms3);
 
-		Set<Atom> body = new HashSet<Atom>();
-		body.add(body0);
+		List<Atom> body = Lists.newArrayList();
+        body.add(body0);
 		body.add(body1);
 		body.add(body2);
 		// body.add(body3);
@@ -250,7 +252,7 @@ public class HSHIQQueryRewriterTest2 {
 		term4.add(x1);
 		Atom body4 = new Atom(r, term4);
 
-		Set<Atom> body = new HashSet<Atom>();
+		List<Atom> body = Lists.newArrayList();
 		body.add(body0);
 		body.add(body1);
 		body.add(body2);
@@ -292,7 +294,7 @@ public class HSHIQQueryRewriterTest2 {
 	@Test
 	public void test03() {
 		CQ cq = new CQ();
-		Set<Atom> body = new HashSet<Atom>();
+		List<Atom> body = Lists.newArrayList();
 		DLPredicate r = new DLPredicate(4, 2);
 		DLPredicate rBar = new DLPredicate(6, 2);
 		DLPredicate c2 = new DLPredicate(2, 1);
@@ -369,7 +371,7 @@ public class HSHIQQueryRewriterTest2 {
 		Atom c2_d1 = createConceptAssertion(c2, d1);
 		DLPredicate c4 = new DLPredicate(4, 1);
 		Atom c4_d1 = createConceptAssertion(c4, d1);
-		Set<Atom> cq1body = new HashSet<Atom>();
+		List<Atom> cq1body = Lists.newArrayList();
 		cq1body.add(body3);
 		cq1body.add(c2_d1);
 		cq1body.add(c4_d1);
@@ -385,7 +387,7 @@ public class HSHIQQueryRewriterTest2 {
 	@Test
 	public void test04() {
 		CQ cq = new CQ();
-		Set<Atom> body = new HashSet<Atom>();
+		List<Atom> body = Lists.newArrayList();
 		DLPredicate r4 = new DLPredicate(4, 2);
 		DLPredicate r6 = new DLPredicate(6, 2);
 		DLPredicate r8 = new DLPredicate(8, 2);
