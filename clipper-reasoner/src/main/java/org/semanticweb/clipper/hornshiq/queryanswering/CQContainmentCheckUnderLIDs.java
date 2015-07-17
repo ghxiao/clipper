@@ -153,6 +153,10 @@ public class CQContainmentCheckUnderLIDs implements ICQGraphHomomorphismChecker 
         return (computeHomomorphsim(q1, q2) != null);
     }
 
+    public Map computeHomomorphsim(CQGraph q1, CQGraph q2) {
+        return computeHomomorphsim(q1.toCQ(), q2.toCQ());
+    }
+
     public Map computeHomomorphsim(CQ q1, CQ q2) {
 
         IndexedCQ indexedQ1 = indexedCQcache.get(q1);

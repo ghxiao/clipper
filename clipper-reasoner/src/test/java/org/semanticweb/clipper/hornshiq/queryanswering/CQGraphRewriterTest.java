@@ -225,25 +225,11 @@ public class CQGraphRewriterTest {
             i++;
         }
 
+        assertEquals(ucq.size(), 2);
 
-        assertEquals(ucq.size(), 3);
-
-        /**
-         * TODO: the order of the rewrting results might change
-         */
-
-        assertEquals(3, ucq.get(1).getVertexCount());
         String ucq1BodyString = ucq.get(1).toCQ().toString();
-        assertTrue(ucq1BodyString.contains("r8(X3,X4)"));
-        assertTrue(ucq1BodyString.contains("r6(X1,X3)"));
-        assertTrue(ucq1BodyString.contains("c8(X1)"));
-        assertTrue(ucq1BodyString.contains("c2(X3)"));
-        assertTrue(ucq1BodyString.contains("c7(X3)"));
 
-
-        ucq1BodyString = ucq.get(2).toCQ().toString();
-
-        assertEquals(1, ucq.get(2).getVertexCount());
+        assertEquals(1, ucq.get(1).getVertexCount());
         assertTrue(ucq1BodyString.contains("c8(X2)"));
         assertTrue(ucq1BodyString.contains("c2(X2)"));
 

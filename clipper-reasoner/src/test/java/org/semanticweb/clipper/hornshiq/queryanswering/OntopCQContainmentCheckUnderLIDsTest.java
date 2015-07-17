@@ -41,10 +41,8 @@ public class OntopCQContainmentCheckUnderLIDsTest {
 
 		Map<Term, Term> idMap = ImmutableMap.<Term, Term> of(x0, x0, x1, x1, x2, x2);
 
-		//boolean b = checker.check(idMap, g1, g2);
-		//System.out.println(b);
-
-		// CQContainmentCheckUnderLIDs.isContainedIn(g, g);
+		assertTrue(new CQContainmentCheckUnderLIDs().isContainedIn(g1, g2));
+        assertTrue(new CQContainmentCheckUnderLIDs().isContainedIn(g2, g1));
 	}
 
 	@Test
@@ -126,7 +124,8 @@ public class OntopCQContainmentCheckUnderLIDsTest {
 		// Map<Term, Term> idMap = ImmutableMap.<Term, Term> of(x0, x1, x1, x0,
 		// x2, x2);
 
-		assertTrue(checker.isContainedIn(g1, g2));
+		//assertTrue(checker.isContainedIn(g1, g2));
+        assertTrue(checker.isContainedIn(g2, g1));
 	}
 
 	@Test
@@ -152,40 +151,9 @@ public class OntopCQContainmentCheckUnderLIDsTest {
 		// Map<Term, Term> idMap = ImmutableMap.<Term, Term> of(x0, x1, x1, x0,
 		// x2, x2);
 
-		assertTrue(checker.isContainedIn(g1, g2));
+		assertTrue(checker.isContainedIn(g2, g1));
 		//System.out.println(checker.getMap());
 	}
 
-	@SuppressWarnings("unchecked")
-	@Test
-	public void testSubset01() {
-		List<Collection<Integer>> lst1 = Lists.<Collection<Integer>> newArrayList(//
-				ImmutableList.of(1), ImmutableList.of(2, 3));
-		List<Collection<Integer>> lst2 = Lists.<Collection<Integer>> newArrayList(//
-				ImmutableList.of(1, 2), ImmutableList.of(2, 3));
-		CQContainmentCheckUnderLIDs checker = new CQContainmentCheckUnderLIDs();
-		//assertTrue(checker.subset(lst1, lst2));
-	}
 
-	@SuppressWarnings("unchecked")
-	@Test
-	public void testSubset02() {
-		List<Collection<Integer>> lst1 = Lists.<Collection<Integer>> newArrayList(//
-				ImmutableList.of(1), ImmutableList.of(2, 3));
-		List<Collection<Integer>> lst2 = Lists.<Collection<Integer>> newArrayList(//
-				ImmutableList.of(1, 2), ImmutableList.of(2));
-		CQContainmentCheckUnderLIDs checker = new CQContainmentCheckUnderLIDs();
-		//assertFalse(checker.subset(lst1, lst2));
-	}
-
-	@SuppressWarnings("unchecked")
-	@Test
-	public void testSubset03() {
-		List<Collection<Integer>> lst1 = Lists.<Collection<Integer>> newArrayList(//
-				ImmutableList.of(1), ImmutableList.of(2, 3), ImmutableList.of(2));
-		List<Collection<Integer>> lst2 = Lists.<Collection<Integer>> newArrayList(//
-				ImmutableList.of(1, 2), ImmutableList.of(2, 3, 4));
-		CQContainmentCheckUnderLIDs checker = new CQContainmentCheckUnderLIDs();
-		//assertTrue(checker.subset(lst1, lst2));
-	}
 }

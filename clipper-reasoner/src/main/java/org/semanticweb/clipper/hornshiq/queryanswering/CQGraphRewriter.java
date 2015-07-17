@@ -2,6 +2,7 @@ package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import gnu.trove.set.hash.TIntHashSet;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +35,7 @@ public class CQGraphRewriter implements QueryRewriter {
 	// final Logger log = LoggerFactory.getLogger(CQGraphRewriter.class);
     private final Logger log = LoggerFactory.getLogger(CQGraphRewriter.class);
 
-	CQGraphHomomorphismChecker checker;
+	CQContainmentCheckUnderLIDs checker;
 
 
 	ClipperHornSHIQOntology ontology;
@@ -50,9 +51,13 @@ public class CQGraphRewriter implements QueryRewriter {
     public CQGraphRewriter(ClipperHornSHIQOntology ontology, IndexedEnfContainer enfs) {
 		this.ontology = ontology;
 		this.enfs = enfs;
-		checker = new CQGraphHomomorphismChecker();
-		List<ClipperSubPropertyAxiom> subPropertyAxioms = ontology.computeNonSimpleSubPropertyClosure();
-		transSuperRole2SubRolesMmap = HashMultimap.create();
+
+        //checker = new CQGraphHomomorphismChecker();
+        checker = new CQContainmentCheckUnderLIDs();
+
+        List<ClipperSubPropertyAxiom> subPropertyAxioms = ontology.computeNonSimpleSubPropertyClosure();
+
+        transSuperRole2SubRolesMmap = HashMultimap.create();
 		for (ClipperSubPropertyAxiom subPropertyAxiom : subPropertyAxioms) {
 			int subRole = subPropertyAxiom.getRole1();
 			int superRole = subPropertyAxiom.getRole2();
@@ -183,35 +188,60 @@ public class CQGraphRewriter implements QueryRewriter {
 				log.debug("cq(g) = {}", g.toCQ());
 				log.debug("edges = {}; map = {}", edges, map);
 				log.debug("type = {}", type);
-				CQGraph g1 = g.clip(leaves, edges, map, type);
+				CQGraph rewrittenCQGraph = g.clip(leaves, edges, map, type);
 
-				CQ cq = g1.toCQ();
+				CQ cq = rewrittenCQGraph.toCQ();
 				// if (!redundant(g1)) {
-				if (!resultCQs.contains(cq)) {
+
+                boolean redundant = false;
+
+                List<CQGraph> toRemove = new ArrayList<>();
+
+                for (CQGraph graph : resultGraphs) {
+                    if(checker.isContainedIn(rewrittenCQGraph, graph)){
+                        redundant = true;
+
+//                        Map homomorphsim = checker.computeHomomorphsim(rewrittenCQGraph, graph);
+//                        System.out.println(homomorphsim);
+
+                        break;
+                    } else if(checker.isContainedIn(graph, rewrittenCQGraph)){
+                        toRemove.add(graph);
+                    }
+                }
+
+                if(!toRemove.isEmpty()){
+                    resultGraphs.removeAll(toRemove);
+                }
+
+
+				if (!redundant) {
 					log.debug("-- new cq = {}", cq);
-					rewrite_recursive(g1);
-				}
+					rewrite_recursive(rewrittenCQGraph);
+				} else {
+                    log.debug("-- redundant cq: {}", cq);
+                }
 			}
 		}
 
 	}
 
-	public boolean redundant(CQGraph g1) {
-		for (CQGraph g : resultGraphs) {
-			if (checker.isContainedIn(g, g1)) {
-				Map<Term, Term> map = checker.getMap();
-				System.out.println(Strings.repeat("-", 80));
-				System.out.println(g.toCQ());
-				System.out.println("--> " + map);
-				System.out.println(g1.toCQ());
-				System.out.println(checker.check(map, g, g1));
-				System.out.println(Strings.repeat("-", 80));
-				return true;
-			}
-		}
-
-		return false;
-	}
+//	public boolean redundant(CQGraph g1) {
+//		for (CQGraph g : resultGraphs) {
+//			if (checker.isContainedIn(g, g1)) {
+//				Map<Term, Term> map = checker.getMap();
+//				System.out.println(Strings.repeat("-", 80));
+//				System.out.println(g.toCQ());
+//				System.out.println("--> " + map);
+//				System.out.println(g1.toCQ());
+//				System.out.println(checker.check(map, g, g1));
+//				System.out.println(Strings.repeat("-", 80));
+//				return true;
+//			}
+//		}
+//
+//		return false;
+//	}
 
 	/**
 	 * @param tmp

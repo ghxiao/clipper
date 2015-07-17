@@ -6,6 +6,9 @@ catalog-v*.xml
 .classpath
 .projecttmp.*
 tmp.*
+
+*.versionsBackup
+
 .project
 .pydevproject
 bin
