@@ -7,7 +7,7 @@ catalog-v*.xml
 .projecttmp.*
 tmp.*
 
-*.versionBackup
+*.versionsBackup
 
 .project
 .pydevproject
