@@ -16,7 +16,6 @@ import org.semanticweb.clipper.hornshiq.rule.Variable;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
 
 import com.google.common.base.Predicates;
-import com.google.common.base.Strings;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -37,14 +36,13 @@ public class CQGraphRewriter implements QueryRewriter {
 
 	CQContainmentCheckUnderLIDs checker;
 
-
 	ClipperHornSHIQOntology ontology;
 	IndexedEnfContainer enfs;
 
 	Multimap<Integer, Integer> transSuperRole2SubRolesMmap;
 
-	List<CQGraph> resultGraphs;
-	List<CQ> resultCQs;
+	List<CQGraph> rewrittenCQGraphs;
+	List<CQ> rewrittenCQs;
 
 	private SelfLoopComponentCluster slcc;
 
@@ -76,13 +74,13 @@ public class CQGraphRewriter implements QueryRewriter {
 		log.debug("rewrite(CQGraph g)");
 		log.debug("g = {}", g);
 
-		resultGraphs = Lists.newArrayList();
-		resultCQs = Lists.newArrayList();
+		rewrittenCQGraphs = Lists.newArrayList();
+		rewrittenCQs = Lists.newArrayList();
 
 		slcc = new SelfLoopComponentCluster(enfs);
 
 		rewrite_recursive(g);
-		return resultGraphs;
+		return rewrittenCQGraphs;
 	}
 
 	/**
@@ -90,14 +88,14 @@ public class CQGraphRewriter implements QueryRewriter {
 	 * 
 	 * @param g
 	 */
-	public void rewrite_recursive(CQGraph g) {
+	private void rewrite_recursive(CQGraph g) {
 
 		log.debug("rewrite_recursive(CQGraph g)");
 		log.debug("g = {}", g);
 		log.debug("cq(g) = {}", g.toCQ());
 
-		resultGraphs.add(g);
-		resultCQs.add(g.toCQ());
+		rewrittenCQGraphs.add(g);
+		rewrittenCQs.add(g.toCQ());
 
 		Set<Set<Variable>> selfLoopComponents = slcc.transform(g);
 
@@ -110,7 +108,7 @@ public class CQGraphRewriter implements QueryRewriter {
 		}
 	}
 
-	public void rewrite(CQGraph g, Collection<Variable> leaves) {
+    private void rewrite(CQGraph g, Collection<Variable> leaves) {
 		log.debug("leaves = {}", leaves);
 
 		g = g.focus(leaves);
@@ -155,7 +153,7 @@ public class CQGraphRewriter implements QueryRewriter {
 	 * @param edges
 	 * @param map
 	 */
-	public void rewrite(CQGraph g, Collection<Variable> leaves, List<CQGraphEdge> edges, Map<CQGraphEdge, Integer> map) {
+    private void rewrite(CQGraph g, Collection<Variable> leaves, List<CQGraphEdge> edges, Map<CQGraphEdge, Integer> map) {
 
 		TIntHashSet roles = new TIntHashSet();
 
@@ -197,12 +195,9 @@ public class CQGraphRewriter implements QueryRewriter {
 
                 List<CQGraph> toRemove = new ArrayList<>();
 
-                for (CQGraph graph : resultGraphs) {
+                for (CQGraph graph : rewrittenCQGraphs) {
                     if(checker.isContainedIn(rewrittenCQGraph, graph)){
                         redundant = true;
-
-//                        Map homomorphsim = checker.computeHomomorphsim(rewrittenCQGraph, graph);
-//                        System.out.println(homomorphsim);
 
                         break;
                     } else if(checker.isContainedIn(graph, rewrittenCQGraph)){
@@ -211,7 +206,7 @@ public class CQGraphRewriter implements QueryRewriter {
                 }
 
                 if(!toRemove.isEmpty()){
-                    resultGraphs.removeAll(toRemove);
+                    rewrittenCQGraphs.removeAll(toRemove);
                 }
 
 
@@ -227,7 +222,7 @@ public class CQGraphRewriter implements QueryRewriter {
 	}
 
 //	public boolean redundant(CQGraph g1) {
-//		for (CQGraph g : resultGraphs) {
+//		for (CQGraph g : rewrittenCQGraphs) {
 //			if (checker.isContainedIn(g, g1)) {
 //				Map<Term, Term> map = checker.getMap();
 //				System.out.println(Strings.repeat("-", 80));
@@ -304,12 +299,12 @@ public class CQGraphRewriter implements QueryRewriter {
 	}
 
 	public List<CQGraph> getResult() {
-		return resultGraphs;
+		return rewrittenCQGraphs;
 	}
 
 	@Override
 	public Collection<CQ> rewrite(CQ query) {
 		rewrite(new CQGraph(query));
-		return resultCQs;
+		return rewrittenCQs;
 	}
 }

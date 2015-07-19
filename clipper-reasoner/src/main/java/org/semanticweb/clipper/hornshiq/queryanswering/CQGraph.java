@@ -14,8 +14,10 @@ import org.semanticweb.clipper.hornshiq.rule.*;
 import java.util.*;
 
 /**
- * Direct Graph Representation of a Conjunctive Query
- * 
+ * Direct Multigraph Representation of a Conjunctive Query
+ *
+ * Immutable. All the public methods have no side effects
+ *
  * @author xiao
  * 
  */
@@ -28,7 +30,7 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
     private List<Variable> answerVariables = Lists.newArrayList();
 
     /**
-     * the map from the Variables to list of concepts
+     *  The labels of the vertices (a.k.a the map from the Variables to list of concepts)
      */
     private Multimap<Term, Integer> concepts = HashMultimap.create();
 
@@ -90,7 +92,9 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 
     }
 
-
+    /*
+     * No side effect !
+     */
     public CQGraph focus(Collection<Variable> leaves) {
         CQGraph newCQGraph = this.deepCopy();
         newCQGraph.focus0(leaves);
@@ -115,7 +119,7 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
     }
 
     /*
-     * No side effect
+     * No side effect !
      */
     public CQGraph clip(Collection<Variable> leaves, //
                       Collection<CQGraphEdge> edges, //
@@ -189,7 +193,7 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 	}
 
 	/**
-	 * get a constant source from the edges
+	 * gets a constant source from the edges
 	 * 
 	 * if there are more than one such edges, an exception will be thrown
 	 * 
@@ -279,7 +283,6 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 
 		Integer role = inEdge.getRole();
 
-		// TODO: don't forget InvAxioms
 		int invRole;
 		if (role % 2 == 0) {
 			invRole = role + 1;
@@ -299,7 +302,8 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 
 			for (CQGraphEdge edge : possibleOutEdges) {
 				Term second = edge.getDest();
-				if (!leaves.contains(second)) {
+                //noinspection SuspiciousMethodCalls
+                if (!leaves.contains(second)) {
 					outEdges.add(edge);
 				}
 			}
@@ -314,7 +318,8 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 			Collection<CQGraphEdge> possibleInEdges = this.getInEdges(vertex);
 			for (CQGraphEdge edge : possibleInEdges) {
 				Term first = edge.getSource();
-				if (!vertices.contains(first)) {
+                //noinspection SuspiciousMethodCalls
+                if (!vertices.contains(first)) {
 					inEdges.add(edge);
 				}
 			}
@@ -325,18 +330,19 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 	/**
 	 * get the edges between the vertices,
 	 * 
-	 * NOTE that self loop edges (e=(v,v)) are not included
+	 * NOTE that self loop edges (e=(v,v)) are excluded
 	 * 
 	 * @param vertices
 	 * @return
 	 */
-	public Collection<CQGraphEdge> getInterEdges(Collection<Variable> vertices) {
+	@SuppressWarnings("SuspiciousMethodCalls")
+    public Collection<CQGraphEdge> getInterEdges(Collection<Variable> vertices) {
 		Set<CQGraphEdge> interEdges = Sets.newHashSet();
 		for (Variable vertex : vertices) {
 			Preconditions.checkState(this.containsVertex(vertex), "the vertex is not in the graph");
 			for (CQGraphEdge edge : this.getInEdges(vertex)) {
 				Term first = this.getSource(edge);
-				if (vertices.contains(first) && !edge.getSource().equals(edge.getDest())) {
+                if (vertices.contains(first) && !edge.getSource().equals(edge.getDest())) {
 					interEdges.add(edge);
 				}
 			}

@@ -10,11 +10,6 @@
 	</parent>
 
 	<dependencies>
-<!-- 		<dependency> -->
-<!-- 			<groupId>owlapi</groupId> -->
-<!-- 			<artifactId>owlapi</artifactId> -->
-<!-- 			<version>3.2.4</version> -->
-<!-- 		</dependency> -->
 
 		<dependency>
 			<groupId>com.dlvsystem</groupId>

@@ -11,13 +11,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
 import org.semanticweb.clipper.hornshiq.queryanswering.IndexedEnfContainer;
 import org.semanticweb.clipper.util.BitSetUtil;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
 
-
+@Ignore
 public class IndexedEnfContainerTest {
 
 	final int MATCHES = 100000;
