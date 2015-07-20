@@ -234,6 +234,7 @@ public class CQGraphRewriterTest {
         assertTrue(ucq1BodyString.contains("c2(X2)"));
 
     }
+
     /**
      * Example 4 in TR
      *
@@ -269,11 +270,11 @@ public class CQGraphRewriterTest {
 
         enfs.add(new EnforcedRelation(
                 // T, A
-                new TIntHashSet(new int[] { 0, 2 }), //
+                new TIntHashSet(new int[]{0, 2}), //
                 // T^2, T^2, r and r1^- and r2^-
-                new TIntHashSet(new int[] { 0, 1, 6, 7, 9 }),
+                new TIntHashSet(new int[]{0, 1, 6, 7, 9}),
                 // B
-                new TIntHashSet(new int[] { 7 })));
+                new TIntHashSet(new int[]{7})));
 
         CQGraphRewriter rewriter = new CQGraphRewriter(ontology, enfs);
 
@@ -295,32 +296,84 @@ public class CQGraphRewriterTest {
             System.out.println(rg.toCQ());
             i++;
         }
-
-
-//        assertEquals(ucq.size(), 3);
-//
-//        /**
-//         * TODO: the order of the rewriting results might change
-//         */
-//
-//        assertEquals(3, ucq.get(1).getVertexCount());
-//        String ucq1BodyString = ucq.get(1).toCQ().toString();
-//        assertTrue(ucq1BodyString.contains("r8(X3,X4)"));
-//        assertTrue(ucq1BodyString.contains("r6(X1,X3)"));
-//        assertTrue(ucq1BodyString.contains("c8(X1)"));
-//        assertTrue(ucq1BodyString.contains("c2(X3)"));
-//        assertTrue(ucq1BodyString.contains("c7(X3)"));
-//
-//
-//        ucq1BodyString = ucq.get(2).toCQ().toString();
-//
-//        assertEquals(1, ucq.get(2).getVertexCount());
-//        assertTrue(ucq1BodyString.contains("c8(X2)"));
-//        assertTrue(ucq1BodyString.contains("c2(X2)"));
-
     }
 
-	@Test
+    /**
+     * Example 5 in TR
+     *
+     *
+     * Assume T = {r⊑r−, trans(r), A⊑∃r.B, B⊑∃r.C, C⊑D}.
+     *
+     * B ⊑ ∃(r ⊓ r−).(C ⊓ D) ∈ Ξ(T).
+     *
+     * Let ρ : q(x) ← A(x), r(x, y), C(y), D(z), r(y, z).
+     *
+     * Then ρ can be rewritten to :
+     *
+     * ρ1 : q(x) ← A(x), r(x, y), B(y).
+     *
+     * ρ2 : q(x) ← A(x)
+     *
+     *
+     * The following encodings are used in the test case
+     *
+     *  A -> c2, A1 -> c3, A2 -> c4, A3 -> c5, A4 -> c6, B -> c7, C -> c8, D -> c9
+     *
+     *  r -> 4, r1 -> 6, r2 -> 8, r3 -> 10, r4 -> 12
+     *
+     *  x -> X1, y -> X2, z -> X3
+     *
+     */
+    @Test
+    public void test_Example5() throws IOException {
+        ClipperHornSHIQOntology ontology = new ClipperHornSHIQOntology();
+
+        ontology.getTransitivityAxioms().add(new ClipperTransitivityAxiom(4));
+
+        IndexedEnfContainer enfs = new IndexedEnfContainer();
+
+        enfs.add(new EnforcedRelation(
+                // T, B
+                new TIntHashSet(new int[] { 0, 7 }), //
+                // T^2, T^2, r, r^-
+                new TIntHashSet(new int[] { 0, 1, 4, 5 }),
+                // C, D
+                new TIntHashSet(new int[] { 8, 9 })));
+
+        enfs.add(new EnforcedRelation(
+                // T, B
+                new TIntHashSet(new int[] { 0, 2 }), //
+                // T^2, T^2, r, r^-
+                new TIntHashSet(new int[] { 0, 1, 4 }),
+                // C, D
+                new TIntHashSet(new int[] { 7 })));
+
+        CQGraphRewriter rewriter = new CQGraphRewriter(ontology, enfs);
+
+        /*
+         * ρ : q(x) ← A(x), r(x, y), C(y), D(z), r(y, z).
+         */
+        String s = "q(X1) :- c2(X1), r4(X1, X2), c8(X2), r4(X2, X3), c9(X3).";
+        System.out.println(s);
+        InternalCQParser parser = new InternalCQParser();
+        parser.setQueryString(s);
+        CQ cq = parser.getCq();
+        CQGraph g = new CQGraph(cq);
+
+        List<CQGraph> ucq = rewriter.rewrite(g);
+
+        int i = 0;
+        for (CQGraph rg : ucq) {
+            System.out.print(i + ": ");
+            System.out.println(rg.toCQ());
+            i++;
+        }
+
+        assertEquals(1, ucq.size());
+    }
+
+
+    @Test
 	public void test() throws IOException {
 		ClipperHornSHIQOntology ontology = new ClipperHornSHIQOntology();
 		ontology.getSubPropertyAxioms().add(new ClipperSubPropertyAxiom(2, 3));

@@ -92,8 +92,20 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 
     }
 
-    /*
-     * No side effect !
+
+
+    /**
+     *
+     * (S2)
+     *
+     * Replace each role atom r(x, y) in ρ, where x ∈ Vl and y ∉ Vl is arbitrary, by the atom
+     * inv(r)(y, x).
+     *
+     * NO side effects!
+     *
+     * @param leaves Vl
+     *
+     * @return a new CQGraph
      */
     public CQGraph focus(Collection<Variable> leaves) {
         CQGraph newCQGraph = this.deepCopy();
@@ -103,7 +115,7 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 
     private void focus0(Collection<Variable> leaves) {
         List<CQGraphEdge> outEdges = this.getOutEdges(leaves);
-        List<CQGraphEdge> revertedEdges = new ArrayList<CQGraphEdge>();
+        List<CQGraphEdge> revertedEdges = new ArrayList<>();
         for (CQGraphEdge outEdge : outEdges) {
             CQGraphEdge inEdge = inverseEdge(outEdge);
             revertedEdges.add(inEdge);
@@ -421,6 +433,20 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 	public List<Variable> getAnswerVariables() {
 		return answerVariables;
 	}
+
+    public Set<Variable> getNondistinguishedVariables() {
+
+        Set<Variable> ret = Sets.newHashSet();
+
+        for (Term term : this.getVertices()) {
+            if(term.isVariable() && !isAnswerVariable(term.asVariable())){
+                ret.add(term.asVariable());
+            }
+        }
+
+        return ret;
+    }
+
 
 }
 

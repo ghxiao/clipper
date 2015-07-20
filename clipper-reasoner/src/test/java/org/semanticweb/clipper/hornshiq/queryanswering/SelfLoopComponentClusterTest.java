@@ -30,7 +30,7 @@ public class SelfLoopComponentClusterTest {
 
 		List<Integer> selfLoopRoles = Arrays.asList(2, 4);
 
-		SelfLoopComponentCluster slcc = new SelfLoopComponentCluster(selfLoopRoles);
+		SmartSelfLoopComponentCluster slcc = new SmartSelfLoopComponentCluster(selfLoopRoles);
 
 		Set<Set<Variable>> clusters = slcc.transform(g);
 		Joiner.on("\n").appendTo(System.out, clusters);
