@@ -1,3 +1,5 @@
 language: java
+before_install:
+  - mkdir -p $HOME/bin && cd $HOME/bin && wget http://www.dlvsystem.com/files/dlv.i386-linux-elf-static.bin -O dlv
 jdk:
   - oraclejdk8
