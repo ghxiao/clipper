@@ -4,6 +4,10 @@ language: java
 
 install:
   - mkdir -p $HOME/bin && cd $HOME/bin && wget http://www.dlvsystem.com/files/dlv.i386-linux-elf-static.bin -O dlv
+  - mvn install -DskipTests=true
+
+script:
+  - mvn test
 
 jdk:
   - oraclejdk8
