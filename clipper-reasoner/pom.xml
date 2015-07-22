@@ -46,7 +46,12 @@
 			<artifactId>owlapi-apibinding</artifactId>
 			<version>3.4.3</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+    </dependencies>
 
     <build>
 		<plugins>

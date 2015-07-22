@@ -8,21 +8,39 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import edu.uci.ics.jung.graph.DirectedSparseMultigraph;
-import lombok.NonNull;
-import org.semanticweb.clipper.hornshiq.rule.*;
 
-import java.util.*;
+import org.semanticweb.clipper.hornshiq.rule.Atom;
+import org.semanticweb.clipper.hornshiq.rule.CQ;
+import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
+import org.semanticweb.clipper.hornshiq.rule.NonDLPredicate;
+import org.semanticweb.clipper.hornshiq.rule.Predicate;
+import org.semanticweb.clipper.hornshiq.rule.Term;
+import org.semanticweb.clipper.hornshiq.rule.Variable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.annotation.CheckReturnValue;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Direct Multigraph Representation of a Conjunctive Query
- *
+ * <p/>
  * Immutable. All the public methods have no side effects
  *
  * @author xiao
- * 
  */
 @SuppressWarnings("serial")
 public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
+
+    private final Logger log = LoggerFactory.getLogger(CQGraph.class);
 
     /**
      * distinguished (answer, output) variables
@@ -30,11 +48,13 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
     private List<Variable> answerVariables = Lists.newArrayList();
 
     /**
-     *  The labels of the vertices (a.k.a the map from the Variables to list of concepts)
+     * The labels of the vertices (a.k.a the map from the Variables to list of concepts)
      */
     private Multimap<Term, Integer> concepts = HashMultimap.create();
 
     private String headPredicateName;
+
+    private int maxVariableIndex = -1;
 
     /**
      * never use
@@ -93,18 +113,15 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
     }
 
 
-
     /**
-     *
      * (S2)
-     *
+     * <p/>
      * Replace each role atom r(x, y) in ρ, where x ∈ Vl and y ∉ Vl is arbitrary, by the atom
      * inv(r)(y, x).
-     *
+     * <p/>
      * NO side effects!
      *
      * @param leaves Vl
-     *
      * @return a new CQGraph
      */
     public CQGraph focus(Collection<Variable> leaves) {
@@ -133,313 +150,348 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
     /*
      * No side effect !
      */
+    @CheckReturnValue
     public CQGraph clip(Collection<Variable> leaves, //
-                      Collection<CQGraphEdge> edges, //
-                      Map<CQGraphEdge, Integer> map, //
-                      List<Integer> type) {
+                        Collection<CQGraphEdge> edges, //
+                        Map<CQGraphEdge, Integer> map, //
+                        List<Integer> type) {
         CQGraph newCQGraph = this.deepCopy();
         newCQGraph.clip0(leaves, edges, map, type);
         return newCQGraph;
     }
 
-
-	private void clip0(Collection<Variable> leaves, //
-			Collection<CQGraphEdge> edges, //
-			Map<CQGraphEdge, Integer> map, //
-			List<Integer> type) {
+    private void clip0(Collection<Variable> leaves, //
+                       Collection<CQGraphEdge> edges, //
+                       Map<CQGraphEdge, Integer> map, //
+                       List<Integer> type) {
 
 
         boolean distinguished = false;
 
-		// Term newLeaf;
+        Term newLeaf = computeNewLeaf(edges, map);
 
-		Term vertex0 = computeNewLeaf(edges, map);
+        replaceEdgesByTransitiveSubEdgePairs(edges, map);
 
-		List<Integer> newType = Lists.newArrayList(type);
+        log.debug("replace Edges By Transitive Sub Edge Pairs: \n{}\n", this);
 
-		// vertex0.concepts = type
-		// to avoid java.util.ConcurrentModificationException
-		ArrayList<CQGraphEdge> copyOfEdges = Lists.newArrayList(edges);
-		for (CQGraphEdge edge : copyOfEdges) {
-			// boolean removingEdge = true;
+        List<CQGraphEdge> inEdges = this.getInEdges(leaves);
 
-			if (map.containsKey(edge)) {
-				Integer subRole = map.get(edge);
-				CQGraphEdge newEdge = new CQGraphEdge(edge.getSource(), vertex0, subRole);
-				replaceEdge(edge, newEdge);
-				if (edge.getRole().equals(subRole) && edge.getDest().equals(vertex0)) {
-					// removingEdge = false;
-				}
-			} else {
-				Term parentVertex = edge.getSource();
+        List<Term> parentVertices = inEdges.stream().map(CQGraphEdge::getSource)
+                                    .collect(Collectors.toList());
 
-				List<CQGraphEdge> inEdges = Lists.newArrayList(getInEdges(parentVertex));
-				for (CQGraphEdge e1 : inEdges) {
-					CQGraphEdge newEdge = new CQGraphEdge(e1.getSource(), vertex0, e1.getRole());
-					replaceEdge(e1, newEdge);
-				}
-				List<CQGraphEdge> outEdges = Lists.newArrayList(this.getOutEdges(parentVertex));
-				for (CQGraphEdge e1 : outEdges) {
-					if (!edge.equals(e1)) {
-						CQGraphEdge newEdge = new CQGraphEdge(vertex0, e1.getDest(), e1.getRole());
-						replaceEdge(e1, newEdge);
-					}
-				}
-				if (isAnswerVariable(parentVertex)) {
-					distinguished = true;
-				}
-				newType.addAll(getConcepts(parentVertex));
+        leaves.stream().flatMap(term -> this.getIncidentEdges(term).stream())
+                .forEach(this::removeEdge);
 
-				if (parentVertex.isVariable()) {
-					removeVertex(parentVertex);
-				}
-			}
+        leaves.forEach(this::removeVertex);
 
-			// if (removingEdge) {
-			// removeEdge(edge);
-			// }
+        mergeVerticesAndReplace(parentVertices, newLeaf, type);
 
-		}
+        //mergeLeafVertices(newLeaf, leaves, newType, distinguished);
+    }
 
-		mergeLeafVertices(vertex0, leaves, newType, distinguished);
-	}
+    private void mergeVerticesAndReplace(List<Term> parentVertices, Term newLeaf, List<Integer> type) {
 
-	/**
-	 * gets a constant source from the edges
-	 * 
-	 * if there are more than one such edges, an exception will be thrown
-	 * 
-	 * @param map
-	 */
-	private Term computeNewLeaf(Collection<CQGraphEdge> edges, Map<CQGraphEdge, Integer> map) {
-		Term ret = null;
-		for (CQGraphEdge edge : edges) {
-			if (!map.containsKey(edge)) {
-				if (edge.getSource().isConstant()) {
-					if (ret == null) {
-						ret = edge.getSource().asConstant();
-					} else {
-						// not the first one
-						throw new IllegalArgumentException("more than one constants to merge!");
-					}
-				}
-			}
-		}
+        this.addVertex(newLeaf);
+        this.concepts.putAll(newLeaf, type);
 
-		if (ret == null)
-			ret = edges.iterator().next().getDest();
+        List<CQGraphEdge> edgesToAdd = new ArrayList<>();
+        List<CQGraphEdge> edgesToRemove = new ArrayList<>();
 
-		return ret;
-	}
+        parentVertices.forEach(v -> this.concepts.putAll(newLeaf, this.concepts.get(v)));
 
-	private void mergeLeafVertices(Term vertex0, Collection<Variable> leafVertices, List<Integer> type,
-			boolean distinguished) {
-		Collection<CQGraphEdge> interLeafEdges = this.getInterEdges(leafVertices);
-		for (CQGraphEdge edge : interLeafEdges) {
-			this.removeEdge(edge);
-		}
-		for (Variable vertex : leafVertices) {
-			if (!vertex.equals(vertex0)) {
-				this.removeVertex(vertex);
-			}
-		}
+        this.getInEdges(parentVertices).forEach(e -> {
+                    edgesToAdd.add(new CQGraphEdge(e.getSource(), newLeaf, e.getRole()));
+                    edgesToRemove.add(e);
+                }
+        );
 
-		getConcepts(vertex0).clear();
-		getConcepts(vertex0).addAll(type);
-		if (distinguished)
-			answerVariables.add(vertex0.asVariable());
-	}
+        this.getOutEdges(parentVertices).forEach(e -> {
+                    edgesToAdd.add(new CQGraphEdge(newLeaf, e.getDest(), e.getRole()));
+                    edgesToRemove.add(e);
+                }
+        );
 
-	/**
-	 * @param parentVertex
-	 * @return
-	 */
-	public Collection<Integer> getConcepts(Term parentVertex) {
-		return concepts.get(parentVertex);
-	}
+        this.getInterEdges(parentVertices).forEach(e -> {
+                    edgesToAdd.add(new CQGraphEdge(newLeaf, newLeaf, e.getRole()));
+                    edgesToRemove.add(e);
+                }
+        );
 
-	/**
-	 * @param variable
-	 * @return
-	 */
-	public boolean isAnswerVariable(Term variable) {
+        edgesToRemove.forEach(this::removeEdge);
+        edgesToAdd.forEach(this::addEdge);
+        parentVertices.forEach(this::removeVertex);
 
-		return answerVariables.contains(variable);
-	}
+        ListIterator<Variable> iterator = answerVariables.listIterator();
+        while(iterator.hasNext()){
+            Variable variable = iterator.next();
+            if(parentVertices.contains(variable)){
+                //iterator.remove();
+                iterator.set(newLeaf.asVariable());
+            }
+        }
+    }
 
-	/**
-	 * replace the old edge by a new edge, and transfer the roles from the old
-	 * to the new
-	 * 
-	 * @param oldEdge
-	 * @param newEdge
-	 */
-	private void replaceEdge(CQGraphEdge oldEdge, CQGraphEdge newEdge) {
-		this.removeEdge(oldEdge);
-		this.addEdge(newEdge);
-	}
+    /**
+     * For each atom r(y,x), replaces it by two atoms r(y, u), r(u, x),
+     * where u is a fresh variable and r is a transitive role with r ⊑∗T s.
+     */
+    private void replaceEdgesByTransitiveSubEdgePairs(Collection<CQGraphEdge> edges, //
+                                                      Map<CQGraphEdge, Integer> map) {
+        ArrayList<CQGraphEdge> copyOfEdges = Lists.newArrayList(edges);
 
-	@Override
-	public boolean removeVertex(Term vertex) {
-		if (vertex.isVariable()) {
-			Variable v = (Variable) vertex;
-			// checkState(!isAnswerVariable(v));
-			this.answerVariables.remove(v);
-			this.concepts.removeAll(v);
-		}
+        for (CQGraphEdge edge : copyOfEdges) {
+            if(map.containsKey(edge)) {
+                Variable freshVar = getFreshVariable();
+                this.addEdge(new CQGraphEdge(edge.getSource(), freshVar, map.get(edge)));
+                this.addEdge(new CQGraphEdge(freshVar, edge.getDest(), map.get(edge)));
+                this.removeEdge(edge);
+            }
+        }
 
-		return super.removeVertex(vertex);
-	}
+    }
 
-	private CQGraphEdge inverseEdge(CQGraphEdge inEdge) {
+    /**
+     * gets a constant source from the edges
+     * <p/>
+     * if there are more than one such edges, an exception will be thrown
+     *
+     * @param map
+     */
+    private Term computeNewLeaf(Collection<CQGraphEdge> edges, Map<CQGraphEdge, Integer> map) {
+        Term ret = null;
+        for (CQGraphEdge edge : edges) {
+            if (!map.containsKey(edge)) {
+                if (edge.getSource().isConstant()) {
+                    if (ret == null) {
+                        ret = edge.getSource().asConstant();
+                    } else {
+                        // not the first one
+                        throw new IllegalArgumentException("more than one constants to merge!");
+                    }
+                }
+            }
+        }
 
-		Integer role = inEdge.getRole();
+        if (ret == null)
+            ret = edges.iterator().next().getDest();
 
-		int invRole;
-		if (role % 2 == 0) {
-			invRole = role + 1;
-		} else {
-			invRole = role - 1;
-		}
+        return ret;
+    }
 
-		CQGraphEdge outEdge = new CQGraphEdge(inEdge.getDest(), inEdge.getSource(), invRole);
+    private void mergeLeafVertices(Term vertex0, Collection<Variable> leafVertices, List<Integer> type,
+                                   boolean distinguished) {
+        Collection<CQGraphEdge> interLeafEdges = this.getInterEdges(leafVertices);
+        for (CQGraphEdge edge : interLeafEdges) {
+            this.removeEdge(edge);
+        }
+        for (Variable vertex : leafVertices) {
+            if (!vertex.equals(vertex0)) {
+                this.removeVertex(vertex);
+            }
+        }
 
-		return outEdge;
-	}
+        getConcepts(vertex0).clear();
+        getConcepts(vertex0).addAll(type);
+        if (distinguished)
+            answerVariables.add(vertex0.asVariable());
+    }
 
-	public List<CQGraphEdge> getOutEdges(Collection<Variable> leaves) {
-		List<CQGraphEdge> outEdges = new ArrayList<CQGraphEdge>();
-		for (Variable vertex : leaves) {
-			Collection<CQGraphEdge> possibleOutEdges = this.getOutEdges(vertex);
+    /**
+     * @param parentVertex
+     * @return
+     */
+    public Collection<Integer> getConcepts(Term parentVertex) {
+        return concepts.get(parentVertex);
+    }
 
-			for (CQGraphEdge edge : possibleOutEdges) {
-				Term second = edge.getDest();
-                //noinspection SuspiciousMethodCalls
-                if (!leaves.contains(second)) {
-					outEdges.add(edge);
-				}
-			}
+    /**
+     * @param variable
+     * @return
+     */
+    public boolean isAnswerVariable(Term variable) {
 
-		}
-		return outEdges;
-	}
+        return answerVariables.contains(variable);
+    }
 
-	public List<CQGraphEdge> getInEdges(Collection<Variable> vertices) {
-		List<CQGraphEdge> inEdges = new ArrayList<CQGraphEdge>();
-		for (Variable vertex : vertices) {
-			Collection<CQGraphEdge> possibleInEdges = this.getInEdges(vertex);
-			for (CQGraphEdge edge : possibleInEdges) {
-				Term first = edge.getSource();
-                //noinspection SuspiciousMethodCalls
+    /**
+     * replace the old edge by a new edge, and transfer the roles from the old
+     * to the new
+     *
+     * @param oldEdge
+     * @param newEdge
+     */
+    private void replaceEdge(CQGraphEdge oldEdge, CQGraphEdge newEdge) {
+        this.removeEdge(oldEdge);
+        this.addEdge(newEdge);
+    }
+
+    @Override
+    public boolean removeVertex(Term vertex) {
+        if (vertex.isVariable()) {
+            Variable v = (Variable) vertex;
+            // checkState(!isAnswerVariable(v));
+            // TODO: check
+            // this.answerVariables.remove(v);
+            this.concepts.removeAll(v);
+        }
+
+        return super.removeVertex(vertex);
+    }
+
+    private CQGraphEdge inverseEdge(CQGraphEdge inEdge) {
+
+        Integer role = inEdge.getRole();
+
+        int invRole;
+        if (role % 2 == 0) {
+            invRole = role + 1;
+        } else {
+            invRole = role - 1;
+        }
+
+        //noinspection UnnecessaryLocalVariable
+        CQGraphEdge outEdge = new CQGraphEdge(inEdge.getDest(), inEdge.getSource(), invRole);
+
+        return outEdge;
+    }
+
+    /**
+     * Gets all the outcoming edges of the <code>vertices</code>, excluding the edges between <code>vertices</code>
+     */
+    public List<CQGraphEdge> getOutEdges(Collection<? extends Term> vertices) {
+        List<CQGraphEdge> outEdges = new ArrayList<>();
+        for (Term vertex : vertices) {
+            Collection<CQGraphEdge> possibleOutEdges = this.getOutEdges(vertex);
+
+            for (CQGraphEdge edge : possibleOutEdges) {
+                Term second = edge.getDest();
+                if (!vertices.contains(second)) {
+                    outEdges.add(edge);
+                }
+            }
+
+        }
+        return outEdges;
+    }
+
+    /**
+     * Gets all the incoming edges of the <code>vertices</code>, excluding the edges between <code>vertices</code>
+     */
+    public List<CQGraphEdge> getInEdges(Collection<? extends Term> vertices) {
+        List<CQGraphEdge> inEdges = new ArrayList<>();
+        for (Term vertex : vertices) {
+            Collection<CQGraphEdge> possibleInEdges = this.getInEdges(vertex);
+            for (CQGraphEdge edge : possibleInEdges) {
+                Term first = edge.getSource();
                 if (!vertices.contains(first)) {
-					inEdges.add(edge);
-				}
-			}
-		}
-		return inEdges;
-	}
+                    inEdges.add(edge);
+                }
+            }
+        }
+        return inEdges;
+    }
 
-	/**
-	 * get the edges between the vertices,
-	 * 
-	 * NOTE that self loop edges (e=(v,v)) are excluded
-	 * 
-	 * @param vertices
-	 * @return
-	 */
-	@SuppressWarnings("SuspiciousMethodCalls")
-    public Collection<CQGraphEdge> getInterEdges(Collection<Variable> vertices) {
-		Set<CQGraphEdge> interEdges = Sets.newHashSet();
-		for (Variable vertex : vertices) {
-			Preconditions.checkState(this.containsVertex(vertex), "the vertex is not in the graph");
-			for (CQGraphEdge edge : this.getInEdges(vertex)) {
-				Term first = this.getSource(edge);
+    /**
+     * get the edges between the vertices,
+     * <p/>
+     * NOTE that self loop edges (e=(v,v)) are excluded
+     *
+     * @param vertices
+     * @return
+     */
+    @SuppressWarnings("SuspiciousMethodCalls")
+    public Collection<CQGraphEdge> getInterEdges(Collection<? extends Term> vertices) {
+        Set<CQGraphEdge> interEdges = Sets.newHashSet();
+        for (Term vertex : vertices) {
+            Preconditions.checkState(this.containsVertex(vertex), "the vertex is not in the graph");
+            for (CQGraphEdge edge : this.getInEdges(vertex)) {
+                Term first = this.getSource(edge);
                 if (vertices.contains(first) && !edge.getSource().equals(edge.getDest())) {
-					interEdges.add(edge);
-				}
-			}
-			for (CQGraphEdge edge : this.getOutEdges(vertex)) {
-				Term second = this.getDest(edge);
-				if (vertices.contains(second) && !edge.getSource().equals(edge.getDest())) {
-					interEdges.add(edge);
-				}
-			}
-		}
-		return interEdges;
-	}
+                    interEdges.add(edge);
+                }
+            }
+            for (CQGraphEdge edge : this.getOutEdges(vertex)) {
+                Term second = this.getDest(edge);
+                if (vertices.contains(second) && !edge.getSource().equals(edge.getDest())) {
+                    interEdges.add(edge);
+                }
+            }
+        }
+        return interEdges;
+    }
 
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("{ ");
-		boolean first = true;
-		for (Term var : getVertices()) {
-			if (!first)
-				sb.append(", ");
-			sb.append(var).append("[");
-			Joiner.on(", ").appendTo(sb, getConcepts(var));
-			sb.append("]");
-			first = false;
-		}
-		sb.append(", ");
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("{ ");
+        boolean first = true;
+        for (Term var : getVertices()) {
+            if (!first)
+                sb.append(", ");
+            sb.append(var).append("[");
+            Joiner.on(", ").appendTo(sb, getConcepts(var));
+            sb.append("]");
+            first = false;
+        }
+        sb.append(", ");
 
-		Joiner.on(", ").appendTo(sb, getEdges());
-		sb.append(" }");
+        Joiner.on(", ").appendTo(sb, getEdges());
+        sb.append(" }");
 
-		return sb.toString();
-	}
+        return sb.toString();
+    }
 
-	@Override
-	public int hashCode() {
-		return Objects.hashCode(vertices, edges, answerVariables, concepts);
-	}
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(vertices, edges, answerVariables, concepts);
+    }
 
-	public CQ toCQ() {
-		List<Atom> bodyAtoms = new ArrayList<Atom>();
-		for (CQGraphEdge e : this.getEdges()) {
-			Term firstVar = e.getSource();
-			Term secondVar = e.getDest();
-			int role = e.getRole();
-			if (role != 0 && role != 1) {
-				if (role % 2 == 0) {
-					DLPredicate r = new DLPredicate(role, 2);
-					bodyAtoms.add(new Atom(r, firstVar, secondVar));
-				} else {
-					DLPredicate r = new DLPredicate(role - 1, 2);
-					bodyAtoms.add(new Atom(r, secondVar, firstVar));
-				}
-			}
+    public CQ toCQ() {
+        List<Atom> bodyAtoms = new ArrayList<Atom>();
+        for (CQGraphEdge e : this.getEdges()) {
+            Term firstVar = e.getSource();
+            Term secondVar = e.getDest();
+            int role = e.getRole();
+            if (role != 0 && role != 1) {
+                if (role % 2 == 0) {
+                    DLPredicate r = new DLPredicate(role, 2);
+                    bodyAtoms.add(new Atom(r, firstVar, secondVar));
+                } else {
+                    DLPredicate r = new DLPredicate(role - 1, 2);
+                    bodyAtoms.add(new Atom(r, secondVar, firstVar));
+                }
+            }
 
-		}
+        }
 
-		for (Term vertex : this.getVertices()) {
-			for (int concept : getConcepts(vertex)) {
-				if (concept != 0) {
-					DLPredicate c = new DLPredicate(concept, 1);
-					bodyAtoms.add(new Atom(c, vertex));
-				}
-			}
-		}
+        for (Term vertex : this.getVertices()) {
+            for (int concept : getConcepts(vertex)) {
+                if (concept != 0) {
+                    DLPredicate c = new DLPredicate(concept, 1);
+                    bodyAtoms.add(new Atom(c, vertex));
+                }
+            }
+        }
 
-		List<Term> answerVars = new ArrayList<Term>(answerVariables);
-		Predicate headPredicate = new NonDLPredicate(this.headPredicateName);
-		Atom head = new Atom(headPredicate, answerVars);
-		CQ cq = new CQ();
-		cq.setHead(head);
-		cq.setBody(bodyAtoms);
+        List<Term> answerVars = new ArrayList<Term>(answerVariables);
+        Predicate headPredicate = new NonDLPredicate(this.headPredicateName);
+        Atom head = new Atom(headPredicate, answerVars);
+        CQ cq = new CQ();
+        cq.setHead(head);
+        cq.setBody(bodyAtoms);
 
-		return cq;
-	}
+        return cq;
+    }
 
-	public List<Variable> getAnswerVariables() {
-		return answerVariables;
-	}
+    public List<Variable> getAnswerVariables() {
+        return answerVariables;
+    }
 
     public Set<Variable> getNondistinguishedVariables() {
 
         Set<Variable> ret = Sets.newHashSet();
 
         for (Term term : this.getVertices()) {
-            if(term.isVariable() && !isAnswerVariable(term.asVariable())){
+            if (term.isVariable() && !isAnswerVariable(term.asVariable())) {
                 ret.add(term.asVariable());
             }
         }
@@ -448,8 +500,28 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
     }
 
 
+    public Variable getFreshVariable() {
+
+
+        if (maxVariableIndex < 0) {
+            /*
+             * initialize
+             */
+            this.maxVariableIndex = this.getVertices().stream().filter(Term::isVariable)
+                    .map(term -> term.asVariable().getIndex())
+                    .max(Comparator.<Integer>naturalOrder())
+                    .orElseGet(() -> 0);
+        }
+
+        maxVariableIndex++;
+
+        return new Variable(maxVariableIndex);
+    }
 }
 
+/**
+ * Immutable
+ */
 class CQGraphEdge {
 
     public CQGraphEdge(Term source, Term dest, Integer role) {
@@ -459,42 +531,31 @@ class CQGraphEdge {
     }
 
     @Override
-	public String toString() {
-		return "<" + source + ", " + dest + ">[" + role + "]";
-	}
+    public String toString() {
+        return "<" + source + ", " + dest + ">[" + role + "]";
+    }
 
-	@NonNull
-	private Term source, dest;
 
-	@NonNull
-	private Integer role;
+    private Term source, dest;
 
-    @NonNull
+
+    private Integer role;
+
+
     public Term getSource() {
         return this.source;
     }
 
-    @NonNull
+
     public Term getDest() {
         return this.dest;
     }
 
-    @NonNull
+
     public Integer getRole() {
         return this.role;
     }
 
-    public void setSource(Term source) {
-        this.source = source;
-    }
-
-    public void setDest(Term dest) {
-        this.dest = dest;
-    }
-
-    public void setRole(Integer role) {
-        this.role = role;
-    }
 
     public boolean equals(Object o) {
         if (o == this) return true;
@@ -528,4 +589,6 @@ class CQGraphEdge {
     protected boolean canEqual(Object other) {
         return other instanceof CQGraphEdge;
     }
+
+
 }

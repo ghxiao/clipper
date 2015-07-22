@@ -137,7 +137,7 @@ public class CQGraphRewriterTest {
         /*
          * q(X1) :- A1(X1), A2(X2), A3(X3), A4(X4), r1(X1, X4), r2(X1, X2), r3(X2, X3), r4(X3, X4).
          */
-        String s = "q(X1) :- c3(X1), c4(X2), c5(X3), c6(X4), r4(X1, X4), r8(X1, X2), r10(X2, X3), r12(X3, X4).";
+        String s = "q(X1) :- c3(X1), c4(X2), c5(X3), c6(X4), r6(X1, X4), r8(X1, X2), r10(X2, X3), r12(X3, X4).";
         System.out.println(s);
         InternalCQParser parser = new InternalCQParser();
         parser.setQueryString(s);
@@ -158,12 +158,13 @@ public class CQGraphRewriterTest {
 
         String ucq1BodyString = ucq.get(1).toCQ().toString();
 
-        assertTrue(ucq1BodyString.contains("r4(X1,X3)"));
-        assertTrue(ucq1BodyString.contains("c6(X3)"));
-        assertTrue(ucq1BodyString.contains("c2(X3)"));
+
         assertTrue(ucq1BodyString.contains("c3(X1)"));
+        assertTrue(ucq1BodyString.contains("r6(X1,X3)"));
         assertTrue(ucq1BodyString.contains("r8(X1,X3)"));
+        assertTrue(ucq1BodyString.contains("c2(X3)"));
         assertTrue(ucq1BodyString.contains("c4(X3)"));
+        assertTrue(ucq1BodyString.contains("c6(X3)"));
 
     }
     /**
