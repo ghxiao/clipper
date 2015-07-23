@@ -66,9 +66,8 @@ public class Variable implements Term {
 		if (this.index != other.index) return false;
 		final Object this$name = this.name;
 		final Object other$name = other.name;
-		if (this$name == null ? other$name != null : !this$name.equals(other$name)) return false;
-		return true;
-	}
+        return !(this$name == null ? other$name != null : !this$name.equals(other$name));
+    }
 
 	public int hashCode() {
 		final int PRIME = 59;
