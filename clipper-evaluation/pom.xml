@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>clipper-parent</artifactId>
 		<groupId>org.semanticweb.clipper</groupId>
-		<version>0.2-SNAPSHOT</version>
+		<version>0.3.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>clipper-evaluation</artifactId>
@@ -18,7 +18,7 @@
 		<dependency>
 			<groupId>org.semanticweb.clipper</groupId>
 			<artifactId>clipper-reasoner</artifactId>
-			<version>0.2-SNAPSHOT</version>
+			<version>0.3.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>
