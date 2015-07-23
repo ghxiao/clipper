@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.semanticweb.clipper</groupId>
 		<artifactId>clipper-parent</artifactId>
-		<version>0.2</version>
+		<version>0.2-SNAPSHOT</version>
 	</parent>
 
 	<dependencies>
