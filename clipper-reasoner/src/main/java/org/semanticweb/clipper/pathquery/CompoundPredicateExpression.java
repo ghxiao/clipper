@@ -1,6 +1,6 @@
 package org.semanticweb.clipper.pathquery;
 
-import lombok.NonNull;
+
 import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
 import org.semanticweb.clipper.hornshiq.rule.Predicate;
 
@@ -8,10 +8,9 @@ import java.util.List;
 
 public abstract class CompoundPredicateExpression implements Predicate {
 
-	@NonNull
+
 	protected List<DLPredicate> ops;
 
-    @java.beans.ConstructorProperties({"ops"})
     public CompoundPredicateExpression(List<DLPredicate> ops) {
         this.ops = ops;
     }
@@ -43,8 +42,6 @@ public abstract class CompoundPredicateExpression implements Predicate {
 		throw new IllegalArgumentException();
 	}
 
-
-    @NonNull
     public List<DLPredicate> getOps() {
         return this.ops;
     }
