@@ -1,8 +1,5 @@
 package org.semanticweb.clipper.hornshiq.ontology;
 
-import lombok.Data;
-
-@Data
 public class ClipperTransitivityAxiom implements ClipperTBoxAxiom {
 	private int role;
 
@@ -22,4 +19,31 @@ public class ClipperTransitivityAxiom implements ClipperTBoxAxiom {
 		return "trans(" + r1 + ")";
 	}
 
+    public int getRole() {
+        return this.role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
+
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (!(o instanceof ClipperTransitivityAxiom)) return false;
+        final ClipperTransitivityAxiom other = (ClipperTransitivityAxiom) o;
+        if (!other.canEqual((Object) this)) return false;
+        if (this.role != other.role) return false;
+        return true;
+    }
+
+    public int hashCode() {
+        final int PRIME = 59;
+        int result = 1;
+        result = result * PRIME + this.role;
+        return result;
+    }
+
+    protected boolean canEqual(Object other) {
+        return other instanceof ClipperTransitivityAxiom;
+    }
 }

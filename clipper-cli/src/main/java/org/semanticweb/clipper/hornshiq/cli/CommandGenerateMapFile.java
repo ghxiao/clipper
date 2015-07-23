@@ -1,13 +1,7 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
-import java.io.File;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Set;
-
-import lombok.Getter;
-
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameters;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
@@ -17,10 +11,10 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.util.ShortFormProvider;
 import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
-import com.beust.jcommander.JCommander;
-import com.beust.jcommander.Parameters;
+import java.io.File;
+import java.sql.SQLException;
+import java.util.Set;
 
-@Getter
 @Parameters(commandNames = { "gen" }, separators = "=", commandDescription = "Load ABox facts to Database")
 public class CommandGenerateMapFile extends DBCommandBase {
 

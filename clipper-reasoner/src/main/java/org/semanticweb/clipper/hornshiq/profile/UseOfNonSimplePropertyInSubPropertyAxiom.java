@@ -2,7 +2,7 @@ package org.semanticweb.clipper.hornshiq.profile;
 
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.profiles.*;
+import org.semanticweb.owlapi.profiles.OWLProfileViolation;
 
 /**
  * Author: Matthew Horridge<br> 

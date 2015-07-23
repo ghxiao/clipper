@@ -1,29 +1,20 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import static org.junit.Assert.assertEquals;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.antlr.runtime.ANTLRStringStream;
-import org.antlr.runtime.CharStream;
-import org.antlr.runtime.CommonTokenStream;
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.TokenStream;
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableSet;
 import org.junit.Test;
 import org.semanticweb.clipper.cqparser.CQParser;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
-import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableSet;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class QAHornSHIQTest {

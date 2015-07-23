@@ -1,22 +1,19 @@
 package org.semanticweb.clipper.pathquery;
 
-import java.util.List;
-
-import lombok.Getter;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-
-import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
 import org.semanticweb.clipper.hornshiq.rule.Predicate;
 
-@RequiredArgsConstructor
-@Getter
 public abstract class UnaryPredicateExpression implements Predicate {
 
 	@NonNull
 	protected Predicate op;
 
-	@Override
+    @java.beans.ConstructorProperties({"op"})
+    public UnaryPredicateExpression(Predicate op) {
+        this.op = op;
+    }
+
+    @Override
 	public boolean isDLPredicate() {
 		return false;
 	}
@@ -31,4 +28,8 @@ public abstract class UnaryPredicateExpression implements Predicate {
 		throw new IllegalArgumentException();
 	}
 
+    @NonNull
+    public Predicate getOp() {
+        return this.op;
+    }
 }

@@ -1,22 +1,13 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
+import org.junit.Test;
+import org.semanticweb.clipper.util.BitSetUtil;
 
 import java.util.ArrayList;
-import java.util.BitSet;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
-
-import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.queryanswering.HornImplication;
-import org.semanticweb.clipper.hornshiq.queryanswering.HornImplicationRelation;
-import org.semanticweb.clipper.hornshiq.queryanswering.IndexedHornImpContainer;
-import org.semanticweb.clipper.util.BitSetUtil;
-import org.semanticweb.clipper.util.BitSetUtilOpt;
 
 
 public class IndexedImpContainerTest {

@@ -1,7 +1,6 @@
 package org.semanticweb.clipper.hornshiq.rule;
 
 import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;

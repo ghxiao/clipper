@@ -1,24 +1,18 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import java.util.ArrayList;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
+import org.semanticweb.clipper.hornshiq.rule.Term;
+import org.semanticweb.clipper.hornshiq.rule.Variable;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import lombok.Getter;
-
-import org.semanticweb.clipper.hornshiq.rule.Term;
-import org.semanticweb.clipper.hornshiq.rule.Variable;
-
-import com.google.common.collect.Collections2;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Multimaps;
-import com.google.common.collect.Sets;
 
 /**
  * 
@@ -50,7 +44,6 @@ public class CQGraphHomomorphismChecker implements ICQGraphHomomorphismChecker {
 	// compaitable table
 	private Multimap<Term, Term> table;
 
-	@Getter
 	private Map<Term, Term> map;
 	private Collection<Term> unvisited;
 
@@ -289,4 +282,8 @@ public class CQGraphHomomorphismChecker implements ICQGraphHomomorphismChecker {
 		return true;
 
 	}
+
+    public Map<Term, Term> getMap() {
+        return this.map;
+    }
 }

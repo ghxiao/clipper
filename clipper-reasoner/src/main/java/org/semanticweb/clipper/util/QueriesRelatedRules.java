@@ -2,20 +2,10 @@ package org.semanticweb.clipper.util;
 
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
-
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import lombok.Getter;
-
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMaxOneAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperConceptAssertionAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperPropertyAssertionAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.clipper.hornshiq.queryanswering.CQFormatter;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
@@ -23,12 +13,16 @@ import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
 import org.semanticweb.clipper.hornshiq.queryanswering.HornImplication;
 import org.semanticweb.clipper.hornshiq.queryanswering.IndexedEnfContainer;
 import org.semanticweb.clipper.hornshiq.queryanswering.IndexedHornImpContainer;
-import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.queryanswering.Rule;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
 import org.semanticweb.clipper.hornshiq.rule.Predicate;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author kien
@@ -47,7 +41,6 @@ public class QueriesRelatedRules {
 
 	private Set<CQ> ucq;
 
-	@Getter
 	private Set<Rule> ucqRelatedDatalogRules; // datalog rules related
 
 	private Set<Predicate> ucqRelatedBodyPredicates;
@@ -488,4 +481,7 @@ public class QueriesRelatedRules {
 		return false;
 	}
 
+    public Set<Rule> getUcqRelatedDatalogRules() {
+        return this.ucqRelatedDatalogRules;
+    }
 }

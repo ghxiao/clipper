@@ -1,13 +1,7 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameter;
 import com.google.common.io.CharStreams;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryFactory;
@@ -19,10 +13,13 @@ import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
-import lombok.Getter;
-
-import com.beust.jcommander.JCommander;
-import com.beust.jcommander.Parameter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Common base class for ComamndQuery and CommandRewrite
@@ -30,7 +27,6 @@ import com.beust.jcommander.Parameter;
  * @author xiao
  * 
  */
-@Getter
 public abstract class ReasoningCommandBase extends CommandBase {
 
 	@Parameter(description = "<ontology1.owl> ... <ontologyk.owl>")
@@ -113,4 +109,31 @@ public abstract class ReasoningCommandBase extends CommandBase {
 
 	protected String errorMessage;
 
+    public List<String> getOntologyFiles() {
+        return this.ontologyFiles;
+    }
+
+    public String getCqFile() {
+        return this.cqFile;
+    }
+
+    public String getSparqlFile() {
+        return this.sparqlFile;
+    }
+
+    public String getSparqlString() {
+        return this.sparqlString;
+    }
+
+    public NamingStrategy getNamingStrategy() {
+        return this.namingStrategy;
+    }
+
+    public String getRewriter() {
+        return this.rewriter;
+    }
+
+    public String getErrorMessage() {
+        return this.errorMessage;
+    }
 }

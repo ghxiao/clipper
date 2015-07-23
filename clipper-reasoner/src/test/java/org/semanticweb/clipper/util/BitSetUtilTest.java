@@ -1,15 +1,15 @@
 package org.semanticweb.clipper.util;
 
-import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.semanticweb.clipper.util.BitSetUtil;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class BitSetUtilTest {
 	BitSet s1;

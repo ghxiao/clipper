@@ -1,10 +1,9 @@
 package org.semanticweb.clipper;
 
-import java.util.Collection;
-import java.util.List;
-
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.owlapi.model.OWLOntology;
+
+import java.util.List;
 
 public interface QueryAnsweringSystem {
 

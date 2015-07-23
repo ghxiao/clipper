@@ -1,26 +1,25 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import static org.junit.Assert.assertTrue;
-
 import com.google.common.collect.Lists;
 import gnu.trove.set.hash.TIntHashSet;
+import org.junit.Before;
+import org.junit.Test;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
+import org.semanticweb.clipper.hornshiq.rule.Atom;
+import org.semanticweb.clipper.hornshiq.rule.CQ;
+import org.semanticweb.clipper.hornshiq.rule.Constant;
+import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
+import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
+import org.semanticweb.clipper.hornshiq.rule.NonDLPredicate;
+import org.semanticweb.clipper.hornshiq.rule.Term;
+import org.semanticweb.clipper.hornshiq.rule.Variable;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.rule.Atom;
-import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
-import org.semanticweb.clipper.hornshiq.rule.Constant;
-import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
-import org.semanticweb.clipper.hornshiq.rule.NonDLPredicate;
-import org.semanticweb.clipper.hornshiq.rule.Term;
-import org.semanticweb.clipper.hornshiq.rule.Variable;
+import static org.junit.Assert.assertTrue;
 
 /**
  * 

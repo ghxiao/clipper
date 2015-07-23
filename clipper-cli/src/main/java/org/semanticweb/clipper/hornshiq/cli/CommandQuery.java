@@ -1,10 +1,8 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
-import java.util.List;
-import java.util.Set;
-
-import lombok.Getter;
-
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameter;
+import com.beust.jcommander.Parameters;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperReport;
 import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
@@ -12,11 +10,9 @@ import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.owlapi.model.OWLOntology;
 
-import com.beust.jcommander.JCommander;
-import com.beust.jcommander.Parameter;
-import com.beust.jcommander.Parameters;
+import java.util.List;
+import java.util.Set;
 
-@Getter
 @Parameters(commandNames = { "query" }, separators = "=", commandDescription = "answering conjunctive query")
 class CommandQuery extends ReasoningCommandBase {
 
@@ -132,4 +128,20 @@ class CommandQuery extends ReasoningCommandBase {
 		System.out.println("Total running time of the whole system:                       " + runningTime
 				+ "  milliseconds");
 	}
+
+    public String getDlvPath() {
+        return this.dlvPath;
+    }
+
+    public String getOutputFormat() {
+        return this.outputFormat;
+    }
+
+    public String getClingoPath() {
+        return this.clingoPath;
+    }
+
+    public String getDatalog() {
+        return this.datalog;
+    }
 }

@@ -1,13 +1,10 @@
 package org.semanticweb.clipper.hornshiq.ontology;
 
-import static org.junit.Assert.*;
-
 import gnu.trove.set.hash.TIntHashSet;
-
-import java.util.BitSet;
-
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperAndSubAtomAxiom;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class AndSubAtomAxiomTest {
 	@Test

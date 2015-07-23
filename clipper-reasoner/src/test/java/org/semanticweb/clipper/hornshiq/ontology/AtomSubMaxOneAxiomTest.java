@@ -1,11 +1,8 @@
 package org.semanticweb.clipper.hornshiq.ontology;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.BitSet;
-
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMaxOneAxiom;
+
+import static org.junit.Assert.assertEquals;
 
 public class AtomSubMaxOneAxiomTest {
 	@Test

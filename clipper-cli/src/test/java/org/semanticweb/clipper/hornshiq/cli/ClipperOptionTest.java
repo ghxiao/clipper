@@ -1,16 +1,14 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.MissingCommandException;
+import com.beust.jcommander.ParameterException;
+import org.junit.Test;
 
 import java.util.Arrays;
 
-import org.junit.Test;
-
-import com.beust.jcommander.JCommander;
-
-import com.beust.jcommander.MissingCommandException;
-import com.beust.jcommander.ParameterException;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 public class ClipperOptionTest {

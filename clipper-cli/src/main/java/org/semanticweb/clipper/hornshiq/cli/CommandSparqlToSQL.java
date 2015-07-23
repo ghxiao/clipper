@@ -1,17 +1,13 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
-import java.util.Set;
-
-import lombok.Getter;
-
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameters;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.util.Ucq2SqlConverter;
 import org.semanticweb.owlapi.model.OWLOntology;
 
-import com.beust.jcommander.JCommander;
-import com.beust.jcommander.Parameters;
+import java.util.Set;
 
-@Getter
 @Parameters(commandNames = { "sparql2sql" },
 separators = "=", commandDescription = "SPARQL to SQL ")
 public class CommandSparqlToSQL  extends ReasoningCommandBase{

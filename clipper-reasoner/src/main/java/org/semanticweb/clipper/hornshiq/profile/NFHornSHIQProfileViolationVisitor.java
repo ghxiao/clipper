@@ -1,6 +1,14 @@
 package org.semanticweb.clipper.hornshiq.profile;
 
 import org.semanticweb.owlapi.profiles.UseOfAnonymousIndividual;
+import org.semanticweb.owlapi.profiles.UseOfDataOneOfWithMultipleLiterals;
+import org.semanticweb.owlapi.profiles.UseOfIllegalAxiom;
+import org.semanticweb.owlapi.profiles.UseOfIllegalDataRange;
+import org.semanticweb.owlapi.profiles.UseOfNonAtomicClassExpression;
+import org.semanticweb.owlapi.profiles.UseOfNonSimplePropertyInCardinalityRestriction;
+import org.semanticweb.owlapi.profiles.UseOfNonSubClassExpression;
+import org.semanticweb.owlapi.profiles.UseOfNonSuperClassExpression;
+
 /*
  * Copyright (C) 2009, University of Manchester
  *
@@ -23,7 +31,6 @@ import org.semanticweb.owlapi.profiles.UseOfAnonymousIndividual;
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
-import org.semanticweb.owlapi.profiles.*;
 /**
  * Author: Matthew Horridge<br> Kien Modified
  * The University of Manchester<br>

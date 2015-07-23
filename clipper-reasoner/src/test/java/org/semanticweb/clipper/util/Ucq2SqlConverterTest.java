@@ -1,14 +1,7 @@
 package org.semanticweb.clipper.util;
 
-import static org.junit.Assert.*;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringReader;
-import java.net.URISyntaxException;
-import java.util.List;
-
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableSet;
 import org.junit.Test;
 import org.semanticweb.clipper.cqparser.CQParser;
 import org.semanticweb.clipper.cqparser.CQParserTest;
@@ -19,8 +12,10 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableSet;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.List;
 
 public class Ucq2SqlConverterTest {
 

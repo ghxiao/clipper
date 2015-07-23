@@ -1,8 +1,5 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
@@ -13,7 +10,9 @@ import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class RequiemTestSuiteUniversity {

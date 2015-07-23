@@ -1,11 +1,10 @@
 package org.semanticweb.clipper.util;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.coode.owl.krssparser.NameResolverStrategy;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AnswerParser {
 	private List<String> answers;

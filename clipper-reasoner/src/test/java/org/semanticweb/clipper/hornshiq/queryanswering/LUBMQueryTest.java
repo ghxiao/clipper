@@ -1,12 +1,5 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
-
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
-
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
@@ -21,7 +14,12 @@ import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
+import java.io.File;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * TO run the test, put DLV into ~/bin/dlv

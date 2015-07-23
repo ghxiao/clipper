@@ -1,9 +1,9 @@
 package org.semanticweb.clipper;
 
-import java.util.Collection;
-
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.owlapi.model.OWLOntology;
+
+import java.util.Collection;
 
 public interface QueryRewrtingSystem {
 

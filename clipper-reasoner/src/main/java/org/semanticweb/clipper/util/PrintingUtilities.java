@@ -1,10 +1,5 @@
 package org.semanticweb.clipper.util;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMaxOneAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
@@ -13,13 +8,13 @@ import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
 import org.semanticweb.clipper.hornshiq.queryanswering.HornImplication;
 import org.semanticweb.clipper.hornshiq.queryanswering.ImplicationRelation;
 import org.semanticweb.clipper.hornshiq.queryanswering.ReachBottom;
-import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLClassAxiom;
 import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
-import org.semanticweb.owlapi.model.OWLSubObjectPropertyOfAxiom;
-import org.semanticweb.owlapi.model.OWLSubPropertyAxiom;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 
 public class PrintingUtilities {

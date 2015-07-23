@@ -1,19 +1,12 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
-import java.util.*;
-
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMaxOneAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperConceptAssertionAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperPropertyAssertionAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
@@ -26,6 +19,15 @@ import org.semanticweb.clipper.util.SymbolEncoder;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLPropertyExpression;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /*
  * This class is used to create datalog program from the representation of KB

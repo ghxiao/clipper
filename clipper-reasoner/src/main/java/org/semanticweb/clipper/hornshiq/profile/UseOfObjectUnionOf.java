@@ -1,10 +1,9 @@
 package org.semanticweb.clipper.hornshiq.profile;
 
 import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLObjectOneOf;
 import org.semanticweb.owlapi.model.OWLObjectUnionOf;
 import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.profiles.*;
+import org.semanticweb.owlapi.profiles.UseOfIllegalClassExpression;
 /**
  * Author: Matthew Horridge<br>
  * The University of Manchester<br>

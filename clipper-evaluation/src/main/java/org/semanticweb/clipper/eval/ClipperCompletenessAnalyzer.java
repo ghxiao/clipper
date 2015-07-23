@@ -1,12 +1,11 @@
 package org.semanticweb.clipper.eval;
 
+import org.oxford.comlab.compass.CompletenessAnalyser;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.TreeSet;
-
-import org.oxford.comlab.compass.CompletenessAnalyser;
-import org.oxford.comlab.compass.SystemInterface;
-import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 
 public class ClipperCompletenessAnalyzer {
 	public static void main(String[] args) throws Exception {

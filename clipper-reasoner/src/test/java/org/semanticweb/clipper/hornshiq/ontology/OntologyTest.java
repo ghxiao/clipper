@@ -1,9 +1,8 @@
 package org.semanticweb.clipper.hornshiq.ontology;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Test;
+
+import java.util.List;
 
 public class OntologyTest {
 

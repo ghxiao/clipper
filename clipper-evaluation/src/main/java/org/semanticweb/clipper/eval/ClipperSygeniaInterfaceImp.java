@@ -1,10 +1,7 @@
 package org.semanticweb.clipper.eval;
 
-import java.io.File;
-import java.util.List;
-
-import lombok.Setter;
-
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableSet;
 import org.oxford.comlab.compass.SystemInterface;
 import org.semanticweb.clipper.cqparser.CQParser;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
@@ -15,17 +12,15 @@ import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableSet;
+import java.io.File;
+import java.util.List;
 
 public class ClipperSygeniaInterfaceImp implements SystemInterface {
 
 	private QAHornSHIQ qaHornSHIQ;
 
-	@Setter
 	private String dataSetRoot;
 
-	@Setter
 	private String dlvPath;
 
 	private OWLOntology tbox;
@@ -114,7 +109,15 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 		// manager.removeOntology(abox);	
 	}
 
-	// public static void main(String[] args) {
+    public void setDataSetRoot(String dataSetRoot) {
+        this.dataSetRoot = dataSetRoot;
+    }
+
+    public void setDlvPath(String dlvPath) {
+        this.dlvPath = dlvPath;
+    }
+
+    // public static void main(String[] args) {
 	// ClipperApp
 	// .main("-v=1 -rewriter=new query src/main/resources/ontologies/LUBM/univ-bench_TB-C_s/Query_01/Q(X0X44)-GraduateStudent(X0)takesCourse(X0X44)/Pattern_a_0;a_1;_D_.owl src/test/resources/university-q1.sparql"
 	// .split("\\ "));

@@ -1,9 +1,9 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
+import org.junit.Test;
+
 import java.util.Map.Entry;
 import java.util.Properties;
-
-import org.junit.Test;
 
 public class PropertyTest {
 	@Test

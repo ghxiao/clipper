@@ -1,5 +1,16 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameters;
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLObjectProperty;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.util.ShortFormProvider;
+import org.semanticweb.owlapi.util.SimpleShortFormProvider;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -10,21 +21,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Set;
 
-import lombok.Getter;
-
-import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLObjectProperty;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.util.ShortFormProvider;
-import org.semanticweb.owlapi.util.SimpleShortFormProvider;
-
-import com.beust.jcommander.JCommander;
-import com.beust.jcommander.Parameters;
-
-@Getter
 @Parameters(commandNames = { "init" }, separators = "=", commandDescription = "Load ABox facts to Database")
 public class CommandInitDB extends DBCommandBase {
 

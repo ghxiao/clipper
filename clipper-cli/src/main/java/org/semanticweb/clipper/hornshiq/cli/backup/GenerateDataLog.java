@@ -1,7 +1,5 @@
 package org.semanticweb.clipper.hornshiq.cli.backup;
 
-import java.io.IOException;
-
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
@@ -14,6 +12,8 @@ import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+
+import java.io.IOException;
 
 
 public class GenerateDataLog {

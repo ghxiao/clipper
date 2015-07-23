@@ -3,6 +3,7 @@ package org.semanticweb.clipper.hornshiq.queryanswering;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.map.hash.TIntObjectHashMap;
 import gnu.trove.set.hash.TIntHashSet;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;

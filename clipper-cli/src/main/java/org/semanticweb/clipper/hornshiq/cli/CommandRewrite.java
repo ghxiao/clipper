@@ -1,19 +1,15 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
-import java.util.Set;
-
-import lombok.Getter;
-
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameter;
+import com.beust.jcommander.Parameters;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.owlapi.model.OWLOntology;
 
-import com.beust.jcommander.JCommander;
-import com.beust.jcommander.Parameter;
-import com.beust.jcommander.Parameters;
+import java.util.Set;
 
-@Getter
 @Parameters(commandNames = { "rewrite" }, separators = "=", commandDescription = "rewrite the query w.r.t. the ontology, and generate a datalog program")
 class CommandRewrite extends ReasoningCommandBase {
 
@@ -102,4 +98,27 @@ class CommandRewrite extends ReasoningCommandBase {
 		}
 	}
 
+    public boolean isRewritingTBoxOnly() {
+        return this.rewritingTBoxOnly;
+    }
+
+    public boolean isRewritingABoxOnly() {
+        return this.rewritingABoxOnly;
+    }
+
+    public boolean isRewritingOntologyOnly() {
+        return this.rewritingOntologyOnly;
+    }
+
+    public boolean isRewritingTBoxAndQuery() {
+        return this.rewritingTBoxAndQuery;
+    }
+
+    public boolean isRewritingOntologyAndQuery() {
+        return this.rewritingOntologyAndQuery;
+    }
+
+    public String getDatalog() {
+        return this.datalog;
+    }
 }

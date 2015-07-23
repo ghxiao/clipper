@@ -1,12 +1,7 @@
 package org.semanticweb.clipper.util;
 
-import java.io.FileNotFoundException;
-import java.util.HashSet;
-import java.util.Set;
-
 import org.junit.Before;
 import org.junit.Test;
-import org.semanticweb.clipper.util.Ontology2TBoxABox;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAxiom;
@@ -19,6 +14,10 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+
+import java.io.FileNotFoundException;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Ontology2TBoxABoxTest {
 

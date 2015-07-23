@@ -1,10 +1,5 @@
 package org.semanticweb.clipper.hornshiq.profile;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Map.Entry;
-
-import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.profiles.OWL2DLProfile;
 import org.semanticweb.owlapi.profiles.OWLProfile;
@@ -13,7 +8,8 @@ import org.semanticweb.owlapi.profiles.OWLProfileViolation;
 import org.semanticweb.owlapi.util.OWLObjectPropertyManager;
 import org.semanticweb.owlapi.util.OWLOntologyWalker;
 
-import com.google.common.collect.ImmutableSet;
+import java.util.HashSet;
+import java.util.Set;
 
 public class HornSHIQProfile implements OWLProfile {
 

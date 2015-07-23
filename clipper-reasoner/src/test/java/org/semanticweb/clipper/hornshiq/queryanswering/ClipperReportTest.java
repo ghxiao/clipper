@@ -1,7 +1,5 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class ClipperReportTest {

@@ -1,16 +1,13 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameter;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import lombok.Getter;
-
-import com.beust.jcommander.JCommander;
-import com.beust.jcommander.Parameter;
-
-@Getter
 public abstract class DBCommandBase extends ReasoningCommandBase {
 
 	public DBCommandBase(JCommander jc) {
@@ -40,4 +37,15 @@ public abstract class DBCommandBase extends ReasoningCommandBase {
 	@Parameter(names = "-password", description = "Password")
 	private String password = "";
 
+    public String getJdbcUrl() {
+        return this.jdbcUrl;
+    }
+
+    public String getUser() {
+        return this.user;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
 }

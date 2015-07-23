@@ -2,18 +2,19 @@ package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import com.google.common.collect.Lists;
 import gnu.trove.set.hash.TIntHashSet;
-
-import java.util.*;
-
-import lombok.Getter;
-
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
 
-@Getter
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
 public class HSHIQQueryRewriter implements QueryRewriter {
 
 	private IndexedEnfContainer enfContainer;
@@ -143,4 +144,20 @@ public class HSHIQQueryRewriter implements QueryRewriter {
 		// System.out.println("Strimed query: " + newQuery);
 		return newQuery;
 	}
+
+    public IndexedEnfContainer getEnfContainer() {
+        return this.enfContainer;
+    }
+
+    public List<ClipperAtomSubAllAxiom> getAllValuesFromAxioms() {
+        return this.allValuesFromAxioms;
+    }
+
+    public List<ClipperInversePropertyOfAxiom> getInversePropertyOfAxioms() {
+        return this.inversePropertyOfAxioms;
+    }
+
+    public Set<CQ> getUcq() {
+        return this.ucq;
+    }
 }

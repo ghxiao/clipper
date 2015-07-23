@@ -1,19 +1,7 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
-import java.io.File;
-import java.io.PrintStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-import lombok.Getter;
-
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameters;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.OWLClass;
@@ -28,8 +16,16 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.util.ShortFormProvider;
 import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 
-import com.beust.jcommander.JCommander;
-import com.beust.jcommander.Parameters;
+import java.io.File;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 @Parameters(commandNames = { "load" }, separators = "=", commandDescription = "Load ABox facts to Database")
 public class CommandLoad extends DBCommandBase {

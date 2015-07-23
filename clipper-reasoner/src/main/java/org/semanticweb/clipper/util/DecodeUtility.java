@@ -1,15 +1,9 @@
 package org.semanticweb.clipper.util;
 
-import gnu.trove.iterator.TIntIterator;
-import gnu.trove.set.hash.TIntHashSet;
-
 import org.semanticweb.clipper.hornshiq.queryanswering.CQFormatter;
-import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.owlapi.model.IRI;
-import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 
 public class DecodeUtility {
 	

@@ -1,8 +1,15 @@
 package org.semanticweb.clipper.util;
 
-import java.util.*;
-
 import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Map;
+import java.util.NavigableMap;
+import java.util.Set;
+import java.util.TreeMap;
 
 import static org.junit.Assert.assertEquals;
 

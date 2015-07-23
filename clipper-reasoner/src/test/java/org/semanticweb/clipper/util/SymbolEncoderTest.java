@@ -1,7 +1,5 @@
 package org.semanticweb.clipper.util;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -15,6 +13,8 @@ import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLPropertyAssertionObject;
 import org.semanticweb.owlapi.model.OWLPropertyExpression;
+
+import static org.junit.Assert.assertEquals;
 
 public class SymbolEncoderTest {
 

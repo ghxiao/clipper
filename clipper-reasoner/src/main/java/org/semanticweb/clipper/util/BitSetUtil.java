@@ -1,9 +1,7 @@
 package org.semanticweb.clipper.util;
 
-import java.util.Arrays;
+import java.lang.reflect.Field;
 import java.util.BitSet;
-
-import java.lang.reflect.*;
 
 public class BitSetUtil {
 	static Field wordsField = null;

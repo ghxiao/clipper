@@ -1,20 +1,5 @@
 package org.semanticweb.clipper.util;
 
-import java.io.File;
-import java.io.FileReader;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import org.semanticweb.clipper.hornshiq.rule.Atom;
-import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.rule.Predicate;
-import org.semanticweb.clipper.hornshiq.rule.Term;
-import org.semanticweb.clipper.hornshiq.rule.Variable;
-import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
-import org.semanticweb.clipper.sparql.SparqlToCQConverter;
-
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Lists;
@@ -22,9 +7,16 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.Multiset.Entry;
-import com.google.common.io.CharStreams;
-import com.hp.hpl.jena.query.Query;
-import com.hp.hpl.jena.query.QueryFactory;
+import org.semanticweb.clipper.hornshiq.rule.Atom;
+import org.semanticweb.clipper.hornshiq.rule.CQ;
+import org.semanticweb.clipper.hornshiq.rule.Predicate;
+import org.semanticweb.clipper.hornshiq.rule.Term;
+import org.semanticweb.clipper.hornshiq.rule.Variable;
+
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 public class Ucq2SqlConverter {
 

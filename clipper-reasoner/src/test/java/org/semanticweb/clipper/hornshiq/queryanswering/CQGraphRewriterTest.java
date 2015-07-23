@@ -2,10 +2,6 @@ package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph;
 import gnu.trove.set.hash.TIntHashSet;
-
-import java.io.IOException;
-import java.util.List;
-
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAndSubAtomAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubSomeAxiom;
@@ -15,11 +11,10 @@ import org.semanticweb.clipper.hornshiq.ontology.ClipperTransitivityAxiom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 
-import com.google.common.collect.HashBasedTable;
-import com.google.common.collect.Table;
+import java.io.IOException;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class CQGraphRewriterTest {

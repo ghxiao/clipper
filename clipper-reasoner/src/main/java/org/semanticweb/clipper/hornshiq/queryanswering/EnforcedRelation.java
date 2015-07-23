@@ -1,14 +1,13 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import gnu.trove.set.hash.TIntHashSet;
-
-import java.util.Collection;
-import java.util.List;
-
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
+
+import java.util.Collection;
+import java.util.List;
 
 
 /**

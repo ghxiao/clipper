@@ -1,8 +1,5 @@
 package org.semanticweb.clipper.hornshiq.rule;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLProperty;
@@ -44,12 +41,8 @@ public class DLPredicate implements Predicate {
 		return true;
 	}
 
-	@Getter
-	@Setter
 	int encoding;
 
-	@Getter
-	@Setter
 	int arity;
 
 	public DLPredicate(int encoding, int arity) {
@@ -104,4 +97,20 @@ public class DLPredicate implements Predicate {
 	public String getName() {
 		return sfp.getShortForm(owlEntity);
 	}
+
+    public int getEncoding() {
+        return this.encoding;
+    }
+
+    public int getArity() {
+        return this.arity;
+    }
+
+    public void setEncoding(int encoding) {
+        this.encoding = encoding;
+    }
+
+    public void setArity(int arity) {
+        this.arity = arity;
+    }
 }

@@ -1,8 +1,7 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
-import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
-
 import com.beust.jcommander.JCommander;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 
 public class ClipperApp {
 

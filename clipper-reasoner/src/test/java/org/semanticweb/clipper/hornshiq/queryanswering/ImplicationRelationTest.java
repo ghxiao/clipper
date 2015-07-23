@@ -1,9 +1,8 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import java.util.BitSet;
-
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.queryanswering.ImplicationRelation;
+
+import java.util.BitSet;
 
 
 public class ImplicationRelationTest {

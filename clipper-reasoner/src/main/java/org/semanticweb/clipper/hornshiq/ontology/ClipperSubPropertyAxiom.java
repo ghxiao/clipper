@@ -1,17 +1,18 @@
 package org.semanticweb.clipper.hornshiq.ontology;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
 /**
  * SubPropertyOf(role1, role2)
  */
-@Data
-@AllArgsConstructor
 public class ClipperSubPropertyAxiom implements ClipperTBoxAxiom {
 	int role1, role2;
 
-	@Override
+    @java.beans.ConstructorProperties({"role1", "role2"})
+    public ClipperSubPropertyAxiom(int role1, int role2) {
+        this.role1 = role1;
+        this.role2 = role2;
+    }
+
+    @Override
 	public String toString() {
 		String r1 = String.valueOf((role1) / 2 * 2);
 
@@ -55,4 +56,19 @@ public class ClipperSubPropertyAxiom implements ClipperTBoxAxiom {
 		return true;
 	}
 
+    public int getRole1() {
+        return this.role1;
+    }
+
+    public int getRole2() {
+        return this.role2;
+    }
+
+    public void setRole1(int role1) {
+        this.role1 = role1;
+    }
+
+    public void setRole2(int role2) {
+        this.role2 = role2;
+    }
 }

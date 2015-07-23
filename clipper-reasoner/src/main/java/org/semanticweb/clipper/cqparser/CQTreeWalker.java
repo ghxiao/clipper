@@ -1,12 +1,6 @@
 package org.semanticweb.clipper.cqparser;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
 import org.antlr.runtime.tree.CommonTree;
-
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.Constant;
@@ -18,7 +12,10 @@ import org.semanticweb.clipper.hornshiq.rule.Variable;
 import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.util.BidirectionalShortFormProvider;
 
-import com.google.common.collect.Sets;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 public class CQTreeWalker {
 	private BidirectionalShortFormProvider bsfp;

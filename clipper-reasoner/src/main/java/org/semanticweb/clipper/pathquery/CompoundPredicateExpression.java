@@ -1,22 +1,22 @@
 package org.semanticweb.clipper.pathquery;
 
-import java.util.List;
-
-import lombok.Getter;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-
 import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
 import org.semanticweb.clipper.hornshiq.rule.Predicate;
 
-@RequiredArgsConstructor
+import java.util.List;
+
 public abstract class CompoundPredicateExpression implements Predicate {
 
-	@Getter
 	@NonNull
 	protected List<DLPredicate> ops;
 
-	@Override
+    @java.beans.ConstructorProperties({"ops"})
+    public CompoundPredicateExpression(List<DLPredicate> ops) {
+        this.ops = ops;
+    }
+
+    @Override
 	public boolean isDLPredicate() {
 		return false;
 	}
@@ -44,4 +44,8 @@ public abstract class CompoundPredicateExpression implements Predicate {
 	}
 
 
+    @NonNull
+    public List<DLPredicate> getOps() {
+        return this.ops;
+    }
 }

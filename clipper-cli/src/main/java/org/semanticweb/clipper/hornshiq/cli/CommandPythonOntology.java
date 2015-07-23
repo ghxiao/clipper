@@ -1,9 +1,8 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameters;
 import gnu.trove.procedure.TIntProcedure;
-
-import java.util.Set;
-
 import org.semanticweb.clipper.hornshiq.queryanswering.CQFormatter;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
@@ -13,12 +12,8 @@ import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.queryanswering.TBoxReasoner;
 import org.semanticweb.owlapi.model.OWLOntology;
 
-import lombok.Getter;
+import java.util.Set;
 
-import com.beust.jcommander.JCommander;
-import com.beust.jcommander.Parameters;
-
-@Getter
 @Parameters(commandNames = { "pex" }, separators = "=", commandDescription = "output the Existence Axioms in the sturated ontology")
 public class CommandPythonOntology extends ReasoningCommandBase {
 
@@ -107,4 +102,8 @@ public class CommandPythonOntology extends ReasoningCommandBase {
 
 		return sb.toString();
 	}
+
+    public CQFormatter getFormatter() {
+        return this.formatter;
+    }
 }

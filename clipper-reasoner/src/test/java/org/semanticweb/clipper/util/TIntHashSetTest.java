@@ -1,9 +1,7 @@
 package org.semanticweb.clipper.util;
 
-import gnu.trove.iterator.TIntIntIterator;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
-
 import org.junit.Test;
 
 public class TIntHashSetTest {

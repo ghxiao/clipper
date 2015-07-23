@@ -1,19 +1,17 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import static org.junit.Assert.*;
+import com.google.common.base.Joiner;
+import org.junit.Test;
+import org.semanticweb.clipper.hornshiq.rule.CQ;
+import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
+import org.semanticweb.clipper.hornshiq.rule.Variable;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-import org.junit.Test;
-
-import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
-import org.semanticweb.clipper.hornshiq.rule.Variable;
-
-import com.google.common.base.Joiner;
+import static org.junit.Assert.assertEquals;
 
 public class SelfLoopComponentClusterTest {
 

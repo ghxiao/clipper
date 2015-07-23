@@ -1,8 +1,5 @@
 package org.semanticweb.clipper.util;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.Constant;
@@ -11,6 +8,9 @@ import org.semanticweb.clipper.hornshiq.rule.NonDLPredicate;
 import org.semanticweb.clipper.hornshiq.rule.Predicate;
 import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class StringParserTest {

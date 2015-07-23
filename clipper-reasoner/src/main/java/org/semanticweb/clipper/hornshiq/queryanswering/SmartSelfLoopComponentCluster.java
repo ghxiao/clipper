@@ -1,8 +1,12 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import static com.google.common.base.Preconditions.checkNotNull;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
+import org.apache.commons.collections15.Buffer;
+import org.apache.commons.collections15.buffer.UnboundedFifoBuffer;
+import org.semanticweb.clipper.hornshiq.rule.Term;
+import org.semanticweb.clipper.hornshiq.rule.Variable;
+import org.semanticweb.clipper.util.BitSetUtilOpt;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,12 +14,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.collections15.Buffer;
-import org.apache.commons.collections15.Transformer;
-import org.apache.commons.collections15.buffer.UnboundedFifoBuffer;
-import org.semanticweb.clipper.hornshiq.rule.Term;
-import org.semanticweb.clipper.hornshiq.rule.Variable;
-import org.semanticweb.clipper.util.BitSetUtilOpt;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * This class pre computes all the possible sets of variables in the CQGraph, such that each set

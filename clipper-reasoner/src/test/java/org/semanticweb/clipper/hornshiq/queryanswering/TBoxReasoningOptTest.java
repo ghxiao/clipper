@@ -1,12 +1,6 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import static org.junit.Assert.assertTrue;
-
 import gnu.trove.set.hash.TIntHashSet;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntologyConverter;
@@ -20,6 +14,9 @@ import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 
 
 public class TBoxReasoningOptTest {

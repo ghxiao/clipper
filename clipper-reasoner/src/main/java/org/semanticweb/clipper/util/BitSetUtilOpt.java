@@ -1,10 +1,9 @@
 package org.semanticweb.clipper.util;
 
 import gnu.trove.set.hash.TIntHashSet;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 
 import java.util.BitSet;
-
-import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 
 
 public class BitSetUtilOpt {

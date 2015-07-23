@@ -1,10 +1,9 @@
 package org.semanticweb.clipper.pathquery;
 
-import java.util.List;
-
+import com.google.common.base.Joiner;
 import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
 
-import com.google.common.base.Joiner;
+import java.util.List;
 
 public class OrPredicateExpression extends CompoundPredicateExpression {
 

@@ -1,10 +1,9 @@
 package org.semanticweb.clipper.dllog;
 
-import java.util.List;
-
+import com.google.common.base.Joiner;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 
-import com.google.common.base.Joiner;
+import java.util.List;
 
 public class DLLogRule {
 

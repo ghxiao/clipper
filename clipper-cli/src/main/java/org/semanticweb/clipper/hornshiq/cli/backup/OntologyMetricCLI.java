@@ -1,9 +1,5 @@
 package org.semanticweb.clipper.hornshiq.cli.backup;
 
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
-
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQProfile;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLAxiom;
@@ -17,6 +13,10 @@ import org.semanticweb.owlapi.profiles.OWL2RLProfile;
 import org.semanticweb.owlapi.profiles.OWLProfile;
 import org.semanticweb.owlapi.profiles.OWLProfileReport;
 import org.semanticweb.owlapi.profiles.OWLProfileViolation;
+
+import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class OntologyMetricCLI {

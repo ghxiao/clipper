@@ -1,16 +1,13 @@
 package org.semanticweb.clipper.hornshiq.profile;
 
-import java.io.File;
-
-import org.semanticweb.clipper.hornshiq.profile.HornALCHIQNormalizer;
-import org.semanticweb.clipper.hornshiq.profile.HornALCHIQTransNormalizer;
-import org.semanticweb.clipper.hornshiq.profile.HornSHIQNormalizer;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+
+import java.io.File;
 
 public class HornALCHIQNormalizerTest {
 

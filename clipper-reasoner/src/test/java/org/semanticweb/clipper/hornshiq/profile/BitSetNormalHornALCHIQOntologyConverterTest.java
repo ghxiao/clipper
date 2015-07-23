@@ -1,26 +1,20 @@
 package org.semanticweb.clipper.hornshiq.profile;
 
-import static org.junit.Assert.assertTrue;
-
-import java.io.File;
-import java.io.InputStream;
-
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperDisjointObjectPropertiesAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntologyConverter;
-import org.semanticweb.clipper.hornshiq.profile.HornALCHIQNormalizer;
-import org.semanticweb.clipper.hornshiq.profile.HornALCHIQTransNormalizer;
-import org.semanticweb.clipper.hornshiq.profile.HornSHIQNormalizer;
-import org.semanticweb.clipper.hornshiq.profile.HornSHIQProfile;
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.profiles.OWLProfileReport;
+
+import java.io.File;
+import java.io.InputStream;
+
+import static org.junit.Assert.assertTrue;
 
 
 public class BitSetNormalHornALCHIQOntologyConverterTest {

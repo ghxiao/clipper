@@ -1,9 +1,8 @@
 package org.semanticweb.clipper.hornshiq.ontology;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperConceptAssertionAxiom;
+
+import static org.junit.Assert.assertEquals;
 
 public class ObjectPropertyAssertionAxiomTest {
 	@Test

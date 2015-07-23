@@ -1,21 +1,11 @@
 package org.semanticweb.clipper.hornshiq.rule;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-
-@EqualsAndHashCode(exclude = "name")
 public class NonDLPredicate implements Predicate {
 
-	@Getter
-	@Setter
 	int encoding;
 
-	@Getter
-	@Setter
 	int arity = -1;
 
-	@Getter
 	String name;
 
 	public NonDLPredicate(String name) {
@@ -48,4 +38,45 @@ public class NonDLPredicate implements Predicate {
 		return false;
 	}
 
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (!(o instanceof NonDLPredicate)) return false;
+        final NonDLPredicate other = (NonDLPredicate) o;
+        if (!other.canEqual((Object) this)) return false;
+        if (this.encoding != other.encoding) return false;
+        if (this.arity != other.arity) return false;
+        return true;
+    }
+
+    public int hashCode() {
+        final int PRIME = 59;
+        int result = 1;
+        result = result * PRIME + this.encoding;
+        result = result * PRIME + this.arity;
+        return result;
+    }
+
+    protected boolean canEqual(Object other) {
+        return other instanceof NonDLPredicate;
+    }
+
+    public int getEncoding() {
+        return this.encoding;
+    }
+
+    public int getArity() {
+        return this.arity;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setEncoding(int encoding) {
+        this.encoding = encoding;
+    }
+
+    public void setArity(int arity) {
+        this.arity = arity;
+    }
 }

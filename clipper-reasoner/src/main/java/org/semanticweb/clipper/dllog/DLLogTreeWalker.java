@@ -1,10 +1,5 @@
 package org.semanticweb.clipper.dllog;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
 import org.antlr.runtime.tree.CommonTree;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.Constant;
@@ -15,6 +10,11 @@ import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
 import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.util.BidirectionalShortFormProvider;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 public class DLLogTreeWalker {
 

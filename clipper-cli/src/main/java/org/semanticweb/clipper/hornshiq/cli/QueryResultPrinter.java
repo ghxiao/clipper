@@ -1,15 +1,14 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.semanticweb.clipper.hornshiq.rule.Atom;
-import org.semanticweb.clipper.hornshiq.rule.Term;
-
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+import org.semanticweb.clipper.hornshiq.rule.Atom;
+import org.semanticweb.clipper.hornshiq.rule.Term;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class QueryResultPrinter {
 

@@ -1,8 +1,5 @@
 package org.semanticweb.clipper.hornshiq.rule;
 
-import lombok.Data;
-
-@Data
 public class Constant implements Term {
 
 	int value;
@@ -81,4 +78,19 @@ public class Constant implements Term {
 		return true;
 	}
 
+    public int getValue() {
+        return this.value;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
