@@ -29,7 +29,6 @@ import java.util.List;
  */
 public class LUBMQueryTest {
 
-
 	@Test
 	public void query1() throws RecognitionException, OWLOntologyCreationException {
 

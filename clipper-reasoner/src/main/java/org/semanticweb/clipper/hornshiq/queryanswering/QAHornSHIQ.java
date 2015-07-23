@@ -711,6 +711,26 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
 	}
 
+    /**
+     * @return Datalog program contains only Abox assertions
+     */
+    public OWLOntology exportSaturatedEnforceRelations(String iri) {
+
+        //this.headPredicate = cq.getHead().getPredicate().toString();
+        if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+            System.out.println("% Encoded Input query:" + cq);
+        }
+
+        preprocessOntologies();
+
+        TBoxReasoner tb = saturateTBox();
+
+        EnforcedRelationExporter exporter = new EnforcedRelationExporter();
+        return exporter.export(tb.getEnfContainer(),iri);
+
+    }
+
+
 	public void clearOntologies() {
 		this.ontologies = Lists.newArrayList();
 	}
