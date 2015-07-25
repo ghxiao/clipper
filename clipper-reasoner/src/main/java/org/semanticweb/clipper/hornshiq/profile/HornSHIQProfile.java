@@ -55,7 +55,7 @@ public class HornSHIQProfile implements OWLProfile {
 		OWLProfileReport report = profile.checkOntology(ontology);
 		
 		
-		Set<OWLProfileViolation> violations = new HashSet<OWLProfileViolation>();
+		Set<OWLProfileViolation> violations = new HashSet<>();
 		violations.addAll(report.getViolations());
 
 		OWLOntologyWalker walker = new OWLOntologyWalker(

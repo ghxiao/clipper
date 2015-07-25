@@ -1,6 +1,7 @@
 package org.semanticweb.clipper.hornshiq.profile;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
@@ -717,7 +718,9 @@ public class HornSHIQNormalizerTest {
 
 		OWLProfileReport report = profile.checkOntology(ontology);
 
-		assertFalse(report.isInProfile());
+        boolean inProfile = report.isInProfile();
+
+        assertFalse(inProfile);
 
 		System.out.println(report);
 
@@ -997,6 +1000,7 @@ public class HornSHIQNormalizerTest {
 		// assertEquals(2, normalizedOnt.getLogicalAxiomCount());
 	}
 
+    @Ignore
 	@Test
 	public void testNormalizeT() throws OWLOntologyCreationException, OWLOntologyStorageException {
 		File file = new File("TestData/t.owl");
@@ -1024,6 +1028,7 @@ public class HornSHIQNormalizerTest {
 		man.saveOntology(normalizedOnt, IRI.create(new File("TestData/t.owl")));
 	}
 
+    @Ignore
 	@Test
 	public void testNormalizeLUBM1() throws OWLOntologyCreationException, OWLOntologyStorageException {
 		File file = new File("TestData/horn-univ-bench.owl");
@@ -1052,6 +1057,7 @@ public class HornSHIQNormalizerTest {
 	}
 
 	// original
+    @Ignore
 	@Test
 	public void testNormalizeLUBM2() throws OWLOntologyCreationException, OWLOntologyStorageException {
 		File file = new File("TestData/univ-bench.owl");
@@ -1079,6 +1085,7 @@ public class HornSHIQNormalizerTest {
 	}
 
 	// original
+    @Ignore
 	@Test
 	public void testNormalizeWine() throws OWLOntologyCreationException, OWLOntologyStorageException {
 		File file = new File("test-suite/ontology-wine/terminology.owl");
@@ -1103,8 +1110,8 @@ public class HornSHIQNormalizerTest {
 			System.out.println(ax);
 		}
 	}
-	
-	// original
+
+    @Ignore
 	@Test
 	public void testSteel() throws OWLOntologyCreationException, OWLOntologyStorageException {
 		File file = new File("test-suite/ontology-steel/steel.owl");
@@ -1131,6 +1138,7 @@ public class HornSHIQNormalizerTest {
 //		}
 	}
 
+    @Ignore
 	@Test
 	public void testEqv() throws OWLOntologyCreationException, OWLOntologyStorageException {
 		File file = new File("TestData/testNorm.owl");

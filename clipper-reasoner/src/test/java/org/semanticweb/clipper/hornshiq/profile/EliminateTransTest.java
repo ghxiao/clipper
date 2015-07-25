@@ -1,5 +1,6 @@
 package org.semanticweb.clipper.hornshiq.profile;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
@@ -10,6 +11,7 @@ import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 
 import java.io.File;
 
+@Ignore
 public class EliminateTransTest {
 	@Test
 	public void test01() {

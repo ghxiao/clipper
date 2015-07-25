@@ -5,12 +5,13 @@ import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 
-
+@Ignore //test files are missing
 public class UOBMQueryTest {
 	@Test
 	public void query1() throws RecognitionException {
@@ -309,7 +310,7 @@ public class UOBMQueryTest {
 		System.out.println(queryString);
 		// qaHornSHIQ.setQueryString(queryString);
 		qaHornSHIQ.setQuery(cq);
-		qaHornSHIQ.setDlvPath("lib/dlv");
+		//qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.execQuery();
 //		// Set predictedAnswser = new HashSet<String>();

@@ -1,6 +1,7 @@
 package org.semanticweb.clipper.util;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
@@ -19,6 +20,8 @@ import java.io.FileNotFoundException;
 import java.util.HashSet;
 import java.util.Set;
 
+
+@Ignore
 public class Ontology2TBoxABoxTest {
 
 	private OWLOntologyManager manager;
