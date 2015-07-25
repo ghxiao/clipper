@@ -325,4 +325,5 @@ public class CQ {
 	protected boolean canEqual(Object other) {
 		return other instanceof CQ;
 	}
+
 }

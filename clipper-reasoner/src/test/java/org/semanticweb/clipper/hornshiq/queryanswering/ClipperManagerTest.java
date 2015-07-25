@@ -27,6 +27,8 @@ import static org.junit.Assert.assertEquals;
 
 public class ClipperManagerTest {
 
+    ClipperManager km = ClipperManager.getInstance();
+
 	private OWLOntologyManager manager;
 	private OWLDataFactory factory;
 	private OWLIndividual a;
@@ -55,6 +57,7 @@ public class ClipperManagerTest {
 
 	@Before
 	public void setUp() {
+        km.reset();
 
 		manager = OWLManager.createOWLOntologyManager();
 		factory = manager.getOWLDataFactory();
@@ -85,7 +88,7 @@ public class ClipperManagerTest {
 
 	@Test
 	public void test001() {
-		ClipperManager km = ClipperManager.getInstance();
+
 		SymbolEncoder<OWLClass> owlClassEncoder = km.getOwlClassEncoder();
 		SymbolEncoder<OWLPropertyExpression> owlDataPropertyEncoder = km.getOwlPropertyExpressionEncoder();
 		SymbolEncoder<OWLPropertyExpression> owlObjectPropertyEncoder = km
@@ -101,7 +104,6 @@ public class ClipperManagerTest {
 
 	@Test
 	public void test002() {
-		ClipperManager km = ClipperManager.getInstance();
 		SymbolEncoder<OWLClass> owlClassEncoder = km.getOwlClassEncoder();
 
 		SymbolEncoder<OWLPropertyExpression> owlObjectPropertyEncoder = km
@@ -130,7 +132,6 @@ public class ClipperManagerTest {
 
 	@Test
 	public void testThing() {
-		ClipperManager km = ClipperManager.getInstance();
 		SymbolEncoder<OWLClass> owlClassEncoder = km.getOwlClassEncoder();
 		SymbolEncoder<OWLPropertyExpression> owlObjectPropertyEncoder = km
 		.getOwlPropertyExpressionEncoder();

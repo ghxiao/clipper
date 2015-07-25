@@ -7,13 +7,13 @@ import org.semanticweb.clipper.cqparser.CQParser;
 import org.semanticweb.clipper.cqparser.CQParserTest;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
-import java.io.FileNotFoundException;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.List;
 
@@ -21,12 +21,12 @@ public class Ucq2SqlConverterTest {
 
 	@Test
 	public void test() throws OWLOntologyCreationException, URISyntaxException,
-			FileNotFoundException, IOException {
+            IOException {
 
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
-		OWLOntology ontology = manager.loadOntologyFromOntologyDocument(IRI
-				.create(CQParserTest.class.getResource("/LUBM-ex-20.owl")));
+        //InputStream stream = this.getClass().getResourceAsStream("/TestData/lubm/full-lubm.owl");
+        OWLOntology ontology = manager.loadOntologyFromOntologyDocument(new File("TestData/lubm/full-lubm.owl"));
 
 		// String s =
 		// "ans(?0,?1) :- worksFor(?1,?3), Faculty(?1), Course(?2), memberOf(?0,?3), Student(?0), takesCourse(?0,?2), Department(?3), teacherOf(?1,?2).";

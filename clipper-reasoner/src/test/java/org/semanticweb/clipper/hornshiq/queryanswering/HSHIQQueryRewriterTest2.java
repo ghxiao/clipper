@@ -196,9 +196,9 @@ public class HSHIQQueryRewriterTest2 {
 		for (CQ query : ucq)
 			System.out.println(query);
 		InternalCQParser parser = new InternalCQParser();
-		parser.setQueryString("q0(X0) :- c3(X1), c2(X0), r4(X0,X1).");
+		parser.setQueryString("q0(X0) :- r4(X0,X1), c2(X0), c3(X1).");
 		CQ cq1 = parser.getCq();
-		parser.setQueryString("q0(X1) :- c2(X1), c3(X1), c4(X1).");
+		parser.setQueryString("q0(X1) :- c2(X1), c4(X1), c3(X1).");
 		CQ cq2 = parser.getCq();
 
 		assertTrue(ucq.contains(cq1));
@@ -371,8 +371,8 @@ public class HSHIQQueryRewriterTest2 {
 		DLPredicate c4 = new DLPredicate(4, 1);
 		Atom c4_d1 = createConceptAssertion(c4, d1);
 		List<Atom> cq1body = Lists.newArrayList();
-		cq1body.add(body3);
 		cq1body.add(c2_d1);
+        cq1body.add(body3);
 		cq1body.add(c4_d1);
 		Atom cq1head = createHead(q, d1);
 		CQ cq1 = new CQ();
@@ -461,11 +461,11 @@ public class HSHIQQueryRewriterTest2 {
 		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString("q0() :- r8(d1,X2), c2(d1), c3(d1), c4(d1).");
 		CQ cq1 = parser.getCq();
-		parser.setQueryString("q0() :- r6(X1,d1), c3(d1), c3(X1), r8(X0,X2), c2(X0), r4(X0,X1).");
+		parser.setQueryString("q0() :- r8(X0,X2), r4(X0,X1), c2(X0), c3(X1), c3(d1), r6(X1,d1).");
 		CQ cq2 = parser.getCq();
 		parser.setQueryString("q0() :- c2(d1), c3(d1), c4(d1), c5(d1).");
 		CQ cq3 = parser.getCq();
-		parser.setQueryString("q0() :- r6(X1,d1), c2(X2), c3(X1), c3(d1), r4(X2,X1), c5(X2).");
+		parser.setQueryString("q0() :- r4(X2,X1), c2(X2), c3(X1), c3(d1), r6(X1,d1), c5(X2).");
 		CQ cq4 = parser.getCq();
 		assertTrue(ucq.contains(cq1));
 		assertTrue(ucq.contains(cq2));
@@ -476,7 +476,7 @@ public class HSHIQQueryRewriterTest2 {
 
 	@Test
 	public void test05() { // consider the case of inverseOf(r) exist in enfs
-		CQ cq = new CQ();
+		CQ cq;
 		InternalCQParser cqParser = new InternalCQParser();
 		cqParser.setQueryString("q0(X0) :- r4(X1,d1), c3(d1), c3(X1), r8(X0,X2), c2(X0), r3(X0,X1).");
 		cq = cqParser.getCq();
