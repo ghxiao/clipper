@@ -6,6 +6,7 @@ import gnu.trove.set.hash.TIntHashSet;
 import org.semanticweb.clipper.util.SymbolEncoder;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
@@ -19,6 +20,7 @@ import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import org.semanticweb.owlapi.model.OWLSubObjectPropertyOfAxiom;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -49,8 +51,40 @@ public class EnforcedRelationExporter {
 
     LinkedHashSet<OWLSubObjectPropertyOfAxiom> subObjectPropertyOfAxioms;
 
+
+    public Set<OWLAxiom> export(IndexedEnfContainer enfContainer) {
+        computeAxioms(enfContainer);
+
+        LinkedHashSet<OWLAxiom> axioms = new LinkedHashSet<>();
+
+        axioms.addAll(subClassOfAxioms);
+
+        axioms.addAll(subObjectPropertyOfAxioms);
+
+        return axioms;
+
+    }
+
     public OWLOntology export(IndexedEnfContainer enfContainer, String iri) {
 
+        computeAxioms(enfContainer);
+
+        OWLOntology ontology = null;
+
+        try {
+            ontology = OWL_ONTOLOGY_MANAGER.createOntology(IRI.create(iri));
+
+            OWL_ONTOLOGY_MANAGER.addAxioms(ontology,subClassOfAxioms);
+            OWL_ONTOLOGY_MANAGER.addAxioms(ontology, subObjectPropertyOfAxioms);
+
+        } catch (OWLOntologyCreationException e) {
+            e.printStackTrace();
+        }
+
+        return ontology;
+    }
+
+    private void computeAxioms(IndexedEnfContainer enfContainer) {
         subClassOfAxioms = new LinkedHashSet<>();
 
         subObjectPropertyOfAxioms = new LinkedHashSet<>();
@@ -68,20 +102,6 @@ public class EnforcedRelationExporter {
 
             subClassOfAxioms.add(owlSubClassOfAxiom);
         }
-
-        OWLOntology ontology = null;
-
-        try {
-            ontology = OWL_ONTOLOGY_MANAGER.createOntology(IRI.create(iri));
-
-            OWL_ONTOLOGY_MANAGER.addAxioms(ontology,subClassOfAxioms);
-            OWL_ONTOLOGY_MANAGER.addAxioms(ontology, subObjectPropertyOfAxioms);
-
-        } catch (OWLOntologyCreationException e) {
-            e.printStackTrace();
-        }
-
-        return ontology;
     }
 
     private OWLClassExpression getOWLClassExpression(TIntHashSet type1) {

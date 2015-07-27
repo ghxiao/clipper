@@ -19,15 +19,11 @@ public class EnforceRelationExporterTest {
 
         System.setProperty("entityExpansionLimit", "512000");
         QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-        //ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
-        //ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
-        qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
+
         qaHornSHIQ.setOntologyName(ontologyFile);
         OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
                 new File(ontologyFile));
         qaHornSHIQ.addOntology(ontology);
-        qaHornSHIQ.setQueryRewriter("new");
-        ClipperManager.getInstance().setVerboseLevel(1);
 
         OWLOntology owlOntology = qaHornSHIQ.exportSaturatedEnforceRelations("http://www.example.org/test/export");
 
@@ -36,7 +32,25 @@ public class EnforceRelationExporterTest {
         DLSyntaxObjectRenderer renderer = new DLSyntaxObjectRenderer();
 
         System.out.println(renderer.render(owlOntology));
+    }
 
+    @Test
+    public void testExport2() throws RecognitionException, OWLOntologyCreationException {
+
+        System.setProperty("entityExpansionLimit", "512000");
+        QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+
+        OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
+                this.getClass().getResourceAsStream("/UOBM/univ-bench-dl.owl"));
+        qaHornSHIQ.addOntology(ontology);
+
+        OWLOntology owlOntology = qaHornSHIQ.exportNormalizedAxiomsAndSaturatedEnforceRelations("http://www.example.org/test/export");
+
+        System.out.println(owlOntology);
+
+        DLSyntaxObjectRenderer renderer = new DLSyntaxObjectRenderer();
+
+        System.out.println(renderer.render(owlOntology));
     }
 
 }
