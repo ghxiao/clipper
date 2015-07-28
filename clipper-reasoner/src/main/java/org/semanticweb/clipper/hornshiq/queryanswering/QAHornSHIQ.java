@@ -25,8 +25,10 @@ import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 import org.semanticweb.clipper.util.AnswerParser;
 import org.semanticweb.clipper.util.QueriesRelatedRules;
 import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAxiom;
+import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
 import org.semanticweb.owlapi.model.OWLLogicalAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
@@ -750,7 +752,10 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
         Set<OWLLogicalAxiom> normalizedAxioms = combinedOntology.getLogicalAxioms();
 
+        Set<OWLDeclarationAxiom> declarationAxioms = combinedOntology.getAxioms(AxiomType.DECLARATION);
+
         owlAxioms.addAll(normalizedAxioms);
+        owlAxioms.addAll(declarationAxioms);
 
         OWLOntology ontology = null;
         try {
