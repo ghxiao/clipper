@@ -597,28 +597,15 @@ public class TBoxReasoner {
 		bottomRule(copyOfEnfs);
 
 		copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
-		copyOfImps = cloneOfImps(this.impContainer.getImps());
-		roleInclusionRule(copyOfEnfs);
+        roleInclusionRule(copyOfEnfs);
+
+        conceptInclusionRule(this.impContainer.getImps());
 
 		copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
-		copyOfImps = cloneOfImps(this.impContainer.getImps());
-		conceptInclusionRule(this.impContainer.getImps());
-		// This rule make sense only we have ABox
-		if (this.hasABox) {
-			copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
-			copyOfImps = cloneOfImps(this.impContainer.getImps());
-			// Updated 12 March: We don't use this rule because we don't use
-			// ABox signature restriction
-			// existentialRule(copyOfEnfs);
-		}
-
-		copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
-		copyOfImps = cloneOfImps(this.impContainer.getImps());
-		forAllRule(copyOfEnfs);
+        forAllRule(copyOfEnfs);
 
 		copyOfImps = cloneOfImps(this.impContainer.getImps());
-		copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
-		computeAboxTypeClosure(copyOfImps);
+        computeAboxTypeClosure(copyOfImps);
 		// This rule make sense only we have ABox
 		if (this.hasABox) {
 			copyOfImps = cloneOfImps(this.impContainer.getImps());
@@ -626,56 +613,43 @@ public class TBoxReasoner {
 			forAllRuleABoxType(copyOfEnfs);
 		}
 
-		copyOfImps = cloneOfImps(this.impContainer.getImps());
-		copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
-		atMostOneRule_MergeChildren();
 
-		copyOfImps = cloneOfImps(this.impContainer.getImps());
-		copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
-		atMostRule_ParentChildCollapsed();
+        atMostOneRule_MergeChildren();
+
+        atMostRule_ParentChildCollapsed();
 
 		// Apply rule only in newEnfs and newImps
 		boolean update = true;
 		while (update && !inconsistent) {
-			update = false;
-			Set<EnforcedRelation> copyOfNewEnfs = cloneOfEnfs(newEnfs); // \Delta_{enf}
+            Set<EnforcedRelation> copyOfNewEnfs = cloneOfEnfs(newEnfs); // \Delta_{enf}
 			Set<HornImplication> copyOfNewImps = cloneOfImps(newImps); // \Delta_{imp}
 			copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
 			copyOfImps = cloneOfImps(this.impContainer.getImps());
 			this.newEnfs.clear();
 			this.newImps.clear();
-			if (bottomRule(copyOfNewEnfs)) // only applied to the Delta
-				update = true;
-			if (roleInclusionRule(copyOfNewEnfs)) // only applied to the Delta
-				update = true;
-			if (conceptInclusionRule(copyOfImps)) // only applied to the Delta
-				update = true;
-			// This rule make sense only we have ABox
-			// Updated 12 March: We don't use this rule because we don't use
-			// ABox signature restriction
-			// if (this.hasABox)
-			// if (existentialRule(copyOfEnfs))
-			// update = true;
+			update = (bottomRule(copyOfNewEnfs)); // only applied to the Delta
+
+            update |= (roleInclusionRule(copyOfNewEnfs)); // only applied to the Delta
+
+            update |= (conceptInclusionRule(copyOfImps)); // only applied to the Delta
 
 			// FIXME!!!: xiao: copyOfNewEnfs is not used inside the
 			// implementation,
 			// this makes the algorithim is not semi-naive
-			if (forAllRule(copyOfNewEnfs))
-				update = true;
-			if (computeAboxTypeClosure(copyOfNewImps))
-				update = true;
+            update |= forAllRule(copyOfNewEnfs);
+
+            update |= computeAboxTypeClosure(copyOfNewImps);
 			// This rule make sense only we have ABox
 			if (this.hasABox)
 				if (forAllRuleABoxType(copyOfNewEnfs))
 					update = true;
 
 			// FIXME: not semi-naive style
-			if (atMostOneRule_MergeChildren())
-				update = true;
+            update |= atMostOneRule_MergeChildren();
 
 			// FIXME: not semi-naive style
-			if (atMostRule_ParentChildCollapsed())
-				update = true;
+            update |= atMostRule_ParentChildCollapsed();
+
 		}
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("End of reasoning");

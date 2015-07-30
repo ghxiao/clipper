@@ -1,0 +1,103 @@
+package org.semanticweb.clipper;
+
+import com.hp.hpl.jena.query.Query;
+import com.hp.hpl.jena.query.QueryFactory;
+import org.junit.Test;
+import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
+import org.semanticweb.clipper.hornshiq.rule.CQ;
+import org.semanticweb.clipper.sparql.SparqlToCQConverter;
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+
+import java.io.IOException;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.semanticweb.owlapi.apibinding.OWLFunctionalSyntaxFactory.Class;
+import static org.semanticweb.owlapi.apibinding.OWLFunctionalSyntaxFactory.*;
+
+
+public class CompleteExamplesTest {
+
+
+    /**
+     * Example 2 in TR
+     * <p/>
+     * <p/>
+     * T = {  A subclassOf (r and r3 and r4^-) some (B and A3) }
+     * <p/>
+     * q(X1) :- A1(X1), A2(X2), A3(X3), A4(X4), r1(X1, X4), r2(X1, X2), r3(X2, X3), r4(X3, X4).
+     * <p/>
+     * q can be rewritten to :
+     * <p/>
+     * q(X1) :- A1(X1), A(X3), A2(X3), A4(X3), r1(X1, X3), r2(X1, X3)
+     */
+    @Test
+    public void test1() throws OWLOntologyCreationException, IOException {
+
+        OWLOntologyManager owlOntologyManager = OWLManager.createOWLOntologyManager();
+
+        IRI o1 = IRI.create("http://ghxiao.org/inst/o1");
+        IRI o2 = IRI.create("http://ghxiao.org/inst/o2");
+        IRI o3 = IRI.create("http://ghxiao.org/inst/o3");
+
+        IRI a = IRI.create("http://ghxiao.org/onto/A");
+        IRI a1 = IRI.create("http://ghxiao.org/onto/A1");
+        IRI a2 = IRI.create("http://ghxiao.org/onto/A2");
+        IRI a3 = IRI.create("http://ghxiao.org/onto/A3");
+        IRI a4 = IRI.create("http://ghxiao.org/onto/A4");
+        IRI b = IRI.create("http://ghxiao.org/onto/B");
+        IRI r = IRI.create("http://ghxiao.org/onto/r");
+        IRI r1 = IRI.create("http://ghxiao.org/onto/r1");
+        IRI r2 = IRI.create("http://ghxiao.org/onto/r2");
+        IRI r3 = IRI.create("http://ghxiao.org/onto/r3");
+        IRI r4 = IRI.create("http://ghxiao.org/onto/r4");
+
+        OWLOntology ontology = Ontology(owlOntologyManager,
+                // TBox
+                SubClassOf(Class(a), ObjectSomeValuesFrom(ObjectProperty(r), ObjectIntersectionOf(Class(b), Class(a3)))),
+                SubObjectPropertyOf(ObjectProperty(r), ObjectProperty(r3)),
+                SubObjectPropertyOf(ObjectProperty(r3), ObjectInverseOf(ObjectProperty(r4))),
+                // ABox
+                ClassAssertion(Class(a1), NamedIndividual(o1)),
+                ClassAssertion(Class(a), NamedIndividual(o3)),
+                ClassAssertion(Class(a2), NamedIndividual(o3)),
+                ClassAssertion(Class(a4), NamedIndividual(o3)),
+                ObjectPropertyAssertion(ObjectProperty(r1), NamedIndividual(o1), NamedIndividual(o3)),
+                ObjectPropertyAssertion(ObjectProperty(r2), NamedIndividual(o1), NamedIndividual(o3))
+        );
+
+        String sparqlString = "PREFIX : <http://ghxiao.org/onto/> " +
+                "SELECT ?X1 {" +
+                "?X1 a :A1. ?X2 a :A2. ?X3 a :A3. ?X4 a :A4. " +
+                "?X1 :r1 ?X4. ?X1 :r2 ?X2. ?X2 :r3 ?X3. ?X3 :r4 ?X4. " +
+                "}";
+
+        int expected = 1;
+
+        runTest(ontology, sparqlString, expected);
+    }
+
+    private void runTest(OWLOntology ontology, String sparqlString, int expected) {
+        QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+
+        qaHornSHIQ.addOntology(ontology);
+
+        Query query = QueryFactory.create(sparqlString);
+        CQ cq = new SparqlToCQConverter().compileQuery(query);
+
+        qaHornSHIQ.setQuery(cq);
+
+        qaHornSHIQ.setDatalogFileName("temp.dl");
+
+        List<List<String>> results = qaHornSHIQ.execQuery();
+
+        System.out.println(results);
+
+        assertEquals(expected, results.size());
+    }
+
+}

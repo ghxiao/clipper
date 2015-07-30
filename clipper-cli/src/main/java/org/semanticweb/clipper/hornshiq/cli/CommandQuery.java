@@ -84,7 +84,7 @@ class CommandQuery extends ReasoningCommandBase {
 	}
 
 	/**
-	 * @param this
+	 * @param
 	 * @return
 	 */
 	private QueryResultPrinter createQueryResultPrinter(String format) {

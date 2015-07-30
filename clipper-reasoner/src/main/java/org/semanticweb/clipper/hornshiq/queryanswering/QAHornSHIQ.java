@@ -57,7 +57,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 	private String queryPrefix;
 	private String datalogEngine = "dlv";
 
-	private String queryRewriter = "old";
+	private String queryRewriter = "";//"old";
 
 	private String headPredicate;
 	private List<String> answers;
