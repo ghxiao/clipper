@@ -29,6 +29,10 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 public class HornSHIQNormalizerTest {
 
 	private OWLOntologyManager manager;
@@ -1005,7 +1009,6 @@ public class HornSHIQNormalizerTest {
 
     @Ignore
 	@Test
-    @Ignore
 	public void testNormalizeLUBM1() throws OWLOntologyCreationException, OWLOntologyStorageException {
 		File file = new File("TestData/horn-univ-bench.owl");
 		OWLOntologyManager man = OWLManager.createOWLOntologyManager();

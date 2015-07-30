@@ -1,5 +1,6 @@
 package org.semanticweb.clipper.hornshiq.profile;
 
+import java.io.StringWriter;
 import java.util.HashSet;
 import java.util.Set;
 
