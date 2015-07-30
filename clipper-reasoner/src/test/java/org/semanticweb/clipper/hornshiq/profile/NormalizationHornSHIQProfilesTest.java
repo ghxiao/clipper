@@ -1,18 +1,20 @@
 package org.semanticweb.clipper.hornshiq.profile;
 
-import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.clipper.hornshiq.profile.HornSHIQProfile;
 import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.profiles.OWLProfile;
-import org.semanticweb.owlapi.profiles.OWLProfileReport;
+import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.util.DefaultPrefixManager;
+import org.semanticweb.owlapi.util.SimpleShortFormProvider;
+import org.semanticweb.owlapi.io.ToStringRenderer;
+import org.semanticweb.owlapi.profiles.*;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.net.URI;
+import java.io.*;
+
+import uk.ac.manchester.cs.owl.owlapi.mansyntaxrenderer.ManchesterOWLSyntaxOWLObjectRendererImpl;
 
 /*
  * Copyright (C) 2009, University of Manchester

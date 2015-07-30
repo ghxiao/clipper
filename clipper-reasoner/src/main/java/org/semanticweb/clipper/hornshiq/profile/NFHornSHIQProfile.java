@@ -20,11 +20,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Author:Matthew Horridge<br> The University of Manchester<br> Information Management Group<br> Date: 18-Jul-2009
- * Modified by Trung Kien Tran<br>TU Wien <br> Jan-2011 
- */
+
 public class NFHornSHIQProfile implements OWLProfile {
+
+    // TODO: replace it by a proper IRI
+    @Override
+    public IRI getIRI() {
+        return IRI.create("http://ghxiao.org/NFHornSHIQ");
+    }
+
 	OWLOntologyManager manager;
 	OWLOntology ont;
 	OWLObjectPropertyManager objectPropertyManager;

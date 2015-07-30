@@ -1,5 +1,9 @@
 package org.semanticweb.clipper.hornshiq.profile;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.profiles.OWL2DLProfile;
 import org.semanticweb.owlapi.profiles.OWLProfile;
@@ -13,23 +17,25 @@ import java.util.Set;
 
 public class HornSHIQProfile implements OWLProfile {
 
-	private Sub0_ClassExpressionChecker sub0;
 
-	private Sub1_ClassExpressionChecker sub1;
 
-	private Super0_ClassExpressionChecker super0;
+//	private Sub1_ClassExpressionChecker sub1;
+//
+//	private Super0_ClassExpressionChecker super0;
 
-	private Super1_ClassExpressionChecker super1;
+    private LeftHornClassExpressionChecker leftExpressionChecker;
+	private RightHornClassExpressionChecker rightExpressionChecker;
 
-	HornSHIQProfileObjectVistor profileObjectVisitor;
+	HornSHIQProfileObjectVisitor profileObjectVisitor;
 
 	private OWLObjectPropertyManager propertyManager;
 
 	public HornSHIQProfile() {
-		sub0 = new Sub0_ClassExpressionChecker(this);
-		sub1 = new Sub1_ClassExpressionChecker(this);
-		super0 = new Super0_ClassExpressionChecker(this);
-		super1 = new Super1_ClassExpressionChecker(this);
+
+//		sub1 = new Sub1_ClassExpressionChecker(this);
+//		super0 = new Super0_ClassExpressionChecker(this);
+        leftExpressionChecker = new LeftHornClassExpressionChecker(this);
+		rightExpressionChecker = new RightHornClassExpressionChecker(this);
 	}
 
 	@Override
@@ -37,7 +43,13 @@ public class HornSHIQProfile implements OWLProfile {
 		return "Horn-SHIQ";
 	}
 
-	// use it only when you know what you are doing
+    // TODO: replace it by a proper IRI
+    @Override
+    public IRI getIRI() {
+        return IRI.create("http://ghxiao.org/HornSHIQ");
+    }
+
+    // use it only when you know what you are doing
 	void setPropertyManager(OWLObjectPropertyManager propertyManager) {
 		this.propertyManager = propertyManager;
 	}
@@ -48,6 +60,7 @@ public class HornSHIQProfile implements OWLProfile {
 		return propertyManager;
 	}
 
+    // TODO: FIXME
 	@Override
 	public OWLProfileReport checkOntology(OWLOntology ontology) {
 		OWL2DLProfile profile = new OWL2DLProfile();
@@ -58,11 +71,10 @@ public class HornSHIQProfile implements OWLProfile {
 		Set<OWLProfileViolation> violations = new HashSet<>();
 		violations.addAll(report.getViolations());
 
-		OWLOntologyWalker walker = new OWLOntologyWalker(
-				ontology.getImportsClosure());
+		OWLOntologyWalker walker = new OWLOntologyWalker(ontology.getImportsClosure());
 //		OWLOntologyWalker walker = new OWLOntologyWalker(
 //				ImmutableSet.of( ontology));
-		profileObjectVisitor = new HornSHIQProfileObjectVistor(this, walker,
+		profileObjectVisitor = new HornSHIQProfileObjectVisitor(this, walker,
 				ontology.getOWLOntologyManager());
 		
 		walker.walkStructure(profileObjectVisitor);
@@ -78,20 +90,20 @@ public class HornSHIQProfile implements OWLProfile {
 		return new OWLProfileReport(this, violations);
 	}
 
-	public Super0_ClassExpressionChecker getSuper0() {
-		return super0;
+//	public Super0_ClassExpressionChecker getSuper0() {
+//		return super0;
+//	}
+//
+//	public Sub1_ClassExpressionChecker getSub1() {
+//		return sub1;
+//	}
+
+	public LeftHornClassExpressionChecker getLeftExpressionChecker() {
+		return leftExpressionChecker;
 	}
 
-	public Sub1_ClassExpressionChecker getSub1() {
-		return sub1;
-	}
-
-	public Sub0_ClassExpressionChecker getSub0() {
-		return sub0;
-	}
-
-	public Super1_ClassExpressionChecker getSuper1() {
-		return super1;
+	public RightHornClassExpressionChecker getRightExpressionChecker() {
+		return rightExpressionChecker;
 	}
 
 }

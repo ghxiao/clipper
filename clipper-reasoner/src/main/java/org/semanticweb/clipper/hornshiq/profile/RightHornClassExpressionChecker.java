@@ -18,37 +18,34 @@ import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
 import org.semanticweb.owlapi.model.OWLObjectMaxCardinality;
 import org.semanticweb.owlapi.model.OWLObjectMinCardinality;
 import org.semanticweb.owlapi.model.OWLObjectOneOf;
+import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLObjectUnionOf;
 
 /**
- * 
- * C_0^-
- * 
+ *
+ * Concepts not allowed to occur in the right (positively) in the Horn ontology
+ *
+ *  -  C ⊔ D
+ *  -  ≤ mR.C with m > 1
+ *
  * @author xiao
  * 
  */
-class Super0_ClassExpressionChecker implements
+class RightHornClassExpressionChecker implements
 		OWLClassExpressionVisitorEx<Boolean> {
 
-	/**
-	 * 
-	 */
 	private final HornSHIQProfile hornSHIQProfile;
+    private LeftHornClassExpressionChecker leftExpressionChecker;
 
-	/**
-	 * @param hornSHIQProfile
-	 */
-	Super0_ClassExpressionChecker(HornSHIQProfile hornSHIQProfile) {
+    RightHornClassExpressionChecker(HornSHIQProfile hornSHIQProfile) {
 		this.hornSHIQProfile = hornSHIQProfile;
-	}
+        leftExpressionChecker = hornSHIQProfile.getLeftExpressionChecker();
+    }
 
 	@Override
 	public Boolean visit(OWLClass ce) {
-		if (ce.isBottomEntity() || ce.isTopEntity()) {
-			return true;
-		}
-		return false;
+		return true;
 	}
 
 	@Override
@@ -58,38 +55,35 @@ class Super0_ClassExpressionChecker implements
 				return false;
 			}
 		}
-
 		return true;
 	}
 
 	@Override
 	public Boolean visit(OWLObjectUnionOf ce) {
-		for (OWLClassExpression e : ce.getOperands()) {
-			if (!e.accept(this)) {
-				return false;
-			}
-		}
-
-		return true;
+        return false;
 	}
 
 	@Override
 	public Boolean visit(OWLObjectComplementOf ce) {
-
-		return ce.getOperand().accept(this.hornSHIQProfile.getSub0());
-
+        return ce.getOperand().accept(leftExpressionChecker);
 	}
 
 	@Override
 	public Boolean visit(OWLObjectSomeValuesFrom ce) {
-
-		return false;
+		return ce.getFiller().accept(this);
 	}
 
 	@Override
 	public Boolean visit(OWLObjectAllValuesFrom ce) {
+		OWLClassExpression filler = ce.getFiller();
+		OWLObjectPropertyExpression property = ce.getProperty();
 
-		return ce.getFiller().accept(this);
+		if (this.hornSHIQProfile.getPropertyManager().isNonSimple(property)) {
+			return filler.accept(leftExpressionChecker);
+		} else {
+			return filler.accept(this);
+		}
+
 	}
 
 	@Override
@@ -100,20 +94,19 @@ class Super0_ClassExpressionChecker implements
 
 	@Override
 	public Boolean visit(OWLObjectMinCardinality ce) {
-
-		return false;
+		return ce.getFiller().accept(this);
 	}
 
 	@Override
 	public Boolean visit(OWLObjectExactCardinality ce) {
 
-		return false;
+		return ce.getCardinality() == 1;
 	}
 
 	@Override
 	public Boolean visit(OWLObjectMaxCardinality ce) {
 
-		return false;
+		return ce.getCardinality() == 1 && ce.getFiller().accept(leftExpressionChecker);
 	}
 
 	@Override

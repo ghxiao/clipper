@@ -25,6 +25,11 @@ import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 import org.semanticweb.clipper.util.AnswerParser;
 import org.semanticweb.clipper.util.QueriesRelatedRules;
 import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.AxiomType;
+import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLAxiom;
+import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
+import org.semanticweb.owlapi.model.OWLLogicalAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
@@ -71,8 +76,9 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
 	private CQFormatter cqFormatter;
 	private NamingStrategy namingStrategy;
+    private OWLOntology combinedOntology;
 
-	public QAHornSHIQ() {
+    public QAHornSHIQ() {
 		decodedAnswers = new ArrayList<>();
 		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);// default
 		this.ontologies = new ArrayList<OWLOntology>();
@@ -689,7 +695,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 	public void preprocessOntologies() {
 		long startNormalizationTime = System.currentTimeMillis();
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-		OWLOntology combinedOntology = null;
+		combinedOntology = null;
 		try {
 			combinedOntology = manager.createOntology();
 		} catch (OWLOntologyCreationException e) {
@@ -710,6 +716,57 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 		this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizationTime);
 
 	}
+
+    /**
+     * @return exports saturated enforce relations
+     */
+    public OWLOntology exportSaturatedEnforceRelations(String iri) {
+
+        preprocessOntologies();
+
+        TBoxReasoner tb = saturateTBox();
+
+        EnforcedRelationExporter exporter = new EnforcedRelationExporter();
+        return exporter.export(tb.getEnfContainer(),iri);
+    }
+
+
+    /**
+     * Exports the Logical Axioms in normalized ontologies and all the enforce relations
+     * @return
+     */
+    public OWLOntology exportNormalizedAxiomsAndSaturatedEnforceRelations(String iri) {
+
+        //this.headPredicate = cq.getHead().getPredicate().toString();
+        if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+            System.out.println("% Encoded Input query:" + cq);
+        }
+
+        preprocessOntologies();
+
+        TBoxReasoner tb = saturateTBox();
+
+        EnforcedRelationExporter exporter = new EnforcedRelationExporter();
+
+        Set<OWLAxiom> owlAxioms = exporter.export(tb.getEnfContainer());
+
+        Set<OWLLogicalAxiom> normalizedAxioms = combinedOntology.getLogicalAxioms();
+
+        Set<OWLDeclarationAxiom> declarationAxioms = combinedOntology.getAxioms(AxiomType.DECLARATION);
+
+        owlAxioms.addAll(normalizedAxioms);
+        owlAxioms.addAll(declarationAxioms);
+
+        OWLOntology ontology = null;
+        try {
+            ontology = OWLManager.createOWLOntologyManager().createOntology(owlAxioms, IRI.create(iri));
+        } catch (OWLOntologyCreationException e) {
+            e.printStackTrace();
+        }
+
+        return ontology;
+    }
+
 
 	public void clearOntologies() {
 		this.ontologies = Lists.newArrayList();

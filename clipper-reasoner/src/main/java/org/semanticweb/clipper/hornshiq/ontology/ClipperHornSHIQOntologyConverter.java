@@ -92,7 +92,6 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Objec
 
 			else if (subClass.getClassExpressionType() == ClassExpressionType.OBJECT_UNION_OF) {
 				throw new IllegalStateException();
-
 			}
 
 		}

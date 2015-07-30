@@ -27,7 +27,6 @@ import static org.junit.Assert.assertEquals;
  */
 public class LUBMQueryTest {
 
-
 	@Test
 	public void query1() throws RecognitionException, OWLOntologyCreationException {
 
