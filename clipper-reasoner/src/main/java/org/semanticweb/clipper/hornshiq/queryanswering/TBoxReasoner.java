@@ -366,8 +366,23 @@ public class TBoxReasoner {
 	}
 
 	/**
-	 * Rule: \forAll_1 and \forAll_2
-	 * 
+	 * Rule: R_∀
+	 *
+     * <pre>
+     *  M ⊑ ∃(S⊓r).N    A ⊑ ∀r.B
+     *  ------------------------
+     *  M ⊓ A ⊑ ∃(S ⊓ r).(N ⊓ B)
+     * </pre>
+     *
+     *
+     * Rule: R_∀-
+     * <pre>
+     *  M ⊑ ∃(S ⊓ inv(r)).(N ⊓ A)   A ⊑ ∀r.B
+     *  ------------------------------------
+     *  M ⊑ B
+     * </pre>
+     *
+     *
 	 * @param enfs
 	 * @return
 	 * 
@@ -378,20 +393,23 @@ public class TBoxReasoner {
 		boolean update = false;
 
 		for (ClipperAtomSubAllAxiom ax : allValuesFromAxioms) {
-			// Rule forAll_1
+			//  Rule: R_∀
 			TIntHashSet role = new TIntHashSet();
 			role.add(ax.getRole());
 			TIntHashSet axType1 = new TIntHashSet();
 			axType1.add(ax.getConcept1());
 
-			Collection<EnforcedRelation> matches = this.enfContainer
-					.matchRolesAndType1(role, axType1);
+			//Collection<EnforcedRelation> matches = this.enfContainer.matchRolesAndType1(role, axType1);
+
+            Collection<EnforcedRelation> matches = this.enfContainer.matchRoles(role);
 
 			for (EnforcedRelation enf : matches) {
 				EnforcedRelation newEnf = new EnforcedRelation(enf);
+
+                newEnf.getType1().add(ax.getConcept1());
 				newEnf.getType2().add(ax.getConcept2());
 				if (this.enfContainer.add(newEnf)) {
-					this.enfContainer.remove(enf);
+					//this.enfContainer.remove(enf);
 					newEnfs.add(new EnforcedRelation(newEnf));
 					update = true;
 				}
@@ -455,7 +473,7 @@ public class TBoxReasoner {
 	 * for each A ⊑≤ 1r.C ∈ T enf(T, R1, T1),enf(T, R2, T2), A∈T,r∈R1,r∈R2, C
 	 * ∈T1,C ∈T2 → enf(T,R1∪R2,T1∪T2)
 	 * 
-	 * @return
+	 * @return updated
 	 */
 	private boolean atMostOneRule_MergeChildren() {
 		boolean update = false;
