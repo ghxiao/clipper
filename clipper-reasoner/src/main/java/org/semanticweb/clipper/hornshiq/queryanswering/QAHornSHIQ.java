@@ -300,6 +300,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 	 * @return
 	 */
 	private OWLOntology normalize(OWLOntology ontology) {
+        
 		HornSHIQProfile profile = new HornSHIQProfile();
 
 		OWLProfileReport report = profile.checkOntology(ontology);
@@ -703,8 +704,10 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 		}
 
 		for (OWLOntology ontology : ontologies) {
-			ontology = normalize(ontology);
-			manager.addAxioms(combinedOntology, ontology.getAxioms());
+            for (OWLOntology ontologyInImportsClosure : ontology.getImportsClosure()) {
+                OWLOntology normalizedOntology = normalize(ontologyInImportsClosure);
+                manager.addAxioms(combinedOntology, normalizedOntology.getAxioms());
+            }
 		}
 
 		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
