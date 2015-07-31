@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-public class HSHIQQueryRewriter implements QueryRewriter {
+public class HornALCHIQQueryRewriter implements QueryRewriter {
 
 	private IndexedEnfContainer enfContainer;
 	private List<ClipperAtomSubAllAxiom> allValuesFromAxioms;
@@ -23,15 +23,15 @@ public class HSHIQQueryRewriter implements QueryRewriter {
 
 	private Set<CQ> ucq;
 
-	public HSHIQQueryRewriter(IndexedEnfContainer indexEnfs, List<ClipperInversePropertyOfAxiom> inversePropertyAxioms,
-							  List<ClipperAtomSubAllAxiom> allValuesFromAxs) {
+	public HornALCHIQQueryRewriter(IndexedEnfContainer indexEnfs, List<ClipperInversePropertyOfAxiom> inversePropertyAxioms,
+                                   List<ClipperAtomSubAllAxiom> allValuesFromAxs) {
 		this.enfContainer = indexEnfs;
 		this.inversePropertyOfAxioms = inversePropertyAxioms;
 		this.allValuesFromAxioms = allValuesFromAxs;
 		ucq = new HashSet<CQ>();
 	}
 
-	public HSHIQQueryRewriter(Set<EnforcedRelation> enfs, List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms) {
+	public HornALCHIQQueryRewriter(Set<EnforcedRelation> enfs, List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms) {
 		this.enfContainer = new IndexedEnfContainer();
 		this.enfContainer.addAll(enfs);
 		this.inversePropertyOfAxioms = inversePropertyOfAxioms;

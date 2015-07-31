@@ -18,7 +18,7 @@ import java.io.File;
 import static org.junit.Assert.assertEquals;
 
 
-public class HSHIQQueryRewriterTest {
+public class HornALCHIQQueryRewriterTest {
     /////////////////////////////////////////////////////////////////////
     // Test case for query rewriting.
     // See Master thesis: Figure 5.2 for more detail
