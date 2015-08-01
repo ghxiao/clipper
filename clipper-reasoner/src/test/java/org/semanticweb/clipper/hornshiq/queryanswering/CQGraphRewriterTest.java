@@ -89,6 +89,7 @@ public class CQGraphRewriterTest {
         assertTrue(ucq1BodyString.contains("c6(X3)"));
 
     }
+
     /**
      * Example 3 in TR
      *
@@ -173,7 +174,7 @@ public class CQGraphRewriterTest {
      *
      * q can be rewritten to :
      *
-     * q(X2) :- C(X2), A(X2)
+     * q(X1) :- C(X2), r1(X1, X2), A(X2)
      *
      *
      * The following encodings are used in the test case
@@ -225,7 +226,7 @@ public class CQGraphRewriterTest {
      * Example 5 in TR
      *
      *
-     * Assume T = {r⊑r−, trans(r), A⊑∃r.B, B⊑∃r.C, C⊑D}.
+     * Assume T = {r ⊑ r−, trans(r), A ⊑ ∃r.B, B ⊑ ∃r.C, C ⊑ D}.
      *
      * B ⊑ ∃(r ⊓ r−).(C ⊓ D) ∈ Ξ(T).
      *

@@ -1,6 +1,9 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
+import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+import com.hp.hpl.jena.query.Query;
+import com.hp.hpl.jena.query.QueryFactory;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
 import it.unical.mat.wrapper.DLVError;
@@ -22,6 +25,7 @@ import org.semanticweb.clipper.hornshiq.profile.HornSHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQProfile;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
+import org.semanticweb.clipper.sparql.SparqlToCQConverter;
 import org.semanticweb.clipper.util.AnswerParser;
 import org.semanticweb.clipper.util.QueriesRelatedRules;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -538,6 +542,20 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 		reduceABoxToDatalog(tb);
 
 	}
+
+    public List<List<String>> execQuery(String sparqlString) {
+        Query query = QueryFactory.create(sparqlString);
+        CQ cq = new SparqlToCQConverter().compileQuery(query);
+
+        this.setQuery(cq);
+
+        if(Strings.isNullOrEmpty(datalogFileName)){
+            this.setDatalogFileName("temp.dl");
+        }
+
+        return this.execQuery();
+    }
+
 
 	// =================================
 	@Override

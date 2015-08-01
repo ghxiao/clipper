@@ -15,4 +15,4 @@ bin
 
 *.iml
 .idea
-
+temp.*
