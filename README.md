@@ -2,13 +2,19 @@
 
 Clipper is a Reasoner for conjunctive query answering over Horn-SHIQ ontology via query rewriting. 
 
+# Build from source 
+We use [maven build system](http://maven.apache.org) and [Git](http://git-scm.com) to manage the source code.
+
+	  $ git clone https://github.com/ghxiao/clipper.git clipper
+	  $ cd clipper
+	  $ ./mvn_build.sh
+
+  
 # Usage from CLI
 
-1. Download the latest version of clipper-vx.zip and unzip it
+1. Download [DLV](http://www.dlvsystem.com/dlvsystem/index.php/DLV) to your local machine (e.g., to `~/bin/dlv`).
 
-3. Download [DLV](http://www.dlvsystem.com/dlvsystem/index.php/DLV) to your local machine
-
-3. Run `clipper.sh` 
+2. Run `clipper.sh` from the generated package.
 
 ```
 Usage: clipper.sh [options] [command] [command options]
@@ -44,23 +50,13 @@ Usage: clipper.sh [options] [command] [command options]
     help      Print the usage
       Usage: help [options]
 ```
-
-# Build from source 
-We use [maven build system](http://maven.apache.org) and [Git](http://git-scm.com) to manage the source code.
-
-	  $ git clone https://github.com/ghxiao/clipper.git clipper
-	  $ cd clipper
-	  $ ./mvn_build.sh
 	  
 # Development in Eclipse
 
-Clipper is developed in Eclipse using [m2e](http://eclipse.org/m2e/)
-and [lombok](http://projectlombok.org/) plugins.
 
 1. Download the souce code via git.
 2. In eclipse, import the project by "File" -> "Import" -> "Maven" ->
    "Existing Maven Projects" and point to Root directory of clipper
-
 
 # References
 
@@ -82,10 +78,7 @@ of CEUR Workshop Proceedings. CEUR-WS.org, 2012. [pdf](http://www.kr.tuwien.ac.a
 
 ## Links 
 
-* [Clipper @ Google Code](http://code.google.com/p/clipper-reasoner)
 * [Clipper @ Github](https://github.com/ghxiao/clipper)
 * [Clipper @ TUWien](http://www.kr.tuwien.ac.at/research/systems/clipper/index.html)
 
-Contact: xiao(a)kr.tuwien.ac.at
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ghxiao/clipper/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+Contact: xiao(a)inf.unibz.it
