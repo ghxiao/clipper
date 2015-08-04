@@ -5,62 +5,16 @@ import gnu.trove.set.hash.TIntHashSet;
 import java.util.Set;
 
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
-import org.semanticweb.owlapi.model.ClassExpressionType;
-import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLAnnotationPropertyDomainAxiom;
-import org.semanticweb.owlapi.model.OWLAnnotationPropertyRangeAxiom;
-import org.semanticweb.owlapi.model.OWLAsymmetricObjectPropertyAxiom;
-import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLAxiomVisitorEx;
-import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLClassExpression;
-import org.semanticweb.owlapi.model.OWLDataPropertyAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLDataPropertyDomainAxiom;
-import org.semanticweb.owlapi.model.OWLDataPropertyExpression;
-import org.semanticweb.owlapi.model.OWLDataPropertyRangeAxiom;
-import org.semanticweb.owlapi.model.OWLDatatypeDefinitionAxiom;
-import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
-import org.semanticweb.owlapi.model.OWLDifferentIndividualsAxiom;
-import org.semanticweb.owlapi.model.OWLDisjointClassesAxiom;
-import org.semanticweb.owlapi.model.OWLDisjointDataPropertiesAxiom;
-import org.semanticweb.owlapi.model.OWLDisjointObjectPropertiesAxiom;
-import org.semanticweb.owlapi.model.OWLDisjointUnionAxiom;
-import org.semanticweb.owlapi.model.OWLEquivalentClassesAxiom;
-import org.semanticweb.owlapi.model.OWLEquivalentDataPropertiesAxiom;
-import org.semanticweb.owlapi.model.OWLEquivalentObjectPropertiesAxiom;
-import org.semanticweb.owlapi.model.OWLFunctionalDataPropertyAxiom;
-import org.semanticweb.owlapi.model.OWLFunctionalObjectPropertyAxiom;
-import org.semanticweb.owlapi.model.OWLHasKeyAxiom;
-import org.semanticweb.owlapi.model.OWLInverseFunctionalObjectPropertyAxiom;
-import org.semanticweb.owlapi.model.OWLInverseObjectPropertiesAxiom;
-import org.semanticweb.owlapi.model.OWLIrreflexiveObjectPropertyAxiom;
-import org.semanticweb.owlapi.model.OWLNegativeDataPropertyAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLNegativeObjectPropertyAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLObjectAllValuesFrom;
-import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
-import org.semanticweb.owlapi.model.OWLObjectMaxCardinality;
-import org.semanticweb.owlapi.model.OWLObjectMinCardinality;
-import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLObjectPropertyDomainAxiom;
-import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
-import org.semanticweb.owlapi.model.OWLObjectPropertyRangeAxiom;
-import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLReflexiveObjectPropertyAxiom;
-import org.semanticweb.owlapi.model.OWLSameIndividualAxiom;
-import org.semanticweb.owlapi.model.OWLSubAnnotationPropertyOfAxiom;
-import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
-import org.semanticweb.owlapi.model.OWLSubDataPropertyOfAxiom;
-import org.semanticweb.owlapi.model.OWLSubObjectPropertyOfAxiom;
-import org.semanticweb.owlapi.model.OWLSubPropertyChainOfAxiom;
-import org.semanticweb.owlapi.model.OWLSymmetricObjectPropertyAxiom;
-import org.semanticweb.owlapi.model.OWLTransitiveObjectPropertyAxiom;
-import org.semanticweb.owlapi.model.SWRLRule;
+import org.semanticweb.owlapi.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Object> {
+public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitor {
 
-	private ClipperHornSHIQOntology ontology;
+    final Logger log = LoggerFactory.getLogger(ClipperHornSHIQOntologyConverter.class);
+
+
+    private ClipperHornSHIQOntology ontology;
 	private ClipperManager km;
 
 	public ClipperHornSHIQOntology convert(OWLOntology owlOntology) {
@@ -73,24 +27,30 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Objec
 	}
 
 	@Override
-	public Object visit(OWLSubAnnotationPropertyOfAxiom axiom) {
-		throw new UnsupportedOperationException();
+	public void visit(OWLSubAnnotationPropertyOfAxiom axiom) {
+
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+
+		//throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public Object visit(OWLAnnotationPropertyDomainAxiom axiom) {
-		throw new UnsupportedOperationException();
+	public void visit(OWLAnnotationPropertyDomainAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+
+		//throw new UnsupportedOperationException();
 
 	}
 
 	@Override
-	public Object visit(OWLAnnotationPropertyRangeAxiom axiom) {
-		throw new UnsupportedOperationException();
+	public void visit(OWLAnnotationPropertyRangeAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
 
+		//throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public Object visit(OWLSubClassOfAxiom axiom) {
+	public void visit(OWLSubClassOfAxiom axiom) {
 		OWLClassExpression subClass = axiom.getSubClass();
 		OWLClassExpression superClass = axiom.getSuperClass();
 
@@ -134,7 +94,8 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Objec
 					int role = km.getOwlPropertyExpressionEncoder().getValueBySymbol(some.getProperty());
 					ontology.getSomeSubAtomAxioms().add(new ClipperSomeSubAtomAxiom(concept1, role, right));
 				} else {
-					throw new IllegalStateException();
+                    log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+                    //throw new IllegalStateException();
 				}
 			}
 			// or(A', B) subclass C
@@ -143,8 +104,9 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Objec
 			// ClassExpressionType. OWLObjectUnionOf) {
 
 			else if (subClass.getClassExpressionType() == ClassExpressionType.OBJECT_UNION_OF) {
-				throw new IllegalStateException();
-			}
+                // TODO: check how this can happen
+                log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+            }
 
 		}
 		// A subclass C'
@@ -152,16 +114,15 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Objec
 
 			int left = km.getOwlClassEncoder().getValueBySymbol((OWLClass) subClass);
 
-			// (A -> or(B, C)) ~>
-			// TODO: need to check
 			if (superClass.getClassExpressionType() == ClassExpressionType.OBJECT_UNION_OF) {
-
-				throw new IllegalStateException();
+                log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+                //throw new IllegalStateException();
 			}
 
 			// A subclass and(B, C)
 			else if (superClass.getClassExpressionType() == ClassExpressionType.OBJECT_INTERSECTION_OF) {
-				throw new IllegalStateException();
+                log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+                //throw new IllegalStateException();
 
 			}
 			// A subclass exists(R, C') -> {A subclass some(R,D), D subclass C'}
@@ -173,7 +134,8 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Objec
 					int concept2 = km.getOwlClassEncoder().getValueBySymbol((OWLClass) filler);
 					ontology.getAtomSubSomeAxioms().add(new ClipperAtomSubSomeAxiom(left, role, concept2));
 				} else {
-					throw new IllegalStateException();
+                    log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+                    //throw new IllegalStateException();
 				}
 			}
 
@@ -186,7 +148,8 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Objec
 					int concept2 = km.getOwlClassEncoder().getValueBySymbol((OWLClass) filler);
 					ontology.getAtomSubAllAxioms().add(new ClipperAtomSubAllAxiom(left, role, concept2));
 				} else {
-					throw new IllegalStateException();
+                    log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+                    //throw new IllegalStateException();
 				}
 			}
 
@@ -200,7 +163,8 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Objec
 					int concept2 = km.getOwlClassEncoder().getValueBySymbol((OWLClass) filler);
 					ontology.getAtomSubMaxOneAxioms().add(new ClipperAtomSubMaxOneAxiom(left, role, concept2));
 				} else {
-					throw new IllegalStateException();
+                    log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+                    //throw new IllegalStateException();
 				}
 			}
 
@@ -215,82 +179,84 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Objec
 					ontology.getAtomSubMinAxioms().add(
 							new ClipperAtomSubMinAxiom(left, role, concept2, min.getCardinality()));
 				} else {
-					throw new IllegalStateException();
+                    log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+                    //throw new IllegalStateException();
 				}
 			}
 
 			// A subclass not(B)
 			else if (superClass.getClassExpressionType() == ClassExpressionType.OBJECT_COMPLEMENT_OF) {
-				throw new IllegalStateException();
+                log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+                //throw new IllegalStateException();
 			}
 		}
 
-		return null;
+    }
+
+	@Override
+	public void visit(OWLNegativeObjectPropertyAssertionAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+
+		//throw new UnsupportedOperationException();
 
 	}
 
 	@Override
-	public Object visit(OWLNegativeObjectPropertyAssertionAxiom axiom) {
+	public void visit(OWLAsymmetricObjectPropertyAxiom axiom) {
 		throw new UnsupportedOperationException();
 
 	}
 
 	@Override
-	public Object visit(OWLAsymmetricObjectPropertyAxiom axiom) {
+	public void visit(OWLReflexiveObjectPropertyAxiom axiom) {
 		throw new UnsupportedOperationException();
 
 	}
 
 	@Override
-	public Object visit(OWLReflexiveObjectPropertyAxiom axiom) {
+	public void visit(OWLDisjointClassesAxiom axiom) {
 		throw new UnsupportedOperationException();
 
 	}
 
 	@Override
-	public Object visit(OWLDisjointClassesAxiom axiom) {
+	public void visit(OWLDataPropertyDomainAxiom axiom) {
 		throw new UnsupportedOperationException();
 
 	}
 
 	@Override
-	public Object visit(OWLDataPropertyDomainAxiom axiom) {
+	public void visit(OWLObjectPropertyDomainAxiom axiom) {
 		throw new UnsupportedOperationException();
 
 	}
 
 	@Override
-	public Object visit(OWLObjectPropertyDomainAxiom axiom) {
+	public void visit(OWLEquivalentObjectPropertiesAxiom axiom) {
 		throw new UnsupportedOperationException();
 
 	}
 
 	@Override
-	public Object visit(OWLEquivalentObjectPropertiesAxiom axiom) {
+	public void visit(OWLNegativeDataPropertyAssertionAxiom axiom) {
 		throw new UnsupportedOperationException();
 
 	}
 
 	@Override
-	public Object visit(OWLNegativeDataPropertyAssertionAxiom axiom) {
+	public void visit(OWLDifferentIndividualsAxiom axiom) {
 		throw new UnsupportedOperationException();
 
 	}
 
 	@Override
-	public Object visit(OWLDifferentIndividualsAxiom axiom) {
+	public void visit(OWLDisjointDataPropertiesAxiom axiom) {
 		throw new UnsupportedOperationException();
 
 	}
 
 	@Override
-	public Object visit(OWLDisjointDataPropertiesAxiom axiom) {
-		throw new UnsupportedOperationException();
-
-	}
-
-	@Override
-	public Object visit(OWLDisjointObjectPropertiesAxiom axiom) {
+	public void visit(OWLDisjointObjectPropertiesAxiom axiom) {
 
 		OWLObjectPropertyExpression[] properties = axiom.getProperties().toArray(new OWLObjectPropertyExpression[0]);
 
@@ -303,181 +269,153 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitorEx<Objec
 				ontology.getDisjointObjectPropertiesAxioms().add(new ClipperDisjointObjectPropertiesAxiom(r, s));
 			}
 		}
-		return null;
+
 
 	}
 
 	@Override
-	public Object visit(OWLObjectPropertyRangeAxiom axiom) {
-		throw new UnsupportedOperationException();
-
+	public void visit(OWLObjectPropertyRangeAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
 	}
 
 	@Override
-	public Object visit(OWLObjectPropertyAssertionAxiom axiom) {
+	public void visit(OWLObjectPropertyAssertionAxiom axiom) {
 		int p = km.getOwlPropertyExpressionEncoder().getValueBySymbol(axiom.getProperty());
 		int s = km.getOwlIndividualAndLiteralEncoder().getValueBySymbol(axiom.getSubject());
 		int o = km.getOwlIndividualAndLiteralEncoder().getValueBySymbol(axiom.getObject());
 		ontology.getPropertyAssertionAxioms().add(new ClipperPropertyAssertionAxiom(p, s, o));
-		return null;
 	}
 
 	@Override
-	public Object visit(OWLFunctionalObjectPropertyAxiom axiom) {
-		throw new UnsupportedOperationException();
-
-	}
+	public void visit(OWLFunctionalObjectPropertyAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+    }
 
 	@Override
-	public Object visit(OWLSubObjectPropertyOfAxiom axiom) {
+	public void visit(OWLSubObjectPropertyOfAxiom axiom) {
 		OWLObjectPropertyExpression sub = axiom.getSubProperty();
 		OWLObjectPropertyExpression sup = axiom.getSuperProperty();
 		int r = km.getOwlPropertyExpressionEncoder().getValueBySymbol(sub);
 		int s = km.getOwlPropertyExpressionEncoder().getValueBySymbol(sup);
-		return ontology.getSubPropertyAxioms().add(new ClipperSubPropertyAxiom(r, s));
+        ontology.getSubPropertyAxioms().add(new ClipperSubPropertyAxiom(r, s));
 	}
 
 	@Override
-	public Object visit(OWLDisjointUnionAxiom axiom) {
-		throw new UnsupportedOperationException();
-
-	}
-
-	@Override
-	public Object visit(OWLDeclarationAxiom axiom) {
-		throw new UnsupportedOperationException();
-
-	}
+	public void visit(OWLDisjointUnionAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+    }
 
 	@Override
-	public Object visit(OWLAnnotationAssertionAxiom axiom) {
-		throw new UnsupportedOperationException();
+	public void visit(OWLDeclarationAxiom axiom) {
 
-	}
-
-	@Override
-	public Object visit(OWLSymmetricObjectPropertyAxiom axiom) {
-		throw new UnsupportedOperationException();
-
-	}
+    }
 
 	@Override
-	public Object visit(OWLDataPropertyRangeAxiom axiom) {
-		throw new UnsupportedOperationException();
-
-	}
-
-	@Override
-	public Object visit(OWLFunctionalDataPropertyAxiom axiom) {
-		throw new UnsupportedOperationException();
-
-	}
+	public void visit(OWLAnnotationAssertionAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+    }
 
 	@Override
-	public Object visit(OWLEquivalentDataPropertiesAxiom axiom) {
-		throw new UnsupportedOperationException();
-
-	}
+	public void visit(OWLSymmetricObjectPropertyAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+    }
 
 	@Override
-	public Object visit(OWLClassAssertionAxiom axiom) {
+	public void visit(OWLDataPropertyRangeAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+    }
 
+	@Override
+	public void visit(OWLFunctionalDataPropertyAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+    }
+
+	@Override
+	public void visit(OWLEquivalentDataPropertiesAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+    }
+
+	@Override
+	public void visit(OWLClassAssertionAxiom axiom) {
 		int cls = km.getOwlClassEncoder().getValueBySymbol((OWLClass) axiom.getClassExpression());
 		int ind = km.getOwlIndividualAndLiteralEncoder().getValueBySymbol(axiom.getIndividual());
 		ontology.getConceptAssertionAxioms().add(new ClipperConceptAssertionAxiom(cls, ind));
-		return null;
-
 	}
 
 	@Override
-	public Object visit(OWLEquivalentClassesAxiom axiom) {
-		throw new UnsupportedOperationException();
-
-	}
+	public void visit(OWLEquivalentClassesAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+    }
 
 	@Override
-	public Object visit(OWLDataPropertyAssertionAxiom axiom) {
+	public void visit(OWLDataPropertyAssertionAxiom axiom) {
 		int p = km.getOwlPropertyExpressionEncoder().getValueBySymbol(axiom.getProperty());
 		int s = km.getOwlIndividualAndLiteralEncoder().getValueBySymbol(axiom.getSubject());
 		int o = km.getOwlIndividualAndLiteralEncoder().getValueBySymbol(axiom.getObject());
-		return ontology.getPropertyAssertionAxioms().add(new ClipperPropertyAssertionAxiom(p, s, o));
+		ontology.getPropertyAssertionAxioms().add(new ClipperPropertyAssertionAxiom(p, s, o));
 		//return null;
 
 	}
 
 	@Override
-	public Object visit(OWLTransitiveObjectPropertyAxiom axiom) {
+	public void visit(OWLTransitiveObjectPropertyAxiom axiom) {
 		int p = km.getOwlPropertyExpressionEncoder().getValueBySymbol(axiom.getProperty());
-		return ontology.getTransitivityAxioms().add(new ClipperTransitivityAxiom(p));
-		// throw null;
-		// throw new UnsupportedOperationException();
-
+		ontology.getTransitivityAxioms().add(new ClipperTransitivityAxiom(p));
 	}
 
 	@Override
-	public Object visit(OWLIrreflexiveObjectPropertyAxiom axiom) {
-		throw new UnsupportedOperationException();
-
+	public void visit(OWLIrreflexiveObjectPropertyAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
 	}
 
 	@Override
-	public Object visit(OWLSubDataPropertyOfAxiom axiom) {
+	public void visit(OWLSubDataPropertyOfAxiom axiom) {
 		OWLDataPropertyExpression sub = axiom.getSubProperty();
 		OWLDataPropertyExpression sup = axiom.getSuperProperty();
 		int r = km.getOwlPropertyExpressionEncoder().getValueBySymbol(sub);
 		int s = km.getOwlPropertyExpressionEncoder().getValueBySymbol(sup);
-		return ontology.getSubPropertyAxioms().add(new ClipperSubPropertyAxiom(r, s));
-
+		ontology.getSubPropertyAxioms().add(new ClipperSubPropertyAxiom(r, s));
 	}
 
 	@Override
-	public Object visit(OWLInverseFunctionalObjectPropertyAxiom axiom) {
-		throw new UnsupportedOperationException();
+	public void visit(OWLInverseFunctionalObjectPropertyAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+    }
 
+	@Override
+	public void visit(OWLSameIndividualAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
 	}
 
 	@Override
-	public Object visit(OWLSameIndividualAxiom axiom) {
-		throw new UnsupportedOperationException();
-
+	public void visit(OWLSubPropertyChainOfAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
 	}
 
 	@Override
-	public Object visit(OWLSubPropertyChainOfAxiom axiom) {
-		throw new UnsupportedOperationException();
-
-	}
-
-	@Override
-	public Object visit(OWLInverseObjectPropertiesAxiom axiom) {
-
+	public void visit(OWLInverseObjectPropertiesAxiom axiom) {
+        // TODO: converts it to sub property axioms
 		OWLObjectPropertyExpression first = axiom.getFirstProperty();
 		OWLObjectPropertyExpression second = axiom.getSecondProperty();
 		int r = km.getOwlPropertyExpressionEncoder().getValueBySymbol(first);
 		int s = km.getOwlPropertyExpressionEncoder().getValueBySymbol(second);
 		ontology.getInversePropertyOfAxioms().add(new ClipperInversePropertyOfAxiom(r, s));
-		return null;
-
-		// throw new UnsupportedOperationException();
 
 	}
 
 	@Override
-	public Object visit(OWLHasKeyAxiom axiom) {
-		throw new UnsupportedOperationException();
-
-	}
-
-	@Override
-	public Object visit(OWLDatatypeDefinitionAxiom axiom) {
-		throw new UnsupportedOperationException();
-
-	}
+	public void visit(OWLHasKeyAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+    }
 
 	@Override
-	public Object visit(SWRLRule rule) {
-		throw new UnsupportedOperationException();
+	public void visit(OWLDatatypeDefinitionAxiom axiom) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
+    }
 
-	}
+	@Override
+	public void visit(SWRLRule rule) {
+        log.warn("ClipperHornSHIQOntologyConverter ignores {}", rule);
+    }
 
 }
