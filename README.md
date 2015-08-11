@@ -1,8 +1,10 @@
-# Introduction 
+# Clipper Reasoner
 
-Clipper is a Reasoner for conjunctive query answering over Horn-SHIQ ontology via query rewriting. 
+## Introduction 
 
-# Build from source 
+Clipper is a DL reasoner for conjunctive query answering over Horn-SHIQ ontology via query rewriting. 
+
+## Build from source 
 We use [maven build system](http://maven.apache.org) and [Git](http://git-scm.com) to manage the source code.
 
 	  $ git clone https://github.com/ghxiao/clipper.git clipper
@@ -10,7 +12,7 @@ We use [maven build system](http://maven.apache.org) and [Git](http://git-scm.co
 	  $ ./mvn_build.sh
 
   
-# Usage from CLI
+## Usage from CLI
 
 1. Download [DLV](http://www.dlvsystem.com/dlvsystem/index.php/DLV) to your local machine (e.g., to `~/bin/dlv`).
 
@@ -51,14 +53,14 @@ Usage: clipper.sh [options] [command] [command options]
       Usage: help [options]
 ```
 	  
-# Development in Eclipse
+## Development in Eclipse
 
 
 1. Download the souce code via git.
 2. In eclipse, import the project by "File" -> "Import" -> "Maven" ->
    "Existing Maven Projects" and point to Root directory of clipper
 
-# References
+## References
 
 [1] Thomas Eiter, Magdalena Ortiz, Mantas Šimkus, Trung-Kien Tran, and Guohui Xiao. 
 Query Rewriting for Horn-SHIQ plus Rules. In
@@ -72,8 +74,6 @@ In Y. Kazakov, D. Lembo, and F.
 Wolter, editors, _Proceedings of the 2012 International Workshop on
 Description Logics, DL-2012, Rome, Italy_, June 7-10, 2012, volume 846
 of CEUR Workshop Proceedings. CEUR-WS.org, 2012. [pdf](http://www.kr.tuwien.ac.at/staff/xiao/pub/2012/eostx2012-dl-hshiq.pdf)
-
-
 
 
 ## Links 
