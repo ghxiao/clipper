@@ -1,6 +1,7 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import com.google.common.base.Joiner;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
@@ -13,6 +14,7 @@ import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
+@Ignore // not implemented
 public class SelfLoopComponentClusterTest {
 
 	@Test

@@ -1,4 +1,0 @@
-r("test:case#d1","test:case#d2").
-s("test:case#d2","test:case#d2").
-d("test:case#d2").
-a("test:case#d1").

@@ -5,6 +5,7 @@ import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
@@ -14,7 +15,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+@Deprecated
+@Ignore
 public class RequiemTestSuiteUniversity {
 	@Test
 	public void query0() throws RecognitionException {

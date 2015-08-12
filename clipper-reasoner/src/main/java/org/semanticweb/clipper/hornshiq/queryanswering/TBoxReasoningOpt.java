@@ -21,7 +21,7 @@ import java.util.List;
  * @author xiao
  *
  */
-//@Deprecated
+@Deprecated
 public class TBoxReasoningOpt {
 
 	private IndexedHornImpContainer imp_relation;

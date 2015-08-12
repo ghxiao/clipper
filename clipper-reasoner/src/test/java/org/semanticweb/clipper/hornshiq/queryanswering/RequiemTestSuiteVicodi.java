@@ -5,13 +5,15 @@ import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
 import org.semanticweb.clipper.util.DecodeUtility;
 
-
+@Deprecated
+@Ignore
 public class RequiemTestSuiteVicodi {
 	@Test
 	public void query1() throws RecognitionException {

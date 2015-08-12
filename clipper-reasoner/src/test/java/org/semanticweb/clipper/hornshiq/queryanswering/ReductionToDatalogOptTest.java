@@ -1,5 +1,6 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
@@ -22,6 +23,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertTrue;
 
+@Ignore // TBoxReasoningOpt
 public class ReductionToDatalogOptTest {
 	@Test
 	public void testImps() throws OWLOntologyCreationException {

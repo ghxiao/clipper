@@ -33,6 +33,7 @@ public class TBoxReasonerTest {
 	// ///////////////////////////////////////
 	// TEST CASE FOR SATURATION
 	// ///////////////////////////////////////
+
 	/**
 	 * Test case 1
 	 */
@@ -48,10 +49,6 @@ public class TBoxReasonerTest {
 				+ "} \n";
 		String tempDatalogFile = "AllTestCases/testRoleInclusion.dl";
 		testQuery(ontologyFile, sparql, 1, tempDatalogFile);
-		// expect answer: a1
-//		List<String> a1 = new ArrayList<String>();
-//		a1.add("q0(\"a\")");
-//		assertEquals(a1, qaHornSHIQ.getAnswers());
 	}
 
 	/**
@@ -108,58 +105,17 @@ public class TBoxReasonerTest {
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
 				+ "SELECT ?x1 \n" + "WHERE { \n"
-				+ "  ?x1  a  uri:Nothing  . \n" + "} \n";
+				+ "  ?x1  a  uri:Nothing  . \n"
+                + "} \n";
 
 		testQuery(ontologyFile, sparql, 1, tempDatalogFile);
 	}
 
-	/**
-	 * Test case 5: see Example 23 in Chapter 4 of the master thesis Test rule:
-	 * 
-	 * **/
-	//UPDATED 12 March: We don't use ABox signature restriction so we don't need this rule.
-//	@Test
-//	public void testExistentialRule1() throws RecognitionException {
-//		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-//		KaosManager.getInstance().setVerboseLevel(2);
-//		KaosManager.getInstance().setNamingStrategy(
-//				NamingStrategy.LowerCaseFragment);
-//		qaHornSHIQ.setDataLogName("AllTestCases/existentialRule.dl");
-//		qaHornSHIQ.setOntologyName("AllTestCases/existentialRule.owl");
-//
-//		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
-//				+ "SELECT ?x1 \n" + "WHERE { \n"
-//				+ "  ?x1  a  uri:Nothing  . \n" + "} \n";
-//		// expect no answer
-//		System.out.println(sparql);
-//
-//		CharStream stream = new ANTLRStringStream(sparql);
-//		SparqlLexer lexer = new SparqlLexer(stream);
-//		TokenStream tokenStream = new CommonTokenStream(lexer);
-//		SparqlParser parser = new SparqlParser(tokenStream);
-//		CQ cq = parser.query();
-//
-//		String queryString = cq.toString();
-//		System.out.println(queryString);
-//		// qaHornSHIQ.setQueryString(queryString);
-//		qaHornSHIQ.setQuery(cq);
-//		qaHornSHIQ.setDlvPath("lib/dlv");
-//		qaHornSHIQ.runDatalogEngine();
-//		// expect 1 answer for q(x) :- Nothing(x) because the ontology is
-//		// inconsistent
-//		for (List<String> answer : qaHornSHIQ.getDecodedAnswers()) {
-//			System.out.println(answer);
-//		}
-//		List<String> a = new ArrayList<String>();
-//		a.add("q0(\"a\")");
-//		assertEquals(a, qaHornSHIQ.getAnswers());
-//
-//	}
 
 	/**
 	 * Test case 6 in the Thesis
 	 * 
-	 * **/
+	 */
 	@Test
 	public void testForallRule1() throws RecognitionException, OWLOntologyCreationException {
 
@@ -297,7 +253,6 @@ public class TBoxReasonerTest {
 				+ qaHornSHIQ.getClipperReport().getQueryRewritingTime() + "  millisecond");
 
 		List<String> actualAnswers = qaHornSHIQ.getAnswers();
-
 
 		assertEquals(expected, actualAnswers.size());
 	}
