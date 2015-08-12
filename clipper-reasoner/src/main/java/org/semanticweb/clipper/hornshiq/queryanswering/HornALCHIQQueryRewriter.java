@@ -35,17 +35,11 @@ public class HornALCHIQQueryRewriter implements QueryRewriter {
 		this.enfContainer = new IndexedEnfContainer();
 		this.enfContainer.addAll(enfs);
 		this.inversePropertyOfAxioms = inversePropertyOfAxioms;
-		this.allValuesFromAxioms = new ArrayList<ClipperAtomSubAllAxiom>();
+		this.allValuesFromAxioms = new ArrayList<>();
 		ucq = new HashSet<CQ>();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.semanticweb.clipper.hornshiq.queryanswering.QueryRewriter#rewrite
-	 * (org.semanticweb.clipper.hornshiq.rule.CQ)
-	 */
+
 	@Override
 	public Set<CQ> rewrite(CQ query) {
 		rewrite_recursive(query);
@@ -54,12 +48,12 @@ public class HornALCHIQQueryRewriter implements QueryRewriter {
 
 	public void rewrite_recursive(CQ q1) {
 
-		// UPDATE 12 March 2012
 		ucq.add(q1);
 		CQ q = preprocessQuery(q1);
-		if (!q1.equals(q))
-			ucq.add(q);
-		// END OF UPDATE
+		if (!q1.equals(q)){
+            ucq.add(q);
+        }
+
 		for (Variable x : q.getNonDistinguishedVars()) {
 			if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 				System.out.println("% Choose variable:" + x);

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.semanticweb.clipper</groupId>
     <version>0.3.0-SNAPSHOT</version>
-    <artifactId>clipper-parent</artifactId>
+    <artifactId>clipper</artifactId>
     <packaging>pom</packaging>
 
     <modules>
@@ -14,7 +14,7 @@
     </modules>
 
     <name>clipper</name>
-    <description>clipper reasoner.</description>
+    <description>clipper reasoner</description>
     <url>http://www.kr.tuwien.ac.at/research/systems/clipper/</url>
 
     <inceptionYear>2011</inceptionYear>
@@ -25,7 +25,6 @@
             <id>ghxiao</id>
         </developer>
     </developers>
-
 
     <prerequisites>
         <maven>3.2.1</maven>
@@ -38,6 +37,7 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
@@ -90,7 +90,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.version>0.3-SNAPSHOT</project.version>
     </properties>
-
 
     <repositories>
         <repository>

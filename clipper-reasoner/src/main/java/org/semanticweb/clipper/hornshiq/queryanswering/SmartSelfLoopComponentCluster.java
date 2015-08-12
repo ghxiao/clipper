@@ -19,6 +19,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * This class pre computes all the possible sets of variables in the CQGraph, such that each set
  * can be possibly merged to one variable in one step of query rewriting
+ *
+ * TODO: ongoing work
  */
 public class SmartSelfLoopComponentCluster implements SelfLoopComponentCluster {
 

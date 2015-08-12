@@ -21,13 +21,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-
-/**
- * TODO: Ongoing  work
- */
 public class CQGraphRewriter implements QueryRewriter {
 
-    // final Logger log = LoggerFactory.getLogger(CQGraphRewriter.class);
     private final Logger log = LoggerFactory.getLogger(CQGraphRewriter.class);
 
     CQContainmentCheckUnderLIDs checker;

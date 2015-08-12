@@ -107,7 +107,6 @@ public class HornALCHIQQueryRewriterTest {
     }
     /**
      * Test case 4
-     * @throws RecognitionException
      */
     @Test
     public void testQueryRewriting4() throws RecognitionException, OWLOntologyCreationException {
@@ -139,6 +138,10 @@ public class HornALCHIQQueryRewriterTest {
         //ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
         qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
         //qaHornSHIQ.setQueryRewriter("new");
+
+        // IMPORTANT: use the old Query Rewriter
+        qaHornSHIQ.setQueryRewriter("old");
+
         ClipperManager.getInstance().setVerboseLevel(1);
 
         qaHornSHIQ.setDatalogFileName(tmpDatalogFile);

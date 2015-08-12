@@ -25,7 +25,7 @@ import static org.junit.Assert.assertTrue;
  * 
  * Test all cases when rewriting step can be applicable. See more in the thesis.
  */
-public class HSHIQQueryRewriterTest2 {
+public class HornALCHIQQueryRewriterTest2 {
 
 	TIntHashSet s1; // {11}
 	TIntHashSet s2; // {2}
@@ -219,12 +219,12 @@ public class HSHIQQueryRewriterTest2 {
 		// List<Term> term4= new ArrayList<>();
 		NonDLPredicate q = new NonDLPredicate(0, 1);
 
-		List<Term> t = new ArrayList<Term>();
+		List<Term> t = new ArrayList<>();
 		t.add(x0);
 		Atom head = new Atom(q, t);
 		cq.setHead(head);
 
-		List<Term> terms0 = new ArrayList<Term>();
+		List<Term> terms0 = new ArrayList<>();
 		terms0.add(x0);
 		terms0.add(x1);
 
@@ -483,28 +483,27 @@ public class HSHIQQueryRewriterTest2 {
 		System.out.println("Input query:" + cq);
 
 		// create enfs
-		Set<EnforcedRelation> enfs = new HashSet<EnforcedRelation>();
-		TIntHashSet cbs34 = new TIntHashSet();
-		cbs34.add(3);
-		cbs34.add(4);
-		TIntHashSet cbs3 = new TIntHashSet();
-		cbs3.add(3);
-		TIntHashSet rs4 = new TIntHashSet();
-		rs4.add(4);
-		TIntHashSet rs3 = new TIntHashSet();
-		rs3.add(3);
+		Set<EnforcedRelation> enfs = new HashSet<>();
+		TIntHashSet cbs34 = new TIntHashSet(new int[]{3,4});
+
+		TIntHashSet cbs3 = new TIntHashSet(new int[]{3});
+
+		TIntHashSet rs4 = new TIntHashSet(new int[]{4});
+
+		TIntHashSet rs3 = new TIntHashSet(new int[]{3});
+
 		EnforcedRelation enf_34_4_3 = new EnforcedRelation(cbs34, rs3, cbs3);
 		enfs.add(enf_34_4_3);
 
-		TIntHashSet cbs2 = new TIntHashSet();
-		cbs2.add(5);
-		TIntHashSet rs8 = new TIntHashSet();
-		rs8.add(8);
+		TIntHashSet cbs2 = new TIntHashSet(new int[]{5});
+
+		TIntHashSet rs8 = new TIntHashSet(new int[]{8});
+
 		EnforcedRelation enf_2_8_3 = new EnforcedRelation(cbs2, rs8, cbs3);
 		enfs.add(enf_2_8_3);
 
-		// creat InversePropertyAxioms
-		List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<ClipperInversePropertyOfAxiom>();
+		// create InversePropertyAxioms
+		List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms = new ArrayList<>();
 		ClipperInversePropertyOfAxiom invAxiom1 = new ClipperInversePropertyOfAxiom(4, 6);
 		inversePropertyOfAxioms.add(invAxiom1);
 
@@ -517,6 +516,7 @@ public class HSHIQQueryRewriterTest2 {
 		Set<CQ> ucq = qr.getUcq();
 		for (CQ query : ucq)
 			System.out.println(query);
+
 		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString("q0(X2) :- r6(X1,d1), c2(X2), c3(d1), c3(X1), r4(X2,X1), c5(X2).");
 		CQ cq1 = parser.getCq();
@@ -579,8 +579,9 @@ public class HSHIQQueryRewriterTest2 {
 		System.out.println("Rewriting queries:");
 		qr.rewrite(cq);
 		Set<CQ> ucq = qr.getUcq();
-		for (CQ query : ucq)
-			System.out.println(query);
+		for (CQ query : ucq){
+            System.out.println(query);
+        }
 		InternalCQParser parser = new InternalCQParser();
 		parser.setQueryString("q0(X2) :- r6(X1,d1), c2(X2), c3(d1), c3(X1), r4(X2,X1), c5(X2).");
 		CQ cq1 = parser.getCq();
