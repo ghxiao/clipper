@@ -1,5 +1,7 @@
 # Clipper Reasoner
 
+[![Build Status](https://travis-ci.org/ghxiao/clipper.svg?branch=master)](https://travis-ci.org/ghxiao/clipper)
+
 ## Introduction 
 
 Clipper is a DL reasoner for conjunctive query answering over Horn-SHIQ ontology via query rewriting. 
