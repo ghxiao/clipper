@@ -79,21 +79,17 @@ public class SparqlToCQConverter {
 
 		if (triple.getPredicate().getURI()
 				.equals(OWLRDFVocabulary.RDF_TYPE.toString())) {
-			return new Atom(compileUnaryPredicate(triple.getObject(), 1), //
+			return new Atom(compileUnaryPredicate(triple.getObject()), //
 					compileTerm(triple.getSubject()));
 		} else {
-			return new Atom(compileBinaryPredicate(triple.getPredicate(), 2), //
+			return new Atom(compileBinaryPredicate(triple.getPredicate()), //
 					compileTerm(triple.getSubject()), //
 					compileTerm(triple.getObject()));
 		}
 
 	}
 
-	/**
-	 * @param predicate
-	 * @return
-	 */
-	private DLPredicate compileUnaryPredicate(Node predicate, int arity) {
+	private DLPredicate compileUnaryPredicate(Node predicate) {
 
 		if (predicate.isURI()) {
 			String uri = predicate.getURI();
@@ -105,11 +101,8 @@ public class SparqlToCQConverter {
 		}
 	}
 
-	/**
-	 * @param predicate
-	 * @return
-	 */
-	private DLPredicate compileBinaryPredicate(Node predicate, int arity) {
+
+	private DLPredicate compileBinaryPredicate(Node predicate) {
 
 		if (predicate.isURI()) {
 			String uri = predicate.getURI();
@@ -132,16 +125,16 @@ public class SparqlToCQConverter {
 				return new Constant(node.toString());
 		} else if (node.isVariable()) {
 			String name = node.getName();
-			return new Variable(name);
+
+            // in Datalog/DLV, variable names are capitalized
+            String capitalizedName = name.substring(0, 1).toUpperCase() + name.substring(1);
+
+			return new Variable(capitalizedName);
 		} else {
 			throw new IllegalArgumentException(node.toString());
 		}
 	}
 
-	/**
-	 * @param uri
-	 * @return
-	 */
 	private String quote(String uri) {
 		final String quotedIRI = "<" + uri + ">";
 		return quotedIRI;

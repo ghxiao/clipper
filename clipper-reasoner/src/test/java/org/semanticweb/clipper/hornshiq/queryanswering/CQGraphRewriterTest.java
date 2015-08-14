@@ -388,43 +388,6 @@ public class CQGraphRewriterTest {
 		new CQGraphRewriterTest().test();
 	}
 
-	// @Test
-	// public void testTransMap() {
-	// Multimap<Tuple<Pair<Variable>, Integer>, Integer> mmap =
-	// HashMultimap.create();
-	// Variable x1 = new Variable(1);
-	// Variable x2 = new Variable(2);
-	// Variable x3 = new Variable(3);
-	//
-	// putAll(mmap, x1, x2, 2, ImmutableList.of(2, 4));
-	// putAll(mmap, x1, x2, 4, ImmutableList.of(4, 6, 8));
-	// putAll(mmap, x1, x3, 6, ImmutableList.of(6, 8, 10));
-	//
-	// Set<Tuple<Pair<Variable>, Integer>> allKeys = mmap.keySet();
-	//
-	// int i = 0;
-	//
-	// for (Set<Tuple<Pair<Variable>, Integer>> keys : Sets.powerSet(allKeys)) {
-	// Multimap<Tuple<Pair<Variable>, Integer>, Integer> filteredMap =
-	// Multimaps.filterKeys(mmap,
-	// Predicates.in(keys));
-	// List<Tuple<Pair<Variable>, Integer>> lstKeys = Lists.newArrayList();
-	// List<Set<Integer>> candidates = Lists.newArrayList();
-	// for (Tuple<Pair<Variable>, Integer> key : filteredMap.keySet()) {
-	// lstKeys.add(key);
-	// candidates.add(Sets.newHashSet(filteredMap.get(key)));
-	// }
-	// Set<List<Integer>> cartesianProduct = Sets.cartesianProduct(candidates);
-	// int t = 0;
-	// // System.out.print(lstKeys);
-	// for (List<Integer> replacement : cartesianProduct) {
-	// System.out.println(lstKeys + " -> " + replacement);
-	// t++;
-	// }
-	// }
-	//
-	// }
-
 	@Test
 	public void testGraph() {
 		DirectedOrderedSparseMultigraph<Integer, String> graph = new DirectedOrderedSparseMultigraph<Integer, String>();

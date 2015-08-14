@@ -239,7 +239,7 @@ public class CompleteExamplesTest {
 
         OWLOntology ontology = Ontology(owlOntologyManager,
                 // TBox
-                SubObjectPropertyOf(ObjectProperty(r1), ObjectInverseOf(ObjectProperty(r1))),
+                SubObjectPropertyOf(ObjectProperty(r), ObjectInverseOf(ObjectProperty(r))),
                 TransitiveObjectProperty(ObjectProperty(r)),
                 SubClassOf(Class(a), ObjectSomeValuesFrom(ObjectProperty(r), Class(b))),
                 SubClassOf(Class(b), ObjectSomeValuesFrom(ObjectProperty(r), Class(c))),
@@ -249,7 +249,7 @@ public class CompleteExamplesTest {
         );
 
         String sparqlString = "PREFIX : <http://ghxiao.org/onto/> " +
-                "SELECT ?x {" +
+                "SELECT ?X1 {" +
                 "?x a :A. ?y a :C. ?z a :D. " +
                 "?x :r ?y. ?y :r ?z " +
                 "}";
