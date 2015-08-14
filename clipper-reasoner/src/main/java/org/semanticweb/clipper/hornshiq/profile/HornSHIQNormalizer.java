@@ -365,7 +365,7 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
         expression.accept(renderer);
 
         String s = writer.toString();
-        String newName = s.replaceAll("\\s+", "_");
+        String newName = s.replaceAll("\\(","").replaceAll("\\)","").replaceAll("\\s+", "_");
 
         IRI iri;
 
