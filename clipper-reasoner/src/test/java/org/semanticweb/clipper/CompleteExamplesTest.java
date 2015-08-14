@@ -249,7 +249,7 @@ public class CompleteExamplesTest {
         );
 
         String sparqlString = "PREFIX : <http://ghxiao.org/onto/> " +
-                "SELECT ?X1 {" +
+                "SELECT ?x {" +
                 "?x a :A. ?y a :C. ?z a :D. " +
                 "?x :r ?y. ?y :r ?z " +
                 "}";

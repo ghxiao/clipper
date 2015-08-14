@@ -3,6 +3,7 @@ package org.semanticweb.clipper.hornshiq.cli;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.semanticweb.clipper.cqparser.CQParser;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
@@ -21,6 +22,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 // May put into CLI in the future, now just for the test
+@Ignore
 public class Ucq2SqlConverterTest {
 
 	@Test

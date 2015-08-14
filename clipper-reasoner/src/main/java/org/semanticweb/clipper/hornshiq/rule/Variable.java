@@ -23,8 +23,9 @@ public class Variable implements Term {
 
 		if (name != null)
 			return name;
-
-		return "_" + index;
+        // TODO: check, this may cause name collision
+        return "X" + index;
+		//return "X" + index;
 	}
 
 	@Override

@@ -1,10 +1,13 @@
 package org.semanticweb.clipper.hornshiq.cli;
 
+import org.junit.Ignore;
 import org.junit.Test;
+
 
 public class CommandRewriteTest {
 
 	@Test
+    @Ignore
 	public void testSparql() {
 
 		String[] args = { "rewrite", "src/test/resources/lubm-ex-20/LUBM-ex-20.owl",
@@ -45,6 +48,7 @@ public class CommandRewriteTest {
 	}
 	
 	@Test
+    @Ignore
 	public void testCQ() {
 
 		String[] args = { "rewrite", "src/test/resources/lubm-ex-20/LUBM-ex-20.owl",
