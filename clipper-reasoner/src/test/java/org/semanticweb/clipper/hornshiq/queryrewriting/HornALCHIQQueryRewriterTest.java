@@ -1,4 +1,4 @@
-package org.semanticweb.clipper.hornshiq.queryanswering;
+package org.semanticweb.clipper.hornshiq.queryrewriting;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
@@ -6,6 +6,9 @@ import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
 import org.junit.Test;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
+import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;

@@ -1,4 +1,4 @@
-package org.semanticweb.clipper.hornshiq.queryanswering;
+package org.semanticweb.clipper.hornshiq.queryrewriting;
 
 import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.hornshiq.rule.Variable;

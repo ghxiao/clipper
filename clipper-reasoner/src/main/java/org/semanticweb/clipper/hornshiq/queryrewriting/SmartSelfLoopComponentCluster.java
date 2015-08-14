@@ -1,9 +1,11 @@
-package org.semanticweb.clipper.hornshiq.queryanswering;
+package org.semanticweb.clipper.hornshiq.queryrewriting;
 
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
 import org.apache.commons.collections15.Buffer;
 import org.apache.commons.collections15.buffer.UnboundedFifoBuffer;
+import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
+import org.semanticweb.clipper.hornshiq.queryanswering.IndexedEnfContainer;
 import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
 import org.semanticweb.clipper.util.BitSetUtilOpt;

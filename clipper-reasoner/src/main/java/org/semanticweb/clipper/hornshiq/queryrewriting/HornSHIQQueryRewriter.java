@@ -1,4 +1,4 @@
-package org.semanticweb.clipper.hornshiq.queryanswering;
+package org.semanticweb.clipper.hornshiq.queryrewriting;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
@@ -8,6 +8,9 @@ import com.google.common.collect.Sets;
 import gnu.trove.set.hash.TIntHashSet;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
+import org.semanticweb.clipper.hornshiq.queryanswering.CQContainmentCheckUnderLIDs;
+import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
+import org.semanticweb.clipper.hornshiq.queryanswering.IndexedEnfContainer;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
@@ -22,9 +25,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class CQGraphRewriter implements QueryRewriter {
+public class HornSHIQQueryRewriter implements QueryRewriter {
 
-    private final Logger log = LoggerFactory.getLogger(CQGraphRewriter.class);
+    private final Logger log = LoggerFactory.getLogger(HornSHIQQueryRewriter.class);
 
     CQContainmentCheckUnderLIDs checker;
 
@@ -34,15 +37,13 @@ public class CQGraphRewriter implements QueryRewriter {
     Multimap<Integer, Integer> transSuperRole2SubRolesMmap;
 
     List<CQGraph> rewrittenCQGraphs;
-//    List<CQ> rewrittenCQs;
 
     private SelfLoopComponentCluster slcc;
 
-    public CQGraphRewriter(ClipperHornSHIQOntology ontology, IndexedEnfContainer enfs) {
+    public HornSHIQQueryRewriter(ClipperHornSHIQOntology ontology, IndexedEnfContainer enfs) {
         this.ontology = ontology;
         this.enfs = enfs;
 
-        //checker = new CQGraphHomomorphismChecker();
         checker = new CQContainmentCheckUnderLIDs();
 
         List<ClipperSubPropertyAxiom> subPropertyAxioms = ontology.computeNonSimpleSubPropertyClosure();
@@ -56,10 +57,10 @@ public class CQGraphRewriter implements QueryRewriter {
     }
 
     /**
-     * rewrite a CQ graph into a collection of CQ graphs
+     * rewrites a CQ graph into a collection of CQ graphs
      *
      * @param g input CQ graph
-     * @return
+     * @return rewritten CQ graphs
      */
     public List<CQGraph> rewrite(CQGraph g) {
         log.debug("rewrite(CQGraph g)");
@@ -76,9 +77,8 @@ public class CQGraphRewriter implements QueryRewriter {
     }
 
     /**
-     * rewrite a CQ graph: recursive entry
+     * rewrites a CQ graph: recursive entry
      *
-     * @param g
      */
     private void rewrite_recursive(CQGraph g) {
 
@@ -87,16 +87,13 @@ public class CQGraphRewriter implements QueryRewriter {
         log.debug("cq(g) = {}", g.toCQ());
 
         rewrittenCQGraphs.add(g);
-        //rewrittenCQs.add(g.toCQ());
 
         Set<Set<Variable>> selfLoopComponents = slcc.transform(g);
 
         for (Set<Variable> component : selfLoopComponents) {
-            for (Set<Variable> leaves : Sets.powerSet(component)) {
-                if (!leaves.isEmpty()) {
-                    rewrite(g, leaves);
-                }
-            }
+            Sets.powerSet(component).stream().filter(leaves -> !leaves.isEmpty()).forEach(leaves -> {
+                rewrite(g, leaves);
+            });
         }
     }
 
@@ -143,7 +140,7 @@ public class CQGraphRewriter implements QueryRewriter {
             Set<List<Integer>> cartesianProduct = Sets.cartesianProduct(candidates);
 
             /**
-             * For each atom α=s(y,x) in ρ, where x∈Vl,y̸∈Vl is
+             * For each atom α = s(y,x) in ρ, where x ∈ Vl,y ∉ Vl is
              * arbitrary and s is non-simple, either leave α untouched or replace it by two atoms r(y, u), r(u, x),
              * where u is a fresh variable and r is a transitive role with r ⊑∗T s.
              */
@@ -164,13 +161,8 @@ public class CQGraphRewriter implements QueryRewriter {
     }
 
     /**
-     *
      * Computes the new rewriting with the given parameters
      *
-     * @param g
-     * @param leaves
-     * @param edges
-     * @param map
      */
     private void rewrite(CQGraph g, Collection<Variable> leaves, List<CQGraphEdge> edges, Map<CQGraphEdge, Integer> map) {
 
@@ -208,7 +200,6 @@ public class CQGraphRewriter implements QueryRewriter {
                 CQGraph rewrittenCQGraph = g.clip(leaves, edges, map, type);
 
                 CQ cq = rewrittenCQGraph.toCQ();
-                // if (!redundant(g1)) {
 
                 boolean redundant = false;
 
@@ -217,7 +208,6 @@ public class CQGraphRewriter implements QueryRewriter {
                 for (CQGraph graph : rewrittenCQGraphs) {
                     if (checker.isContainedIn(rewrittenCQGraph, graph)) {
                         redundant = true;
-
                         break;
                     } else if (checker.isContainedIn(graph, rewrittenCQGraph)) {
                         toRemove.add(graph);
@@ -242,12 +232,12 @@ public class CQGraphRewriter implements QueryRewriter {
 
 
     /**
-     * @param tmp
+     * @param set an instance of TIntHashSet
      * @return
      */
-    private List<Integer> toList(TIntHashSet tmp) {
+    private List<Integer> toList(TIntHashSet set) {
         List<Integer> type = Lists.newArrayList();
-        for (Integer t : tmp.toArray()) {
+        for (Integer t : set.toArray()) {
             type.add(t);
         }
         return type;

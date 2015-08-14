@@ -1,5 +1,8 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
+import org.semanticweb.clipper.hornshiq.queryrewriting.CQGraph;
+import org.semanticweb.clipper.hornshiq.queryrewriting.HomomorphismUtilities;
+import org.semanticweb.clipper.hornshiq.queryrewriting.SubstitutionBuilder;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.Predicate;

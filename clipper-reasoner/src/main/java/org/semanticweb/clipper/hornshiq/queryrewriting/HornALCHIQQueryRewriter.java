@@ -1,9 +1,13 @@
-package org.semanticweb.clipper.hornshiq.queryanswering;
+package org.semanticweb.clipper.hornshiq.queryrewriting;
 
 import com.google.common.collect.Lists;
 import gnu.trove.set.hash.TIntHashSet;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
+import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
+import org.semanticweb.clipper.hornshiq.queryanswering.IndexedEnfContainer;
+import org.semanticweb.clipper.hornshiq.queryrewriting.QueryRewriter;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.Variable;

@@ -3,6 +3,8 @@ package org.semanticweb.clipper.hornshiq.queryanswering;
 import com.google.common.base.Joiner;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.semanticweb.clipper.hornshiq.queryrewriting.CQGraph;
+import org.semanticweb.clipper.hornshiq.queryrewriting.SmartSelfLoopComponentCluster;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 import org.semanticweb.clipper.hornshiq.rule.Variable;

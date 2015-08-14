@@ -1,4 +1,4 @@
-package org.semanticweb.clipper.hornshiq.queryanswering;
+package org.semanticweb.clipper.hornshiq.queryrewriting;
 
 import edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph;
 import gnu.trove.set.hash.TIntHashSet;
@@ -8,6 +8,8 @@ import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubSomeAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperTransitivityAxiom;
+import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
+import org.semanticweb.clipper.hornshiq.queryanswering.IndexedEnfContainer;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 
@@ -17,7 +19,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class CQGraphRewriterTest {
+public class HornSHIQQueryRewriterTest {
 
     /**
      * Example 2 in TR
@@ -54,7 +56,7 @@ public class CQGraphRewriterTest {
                 // B, A3
                 new TIntHashSet(new int[] { 5, 7 })));
 
-        CQGraphRewriter rewriter = new CQGraphRewriter(ontology, enfs);
+        HornSHIQQueryRewriter rewriter = new HornSHIQQueryRewriter(ontology, enfs);
 
         /*
          * q(X1) :- A1(X1), A2(X2), A3(X3), A4(X4), r1(X1, X4), r2(X1, X2), r3(X2, X3), r4(X3, X4).
@@ -128,7 +130,7 @@ public class CQGraphRewriterTest {
                 // B
                 new TIntHashSet(new int[] { 7 })));
 
-        CQGraphRewriter rewriter = new CQGraphRewriter(ontology, enfs);
+        HornSHIQQueryRewriter rewriter = new HornSHIQQueryRewriter(ontology, enfs);
 
         /*
          * q(X1) :- C(X1), B(X2), r1(X1, X2), r1(X3, X2), r2(X2, X4).
@@ -200,7 +202,7 @@ public class CQGraphRewriterTest {
                 // B
                 new TIntHashSet(new int[]{7})));
 
-        CQGraphRewriter rewriter = new CQGraphRewriter(ontology, enfs);
+        HornSHIQQueryRewriter rewriter = new HornSHIQQueryRewriter(ontology, enfs);
 
         /*
          * q(X1) :- C(X1), B(X2), r1(X1, X2), r1(X3, X2), r2(X2, X4).
@@ -272,7 +274,7 @@ public class CQGraphRewriterTest {
                 // C, D
                 new TIntHashSet(new int[] { 7 })));
 
-        CQGraphRewriter rewriter = new CQGraphRewriter(ontology, enfs);
+        HornSHIQQueryRewriter rewriter = new HornSHIQQueryRewriter(ontology, enfs);
 
         /*
          * ρ : q(x) ← A(x), r(x, y), C(y), D(z), r(y, z).
@@ -316,7 +318,7 @@ public class CQGraphRewriterTest {
 				new TIntHashSet(new int[] { 0, 1, 2, 3 }), //
 				new TIntHashSet(new int[] { 0, 4, 5 })));
 
-		CQGraphRewriter rewriter = new CQGraphRewriter(ontology, enfs);
+		HornSHIQQueryRewriter rewriter = new HornSHIQQueryRewriter(ontology, enfs);
 
 		String s = "q(X1)  :- c2(X1), r2(X1, X2), c4(X2), c5(X3), r2(X2, X3).";
 		System.out.println(s);
@@ -363,7 +365,7 @@ public class CQGraphRewriterTest {
                 new TIntHashSet(new int[]{0, 1, 6}), //
                 new TIntHashSet(new int[]{0, 7 })));
 
-		CQGraphRewriter rewriter = new CQGraphRewriter(ontology, enfs);
+		HornSHIQQueryRewriter rewriter = new HornSHIQQueryRewriter(ontology, enfs);
 
 		String s = "q(X1)  :-  r2(X1, X2),  r4(X1, X3), r6(X1, X4).";
 		System.out.println(s);
@@ -385,7 +387,7 @@ public class CQGraphRewriterTest {
 	}
 
 	public static void main(String[] args) throws IOException {
-		new CQGraphRewriterTest().test();
+		new HornSHIQQueryRewriterTest().test();
 	}
 
 	@Test

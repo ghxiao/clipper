@@ -23,6 +23,9 @@ import org.semanticweb.clipper.hornshiq.profile.HornALCHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQTransNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQNormalizer;
 import org.semanticweb.clipper.hornshiq.profile.HornSHIQProfile;
+import org.semanticweb.clipper.hornshiq.queryrewriting.HornALCHIQQueryRewriter;
+import org.semanticweb.clipper.hornshiq.queryrewriting.HornSHIQQueryRewriter;
+import org.semanticweb.clipper.hornshiq.queryrewriting.QueryRewriter;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 import org.semanticweb.clipper.sparql.SparqlToCQConverter;
@@ -294,7 +297,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 		if (queryRewriter.equals("old")) {
 			qr = new HornALCHIQQueryRewriter(tb.getEnfContainer(), tb.getInverseRoleAxioms(), tb.getAllValuesFromAxioms());
 		} else {
-			qr = new CQGraphRewriter(onto_bs, tb.getEnfContainer());
+			qr = new HornSHIQQueryRewriter(onto_bs, tb.getEnfContainer());
 		}
 		return qr;
 	}

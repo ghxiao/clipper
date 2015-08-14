@@ -1,7 +1,9 @@
-package org.semanticweb.clipper.hornshiq.queryanswering;
+package org.semanticweb.clipper.hornshiq.queryrewriting;
 
 import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
+import org.semanticweb.clipper.hornshiq.queryanswering.CQContainmentCheckUnderLIDs;
+import org.semanticweb.clipper.hornshiq.queryrewriting.CQGraph;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 import org.semanticweb.clipper.hornshiq.rule.Term;

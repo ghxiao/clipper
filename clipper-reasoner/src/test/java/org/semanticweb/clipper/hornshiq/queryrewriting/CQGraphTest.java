@@ -1,4 +1,4 @@
-package org.semanticweb.clipper.hornshiq.queryanswering;
+package org.semanticweb.clipper.hornshiq.queryrewriting;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
@@ -7,6 +7,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.semanticweb.clipper.hornshiq.queryrewriting.CQGraph;
+import org.semanticweb.clipper.hornshiq.queryrewriting.CQGraphEdge;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
@@ -568,15 +570,15 @@ public class CQGraphTest {
 	}
 
 	/*
-	 * DEBUG (CQGraphRewriter.java:175) - cq(g) = q(X1) :- c2(X1), c5(X3),
+	 * DEBUG (HornSHIQQueryRewriter.java:175) - cq(g) = q(X1) :- c2(X1), c5(X3),
 	 * r2(X2,X3), c4(X2), r2(X1,X2).
 	 * 
-	 * DEBUG (CQGraphRewriter.java:176) - edges = [<X1, X2>[2]]; map = {<X1,
+	 * DEBUG (HornSHIQQueryRewriter.java:176) - edges = [<X1, X2>[2]]; map = {<X1,
 	 * X2>[2]=2}
 	 * 
-	 * DEBUG (CQGraphRewriter.java:177) - type = [3, 0]
+	 * DEBUG (HornSHIQQueryRewriter.java:177) - type = [3, 0]
 	 * 
-	 * DEBUG (CQGraphRewriter.java:183) - -- new cq = q(X1) :- c2(X1), c3(X3).
+	 * DEBUG (HornSHIQQueryRewriter.java:183) - -- new cq = q(X1) :- c2(X1), c3(X3).
 	 */
 	@Test
 	public void testClip14() {
