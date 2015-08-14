@@ -151,7 +151,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 		TBoxReasoner tb = saturateTBox();
 
 
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology, cqFormatter);
+		ReductionToDatalog reduction = new ReductionToDatalog(clipperOntology, cqFormatter);
 		// reduction.setNamingStrategy(this.namingStrategy);
 		reduction.setCoreImps(tb.getImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getEnfContainer().getEnfs());
@@ -238,7 +238,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 	 * @param tb
 	 */
 	private void reduceOntologyToDatalog(TBoxReasoner tb) {
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology, cqFormatter);
+		ReductionToDatalog reduction = new ReductionToDatalog(clipperOntology, cqFormatter);
 		// reduction.setNamingStrategy(this.namingStrategy);
 		reduction.setCoreImps(tb.getImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getEnfContainer().getEnfs());
@@ -249,7 +249,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 	 * @param tb
 	 */
 	private void reduceTBoxToDatalog(TBoxReasoner tb) {
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology, cqFormatter);
+		ReductionToDatalog reduction = new ReductionToDatalog(clipperOntology, cqFormatter);
 		// reduction.setNamingStrategy(this.namingStrategy);
 		reduction.setCoreImps(tb.getImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getEnfContainer().getEnfs());
@@ -261,7 +261,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 	 * @param tb
 	 */
 	private void reduceABoxToDatalog(TBoxReasoner tb) {
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(clipperOntology, cqFormatter);
+		ReductionToDatalog reduction = new ReductionToDatalog(clipperOntology, cqFormatter);
 		// reduction.setNamingStrategy(this.namingStrategy);
 		reduction.setCoreImps(tb.getImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getEnfContainer().getEnfs());
@@ -417,7 +417,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 				clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
 				// end of evaluating reasoning time
 				// //////////////////////////////////////////////
-				// ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(
+				// ReductionToDatalog reduction = new ReductionToDatalog(
 				// onto_bs);
 				// // reduction.setNamingStrategy(this.namingStrategy);
 				// reduction

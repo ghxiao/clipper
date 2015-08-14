@@ -24,7 +24,7 @@ import java.io.PrintStream;
 import static org.junit.Assert.assertTrue;
 
 @Ignore // TBoxReasoningOpt
-public class ReductionToDatalogOptTest {
+public class ReductionToDatalogTest {
 	@Test
 	public void testImps() throws OWLOntologyCreationException {
 		File file = new File("TestCaseOntologies/ruleR1Test.owl");
@@ -62,7 +62,7 @@ public class ReductionToDatalogOptTest {
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+		ReductionToDatalog reduction = new ReductionToDatalog(cqFormatter);
 
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
@@ -120,7 +120,7 @@ public class ReductionToDatalogOptTest {
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+		ReductionToDatalog reduction = new ReductionToDatalog(cqFormatter);
 
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
@@ -178,7 +178,7 @@ public class ReductionToDatalogOptTest {
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+		ReductionToDatalog reduction = new ReductionToDatalog(cqFormatter);
 
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
@@ -237,7 +237,7 @@ public class ReductionToDatalogOptTest {
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+		ReductionToDatalog reduction = new ReductionToDatalog(cqFormatter);
 
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
@@ -295,7 +295,7 @@ public class ReductionToDatalogOptTest {
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+		ReductionToDatalog reduction = new ReductionToDatalog(cqFormatter);
 
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
@@ -352,7 +352,7 @@ public class ReductionToDatalogOptTest {
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+		ReductionToDatalog reduction = new ReductionToDatalog(cqFormatter);
 
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
@@ -411,7 +411,7 @@ public class ReductionToDatalogOptTest {
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+		ReductionToDatalog reduction = new ReductionToDatalog(cqFormatter);
 
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
@@ -471,7 +471,7 @@ public class ReductionToDatalogOptTest {
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+		ReductionToDatalog reduction = new ReductionToDatalog(cqFormatter);
 
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
@@ -532,7 +532,7 @@ public class ReductionToDatalogOptTest {
 		TBoxReasoningOpt tb = new TBoxReasoningOpt(onto_bs);
 		tb.reasoning();
 		CQFormatter cqFormatter = new CQFormatter(NamingStrategy.LOWER_CASE_FRAGMENT);
-		ReductionToDatalogOpt reduction = new ReductionToDatalogOpt(cqFormatter);
+		ReductionToDatalog reduction = new ReductionToDatalog(cqFormatter);
 
 		reduction.setCoreImps(tb.getIndexedHornImpContainer().getImps());
 		reduction.setCoreEnfs(tb.getIndexedEnfContainer().getEnfs());
