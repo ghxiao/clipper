@@ -24,7 +24,7 @@ public class Variable implements Term {
 		if (name != null)
 			return name;
 
-		return "X" + index;
+		return "_" + index;
 	}
 
 	@Override

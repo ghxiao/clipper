@@ -20,6 +20,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 
 /**
@@ -38,7 +39,7 @@ public class CQGraphRewriter implements QueryRewriter {
     Multimap<Integer, Integer> transSuperRole2SubRolesMmap;
 
     List<CQGraph> rewrittenCQGraphs;
-    List<CQ> rewrittenCQs;
+//    List<CQ> rewrittenCQs;
 
     private SelfLoopComponentCluster slcc;
 
@@ -70,7 +71,7 @@ public class CQGraphRewriter implements QueryRewriter {
         log.debug("g = {}", g);
 
         rewrittenCQGraphs = Lists.newArrayList();
-        rewrittenCQs = Lists.newArrayList();
+        //rewrittenCQs = Lists.newArrayList();
 
         //slcc = new SmartSelfLoopComponentCluster(enfs);
         slcc = new NaiveSelfLoopComponentCluster();
@@ -91,7 +92,7 @@ public class CQGraphRewriter implements QueryRewriter {
         log.debug("cq(g) = {}", g.toCQ());
 
         rewrittenCQGraphs.add(g);
-        rewrittenCQs.add(g.toCQ());
+        //rewrittenCQs.add(g.toCQ());
 
         Set<Set<Variable>> selfLoopComponents = slcc.transform(g);
 
@@ -302,7 +303,6 @@ public class CQGraphRewriter implements QueryRewriter {
 
         return (visited.containsAll(leaves));
 
-
     }
 
     public List<CQGraph> getResult() {
@@ -312,6 +312,7 @@ public class CQGraphRewriter implements QueryRewriter {
     @Override
     public Collection<CQ> rewrite(CQ query) {
         rewrite(new CQGraph(query));
+        List<CQ> rewrittenCQs = rewrittenCQGraphs.stream().map(CQGraph::toCQ).collect(Collectors.toList());
         return rewrittenCQs;
     }
 }
