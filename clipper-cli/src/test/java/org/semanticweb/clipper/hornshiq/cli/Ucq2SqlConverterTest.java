@@ -21,11 +21,11 @@ import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.List;
 
-// May put into CLI in the future, now just for the test
-@Ignore
+// May be put into CLI in the future, now just for the test
 public class Ucq2SqlConverterTest {
 
 	@Test
+    @Ignore
 	public void test() throws OWLOntologyCreationException, URISyntaxException,
 			FileNotFoundException, IOException {
 
