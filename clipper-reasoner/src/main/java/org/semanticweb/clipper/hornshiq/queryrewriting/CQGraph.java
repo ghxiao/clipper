@@ -235,7 +235,6 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
         while(iterator.hasNext()){
             Variable variable = iterator.next();
             if(parentVertices.contains(variable)){
-                //iterator.remove();
                 iterator.set(newLeaf.asVariable());
             }
         }
@@ -323,25 +322,10 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
         return answerVariables.contains(variable);
     }
 
-    /**
-     * replace the old edge by a new edge, and transfer the roles from the old
-     * to the new
-     *
-     * @param oldEdge
-     * @param newEdge
-     */
-    private void replaceEdge(CQGraphEdge oldEdge, CQGraphEdge newEdge) {
-        this.removeEdge(oldEdge);
-        this.addEdge(newEdge);
-    }
-
     @Override
     public boolean removeVertex(Term vertex) {
         if (vertex.isVariable()) {
-            Variable v = (Variable) vertex;
-            // checkState(!isAnswerVariable(v));
-            // TODO: check
-            // this.answerVariables.remove(v);
+            Variable v = vertex.asVariable();
             this.termToConceptsMap.removeAll(v);
         }
 
@@ -385,7 +369,8 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
     }
 
     /**
-     * Gets all the incoming edges of the <code>vertices</code>, excluding the edges between <code>vertices</code>
+     * Gets all the incoming edges of the <code>vertices</code>, excluding the edges between
+     * <code>vertices</code>
      */
     public List<CQGraphEdge> getInEdges(Collection<? extends Term> vertices) {
         List<CQGraphEdge> inEdges = new ArrayList<>();
@@ -455,7 +440,7 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
     }
 
     public CQ toCQ() {
-        List<Atom> bodyAtoms = new ArrayList<Atom>();
+        List<Atom> bodyAtoms = new ArrayList<>();
         for (CQGraphEdge e : this.getEdges()) {
             Term firstVar = e.getSource();
             Term secondVar = e.getDest();
@@ -473,44 +458,31 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
         }
 
         for (Term vertex : this.getVertices()) {
-            for (int concept : getConcepts(vertex)) {
-                if (concept != 0) {
-                    DLPredicate c = new DLPredicate(concept, 1);
-                    bodyAtoms.add(new Atom(c, vertex));
-                }
-            }
+            getConcepts(vertex).stream()
+                    .filter(concept -> concept != 0)
+                    .forEach(concept -> {
+                        DLPredicate c = new DLPredicate(concept, 1);
+                        bodyAtoms.add(new Atom(c, vertex));
+                    });
         }
 
-        List<Term> answerVars = new ArrayList<Term>(answerVariables);
+        List<Term> answerVars = new ArrayList<>(answerVariables);
         Predicate headPredicate = new NonDLPredicate(this.headPredicateName);
         Atom head = new Atom(headPredicate, answerVars);
-        CQ cq = new CQ();
-        cq.setHead(head);
-        cq.setBody(bodyAtoms);
+        CQ cq = new CQ(head, bodyAtoms);
 
         return cq;
     }
 
-    public List<Variable> getAnswerVariables() {
-        return answerVariables;
-    }
-
     public Set<Variable> getNondistinguishedVariables() {
-
-        Set<Variable> ret = Sets.newHashSet();
-
-        for (Term term : this.getVertices()) {
-            if (term.isVariable() && !isAnswerVariable(term.asVariable())) {
-                ret.add(term.asVariable());
-            }
-        }
-
-        return ret;
+        return this.getVertices().stream()
+                .filter(term -> term.isVariable() && !isAnswerVariable(term.asVariable()))
+                .map(Term::asVariable)
+                .collect(Collectors.toSet());
     }
 
 
-    public Variable getFreshVariable() {
-
+    private Variable getFreshVariable() {
 
         if (maxVariableIndex < 0) {
             /*

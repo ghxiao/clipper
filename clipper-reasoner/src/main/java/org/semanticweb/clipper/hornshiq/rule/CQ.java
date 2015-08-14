@@ -16,7 +16,7 @@ public class CQ {
     Atom head;
     List<Atom> body;
 
-
+    @Deprecated
     public CQ() {
         head = new Atom();
         body = new ArrayList<>();

@@ -15,7 +15,6 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitor {
 
     final Logger log = LoggerFactory.getLogger(ClipperHornSHIQOntologyConverter.class);
 
-
     private ClipperHornSHIQOntology ontology;
 	private ClipperManager km;
 

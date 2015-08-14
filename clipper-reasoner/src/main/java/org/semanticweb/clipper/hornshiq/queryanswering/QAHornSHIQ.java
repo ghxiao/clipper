@@ -560,9 +560,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
         return this.execQuery();
     }
 
-
-	// =================================
-	@Override
+    @Override
 	public List<List<String>> execQuery() {
 
 		generateDatalog();
