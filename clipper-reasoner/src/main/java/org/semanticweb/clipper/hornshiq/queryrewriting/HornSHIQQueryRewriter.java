@@ -91,9 +91,9 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
         Set<Set<Variable>> selfLoopComponents = slcc.transform(g);
 
         for (Set<Variable> component : selfLoopComponents) {
-            Sets.powerSet(component).stream().filter(leaves -> !leaves.isEmpty()).forEach(leaves -> {
-                rewrite(g, leaves);
-            });
+            Sets.powerSet(component).stream()
+                    .filter(leaves -> !leaves.isEmpty())
+                    .forEach(leaves -> rewrite(g, leaves));
         }
     }
 
@@ -188,7 +188,7 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
 
             boolean mergeable = mergeable(g, enf, leaves);
 
-            log.debug("mergable = {}", mergeable);
+            log.debug("mergeable = {}", mergeable);
 
             if (mergeable) {
 
@@ -233,7 +233,7 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
 
     /**
      * @param set an instance of TIntHashSet
-     * @return
+     * @return a List of Integer
      */
     private List<Integer> toList(TIntHashSet set) {
         List<Integer> type = Lists.newArrayList();
@@ -246,10 +246,6 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
     /**
      * check whether the leaves can be merged into one single node
      *
-     * @param g
-     * @param enf
-     * @param leaves
-     * @return
      */
     private boolean mergeable(CQGraph g, EnforcedRelation enf, Collection<Variable> leaves) {
 
@@ -286,18 +282,15 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
             }
         }
 
-        return (visited.containsAll(leaves));
+        return visited.containsAll(leaves);
 
-    }
-
-    public List<CQGraph> getResult() {
-        return rewrittenCQGraphs;
     }
 
     @Override
     public Collection<CQ> rewrite(CQ query) {
         rewrite(new CQGraph(query));
-        List<CQ> rewrittenCQs = rewrittenCQGraphs.stream().map(CQGraph::toCQ).collect(Collectors.toList());
-        return rewrittenCQs;
+        return rewrittenCQGraphs.stream()
+                .map(CQGraph::toCQ)
+                .collect(Collectors.toList());
     }
 }

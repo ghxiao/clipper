@@ -7,6 +7,22 @@ import org.semanticweb.clipper.hornshiq.rule.Term;
  */
 public class CQGraphEdge {
 
+    private Term source, dest;
+
+    private Integer role;
+
+    public Term getSource() {
+        return this.source;
+    }
+
+    public Term getDest() {
+        return this.dest;
+    }
+
+    public Integer getRole() {
+        return this.role;
+    }
+
     public CQGraphEdge(Term source, Term dest, Integer role) {
         this.source = source;
         this.dest = dest;
@@ -17,28 +33,6 @@ public class CQGraphEdge {
     public String toString() {
         return "<" + source + ", " + dest + ">[" + role + "]";
     }
-
-
-    private Term source, dest;
-
-
-    private Integer role;
-
-
-    public Term getSource() {
-        return this.source;
-    }
-
-
-    public Term getDest() {
-        return this.dest;
-    }
-
-
-    public Integer getRole() {
-        return this.role;
-    }
-
 
     public boolean equals(Object o) {
         if (o == this) return true;
@@ -53,8 +47,7 @@ public class CQGraphEdge {
         if (this$dest == null ? other$dest != null : !this$dest.equals(other$dest)) return false;
         final Object this$role = this.role;
         final Object other$role = other.role;
-        if (this$role == null ? other$role != null : !this$role.equals(other$role)) return false;
-        return true;
+        return !(this$role == null ? other$role != null : !this$role.equals(other$role));
     }
 
     public int hashCode() {

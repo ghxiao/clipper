@@ -4,7 +4,6 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import edu.uci.ics.jung.graph.DirectedSparseMultigraph;
@@ -26,12 +25,14 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 
 /**
- * Direct Multigraph Representation of a Conjunctive Query
+ * Direct Multigraph Representation of a Conjunctive Query.
  * <p/>
- * Immutable. All the public methods have no side effects
+ * Immutable. All the public methods (except those from the super classes) have no side effects
  *
  * @author xiao
  */
@@ -43,10 +44,10 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
     /**
      * distinguished (answer, output) variables
      */
-    private List<Variable> answerVariables = Lists.newArrayList();
+    private List<Variable> answerVariables = new ArrayList<>();
 
     /**
-     * The labels of the vertices (a.k.a the map from the Variables to list of concepts)
+     * The labels of the vertices (a.k.a the map from the variables to list of concepts)
      */
     private Multimap<Term, Integer> termToConceptsMap = HashMultimap.create();
 
@@ -101,13 +102,11 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 
         this.getEdges().forEach(g::addEdge);
 
-        // g.roles.putAll(this.roles);
         g.termToConceptsMap.putAll(this.termToConceptsMap);
         g.answerVariables.addAll(this.answerVariables);
         g.headPredicateName = this.headPredicateName;
 
         return g;
-
     }
 
 
@@ -130,19 +129,12 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 
     private void focus0(Collection<Variable> leaves) {
         List<CQGraphEdge> outEdges = this.getOutEdges(leaves);
-        List<CQGraphEdge> revertedEdges = new ArrayList<>();
-        for (CQGraphEdge outEdge : outEdges) {
-            CQGraphEdge inEdge = inverseEdge(outEdge);
-            revertedEdges.add(inEdge);
-        }
 
-        for (CQGraphEdge outEdge : outEdges) {
-            this.removeEdge(outEdge);
-        }
+        List<CQGraphEdge> revertedEdges = outEdges.stream().map(this::inverseEdge).collect(toList());
 
-        for (CQGraphEdge revertedEdge : revertedEdges) {
-            this.addEdge(revertedEdge);
-        }
+        outEdges.forEach(this::removeEdge);
+
+        revertedEdges.forEach(this::addEdge);
     }
 
     /*
@@ -162,10 +154,6 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
                        Collection<CQGraphEdge> edges, //
                        Map<CQGraphEdge, Integer> map, //
                        List<Integer> type) {
-
-
-        boolean distinguished = false;
-
         Term newLeaf = computeNewLeaf(edges, map);
 
         replaceEdgesByTransitiveSubEdgePairs(edges, map);
@@ -178,7 +166,7 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
          * Let Vp ={y|∃r : r(y,x) ∈ body(ρ) ∧ x ∈ Vl ∧ y ∉ Vl}.
          */
         List<Term> parentVertices = inEdges.stream().map(CQGraphEdge::getSource)
-                                    .collect(Collectors.toList());
+                                    .collect(toList());
 
         leaves.stream().flatMap(term -> this.getIncidentEdges(term).stream())
                 .forEach(this::removeEdge);
@@ -246,16 +234,14 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
      */
     private void replaceEdgesByTransitiveSubEdgePairs(Collection<CQGraphEdge> edges, //
                                                       Map<CQGraphEdge, Integer> map) {
-        ArrayList<CQGraphEdge> copyOfEdges = Lists.newArrayList(edges);
+        ArrayList<CQGraphEdge> copyOfEdges = new ArrayList<>(edges);
 
-        for (CQGraphEdge edge : copyOfEdges) {
-            if(map.containsKey(edge)) {
-                Variable freshVar = getFreshVariable();
-                this.addEdge(new CQGraphEdge(edge.getSource(), freshVar, map.get(edge)));
-                this.addEdge(new CQGraphEdge(freshVar, edge.getDest(), map.get(edge)));
-                this.removeEdge(edge);
-            }
-        }
+        copyOfEdges.stream().filter(map::containsKey).forEach(edge -> {
+            Variable freshVar = getFreshVariable();
+            this.addEdge(new CQGraphEdge(edge.getSource(), freshVar, map.get(edge)));
+            this.addEdge(new CQGraphEdge(freshVar, edge.getDest(), map.get(edge)));
+            this.removeEdge(edge);
+        });
 
     }
 
@@ -264,7 +250,6 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
      * <p/>
      * if there are more than one such edges, an exception will be thrown
      *
-     * @param map
      */
     private Term computeNewLeaf(Collection<CQGraphEdge> edges, Map<CQGraphEdge, Integer> map) {
         Term ret = null;
@@ -287,39 +272,16 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
         return ret;
     }
 
-    private void mergeLeafVertices(Term vertex0, Collection<Variable> leafVertices, List<Integer> type,
-                                   boolean distinguished) {
-        Collection<CQGraphEdge> interLeafEdges = this.getInterEdges(leafVertices);
-        for (CQGraphEdge edge : interLeafEdges) {
-            this.removeEdge(edge);
-        }
-        for (Variable vertex : leafVertices) {
-            if (!vertex.equals(vertex0)) {
-                this.removeVertex(vertex);
-            }
-        }
-
-        getConcepts(vertex0).clear();
-        getConcepts(vertex0).addAll(type);
-        if (distinguished)
-            answerVariables.add(vertex0.asVariable());
+    /**
+     * @param vertex a term
+     * @return the concepts of the term
+     */
+    public Collection<Integer> getConcepts(Term vertex) {
+        return termToConceptsMap.get(vertex);
     }
 
-    /**
-     * @param parentVertex
-     * @return
-     */
-    public Collection<Integer> getConcepts(Term parentVertex) {
-        return termToConceptsMap.get(parentVertex);
-    }
-
-    /**
-     * @param variable
-     * @return
-     */
     public boolean isAnswerVariable(Term variable) {
-
-        return answerVariables.contains(variable);
+        return variable.isVariable() && answerVariables.contains(variable.asVariable());
     }
 
     @Override
@@ -350,7 +312,7 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
     }
 
     /**
-     * Gets all the outcoming edges of the <code>vertices</code>, excluding the edges between <code>vertices</code>
+     * Gets all the outgoing edges of the <code>vertices</code>, excluding the edges between <code>vertices</code>
      */
     public List<CQGraphEdge> getOutEdges(Collection<? extends Term> vertices) {
         List<CQGraphEdge> outEdges = new ArrayList<>();
@@ -387,12 +349,12 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
     }
 
     /**
-     * get the edges between the vertices,
+     * gets the edges between the vertices,
      * <p/>
      * NOTE that self loop edges (e=(v,v)) are excluded
      *
-     * @param vertices
-     * @return
+     * @param vertices input vertices
+     * @return edges
      */
     public Collection<CQGraphEdge> getInterEdges(Collection<? extends Term> vertices) {
         Set<CQGraphEdge> interEdges = Sets.newHashSet();
@@ -414,6 +376,8 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
         return interEdges;
     }
 
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("{ ");
@@ -454,7 +418,6 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
                     bodyAtoms.add(new Atom(r, secondVar, firstVar));
                 }
             }
-
         }
 
         for (Term vertex : this.getVertices()) {
@@ -469,16 +432,15 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
         List<Term> answerVars = new ArrayList<>(answerVariables);
         Predicate headPredicate = new NonDLPredicate(this.headPredicateName);
         Atom head = new Atom(headPredicate, answerVars);
-        CQ cq = new CQ(head, bodyAtoms);
 
-        return cq;
+        return new CQ(head, bodyAtoms);
     }
 
-    public Set<Variable> getNondistinguishedVariables() {
+    public Set<Variable> getNonAnswerVariables() {
         return this.getVertices().stream()
                 .filter(term -> term.isVariable() && !isAnswerVariable(term.asVariable()))
                 .map(Term::asVariable)
-                .collect(Collectors.toSet());
+                .collect(toSet());
     }
 
 
