@@ -52,22 +52,23 @@ public class HornSHIQNormalizer implements OWLAxiomVisitor {
 	}
 
 	@Override
-	public void vist(OWLSubAnnotationPropertyOfAxiom axiom) {
+	public void visit(OWLSubAnnotationPropertyOfAxiom axiom) {
 
 	}
 
 	@Override
-	public void vist(OWLAnnotationPropertyDomainAxiom axiom) {
+	public void visit(OWLAnnotationPropertyDomainAxiom axiom) {
 
 	}
 
 	@Override
-	public void vist(OWLAnnotationPropertyRangeAxiom axiom) {
+	public void visit(OWLAnnotationPropertyRangeAxiom axiom) {
 
 	}
 
+
 	@Override
-	public void vist(OWLSubClassOfAxiom axiom) {
+	public void visit(OWLSubClassOfAxiom axiom) {
 
 		OWLClassExpression subClass = axiom.getSubClass();
 		OWLClassExpression superClass = axiom.getSuperClass();
@@ -346,22 +347,22 @@ public class HornSHIQNormalizer implements OWLAxiomVisitor {
 	}
 
 	@Override
-	public void vist(OWLNegativeObjectPropertyAssertionAxiom axiom) {
+	public void visit(OWLNegativeObjectPropertyAssertionAxiom axiom) {
 		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	@Override
-	public void vist(OWLAsymmetricObjectPropertyAxiom axiom) {
+	public void visit(OWLAsymmetricObjectPropertyAxiom axiom) {
 		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	@Override
-	public void vist(OWLReflexiveObjectPropertyAxiom axiom) {
+	public void visit(OWLReflexiveObjectPropertyAxiom axiom) {
 		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	@Override
-	public void vist(OWLDisjointClassesAxiom axiom) {
+	public void visit(OWLDisjointClassesAxiom axiom) {
 		for (OWLClassExpression cls1 : axiom.getClassExpressions()) {
 			for (OWLClassExpression cls2 : axiom.getClassExpressions()) {
 				if (!cls1.equals(cls2)) {
@@ -377,7 +378,7 @@ public class HornSHIQNormalizer implements OWLAxiomVisitor {
 	}
 
 	@Override
-	public void vist(OWLDataPropertyDomainAxiom axiom) {
+	public void visit(OWLDataPropertyDomainAxiom axiom) {
 		factory.getOWLSubClassOfAxiom(factory.getOWLDataSomeValuesFrom(axiom.getProperty(), factory.getTopDatatype()),
 				axiom.getDomain()) //
 				.accept(this);
@@ -387,7 +388,7 @@ public class HornSHIQNormalizer implements OWLAxiomVisitor {
 
 	// domain(r) = C ~> some(r, T) ⊑ C
 	@Override
-	public void vist(OWLObjectPropertyDomainAxiom axiom) {
+	public void visit(OWLObjectPropertyDomainAxiom axiom) {
 
 		factory.getOWLSubClassOfAxiom(factory.getOWLObjectSomeValuesFrom(axiom.getProperty(), factory.getOWLThing()),
 				axiom.getDomain()) //
@@ -396,30 +397,29 @@ public class HornSHIQNormalizer implements OWLAxiomVisitor {
 	}
 
 	@Override
-	public void vist(OWLEquivalentObjectPropertiesAxiom axiom) {
+	public void visit(OWLEquivalentObjectPropertiesAxiom axiom) {
 		for (OWLAxiom ax : axiom.asSubObjectPropertyOfAxioms()) {
 			ax.accept(this);
 		}
-
 	}
 
 	@Override
-	public void vist(OWLNegativeDataPropertyAssertionAxiom axiom) {
+	public void visit(OWLNegativeDataPropertyAssertionAxiom axiom) {
 		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	@Override
-	public void vist(OWLDifferentIndividualsAxiom axiom) {
+	public void visit(OWLDifferentIndividualsAxiom axiom) {
 		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	@Override
-	public void vist(OWLDisjointDataPropertiesAxiom axiom) {
+	public void visit(OWLDisjointDataPropertiesAxiom axiom) {
 		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	@Override
-	public void vist(OWLDisjointObjectPropertiesAxiom axiom) {
+	public void visit(OWLDisjointObjectPropertiesAxiom axiom) {
         // TODO: handle it properly
 
 //		throw new IllegalArgumentException(axiom.toString());
@@ -427,7 +427,7 @@ public class HornSHIQNormalizer implements OWLAxiomVisitor {
 
 	// range(r) = C ~> T ⊑ all(r, C)
 	@Override
-	public void vist(OWLObjectPropertyRangeAxiom axiom) {
+	public void visit(OWLObjectPropertyRangeAxiom axiom) {
 
 		factory.getOWLSubClassOfAxiom(factory.getOWLThing(),
 				    factory.getOWLObjectAllValuesFrom(axiom.getProperty(), axiom.getRange())) //
@@ -436,13 +436,13 @@ public class HornSHIQNormalizer implements OWLAxiomVisitor {
 	}
 
 	@Override
-	public void vist(OWLObjectPropertyAssertionAxiom axiom) {
+	public void visit(OWLObjectPropertyAssertionAxiom axiom) {
 		manager.addAxiom(normalizedOnt, axiom);
 
 	}
 
 	@Override
-	public void vist(OWLFunctionalObjectPropertyAxiom axiom) {
+	public void visit(OWLFunctionalObjectPropertyAxiom axiom) {
 
 		OWLObjectPropertyExpression property = axiom.getProperty();
 		factory.getOWLSubClassOfAxiom(factory.getOWLThing(), factory.getOWLObjectMaxCardinality(1, property))//
@@ -452,34 +452,34 @@ public class HornSHIQNormalizer implements OWLAxiomVisitor {
 	}
 
 	@Override
-	public void vist(OWLSubObjectPropertyOfAxiom axiom) {
+	public void visit(OWLSubObjectPropertyOfAxiom axiom) {
 		manager.addAxiom(normalizedOnt, axiom);
 
 	}
 
 	@Override
-	public void vist(OWLDisjointUnionAxiom axiom) {
+	public void visit(OWLDisjointUnionAxiom axiom) {
         // TODO: handle it properly
         // ignore
 
     }
 
 	@Override
-	public void vist(OWLDeclarationAxiom axiom) {
+	public void visit(OWLDeclarationAxiom axiom) {
 		manager.addAxiom(normalizedOnt, axiom);
 
 
 	}
 
 	@Override
-	public void vist(OWLAnnotationAssertionAxiom axiom) {
+	public void visit(OWLAnnotationAssertionAxiom axiom) {
 		manager.addAxiom(normalizedOnt, axiom);
 
 
 	}
 
 	@Override
-	public void vist(OWLSymmetricObjectPropertyAxiom axiom) {
+	public void visit(OWLSymmetricObjectPropertyAxiom axiom) {
 
         axiom.asSubPropertyAxioms().forEach(ax -> ax.accept(this));
 
@@ -487,34 +487,34 @@ public class HornSHIQNormalizer implements OWLAxiomVisitor {
 	}
 
 	@Override
-	public void vist(OWLDataPropertyRangeAxiom axiom) {
+	public void visit(OWLDataPropertyRangeAxiom axiom) {
 		// ignore
 
 	}
 
 	@Override
-	public void vist(OWLFunctionalDataPropertyAxiom axiom) {
+	public void visit(OWLFunctionalDataPropertyAxiom axiom) {
         // TODO: handle it properly
         // ignore
 
     }
 
 	@Override
-	public void vist(OWLEquivalentDataPropertiesAxiom axiom) {
+	public void visit(OWLEquivalentDataPropertiesAxiom axiom) {
         // TODO: handle it properly
         // ignore
 
 	}
 
 	@Override
-	public void vist(OWLClassAssertionAxiom axiom) {
+	public void visit(OWLClassAssertionAxiom axiom) {
 		manager.addAxiom(normalizedOnt, axiom);
 
 
 	}
 
 	@Override
-	public void vist(OWLEquivalentClassesAxiom axiom) {
+	public void visit(OWLEquivalentClassesAxiom axiom) {
 
 		Set<OWLClassExpression> classes = axiom.getClassExpressions();
 
@@ -530,34 +530,34 @@ public class HornSHIQNormalizer implements OWLAxiomVisitor {
 	}
 
 	@Override
-	public void vist(OWLDataPropertyAssertionAxiom axiom) {
+	public void visit(OWLDataPropertyAssertionAxiom axiom) {
 		manager.addAxiom(normalizedOnt, axiom);
 
 
 	}
 
 	@Override
-	public void vist(OWLTransitiveObjectPropertyAxiom axiom) {
+	public void visit(OWLTransitiveObjectPropertyAxiom axiom) {
 		manager.addAxiom(normalizedOnt, axiom);
 
 	}
 
 	@Override
-	public void vist(OWLIrreflexiveObjectPropertyAxiom axiom) {
+	public void visit(OWLIrreflexiveObjectPropertyAxiom axiom) {
         // TODO: handle it properly
         // ignore
 
     }
 
 	@Override
-	public void vist(OWLSubDataPropertyOfAxiom axiom) {
+	public void visit(OWLSubDataPropertyOfAxiom axiom) {
         // TODO: handle it properly
         // ignore
 
     }
 
 	@Override
-	public void vist(OWLInverseFunctionalObjectPropertyAxiom axiom) {
+	public void visit(OWLInverseFunctionalObjectPropertyAxiom axiom) {
 		OWLObjectPropertyExpression property = axiom.getProperty();
 		factory.getOWLSubClassOfAxiom(factory.getOWLThing(),
 				factory.getOWLObjectMaxCardinality(1, property.getInverseProperty()))//
@@ -566,39 +566,39 @@ public class HornSHIQNormalizer implements OWLAxiomVisitor {
 	}
 
 	@Override
-	public void vist(OWLSameIndividualAxiom axiom) {
+	public void visit(OWLSameIndividualAxiom axiom) {
         // ignore
 
 	}
 
 	@Override
-	public void vist(OWLSubPropertyChainOfAxiom axiom) {
+	public void visit(OWLSubPropertyChainOfAxiom axiom) {
         // TODO: check how far we can go
         // ignore
 
 	}
 
 	@Override
-	public void vist(OWLInverseObjectPropertiesAxiom axiom) {
+	public void visit(OWLInverseObjectPropertiesAxiom axiom) {
         axiom.asSubObjectPropertyOfAxioms().forEach(ax -> ax.accept(this));
 
 
 	}
 
 	@Override
-	public void vist(OWLHasKeyAxiom axiom) {
+	public void visit(OWLHasKeyAxiom axiom) {
         // ignore
 
 	}
 
 	@Override
-	public void vist(OWLDatatypeDefinitionAxiom axiom) {
+	public void visit(OWLDatatypeDefinitionAxiom axiom) {
         // ignore
 
 	}
 
 	@Override
-	public void vist(SWRLRule rule) {
+	public void visit(SWRLRule rule) {
         // ignore
 
 	}
