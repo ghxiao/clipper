@@ -16,7 +16,7 @@ public class HornALCHIQTransTest {
 
 	@Test
 	public void test01() {
-		File file = new File("TestData/HornALCHIQTrans01.owl");
+		File file = new File("src/test/resources/TestData/HornALCHIQTrans01.owl");
 		OWLOntologyManager man = OWLManager.createOWLOntologyManager();
 		OWLOntology ontology;
 		try {
@@ -32,7 +32,7 @@ public class HornALCHIQTransTest {
 			// OWLOntology normalizedOnt2 =
 			// normalizer2.normalize(normalizedOnt1);
 			man.saveOntology(normalizedOnt1,
-					IRI.create(new File("TestData/HornALCHIQTrans01Norm.owl")));
+					IRI.create(new File("src/test/resources/TestData/HornALCHIQTrans01Norm.owl")));
 		} catch (OWLOntologyCreationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,7 +59,7 @@ public class HornALCHIQTransTest {
 
 	@Test
 	public void test02() {
-		File file = new File("TestData/HornALCHIQTrans02.owl");
+		File file = new File("src/test/resources/TestData/HornALCHIQTrans02.owl");
 		OWLOntologyManager man = OWLManager.createOWLOntologyManager();
 		OWLOntology ontology;
 		try {
@@ -82,7 +82,7 @@ public class HornALCHIQTransTest {
 			// OWLOntology normalizedOnt2 =
 			// normalizer2.normalize(normalizedOnt1);
 			man.saveOntology(normalizedOnt1,
-					IRI.create(new File("TestData/HornALCHIQTrans02Norm.owl")));
+					IRI.create(new File("src/test/resources/TestData/HornALCHIQTrans02Norm.owl")));
 		} catch (OWLOntologyCreationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -94,7 +94,7 @@ public class HornALCHIQTransTest {
 
 	@Test
 	public void test03() {
-		File file = new File("TestData/HornALCHIQTrans03.owl");
+		File file = new File("src/test/resources/TestData/HornALCHIQTrans03.owl");
 		OWLOntologyManager man = OWLManager.createOWLOntologyManager();
 		OWLOntology ontology;
 		try {
@@ -114,7 +114,7 @@ public class HornALCHIQTransTest {
 			// OWLOntology normalizedOnt2 =
 			// normalizer2.normalize(normalizedOnt1);
 			man.saveOntology(normalizedOnt1,
-					IRI.create(new File("TestData/HornALCHIQTrans03Norm.owl")));
+					IRI.create(new File("src/test/resources/TestData/HornALCHIQTrans03Norm.owl")));
 		} catch (OWLOntologyCreationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -126,7 +126,7 @@ public class HornALCHIQTransTest {
 
 	@Test
 	public void test04() {
-		File file = new File("TestData/HornALCHIQTrans04.owl");
+		File file = new File("src/test/resources/TestData/HornALCHIQTrans04.owl");
 		OWLOntologyManager man = OWLManager.createOWLOntologyManager();
 		OWLOntology ontology;
 		try {
@@ -148,7 +148,7 @@ public class HornALCHIQTransTest {
 			// OWLOntology normalizedOnt2 =
 			// normalizer2.normalize(normalizedOnt1);
 			man.saveOntology(normalizedOnt1,
-					IRI.create(new File("TestData/HornALCHIQTrans04Norm.owl")));
+					IRI.create(new File("src/test/resources/TestData/HornALCHIQTrans04Norm.owl")));
 		} catch (OWLOntologyCreationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

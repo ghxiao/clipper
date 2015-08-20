@@ -15,7 +15,7 @@ public class EnforceRelationExporterTest {
     public void testExport() throws RecognitionException, OWLOntologyCreationException {
 
 
-        String ontologyFile = "TestData/lubm/full-lubm.owl";
+        String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
 
         System.setProperty("entityExpansionLimit", "512000");
         QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();

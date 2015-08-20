@@ -23,14 +23,15 @@ public class QAHornSHIQTest {
 	@Test
 	public void testTransitivity01() throws OWLOntologyCreationException, FileNotFoundException, IOException{
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(new File("TestCaseOntologies/trans1.owl"));
-		CQParser cqParser = new CQParser(new File("TestCaseOntologies/trans1.cq"), ImmutableSet.of(ontology));
+		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
+                new File("src/test/resources/AllTestCasesTestCaseOntologies/trans1.owl"));
+		CQParser cqParser = new CQParser(new File("src/test/resources/TestCaseOntologies/trans1.cq"), ImmutableSet.of(ontology));
 		CQ cq = cqParser.parse();
 		qaHornSHIQ.addOntology(ontology);
 		qaHornSHIQ.setQuery(cq);
 		qaHornSHIQ.setQueryRewriter("new");
 		ClipperManager.getInstance().setVerboseLevel(1);
-		qaHornSHIQ.setDatalogFileName("TestCaseOntologies/tmp.dlv");
+		qaHornSHIQ.setDatalogFileName("src/test/resources/TestCaseOntologies/tmp.dlv");
 		List<List<String>> results = qaHornSHIQ.execQuery();
 		Joiner.on("\n").appendTo(System.out, results);
 		assertEquals(1, results.size());
@@ -39,14 +40,15 @@ public class QAHornSHIQTest {
 	@Test
 	public void testTransitivity02() throws OWLOntologyCreationException, FileNotFoundException, IOException{
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(new File("TestCaseOntologies/trans2.owl"));
-		CQParser cqParser = new CQParser(new File("TestCaseOntologies/trans2.cq"), ImmutableSet.of(ontology));
+		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
+                new File("src/test/resources/AllTestCasesTestCaseOntologies/trans2.owl"));
+		CQParser cqParser = new CQParser(new File("src/test/resources/TestCaseOntologies/trans2.cq"), ImmutableSet.of(ontology));
 		CQ cq = cqParser.parse();
 		qaHornSHIQ.addOntology(ontology);
 		qaHornSHIQ.setQuery(cq);
 		qaHornSHIQ.setQueryRewriter("new");
 		ClipperManager.getInstance().setVerboseLevel(1);
-		qaHornSHIQ.setDatalogFileName("TestCaseOntologies/tmp.dlv");
+		qaHornSHIQ.setDatalogFileName("src/test/resources/TestCaseOntologies/tmp.dlv");
 		List<List<String>> results = qaHornSHIQ.execQuery();
 		Joiner.on("\n").appendTo(System.out, results);
 		assertEquals(3, results.size());

@@ -55,7 +55,7 @@ public class BitSetNormalHornALCHIQOntologyConverterTest {
 	}
 	@Test
 	public void testNormalizeWithInverseRoleAxioms() throws OWLOntologyCreationException, OWLOntologyStorageException {
-		File file = new File("TestCaseOntologies/testEncodingOfInverseRole.owl");
+		File file = new File("src/test/resources/TestCaseOntologies/testEncodingOfInverseRole.owl");
 		OWLOntologyManager man = OWLManager.createOWLOntologyManager();
 		OWLOntology ontology = man.loadOntologyFromOntologyDocument(file);
 

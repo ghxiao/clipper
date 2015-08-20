@@ -28,7 +28,7 @@ public class AnswerParserTest {
 	@Test
 	public void test01() throws OWLOntologyCreationException{
 		
-		File file = new File("TestCaseOntologies/example2.owl");
+		File file = new File("src/test/resources/TestCaseOntologies/example2.owl");
 
 		OWLOntologyManager man = OWLManager.createOWLOntologyManager();
 		OWLOntology ontology = man.loadOntologyFromOntologyDocument(file);

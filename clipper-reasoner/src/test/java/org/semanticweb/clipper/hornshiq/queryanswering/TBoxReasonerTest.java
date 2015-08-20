@@ -41,13 +41,13 @@ public class TBoxReasonerTest {
 	public void testRoleInclusion() throws RecognitionException, OWLOntologyCreationException {
 
 
-		String ontologyFile = "AllTestCases/testRoleInclusion.owl";
+		String ontologyFile = "src/test/resources/AllTestCases/testRoleInclusion.owl";
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at.testRoleInclusion.owl#> \n"
 				+ "SELECT ?x1 \n"
 				+ "WHERE { \n"
 				+ "  ?x1    uri:R2 ?x2  . \n"
 				+ "} \n";
-		String tempDatalogFile = "AllTestCases/testRoleInclusion.dl";
+		String tempDatalogFile = "src/test/resources/AllTestCases/testRoleInclusion.dl";
 		testQuery(ontologyFile, sparql, 1, tempDatalogFile);
 	}
 
@@ -58,9 +58,9 @@ public class TBoxReasonerTest {
 	 */
 	@Test
 	public void testRoleInclusionWithInverse() throws RecognitionException, OWLOntologyCreationException {
-		String tempDatalogFile = "AllTestCases/testInverseRoleInclusion.dl";
+		String tempDatalogFile = "src/test/resources/AllTestCases/testInverseRoleInclusion.dl";
 
-		String ontologyFile = "AllTestCases/testInverseRoleInclusion.owl";
+		String ontologyFile = "src/test/resources/AllTestCases/testInverseRoleInclusion.owl";
 
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at.testRoleInclusion.owl#> \n"
@@ -79,9 +79,9 @@ public class TBoxReasonerTest {
 	@Test
 	public void testConceptInclusion() throws RecognitionException, OWLOntologyCreationException {
 
-		String tempDatalogFile = "AllTestCases/testConceptInclusion.dl";
+		String tempDatalogFile = "src/test/resources/AllTestCases/testConceptInclusion.dl";
 
-		String ontologyFile = "AllTestCases/testConceptInclusion.owl";
+		String ontologyFile = "src/test/resources/AllTestCases/testConceptInclusion.owl";
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at.testConceptInclusion.owl#> \n"
 				+ "SELECT ?x1 \n"
@@ -99,9 +99,9 @@ public class TBoxReasonerTest {
 	@Test
 	public void testBottomRule() throws RecognitionException, OWLOntologyCreationException {
 
-		String tempDatalogFile = "AllTestCases/testBottomRule.dl";
+		String tempDatalogFile = "src/test/resources/AllTestCases/testBottomRule.dl";
 
-		String ontologyFile = "AllTestCases/testBottomRule.owl";
+		String ontologyFile = "src/test/resources/AllTestCases/testBottomRule.owl";
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
 				+ "SELECT ?x1 \n" + "WHERE { \n"
@@ -119,9 +119,9 @@ public class TBoxReasonerTest {
 	@Test
 	public void testForallRule1() throws RecognitionException, OWLOntologyCreationException {
 
-		String tempDatalogFile = "AllTestCases/testForallRule1.dl";
+		String tempDatalogFile = "src/test/resources/AllTestCases/testForallRule1.dl";
 
-		String ontologyFile = "AllTestCases/testForallRule1.owl";
+		String ontologyFile = "src/test/resources/AllTestCases/testForallRule1.owl";
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
 				+ "SELECT ?x \n" + "WHERE { \n" + "  ?x  a  uri:A  . \n"
@@ -138,9 +138,9 @@ public class TBoxReasonerTest {
 	@Test
 	public void testForallRule2() throws RecognitionException, OWLOntologyCreationException {
 
-		String tempDatalogFile = "AllTestCases/testForallRule2.dl";
+		String tempDatalogFile = "src/test/resources/AllTestCases/testForallRule2.dl";
 
-		String ontologyFile = "AllTestCases/testForallRule2.owl";
+		String ontologyFile = "src/test/resources/AllTestCases/testForallRule2.owl";
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
 				+ "SELECT ?x \n" + "WHERE { \n" + "  ?x  a  uri:B ; \n"
@@ -156,9 +156,9 @@ public class TBoxReasonerTest {
 	 * **/
 	@Test
 	public void testForallRule3() throws RecognitionException, OWLOntologyCreationException {
-		String tempDatalogFile = "AllTestCases/testForallRule3.dl";
+		String tempDatalogFile = "src/test/resources/AllTestCases/testForallRule3.dl";
 
-		String ontologyFile = "AllTestCases/testForallRule3.owl";
+		String ontologyFile = "src/test/resources/AllTestCases/testForallRule3.owl";
 
 		String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
 				+ "SELECT ?x \n"
@@ -179,9 +179,9 @@ public class TBoxReasonerTest {
 	 */
 	@Test
 	public void testAtMostOne_MergeChildren() throws RecognitionException, OWLOntologyCreationException {
-		String tempDatalogFile = "AllTestCases/testAtMostOne_MergeChildren.dl";
+		String tempDatalogFile = "src/test/resources/AllTestCases/testAtMostOne_MergeChildren.dl";
 
-		String ontologyFile = "AllTestCases/testAtMostOne_MergeChildren.owl";
+		String ontologyFile = "src/test/resources/AllTestCases/testAtMostOne_MergeChildren.owl";
 
 		String sparql = "PREFIX ub: <http://www.kr.tuwien.ac.at#> \n"
 				+ "SELECT ?x \n"
@@ -202,9 +202,9 @@ public class TBoxReasonerTest {
 	@Test
 	public void testAtMostOne_ParentChildCollapse() throws RecognitionException, OWLOntologyCreationException {
 
-		String tempDatalogFile = "AllTestCases/atMostParentChildCollapse.dl";
+		String tempDatalogFile = "src/test/resources/AllTestCases/atMostParentChildCollapse.dl";
 
-		String ontologyFile = "AllTestCases/atMostParentChildCollapse.owl";
+		String ontologyFile = "src/test/resources/AllTestCases/atMostParentChildCollapse.owl";
 
 		String sparql = "PREFIX ub: <http://www.kr.tuwien.ac.at/testcase02.owl#> \n"
 				+ "SELECT ?x \n"

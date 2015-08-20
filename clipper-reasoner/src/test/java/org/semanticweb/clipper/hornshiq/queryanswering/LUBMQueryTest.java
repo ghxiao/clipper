@@ -30,8 +30,8 @@ public class LUBMQueryTest {
 	@Test
 	public void query1() throws RecognitionException, OWLOntologyCreationException {
 
-		String tmpDatalogFile = "TestData/lubm/query1.dl";
-		String ontologyFile = "TestData/lubm/full-lubm.owl";
+		String tmpDatalogFile = "src/test/resources/TestData/lubm/query1.dl";
+		String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>"+
 				"SELECT ?x "+
 				"		WHERE {"+
@@ -39,7 +39,7 @@ public class LUBMQueryTest {
 				"		       ub:takesCourse <http://www.Department0.University0.edu/GraduateCourse0> ."+
 				"		}";
 
-		String answerFile = "TestData/lubm/answers_query1.txt";
+		String answerFile = "src/test/resources/TestData/lubm/answers_query1.txt";
 
 		testLUBMQuery(ontologyFile, sparql, answerFile, tmpDatalogFile);
 	}
@@ -49,8 +49,8 @@ public class LUBMQueryTest {
 	public void query2() throws RecognitionException, OWLOntologyCreationException {
 
 
-		String tmpDatalogFile = "TestData/lubm/query2.dl";
-		String ontologyFile = "TestData/lubm/full-lubm.owl";
+		String tmpDatalogFile = "src/test/resources/TestData/lubm/query2.dl";
+		String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
 		String sparql = " PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>  \n"
 				+ "SELECT ?x ?y ?z \n"
 				+ "WHERE {"
@@ -61,7 +61,7 @@ public class LUBMQueryTest {
 				+ "	 ?z ub:subOrganizationOf ?y . \n"
 				+ "	?x ub:undergraduateDegreeFrom ?y . \n}	";
 
-		String answerFile = "TestData/lubm/answers_query2.txt";
+		String answerFile = "src/test/resources/TestData/lubm/answers_query2.txt";
 
 		testLUBMQuery(ontologyFile, sparql, answerFile, tmpDatalogFile);
 
@@ -70,22 +70,22 @@ public class LUBMQueryTest {
 	@Test
 	public void query3() throws RecognitionException, OWLOntologyCreationException {
 
-		String tmpDatalogFile = "TestData/lubm/query2.dl";
-		String ontologyFile = "TestData/lubm/full-lubm.owl";
+		String tmpDatalogFile = "src/test/resources/TestData/lubm/query2.dl";
+		String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X 	"
 				+ "WHERE { \n"
 				+ "?X a ub:Publication . \n "
 				+ "?X ub:publicationAuthor <http://www.Department0.University0.edu/AssistantProfessor0>.} \n";
-		String answerFile = "TestData/lubm/answers_query3.txt";
+		String answerFile = "src/test/resources/TestData/lubm/answers_query3.txt";
 
 		testLUBMQuery(ontologyFile, sparql, answerFile, tmpDatalogFile);
 	}
 
 	@Test
 	public void query4() throws RecognitionException, OWLOntologyCreationException {
-		String tmpDatalogFile = "TestData/lubm/query4.dl";
-		String ontologyFile = "TestData/lubm/full-lubm.owl";
+		String tmpDatalogFile = "src/test/resources/TestData/lubm/query4.dl";
+		String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X ?Y1 ?Y2 ?Y3 	"
 				+ "WHERE { \n"
@@ -95,22 +95,22 @@ public class LUBMQueryTest {
 				+ "?X ub:emailAddress ?Y2 .\n"
 				+ "?X ub:telephone ?Y3 . \n" + "} \n";
 
-		String answerFile = "TestData/lubm/answers_query4.txt";
+		String answerFile = "src/test/resources/TestData/lubm/answers_query4.txt";
 
 		testLUBMQuery(ontologyFile, sparql, answerFile, tmpDatalogFile);
 	}
 
 	@Test
 	public void query5() throws RecognitionException, OWLOntologyCreationException {
-		String tmpDatalogFile = "TestData/lubm/query5.dl";
-		String ontologyFile = "TestData/lubm/full-lubm.owl";
+		String tmpDatalogFile = "src/test/resources/TestData/lubm/query5.dl";
+		String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X 	"
 				+ "WHERE { \n"
 				+ "?X a ub:Person . \n "
 				+ "?X ub:memberOf <http://www.Department0.University0.edu> . \n"
 				+ "} \n";
-		String answerFile = "TestData/lubm/answers_query5.txt";
+		String answerFile = "src/test/resources/TestData/lubm/answers_query5.txt";
 
 		testLUBMQuery(ontologyFile, sparql, answerFile, tmpDatalogFile);
 
@@ -118,8 +118,8 @@ public class LUBMQueryTest {
 
 	@Test
 	public void query6() throws RecognitionException, OWLOntologyCreationException {
-		String tmpDatalogFile = "TestData/lubm/query6.dl";
-		String ontologyFile = "TestData/lubm/full-lubm.owl";
+		String tmpDatalogFile = "src/test/resources/TestData/lubm/query6.dl";
+		String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X 	"
@@ -127,7 +127,7 @@ public class LUBMQueryTest {
 				+ "?X a ub:Student . \n "
 				+ "} \n";
 
-		String answerFile = "TestData/lubm/answers_query6.txt";
+		String answerFile = "src/test/resources/TestData/lubm/answers_query6.txt";
 
 		testLUBMQuery(ontologyFile, sparql, answerFile, tmpDatalogFile);
 
@@ -136,8 +136,8 @@ public class LUBMQueryTest {
 	@Test
 	public void query7() throws RecognitionException, OWLOntologyCreationException {
 
-		String tmpDatalogFile = "TestData/lubm/query7.dl";
-		String ontologyFile = "TestData/lubm/full-lubm.owl";
+		String tmpDatalogFile = "src/test/resources/TestData/lubm/query7.dl";
+		String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X ?Y	\n"
 				+ "WHERE { \n"
@@ -147,7 +147,7 @@ public class LUBMQueryTest {
 				+ "	<http://www.Department0.University0.edu/AssociateProfessor0> "
 				+ "	  	ub:teacherOf  ?Y . \n}";
 
-		String answerFile = "TestData/lubm/answers_query7.txt";
+		String answerFile = "src/test/resources/TestData/lubm/answers_query7.txt";
 
 		testLUBMQuery(ontologyFile, sparql, answerFile, tmpDatalogFile);
 	}
@@ -156,8 +156,8 @@ public class LUBMQueryTest {
 	@Test
 	public void query8() throws RecognitionException, OWLOntologyCreationException {
 
-		String tmpDatalogFile = "TestData/lubm/query8.dl";
-		String ontologyFile = "TestData/lubm/full-lubm.owl";
+		String tmpDatalogFile = "src/test/resources/TestData/lubm/query8.dl";
+		String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X ?Y ?Z \n"
@@ -168,15 +168,15 @@ public class LUBMQueryTest {
 				+ "	?Y ub:subOrganizationOf <http://www.University0.edu> .\n"
 				+ "	?X ub:emailAddress ?Z .\n}";
 
-		String answerFile = "TestData/lubm/answers_query8.txt";
+		String answerFile = "src/test/resources/TestData/lubm/answers_query8.txt";
 
 		testLUBMQuery(ontologyFile, sparql, answerFile, tmpDatalogFile);
 	}
 
 	@Test
 	public void query9() throws RecognitionException, OWLOntologyCreationException {
-		String tmpDatalogFile = "TestData/lubm/query9.dl";
-		String ontologyFile = "TestData/lubm/full-lubm.owl";
+		String tmpDatalogFile = "src/test/resources/TestData/lubm/query9.dl";
+		String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
 
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
@@ -189,7 +189,7 @@ public class LUBMQueryTest {
 				+ "?Y ub:teacherOf ?Z ."
 				+ "?X ub:takesCourse ?Z .}";
 
-		String answerFile = "TestData/lubm/answers_query9.txt";
+		String answerFile = "src/test/resources/TestData/lubm/answers_query9.txt";
 
 		testLUBMQuery(ontologyFile, sparql, answerFile, tmpDatalogFile);
 
@@ -197,8 +197,8 @@ public class LUBMQueryTest {
 
 	@Test
 	public void query10() throws RecognitionException, OWLOntologyCreationException {
-		String tmpDatalogFile = "TestData/lubm/query10.dl";
-		String ontologyFile = "TestData/lubm/full-lubm.owl";
+		String tmpDatalogFile = "src/test/resources/TestData/lubm/query10.dl";
+		String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X "
@@ -206,15 +206,15 @@ public class LUBMQueryTest {
 				+ "?X a ub:Student ."
 				+ "?X ub:takesCourse 	<http://www.Department0.University0.edu/GraduateCourse0> .} ";
 
-		String answerFile = "TestData/lubm/answers_query10.txt";
+		String answerFile = "src/test/resources/TestData/lubm/answers_query10.txt";
 
 		testLUBMQuery(ontologyFile, sparql, answerFile, tmpDatalogFile);
 	}
 
 	@Test
 	public void query11() throws RecognitionException, OWLOntologyCreationException {
-		String tmpDatalogFile = "TestData/lubm/query11.dl";
-		String ontologyFile = "TestData/lubm/full-lubm.owl";
+		String tmpDatalogFile = "src/test/resources/TestData/lubm/query11.dl";
+		String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X \n"
@@ -223,7 +223,7 @@ public class LUBMQueryTest {
 				+ "?X ub:subOrganizationOf <http://www.University0.edu> .\n"
 				+ "}";
 
-		String answerFile = "TestData/lubm/answers_query11.txt";
+		String answerFile = "src/test/resources/TestData/lubm/answers_query11.txt";
 
 		testLUBMQuery(ontologyFile, sparql, answerFile, tmpDatalogFile);
 
@@ -232,8 +232,8 @@ public class LUBMQueryTest {
 	@Test
 	public void query12() throws RecognitionException, OWLOntologyCreationException {
 
-		String tmpDatalogFile = "TestData/lubm/query12.dl";
-		String ontologyFile = "TestData/lubm/full-lubm.owl";
+		String tmpDatalogFile = "src/test/resources/TestData/lubm/query12.dl";
+		String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X ?Y \n"
@@ -243,7 +243,7 @@ public class LUBMQueryTest {
 				+ "?X ub:worksFor ?Y .\n"
 				+ "?Y ub:subOrganizationOf <http://www.University0.edu> .\n}";
 
-		String answerFile = "TestData/lubm/answers_query12.txt";
+		String answerFile = "src/test/resources/TestData/lubm/answers_query12.txt";
 
 		testLUBMQuery(ontologyFile, sparql, answerFile, tmpDatalogFile);
 	}
@@ -251,8 +251,8 @@ public class LUBMQueryTest {
 	@Test
 	public void query13() throws RecognitionException, OWLOntologyCreationException {
 
-		String tmpDatalogFile = "TestData/lubm/query13.dl";
-		String ontologyFile = "TestData/lubm/full-lubm.owl";
+		String tmpDatalogFile = "src/test/resources/TestData/lubm/query13.dl";
+		String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X \n"
@@ -260,7 +260,7 @@ public class LUBMQueryTest {
 				+ "?X a ub:Person .\n"
 				+ "<http://www.University0.edu> ub:hasAlumnus ?X .\n}";
 
-		String answerFile = "TestData/lubm/answers_query13.txt";
+		String answerFile = "src/test/resources/TestData/lubm/answers_query13.txt";
 
 		testLUBMQuery(ontologyFile, sparql, answerFile, tmpDatalogFile);
 
@@ -269,13 +269,13 @@ public class LUBMQueryTest {
 	@Test
 	public void query14() throws RecognitionException, OWLOntologyCreationException {
 
-		String tmpDatalogFile = "TestData/lubm/query14.dl";
-		String ontologyFile = "TestData/lubm/full-lubm.owl";
+		String tmpDatalogFile = "src/test/resources/TestData/lubm/query14.dl";
+		String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n"
 				+ "SELECT ?X \n" + "WHERE {?X a ub:UndergraduateStudent .}";
 
-		String answerFile = "TestData/lubm/answers_query14.txt";
+		String answerFile = "src/test/resources/TestData/lubm/answers_query14.txt";
 
 		testLUBMQuery(ontologyFile, sparql, answerFile, tmpDatalogFile);
 
@@ -286,8 +286,8 @@ public class LUBMQueryTest {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
-		qaHornSHIQ.setDatalogFileName("TestData/lubm/queryTest.dl");
-		qaHornSHIQ.setOntologyName("TestData/lubm/lubm1.owl");
+		qaHornSHIQ.setDatalogFileName("src/test/resources/TestData/lubm/queryTest.dl");
+		qaHornSHIQ.setOntologyName("src/test/resources/TestData/lubm/lubm1.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>"+ 
 			" SELECT ?X ?Z "+ 

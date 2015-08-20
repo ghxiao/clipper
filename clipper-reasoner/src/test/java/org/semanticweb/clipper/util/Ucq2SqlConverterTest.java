@@ -26,7 +26,7 @@ public class Ucq2SqlConverterTest {
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
         //InputStream stream = this.getClass().getResourceAsStream("/TestData/lubm/full-lubm.owl");
-        OWLOntology ontology = manager.loadOntologyFromOntologyDocument(new File("TestData/lubm/full-lubm.owl"));
+        OWLOntology ontology = manager.loadOntologyFromOntologyDocument(new File("src/test/resources/TestData/lubm/full-lubm.owl"));
 
 		// String s =
 		// "ans(?0,?1) :- worksFor(?1,?3), Faculty(?1), Course(?2), memberOf(?0,?3), Student(?0), takesCourse(?0,?2), Department(?3), teacherOf(?1,?2).";
