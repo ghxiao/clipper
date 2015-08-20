@@ -537,9 +537,9 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 
 	@Override
 	public Object visit(OWLSymmetricObjectPropertyAxiom axiom) {
-		OWLObjectPropertyExpression property = axiom.getProperty();
-		factory.getOWLSubObjectPropertyOfAxiom(property, property.getInverseProperty()).accept(this);
-		factory.getOWLSubObjectPropertyOfAxiom(property.getInverseProperty(), property).accept(this);
+
+        axiom.asSubPropertyAxioms().forEach(ax -> ax.accept(this));
+
 		return null;
 	}
 
@@ -637,7 +637,8 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 
 	@Override
 	public Object visit(OWLInverseObjectPropertiesAxiom axiom) {
-		manager.addAxiom(normalizedOnt, axiom);
+        axiom.asSubObjectPropertyOfAxioms().forEach(ax -> ax.accept(this));
+
 		return null;
 	}
 
