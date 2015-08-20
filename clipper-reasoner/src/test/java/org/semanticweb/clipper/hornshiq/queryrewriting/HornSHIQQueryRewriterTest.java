@@ -299,6 +299,81 @@ public class HornSHIQQueryRewriterTest {
     }
 
 
+    /**
+     * Adapted Example 5 in TR for testing (S5).(c).ii
+     *
+     *
+     * Assume T = {r ⊑ r−, trans(r), A ⊑ ∃(r2 ⊓ r3).(B ⊓ C), B ⊓ C ⊑ ∃r.T}.
+     *
+     * B ⊓ C ⊑ ∃(r ⊓ r−).T
+     *
+     * Let ρ : q(x) ← A(x), r2(x, y), B(y), r3(x, z), C(z), r(y, z).
+     *
+     * Then ρ can be rewritten to :
+     *
+     * ρ1 : q(x) ← A(x).
+     *
+     *
+     *
+     * The following encodings are used in the test case
+     *
+     *  A -> c2, A1 -> c3, A2 -> c4, A3 -> c5, A4 -> c6, B -> c7, C -> c8, D -> c9
+     *
+     *  r -> 4, r1 -> 6, r2 -> 8, r3 -> 10, r4 -> 12
+     *
+     *  x -> X1, y -> X2, z -> X3
+     *
+     */
+    @Test
+    public void test_Example5_1() throws IOException {
+        ClipperHornSHIQOntology ontology = new ClipperHornSHIQOntology();
+
+        ontology.getTransitivityAxioms().add(new ClipperTransitivityAxiom(4));
+
+        IndexedEnfContainer enfs = new IndexedEnfContainer();
+
+        enfs.add(new EnforcedRelation(
+                // T, A
+                new TIntHashSet(new int[] { 0, 2 }), //
+                // T^2, T^2, r2, r3
+                new TIntHashSet(new int[] { 0, 1, 8, 10 }),
+                // B, C
+                new TIntHashSet(new int[] { 7, 8 })));
+
+        enfs.add(new EnforcedRelation(
+                // T, B, C
+                new TIntHashSet(new int[] { 0, 7, 8 }), //
+                // T^2, T^2, r, r^-
+                new TIntHashSet(new int[] { 0, 1, 4, 5 }),
+                // T
+                new TIntHashSet(new int[] { 0 })));
+
+        HornSHIQQueryRewriter rewriter = new HornSHIQQueryRewriter(ontology, enfs);
+
+        /*
+         * ρ : q(x) ← A(x), r2(x, y), B(y), r3(x, z), C(z), r(y, z).
+         */
+        String s = "q(X1) :- c2(X1), r8(X1, X2), c7(X2), r10(X1, X3), c8(X3), r4(X2, X3).";
+        System.out.println(s);
+        InternalCQParser parser = new InternalCQParser();
+        parser.setQueryString(s);
+        CQ cq = parser.getCq();
+        CQGraph g = new CQGraph(cq);
+
+        List<CQGraph> ucq = rewriter.rewrite(g);
+
+        int i = 0;
+        for (CQGraph rg : ucq) {
+            System.out.print(i + ": ");
+            System.out.println(rg.toCQ());
+            i++;
+        }
+
+        assertEquals(1, ucq.size());
+        assertEquals(1, ucq.get(0).getVertexCount());
+    }
+
+
     @Test
 	public void test() throws IOException {
 		ClipperHornSHIQOntology ontology = new ClipperHornSHIQOntology();

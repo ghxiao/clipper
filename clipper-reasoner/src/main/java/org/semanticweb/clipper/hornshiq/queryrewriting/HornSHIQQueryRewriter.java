@@ -246,43 +246,60 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
     /**
      * check whether the leaves can be merged into one single node
      *
+     * (S5.c) for each atom r(x, y) in body(ρ) with x, y ∈ Vl there is a transitive s ⊑∗T r such that
+     * i. {s,s−} ⊆ S, or
+     * ii. there is an axiom M′ ⊑ ∃S′.N′ ∈ Ξ(T^*) such that M′ ⊆ N and {s,s−} ⊆ S′.
+     *
      */
     private boolean mergeable(CQGraph g, EnforcedRelation enf, Collection<Variable> leaves) {
 
-        if (leaves.size() == 1) {
-            return true;
-        }
+        TIntHashSet rolesInEnf = enf.getRoles();
 
-        // FIXME: general case is to be fixed
-
-        Set<Term> visited = Sets.newHashSet();
-
+        // for each atom r(x, y) in body(ρ) with x, y ∈ Vl
         Collection<CQGraphEdge> leafInterEdges = g.getInterEdges(leaves);
 
-        if (leafInterEdges.isEmpty())
-            return false;
 
-        // TODO: check again
         for (CQGraphEdge edge : leafInterEdges) {
             Integer role = edge.getRole();
             int inverseRole = BitSetUtilOpt.inverseRole(role);
-            if ((enf.getRoles().contains(role) && enf.getRoles().contains(inverseRole))) {
-                TIntHashSet type1 = enf.getType2();
-                TIntHashSet type2 = enf.getType2();
-                TIntHashSet roles = new TIntHashSet();
-                roles.add(role);
-                roles.add(inverseRole);
-                if (enfs.matchRolesAndType2(roles, type1).size() == 0
-                        && enfs.matchRolesAndType2(roles, type2).size() == 0) {
-                    return false;
+
+            // there is a transitive s ⊑∗T r such that
+            // i. {s,s−} ⊆ S,or
+            boolean firstConditionSatisfied = false;
+            for (Integer subRole : transSuperRole2SubRolesMmap.get(role)) {
+                int inverseSubRole = BitSetUtilOpt.inverseRole(subRole);
+                if(rolesInEnf.contains(subRole) && rolesInEnf.contains(inverseSubRole)){
+                    firstConditionSatisfied = true;
+                    break;
                 }
 
-                visited.add(edge.getSource());
-                visited.add(edge.getDest());
             }
+
+            if(firstConditionSatisfied)
+                continue;
+
+            // there is a transitive s ⊑∗T r such that
+            // ii. there is an axiom M′ ⊑ ∃S′.N′ ∈ Ξ(T*) such that M′ ⊆ N and{s, s−} ⊆ S′.
+            boolean secondConditionSatisfied = false;
+
+            for (Integer subRole : transSuperRole2SubRolesMmap.get(role)) {
+                int inverseSubRole = BitSetUtilOpt.inverseRole(subRole);
+                TIntHashSet type2 = enf.getType2();
+                TIntHashSet roles = new TIntHashSet();
+                roles.add(subRole);
+                roles.add(inverseSubRole);
+                // there is an axiom M′ ⊑ ∃S′.N′ ∈ Ξ(T*)
+                // such that M′ ⊆ N and {s, s−} ⊆ S′.
+                if (!enfs.matchRolesAndType1(roles, type2).isEmpty()) {
+                    secondConditionSatisfied = true;
+                }
+            }
+
+            if(!secondConditionSatisfied)
+                return false;
         }
 
-        return visited.containsAll(leaves);
+        return true;
 
     }
 
