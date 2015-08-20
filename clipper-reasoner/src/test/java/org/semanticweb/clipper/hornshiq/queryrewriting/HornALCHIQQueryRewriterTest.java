@@ -32,9 +32,9 @@ public class HornALCHIQQueryRewriterTest {
      */
     @Test
     public void testBasicRewriting() throws RecognitionException, OWLOntologyCreationException {
-        String tempDatalogFile = "AllTestCases/simpleRewriting.dl";
+        String tempDatalogFile = "src/test/resources/AllTestCases/simpleRewriting.dl";
 
-        String ontologyFile = "AllTestCases/simpleRewriting.owl";
+        String ontologyFile = "src/test/resources/AllTestCases/simpleRewriting.owl";
 
         String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
                 + "SELECT ?x1 \n"
@@ -60,9 +60,9 @@ public class HornALCHIQQueryRewriterTest {
     @Test
     public void testQueryRewriting2() throws RecognitionException, OWLOntologyCreationException {
 
-        String tempDatalogFile = "AllTestCases/testQueryRewriting2.dl";
+        String tempDatalogFile = "src/test/resources/AllTestCases/testQueryRewriting2.dl";
 
-        String ontologyFile = "AllTestCases/testQueryRewriting2.owl";
+        String ontologyFile = "src/test/resources/AllTestCases/testQueryRewriting2.owl";
 
         String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
                 + "SELECT ?x1 \n"
@@ -87,9 +87,9 @@ public class HornALCHIQQueryRewriterTest {
     @Test
     public void testQueryRewriting3() throws RecognitionException, OWLOntologyCreationException {
 
-        String tempDatalogFile = "AllTestCases/testQueryRewriting3.dl";
+        String tempDatalogFile = "src/test/resources/AllTestCases/testQueryRewriting3.dl";
 
-        String ontologyFile = "AllTestCases/testQueryRewriting3.owl";
+        String ontologyFile = "src/test/resources/AllTestCases/testQueryRewriting3.owl";
 
         String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
                 + "SELECT ?x1 \n"
@@ -114,9 +114,9 @@ public class HornALCHIQQueryRewriterTest {
     @Test
     public void testQueryRewriting4() throws RecognitionException, OWLOntologyCreationException {
 
-        String tempDatalogFile = "AllTestCases/testQueryRewriting3.dl";
+        String tempDatalogFile = "src/test/resources/AllTestCases/testQueryRewriting3.dl";
 
-        String ontologyFile = "AllTestCases/testQueryRewriting3.owl";
+        String ontologyFile = "src/test/resources/AllTestCases/testQueryRewriting3.owl";
 
         String sparql = "PREFIX uri: <http://www.kr.tuwien.ac.at#> \n"
                 + "SELECT ?x1 \n"

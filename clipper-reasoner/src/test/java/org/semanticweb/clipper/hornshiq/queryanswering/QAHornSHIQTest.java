@@ -21,10 +21,10 @@ public class QAHornSHIQTest {
 
 	
 	@Test
-	public void testTransitivity01() throws OWLOntologyCreationException, FileNotFoundException, IOException{
+	public void testTransitivity01() throws OWLOntologyCreationException, IOException{
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
-                new File("src/test/resources/AllTestCasesTestCaseOntologies/trans1.owl"));
+                new File("src/test/resources/TestCaseOntologies/trans1.owl"));
 		CQParser cqParser = new CQParser(new File("src/test/resources/TestCaseOntologies/trans1.cq"), ImmutableSet.of(ontology));
 		CQ cq = cqParser.parse();
 		qaHornSHIQ.addOntology(ontology);
@@ -41,7 +41,7 @@ public class QAHornSHIQTest {
 	public void testTransitivity02() throws OWLOntologyCreationException, FileNotFoundException, IOException{
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
-                new File("src/test/resources/AllTestCasesTestCaseOntologies/trans2.owl"));
+                new File("src/test/resources/TestCaseOntologies/trans2.owl"));
 		CQParser cqParser = new CQParser(new File("src/test/resources/TestCaseOntologies/trans2.cq"), ImmutableSet.of(ontology));
 		CQ cq = cqParser.parse();
 		qaHornSHIQ.addOntology(ontology);
