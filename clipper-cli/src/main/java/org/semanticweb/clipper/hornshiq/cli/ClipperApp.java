@@ -5,9 +5,6 @@ import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 
 public class ClipperApp {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		new ClipperApp(args);
 	}
@@ -22,16 +19,15 @@ public class ClipperApp {
 
 		CommandHelp commandHelp = new CommandHelp(jc);
 
-		CommandLoad commandLoad = new CommandLoad(jc);
-
-		CommandInitDB commandInitDB = new CommandInitDB(jc);
-
-		CommandGenerateMapFile commandGenerateMapFile = new CommandGenerateMapFile(
-				jc);
-		
-		CommandSparqlToSQL commandSparqlToSQL = new CommandSparqlToSQL(jc);
-
-		CommandPythonOntology commandPythonOntology = new CommandPythonOntology(jc);
+//		CommandLoad commandLoad = new CommandLoad(jc);
+//
+//		CommandInitDB commandInitDB = new CommandInitDB(jc);
+//
+//		CommandGenerateMapFile commandGenerateMapFile = new CommandGenerateMapFile(jc);
+//
+//		CommandSparqlToSQL commandSparqlToSQL = new CommandSparqlToSQL(jc);
+//
+//		CommandPythonOntology commandPythonOntology = new CommandPythonOntology(jc);
 		
 		jc.setProgramName("clipper.sh");
 
@@ -53,19 +49,20 @@ public class ClipperApp {
 			commandQuery.exec();
 		} else if (cmd.equals("rewrite")) {
 			commandRewrite.exec();
-		} else if (cmd.equals("load")) {
-			commandLoad.exec();
-		} else if (cmd.equals("init")) {
-			commandInitDB.exec();
-		} else if (cmd.equals("help")) {
-			commandHelp.exec();
-		} else if (cmd.equals("gen")) {
-			commandGenerateMapFile.exec();
-		} else if (cmd.equals("pex")) {
-			commandPythonOntology.exec();
-		} else if (cmd.endsWith("sparql2sql")){
-			commandSparqlToSQL.exec();
 		}
+//        else if (cmd.equals("load")) {
+//			commandLoad.exec();
+//		} else if (cmd.equals("init")) {
+//			commandInitDB.exec();
+//		} else if (cmd.equals("help")) {
+//			commandHelp.exec();
+//		} else if (cmd.equals("gen")) {
+//			commandGenerateMapFile.exec();
+//		} else if (cmd.equals("pex")) {
+//			commandPythonOntology.exec();
+//		} else if (cmd.endsWith("sparql2sql")){
+//			commandSparqlToSQL.exec();
+//		}
 	}
 
 }
