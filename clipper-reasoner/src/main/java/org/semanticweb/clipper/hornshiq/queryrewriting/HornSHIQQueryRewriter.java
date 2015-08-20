@@ -12,7 +12,6 @@ import org.semanticweb.clipper.hornshiq.queryanswering.CQContainmentCheckUnderLI
 import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
 import org.semanticweb.clipper.hornshiq.queryanswering.IndexedEnfContainer;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
 import org.slf4j.Logger;
@@ -67,9 +66,7 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
         log.debug("g = {}", g);
 
         rewrittenCQGraphs = Lists.newArrayList();
-        //rewrittenCQs = Lists.newArrayList();
 
-        //slcc = new SmartSelfLoopComponentCluster(enfs);
         slcc = new NaiveSelfLoopComponentCluster();
 
         rewrite_recursive(g);
@@ -78,7 +75,6 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
 
     /**
      * rewrites a CQ graph: recursive entry
-     *
      */
     private void rewrite_recursive(CQGraph g) {
 
@@ -162,7 +158,6 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
 
     /**
      * Computes the new rewriting with the given parameters
-     *
      */
     private void rewrite(CQGraph g, Collection<Variable> leaves, List<CQGraphEdge> edges, Map<CQGraphEdge, Integer> map) {
 
@@ -218,9 +213,8 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
                     rewrittenCQGraphs.removeAll(toRemove);
                 }
 
-
                 if (!redundant) {
-                    log.debug("-- new cq = {}", cq);
+                    log.debug("-- new cq: {}", cq);
                     rewrite_recursive(rewrittenCQGraph);
                 } else {
                     log.debug("-- redundant cq: {}", cq);
@@ -244,12 +238,11 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
     }
 
     /**
-     * check whether the leaves can be merged into one single node
-     *
-     * (S5.c) for each atom r(x, y) in body(ρ) with x, y ∈ Vl there is a transitive s ⊑∗T r such that
+     * Checks whether the leaves can be merged into one single node
+     * <p>
+     * (S5).(c) for each atom r(x, y) in body(ρ) with x, y ∈ Vl there is a transitive s ⊑∗T r such that
      * i. {s,s−} ⊆ S, or
      * ii. there is an axiom M′ ⊑ ∃S′.N′ ∈ Ξ(T^*) such that M′ ⊆ N and {s,s−} ⊆ S′.
-     *
      */
     private boolean mergeable(CQGraph g, EnforcedRelation enf, Collection<Variable> leaves) {
 
@@ -261,25 +254,27 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
 
         for (CQGraphEdge edge : leafInterEdges) {
             Integer role = edge.getRole();
-            int inverseRole = BitSetUtilOpt.inverseRole(role);
 
-            // there is a transitive s ⊑∗T r such that
-            // i. {s,s−} ⊆ S,or
+            /*
+             * there is a transitive s ⊑∗T r such that
+             * i. {s,s−} ⊆ S,or
+             */
             boolean firstConditionSatisfied = false;
             for (Integer subRole : transSuperRole2SubRolesMmap.get(role)) {
                 int inverseSubRole = BitSetUtilOpt.inverseRole(subRole);
-                if(rolesInEnf.contains(subRole) && rolesInEnf.contains(inverseSubRole)){
+                if (rolesInEnf.contains(subRole) && rolesInEnf.contains(inverseSubRole)) {
                     firstConditionSatisfied = true;
                     break;
                 }
-
             }
 
-            if(firstConditionSatisfied)
+            if (firstConditionSatisfied)
                 continue;
 
-            // there is a transitive s ⊑∗T r such that
-            // ii. there is an axiom M′ ⊑ ∃S′.N′ ∈ Ξ(T*) such that M′ ⊆ N and{s, s−} ⊆ S′.
+            /*
+             * there is a transitive s ⊑∗T r such that
+             * ii. there is an axiom M′ ⊑ ∃S′.N′ ∈ Ξ(T*) such that M′ ⊆ N and{s, s−} ⊆ S′.
+             */
             boolean secondConditionSatisfied = false;
 
             for (Integer subRole : transSuperRole2SubRolesMmap.get(role)) {
@@ -288,14 +283,16 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
                 TIntHashSet roles = new TIntHashSet();
                 roles.add(subRole);
                 roles.add(inverseSubRole);
-                // there is an axiom M′ ⊑ ∃S′.N′ ∈ Ξ(T*)
-                // such that M′ ⊆ N and {s, s−} ⊆ S′.
+                /*
+                 * there is an axiom M′ ⊑ ∃S′.N′ ∈ Ξ(T*)
+                 * such that M′ ⊆ N and {s, s−} ⊆ S′.
+                 */
                 if (!enfs.matchRolesAndType1(roles, type2).isEmpty()) {
                     secondConditionSatisfied = true;
                 }
             }
 
-            if(!secondConditionSatisfied)
+            if (!secondConditionSatisfied)
                 return false;
         }
 
