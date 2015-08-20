@@ -4,68 +4,12 @@ import java.io.StringWriter;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.semanticweb.owlapi.model.ClassExpressionType;
-import org.semanticweb.owlapi.model.IRI;
-import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLAnnotationPropertyDomainAxiom;
-import org.semanticweb.owlapi.model.OWLAnnotationPropertyRangeAxiom;
-import org.semanticweb.owlapi.model.OWLAsymmetricObjectPropertyAxiom;
-import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLAxiomVisitorEx;
-import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLClassExpression;
-import org.semanticweb.owlapi.model.OWLDataFactory;
-import org.semanticweb.owlapi.model.OWLDataPropertyAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLDataPropertyDomainAxiom;
-import org.semanticweb.owlapi.model.OWLDataPropertyRangeAxiom;
-import org.semanticweb.owlapi.model.OWLDatatypeDefinitionAxiom;
-import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
-import org.semanticweb.owlapi.model.OWLDifferentIndividualsAxiom;
-import org.semanticweb.owlapi.model.OWLDisjointClassesAxiom;
-import org.semanticweb.owlapi.model.OWLDisjointDataPropertiesAxiom;
-import org.semanticweb.owlapi.model.OWLDisjointObjectPropertiesAxiom;
-import org.semanticweb.owlapi.model.OWLDisjointUnionAxiom;
-import org.semanticweb.owlapi.model.OWLEquivalentClassesAxiom;
-import org.semanticweb.owlapi.model.OWLEquivalentDataPropertiesAxiom;
-import org.semanticweb.owlapi.model.OWLEquivalentObjectPropertiesAxiom;
-import org.semanticweb.owlapi.model.OWLFunctionalDataPropertyAxiom;
-import org.semanticweb.owlapi.model.OWLFunctionalObjectPropertyAxiom;
-import org.semanticweb.owlapi.model.OWLHasKeyAxiom;
-import org.semanticweb.owlapi.model.OWLInverseFunctionalObjectPropertyAxiom;
-import org.semanticweb.owlapi.model.OWLInverseObjectPropertiesAxiom;
-import org.semanticweb.owlapi.model.OWLIrreflexiveObjectPropertyAxiom;
-import org.semanticweb.owlapi.model.OWLNegativeDataPropertyAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLNegativeObjectPropertyAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLObjectAllValuesFrom;
-import org.semanticweb.owlapi.model.OWLObjectComplementOf;
-import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
-import org.semanticweb.owlapi.model.OWLObjectMaxCardinality;
-import org.semanticweb.owlapi.model.OWLObjectMinCardinality;
-import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLObjectPropertyDomainAxiom;
-import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
-import org.semanticweb.owlapi.model.OWLObjectPropertyRangeAxiom;
-import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
-import org.semanticweb.owlapi.model.OWLObjectUnionOf;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.model.OWLReflexiveObjectPropertyAxiom;
-import org.semanticweb.owlapi.model.OWLSameIndividualAxiom;
-import org.semanticweb.owlapi.model.OWLSubAnnotationPropertyOfAxiom;
-import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
-import org.semanticweb.owlapi.model.OWLSubDataPropertyOfAxiom;
-import org.semanticweb.owlapi.model.OWLSubObjectPropertyOfAxiom;
-import org.semanticweb.owlapi.model.OWLSubPropertyChainOfAxiom;
-import org.semanticweb.owlapi.model.OWLSymmetricObjectPropertyAxiom;
-import org.semanticweb.owlapi.model.OWLTransitiveObjectPropertyAxiom;
-import org.semanticweb.owlapi.model.SWRLRule;
+import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.util.OWLObjectPropertyManager;
 import org.semanticweb.owlapi.util.SimpleShortFormProvider;
 import uk.ac.manchester.cs.owl.owlapi.mansyntaxrenderer.ManchesterOWLSyntaxObjectRenderer;
 
-public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
+public class HornSHIQNormalizer implements OWLAxiomVisitor {
 
 	OWLOntology normalizedOnt;
 
@@ -108,23 +52,22 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 	}
 
 	@Override
-	public Object visit(OWLSubAnnotationPropertyOfAxiom axiom) {
-		return null;
+	public void vist(OWLSubAnnotationPropertyOfAxiom axiom) {
+
 	}
 
 	@Override
-	public Object visit(OWLAnnotationPropertyDomainAxiom axiom) {
-		return null;
+	public void vist(OWLAnnotationPropertyDomainAxiom axiom) {
+
 	}
 
 	@Override
-	public Object visit(OWLAnnotationPropertyRangeAxiom axiom) {
-		return null;
+	public void vist(OWLAnnotationPropertyRangeAxiom axiom) {
+
 	}
 
-
 	@Override
-	public Object visit(OWLSubClassOfAxiom axiom) {
+	public void vist(OWLSubClassOfAxiom axiom) {
 
 		OWLClassExpression subClass = axiom.getSubClass();
 		OWLClassExpression superClass = axiom.getSuperClass();
@@ -352,7 +295,7 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 			}
 		}
 
-		return null;
+
 
 	}
 
@@ -403,22 +346,22 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 	}
 
 	@Override
-	public Object visit(OWLNegativeObjectPropertyAssertionAxiom axiom) {
+	public void vist(OWLNegativeObjectPropertyAssertionAxiom axiom) {
 		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	@Override
-	public Object visit(OWLAsymmetricObjectPropertyAxiom axiom) {
+	public void vist(OWLAsymmetricObjectPropertyAxiom axiom) {
 		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	@Override
-	public Object visit(OWLReflexiveObjectPropertyAxiom axiom) {
+	public void vist(OWLReflexiveObjectPropertyAxiom axiom) {
 		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	@Override
-	public Object visit(OWLDisjointClassesAxiom axiom) {
+	public void vist(OWLDisjointClassesAxiom axiom) {
 		for (OWLClassExpression cls1 : axiom.getClassExpressions()) {
 			for (OWLClassExpression cls2 : axiom.getClassExpressions()) {
 				if (!cls1.equals(cls2)) {
@@ -430,148 +373,148 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 			}
 		}
 
-		return null;
+
 	}
 
 	@Override
-	public Object visit(OWLDataPropertyDomainAxiom axiom) {
+	public void vist(OWLDataPropertyDomainAxiom axiom) {
 		factory.getOWLSubClassOfAxiom(factory.getOWLDataSomeValuesFrom(axiom.getProperty(), factory.getTopDatatype()),
 				axiom.getDomain()) //
 				.accept(this);
 
-		return null;
+
 	}
 
 	// domain(r) = C ~> some(r, T) ⊑ C
 	@Override
-	public Object visit(OWLObjectPropertyDomainAxiom axiom) {
+	public void vist(OWLObjectPropertyDomainAxiom axiom) {
 
 		factory.getOWLSubClassOfAxiom(factory.getOWLObjectSomeValuesFrom(axiom.getProperty(), factory.getOWLThing()),
 				axiom.getDomain()) //
 				.accept(this);
-		return null;
+
 	}
 
 	@Override
-	public Object visit(OWLEquivalentObjectPropertiesAxiom axiom) {
+	public void vist(OWLEquivalentObjectPropertiesAxiom axiom) {
 		for (OWLAxiom ax : axiom.asSubObjectPropertyOfAxioms()) {
 			ax.accept(this);
 		}
-		return null;
+
 	}
 
 	@Override
-	public Object visit(OWLNegativeDataPropertyAssertionAxiom axiom) {
+	public void vist(OWLNegativeDataPropertyAssertionAxiom axiom) {
 		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	@Override
-	public Object visit(OWLDifferentIndividualsAxiom axiom) {
+	public void vist(OWLDifferentIndividualsAxiom axiom) {
 		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	@Override
-	public Object visit(OWLDisjointDataPropertiesAxiom axiom) {
+	public void vist(OWLDisjointDataPropertiesAxiom axiom) {
 		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	@Override
-	public Object visit(OWLDisjointObjectPropertiesAxiom axiom) {
+	public void vist(OWLDisjointObjectPropertiesAxiom axiom) {
         // TODO: handle it properly
-        return null;
+
 //		throw new IllegalArgumentException(axiom.toString());
 	}
 
 	// range(r) = C ~> T ⊑ all(r, C)
 	@Override
-	public Object visit(OWLObjectPropertyRangeAxiom axiom) {
+	public void vist(OWLObjectPropertyRangeAxiom axiom) {
 
 		factory.getOWLSubClassOfAxiom(factory.getOWLThing(),
 				    factory.getOWLObjectAllValuesFrom(axiom.getProperty(), axiom.getRange())) //
 				.accept(this);
-		return null;
+
 	}
 
 	@Override
-	public Object visit(OWLObjectPropertyAssertionAxiom axiom) {
+	public void vist(OWLObjectPropertyAssertionAxiom axiom) {
 		manager.addAxiom(normalizedOnt, axiom);
-		return null;
+
 	}
 
 	@Override
-	public Object visit(OWLFunctionalObjectPropertyAxiom axiom) {
+	public void vist(OWLFunctionalObjectPropertyAxiom axiom) {
 
 		OWLObjectPropertyExpression property = axiom.getProperty();
 		factory.getOWLSubClassOfAxiom(factory.getOWLThing(), factory.getOWLObjectMaxCardinality(1, property))//
 				.accept(this);
 
-		return null;
+
 	}
 
 	@Override
-	public Object visit(OWLSubObjectPropertyOfAxiom axiom) {
+	public void vist(OWLSubObjectPropertyOfAxiom axiom) {
 		manager.addAxiom(normalizedOnt, axiom);
-		return null;
+
 	}
 
 	@Override
-	public Object visit(OWLDisjointUnionAxiom axiom) {
+	public void vist(OWLDisjointUnionAxiom axiom) {
         // TODO: handle it properly
         // ignore
-        return null;
+
     }
 
 	@Override
-	public Object visit(OWLDeclarationAxiom axiom) {
+	public void vist(OWLDeclarationAxiom axiom) {
 		manager.addAxiom(normalizedOnt, axiom);
-		return null;
+
 
 	}
 
 	@Override
-	public Object visit(OWLAnnotationAssertionAxiom axiom) {
+	public void vist(OWLAnnotationAssertionAxiom axiom) {
 		manager.addAxiom(normalizedOnt, axiom);
-		return null;
+
 
 	}
 
 	@Override
-	public Object visit(OWLSymmetricObjectPropertyAxiom axiom) {
+	public void vist(OWLSymmetricObjectPropertyAxiom axiom) {
 
         axiom.asSubPropertyAxioms().forEach(ax -> ax.accept(this));
 
-		return null;
+
 	}
 
 	@Override
-	public Object visit(OWLDataPropertyRangeAxiom axiom) {
+	public void vist(OWLDataPropertyRangeAxiom axiom) {
 		// ignore
-		return null;
+
 	}
 
 	@Override
-	public Object visit(OWLFunctionalDataPropertyAxiom axiom) {
+	public void vist(OWLFunctionalDataPropertyAxiom axiom) {
         // TODO: handle it properly
         // ignore
-        return null;
+
     }
 
 	@Override
-	public Object visit(OWLEquivalentDataPropertiesAxiom axiom) {
+	public void vist(OWLEquivalentDataPropertiesAxiom axiom) {
         // TODO: handle it properly
         // ignore
-        return null;
+
 	}
 
 	@Override
-	public Object visit(OWLClassAssertionAxiom axiom) {
+	public void vist(OWLClassAssertionAxiom axiom) {
 		manager.addAxiom(normalizedOnt, axiom);
-		return null;
+
 
 	}
 
 	@Override
-	public Object visit(OWLEquivalentClassesAxiom axiom) {
+	public void vist(OWLEquivalentClassesAxiom axiom) {
 
 		Set<OWLClassExpression> classes = axiom.getClassExpressions();
 
@@ -583,81 +526,81 @@ public class HornSHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 			}
 		}
 
-		return null;
+
 	}
 
 	@Override
-	public Object visit(OWLDataPropertyAssertionAxiom axiom) {
+	public void vist(OWLDataPropertyAssertionAxiom axiom) {
 		manager.addAxiom(normalizedOnt, axiom);
 
-		return null;
+
 	}
 
 	@Override
-	public Object visit(OWLTransitiveObjectPropertyAxiom axiom) {
+	public void vist(OWLTransitiveObjectPropertyAxiom axiom) {
 		manager.addAxiom(normalizedOnt, axiom);
-		return null;
+
 	}
 
 	@Override
-	public Object visit(OWLIrreflexiveObjectPropertyAxiom axiom) {
+	public void vist(OWLIrreflexiveObjectPropertyAxiom axiom) {
         // TODO: handle it properly
         // ignore
-        return null;
+
     }
 
 	@Override
-	public Object visit(OWLSubDataPropertyOfAxiom axiom) {
+	public void vist(OWLSubDataPropertyOfAxiom axiom) {
         // TODO: handle it properly
         // ignore
-        return null;
+
     }
 
 	@Override
-	public Object visit(OWLInverseFunctionalObjectPropertyAxiom axiom) {
+	public void vist(OWLInverseFunctionalObjectPropertyAxiom axiom) {
 		OWLObjectPropertyExpression property = axiom.getProperty();
 		factory.getOWLSubClassOfAxiom(factory.getOWLThing(),
 				factory.getOWLObjectMaxCardinality(1, property.getInverseProperty()))//
 				.accept(this);
-		return null;
+
 	}
 
 	@Override
-	public Object visit(OWLSameIndividualAxiom axiom) {
+	public void vist(OWLSameIndividualAxiom axiom) {
         // ignore
-        return null;
+
 	}
 
 	@Override
-	public Object visit(OWLSubPropertyChainOfAxiom axiom) {
+	public void vist(OWLSubPropertyChainOfAxiom axiom) {
         // TODO: check how far we can go
         // ignore
-        return null;
+
 	}
 
 	@Override
-	public Object visit(OWLInverseObjectPropertiesAxiom axiom) {
+	public void vist(OWLInverseObjectPropertiesAxiom axiom) {
         axiom.asSubObjectPropertyOfAxioms().forEach(ax -> ax.accept(this));
 
-		return null;
+
 	}
 
 	@Override
-	public Object visit(OWLHasKeyAxiom axiom) {
+	public void vist(OWLHasKeyAxiom axiom) {
         // ignore
-        return null;
+
 	}
 
 	@Override
-	public Object visit(OWLDatatypeDefinitionAxiom axiom) {
+	public void vist(OWLDatatypeDefinitionAxiom axiom) {
         // ignore
-        return null;
+
 	}
 
 	@Override
-	public Object visit(SWRLRule rule) {
+	public void vist(SWRLRule rule) {
         // ignore
-        return null;
+
 	}
 
 }
