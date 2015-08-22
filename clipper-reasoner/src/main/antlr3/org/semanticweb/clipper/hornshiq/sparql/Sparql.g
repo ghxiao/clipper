@@ -75,7 +75,7 @@ package org.semanticweb.clipper.hornshiq.sparql;
   CQ cq = new CQ();
   List<Term> outputVars = new ArrayList<Term>();
   Atom head;
-  List<Atom> body = Lists.newArrayList();
+  List<Atom> body = new ArrayList<>();
   
   Atom currentBodyAtom;
   Predicate currentPredicate;

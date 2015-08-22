@@ -31,8 +31,8 @@ public class SparqlToCQConverter {
 	 */
 	public CQ compileQuery(Query query) {
 
-		List<Atom> body = Lists.newArrayList();
-		List<Term> ansVars = new ArrayList<Term>();
+		List<Atom> body = new ArrayList<>();
+		List<Term> ansVars = new ArrayList<>();
 		List<Var> projectVars = query.getProjectVars();
 		for (Var var : projectVars) {
 			ansVars.add(compileTerm(var));

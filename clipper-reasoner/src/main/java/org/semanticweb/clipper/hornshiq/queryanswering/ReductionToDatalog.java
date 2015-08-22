@@ -1,6 +1,5 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import com.google.common.collect.Lists;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
@@ -24,6 +23,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -244,7 +244,7 @@ public class ReductionToDatalog {
             int ia = axiom.getConcept1();
 
             Atom headAtom = new Atom(getClassPredicate(ic), varY);
-            List<Atom> bodyAtoms = Lists.newArrayList();
+            List<Atom> bodyAtoms = new ArrayList<>();
             if (ia != ClipperManager.getInstance().getThing()) {
                 bodyAtoms.add(new Atom(getClassPredicate(ia), varX));
             }
@@ -570,14 +570,14 @@ public class ReductionToDatalog {
             System.out.println("%Rules From Transitive Assertions");
         }
 
-        List<CQ> result = Lists.newArrayList();
+        List<CQ> result = new ArrayList<>();
 
         for (ClipperTransitivityAxiom a : transAxioms) {
 
             int ir = a.getRole();
 
             Atom head = getBinaryAtom(ir, varX, varZ);
-            List<Atom> body = Lists.newArrayList(getBinaryAtom(ir, varX, varY), getBinaryAtom(ir, varY, varZ));
+            List<Atom> body = Arrays.asList(getBinaryAtom(ir, varX, varY), getBinaryAtom(ir, varY, varZ));
             result.add(new CQ(head, body));
 
         }
@@ -630,7 +630,7 @@ public class ReductionToDatalog {
     }
 
     public List<CQ> getCompletionRulesDatalogProgram() {
-        List<CQ> program = Lists.newArrayList();
+        List<CQ> program = new ArrayList<>();
         // ruleForBottomConcept(program);
         program.addAll(rulesFromImps());
         program.addAll(rulesFromValueRestrictions());

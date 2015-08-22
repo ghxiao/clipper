@@ -75,7 +75,7 @@ public class InternalCQParser {
 		// for (int i = 0; i < tokensBody.length; i++)
 		// System.out.println(tokensBody[i]);
 		// //
-		List<Atom> body = Lists.newArrayList();
+		List<Atom> body = new ArrayList<>();
 		for (String atomString : tokensBody)
 			body.add(getAtomFromAtomString(atomString));
 		this.cq.setBody(body);
@@ -316,7 +316,7 @@ public class InternalCQParser {
 		// for (int i = 0; i < tokensBody.length; i++)
 		// System.out.println(tokensBody[i]);
 		// //
-		List<Atom> body = Lists.newArrayList();
+		List<Atom> body = new ArrayList<>();
         for (String atomString : tokensBody)
 			body.add(getBodyAtomFromString(atomString));
 		this.cq.setBody(body);

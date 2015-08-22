@@ -134,7 +134,8 @@ public class HornALCHIQQueryRewriterTest {
         //expect rewritten query: q0(X0) :- a("d"), a4("d"), r1(X0,"d"), a1(X0), r2(X0,"d"), a2("d").
         testRewriter(ontologyFile, sparql, 1, tempDatalogFile);
     }
-    private static void testRewriter(String ontologyFile, String sparqlString, int expected, String tmpDatalogFile) throws OWLOntologyCreationException, RecognitionException {
+    private static void testRewriter(String ontologyFile, String sparqlString, int expected, String tmpDatalogFile)
+            throws OWLOntologyCreationException, RecognitionException {
         System.setProperty("entityExpansionLimit", "512000");
         QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
         //ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);

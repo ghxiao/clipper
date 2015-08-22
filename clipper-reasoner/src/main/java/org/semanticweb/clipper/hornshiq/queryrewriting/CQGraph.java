@@ -1,11 +1,9 @@
 package org.semanticweb.clipper.hornshiq.queryrewriting;
 
 import com.google.common.base.Joiner;
-import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
 import edu.uci.ics.jung.graph.DirectedSparseMultigraph;
 import org.semanticweb.clipper.hornshiq.rule.Atom;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
@@ -21,9 +19,11 @@ import javax.annotation.CheckReturnValue;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import static java.util.stream.Collectors.toList;
@@ -357,7 +357,7 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
      * @return edges
      */
     public Collection<CQGraphEdge> getInterEdges(Collection<? extends Term> vertices) {
-        Set<CQGraphEdge> interEdges = Sets.newHashSet();
+        Set<CQGraphEdge> interEdges = new HashSet<>();
         for (Term vertex : vertices) {
             Preconditions.checkState(this.containsVertex(vertex), "the vertex is not in the graph");
             for (CQGraphEdge edge : this.getInEdges(vertex)) {
@@ -400,7 +400,7 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(vertices, edges, answerVariables, termToConceptsMap);
+        return Objects.hash(vertices, edges, answerVariables, termToConceptsMap);
     }
 
     public CQ toCQ() {

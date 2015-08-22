@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Common base class for ComamndQuery and CommandRewrite
+ * Common base class for CommandQuery and CommandRewrite
  * 
  * @author xiao
  * 

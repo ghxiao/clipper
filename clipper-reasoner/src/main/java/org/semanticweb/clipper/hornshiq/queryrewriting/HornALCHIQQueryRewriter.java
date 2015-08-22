@@ -109,10 +109,10 @@ public class HornALCHIQQueryRewriter implements QueryRewriter {
 		CQ newQuery = new CQ();
 		newQuery.setHead(q.getHead());
 		List<Atom> bodyAtoms = q.getBody();
-        List<Atom> copyBodyAtoms = Lists.newArrayList();
+        List<Atom> copyBodyAtoms = new ArrayList<>();
 		copyBodyAtoms.addAll(bodyAtoms);
 
-		List<Atom> newBodyAtoms = Lists.newArrayList();
+		List<Atom> newBodyAtoms = new ArrayList<>();
 		newBodyAtoms.addAll(bodyAtoms);
 
 		Iterator<Atom> iter = bodyAtoms.iterator();

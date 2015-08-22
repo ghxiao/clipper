@@ -67,7 +67,7 @@ public class OntopCQContainmentCheckUnderLIDsTest {
 
 		Map<Term, Term> idMap = ImmutableMap.<Term, Term> of(x0, x1, x1, x0, x2, x2);
 
-		//boolean b = checker.check(idMap, g1, g2);
+		//boolean b = cqContainmentChecker.check(idMap, g1, g2);
 		//assertTrue(b);
 		//System.out.println(b);
 
@@ -121,7 +121,7 @@ public class OntopCQContainmentCheckUnderLIDsTest {
 		// Map<Term, Term> idMap = ImmutableMap.<Term, Term> of(x0, x1, x1, x0,
 		// x2, x2);
 
-		//assertTrue(checker.isContainedIn(g1, g2));
+		//assertTrue(cqContainmentChecker.isContainedIn(g1, g2));
         assertTrue(checker.isContainedIn(g2, g1));
 	}
 
@@ -149,7 +149,7 @@ public class OntopCQContainmentCheckUnderLIDsTest {
 		// x2, x2);
 
 		assertTrue(checker.isContainedIn(g2, g1));
-		//System.out.println(checker.getMap());
+		//System.out.println(cqContainmentChecker.getMap());
 	}
 
 

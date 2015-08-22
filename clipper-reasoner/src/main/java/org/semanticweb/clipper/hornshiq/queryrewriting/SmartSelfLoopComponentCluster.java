@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Set;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+import static java.util.Objects.requireNonNull;
 
 /**
  * This class pre computes all the possible sets of variables in the CQGraph, such that each set
@@ -109,7 +110,7 @@ public class SmartSelfLoopComponentCluster implements SelfLoopComponentCluster {
 		List<Variable> neighbors = new ArrayList<Variable>();
 
 		Collection<CQGraphEdge> incidentEdges = g.getIncidentEdges(vertex);
-		checkNotNull(incidentEdges, "incidentEdges == null");
+		requireNonNull(incidentEdges, "incidentEdges == null");
 		for (CQGraphEdge edge : incidentEdges) {
 			// if (selfLoopRoles.containsAll(g.getRoles(edge))) {
 			if (selfLoopRoles.contains(edge.getRole())) {

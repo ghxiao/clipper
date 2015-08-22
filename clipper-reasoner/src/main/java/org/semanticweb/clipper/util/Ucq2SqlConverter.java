@@ -14,6 +14,7 @@ import org.semanticweb.clipper.hornshiq.rule.Term;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -64,7 +65,7 @@ public class Ucq2SqlConverter {
 
 		Multimap<Variable, Atom> var2AtomsMmap = HashMultimap.create();
 
-		Map<Atom, Integer> atom2IndexMap = Maps.newHashMap();
+		Map<Atom, Integer> atom2IndexMap = new HashMap<>();
 
 		for (Atom atom : cq.getBody()) {
 			for (Term term : atom.getTerms()) {

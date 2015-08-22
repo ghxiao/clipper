@@ -102,7 +102,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 	}
 
 	/**
-	 * @return Datalog program that contains: rewritten queries, completion
+	 * return Datalog program that contains: rewritten queries, completion
 	 *         rules, and ABox assertions
 	 */
 	public void generateDatalog() {
@@ -565,7 +565,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
 		generateDatalog();
 
-		this.answers = Lists.newArrayList();
+		this.answers = new ArrayList<>();
 
 		DLVInputProgram inputProgram = new DLVInputProgramImpl();
 		String outPutNotification = "";
@@ -594,7 +594,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 			invocation.setFilter(filters, true);
 			ModelBufferedHandler modelBufferedHandler = new ModelBufferedHandler(invocation);
 
-			this.answers = Lists.newArrayList();
+			this.answers = new ArrayList<>();
 
 			/* In this moment I can start the DLV execution */
 			FactHandler factHandler = new FactHandler() {
@@ -791,7 +791,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
 
 	public void clearOntologies() {
-		this.ontologies = Lists.newArrayList();
+		this.ontologies = new ArrayList<>();
 	}
 
 

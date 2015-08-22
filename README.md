@@ -11,7 +11,7 @@ We use [maven build system](http://maven.apache.org) and [Git](http://git-scm.co
 
 	  $ git clone https://github.com/ghxiao/clipper.git clipper
 	  $ cd clipper
-	  $ ./mvn_build.sh
+	  $ ./build.sh
 
   
 ## Usage from CLI
@@ -58,9 +58,9 @@ Usage: clipper.sh [options] [command] [command options]
 ## Development in Eclipse
 
 
-1. Download the souce code via git.
+1. Download the source code via git.
 2. In eclipse, import the project by "File" -> "Import" -> "Maven" ->
-   "Existing Maven Projects" and point to Root directory of clipper
+   "Existing Maven Projects" and point to root directory of clipper.
 
 ## References
 

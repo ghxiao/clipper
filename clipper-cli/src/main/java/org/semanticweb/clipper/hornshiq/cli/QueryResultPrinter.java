@@ -9,6 +9,7 @@ import org.semanticweb.clipper.hornshiq.rule.Term;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public abstract class QueryResultPrinter {
 
@@ -52,10 +53,9 @@ class TableQueryResultPrinter extends QueryResultPrinter {
 
 		int size = answerVars.size();
 
-		widths = Lists.newArrayListWithCapacity(size);
-		for (int i = 0; i < size; i++) {
-			widths.add(answerVars.get(i).toString().length());
-		}
+		List<Integer> widths = answerVars.stream()
+                .map(v -> v.toString().length())
+                .collect(Collectors.toList());
 
 		for (List<String> answer : answers) {
 			for (int i = 0; i < size; i++) {
@@ -172,11 +172,11 @@ class HtmlQueryResultPrinter extends QueryResultPrinter {
 	}
 
 	public static String encodeHTML(String s) {
-		StringBuffer out = new StringBuffer();
+		StringBuilder out = new StringBuilder();
 		for (int i = 0; i < s.length(); i++) {
 			char c = s.charAt(i);
 			if (c > 127 || c == '"' || c == '<' || c == '>') {
-				out.append("&#" + (int) c + ";");
+				out.append("&#").append((int) c).append(";");
 			} else {
 				out.append(c);
 			}

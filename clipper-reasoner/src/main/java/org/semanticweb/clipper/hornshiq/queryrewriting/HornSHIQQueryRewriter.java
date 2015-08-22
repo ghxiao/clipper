@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -28,7 +29,7 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
 
     private final Logger log = LoggerFactory.getLogger(HornSHIQQueryRewriter.class);
 
-    CQContainmentCheckUnderLIDs checker;
+    CQContainmentCheckUnderLIDs cqContainmentChecker;
 
     ClipperHornSHIQOntology ontology;
     IndexedEnfContainer enfs;
@@ -39,11 +40,17 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
 
     private SelfLoopComponentCluster slcc;
 
+    public HornSHIQQueryRewriter(ClipperHornSHIQOntology ontology, IndexedEnfContainer enfs,
+                                 boolean rewritingTransitivity) {
+        // TODO: 
+    }
+
+
     public HornSHIQQueryRewriter(ClipperHornSHIQOntology ontology, IndexedEnfContainer enfs) {
         this.ontology = ontology;
         this.enfs = enfs;
 
-        checker = new CQContainmentCheckUnderLIDs();
+        cqContainmentChecker = new CQContainmentCheckUnderLIDs();
 
         List<ClipperSubPropertyAxiom> subPropertyAxioms = ontology.computeNonSimpleSubPropertyClosure();
 
@@ -65,7 +72,7 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
         log.debug("rewrite(CQGraph g)");
         log.debug("g = {}", g);
 
-        rewrittenCQGraphs = Lists.newArrayList();
+        rewrittenCQGraphs = new ArrayList<>();
 
         slcc = new NaiveSelfLoopComponentCluster();
 
@@ -125,9 +132,9 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
         for (Set<CQGraphEdge> someNonSimpleRoleEdges : Sets.powerSet(nonSimpleRoleEdges)) {
 
             // a list representation of the chosen non-simple role edges
-            List<CQGraphEdge> someNonSimpleRoleEdgeList = Lists.newArrayList(someNonSimpleRoleEdges);
+            List<CQGraphEdge> someNonSimpleRoleEdgeList = new ArrayList<>(someNonSimpleRoleEdges);
 
-            List<Set<Integer>> candidates = Lists.newArrayList();
+            List<Set<Integer>> candidates = new ArrayList<>();
 
             for (CQGraphEdge e : someNonSimpleRoleEdgeList) {
                 candidates.add(Sets.newHashSet(edge2SubRolesMmap.get(e)));
@@ -144,7 +151,7 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
 
                 // the edges in replacementMap will be replaced by their sub roles
 
-                Map<CQGraphEdge, Integer> replacementMap = Maps.newHashMap();
+                Map<CQGraphEdge, Integer> replacementMap = new HashMap<>();
 
                 int size = someNonSimpleRoleEdgeList.size();
                 for (int i = 0; i < size; i++) {
@@ -201,10 +208,10 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
                 List<CQGraph> toRemove = new ArrayList<>();
 
                 for (CQGraph graph : rewrittenCQGraphs) {
-                    if (checker.isContainedIn(rewrittenCQGraph, graph)) {
+                    if (cqContainmentChecker.isContainedIn(rewrittenCQGraph, graph)) {
                         redundant = true;
                         break;
-                    } else if (checker.isContainedIn(graph, rewrittenCQGraph)) {
+                    } else if (cqContainmentChecker.isContainedIn(graph, rewrittenCQGraph)) {
                         toRemove.add(graph);
                     }
                 }
@@ -230,7 +237,7 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
      * @return a List of Integer
      */
     private List<Integer> toList(TIntHashSet set) {
-        List<Integer> type = Lists.newArrayList();
+        List<Integer> type = new ArrayList<>();
         for (Integer t : set.toArray()) {
             type.add(t);
         }
