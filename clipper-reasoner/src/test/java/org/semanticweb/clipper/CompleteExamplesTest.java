@@ -257,7 +257,51 @@ public class CompleteExamplesTest {
         int expected = 1;
 
         runTest(ontology, sparqlString, expected);
+    }
 
+    /**
+     * Example 5 in TR
+     * <p/>
+     * <p/>
+     * Assume T = {r ⊑ r−, trans(r), A ⊑ ∃r.B, B ⊑ ∃r.C, C ⊑ D}.
+     * <p/>
+     * B ⊑ ∃(r ⊓ r−).(C ⊓ D) ∈ Ξ(T).
+     * <p/>
+     * Let ρ : q(x) ← A(x), r(x, y), C(y), D(z), r(y, z).
+     * <p/>
+     * Then ρ can be rewritten to :
+     * <p/>
+     * ρ1 : q(x) ← A(x), r(x, y), B(y).
+     * <p/>
+     * ρ2 : q(x) ← A(x)
+     * <p/>
+     */
+    @Test
+    public void test_OWLSubDataPropertyOfAxiom() throws IOException, OWLOntologyCreationException {
+
+        OWLOntologyManager owlOntologyManager = OWLManager.createOWLOntologyManager();
+
+        IRI o1 = IRI.create("http://ghxiao.org/inst/o1");
+
+        IRI s1 = IRI.create("http://ghxiao.org/onto/s1");
+        IRI s2 = IRI.create("http://ghxiao.org/onto/s2");
+
+        OWLOntology ontology = Ontology(owlOntologyManager,
+                // TBox
+                SubDataPropertyOf(DataProperty(s1), DataProperty(s2)),
+
+                // ABox
+                DataPropertyAssertion(DataProperty(s1), NamedIndividual(o1), Literal(1))
+        );
+
+        String sparqlString = "PREFIX : <http://ghxiao.org/onto/> " +
+                "SELECT ?x ?y {" +
+                "?x :s2 ?y " +
+                "}";
+
+        int expected = 1;
+
+        runTest(ontology, sparqlString, expected);
     }
 
     private void runTest(OWLOntology ontology, String sparqlString, int expected) {
