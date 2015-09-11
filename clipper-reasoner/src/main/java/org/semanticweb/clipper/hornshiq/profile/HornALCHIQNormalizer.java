@@ -311,10 +311,9 @@ public class HornALCHIQNormalizer implements OWLAxiomVisitorEx<Object> {
 
 	@Override
 	public Object visit(OWLSubDataPropertyOfAxiom axiom) {
-
-		throw new IllegalArgumentException(axiom.toString());
-
-	}
+        manager.addAxiom(normalizedOnt, axiom);
+        return null;
+    }
 
 	@Override
 	public Object visit(OWLInverseFunctionalObjectPropertyAxiom axiom) {

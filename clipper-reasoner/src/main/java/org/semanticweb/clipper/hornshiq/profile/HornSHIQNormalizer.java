@@ -551,9 +551,7 @@ public class HornSHIQNormalizer implements OWLAxiomVisitor {
 
 	@Override
 	public void visit(OWLSubDataPropertyOfAxiom axiom) {
-        // TODO: handle it properly
-        // ignore
-
+        manager.addAxiom(normalizedOnt, axiom);
     }
 
 	@Override
