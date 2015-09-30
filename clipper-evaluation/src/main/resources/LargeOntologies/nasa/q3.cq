@@ -1,0 +1,1 @@
+Q(?0) <- Country(?0), isPartOf(?0, ?1), Continent(?1), surroundedBy_2D(?1, ?2), Ocean(?2)

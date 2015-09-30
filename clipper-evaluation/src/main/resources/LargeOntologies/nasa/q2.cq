@@ -1,0 +1,1 @@
+Q(?0, ?1) <- City(?0), inside(?0, ?1), Country(?1), isAdjacentTo(?0,?2), Desert(?2)
