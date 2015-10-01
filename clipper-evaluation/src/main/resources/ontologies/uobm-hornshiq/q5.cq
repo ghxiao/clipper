@@ -1,0 +1,1 @@
+Q5(?0,?2) <- LeisureStudent(?0), takesCourse(?0,?1), CSCourse(?1), isStudentOf(?0, ?2), University(?2)

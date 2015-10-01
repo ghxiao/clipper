@@ -1,0 +1,1 @@
+Q7(?0,?1) <- PeopleWithManyHobbies(?0), isMemberOf(?0,?2), like(?0,?3), TennisClass(?3), hasMember(?2,?1), like(?1,?3)

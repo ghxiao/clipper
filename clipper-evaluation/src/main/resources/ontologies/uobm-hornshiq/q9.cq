@@ -1,0 +1,1 @@
+Q9(?0,?1,?2) <- Student(?0), hasDegreeFrom(?0,?1), Professor(?2), worksFor(?2,?1), isAdvisorOf(?2,?0)

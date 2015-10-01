@@ -1,0 +1,1 @@
+Q4(?0) <- takeCourse(?0,?1), GraduateCourse(?1), isTaughtBy(?1,?2), Professor(?2)

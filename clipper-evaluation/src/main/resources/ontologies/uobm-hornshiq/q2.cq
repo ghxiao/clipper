@@ -1,0 +1,1 @@
+Q2(?0) <- Postdoc(?0), worksFor(?0,?1), University(?1), hasAlumnus(?1,?0)

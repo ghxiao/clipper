@@ -1,0 +1,1 @@
+Q3(?0) <- Person(?0), like(?0,?1), Chair(?2), isHeadOf(?2,?3), like(?2,?1)
