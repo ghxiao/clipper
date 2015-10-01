@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.semanticweb.clipper.cqparser.CQParser;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
@@ -21,6 +22,10 @@ public class ClipperOnLargeOntology {
 //		String cqFile = "src/main/resources/LargeOntologies/nci/q5.cq";
 //		String datalogResultFile="src/main/resources/LargeOntologies/nci/q5.result.dl";
 		
+		String ontologyFile = "src/main/resources/ontologies/uobm-hornshiq/hornshiq-univ-12March.owl";
+		String cqFile = "src/main/resources/ontologies/uobm-hornshiq/q5.cq";
+		String datalogResultFile="src/main/resources/ontologies/uobm-hornshiq/q5.result.dl";
+		
 //		String ontologyFile = "src/main/resources/LargeOntologies/galen/galen-doctored_elhi.owl";
 //		String cqFile = "src/main/resources/LargeOntologies/galen/q1.cq";
 //		String datalogResultFile="src/main/resources/LargeOntologies/galen/q1.result.dl";
@@ -31,15 +36,17 @@ public class ClipperOnLargeOntology {
 //		String datalogResultFile="src/main/resources/LargeOntologies/obo/q2.result.dl";
 //	
 		
-		String ontologyFile = "src/main/resources/LargeOntologies/nasa/nasa-sweet_v2_elhi.owl";
-		String cqFile = "src/main/resources/LargeOntologies/nasa/q1.cq";
-		String datalogResultFile="src/main/resources/LargeOntologies/nasa/q1.result.dl";
+//		String ontologyFile = "src/main/resources/LargeOntologies/nasa/nasa-sweet_v2_elhi.owl";
+//		String cqFile = "src/main/resources/LargeOntologies/nasa/q1.cq";
+//		String datalogResultFile="src/main/resources/LargeOntologies/nasa/q1.result.dl";
 	
 //		String ontologyFile = "src/main/resources/LargeOntologies/not-galen/not-galen_elhi.owl";
 //		String cqFile = "src/main/resources/LargeOntologies/not-galen/q1.cq";
 //		String datalogResultFile="src/main/resources/LargeOntologies/not-galen/q1.result.dl";
 		
 		System.setProperty("entityExpansionLimit", "0");// 0 means no limit
+		ClipperManager.getInstance().setVerboseLevel(3);
+		
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 
