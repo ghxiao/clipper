@@ -11,6 +11,7 @@ import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -139,7 +140,7 @@ public class TBoxReasoner {
 	 * @return copy of a set of HornImplication objects
 	 */
 	private Set<HornImplication> cloneOfImps(Set<HornImplication> imps) {
-		Set<HornImplication> clonedSet = new HashSet<HornImplication>();
+		Set<HornImplication> clonedSet = new HashSet<>();
 		for (HornImplication imp : imps) {
 			clonedSet.add(new HornImplication(imp));
 		}
@@ -179,11 +180,14 @@ public class TBoxReasoner {
 
 	/**
 	 * enf(T1,R,T2), \bot \in T2 --> imp(T1,\bot)
-	 * 
-	 * @return
+	 *
 	 */
 	private boolean bottomRule(Set<EnforcedRelation> enfs) {
-		boolean modifiedIMPS = false;
+        if (ClipperManager.getInstance().getVerboseLevel() >= 8) {
+            System.out.println("bottomRule" + " " + LocalDateTime.now());
+        }
+
+        boolean modifiedIMPS = false;
 		for (EnforcedRelation tuple : enfs) {
 			if (tuple.getType2().contains(
 					ClipperManager.getInstance().getNothing())) {
@@ -200,18 +204,26 @@ public class TBoxReasoner {
 
 	/**
 	 * \sqsubseteq_1 rule
-	 * 
-	 * @return
+     *
+     * M ⊑ ∃(S⊓S′).N  S ⊑ r
+     * -------------------
+     * M ⊑ ∃(S ⊓ S′ ⊓ r).N
+	 *
 	 */
 	private boolean roleInclusionRule(Set<EnforcedRelation> enfs) {
-		boolean update = false;
+
+        if (ClipperManager.getInstance().getVerboseLevel() >= 8) {
+            System.out.println("roleInclusionRule" + " " + LocalDateTime.now());
+        }
+
+
+        boolean update = false;
 		for (EnforcedRelation tuple : enfs) {
 			for (ClipperSubPropertyAxiom ax : this.subObjectPropertyAxioms) {
 				int r = ax.getRole1();
 				int s = ax.getRole2();
 				// r is subrole of s
-				if (tuple.getRoles().contains(r)
-						&& !tuple.getRoles().contains(s)) {
+				if (tuple.getRoles().contains(r) && !tuple.getRoles().contains(s)) {
 					EnforcedRelation newTuple = new EnforcedRelation(tuple);
 					newTuple.getRoles().add(s);
 					if (enfContainer.add(newTuple)) {
@@ -384,13 +396,17 @@ public class TBoxReasoner {
      *
      *
 	 * @param enfs
-	 * @return
 	 * 
 	 *         Xiao: param enfs is not used inside the method, this method is
 	 *         not implemented incrementally
 	 */
 	private boolean forAllRule(Set<EnforcedRelation> enfs) {
-		boolean update = false;
+
+        if (ClipperManager.getInstance().getVerboseLevel() >= 8){
+            System.out.println("forAllRule" + " " + LocalDateTime.now());
+        }
+
+        boolean update = false;
 
 		for (ClipperAtomSubAllAxiom ax : allValuesFromAxioms) {
 			//  Rule: R_∀
@@ -442,7 +458,12 @@ public class TBoxReasoner {
 	 * @return
 	 */
 	private boolean forAllRuleABoxType(Set<EnforcedRelation> enfs) {
-		boolean update = false;
+
+        if (ClipperManager.getInstance().getVerboseLevel() >= 8) {
+            System.out.println("forAllRuleABoxType" + " " + LocalDateTime.now());
+        }
+
+        boolean update = false;
 
 		for (EnforcedRelation tuple : enfs) {
 			for (ClipperAtomSubAllAxiom ax : allValuesFromAxioms) {
@@ -476,6 +497,11 @@ public class TBoxReasoner {
 	 * @return updated
 	 */
 	private boolean atMostOneRule_MergeChildren() {
+
+        if (ClipperManager.getInstance().getVerboseLevel() >= 8) {
+            System.out.println("atMostOneRule_MergeChildren" + " " + LocalDateTime.now());
+        }
+
 		boolean update = false;
 		for (ClipperAtomSubMaxOneAxiom ax : maxOneCardinalityAxioms) {
 			TIntHashSet axRole = new TIntHashSet();
@@ -517,6 +543,11 @@ public class TBoxReasoner {
 	}
 
 	private boolean atMostRule_ParentChildCollapsed() {
+
+        if (ClipperManager.getInstance().getVerboseLevel() >= 8) {
+            System.out.println("atMostRule_ParentChildCollapsed" + " " + LocalDateTime.now());
+        }
+
 		boolean update = false;
 		for (ClipperAtomSubMaxOneAxiom ax : maxOneCardinalityAxioms) {
 			TIntHashSet axRole = new TIntHashSet();
@@ -588,10 +619,8 @@ public class TBoxReasoner {
 			System.out.println(" Sub roles:" + this.subObjectPropertyAxioms);
 			System.out.println(" Inverse:" + this.inverseRoleAxioms);
 		}
-		Set<EnforcedRelation> copyOfEnfs = cloneOfEnfs(this.enfContainer
-				.getEnfs());
-		Set<HornImplication> copyOfImps = cloneOfImps(this.impContainer
-				.getImps());
+		Set<EnforcedRelation> copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
+		Set<HornImplication> copyOfImps;
 		// Apply all rule for the first time, in next times, we only run rule
 		// with newEnfs, and newImps
 		bottomRule(copyOfEnfs);
@@ -620,7 +649,13 @@ public class TBoxReasoner {
 
 		// Apply rule only in newEnfs and newImps
 		boolean update = true;
+
+        int round = 0;
+
 		while (update && !inconsistent) {
+            round++;
+            System.out.println("round: " + round);
+
             Set<EnforcedRelation> copyOfNewEnfs = cloneOfEnfs(newEnfs); // \Delta_{enf}
 			Set<HornImplication> copyOfNewImps = cloneOfImps(newImps); // \Delta_{imp}
 			copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
@@ -634,8 +669,8 @@ public class TBoxReasoner {
             update |= (conceptInclusionRule(copyOfImps)); // only applied to the Delta
 
 			// FIXME!!!: xiao: copyOfNewEnfs is not used inside the
-			// implementation,
-			// this makes the algorithim is not semi-naive
+            // NAIVE
+			// this makes the algorithim  not semi-naive
             update |= forAllRule(copyOfNewEnfs);
 
             update |= computeAboxTypeClosure(copyOfNewImps);

@@ -31,23 +31,16 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitor {
 	public void visit(OWLSubAnnotationPropertyOfAxiom axiom) {
 
         log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
-
-		//throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public void visit(OWLAnnotationPropertyDomainAxiom axiom) {
         log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
-
-		//throw new UnsupportedOperationException();
-
 	}
 
 	@Override
 	public void visit(OWLAnnotationPropertyRangeAxiom axiom) {
         log.warn("ClipperHornSHIQOntologyConverter ignores {}", axiom);
-
-		//throw new UnsupportedOperationException();
 	}
 
 	@Override
@@ -154,8 +147,7 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitor {
 				}
 			}
 
-			// A subclass max(R, 1, B') -> {A subclass max(R, 1, D), D subclass
-			// B'}
+			// A subclass max(R, 1, B') -> {A subclass max(R, 1, D), D subclass B'}
 			else if (superClass.getClassExpressionType() == ClassExpressionType.OBJECT_MAX_CARDINALITY) {
 				OWLObjectMaxCardinality max = (OWLObjectMaxCardinality) superClass;
 				OWLClassExpression filler = max.getFiller();

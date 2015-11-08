@@ -97,29 +97,27 @@ class HornSHIQProfileObjectVisitor extends OWLOntologyWalkerVisitor<Object> {
 
 	@Override
 	public Object visit(OWLSubAnnotationPropertyOfAxiom axiom) {
-		profileViolations.add(new UseOfIllegalAxiom(getCurrentOntology(), axiom));
+		//profileViolations.add(new UseOfIllegalAxiom(getCurrentOntology(), axiom));
 
 		return null;
 	}
 
 	@Override
 	public Object visit(OWLAnnotationPropertyDomainAxiom axiom) {
-		profileViolations.add(new UseOfIllegalAxiom(getCurrentOntology(), axiom));
+		//profileViolations.add(new UseOfIllegalAxiom(getCurrentOntology(), axiom));
 
 		return null;
 	}
 
 	@Override
 	public Object visit(OWLAnnotationPropertyRangeAxiom axiom) {
-		profileViolations.add(new UseOfIllegalAxiom(getCurrentOntology(), axiom));
+		//profileViolations.add(new UseOfIllegalAxiom(getCurrentOntology(), axiom));
 
 		return null;
 	}
 
 	@Override
 	public Object visit(OWLSubClassOfAxiom axiom) {
-
-
         boolean inProfile = (axiom.getSubClass().accept(leftExpressionChecker) //
                 && axiom.getSuperClass().accept(rightExpressionChecker));
         if (!inProfile) {
@@ -281,7 +279,9 @@ class HornSHIQProfileObjectVisitor extends OWLOntologyWalkerVisitor<Object> {
 	public Object visit(OWLClassAssertionAxiom axiom) {
 		// FIXME
 		if ((axiom.getClassExpression().getClassExpressionType() != ClassExpressionType.OWL_CLASS)) {
-			profileViolations.add(new UseOfIllegalAxiom(getCurrentOntology(), axiom));
+            if(!axiom.getClassExpression().accept(rightExpressionChecker)){
+                profileViolations.add(new UseOfIllegalAxiom(getCurrentOntology(), axiom));
+            }
 		}
 
 		return null;
