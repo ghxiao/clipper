@@ -1,0 +1,6 @@
+
+description = 'Clipper Evaluation'
+dependencies {
+    compile group: 'org.oxford.comlab', name: 'sygenia', version:'0.3'
+  compile project(':clipper-reasoner')
+}

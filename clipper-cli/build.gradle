@@ -1,0 +1,7 @@
+description = 'Clipper Command Line Interface'
+
+dependencies {
+  compile project(':clipper-reasoner')
+    compile group: 'com.beust', name: 'jcommander', version:'1.30'
+    compile group: 'postgresql', name: 'postgresql', version:'9.1-901-1.jdbc4'
+}

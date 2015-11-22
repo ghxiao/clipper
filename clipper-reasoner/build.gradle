@@ -1,0 +1,11 @@
+
+description = 'Clipper Reasoner'
+dependencies {
+    compile group: 'com.dlvsystem', name: 'DLVWrapper', version:'4.2'
+    compile group: 'net.sf.trove4j', name: 'trove4j', version:'3.0.3'
+    compile group: 'org.antlr', name: 'antlr-runtime', version:'3.4'
+    compile group: 'net.sf.jung', name: 'jung-graph-impl', version:'2.0.1'
+    compile group: 'net.sf.jung', name: 'jung-algorithms', version:'2.0.1'
+    compile group: 'net.sourceforge.owlapi', name: 'owlapi-apibinding', version:'3.4.10'
+    compile group: 'com.google.code.findbugs', name: 'jsr305', version:'2.0.1'
+}
