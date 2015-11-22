@@ -408,7 +408,9 @@ public class TBoxReasoner {
 
         boolean update = false;
 
-		for (ClipperAtomSubAllAxiom ax : allValuesFromAxioms) {
+        int counter = 0;
+
+        for (ClipperAtomSubAllAxiom ax : allValuesFromAxioms) {
 			//  Rule: R_∀
 			TIntHashSet role = new TIntHashSet();
 			role.add(ax.getRole());
@@ -419,11 +421,17 @@ public class TBoxReasoner {
 
             Collection<EnforcedRelation> matches = this.enfContainer.matchRoles(role);
 
+            System.out.println(counter + ": ForAll " + ax + " -> " + matches.size());
+
 			for (EnforcedRelation enf : matches) {
+
 				EnforcedRelation newEnf = new EnforcedRelation(enf);
 
                 newEnf.getType1().add(ax.getConcept1());
 				newEnf.getType2().add(ax.getConcept2());
+
+                System.out.println(newEnf);
+
 				if (this.enfContainer.add(newEnf)) {
 					//this.enfContainer.remove(enf);
 					newEnfs.add(new EnforcedRelation(newEnf));
@@ -431,11 +439,16 @@ public class TBoxReasoner {
 				}
 			}
 
+
+
 			// Rule forAll_2 : dealing with inverse role
 			TIntHashSet invRole = new TIntHashSet();
 			invRole.add(BitSetUtilOpt.inverseRole(ax.getRole()));
-			Collection<EnforcedRelation> matchesRolesAndType2 = this.enfContainer
-					.matchRolesAndType2(invRole, axType1);
+			Collection<EnforcedRelation> matchesRolesAndType2 = this.enfContainer.matchRolesAndType2(invRole, axType1);
+
+            //System.out.println(counter + ": ForAll^- " + ax + " -> " + matchesRolesAndType2.size());
+
+            counter++;
 
 			for (EnforcedRelation enf : matchesRolesAndType2) {
 				HornImplication newImp = new HornImplication(enf.getType1(),
