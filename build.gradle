@@ -1,5 +1,6 @@
 allprojects {
     apply plugin: 'maven'
+//    apply plugin: 'antlr'
 
     group = 'org.semanticweb.clipper'
     version = '0.3.0-20151122'
@@ -26,7 +27,7 @@ subprojects {
 
     dependencies {
         compile group: 'com.google.guava', name: 'guava', version: '18.0'
-        compile(group: 'org.apache.jena', name: 'jena-arq', version: '2.13.0') {
+        compile(group: 'org.apache.jena', name: 'jena-arq', version: '3.0.0') {
             exclude(module: 'slf4j-log4j12')
         }
         compile group: 'org.slf4j', name: 'slf4j-api', version: '1.6.4'

@@ -2,8 +2,8 @@ package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
-import com.hp.hpl.jena.query.Query;
-import com.hp.hpl.jena.query.QueryFactory;
+import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryFactory;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
 import it.unical.mat.wrapper.DLVError;

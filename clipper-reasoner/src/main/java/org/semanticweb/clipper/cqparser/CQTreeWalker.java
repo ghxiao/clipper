@@ -68,9 +68,9 @@ public class CQTreeWalker {
 	}
 
 	/**
-	 * 
+	 *
 	 * walk a node with list of atoms.
-	 * 
+	 *
 	 * @param node
 	 *            node to walk
 	 * @param dlAtoms
