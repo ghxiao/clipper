@@ -18,6 +18,7 @@ subprojects {
 
     artifacts.archives packageSources
     repositories {
+        mavenCentral()
         mavenLocal()
 
         maven { url "https://github.com/ghxiao/ghxiao-mvn-repo/raw/master/snapshots" }
@@ -37,3 +38,5 @@ subprojects {
     }
 
 }
+
+

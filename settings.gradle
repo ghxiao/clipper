@@ -8,3 +8,4 @@ project(':clipper-reasoner').projectDir = "$rootDir/clipper-reasoner" as File
 project(':clipper-cli').projectDir = "$rootDir/clipper-cli" as File
 project(':clipper-distribution').projectDir = "$rootDir/clipper-distribution" as File
 project(':clipper-evaluation').projectDir = "$rootDir/clipper-evaluation" as File
+
