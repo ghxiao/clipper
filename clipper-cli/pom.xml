@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>clipper</artifactId>
 		<groupId>org.semanticweb.clipper</groupId>
-		<version>0.3.0-20151122</version>
+		<version>0.3.0-20151204</version>
 	</parent>
 
 	<artifactId>clipper-cli</artifactId>
@@ -14,7 +14,7 @@
 		<dependency>
 			<groupId>org.semanticweb.clipper</groupId>
 			<artifactId>clipper-reasoner</artifactId>
-			<version>0.3.0-20151122</version>
+			<version>0.3.0-20151204</version>
 		</dependency>
 
 		<dependency>
