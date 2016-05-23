@@ -46,6 +46,17 @@ public class CommandRewriteTest {
 
 		ClipperApp.main(args);
 	}
+
+    @Test
+    public void testRewriteQ10() {
+
+        String[] args = { "rewrite" ,"-tq", "/Users/xiao/Development/clipper/clipper-cli/src/test/resources/kikot_bug_report/exp1.owl",
+                //"-cq","/Users/xiao/Downloads/Q10.cq",
+                "-cq","/Users/xiao/Development/clipper/clipper-cli/src/test/resources/kikot_bug_report/Q10.cq",
+                "-d","/Users/xiao/Development/clipper/clipper-cli/src/test/resources/kikot_bug_report/Q10.rew.out"};
+
+        ClipperApp.main(args);
+    }
 	
 	@Test
     @Ignore
