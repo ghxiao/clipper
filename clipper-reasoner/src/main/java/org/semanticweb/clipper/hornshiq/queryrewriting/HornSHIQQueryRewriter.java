@@ -19,15 +19,20 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static java.lang.Math.abs;
+
 public class HornSHIQQueryRewriter implements QueryRewriter {
 
     private final Logger log = LoggerFactory.getLogger(HornSHIQQueryRewriter.class);
+    private Set<Integer> possibleSelfLoopRoles = null;
 
     CQContainmentCheckUnderLIDs cqContainmentChecker;
 
@@ -58,8 +63,24 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
         for (ClipperSubPropertyAxiom subPropertyAxiom : subPropertyAxioms) {
             int subRole = subPropertyAxiom.getRole1();
             int superRole = subPropertyAxiom.getRole2();
+
             transSuperRole2SubRolesMmap.put(superRole, subRole);
         }
+
+        possibleSelfLoopRoles = new HashSet<>();
+        for(int superRole : transSuperRole2SubRolesMmap.keySet()){
+            final Collection<Integer> integers = transSuperRole2SubRolesMmap.get(superRole);
+            final List<Integer> list = new ArrayList<>(integers);
+            Collections.sort(list);
+            int n = list.size();
+            for(int i = 0; i < n - 1; i ++){
+                if(list.get(i+1) - list.get(i) == 1){
+                    possibleSelfLoopRoles.add(superRole);
+                }
+            }
+        }
+
+
     }
 
     /**
@@ -74,7 +95,8 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
 
         rewrittenCQGraphs = new ArrayList<>();
 
-        slcc = new NaiveSelfLoopComponentCluster();
+        //slcc = new NaiveSelfLoopComponentCluster();
+        slcc = new SmartSelfLoopComponentCluster(possibleSelfLoopRoles);
 
         rewrite_recursive(g);
         return rewrittenCQGraphs;
@@ -91,7 +113,7 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
 
         rewrittenCQGraphs.add(g);
 
-        Set<Set<Variable>> selfLoopComponents = slcc.transform(g);
+        Set<Set<Variable>> selfLoopComponents = slcc.apply(g);
 
         for (Set<Variable> component : selfLoopComponents) {
             Sets.powerSet(component).stream()

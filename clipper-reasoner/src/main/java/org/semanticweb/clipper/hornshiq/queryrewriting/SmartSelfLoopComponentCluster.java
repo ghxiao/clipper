@@ -1,9 +1,10 @@
 package org.semanticweb.clipper.hornshiq.queryrewriting;
 
+import edu.uci.ics.jung.algorithms.cluster.WeakComponentClusterer;
+import edu.uci.ics.jung.graph.DirectedSparseMultigraph;
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
-import org.apache.commons.collections15.Buffer;
-import org.apache.commons.collections15.buffer.UnboundedFifoBuffer;
+
 import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
 import org.semanticweb.clipper.hornshiq.queryanswering.IndexedEnfContainer;
 import org.semanticweb.clipper.hornshiq.rule.Term;
@@ -27,12 +28,12 @@ import static java.util.Objects.requireNonNull;
  */
 public class SmartSelfLoopComponentCluster implements SelfLoopComponentCluster {
 
-	private List<Integer> selfLoopRoles;
+	private Set<Integer> selfLoopRoles;
 
 	// TODO only consider non-simples roles
 
 	public SmartSelfLoopComponentCluster(IndexedEnfContainer enfs, List<Integer> nonSimpleRoles) {
-		selfLoopRoles = new ArrayList<>();
+		selfLoopRoles = new HashSet<>();
 		boolean mayLoop = false;
 		for (EnforcedRelation enf : enfs) {
 			mayLoop = true;
@@ -59,51 +60,32 @@ public class SmartSelfLoopComponentCluster implements SelfLoopComponentCluster {
 		}
 	}
 
-	public SmartSelfLoopComponentCluster(List<Integer> selfLoopRoles) {
+	public SmartSelfLoopComponentCluster(Set<Integer> selfLoopRoles) {
 		this.selfLoopRoles = selfLoopRoles;
 	}
 
 	@Override
-	public Set<Set<Variable>> transform(CQGraph graph) {
+	public Set<Set<Variable>> apply(CQGraph graph) {
 
-		Set<Set<Variable>> clusterSet = new HashSet<Set<Variable>>();
+        final Set<Variable> nonAnswerVariables = graph.getNonAnswerVariables();
 
-		HashSet<Variable> unvisitedVertices = new HashSet<Variable>();
+        final DirectedSparseMultigraph<Variable, CQGraphEdge> g = new DirectedSparseMultigraph<>();
 
-		for (Term vtx : graph.getVertices()) {
-			if (vtx.isVariable()) {
-				unvisitedVertices.add(vtx.asVariable());
-			}
-		}
+        nonAnswerVariables.forEach(g::addVertex);
 
-		while (!unvisitedVertices.isEmpty()) {
-			Variable root = unvisitedVertices.iterator().next();
-			unvisitedVertices.remove(root);
+        for(CQGraphEdge e : graph.getEdges()){
+            if (nonAnswerVariables.contains(e.getSource()) &&
+                    nonAnswerVariables.contains(e.getDest()) &&
+                selfLoopRoles.contains(e.getRole()) ){
+                g.addEdge(e, (Variable)e.getSource(), (Variable)e.getDest());
+            }
+        }
 
-			if (!graph.isAnswerVariable(root)) {
-				Set<Variable> cluster = new HashSet<Variable>();
-				cluster.add(root);
+        WeakComponentClusterer<Variable, CQGraphEdge> clusterer = new WeakComponentClusterer<>();
 
-				Buffer<Variable> queue = new UnboundedFifoBuffer<Variable>();
-				queue.add(root);
+        final Set<Set<Variable>> clusters = clusterer.apply(g);
 
-				while (!queue.isEmpty()) {
-					Variable currentVertex = queue.remove();
-					Collection<Variable> neighbors = getNeighbors(graph, currentVertex);
-
-					for (Variable neighbor : neighbors) {
-						if (unvisitedVertices.contains(neighbor)) {
-							queue.add(neighbor);
-							unvisitedVertices.remove(neighbor);
-							cluster.add(neighbor);
-						}
-					}
-				}
-				clusterSet.add(cluster);
-			}
-
-		}
-		return clusterSet;
+        return clusters;
 	}
 
 	private Collection<Variable> getNeighbors(CQGraph g, Variable vertex) {

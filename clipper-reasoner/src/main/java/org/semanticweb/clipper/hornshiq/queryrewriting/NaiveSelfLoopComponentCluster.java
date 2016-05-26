@@ -9,7 +9,9 @@ import java.util.Set;
 public class NaiveSelfLoopComponentCluster implements SelfLoopComponentCluster {
 
     @Override
-    public Set<Set<Variable>> transform(CQGraph cqGraph) {
+    public Set<Set<Variable>> apply(CQGraph cqGraph) {
         return ImmutableSet.of(cqGraph.getNonAnswerVariables());
     }
+
+
 }

@@ -1,6 +1,7 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.Sets;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.queryrewriting.CQGraph;
@@ -30,11 +31,11 @@ public class SelfLoopComponentClusterTest {
 		System.out.println(g);
 		System.out.println();
 
-		List<Integer> selfLoopRoles = Arrays.asList(2, 4);
+		Set<Integer> selfLoopRoles = Sets.newHashSet(2, 4);
 
 		SmartSelfLoopComponentCluster slcc = new SmartSelfLoopComponentCluster(selfLoopRoles);
 
-		Set<Set<Variable>> clusters = slcc.transform(g);
+		Set<Set<Variable>> clusters = slcc.apply(g);
 		Joiner.on("\n").appendTo(System.out, clusters);
 
 		assertEquals(2, clusters.size());
