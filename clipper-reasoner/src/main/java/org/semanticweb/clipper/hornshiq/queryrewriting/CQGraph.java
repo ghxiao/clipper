@@ -209,7 +209,7 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
                 }
         );
 
-        this.getInterEdges(parentVertices).forEach(e -> {
+        this.getInterEdgesWithSelfLoops(parentVertices).forEach(e -> {
                     edgesToAdd.add(new CQGraphEdge(newLeaf, newLeaf, e.getRole()));
                     edgesToRemove.add(e);
                 }
@@ -369,6 +369,34 @@ public class CQGraph extends DirectedSparseMultigraph<Term, CQGraphEdge> {
             for (CQGraphEdge edge : this.getOutEdges(vertex)) {
                 Term second = this.getDest(edge);
                 if (vertices.contains(second) && !edge.getSource().equals(edge.getDest())) {
+                    interEdges.add(edge);
+                }
+            }
+        }
+        return interEdges;
+    }
+
+    /**
+     * gets the edges between the vertices,
+     * <p/>
+     * NOTE that self loop edges (e=(v,v)) are included
+     *
+     * @param vertices input vertices
+     * @return edges
+     */
+    public Collection<CQGraphEdge> getInterEdgesWithSelfLoops(Collection<? extends Term> vertices) {
+        Set<CQGraphEdge> interEdges = new HashSet<>();
+        for (Term vertex : vertices) {
+            Preconditions.checkState(this.containsVertex(vertex), "the vertex is not in the graph");
+            for (CQGraphEdge edge : this.getInEdges(vertex)) {
+                Term first = this.getSource(edge);
+                if (vertices.contains(first)) {
+                    interEdges.add(edge);
+                }
+            }
+            for (CQGraphEdge edge : this.getOutEdges(vertex)) {
+                Term second = this.getDest(edge);
+                if (vertices.contains(second)) {
                     interEdges.add(edge);
                 }
             }

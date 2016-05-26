@@ -1,0 +1,1 @@
+Q(?0) <- Immunoprotein_Gene(?0), rGene_Plays_Role_in_Process(?0,?1), Immune_Response(?1), rGene_is_Biomarker_of(?0,?2), Breast_Carcinoma(?2)

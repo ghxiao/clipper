@@ -5,6 +5,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
+import com.hp.hpl.jena.sparql.core.Var;
 import gnu.trove.set.hash.TIntHashSet;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
@@ -143,7 +144,7 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
         Multimap<CQGraphEdge, Integer> edge2SubRolesMmap = HashMultimap.create();
 
         for (CQGraphEdge inEdge : inEdges) {
-            // when inEdge does not correpond to non-simple roles, the following is a no-op
+            // when inEdge does not correspond to non-simple roles, the following is a no-op
             edge2SubRolesMmap.putAll(inEdge, transSuperRole2SubRolesMmap.get(inEdge.getRole()));
         }
 
@@ -278,7 +279,8 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
         TIntHashSet rolesInEnf = enf.getRoles();
 
         // for each atom r(x, y) in body(ρ) with x, y ∈ Vl
-        Collection<CQGraphEdge> leafInterEdges = g.getInterEdges(leaves);
+        //Collection<CQGraphEdge> leafInterEdges = g.getInterEdges(leaves);
+        Collection<CQGraphEdge> leafInterEdges = g.getInterEdgesWithSelfLoops(leaves);
 
 
         for (CQGraphEdge edge : leafInterEdges) {

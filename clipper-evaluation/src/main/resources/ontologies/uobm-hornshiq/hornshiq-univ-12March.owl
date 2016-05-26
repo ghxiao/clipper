@@ -1,0 +1,2602 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://semantics.crl.ibm.com/univ-bench-dl.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://semantics.crl.ibm.com/univ-bench-dl.owl">
+    <Prefix name="" IRI="http://semantics.crl.ibm.com/univ-bench-dl.owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="www" IRI="http://www.Department10.University0.edu/"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="http" IRI="http://"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="www2" IRI="http://www.Department3.University0.edu/"/>
+    <Prefix name="www3" IRI="http://www.Department7.University0.edu/"/>
+    <Prefix name="www4" IRI="http://www.Department15.University0.edu/"/>
+    <Prefix name="www5" IRI="http://www.Department2.University0.edu/"/>
+    <Prefix name="www6" IRI="http://www.Department19.University0.edu/"/>
+    <Prefix name="www7" IRI="http://www.Department14.University0.edu/"/>
+    <Prefix name="www8" IRI="http://www.Department8.University0.edu/"/>
+    <Prefix name="www9" IRI="http://www.Department9.University0.edu/"/>
+    <Prefix name="www10" IRI="http://www.Department12.University0.edu/"/>
+    <Prefix name="www11" IRI="http://www.Department16.University0.edu/"/>
+    <Prefix name="www12" IRI="http://www.Department0.University0.edu/"/>
+    <Prefix name="www13" IRI="http://www.Department11.University0.edu/"/>
+    <Prefix name="www14" IRI="http://www.Department6.University0.edu/"/>
+    <Prefix name="www15" IRI="http://www.Department17.University0.edu/"/>
+    <Prefix name="www16" IRI="http://www.Department5.University0.edu/"/>
+    <Prefix name="www17" IRI="http://www.Department13.University0.edu/"/>
+    <Prefix name="www18" IRI="http://www.Department4.University0.edu/"/>
+    <Prefix name="www19" IRI="http://www.Department18.University0.edu/"/>
+    <Prefix name="www20" IRI="http://www.Department1.University0.edu/"/>
+    <Prefix name="www21" IRI="http://www.College3.University0.edu/"/>
+    <Prefix name="Lecturer0" IRI="http://www.Department7.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer1" IRI="http://www.Department15.University0.edu/Lecturer1/"/>
+    <Prefix name="Lecturer2" IRI="http://www.Department7.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer3" IRI="http://www.Department7.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer4" IRI="http://www.Department7.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer5" IRI="http://www.Department7.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer02" IRI="http://www.Department0.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer03" IRI="http://www.Department19.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer04" IRI="http://www.Department13.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer05" IRI="http://www.Department10.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer06" IRI="http://www.Department5.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer07" IRI="http://www.Department9.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer08" IRI="http://www.Department17.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer09" IRI="http://www.Department3.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer12" IRI="http://www.Department0.University0.edu/Lecturer1/"/>
+    <Prefix name="Lecturer13" IRI="http://www.Department19.University0.edu/Lecturer1/"/>
+    <Prefix name="Lecturer14" IRI="http://www.Department13.University0.edu/Lecturer1/"/>
+    <Prefix name="Lecturer15" IRI="http://www.Department10.University0.edu/Lecturer1/"/>
+    <Prefix name="Lecturer16" IRI="http://www.Department8.University0.edu/Lecturer1/"/>
+    <Prefix name="Lecturer17" IRI="http://www.Department9.University0.edu/Lecturer1/"/>
+    <Prefix name="Lecturer18" IRI="http://www.Department17.University0.edu/Lecturer1/"/>
+    <Prefix name="Lecturer19" IRI="http://www.Department3.University0.edu/Lecturer1/"/>
+    <Prefix name="Lecturer22" IRI="http://www.Department15.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer23" IRI="http://www.Department0.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer24" IRI="http://www.Department19.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer25" IRI="http://www.Department13.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer26" IRI="http://www.Department10.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer27" IRI="http://www.Department5.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer28" IRI="http://www.Department8.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer29" IRI="http://www.Department9.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer32" IRI="http://www.Department15.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer33" IRI="http://www.Department0.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer34" IRI="http://www.Department19.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer35" IRI="http://www.Department10.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer36" IRI="http://www.Department5.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer37" IRI="http://www.Department8.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer38" IRI="http://www.Department9.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer39" IRI="http://www.Department17.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer42" IRI="http://www.Department15.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer43" IRI="http://www.Department0.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer44" IRI="http://www.Department19.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer45" IRI="http://www.Department13.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer46" IRI="http://www.Department10.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer47" IRI="http://www.Department8.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer48" IRI="http://www.Department9.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer49" IRI="http://www.Department17.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer52" IRI="http://www.Department15.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer53" IRI="http://www.Department0.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer54" IRI="http://www.Department19.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer55" IRI="http://www.Department13.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer56" IRI="http://www.Department10.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer57" IRI="http://www.Department5.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer58" IRI="http://www.Department8.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer59" IRI="http://www.Department9.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer010" IRI="http://www.Department2.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer011" IRI="http://www.Department11.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer012" IRI="http://www.Department14.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer013" IRI="http://www.Department12.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer014" IRI="http://www.Department4.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer015" IRI="http://www.Department6.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer016" IRI="http://www.Department18.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer017" IRI="http://www.Department16.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer018" IRI="http://www.Department1.University0.edu/Lecturer0/"/>
+    <Prefix name="Lecturer110" IRI="http://www.Department2.University0.edu/Lecturer1/"/>
+    <Prefix name="Lecturer111" IRI="http://www.Department11.University0.edu/Lecturer1/"/>
+    <Prefix name="Lecturer112" IRI="http://www.Department14.University0.edu/Lecturer1/"/>
+    <Prefix name="Lecturer113" IRI="http://www.Department4.University0.edu/Lecturer1/"/>
+    <Prefix name="Lecturer114" IRI="http://www.Department6.University0.edu/Lecturer1/"/>
+    <Prefix name="Lecturer115" IRI="http://www.Department16.University0.edu/Lecturer1/"/>
+    <Prefix name="Lecturer116" IRI="http://www.Department1.University0.edu/Lecturer1/"/>
+    <Prefix name="Lecturer210" IRI="http://www.Department17.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer211" IRI="http://www.Department3.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer212" IRI="http://www.Department2.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer213" IRI="http://www.Department14.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer214" IRI="http://www.Department11.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer215" IRI="http://www.Department12.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer216" IRI="http://www.Department4.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer217" IRI="http://www.Department6.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer218" IRI="http://www.Department18.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer219" IRI="http://www.Department16.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer220" IRI="http://www.Department1.University0.edu/Lecturer2/"/>
+    <Prefix name="Lecturer310" IRI="http://www.Department3.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer311" IRI="http://www.Department14.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer312" IRI="http://www.Department11.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer313" IRI="http://www.Department12.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer314" IRI="http://www.Department4.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer315" IRI="http://www.Department6.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer316" IRI="http://www.Department18.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer317" IRI="http://www.Department16.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer318" IRI="http://www.Department1.University0.edu/Lecturer3/"/>
+    <Prefix name="Lecturer410" IRI="http://www.Department3.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer411" IRI="http://www.Department2.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer412" IRI="http://www.Department11.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer413" IRI="http://www.Department12.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer414" IRI="http://www.Department4.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer415" IRI="http://www.Department6.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer416" IRI="http://www.Department18.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer417" IRI="http://www.Department16.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer418" IRI="http://www.Department1.University0.edu/Lecturer4/"/>
+    <Prefix name="Lecturer510" IRI="http://www.Department17.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer511" IRI="http://www.Department2.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer512" IRI="http://www.Department3.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer513" IRI="http://www.Department14.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer514" IRI="http://www.Department11.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer515" IRI="http://www.Department12.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer516" IRI="http://www.Department4.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer517" IRI="http://www.Department6.University0.edu/Lecturer5/"/>
+    <Prefix name="Lecturer518" IRI="http://www.Department16.University0.edu/Lecturer5/"/>
+    <Prefix name="univ-bench-dl" IRI="http://semantics.crl.ibm.com/univ-bench-dl.owl#"/>
+    <Prefix name="FullProfessor0" IRI="http://www.Department14.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor1" IRI="http://www.Department14.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor2" IRI="http://www.Department9.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor3" IRI="http://www.Department9.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor4" IRI="http://www.Department9.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor5" IRI="http://www.Department9.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor6" IRI="http://www.Department9.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor7" IRI="http://www.Department9.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor8" IRI="http://www.Department9.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor02" IRI="http://www.Department9.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor03" IRI="http://www.Department7.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor04" IRI="http://www.Department6.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor05" IRI="http://www.Department11.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor06" IRI="http://www.Department15.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor07" IRI="http://www.Department4.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor08" IRI="http://www.Department12.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor09" IRI="http://www.Department18.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor12" IRI="http://www.Department9.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor13" IRI="http://www.Department7.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor14" IRI="http://www.Department6.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor15" IRI="http://www.Department11.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor16" IRI="http://www.Department15.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor17" IRI="http://www.Department4.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor18" IRI="http://www.Department12.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor19" IRI="http://www.Department18.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor22" IRI="http://www.Department7.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor23" IRI="http://www.Department6.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor24" IRI="http://www.Department11.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor25" IRI="http://www.Department12.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor26" IRI="http://www.Department4.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor27" IRI="http://www.Department15.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor28" IRI="http://www.Department5.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor29" IRI="http://www.Department8.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor32" IRI="http://www.Department7.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor33" IRI="http://www.Department6.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor34" IRI="http://www.Department11.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor35" IRI="http://www.Department12.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor36" IRI="http://www.Department4.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor37" IRI="http://www.Department15.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor38" IRI="http://www.Department5.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor39" IRI="http://www.Department8.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor42" IRI="http://www.Department7.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor43" IRI="http://www.Department6.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor44" IRI="http://www.Department11.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor45" IRI="http://www.Department4.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor46" IRI="http://www.Department12.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor47" IRI="http://www.Department15.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor48" IRI="http://www.Department5.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor49" IRI="http://www.Department8.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor52" IRI="http://www.Department7.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor53" IRI="http://www.Department6.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor54" IRI="http://www.Department11.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor55" IRI="http://www.Department4.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor56" IRI="http://www.Department12.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor57" IRI="http://www.Department15.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor58" IRI="http://www.Department5.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor59" IRI="http://www.Department8.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor62" IRI="http://www.Department7.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor63" IRI="http://www.Department6.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor64" IRI="http://www.Department11.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor65" IRI="http://www.Department4.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor66" IRI="http://www.Department12.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor67" IRI="http://www.Department15.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor68" IRI="http://www.Department5.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor69" IRI="http://www.Department8.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor72" IRI="http://www.Department7.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor73" IRI="http://www.Department11.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor74" IRI="http://www.Department6.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor75" IRI="http://www.Department4.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor76" IRI="http://www.Department12.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor77" IRI="http://www.Department15.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor78" IRI="http://www.Department5.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor79" IRI="http://www.Department8.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor82" IRI="http://www.Department7.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor83" IRI="http://www.Department11.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor84" IRI="http://www.Department6.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor85" IRI="http://www.Department4.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor86" IRI="http://www.Department12.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor87" IRI="http://www.Department15.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor88" IRI="http://www.Department5.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor89" IRI="http://www.Department8.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor010" IRI="http://www.Department5.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor011" IRI="http://www.Department8.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor012" IRI="http://www.Department0.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor013" IRI="http://www.Department16.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor014" IRI="http://www.Department1.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor015" IRI="http://www.Department13.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor016" IRI="http://www.Department2.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor017" IRI="http://www.Department19.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor018" IRI="http://www.Department10.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor019" IRI="http://www.Department3.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor020" IRI="http://www.Department17.University0.edu/FullProfessor0/"/>
+    <Prefix name="FullProfessor110" IRI="http://www.Department5.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor111" IRI="http://www.Department8.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor112" IRI="http://www.Department0.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor113" IRI="http://www.Department16.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor114" IRI="http://www.Department1.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor115" IRI="http://www.Department13.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor116" IRI="http://www.Department2.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor117" IRI="http://www.Department19.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor118" IRI="http://www.Department10.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor119" IRI="http://www.Department3.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor120" IRI="http://www.Department17.University0.edu/FullProfessor1/"/>
+    <Prefix name="FullProfessor210" IRI="http://www.Department0.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor211" IRI="http://www.Department16.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor212" IRI="http://www.Department18.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor213" IRI="http://www.Department1.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor214" IRI="http://www.Department13.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor215" IRI="http://www.Department2.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor216" IRI="http://www.Department14.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor217" IRI="http://www.Department19.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor218" IRI="http://www.Department10.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor219" IRI="http://www.Department3.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor220" IRI="http://www.Department17.University0.edu/FullProfessor2/"/>
+    <Prefix name="FullProfessor310" IRI="http://www.Department0.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor311" IRI="http://www.Department16.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor312" IRI="http://www.Department18.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor313" IRI="http://www.Department1.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor314" IRI="http://www.Department13.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor315" IRI="http://www.Department2.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor316" IRI="http://www.Department14.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor317" IRI="http://www.Department19.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor318" IRI="http://www.Department10.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor319" IRI="http://www.Department3.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor320" IRI="http://www.Department17.University0.edu/FullProfessor3/"/>
+    <Prefix name="FullProfessor410" IRI="http://www.Department0.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor411" IRI="http://www.Department16.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor412" IRI="http://www.Department18.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor413" IRI="http://www.Department1.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor414" IRI="http://www.Department13.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor415" IRI="http://www.Department2.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor416" IRI="http://www.Department14.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor417" IRI="http://www.Department19.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor418" IRI="http://www.Department10.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor419" IRI="http://www.Department3.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor420" IRI="http://www.Department17.University0.edu/FullProfessor4/"/>
+    <Prefix name="FullProfessor510" IRI="http://www.Department0.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor511" IRI="http://www.Department16.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor512" IRI="http://www.Department18.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor513" IRI="http://www.Department1.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor514" IRI="http://www.Department13.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor515" IRI="http://www.Department2.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor516" IRI="http://www.Department14.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor517" IRI="http://www.Department19.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor518" IRI="http://www.Department10.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor519" IRI="http://www.Department3.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor520" IRI="http://www.Department17.University0.edu/FullProfessor5/"/>
+    <Prefix name="FullProfessor610" IRI="http://www.Department0.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor611" IRI="http://www.Department16.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor612" IRI="http://www.Department18.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor613" IRI="http://www.Department1.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor614" IRI="http://www.Department2.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor615" IRI="http://www.Department13.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor616" IRI="http://www.Department14.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor617" IRI="http://www.Department19.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor618" IRI="http://www.Department10.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor619" IRI="http://www.Department3.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor620" IRI="http://www.Department17.University0.edu/FullProfessor6/"/>
+    <Prefix name="FullProfessor710" IRI="http://www.Department0.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor711" IRI="http://www.Department16.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor712" IRI="http://www.Department18.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor713" IRI="http://www.Department1.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor714" IRI="http://www.Department2.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor715" IRI="http://www.Department13.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor716" IRI="http://www.Department14.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor717" IRI="http://www.Department19.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor718" IRI="http://www.Department10.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor719" IRI="http://www.Department3.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor720" IRI="http://www.Department17.University0.edu/FullProfessor7/"/>
+    <Prefix name="FullProfessor810" IRI="http://www.Department0.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor811" IRI="http://www.Department16.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor812" IRI="http://www.Department18.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor813" IRI="http://www.Department1.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor814" IRI="http://www.Department2.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor815" IRI="http://www.Department13.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor816" IRI="http://www.Department14.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor817" IRI="http://www.Department19.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor818" IRI="http://www.Department10.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor819" IRI="http://www.Department3.University0.edu/FullProfessor8/"/>
+    <Prefix name="FullProfessor820" IRI="http://www.Department17.University0.edu/FullProfessor8/"/>
+    <Prefix name="AssistantProfessor0" IRI="http://www.Department12.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor1" IRI="http://www.Department12.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor2" IRI="http://www.Department12.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor3" IRI="http://www.Department12.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor4" IRI="http://www.Department12.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor5" IRI="http://www.Department12.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor6" IRI="http://www.Department12.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor7" IRI="http://www.Department12.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssociateProfessor0" IRI="http://www.Department2.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor1" IRI="http://www.Department2.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor2" IRI="http://www.Department2.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor3" IRI="http://www.Department0.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor4" IRI="http://www.Department2.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor5" IRI="http://www.Department2.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor6" IRI="http://www.Department2.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor7" IRI="http://www.Department2.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor8" IRI="http://www.Department2.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor9" IRI="http://www.Department2.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssistantProfessor02" IRI="http://www.Department17.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor03" IRI="http://www.Department10.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor04" IRI="http://www.Department14.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor05" IRI="http://www.Department19.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor06" IRI="http://www.Department6.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor07" IRI="http://www.Department18.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor08" IRI="http://www.Department1.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor09" IRI="http://www.Department2.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor12" IRI="http://www.Department17.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor13" IRI="http://www.Department10.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor14" IRI="http://www.Department14.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor15" IRI="http://www.Department19.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor16" IRI="http://www.Department6.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor17" IRI="http://www.Department18.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor18" IRI="http://www.Department1.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor19" IRI="http://www.Department2.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor22" IRI="http://www.Department17.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor23" IRI="http://www.Department10.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor24" IRI="http://www.Department14.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor25" IRI="http://www.Department19.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor26" IRI="http://www.Department6.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor27" IRI="http://www.Department18.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor28" IRI="http://www.Department1.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor29" IRI="http://www.Department2.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor32" IRI="http://www.Department17.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor33" IRI="http://www.Department10.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor34" IRI="http://www.Department14.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor35" IRI="http://www.Department19.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor36" IRI="http://www.Department6.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor37" IRI="http://www.Department1.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor38" IRI="http://www.Department18.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor39" IRI="http://www.Department2.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor42" IRI="http://www.Department17.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor43" IRI="http://www.Department10.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor44" IRI="http://www.Department14.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor45" IRI="http://www.Department19.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor46" IRI="http://www.Department6.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor47" IRI="http://www.Department1.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor48" IRI="http://www.Department18.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor49" IRI="http://www.Department2.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor52" IRI="http://www.Department17.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor53" IRI="http://www.Department10.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor54" IRI="http://www.Department14.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor55" IRI="http://www.Department19.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor56" IRI="http://www.Department6.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor57" IRI="http://www.Department1.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor58" IRI="http://www.Department18.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor59" IRI="http://www.Department2.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor62" IRI="http://www.Department17.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor63" IRI="http://www.Department10.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor64" IRI="http://www.Department14.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor65" IRI="http://www.Department19.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor66" IRI="http://www.Department6.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor67" IRI="http://www.Department1.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor68" IRI="http://www.Department18.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor69" IRI="http://www.Department2.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor72" IRI="http://www.Department17.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor73" IRI="http://www.Department10.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor74" IRI="http://www.Department14.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor75" IRI="http://www.Department19.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor76" IRI="http://www.Department6.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor77" IRI="http://www.Department1.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor78" IRI="http://www.Department18.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor79" IRI="http://www.Department2.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssociateProfessor02" IRI="http://www.Department0.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor03" IRI="http://www.Department14.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor04" IRI="http://www.Department5.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor05" IRI="http://www.Department17.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor06" IRI="http://www.Department10.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor07" IRI="http://www.Department15.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor08" IRI="http://www.Department1.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor09" IRI="http://www.Department12.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor10" IRI="http://www.Department11.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor11" IRI="http://www.Department11.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor12" IRI="http://www.Department0.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor13" IRI="http://www.Department14.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor14" IRI="http://www.Department5.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor15" IRI="http://www.Department17.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor16" IRI="http://www.Department10.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor17" IRI="http://www.Department15.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor18" IRI="http://www.Department1.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor19" IRI="http://www.Department12.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor22" IRI="http://www.Department0.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor23" IRI="http://www.Department14.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor24" IRI="http://www.Department5.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor25" IRI="http://www.Department15.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor26" IRI="http://www.Department17.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor27" IRI="http://www.Department10.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor28" IRI="http://www.Department1.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor29" IRI="http://www.Department12.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor32" IRI="http://www.Department14.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor33" IRI="http://www.Department5.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor34" IRI="http://www.Department15.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor35" IRI="http://www.Department10.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor36" IRI="http://www.Department17.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor37" IRI="http://www.Department2.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor38" IRI="http://www.Department1.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor39" IRI="http://www.Department12.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor42" IRI="http://www.Department0.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor43" IRI="http://www.Department14.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor44" IRI="http://www.Department5.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor45" IRI="http://www.Department15.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor46" IRI="http://www.Department17.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor47" IRI="http://www.Department10.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor48" IRI="http://www.Department1.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor49" IRI="http://www.Department12.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor52" IRI="http://www.Department0.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor53" IRI="http://www.Department14.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor54" IRI="http://www.Department5.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor55" IRI="http://www.Department15.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor56" IRI="http://www.Department17.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor57" IRI="http://www.Department10.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor58" IRI="http://www.Department12.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor59" IRI="http://www.Department1.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor62" IRI="http://www.Department14.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor63" IRI="http://www.Department5.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor64" IRI="http://www.Department15.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor65" IRI="http://www.Department17.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor66" IRI="http://www.Department10.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor67" IRI="http://www.Department12.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor68" IRI="http://www.Department1.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor69" IRI="http://www.Department9.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor72" IRI="http://www.Department0.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor73" IRI="http://www.Department14.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor74" IRI="http://www.Department5.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor75" IRI="http://www.Department15.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor76" IRI="http://www.Department17.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor77" IRI="http://www.Department10.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor78" IRI="http://www.Department12.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor79" IRI="http://www.Department1.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor82" IRI="http://www.Department14.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor83" IRI="http://www.Department0.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor84" IRI="http://www.Department15.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor85" IRI="http://www.Department17.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor86" IRI="http://www.Department10.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor87" IRI="http://www.Department12.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor88" IRI="http://www.Department1.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor89" IRI="http://www.Department9.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor92" IRI="http://www.Department14.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor93" IRI="http://www.Department0.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor94" IRI="http://www.Department5.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor95" IRI="http://www.Department15.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor96" IRI="http://www.Department17.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor97" IRI="http://www.Department10.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor98" IRI="http://www.Department12.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor99" IRI="http://www.Department1.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssistantProfessor010" IRI="http://www.Department16.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor011" IRI="http://www.Department15.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor012" IRI="http://www.Department7.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor013" IRI="http://www.Department8.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor014" IRI="http://www.Department4.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor015" IRI="http://www.Department13.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor016" IRI="http://www.Department11.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor017" IRI="http://www.Department9.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor018" IRI="http://www.Department5.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor019" IRI="http://www.Department3.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor020" IRI="http://www.Department0.University0.edu/AssistantProfessor0/"/>
+    <Prefix name="AssistantProfessor110" IRI="http://www.Department16.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor111" IRI="http://www.Department15.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor112" IRI="http://www.Department7.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor113" IRI="http://www.Department8.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor114" IRI="http://www.Department4.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor115" IRI="http://www.Department13.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor116" IRI="http://www.Department11.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor117" IRI="http://www.Department9.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor118" IRI="http://www.Department3.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor119" IRI="http://www.Department5.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor120" IRI="http://www.Department0.University0.edu/AssistantProfessor1/"/>
+    <Prefix name="AssistantProfessor210" IRI="http://www.Department16.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor211" IRI="http://www.Department15.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor212" IRI="http://www.Department7.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor213" IRI="http://www.Department8.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor214" IRI="http://www.Department4.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor215" IRI="http://www.Department13.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor216" IRI="http://www.Department11.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor217" IRI="http://www.Department9.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor218" IRI="http://www.Department3.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor219" IRI="http://www.Department5.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor220" IRI="http://www.Department0.University0.edu/AssistantProfessor2/"/>
+    <Prefix name="AssistantProfessor310" IRI="http://www.Department16.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor311" IRI="http://www.Department15.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor312" IRI="http://www.Department7.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor313" IRI="http://www.Department8.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor314" IRI="http://www.Department4.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor315" IRI="http://www.Department13.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor316" IRI="http://www.Department11.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor317" IRI="http://www.Department9.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor318" IRI="http://www.Department3.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor319" IRI="http://www.Department5.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor320" IRI="http://www.Department0.University0.edu/AssistantProfessor3/"/>
+    <Prefix name="AssistantProfessor410" IRI="http://www.Department16.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor411" IRI="http://www.Department15.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor412" IRI="http://www.Department7.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor413" IRI="http://www.Department8.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor414" IRI="http://www.Department4.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor415" IRI="http://www.Department13.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor416" IRI="http://www.Department11.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor417" IRI="http://www.Department9.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor418" IRI="http://www.Department3.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor419" IRI="http://www.Department5.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor420" IRI="http://www.Department0.University0.edu/AssistantProfessor4/"/>
+    <Prefix name="AssistantProfessor510" IRI="http://www.Department16.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor511" IRI="http://www.Department15.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor512" IRI="http://www.Department7.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor513" IRI="http://www.Department8.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor514" IRI="http://www.Department4.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor515" IRI="http://www.Department13.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor516" IRI="http://www.Department11.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor517" IRI="http://www.Department9.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor518" IRI="http://www.Department3.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor519" IRI="http://www.Department5.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor520" IRI="http://www.Department0.University0.edu/AssistantProfessor5/"/>
+    <Prefix name="AssistantProfessor610" IRI="http://www.Department16.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor611" IRI="http://www.Department15.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor612" IRI="http://www.Department7.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor613" IRI="http://www.Department8.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor614" IRI="http://www.Department4.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor615" IRI="http://www.Department13.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor616" IRI="http://www.Department11.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor617" IRI="http://www.Department9.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor618" IRI="http://www.Department3.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor619" IRI="http://www.Department5.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor620" IRI="http://www.Department0.University0.edu/AssistantProfessor6/"/>
+    <Prefix name="AssistantProfessor710" IRI="http://www.Department16.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor711" IRI="http://www.Department15.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor712" IRI="http://www.Department7.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor713" IRI="http://www.Department8.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor714" IRI="http://www.Department4.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor715" IRI="http://www.Department13.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor716" IRI="http://www.Department11.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor717" IRI="http://www.Department9.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor718" IRI="http://www.Department3.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor719" IRI="http://www.Department5.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssistantProfessor720" IRI="http://www.Department0.University0.edu/AssistantProfessor7/"/>
+    <Prefix name="AssociateProfessor010" IRI="http://www.Department9.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor011" IRI="http://www.Department7.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor012" IRI="http://www.Department18.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor013" IRI="http://www.Department6.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor014" IRI="http://www.Department19.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor015" IRI="http://www.Department13.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor016" IRI="http://www.Department3.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor017" IRI="http://www.Department4.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor018" IRI="http://www.Department16.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor019" IRI="http://www.Department11.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor020" IRI="http://www.Department8.University0.edu/AssociateProfessor0/"/>
+    <Prefix name="AssociateProfessor102" IRI="http://www.Department0.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor103" IRI="http://www.Department1.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor104" IRI="http://www.Department8.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor105" IRI="http://www.Department13.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor106" IRI="http://www.Department17.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor107" IRI="http://www.Department16.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor108" IRI="http://www.Department7.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor109" IRI="http://www.Department12.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor110" IRI="http://www.Department9.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor111" IRI="http://www.Department7.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor112" IRI="http://www.Department0.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor113" IRI="http://www.Department1.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor114" IRI="http://www.Department8.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor115" IRI="http://www.Department13.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor116" IRI="http://www.Department17.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor117" IRI="http://www.Department7.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor118" IRI="http://www.Department12.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor119" IRI="http://www.Department19.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor120" IRI="http://www.Department18.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor121" IRI="http://www.Department6.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor122" IRI="http://www.Department19.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor123" IRI="http://www.Department3.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor124" IRI="http://www.Department4.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor125" IRI="http://www.Department16.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor126" IRI="http://www.Department13.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor127" IRI="http://www.Department11.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor128" IRI="http://www.Department8.University0.edu/AssociateProfessor1/"/>
+    <Prefix name="AssociateProfessor210" IRI="http://www.Department9.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor211" IRI="http://www.Department7.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor212" IRI="http://www.Department18.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor213" IRI="http://www.Department6.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor214" IRI="http://www.Department19.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor215" IRI="http://www.Department13.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor216" IRI="http://www.Department4.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor217" IRI="http://www.Department3.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor218" IRI="http://www.Department16.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor219" IRI="http://www.Department11.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor220" IRI="http://www.Department8.University0.edu/AssociateProfessor2/"/>
+    <Prefix name="AssociateProfessor310" IRI="http://www.Department7.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor311" IRI="http://www.Department18.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor312" IRI="http://www.Department9.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor313" IRI="http://www.Department19.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor314" IRI="http://www.Department6.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor315" IRI="http://www.Department13.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor316" IRI="http://www.Department3.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor317" IRI="http://www.Department4.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor318" IRI="http://www.Department16.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor319" IRI="http://www.Department11.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor320" IRI="http://www.Department8.University0.edu/AssociateProfessor3/"/>
+    <Prefix name="AssociateProfessor410" IRI="http://www.Department9.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor411" IRI="http://www.Department7.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor412" IRI="http://www.Department18.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor413" IRI="http://www.Department19.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor414" IRI="http://www.Department6.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor415" IRI="http://www.Department13.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor416" IRI="http://www.Department3.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor417" IRI="http://www.Department4.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor418" IRI="http://www.Department16.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor419" IRI="http://www.Department11.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor420" IRI="http://www.Department8.University0.edu/AssociateProfessor4/"/>
+    <Prefix name="AssociateProfessor510" IRI="http://www.Department9.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor511" IRI="http://www.Department7.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor512" IRI="http://www.Department18.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor513" IRI="http://www.Department19.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor514" IRI="http://www.Department6.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor515" IRI="http://www.Department3.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor516" IRI="http://www.Department4.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor517" IRI="http://www.Department16.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor518" IRI="http://www.Department13.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor519" IRI="http://www.Department11.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor520" IRI="http://www.Department8.University0.edu/AssociateProfessor5/"/>
+    <Prefix name="AssociateProfessor610" IRI="http://www.Department7.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor611" IRI="http://www.Department18.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor612" IRI="http://www.Department0.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor613" IRI="http://www.Department19.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor614" IRI="http://www.Department6.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor615" IRI="http://www.Department3.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor616" IRI="http://www.Department4.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor617" IRI="http://www.Department16.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor618" IRI="http://www.Department13.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor619" IRI="http://www.Department8.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor620" IRI="http://www.Department11.University0.edu/AssociateProfessor6/"/>
+    <Prefix name="AssociateProfessor710" IRI="http://www.Department7.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor711" IRI="http://www.Department18.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor712" IRI="http://www.Department9.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor713" IRI="http://www.Department19.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor714" IRI="http://www.Department6.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor715" IRI="http://www.Department3.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor716" IRI="http://www.Department4.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor717" IRI="http://www.Department16.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor718" IRI="http://www.Department13.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor719" IRI="http://www.Department11.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor720" IRI="http://www.Department8.University0.edu/AssociateProfessor7/"/>
+    <Prefix name="AssociateProfessor810" IRI="http://www.Department5.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor811" IRI="http://www.Department7.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor812" IRI="http://www.Department18.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor813" IRI="http://www.Department19.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor814" IRI="http://www.Department6.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor815" IRI="http://www.Department13.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor816" IRI="http://www.Department3.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor817" IRI="http://www.Department4.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor818" IRI="http://www.Department16.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor819" IRI="http://www.Department11.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor820" IRI="http://www.Department8.University0.edu/AssociateProfessor8/"/>
+    <Prefix name="AssociateProfessor910" IRI="http://www.Department9.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor911" IRI="http://www.Department7.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor912" IRI="http://www.Department18.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor913" IRI="http://www.Department19.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor914" IRI="http://www.Department6.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor915" IRI="http://www.Department13.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor916" IRI="http://www.Department3.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor917" IRI="http://www.Department4.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor918" IRI="http://www.Department16.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor919" IRI="http://www.Department11.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor920" IRI="http://www.Department8.University0.edu/AssociateProfessor9/"/>
+    <Prefix name="AssociateProfessor1010" IRI="http://www.Department19.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor1011" IRI="http://www.Department15.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor1012" IRI="http://www.Department2.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor1013" IRI="http://www.Department14.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor1014" IRI="http://www.Department10.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor1015" IRI="http://www.Department18.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor1016" IRI="http://www.Department3.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor1017" IRI="http://www.Department9.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor1018" IRI="http://www.Department4.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor1019" IRI="http://www.Department6.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor1020" IRI="http://www.Department5.University0.edu/AssociateProfessor10/"/>
+    <Prefix name="AssociateProfessor1110" IRI="http://www.Department15.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor1111" IRI="http://www.Department2.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor1112" IRI="http://www.Department14.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor1113" IRI="http://www.Department10.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor1114" IRI="http://www.Department18.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor1115" IRI="http://www.Department3.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor1116" IRI="http://www.Department9.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor1117" IRI="http://www.Department4.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor1118" IRI="http://www.Department16.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor1119" IRI="http://www.Department6.University0.edu/AssociateProfessor11/"/>
+    <Prefix name="AssociateProfessor1120" IRI="http://www.Department5.University0.edu/AssociateProfessor11/"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">hornshiq ver 23 Jan 2012</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Univ-benchmark Ontology</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A HornSHIQ Ontology for benchmark. This ontology is customized from UOBM, which is built on basis of Lehigh Benchmark Ontology, 
+http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="#AcademicSubject"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Aeronautical_EngineeringClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AnthropologyClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ArchitectureClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Article"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Asian_ArtsClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AssistantProfessor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AssociateProfessor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AstronomyClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BaseballClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BaseballFan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BaseballLover"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BasketBallClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BasketBallFan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BasketBallLover"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BiologyClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Biomedical_EngineeringClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Book"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CSCourse"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CSStudent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Chair"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Chemical_EngineeringClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ChemistryClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Civil_EngineeringClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ClericalStaff"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#College"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Computer_EngineeringClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Computer_ScienceClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ConferencePaper"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Course"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dean"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Department"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Director"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DoubleDegreeStudent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DramaClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EconomicsClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Electrical_EngineeringClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Employee"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Engineering"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EnglishClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Faculty"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FineArts"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FullProfessor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GeosciencesClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GraduateCourse"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GraduateStudent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HistoryClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HumanitiesAndSocial"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HumanitiesClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Industry_EngineeringClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Insterest"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Institute"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#JournalArticle"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Latin_ArtsClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Lecturer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LeisureStudent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LinguisticsClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Man"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Manual"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Marine_ScienceClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Materials_ScienceClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Materical_Science_EngineeringClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MathematicsClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mechanical_EngineeringClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Media_Arts_And_ciencesClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Medieval_ArtsClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Modern_ArtsClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Modern_LanguagesClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Music"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MusicsClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NonScienceStudent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Organization"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PeopleWithHobby"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PeopleWithManyHobbies"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Performing_ArtsClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Petroleuml_EngineeringClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PhilosophyClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PhysicsClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PostDoc"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Professor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Program"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PsychologyClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Publication"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ReligionsClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Research"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ResearchAssistant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ResearchGroup"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Schedule"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Science"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ScienceStudent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Software"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Specification"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sports"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportsFan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportsLover"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#StatisticsClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Student"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SupportingStaff"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SwimmingClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SwimmingFan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SwimmingLover"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SystemsStaff"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TeachingAssistant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TechnicalReport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TennisClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TennisFan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Theatre_and_DanceClass"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#UndergraduateStudent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#University"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#UnofficialPublication"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VisitingProfessor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Woman"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WomanCollege"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Work"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#enrollIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAlumnus"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDegreeFrom"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDoctoralDegreeFrom"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMajor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMasterDegreeFrom"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasMember"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPublication"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSameHomeTownWith"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasStudent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasUndergraduateDegreeFrom"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isAdvisedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isAdvisorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isAffiliateOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isAffiliatedOrganizationOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isCrazyAbout"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isFriendOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isHeadOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isMemberOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isPublicationOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isStudentOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isTaughtBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#like"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#listedCourse"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#love"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#orgPublication"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#publicationAuthor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#publicationDate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#publicationResearch"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#researchProject"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#softwareDocumentation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#softwareVersion"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#subOrganizationOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#takesCourse"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#teacherOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#teachingAssistantOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#tenured"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#worksFor"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#emailAddress"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#enrollIn"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#firstName"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#hasMajor"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#hasSameHomeTownWith"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#isCrazyAbout"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#isStudentOf"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#lastName"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#name"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#researchInterest"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#telephone"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Dean"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isHeadOf"/>
+            <Class IRI="#College"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#TeachingAssistant"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Person"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#teachingAssistantOf"/>
+                <Class IRI="#Course"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Aeronautical_EngineeringClass"/>
+        <Class IRI="#Engineering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AnthropologyClass"/>
+        <Class IRI="#HumanitiesAndSocial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ArchitectureClass"/>
+        <Class IRI="#FineArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Article"/>
+        <Class IRI="#Publication"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Asian_ArtsClass"/>
+        <Class IRI="#FineArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AssistantProfessor"/>
+        <Class IRI="#Professor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AssociateProfessor"/>
+        <Class IRI="#Professor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AstronomyClass"/>
+        <Class IRI="#Science"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BaseballClass"/>
+        <Class IRI="#Sports"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BaseballFan"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BaseballFan"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isCrazyAbout"/>
+            <Class IRI="#BaseballClass"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BaseballLover"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BaseballLover"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#like"/>
+            <Class IRI="#BaseballClass"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BasketBallClass"/>
+        <Class IRI="#Sports"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BasketBallFan"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BasketBallLover"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BasketBallLover"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#like"/>
+            <Class IRI="#BasketBallClass"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BiologyClass"/>
+        <Class IRI="#Science"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Biomedical_EngineeringClass"/>
+        <Class IRI="#Engineering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Book"/>
+        <Class IRI="#Publication"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CSCourse"/>
+        <Class IRI="#Course"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CSStudent"/>
+        <Class IRI="#Student"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CSStudent"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#takesCourse"/>
+            <Class IRI="#CSCourse"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Chair"/>
+        <Class IRI="#Professor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Chair"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isHeadOf"/>
+            <Class IRI="#Department"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Chemical_EngineeringClass"/>
+        <Class IRI="#Engineering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ChemistryClass"/>
+        <Class IRI="#Science"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Civil_EngineeringClass"/>
+        <Class IRI="#Engineering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ClericalStaff"/>
+        <Class IRI="#SupportingStaff"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#College"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Computer_EngineeringClass"/>
+        <Class IRI="#Engineering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Computer_ScienceClass"/>
+        <Class IRI="#Science"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ConferencePaper"/>
+        <Class IRI="#Article"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Course"/>
+        <Class IRI="#Work"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Course"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isTaughtBy"/>
+            <Class IRI="#Professor"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dean"/>
+        <Class IRI="#Professor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Department"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Director"/>
+        <Class IRI="#Employee"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Director"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isHeadOf"/>
+            <Class IRI="#Program"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DoubleDegreeStudent"/>
+        <Class IRI="#Student"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DoubleDegreeStudent"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Student"/>
+            <ObjectMinCardinality cardinality="2">
+                <ObjectProperty IRI="#hasDegreeFrom"/>
+                <Class IRI="#University"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DramaClass"/>
+        <Class IRI="#FineArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EconomicsClass"/>
+        <Class IRI="#HumanitiesAndSocial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Electrical_EngineeringClass"/>
+        <Class IRI="#Engineering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Employee"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Employee"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#worksFor"/>
+            <Class IRI="#Organization"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Engineering"/>
+        <Class IRI="#AcademicSubject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EnglishClass"/>
+        <Class IRI="#HumanitiesAndSocial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Faculty"/>
+        <Class IRI="#Employee"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FineArts"/>
+        <Class IRI="#AcademicSubject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FullProfessor"/>
+        <Class IRI="#Professor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GeosciencesClass"/>
+        <Class IRI="#Science"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GraduateCourse"/>
+        <Class IRI="#Course"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GraduateStudent"/>
+        <Class IRI="#Student"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GraduateStudent"/>
+        <ObjectIntersectionOf>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="#takesCourse"/>
+                <Class IRI="#GraduateCourse"/>
+            </ObjectAllValuesFrom>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="#takesCourse"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HistoryClass"/>
+        <Class IRI="#HumanitiesAndSocial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HumanitiesAndSocial"/>
+        <Class IRI="#AcademicSubject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HumanitiesClass"/>
+        <Class IRI="#HumanitiesAndSocial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Industry_EngineeringClass"/>
+        <Class IRI="#Engineering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Institute"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#JournalArticle"/>
+        <Class IRI="#Article"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Latin_ArtsClass"/>
+        <Class IRI="#FineArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lecturer"/>
+        <Class IRI="#Faculty"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LeisureStudent"/>
+        <Class IRI="#Student"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LeisureStudent"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#takesCourse"/>
+            <Class IRI="#Course"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LinguisticsClass"/>
+        <Class IRI="#HumanitiesAndSocial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Man"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Manual"/>
+        <Class IRI="#Publication"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Marine_ScienceClass"/>
+        <Class IRI="#Science"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Materials_ScienceClass"/>
+        <Class IRI="#Science"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Materical_Science_EngineeringClass"/>
+        <Class IRI="#Engineering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MathematicsClass"/>
+        <Class IRI="#Science"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mechanical_EngineeringClass"/>
+        <Class IRI="#Engineering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Media_Arts_And_ciencesClass"/>
+        <Class IRI="#FineArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Medieval_ArtsClass"/>
+        <Class IRI="#FineArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Modern_ArtsClass"/>
+        <Class IRI="#FineArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Modern_LanguagesClass"/>
+        <Class IRI="#HumanitiesAndSocial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Music"/>
+        <Class IRI="#Insterest"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MusicsClass"/>
+        <Class IRI="#FineArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NonScienceStudent"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Student"/>
+            <ObjectComplementOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#hasMajor"/>
+                    <Class IRI="#Science"/>
+                </ObjectSomeValuesFrom>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PeopleWithHobby"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Person"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="#like"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PeopleWithManyHobbies"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PeopleWithManyHobbies"/>
+        <ObjectMinCardinality cardinality="3">
+            <ObjectProperty IRI="#like"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Performing_ArtsClass"/>
+        <Class IRI="#FineArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Petroleuml_EngineeringClass"/>
+        <Class IRI="#Engineering"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PhilosophyClass"/>
+        <Class IRI="#HumanitiesAndSocial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PhysicsClass"/>
+        <Class IRI="#Science"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PostDoc"/>
+        <Class IRI="#Faculty"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Professor"/>
+        <Class IRI="#Faculty"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Professor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPublication"/>
+            <Class IRI="#Publication"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Professor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isAdvisorOf"/>
+            <Class IRI="#Student"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Professor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#teacherOf"/>
+            <Class IRI="#Course"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Program"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PsychologyClass"/>
+        <Class IRI="#HumanitiesAndSocial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ReligionsClass"/>
+        <Class IRI="#HumanitiesAndSocial"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Research"/>
+        <Class IRI="#Work"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ResearchAssistant"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ResearchAssistant"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#worksFor"/>
+            <Class IRI="#ResearchGroup"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ResearchGroup"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Science"/>
+        <Class IRI="#AcademicSubject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ScienceStudent"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Student"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasMajor"/>
+                <Class IRI="#Science"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Software"/>
+        <Class IRI="#Publication"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Specification"/>
+        <Class IRI="#Publication"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sports"/>
+        <Class IRI="#Insterest"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SportsFan"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SportsFan"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isCrazyAbout"/>
+            <Class IRI="#Sports"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SportsLover"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Person"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#like"/>
+                <Class IRI="#Sports"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#StatisticsClass"/>
+        <Class IRI="#Science"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Student"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Student"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isStudentOf"/>
+            <Class IRI="#Organization"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Student"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#takesCourse"/>
+            <Class IRI="#Course"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SupportingStaff"/>
+        <Class IRI="#Employee"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SwimmingClass"/>
+        <Class IRI="#Sports"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SwimmingFan"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SwimmingFan"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isCrazyAbout"/>
+            <Class IRI="#SwimmingClass"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SwimmingLover"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SwimmingLover"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#like"/>
+            <Class IRI="#SwimmingClass"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SystemsStaff"/>
+        <Class IRI="#SupportingStaff"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TechnicalReport"/>
+        <Class IRI="#Article"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TennisClass"/>
+        <Class IRI="#Sports"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TennisFan"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TennisFan"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isCrazyAbout"/>
+            <Class IRI="#TennisClass"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Theatre_and_DanceClass"/>
+        <Class IRI="#FineArts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UndergraduateStudent"/>
+        <Class IRI="#Student"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#University"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UnofficialPublication"/>
+        <Class IRI="#Publication"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VisitingProfessor"/>
+        <Class IRI="#Professor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Woman"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WomanCollege"/>
+        <Class IRI="#College"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WomanCollege"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasStudent"/>
+            <Class IRI="#UndergraduateStudent"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WomanCollege"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasStudent"/>
+            <Class IRI="#Woman"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Man"/>
+        <Class IRI="#Woman"/>
+    </DisjointClasses>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#enrollIn"/>
+        <ObjectProperty IRI="#isStudentOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasDoctoralDegreeFrom"/>
+        <ObjectProperty IRI="#hasDegreeFrom"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMasterDegreeFrom"/>
+        <ObjectProperty IRI="#hasDegreeFrom"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasStudent"/>
+        <ObjectProperty IRI="#hasMember"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasUndergraduateDegreeFrom"/>
+        <ObjectProperty IRI="#hasDegreeFrom"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isCrazyAbout"/>
+        <ObjectProperty IRI="#like"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isHeadOf"/>
+        <ObjectProperty IRI="#worksFor"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#isStudentOf"/>
+        <ObjectProperty IRI="#isMemberOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#like"/>
+        <ObjectProperty IRI="#love"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#love"/>
+        <ObjectProperty IRI="#like"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#worksFor"/>
+        <ObjectProperty IRI="#isMemberOf"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasAlumnus"/>
+        <ObjectProperty IRI="#hasDegreeFrom"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasMember"/>
+        <ObjectProperty IRI="#isMemberOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasPublication"/>
+        <ObjectProperty IRI="#isPublicationOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isStudentOf"/>
+        <ObjectProperty IRI="#hasStudent"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#teacherOf"/>
+        <ObjectProperty IRI="#isTaughtBy"/>
+    </InverseObjectProperties>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#isHeadOf"/>
+    </InverseFunctionalObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#hasSameHomeTownWith"/>
+    </SymmetricObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#isFriendOf"/>
+    </SymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#hasSameHomeTownWith"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#subOrganizationOf"/>
+    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAlumnus"/>
+        <Class IRI="#University"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDegreeFrom"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDoctoralDegreeFrom"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMasterDegreeFrom"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMember"/>
+        <Class IRI="#Organization"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSameHomeTownWith"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasStudent"/>
+        <Class IRI="#Organization"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasUndergraduateDegreeFrom"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isAdvisedBy"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isAffiliateOf"/>
+        <Class IRI="#Organization"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isAffiliatedOrganizationOf"/>
+        <Class IRI="#Organization"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isFriendOf"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isStudentOf"/>
+        <Class IRI="#Student"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isTaughtBy"/>
+        <Class IRI="#Course"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#listedCourse"/>
+        <Class IRI="#Schedule"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#orgPublication"/>
+        <Class IRI="#Organization"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#publicationAuthor"/>
+        <Class IRI="#Publication"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#publicationDate"/>
+        <Class IRI="#Publication"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#publicationResearch"/>
+        <Class IRI="#Publication"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#researchProject"/>
+        <Class IRI="#ResearchGroup"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#softwareDocumentation"/>
+        <Class IRI="#Software"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#softwareVersion"/>
+        <Class IRI="#Software"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#subOrganizationOf"/>
+        <Class IRI="#Organization"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#takesCourse"/>
+        <Class IRI="#Student"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#teacherOf"/>
+        <Class IRI="#Faculty"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#teachingAssistantOf"/>
+        <Class IRI="#TeachingAssistant"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#tenured"/>
+        <Class IRI="#Professor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#enrollIn"/>
+        <Class IRI="#Department"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAlumnus"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDegreeFrom"/>
+        <Class IRI="#University"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDoctoralDegreeFrom"/>
+        <Class IRI="#University"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMajor"/>
+        <Class IRI="#AcademicSubject"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMasterDegreeFrom"/>
+        <Class IRI="#University"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMember"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSameHomeTownWith"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasStudent"/>
+        <Class IRI="#Student"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasUndergraduateDegreeFrom"/>
+        <Class IRI="#University"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isAdvisedBy"/>
+        <Class IRI="#Professor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isAffiliateOf"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isAffiliatedOrganizationOf"/>
+        <Class IRI="#Organization"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isFriendOf"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isStudentOf"/>
+        <Class IRI="#Organization"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isTaughtBy"/>
+        <Class IRI="#Faculty"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#listedCourse"/>
+        <Class IRI="#Course"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#orgPublication"/>
+        <Class IRI="#Publication"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#publicationAuthor"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#publicationResearch"/>
+        <Class IRI="#Research"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#researchProject"/>
+        <Class IRI="#Research"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#softwareDocumentation"/>
+        <Class IRI="#Publication"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#subOrganizationOf"/>
+        <Class IRI="#Organization"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#teacherOf"/>
+        <Class IRI="#Course"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#teachingAssistantOf"/>
+        <Class IRI="#Course"/>
+    </ObjectPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AcademicSubject</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Academic Subject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Article</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">article</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AssistantProfessor</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">assistant professor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AssociateProfessor</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">associate professor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BaseballLover</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">people who like baseball</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BasketBallLover</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">people who like basket ball</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Book</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">book</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Chair</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">chair</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ClericalStaff</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">clerical staff worker</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#College</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">school</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ConferencePaper</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">conference paper</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Course</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">teaching course</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Dean</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">dean</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Department</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">university department</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Director</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">director</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Employee</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Employee</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Engineering</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Engineering</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Faculty</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">faculty member</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#FullProfessor</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">full professor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GraduateCourse</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Graduate Level Courses</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GraduateStudent</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">graduate student</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HumanitiesAndSocial</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">HumanitiesAndSocial</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Institute</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">institute</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#JournalArticle</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">journal article</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Lecturer</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">lecturer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Manual</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">manual</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#NonScienceStudent</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">student whose major is not science</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Organization</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">organization</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PeopleWithManyHobbies</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">People who have at least 3 hobbies</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Person</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">person</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#PostDoc</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">post doctorate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Professor</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">professor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Program</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">program</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Publication</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">publication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Research</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">research work</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ResearchAssistant</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">university research assistant</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ResearchGroup</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">research group</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Schedule</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">schedule</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Science</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Science</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Software</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">software program</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Specification</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">published specification</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SportsLover</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">People who like Sports</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Student</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">student</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SupportingStaff</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">administrative staff worker</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SwimmingLover</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">people who like swimming</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SystemsStaff</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">systems staff worker</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TeachingAssistant</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">university teaching assistant</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TechnicalReport</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">technical report</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#UndergraduateStudent</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">undergraduate student</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#University</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">university</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#UnofficialPublication</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">unnoficial publication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#VisitingProfessor</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">visiting professor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#WomanCollege</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">a college who only take female undergraduate students</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Work</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Work</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasAlumnus</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has as an alumnus</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasDegreeFrom</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has a degree from</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasDoctoralDegreeFrom</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has a doctoral degree from</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasMasterDegreeFrom</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has a masters degree from</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasMember</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has as a member</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasUndergraduateDegreeFrom</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has an undergraduate degree from</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isAdvisedBy</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">is being advised by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isAffiliateOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">is affiliated with</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isAffiliatedOrganizationOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">is affiliated with</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isFriendOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">is a friend of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isHeadOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">is the head of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isMemberOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">member of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isTaughtBy</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">is taught by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#like</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">like</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#listedCourse</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">lists as a course</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#love</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">same property of liike</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#orgPublication</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">publishes</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#publicationAuthor</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">was written by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#publicationDate</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">was written on</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#publicationResearch</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">is about</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#researchProject</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">has as a research project</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#softwareDocumentation</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">is documented in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#softwareVersion</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">is version</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#subOrganizationOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">is part of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#takesCourse</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">is taking</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#teacherOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">teaches</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#teachingAssistantOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">is a teaching assistant for</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#tenured</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">is tenured:</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#worksFor</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Works For</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

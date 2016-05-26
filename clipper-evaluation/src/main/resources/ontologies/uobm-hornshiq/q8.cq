@@ -1,0 +1,1 @@
+Q8(?0,?2) <- TennisFan(?0), like(?0,?1), Sport(?1), isHeadOf(?0,?2), ReserachGroup(?2)

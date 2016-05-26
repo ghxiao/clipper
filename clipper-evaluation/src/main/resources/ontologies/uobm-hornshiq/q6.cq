@@ -1,0 +1,1 @@
+Q6(?0,?1) <- enrollIn(?0,?1), hasDegreeFrom(?0,?1), University(?1)

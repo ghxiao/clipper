@@ -1,0 +1,1 @@
+Q10(?0,?1,?3) <- Professor(?0), Dean(?1), isMemberOf(?1,?3), worksFor(?0,?3), hasPublication(?0,?2), isPublicationOf(?2,?1)

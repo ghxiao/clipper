@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.semanticweb.clipper</groupId>
-    <version>0.3.0-SNAPSHOT</version>
+    <version>0.3.0-20151204</version>
     <artifactId>clipper</artifactId>
     <packaging>pom</packaging>
 
@@ -23,6 +23,10 @@
         <developer>
             <name>Guohui Xiao</name>
             <id>ghxiao</id>
+        </developer>
+        <developer>
+            <name>Trung-Kien Tran</name>
+            <id>kieen</id>
         </developer>
     </developers>
 
@@ -88,7 +92,6 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.version>0.3-SNAPSHOT</project.version>
     </properties>
 
     <repositories>
@@ -107,8 +110,14 @@
                 <enabled>true</enabled>
             </releases>
         </repository>
-
     </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>bz-repo</id>
+            <url>http://obdavm.inf.unibz.it:8080/nexus/content/repositories/thirdparty</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <pluginManagement>

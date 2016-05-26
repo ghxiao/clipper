@@ -225,10 +225,10 @@ public class IndexedEnfContainer implements Collection<EnforcedRelation> {
 			TIntHashSet candidateRoles, TIntHashSet candidateType2) {
 		TIntIterator roleKeyI = candidateRoles.iterator();
 
-		if(!roleKeyI.hasNext()){
+		if (!roleKeyI.hasNext()) {
 			return new ArrayList<EnforcedRelation>(1);
 		}
-		
+
 		int firstRoleKey = roleKeyI.next();
 
 		if (rolesIndex.get(firstRoleKey) == null) {
@@ -398,16 +398,25 @@ public class IndexedEnfContainer implements Collection<EnforcedRelation> {
 	}
 
 	private boolean subsubmedEnf(EnforcedRelation enf) {
-
-		for (EnforcedRelation i : this.enfs) {
-			if (i.getRoles().containsAll(enf.getRoles())
-					&& i.getType2().containsAll(enf.getType2())
-					&& enf.getType1().containsAll(i.getType1())
-					&& i.getType1().containsAll(enf.getType1()))
-				return true;
-		}
-
-		return false;
+		/*
+		 * TODO:
+		 * For now, we store every new enf
+		 * Unless we find a cheap way to check the redundant enf
+		 */
+		return this.enfs.contains(enf);
+		/*
+		 * This is very expensive check; bottleneck of the system
+		 * handling large ontologies
+		 * for (EnforcedRelation i : this.enfs) {
+		 * if (i.getRoles().containsAll(enf.getRoles())
+		 * && i.getType2().containsAll(enf.getType2())
+		 * && enf.getType1().containsAll(i.getType1())
+		 * && i.getType1().containsAll(enf.getType1()))
+		 * return true;
+		 * }
+		 * 
+		 * return false;
+		 */
 	}
 
 }

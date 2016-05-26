@@ -1,0 +1,1 @@
+Q(?0, ?1) <- Island(?0), isPart(?0, ?1), Region(?1), contains(?1, ?2), Volcano(?2)

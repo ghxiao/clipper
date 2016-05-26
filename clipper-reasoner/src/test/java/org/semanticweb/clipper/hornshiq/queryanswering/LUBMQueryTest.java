@@ -387,7 +387,7 @@ public class LUBMQueryTest {
 
 		assertEquals(expectedAnswers.size(), actualAnswers.size());
 
-//		assertEquals(expectedAnswers, actualAnswers);
+		assertEquals(expectedAnswers, actualAnswers);
 
 	}
 

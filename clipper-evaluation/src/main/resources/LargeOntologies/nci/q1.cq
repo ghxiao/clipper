@@ -1,0 +1,1 @@
+Q(?0) <- Techniques(?0), rTechnique_Has_Purpose(?0,?1), Detection(?1)

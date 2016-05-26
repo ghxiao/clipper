@@ -197,6 +197,8 @@ public class IndexedHornImpContainer implements Collection<HornImplication> {
 
 	private boolean subsubmedImpl(HornImplication impl) {
 
+		return this.imps.contains(impl);
+		/*old code:
 		Collection<HornImplication> list = this.matchHead(impl.getHead());
 		for (HornImplication elem : list) {
 			if (impl.getBody().containsAll(elem.getBody())) {
@@ -205,6 +207,7 @@ public class IndexedHornImpContainer implements Collection<HornImplication> {
 		}
 
 		return false;
+		*/
 	}
 
 	
