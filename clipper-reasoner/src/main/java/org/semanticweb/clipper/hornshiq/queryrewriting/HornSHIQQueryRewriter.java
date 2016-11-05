@@ -9,7 +9,9 @@ import com.hp.hpl.jena.sparql.core.Var;
 import gnu.trove.set.hash.TIntHashSet;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.ClipperTransitivityAxiom;
 import org.semanticweb.clipper.hornshiq.queryanswering.CQContainmentCheckUnderLIDs;
+import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
 import org.semanticweb.clipper.hornshiq.queryanswering.IndexedEnfContainer;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
@@ -35,14 +37,13 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
     private final Logger log = LoggerFactory.getLogger(HornSHIQQueryRewriter.class);
     private Set<Integer> possibleSelfLoopRoles = null;
 
-    CQContainmentCheckUnderLIDs cqContainmentChecker;
+    private CQContainmentCheckUnderLIDs cqContainmentChecker;
 
-    ClipperHornSHIQOntology ontology;
-    IndexedEnfContainer enfs;
+    private IndexedEnfContainer enfs;
 
-    Multimap<Integer, Integer> transSuperRole2SubRolesMmap;
+    private Multimap<Integer, Integer> transSuperRole2SubRolesMmap;
 
-    List<CQGraph> rewrittenCQGraphs;
+    private List<CQGraph> rewrittenCQGraphs;
 
     private SelfLoopComponentCluster slcc;
 
@@ -51,14 +52,53 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
         // TODO: 
     }
 
+    /**
+     * compute all <s,r> s.t. trans(s), s \sqsubseteq^* r
+     */
+    private List<ClipperSubPropertyAxiom> computeNonSimpleSubPropertyClosure(ClipperHornSHIQOntology ontology) {
+        List<ClipperSubPropertyAxiom> result = new ArrayList<>();
+        for (ClipperTransitivityAxiom transAx : ontology.getTransitivityAxioms()) {
+            int r1 = transAx.getRole();
+            ClipperSubPropertyAxiom axiom = new ClipperSubPropertyAxiom(r1, r1);
+            result.add(axiom);
+        }
+
+        boolean updated = true;
+        // TODO semi-naive style
+        while (updated) {
+            updated = false;
+            List<ClipperSubPropertyAxiom> delta = new ArrayList<>();
+            for (ClipperSubPropertyAxiom subAx1 : result) {
+
+                // r1_1 subPropertyOf r1_2
+                int r1_1 = subAx1.getRole1();
+                int r1_2 = subAx1.getRole2();
+
+                for (ClipperSubPropertyAxiom subAx2 : ontology.getSubPropertyAxioms()) {
+                    // r2_1 subPropertyOf r2_2
+                    int r2_1 = subAx2.getRole1();
+                    if (r1_2 == r2_1) {
+                        int r2_2 = subAx2.getRole2();
+                        ClipperSubPropertyAxiom axiom = new ClipperSubPropertyAxiom(r1_1, r2_2);
+                        if (!result.contains(axiom)) {
+                            updated = true;
+                            delta.add(axiom);
+                        }
+                    }
+                }
+            }
+            result.addAll(delta);
+        }
+        return result;
+    }
+
 
     public HornSHIQQueryRewriter(ClipperHornSHIQOntology ontology, IndexedEnfContainer enfs) {
-        this.ontology = ontology;
         this.enfs = enfs;
 
         cqContainmentChecker = new CQContainmentCheckUnderLIDs();
 
-        List<ClipperSubPropertyAxiom> subPropertyAxioms = ontology.computeNonSimpleSubPropertyClosure();
+        List<ClipperSubPropertyAxiom> subPropertyAxioms = computeNonSimpleSubPropertyClosure(ontology);
 
         transSuperRole2SubRolesMmap = HashMultimap.create();
         for (ClipperSubPropertyAxiom subPropertyAxiom : subPropertyAxioms) {
@@ -70,12 +110,16 @@ public class HornSHIQQueryRewriter implements QueryRewriter {
 
         possibleSelfLoopRoles = new HashSet<>();
         for(int superRole : transSuperRole2SubRolesMmap.keySet()){
-            final Collection<Integer> integers = transSuperRole2SubRolesMmap.get(superRole);
-            final List<Integer> list = new ArrayList<>(integers);
-            Collections.sort(list);
-            int n = list.size();
+            final Collection<Integer> subRoles = transSuperRole2SubRolesMmap.get(superRole);
+            final List<Integer> sortedSubRoles = new ArrayList<>(subRoles);
+            Collections.sort(sortedSubRoles);
+            int n = sortedSubRoles.size();
             for(int i = 0; i < n - 1; i ++){
-                if(list.get(i+1) - list.get(i) == 1){
+                final Integer subRole = sortedSubRoles.get(i);
+                if(subRole % 2 == 0 && // ROLE Name (not inverse of)
+                        !subRole.equals(ClipperManager.getInstance().getTopProperty()) && // NOT TOP
+                        !subRole.equals(ClipperManager.getInstance().getBottomProperty()) && // NOT BOTTOM
+                        sortedSubRoles.get(i+1) - subRole == 1){
                     possibleSelfLoopRoles.add(superRole);
                 }
             }

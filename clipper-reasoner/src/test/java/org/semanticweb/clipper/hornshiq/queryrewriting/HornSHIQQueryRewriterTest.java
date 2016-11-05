@@ -330,6 +330,8 @@ public class HornSHIQQueryRewriterTest {
 
         ontology.getTransitivityAxioms().add(new ClipperTransitivityAxiom(4));
 
+        ontology.getSubPropertyAxioms().add(new ClipperSubPropertyAxiom(4, 5));
+
         IndexedEnfContainer enfs = new IndexedEnfContainer();
 
         enfs.add(new EnforcedRelation(
@@ -348,7 +350,7 @@ public class HornSHIQQueryRewriterTest {
                 // T
                 new TIntHashSet(new int[] { 0 })));
 
-        HornSHIQQueryRewriter rewriter = new HornSHIQQueryRewriter(ontology, enfs);
+         HornSHIQQueryRewriter rewriter = new HornSHIQQueryRewriter(ontology, enfs);
 
         /*
          * ρ : q(x) ← A(x), r2(x, y), B(y), r3(x, z), C(z), r(y, z).

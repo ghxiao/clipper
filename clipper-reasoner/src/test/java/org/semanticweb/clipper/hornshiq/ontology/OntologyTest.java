@@ -19,10 +19,10 @@ public class OntologyTest {
 		ontology.getTransitivityAxioms().add(new ClipperTransitivityAxiom(4));
 		ontology.getTransitivityAxioms().add(new ClipperTransitivityAxiom(14));
 
-		List<ClipperSubPropertyAxiom> nonSimpleSubPropertyClosure = ontology
-				.computeNonSimpleSubPropertyClosure();
-		
-		System.out.println(nonSimpleSubPropertyClosure);
+//		List<ClipperSubPropertyAxiom> nonSimpleSubPropertyClosure = ontology
+//				.computeNonSimpleSubPropertyClosure();
+//
+//		System.out.println(nonSimpleSubPropertyClosure);
 
 	}
 }

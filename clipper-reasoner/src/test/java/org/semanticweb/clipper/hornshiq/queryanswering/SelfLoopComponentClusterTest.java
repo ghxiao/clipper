@@ -17,7 +17,6 @@ import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
-@Ignore // not implemented
 public class SelfLoopComponentClusterTest {
 
 	@Test
