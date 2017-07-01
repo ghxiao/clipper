@@ -1,23 +1,22 @@
 // JRDFox(c) Copyright University of Oxford, 2013. All Rights Reserved.
 
-package uk.ac.ox.cs.JRDFox;
+package org.semanticweb.clipper.hornshiq.aboxprofile;
+
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLOntology;
+import uk.ac.ox.cs.JRDFox.JRDFoxException;
+import uk.ac.ox.cs.JRDFox.Prefixes;
+import uk.ac.ox.cs.JRDFox.store.DataStore;
+import uk.ac.ox.cs.JRDFox.store.Resource;
+import uk.ac.ox.cs.JRDFox.store.TupleIterator;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
-import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-
-import uk.ac.ox.cs.JRDFox.store.DataStore;
-import uk.ac.ox.cs.JRDFox.store.Resource;
-import uk.ac.ox.cs.JRDFox.store.TupleIterator;
 
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toSet;
@@ -134,7 +133,6 @@ public class ABoxProfileExtractor {
                 os.write("\n");
             }
         }
-
 
     }
 
