@@ -42,9 +42,10 @@ public class ABoxIndividualProfile {
 
         //todo:add code to return infered concepts from Individual Profile
 
-        ActivatorProfile profile = new ActivatorProfile(activeconcepts);
+        //ActivatorProfile profile = new ActivatorProfile(activeconcepts);
 
-        return profile;
+        //return profile;
+        return null;
 
     }
 
