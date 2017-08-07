@@ -43,6 +43,7 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.profiles.OWLProfileReport;
 import uk.ac.ox.cs.JRDFox.JRDFoxException;
+import uk.ac.ox.cs.JRDFox.store.Resource;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -92,6 +93,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 	private CQFormatter cqFormatter;
 	private NamingStrategy namingStrategy;
     private OWLOntology combinedOntology;
+    private Collection<Set<Resource>> aboxProfiles;
 
     public QAHornSHIQ() {
 		decodedAnswers = new ArrayList<>();
@@ -757,7 +759,12 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
             }
 		}
 
-		ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
+        OWLOntology rlTBox = OWLOntologySplitter.extractRLTBox(combinedOntology);
+        OWLOntology aBox = OWLOntologySplitter.extractABox(combinedOntology);
+
+        this.aboxProfiles = ABoxProfileExtractor.computeProfiles(rlTBox, aBox);
+
+        ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
 		ClipperHornSHIQOntology onto_bs = converter.convert(combinedOntology);
 
 		this.clipperOntology = onto_bs;
