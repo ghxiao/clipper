@@ -13,6 +13,7 @@ import org.semanticweb.clipper.util.LUBMAnswerFileParser;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import uk.ac.ox.cs.JRDFox.JRDFoxException;
 
 import java.io.File;
 import java.util.HashSet;

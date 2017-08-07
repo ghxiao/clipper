@@ -107,6 +107,19 @@ public class ABoxProfileExtractor {
         return finalProfile;
     }
 
+    public static void writeProfilesToFile(String tboxFile, String aboxFile, String outputFile) throws Exception{
+        final Collection<Set<Resource>> profiles = computeProfiles(tboxFile, aboxFile);
+
+        try (FileWriter os = new FileWriter(new File(outputFile))) {
+            for (Set<Resource> p : profiles) {
+                final String line = p.stream().map(Object::toString).collect(joining(","));
+                os.write(line);
+                os.write("\n");
+            }
+        }
+
+    }
+
     /**
      * @param args 0 - ontology file (TBox)
      *             1 - ABox turtle file

@@ -1,14 +1,7 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import gnu.trove.set.hash.TIntHashSet;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperAndSubAtomAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMaxOneAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubSomeAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperConceptAssertionAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.*;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
 
 import java.util.Collection;
@@ -21,6 +14,7 @@ public class TBoxReasoner {
 
 	private IndexedHornImpContainer impContainer;
 	private IndexedEnfContainer enfContainer;
+	private List<ClipperAtomSubAllAxiom> allTopValuesFromAxioms;
 	private List<ClipperAtomSubAllAxiom> allValuesFromAxioms;
 	private List<ClipperSubPropertyAxiom> subObjectPropertyAxioms;
 	private List<ClipperInversePropertyOfAxiom> inverseRoleAxioms;
@@ -86,6 +80,7 @@ public class TBoxReasoner {
 		init(ont_bs);
 	}
 
+
 	// setters and getters
 	public IndexedHornImpContainer getImpContainer() {
 		return impContainer;
@@ -130,7 +125,6 @@ public class TBoxReasoner {
 			clonedSet.add(new EnforcedRelation(enf));
 		}
 		return clonedSet;
-
 	}
 
 	/**
@@ -151,7 +145,7 @@ public class TBoxReasoner {
 	 * Compute Closure of ABoxType. Keep in mind that if we do reasoning with
 	 * TBox only, and use this result together with ABox, Then we still need to
 	 * provide the ABoxType or just set ABoxType as a set of concepts
-	 * 
+	 * rl+1)
 	 * @param imps
 	 * @return
 	 */
@@ -579,6 +573,7 @@ public class TBoxReasoner {
 	 * Apply the saturation rules on TBox
 	 */
 	public void saturate() {
+
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("Start TBox reasoning");
 			System.out.println(" IMP size: " + enfContainer.getEnfs().size());

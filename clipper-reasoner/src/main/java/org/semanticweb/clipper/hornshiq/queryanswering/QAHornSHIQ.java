@@ -1,7 +1,6 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import com.google.common.base.Strings;
-import com.google.common.collect.Lists;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryFactory;
 import gnu.trove.iterator.TIntIterator;
@@ -16,6 +15,8 @@ import it.unical.mat.wrapper.FactHandler;
 import it.unical.mat.wrapper.FactResult;
 import it.unical.mat.wrapper.ModelBufferedHandler;
 import org.semanticweb.clipper.QueryAnsweringSystem;
+import org.semanticweb.clipper.hornshiq.aboxprofile.ABoxProfileExtractor;
+import org.semanticweb.clipper.hornshiq.aboxprofile.ABoxProfileLoader;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntologyConverter;
@@ -41,6 +42,7 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.profiles.OWLProfileReport;
+import uk.ac.ox.cs.JRDFox.JRDFoxException;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -55,9 +57,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static java.util.stream.Collectors.joining;
+import static org.semanticweb.clipper.hornshiq.aboxprofile.ABoxProfileLoader.loadProfiles;
+
 public class QAHornSHIQ implements QueryAnsweringSystem {
 
 	private String datalogFileName;
+	private String profilesFileName;//todo:needed for extracting initial profiles.
+	private String aboxFileName;
+	private String tboxFileName;
 	private String ontologyName;
 
 	private String queryString;
@@ -73,7 +81,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
 	private ClipperReport clipperReport = new ClipperReport();
 
-	private Collection<CQ> rewrittenQueries;
+	private Collection<CQ> rewrittenQueries;//todo:lb-why multiple rewritten Queries?
 
 	// String dlvPath = "lib/dlv";
 	String dlvPath;
@@ -105,7 +113,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 	 * return Datalog program that contains: rewritten queries, completion
 	 *         rules, and ABox assertions
 	 */
-	public void generateDatalog() {
+	public void generateDatalog(){
 		this.headPredicate = cq.getHead().getPredicate().toString();
 		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
 			System.out.println("% Encoded Input query:" + cq);
@@ -276,7 +284,27 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 	 * @return
 	 */
 	public TBoxReasoner saturateTBox() {
+
 		TBoxReasoner tb = new TBoxReasoner(clipperOntology);
+		// ///////////////////////////////////////////////
+		// Evaluate reasoning time
+		long reasoningBegin = System.currentTimeMillis();
+		tb.saturate();
+		long reasoningEnd = System.currentTimeMillis();
+		clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
+		// end of evaluating reasoning time
+		return tb;
+	}
+
+	/**
+	 * @return
+	 */
+	public NewTBoxReasoner newSaturateTBox() throws Exception {
+
+		//TODO: add here an extraction for ABoxProfile extraction
+		Collection<Set<Integer>> initialActivators= extractActivatorsFromProfiles(); //from this point onward we get also the
+
+		NewTBoxReasoner tb = new NewTBoxReasoner(clipperOntology,initialActivators);
 		// ///////////////////////////////////////////////
 		// Evaluate reasoning time
 		long reasoningBegin = System.currentTimeMillis();
@@ -561,7 +589,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
     }
 
     @Override
-	public List<List<String>> execQuery() {
+	public List<List<String>> execQuery(){
 
 		generateDatalog();
 
@@ -739,6 +767,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
 	}
 
+
     /**
      * @return exports saturated enforce relations
      */
@@ -844,4 +873,163 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 	public void setOntologies(Set<OWLOntology> ontologies) {
 		this.ontologies = ontologies;
 	}
+
+    public List<List<String>> newExecQuery(String sparqlString, String profilesFilename) throws JRDFoxException, IOException {
+        Query query = QueryFactory.create(sparqlString);
+        CQ cq = new SparqlToCQConverter().compileQuery(query);
+
+        this.setQuery(cq);
+
+        if(Strings.isNullOrEmpty(datalogFileName)){
+            this.setDatalogFileName("temp.dl");
+        }
+
+        return this.newExecQuery(profilesFilename);
+    }
+
+
+
+    public List<List<String>> newExecQuery(String profilesFilename) throws JRDFoxException, IOException {
+
+		loadProfiles(profilesFilename);
+
+//		ABoxProfileExtractor profileExtractor = new ABoxProfileExtractor();
+
+//		profileExtractor.computeABoxClosure(combinedOntology);
+
+		generateDatalog();
+
+		this.answers = new ArrayList<>();
+
+		DLVInputProgram inputProgram = new DLVInputProgramImpl();
+		String outPutNotification = "";
+
+		/* I can add some file to the DLVInputProgram */
+
+		inputProgram.addFile(this.datalogFileName);
+
+		ensureDlvPath();
+
+		DLVInvocation invocation = DLVWrapper.getInstance().createInvocation(dlvPath);
+		/* I can specify a part of DLV program using simple strings */
+
+		// Creates an instance of DLVInvocation
+
+		// Creates an instance of DLVInputProgram
+		if (ClipperManager.getInstance().getVerboseLevel() > 1)
+			System.out.println("===========Answers for the query ========");
+
+		try {
+			invocation.setInputProgram(inputProgram);
+			invocation.setNumberOfModels(1);
+			List<String> filters = new ArrayList<String>();
+			// filters.add(this.headPredicate);
+			filters.add(cq.getHead().getPredicate().toString());
+			invocation.setFilter(filters, true);
+			ModelBufferedHandler modelBufferedHandler = new ModelBufferedHandler(invocation);
+
+			this.answers = new ArrayList<>();
+
+			/* In this moment I can start the DLV execution */
+			FactHandler factHandler = new FactHandler() {
+				@Override
+				public void handleResult(DLVInvocation obsd, FactResult res) {
+					String answerString = res.toString();
+					if (ClipperManager.getInstance().getVerboseLevel() > 1)
+						System.out.println(answerString);
+					answers.add(answerString);
+				}
+			};
+
+			invocation.subscribe(factHandler);
+			// Roughly datalog program evalutaion
+			long dlvBegin = System.currentTimeMillis();
+			invocation.run();
+			long dlvEng = System.currentTimeMillis();
+			clipperReport.setDatalogRunTime(dlvEng - dlvBegin);
+			// Roughly datalog program evalutaion
+			if (!modelBufferedHandler.hasMoreModels()) {
+				outPutNotification = "No model";
+				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
+					System.out.println("No model");
+				}
+			}
+			invocation.waitUntilExecutionFinishes();
+			List<DLVError> k = invocation.getErrors();
+			if (k.size() > 0) {
+				if (ClipperManager.getInstance().getVerboseLevel() >= 0) {
+					System.out.println(k);
+				}
+				outPutNotification = k.toString();
+			}
+
+		} catch (DLVInvocationException e1) {
+			e1.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		long starOutputAnswer = System.currentTimeMillis();
+		AnswerParser answerParser = new AnswerParser(namingStrategy);
+
+		this.decodedAnswers.clear();
+		answerParser.setAnswers(this.answers);
+		answerParser.parse();
+		this.decodedAnswers = answerParser.getDecodedAnswers();
+
+		if (ClipperManager.getInstance().getVerboseLevel() > 1) {
+			System.out.println("=============Decoded answers ==============");
+		}
+
+		BufferedWriter bufferedWriter = null;
+
+		try {
+
+			// Construct the BufferedWriter object
+			bufferedWriter = new BufferedWriter(new FileWriter(datalogFileName + "-answer.txt"));
+			bufferedWriter.write(outPutNotification);
+			// Start writing to the output stream
+			for (List<String> ans : decodedAnswers) {
+				bufferedWriter.write(ans.toString());
+				bufferedWriter.newLine();
+			}
+
+			long endOutputAnswer = System.currentTimeMillis();
+			this.clipperReport.setOutputAnswerTime(endOutputAnswer - starOutputAnswer);
+
+		} catch (FileNotFoundException ex) {
+			ex.printStackTrace();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} finally {
+			// Close the BufferedWriter
+			try {
+				if (bufferedWriter != null) {
+					bufferedWriter.flush();
+					bufferedWriter.close();
+				}
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+		return decodedAnswers;
+
+	}
+
+	/**todo:lb
+	 * Extract overapproximated activators from ABox
+	 *
+	 */
+	public Collection<Set<Integer>> extractActivatorsFromProfiles() throws Exception {
+
+		ABoxProfileExtractor.writeProfilesToFile(tboxFileName, aboxFileName,profilesFileName);
+
+		return ABoxProfileLoader.loadProfiles(profilesFileName);
+	}
+
+
+
+
+
+
 }

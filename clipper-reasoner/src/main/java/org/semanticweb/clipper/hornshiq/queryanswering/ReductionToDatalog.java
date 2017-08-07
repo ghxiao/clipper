@@ -15,9 +15,8 @@ import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
 import org.semanticweb.clipper.hornshiq.rule.Variable;
 import org.semanticweb.clipper.util.SymbolEncoder;
-import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLEntity;
-import org.semanticweb.owlapi.model.OWLPropertyExpression;
+import org.semanticweb.owlapi.model.*;
+import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -33,6 +32,8 @@ import java.util.Set;
  * This class is used to create datalog program from the representation of KB
  */
 public class ReductionToDatalog {
+
+    OWLDataFactory factory;
 
     private static final SymbolEncoder<OWLClass> owlClassEncoder = ClipperManager.getInstance().getOwlClassEncoder();
 
@@ -84,6 +85,11 @@ public class ReductionToDatalog {
 
         transAxioms = ontology.getTransitivityAxioms();
     }
+
+    /*todo:new constructor to implement the reduction */
+    public ReductionToDatalog() {
+    }
+
 
     private static DLPredicate getClassPredicate(int index) {
         return new DLPredicate(owlClassEncoder.getSymbolByValue(index));
@@ -139,6 +145,30 @@ public class ReductionToDatalog {
 
     public void setCoreEnfs(Collection<EnforcedRelation> coreEnfs) {
         this.coreEnfs = coreEnfs;
+    }
+
+    /*todo:Incorporate this rule to the derivation of datalog program for extracting profiles
+      Custom rules in order to group by the types of individuals in an ABox.
+    * Needed for extracting the profiles from the ABox*/
+    public void rulesForProfileGrouping(PrintStream program) {
+        if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+            System.out.println("%==========rules to Group By Predicates=============");
+        }
+
+        program.println("const_type(S, []) :- Dom(S).)"+"\n"+
+                        "const_type(S, [O | T]) :- const_type(S, T), triple(S, P, O), not #member(O, T)."+"\n"+
+                        "const_maxtype(S, T) :- const_type(S, T), not const_notMaxtype(S, T)." +"\n"+
+                        "const_notMaxtype(S, T) :- const_type(S, T), const_type(S, T1), #length(T, L), #length(T1, L1), L < L1.");
+
+        program.println("type(T) :- const_maxtype(S, T)."+"\n"+
+                        "insertionSort([], [])."+"\n"+
+                        "insertionSort([HEAD|TAIL], RESULT) :- insertionSort(TAIL, LIST), insertInPlace(HEAD, LIST, RESULT)."+"\n"+
+                        "insertInPlace(ELEMENT, [], [ELEMENT]) :- Dom(ELEMENT)."+"\n"+
+                        "insertInPlace(ELEMENT, [HEAD|TAIL], [ELEMENT|LIST]) :-"+"\n"+
+                        "ELEMENT <= HEAD, insertInPlace(HEAD, TAIL, LIST), Dom(ELEMENT), Dom(HEAD)."+"\n"+
+                        "insertInPlace(ELEMENT, [HEAD|TAIL], [HEAD|LIST]) :-"+"\n"+
+                        "ELEMENT > HEAD, insertInPlace(ELEMENT, TAIL, LIST), Dom(ELEMENT), Dom(HEAD)."+"\n"+
+                        "stype(S) :- insertionSort(T, S), type(T).");
     }
 
     public void rulesFromImps(PrintStream program) {
@@ -208,6 +238,31 @@ public class ReductionToDatalog {
 
     // subclassOf( A, R only C)
     public void rulesFromValueRestrictions(PrintStream program) {
+        if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+            System.out.println("%==========rules From Value Restrictions ============");
+        }
+        Rule rule = new Rule();
+        for (ClipperAtomSubAllAxiom axiom : allValuesFromAxioms) {
+            rule.clear();
+            int ic = axiom.getConcept2();
+            int ir = axiom.getRole();
+            int ia = axiom.getConcept1();
+
+            rule.setHead(cqFormatter.getUnaryPredicate(ic) + "(Y)");
+            if (ia != ClipperManager.getInstance().getThing())
+                rule.addAtomToBody(cqFormatter.getUnaryPredicate(ia) + "(X)");
+            final String s;
+            s = cqFormatter.getBinaryAtomWithoutInverse(ir, "X", "Y");
+            rule.addAtomToBody(s);
+            if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+                System.out.println(rule);
+            }
+            program.println(rule);
+        }
+    }
+
+    // subclassOf( A, R only C) are converted to subclassOf(Top, R only C)
+    public void rulesFromTopValueRestrictions(PrintStream program) {
         if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
             System.out.println("%==========rules From Value Restrictions ============");
         }
@@ -628,6 +683,36 @@ public class ReductionToDatalog {
             e.printStackTrace();
         }
     }
+
+    /**todo: LB new method should be tested
+     * generates DATALOG program that contains closed TBox i.e.
+     * each A sqsubseteq forall r.B is rewritten to Top sqsubseteq forall r.B
+     * each
+     */
+    public void getProfileRulesulesDatalogProgram(String generatedDataLogFile) {
+        if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+            System.out.println("============== Encoded DATALOG PROGRAM :================ ");
+        }
+        try {
+            PrintStream program = new PrintStream(new FileOutputStream(generatedDataLogFile));
+
+            // ruleForBottomConcept(program);
+            rulesFromImps(program);
+            rulesFromTopValueRestrictions(program);
+            rulesFromRoleInclusions(program);
+            rulesFromInverseRoleAxioms(program);
+            rulesForProfileGrouping(program);
+            //rulesFromNumberRestrictions(program);
+            //rulesFromNumberRestrictionAndEnfs(program);
+            program.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 
     public List<CQ> getCompletionRulesDatalogProgram() {
         List<CQ> program = new ArrayList<>();

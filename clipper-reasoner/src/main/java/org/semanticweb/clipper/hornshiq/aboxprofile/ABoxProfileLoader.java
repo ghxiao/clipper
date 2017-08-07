@@ -20,11 +20,11 @@ import static java.util.stream.Collectors.toSet;
 public class ABoxProfileLoader {
 
     public static void main(String[] args) throws IOException {
-        final Collection<Set<Integer>> profile = loadProfile(args[0]);
+        final Collection<Set<Integer>> profile = loadProfiles(args[0]);
         System.out.println(profile);
     }
 
-    static Collection<Set<Integer>> loadProfile(String file) throws IOException {
+    public static Collection<Set<Integer>> loadProfiles(String file) throws IOException {
 
         final ClipperManager clipperManager = ClipperManager.getInstance();
         final SymbolEncoder<OWLClass> owlClassEncoder = clipperManager.getOwlClassEncoder();
