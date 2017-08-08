@@ -58,9 +58,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static java.util.stream.Collectors.joining;
-import static org.semanticweb.clipper.hornshiq.aboxprofile.ABoxProfileLoader.loadProfiles;
-
 public class QAHornSHIQ implements QueryAnsweringSystem {
 
 	private String datalogFileName;
@@ -134,6 +131,8 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
 		} catch (IOException e) {
 			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 	}
@@ -146,7 +145,12 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
 		preprocessOntologies();
 
-		TBoxReasoner tb = saturateTBox();
+		TBoxReasoner tb = null;
+		try {
+			tb = saturateTBox();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		reduceOntologyToDatalog(tb);
 
@@ -161,7 +165,12 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
 		preprocessOntologies();
 
-		TBoxReasoner tb = saturateTBox();
+		TBoxReasoner tb = null;
+		try {
+			tb = saturateTBox();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 
 		ReductionToDatalog reduction = new ReductionToDatalog(clipperOntology, cqFormatter);
@@ -285,7 +294,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 	/**
 	 * @return
 	 */
-	public TBoxReasoner saturateTBox() {
+	public TBoxReasoner old_saturateTBox() {
 
 		TBoxReasoner tb = new TBoxReasoner(clipperOntology);
 		// ///////////////////////////////////////////////
@@ -301,12 +310,12 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 	/**
 	 * @return
 	 */
-	public NewTBoxReasoner newSaturateTBox() throws Exception {
+	public TBoxReasoner saturateTBox() throws Exception {
 
 		//TODO: add here an extraction for ABoxProfile extraction
-		Collection<Set<Integer>> initialActivators= extractActivatorsFromProfiles(); //from this point onward we get also the
+		Collection<Set<Integer>> initialActivators= extractActivatorsFromProfiles(this.aboxProfiles); //from this point onward we get also the
 
-		NewTBoxReasoner tb = new NewTBoxReasoner(clipperOntology,initialActivators);
+		TBoxReasoner tb = new TBoxReasoner(clipperOntology,initialActivators);
 		// ///////////////////////////////////////////////
 		// Evaluate reasoning time
 		long reasoningBegin = System.currentTimeMillis();
@@ -382,6 +391,8 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 	}
@@ -393,7 +404,12 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
 		preprocessOntologies();
 
-		TBoxReasoner tb = saturateTBox();
+		TBoxReasoner tb = null;
+		try {
+			tb = saturateTBox();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		reduceTBoxToDatalog(tb);
 
@@ -567,7 +583,12 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
 		preprocessOntologies();
 
-		TBoxReasoner tb = saturateTBox();
+		TBoxReasoner tb = null;
+		try {
+			tb = saturateTBox();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		reduceOntologyToDatalog(tb);
 
@@ -677,7 +698,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 			System.out.println("=============Decoded answers ==============");
 		}
 
-		BufferedWriter bufferedWriter = null;
+		BufferedWriter bufferedWriterexport _JAVA_OPTIONS="-Xmx1g" = null;
 
 		try {
 
@@ -782,9 +803,14 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
         preprocessOntologies();
 
-        TBoxReasoner tb = saturateTBox();
+		TBoxReasoner tb = null;
+		try {
+			tb = saturateTBox();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-        EnforcedRelationExporter exporter = new EnforcedRelationExporter();
+		EnforcedRelationExporter exporter = new EnforcedRelationExporter();
         return exporter.export(tb.getEnfContainer(),iri);
     }
 
@@ -802,9 +828,14 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
         preprocessOntologies();
 
-        TBoxReasoner tb = saturateTBox();
+		TBoxReasoner tb = null;
+		try {
+			tb = saturateTBox();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-        EnforcedRelationExporter exporter = new EnforcedRelationExporter();
+		EnforcedRelationExporter exporter = new EnforcedRelationExporter();
 
         Set<OWLAxiom> owlAxioms = exporter.export(tb.getEnfContainer());
 
@@ -881,157 +912,25 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 		this.ontologies = ontologies;
 	}
 
-    public List<List<String>> newExecQuery(String sparqlString, String profilesFilename) throws JRDFoxException, IOException {
-        Query query = QueryFactory.create(sparqlString);
-        CQ cq = new SparqlToCQConverter().compileQuery(query);
-
-        this.setQuery(cq);
-
-        if(Strings.isNullOrEmpty(datalogFileName)){
-            this.setDatalogFileName("temp.dl");
-        }
-
-        return this.newExecQuery(profilesFilename);
-    }
-
-
-
-    public List<List<String>> newExecQuery(String profilesFilename) throws JRDFoxException, IOException {
-
-		loadProfiles(profilesFilename);
-
-//		ABoxProfileExtractor profileExtractor = new ABoxProfileExtractor();
-
-//		profileExtractor.computeABoxClosure(combinedOntology);
-
-		generateDatalog();
-
-		this.answers = new ArrayList<>();
-
-		DLVInputProgram inputProgram = new DLVInputProgramImpl();
-		String outPutNotification = "";
-
-		/* I can add some file to the DLVInputProgram */
-
-		inputProgram.addFile(this.datalogFileName);
-
-		ensureDlvPath();
-
-		DLVInvocation invocation = DLVWrapper.getInstance().createInvocation(dlvPath);
-		/* I can specify a part of DLV program using simple strings */
-
-		// Creates an instance of DLVInvocation
-
-		// Creates an instance of DLVInputProgram
-		if (ClipperManager.getInstance().getVerboseLevel() > 1)
-			System.out.println("===========Answers for the query ========");
-
-		try {
-			invocation.setInputProgram(inputProgram);
-			invocation.setNumberOfModels(1);
-			List<String> filters = new ArrayList<String>();
-			// filters.add(this.headPredicate);
-			filters.add(cq.getHead().getPredicate().toString());
-			invocation.setFilter(filters, true);
-			ModelBufferedHandler modelBufferedHandler = new ModelBufferedHandler(invocation);
-
-			this.answers = new ArrayList<>();
-
-			/* In this moment I can start the DLV execution */
-			FactHandler factHandler = new FactHandler() {
-				@Override
-				public void handleResult(DLVInvocation obsd, FactResult res) {
-					String answerString = res.toString();
-					if (ClipperManager.getInstance().getVerboseLevel() > 1)
-						System.out.println(answerString);
-					answers.add(answerString);
-				}
-			};
-
-			invocation.subscribe(factHandler);
-			// Roughly datalog program evalutaion
-			long dlvBegin = System.currentTimeMillis();
-			invocation.run();
-			long dlvEng = System.currentTimeMillis();
-			clipperReport.setDatalogRunTime(dlvEng - dlvBegin);
-			// Roughly datalog program evalutaion
-			if (!modelBufferedHandler.hasMoreModels()) {
-				outPutNotification = "No model";
-				if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
-					System.out.println("No model");
-				}
-			}
-			invocation.waitUntilExecutionFinishes();
-			List<DLVError> k = invocation.getErrors();
-			if (k.size() > 0) {
-				if (ClipperManager.getInstance().getVerboseLevel() >= 0) {
-					System.out.println(k);
-				}
-				outPutNotification = k.toString();
-			}
-
-		} catch (DLVInvocationException e1) {
-			e1.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		long starOutputAnswer = System.currentTimeMillis();
-		AnswerParser answerParser = new AnswerParser(namingStrategy);
-
-		this.decodedAnswers.clear();
-		answerParser.setAnswers(this.answers);
-		answerParser.parse();
-		this.decodedAnswers = answerParser.getDecodedAnswers();
-
-		if (ClipperManager.getInstance().getVerboseLevel() > 1) {
-			System.out.println("=============Decoded answers ==============");
-		}
-
-		BufferedWriter bufferedWriter = null;
-
-		try {
-
-			// Construct the BufferedWriter object
-			bufferedWriter = new BufferedWriter(new FileWriter(datalogFileName + "-answer.txt"));
-			bufferedWriter.write(outPutNotification);
-			// Start writing to the output stream
-			for (List<String> ans : decodedAnswers) {
-				bufferedWriter.write(ans.toString());
-				bufferedWriter.newLine();
-			}
-
-			long endOutputAnswer = System.currentTimeMillis();
-			this.clipperReport.setOutputAnswerTime(endOutputAnswer - starOutputAnswer);
-
-		} catch (FileNotFoundException ex) {
-			ex.printStackTrace();
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		} finally {
-			// Close the BufferedWriter
-			try {
-				if (bufferedWriter != null) {
-					bufferedWriter.flush();
-					bufferedWriter.close();
-				}
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
-		}
-		return decodedAnswers;
-
-	}
 
 	/**todo:lb
-	 * Extract overapproximated activators from ABox
-	 *
+	 * This method is used to extract activators from a collection of profiles supplied as a parameter
 	 */
-	public Collection<Set<Integer>> extractActivatorsFromProfiles() throws Exception {
+	public Collection<Set<Integer>> extractActivatorsFromProfiles(Collection<Set<Resource>> prmAboxProfiles) throws Exception {
+
+		return ABoxProfileLoader.getActivatorsFromProfileObjects(prmAboxProfiles);
+	}
+
+
+
+	/**todo:lb
+	 * This method is used to extract activators from profiles previously stored in a file
+	 */
+	public Collection<Set<Integer>> extractActivatorsFromProfiles(String tboxFileName,String aboxFileName, String profilesFileName) throws Exception {
 
 		ABoxProfileExtractor.writeProfilesToFile(tboxFileName, aboxFileName,profilesFileName);
 
-		return ABoxProfileLoader.loadProfiles(profilesFileName);
+		return ABoxProfileLoader.getActivatorsFromStoredProfiles(profilesFileName);
 	}
 
 

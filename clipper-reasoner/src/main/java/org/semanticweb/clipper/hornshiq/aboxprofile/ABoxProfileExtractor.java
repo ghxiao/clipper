@@ -151,7 +151,6 @@ public class ABoxProfileExtractor {
                 os.write("\n");
             }
         }
-
     }
 
     /**

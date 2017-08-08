@@ -22,24 +22,6 @@ public class QAHornSHIQTest {
 
 
 	@Test
-	public void testProfileExtraction() throws OWLOntologyCreationException, IOException, JRDFoxException {
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
-		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
-				new File("src/test/resources/TestCaseOntologies/trans1.owl"));
-		CQParser cqParser = new CQParser(new File("src/test/resources/TestCaseOntologies/trans1.cq"), ImmutableSet.of(ontology));
-		CQ cq = cqParser.parse();
-		qaHornSHIQ.addOntology(ontology);
-		qaHornSHIQ.setQuery(cq);
-		qaHornSHIQ.setQueryRewriter("new");
-		ClipperManager.getInstance().setVerboseLevel(1);
-		qaHornSHIQ.setDatalogFileName("src/test/resources/TestCaseOntologies/tmp.dlv");
-		List<List<String>> results = qaHornSHIQ.newExecQuery("abc");
-		Joiner.on("\n").appendTo(System.out, results);
-		assertEquals(1, results.size());
-	}
-
-
-	@Test
 	public void testTransitivity01() throws OWLOntologyCreationException, IOException{
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
 		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
