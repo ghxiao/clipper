@@ -1,6 +1,5 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import gnu.trove.impl.hash.TIntHash;
 import gnu.trove.set.hash.TIntHashSet;
 import org.semanticweb.clipper.hornshiq.ontology.*;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
@@ -9,6 +8,8 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import static java.util.stream.Collectors.toSet;
 
 
 public class TBoxReasoner {
@@ -20,7 +21,6 @@ public class TBoxReasoner {
     private List<ClipperInversePropertyOfAxiom> inverseRoleAxioms;
     private List<ClipperAtomSubMaxOneAxiom> maxOneCardinalityAxioms;
     private TIntHashSet aboxTypes;
-    private TIntHashSet propagatingRoles;//roles that propagate concepts, derived from ClipperAtomSubAllAxiom(s)
     private Set<EnforcedRelation> newEnfs;
     private Set<HornImplication> newImps;
 
@@ -81,30 +81,39 @@ public class TBoxReasoner {
         // initialize newEnfs and newImps
         newEnfs = new HashSet<>();
         newImps = new HashSet<>();
+        propagateConcepts(ont_bs);
 
+
+    }
+
+    private void propagateConcepts(ClipperHornSHIQOntology ontology) {
         // initialize forward and backward propagation structures
         this.forwardPropagation = new HashSet<>();
-        this.backwardPropagation= new HashSet<>();
+        this.backwardPropagation = new HashSet<>();
 
         //for each role occuring in the axioms of the form A -> (all) r.B
         //we gather the set of concepts that it forward propagates and
         //those it backpropagates
-        //todo:have to initialize forward and backward propagation
-        this.propagatingRoles = new TIntHashSet();
-        for (ClipperAtomSubAllAxiom ax : ont_bs.getAtomSubAllAxioms()) {
-            this.propagatingRoles.add(ax.getRole());
-        }
+        final Set<Integer> propagatingRoles =
+                ontology.getAtomSubAllAxioms()
+                        .stream()
+                        .map(ClipperAtomSubAllAxiom::getRole)
+                        .collect(toSet());
 
-        for (int role : this.propagatingRoles.toArray()) {
+//        this.propagatingRoles = new TIntHashSet();
+//        for (ClipperAtomSubAllAxiom ax : ontology.getAtomSubAllAxioms()) {
+//            this.propagatingRoles.add(ax.getRole());
+//        }
+
+        for (int role : propagatingRoles) {
             ClipperOverAproxPropagation prop = new ClipperOverAproxPropagation();
             prop.setRole(role);
 
-            for (ClipperAtomSubAllAxiom ax : ont_bs.getAtomSubAllAxioms()) {
+            for (ClipperAtomSubAllAxiom ax : ontology.getAtomSubAllAxioms()) {
                 if (ax.getRole() == role) {
                     prop.getConcepts().add(ax.getConcept2());
                 }
             }
-
 
             //when the role is inverse, then it backpropagates
             if (role % 2 == 1)
@@ -112,28 +121,25 @@ public class TBoxReasoner {
             else
                 this.forwardPropagation.add(prop);
         }
-
-
     }
 
     private void initAxiomEnablers(Collection<Set<Integer>> initAxiomActivators) {
-        this.axiomActivators = new HashSet<>();
         this.newAxiomActivators = new HashSet<>();
 
-        for (Set<Integer> set : initAxiomActivators) {
-            axiomActivators.add(new ClipperAxiomActivator(set));
-        }
+        this.axiomActivators = initAxiomActivators
+                .stream()
+                .map(ClipperAxiomActivator::new)
+                .collect(toSet());
     }
 
     public TBoxReasoner(ClipperHornSHIQOntology ont_bs) {
         initOntology(ont_bs);
     }
 
-    public TBoxReasoner(ClipperHornSHIQOntology ont_bs, Collection<Set<Integer>> initAxiomEnablers) {
+    public TBoxReasoner(ClipperHornSHIQOntology ont_bs, Collection<Set<Integer>> initAxiomActivators) {
         initOntology(ont_bs);
-        initAxiomEnablers(initAxiomEnablers);
+        initAxiomEnablers(initAxiomActivators);
     }
-
 
     // setters and getters
     public IndexedHornImpContainer getImpContainer() {
@@ -909,7 +915,7 @@ public class TBoxReasoner {
         return update;
     }*/
     private void saturateActivators() {
-        applyDeltaTBoxToActivators();
+        applyNewInferredAxiomsToActivators();
         saturateActivatorsWithTBox();
     }
 
@@ -923,7 +929,7 @@ public class TBoxReasoner {
      * @consequences 1- leaves the affected AxiomActivators in unstable condition
      * and the newly created ones
      */
-    private void applyDeltaTBoxToActivators() {
+    private void applyNewInferredAxiomsToActivators() {
         for (ClipperAxiomActivator act : axiomActivators) {
             for (EnforcedRelation enf : newEnfs) {
                 applyEnfToActivator(act, enf);//and update it's status to unstable
@@ -970,28 +976,28 @@ public class TBoxReasoner {
                 for (EnforcedRelation enf : enfContainer) {
                     //if any change incurs from applying the rule, then we set the flag change to true
                     //to force the iteration
-                    changed = applyEnfToActivator(act, enf);//and update it's status to unstable
+                    changed |= applyEnfToActivator(act, enf);//and update it's status to unstable
                 }
 
                 //apply newly enforced relations
                 for (EnforcedRelation enf : newEnfs) {
                     //if any change incurs from applying the rule, then we set the flag change to true
                     //to force the iteration
-                    changed = applyEnfToActivator(act, enf);//and update it's status to unstable
+                    changed |= applyEnfToActivator(act, enf);//and update it's status to unstable
                 }
 
                 //apply old implied relations
                 for (HornImplication imp : impContainer) {
                     //if any new concept is added to the activator from applying the rule,
                     // then we set the flag change to true to force the iteration
-                    changed = applyImpToActivator(act, imp);
+                    changed |= applyImpToActivator(act, imp);
                 }
 
                 //apply newly implied relations
                 for (HornImplication imp : newImps) {
                     //if any new concept is added to the activator from applying the rule,
                     // then we set the flag change to true to force the iteration
-                    changed = applyImpToActivator(act, imp);
+                    changed |= applyImpToActivator(act, imp);
                 }
             }
 
@@ -1007,7 +1013,7 @@ public class TBoxReasoner {
     * */
     public boolean applyEnfToActivator(ClipperAxiomActivator act, EnforcedRelation enf) {
         boolean changed = false;
-        boolean found = false;//indicates a proper activator is allerady present
+        boolean found = false;//indicates a proper activator is already present
 
         //if the enforced relation is activated by an act
         //
@@ -1087,16 +1093,20 @@ public class TBoxReasoner {
     /*This method checks if the axiom is applicable, i.e.
       if there is some A in AxiomActivators s.t. LHS subseteq A*/
     private boolean axiomApplicable(TIntHashSet lhs) {
-        boolean applicable = false;
 
-        for (ClipperAxiomActivator act : axiomActivators) {
-            if (act.getConcepts().containsAll(lhs)) {
-                applicable = true;
-                break;
-            }
+        return axiomActivators.stream()
+                .anyMatch(act -> act.getConcepts().containsAll(lhs));
 
-        }
-        return applicable;
+//        boolean applicable = false;
+//
+//        for (ClipperAxiomActivator act : axiomActivators) {
+//            if (act.getConcepts().containsAll(lhs)) {
+//                applicable = true;
+//                break;
+//            }
+//
+//        }
+//        return applicable;
     }
 
     private void mergeWithActivators(Set<ClipperAxiomActivator> newAxiomActivators) {
