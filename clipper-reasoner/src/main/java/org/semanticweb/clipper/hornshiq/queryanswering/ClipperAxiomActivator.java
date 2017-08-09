@@ -24,20 +24,18 @@ public class ClipperAxiomActivator {
             int val = i;
             this.concepts.add(val);
         }
-//        this.concepts.addAll(concepts);
+
+        //add top to each activator
+        this.concepts.add(ClipperManager.getInstance().getThing());
         this.unstable = true;
     }
 
     public ClipperAxiomActivator(TIntHashSet concepts) {
         this.concepts = new TIntHashSet();
         this.concepts.addAll(concepts);
+        //add top to each activator
+        this.concepts.add(ClipperManager.getInstance().getThing());
         this.unstable = true;
-    }
-
-
-    public ClipperAxiomActivator(TIntHashSet concepts, TIntHashSet proccessedRoles) {
-        this.concepts = concepts;
-        this.processedRoles.add(proccessedRoles);
     }
 
     // constructor to get a clone of an EnforcedRelation

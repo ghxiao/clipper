@@ -2,6 +2,7 @@ package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import gnu.trove.set.hash.TIntHashSet;
 import org.semanticweb.clipper.hornshiq.ontology.*;
+import org.semanticweb.clipper.util.BitSetUtil;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
 
 import java.util.Collection;
@@ -91,35 +92,53 @@ public class TBoxReasoner {
         this.forwardPropagation = new HashSet<>();
         this.backwardPropagation = new HashSet<>();
 
+
+
         //for each role occuring in the axioms of the form A -> (all) r.B
         //we gather the set of concepts that it forward propagates and
         //those it backpropagates
-        final Set<Integer> propagatingRoles =
+/*        final Set<Integer> propagatingRoles =
                 ontology.getAtomSubAllAxioms()
                         .stream()
                         .map(ClipperAtomSubAllAxiom::getRole)
-                        .collect(toSet());
+                        .collect(toSet());*/
 
-//        this.propagatingRoles = new TIntHashSet();
-//        for (ClipperAtomSubAllAxiom ax : ontology.getAtomSubAllAxioms()) {
-//            this.propagatingRoles.add(ax.getRole());
-//        }
+        Set<Integer> propagatingRoles = new HashSet<>();
+        for (ClipperAtomSubAllAxiom ax : ontology.getAtomSubAllAxioms()) {
+            int role = BitSetUtilOpt.stripInverseFromRole(ax.getRole());
+            propagatingRoles.add(role);
+        }
 
         for (int role : propagatingRoles) {
-            ClipperOverAproxPropagation prop = new ClipperOverAproxPropagation();
-            prop.setRole(role);
+            ClipperOverAproxPropagation fwdProp = new ClipperOverAproxPropagation();
+            ClipperOverAproxPropagation bckProp = new ClipperOverAproxPropagation();
+
+            fwdProp.setRole(role);
+            bckProp.setRole(role);
 
             for (ClipperAtomSubAllAxiom ax : ontology.getAtomSubAllAxioms()) {
-                if (ax.getRole() == role) {
-                    prop.getConcepts().add(ax.getConcept2());
+                boolean axRoleInverse=false;
+                int propagatedConcept=ax.getConcept2();
+
+                if (role % 2 == 1)
+                    axRoleInverse=true;
+
+                //get only the atomic role
+                int axRole=BitSetUtilOpt.stripInverseFromRole(ax.getRole());
+
+                //if the roles do not match continue to next iteration
+                if (role!=axRole)
+                    continue;
+
+                if (axRoleInverse) {
+                    bckProp.getConcepts().add(propagatedConcept);
+                }else {
+                    fwdProp.getConcepts().add(propagatedConcept);
                 }
             }
 
-            //when the role is inverse, then it backpropagates
-            if (role % 2 == 1)
-                this.backwardPropagation.add(prop);
-            else
-                this.forwardPropagation.add(prop);
+            this.backwardPropagation.add(bckProp);
+            this.forwardPropagation.add(bckProp);
         }
     }
 
@@ -738,182 +757,11 @@ public class TBoxReasoner {
         }
     }
 
-
     /**
-     * Apply the saturation rules on TBox with axiom enablers
+     * Saturates the activators with current TBox
+     * 1- it applies the newly infered axioms to all activators
+     * 2- it applies all TBox axioms (enf and imp) to un-processed activators
      */
-    public void newSaturate() {
-
-        if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-            System.out.println("Start TBox reasoning");
-            System.out.println(" IMP size: " + enfContainer.getEnfs().size());
-            System.out.println(" ENF size: " + impContainer.getImps().size());
-            System.out.println(" ABoxType size: " + this.aboxTypes.size());
-            System.out.println(" Max1 Axiom:" + this.maxOneCardinalityAxioms);
-            System.out.println(" Sub roles:" + this.subObjectPropertyAxioms);
-            System.out.println(" Inverse:" + this.inverseRoleAxioms);
-            System.out.println(" Axiom Activators" + this.axiomActivators);
-        }
-        Set<EnforcedRelation> copyOfEnfs = cloneOfEnfs(this.enfContainer
-                .getEnfs());
-        Set<HornImplication> copyOfImps = cloneOfImps(this.impContainer
-                .getImps());
-
-        Set<ClipperAxiomActivator> copyOfActivators = cloneOfActivators(this.axiomActivators);
-
-        // Apply all rule for the first time, in next times, we only run rule
-        // with newEnfs, and newImps
-        bottomRule(copyOfEnfs);
-
-        copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
-        roleInclusionRule(copyOfEnfs);
-
-        conceptInclusionRule(this.impContainer.getImps());
-
-        copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
-        forAllRule(copyOfEnfs);
-
-        copyOfImps = cloneOfImps(this.impContainer.getImps());
-        computeAboxTypeClosure(copyOfImps);
-        // This rule make sense only we have ABox
-        if (this.hasABox) {
-            copyOfImps = cloneOfImps(this.impContainer.getImps());
-            copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
-            forAllRuleABoxType(copyOfEnfs);
-        }
-
-
-        atMostOneRule_MergeChildren();
-
-        atMostRule_ParentChildCollapsed();
-
-        // Apply rule only in newEnfs and newImps
-        boolean update = true;
-        while (update && !inconsistent) {
-            Set<EnforcedRelation> copyOfNewEnfs = cloneOfEnfs(newEnfs); // \Delta_{enf}
-            Set<HornImplication> copyOfNewImps = cloneOfImps(newImps); // \Delta_{imp}
-            copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
-            copyOfImps = cloneOfImps(this.impContainer.getImps());
-            this.newEnfs.clear();
-            this.newImps.clear();
-            update = (bottomRule(copyOfNewEnfs)); // only applied to the Delta
-
-            update |= (roleInclusionRule(copyOfNewEnfs)); // only applied to the Delta
-
-            update |= (conceptInclusionRule(copyOfImps)); // only applied to the Delta
-
-            // FIXME!!!: xiao: copyOfNewEnfs is not used inside the
-            // implementation,
-            // this makes the algorithim is not semi-naive
-            update |= forAllRule(copyOfNewEnfs);
-
-            update |= computeAboxTypeClosure(copyOfNewImps);
-            // This rule make sense only we have ABox
-            if (this.hasABox)
-                if (forAllRuleABoxType(copyOfNewEnfs))
-                    update = true;
-
-            // FIXME: not semi-naive style
-            update |= atMostOneRule_MergeChildren();
-
-            // FIXME: not semi-naive style
-            update |= atMostRule_ParentChildCollapsed();
-
-        }
-        if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-            System.out.println("End of reasoning");
-            System.out.println(" IMP size: " + enfContainer.getEnfs().size());
-            System.out.println(" ENF size: " + impContainer.getImps().size());
-            System.out.println(" ABoxType size: " + this.aboxTypes.size());
-            System.out.println(" Max1 Axiom:" + this.maxOneCardinalityAxioms);
-            System.out.println(" Sub roles:" + this.subObjectPropertyAxioms);
-            System.out.println(" Inverse:" + this.inverseRoleAxioms);
-        }
-    }
-
-    /*
-    * recursively closes Axioms Enablers under
-    * 1- deterministic rules (horn implications)
-    * 2- existential rules
-    * */
-/*
-    private void closeAxiomEnabler(ClipperAxiomActivator ae){
-        //first close the enabler under existential axioms
-        closeAxiomEnablerUnderExistentials(ae);
-
-        //if the enabler is updated, then close it under deterministic axioms
-        if(ae.isUnstable()) {
-            ae.setUnstable(false);
-            closeAxiomEnablerUnderImplication(ae);
-        }
-
-        if(ae.isUnstable()) {
-            ae.setUnstable(false);
-            closeAxiomEnabler(ae);
-        }
-    }
-*/
-
-    /**
-     * Closes the enabler under deterministic axioms, in case
-     * there are new concepts added it returns updated status
-     * @return updated
-     */
-/*
-    private boolean closeAxiomEnablerUnderImplication(ClipperAxiomActivator ae){
-        boolean update=false;
-        for (HornImplication imp : this.impContainer) {
-            if(ae.getConcepts().containsAll(imp.getBody()) &&
-                    !ae.getConcepts().contains(imp.getHead()))
-                ae.addConcept(imp.getHead());
-        }
-        return update;
-    }
-*/
-
-    /**
-     * Closes the enabler under existential axioms, in case
-     * there are new concepts added it returns updated status
-     *
-     * @return updated
-     */
-/*    private boolean closeAxiomEnablerUnderExistentials(ClipperAxiomActivator ae){
-        boolean update=false;
-        for(EnforcedRelation enf:this.enfContainer){
-            //check if axiom is applicable to the enabler
-            //and hasn't been allready applied
-            if(ae.getConcepts().containsAll(enf.getType1())
-                    && !ae.isProcessed(enf.getRoles())){
-                //add the role to queue
-                ae.addQuedRole(enf.getRoles());
-
-                //now we check if there is some enabler that contains the successor
-                //if yes then nothing
-                //  otherwise add the newly created enabler to the member set axiomEnablers
-                TIntHashSet succConcepts = new TIntHashSet();
-                succConcepts.addAll(enf.getType2());
-
-                for(ClipperAtomSubAllAxiom ax:this.allValuesFromAxioms){
-                    //add all consequences from universal axioms that match only on role (overapproximation)
-                    if(enf.getRoles().size()==1 && enf.getRoles().contains(ax.getRole()))//what about roles with conjunction
-                        succConcepts.add(ax.getConcept2());
-                }
-                boolean found=false;
-                for(ClipperAxiomActivator others:this.axiomActivators){
-                    if(others.getConcepts().containsAll(succConcepts)
-                            && succConcepts.containsAll(others.getConcepts())){
-                        found=true;
-                        break;
-                    }
-                }
-                if(!found) {
-                    ClipperAxiomActivator succ = new ClipperAxiomActivator(succConcepts,enf.getRoles());
-                    succ.setUnstable(false);//everything has been allready taken care of
-                }
-            }
-        }
-        return update;
-    }*/
     private void saturateActivators() {
         applyNewInferredAxiomsToActivators();
         saturateActivatorsWithTBox();
@@ -991,6 +839,7 @@ public class TBoxReasoner {
                     //if any new concept is added to the activator from applying the rule,
                     // then we set the flag change to true to force the iteration
                     changed |= applyImpToActivator(act, imp);
+                    System.out.println(imp.toString());
                 }
 
                 //apply newly implied relations
@@ -1000,6 +849,9 @@ public class TBoxReasoner {
                     changed |= applyImpToActivator(act, imp);
                 }
             }
+
+            System.out.println(24+ClipperManager.getInstance().getOwlClassEncoder().getSymbolByValue(24).toString());
+            System.out.println(35+ClipperManager.getInstance().getOwlClassEncoder().getSymbolByValue(35).toString());
 
             if (newAxiomActivators.size() > 0) {
                 mergeWithActivators(newAxiomActivators);
@@ -1015,6 +867,8 @@ public class TBoxReasoner {
         boolean changed = false;
         boolean found = false;//indicates a proper activator is already present
 
+        //if(enf.getRoles())
+
         //if the enforced relation is activated by an act
         //
         //   and if there are new consequences in act
@@ -1025,30 +879,51 @@ public class TBoxReasoner {
         //   then add a new activator to the list of NewActivators
         //        and set the return flag to true (there is change in the set of Activators)
         if (act.getConcepts().containsAll(enf.getType1())) {
-            //get all concepts that backpropagated to the activator (with over aproximation)
-            TIntHashSet backPropConcapts = new TIntHashSet();
+
+            //get all concepts that are propagated to the parent activator (with over aproximation)
+            TIntHashSet propagatedToParent= new TIntHashSet();
             for (ClipperOverAproxPropagation prop : backwardPropagation) {
-                if (enf.getRoles().contains(prop.getRole()))
-                    backPropConcapts.addAll(prop.getConcepts());
+                int Role = prop.getRole();
+
+                if (enf.getRoles().contains(Role))
+                    propagatedToParent.addAll(prop.getConcepts());
 
             }
 
-            //if the backpropagated concepts aren't contained,
+            for (ClipperOverAproxPropagation prop : forwardPropagation) {
+                int invRole = BitSetUtilOpt.inverseRole(prop.getRole());
+
+                if (enf.getRoles().contains(invRole))
+                    propagatedToParent.addAll(prop.getConcepts());
+
+            }
+
+
+            //if all the propagated concepts to parent aren't contained,
             //add them to the activator
             //and set the status of the activator to unstable and the changed flag to true
-            if (!act.getConcepts().containsAll(backPropConcapts)) {
-                act.getConcepts().addAll(backPropConcapts);
+            if (!act.getConcepts().containsAll(propagatedToParent)) {
+                act.getConcepts().addAll(propagatedToParent);
                 act.setUnstable(true);
                 changed = true;
             }
 
             //now we check if there exists a proper successor activator, if not we create it
             //first we get all the concepts that are forwardpropagated by the activator
-            TIntHashSet fwdPropConcapts = new TIntHashSet();
-            fwdPropConcapts.addAll(enf.getType2());
+            TIntHashSet propagatedToChild = new TIntHashSet();
+            propagatedToChild.addAll(enf.getType2());
             for (ClipperOverAproxPropagation prop : forwardPropagation) {
-                if (enf.getRoles().contains(prop.getRole()))
-                    fwdPropConcapts.addAll(prop.getConcepts());
+                int Role=prop.getRole();
+
+                if (enf.getRoles().contains(Role))
+                    propagatedToChild.addAll(prop.getConcepts());
+            }
+
+            for (ClipperOverAproxPropagation prop : backwardPropagation) {
+                int invRole = BitSetUtilOpt.inverseRole(prop.getRole());
+
+                if (enf.getRoles().contains(invRole))
+                    propagatedToChild.addAll(prop.getConcepts());
             }
 
             //second we iterate over the activators and check if there is one that allready
@@ -1057,14 +932,14 @@ public class TBoxReasoner {
             //         which are added to the set of activators at the end of the method
             //         and the changed flag to true
             for (ClipperAxiomActivator curr : this.axiomActivators) {
-                if (curr.getConcepts().containsAll(fwdPropConcapts)) {
+                if (curr.getConcepts().containsAll(propagatedToChild)) {
                     found = true;
                     break;
                 }
             }
 
             if (!found) {
-                newAxiomActivators.add(new ClipperAxiomActivator(fwdPropConcapts, enf.getRoles()));
+                newAxiomActivators.add(new ClipperAxiomActivator(propagatedToChild));
                 changed = true;
             }
         }
