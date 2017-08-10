@@ -71,6 +71,10 @@ public class TBoxReasoner {
                     .getRight()));
         }
 
+
+//        for(HornImplication imp:impContainer)
+//            System.out.println(imp.getHead()+"-"+imp.getBody());
+
         // initializing coreEnf
         enfContainer = new IndexedEnfContainer();
         for (ClipperAtomSubSomeAxiom axiom : ont_bs.getAtomSubSomeAxioms()) {
@@ -839,7 +843,6 @@ public class TBoxReasoner {
                     //if any new concept is added to the activator from applying the rule,
                     // then we set the flag change to true to force the iteration
                     changed |= applyImpToActivator(act, imp);
-                    System.out.println(imp.toString());
                 }
 
                 //apply newly implied relations
@@ -849,9 +852,6 @@ public class TBoxReasoner {
                     changed |= applyImpToActivator(act, imp);
                 }
             }
-
-            //System.out.println(24+ClipperManager.getInstance().getOwlClassEncoder().getSymbolByValue(24).toString());
-            //System.out.println(35+ClipperManager.getInstance().getOwlClassEncoder().getSymbolByValue(35).toString());
 
             if (newAxiomActivators.size() > 0) {
                 mergeWithActivators(newAxiomActivators);
@@ -956,8 +956,8 @@ public class TBoxReasoner {
         //   and some new concept is added to the activator
         //   then update activators status to unstable
         //        and set the return flag to true(there is change in the set of Activators)
-        if (act.getConcepts().contains(imp.getHead())
-                && !act.getConcepts().containsAll(imp.getBody())) {
+        if (act.getConcepts().containsAll(imp.getBody())
+                && !act.getConcepts().contains(imp.getHead())) {
             act.getConcepts().addAll(imp.getBody());
             act.setUnstable(true);
             changed = true;
