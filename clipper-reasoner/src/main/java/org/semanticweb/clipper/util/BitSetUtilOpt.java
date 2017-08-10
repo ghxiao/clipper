@@ -49,7 +49,7 @@ public class BitSetUtilOpt {
     }
 
     //strips the inverse from the role
-    public static int stripInverseFromRole(int r) {
+    public static int getRolename(int r) {
         //if inverse, return role, else return role
         if (r % 2 == 1) {
             return r - 1;

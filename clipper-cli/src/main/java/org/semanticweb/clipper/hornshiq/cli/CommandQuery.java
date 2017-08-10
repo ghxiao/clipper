@@ -103,7 +103,7 @@ class CommandQuery extends ReasoningCommandBase {
 	}
 
 	/**
-	 * @param qaHornSHIQ
+	 * @param clipperReport
 	 * @param startTime
 	 * @param endTime
 	 */

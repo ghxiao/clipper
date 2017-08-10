@@ -2,7 +2,6 @@ package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import gnu.trove.set.hash.TIntHashSet;
 import org.semanticweb.clipper.hornshiq.ontology.*;
-import org.semanticweb.clipper.util.BitSetUtil;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
 
 import java.util.Collection;
@@ -110,7 +109,7 @@ public class TBoxReasoner {
 
         Set<Integer> propagatingRoles = new HashSet<>();
         for (ClipperAtomSubAllAxiom ax : ontology.getAtomSubAllAxioms()) {
-            int role = BitSetUtilOpt.stripInverseFromRole(ax.getRole());
+            int role = BitSetUtilOpt.getRolename(ax.getRole());
             propagatingRoles.add(role);
         }
 
@@ -129,7 +128,7 @@ public class TBoxReasoner {
                     axRoleInverse=true;
 
                 //get only the atomic role
-                int axRole=BitSetUtilOpt.stripInverseFromRole(ax.getRole());
+                int axRole=BitSetUtilOpt.getRolename(ax.getRole());
 
                 //if the roles do not match continue to next iteration
                 if (role!=axRole)
