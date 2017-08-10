@@ -850,8 +850,8 @@ public class TBoxReasoner {
                 }
             }
 
-            System.out.println(24+ClipperManager.getInstance().getOwlClassEncoder().getSymbolByValue(24).toString());
-            System.out.println(35+ClipperManager.getInstance().getOwlClassEncoder().getSymbolByValue(35).toString());
+            //System.out.println(24+ClipperManager.getInstance().getOwlClassEncoder().getSymbolByValue(24).toString());
+            //System.out.println(35+ClipperManager.getInstance().getOwlClassEncoder().getSymbolByValue(35).toString());
 
             if (newAxiomActivators.size() > 0) {
                 mergeWithActivators(newAxiomActivators);
