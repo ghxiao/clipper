@@ -30,6 +30,7 @@ public class TBoxReasoner {
     private Set<ClipperOverAproxPropagation> forwardPropagation;
     private Set<ClipperOverAproxPropagation> backwardPropagation;
 
+    private int saturateIterator=0;
 
     private boolean inconsistent = false; // to check if the ontology is
     // consistent in case of Ontology
@@ -767,8 +768,11 @@ public class TBoxReasoner {
      * 2- it applies all TBox axioms (enf and imp) to un-processed activators
      */
     private void saturateActivators() {
+        System.out.println("calling Saturate Activators");
         applyNewInferredAxiomsToActivators();
         saturateActivatorsWithTBox();
+        saturateIterator++;
+        System.out.println("No of Activators after "+saturateIterator+" iteration:"+this.axiomActivators.size());
     }
 
     /**
@@ -958,7 +962,7 @@ public class TBoxReasoner {
         //        and set the return flag to true(there is change in the set of Activators)
         if (act.getConcepts().containsAll(imp.getBody())
                 && !act.getConcepts().contains(imp.getHead())) {
-            act.getConcepts().addAll(imp.getBody());
+            act.getConcepts().add(imp.getHead());
             act.setUnstable(true);
             changed = true;
         }
