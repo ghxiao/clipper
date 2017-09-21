@@ -1,10 +1,15 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import gnu.trove.set.hash.TIntHashSet;
+import org.antlr.runtime.RecognitionException;
 import org.junit.Before;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.ontology.*;
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
+import java.io.File;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -104,6 +109,36 @@ public class TBoxReasonerTest {
 
     @Test
     public void applyDeltaTBoxToActivators() throws Exception {
+
+    }
+
+
+    @Test
+    public void testFLYTBoxReasoner() throws Exception {
+        String tmpDatalogFile = "src/test/resources/TestData/FlyAnatomy/fly_anatomy_rewriting.dl";
+        String ontologyFile = "src/test/resources/TestData/FlyAnatomy/fly_anatomy.owl";
+
+        System.setProperty("entityExpansionLimit", "512000");
+        QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+        //ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
+        //ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
+        qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
+        qaHornSHIQ.setQueryRewriter("new");
+        ClipperManager.getInstance().setVerboseLevel(1);
+
+        qaHornSHIQ.setDatalogFileName(tmpDatalogFile);
+
+        qaHornSHIQ.setOntologyName(ontologyFile);
+        OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
+                new File(ontologyFile));
+        qaHornSHIQ.addOntology(ontology);
+
+        qaHornSHIQ.preprocessOntologies();
+
+        qaHornSHIQ.saturateTBox();
+
+        System.out.println("TBox reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime()
+                + "  millisecond");
 
     }
 
