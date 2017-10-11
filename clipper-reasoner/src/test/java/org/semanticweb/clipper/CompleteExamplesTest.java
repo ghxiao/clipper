@@ -305,7 +305,7 @@ public class CompleteExamplesTest {
     }
 
     private void runTest(OWLOntology ontology, String sparqlString, int expected) {
-        QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+        QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 
         qaHornSHIQ.addOntology(ontology);
 

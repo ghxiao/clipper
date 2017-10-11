@@ -91,7 +91,11 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
     private OWLOntology combinedOntology;
     private Collection<Set<Resource>> aboxProfiles;
 
-    public QAHornSHIQ() {
+
+    /*Initialization of QAHornSHIQ with default behaviour,
+      with optimizations on (for now only TBoxSaturation optimization is implemented)
+    */
+    public QAHornSHIQ(){
         decodedAnswers = new ArrayList<>();
         //ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);// default
         this.ontologies = new ArrayList<OWLOntology>();
@@ -102,10 +106,28 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
         // ClipperManager.getInstance().reset();
         //todo:add the case on top level calling of QAHornSHIQ class for this member to facilitate turning on and off the optimization of TBoxReasoner
 
-        withActivatorOptimization = false;
+        this.withActivatorOptimization = true;
     }
 
-    public boolean withActivatorOptimization() {
+
+    /*
+    * @param withActivatorOptimization turns on/off the optimization for TBoxSaturation
+    * */
+    public QAHornSHIQ(boolean withActivatorOptimization) {
+        decodedAnswers = new ArrayList<>();
+        //ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);// default
+        this.ontologies = new ArrayList<OWLOntology>();
+
+        setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);// default
+        cqFormatter = new CQFormatter(namingStrategy);
+
+        // ClipperManager.getInstance().reset();
+        //todo:add the case on top level calling of QAHornSHIQ class for this member to facilitate turning on and off the optimization of TBoxReasoner
+
+        this.withActivatorOptimization = withActivatorOptimization;
+    }
+
+    public boolean activatorOptimizationEnabled() {
         return withActivatorOptimization;
     }
 

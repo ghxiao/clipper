@@ -18,7 +18,7 @@ public class EnforceRelationExporterTest {
         String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
 
         System.setProperty("entityExpansionLimit", "512000");
-        QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+        QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 
         qaHornSHIQ.setOntologyName(ontologyFile);
         OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
@@ -38,7 +38,7 @@ public class EnforceRelationExporterTest {
     public void testExport2() throws RecognitionException, OWLOntologyCreationException {
 
         System.setProperty("entityExpansionLimit", "512000");
-        QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+        QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 
         OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
                 this.getClass().getResourceAsStream("/UOBM/univ-bench-dl.owl"));

@@ -3,13 +3,7 @@ package org.semanticweb.clipper.hornshiq.cli;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameters;
 import gnu.trove.procedure.TIntProcedure;
-import org.semanticweb.clipper.hornshiq.queryanswering.CQFormatter;
-import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
-import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
-import org.semanticweb.clipper.hornshiq.queryanswering.IndexedEnfContainer;
-import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
-import org.semanticweb.clipper.hornshiq.queryanswering.QAHornSHIQ;
-import org.semanticweb.clipper.hornshiq.queryanswering.old_TBoxReasoner;
+import org.semanticweb.clipper.hornshiq.queryanswering.*;
 import org.semanticweb.owlapi.model.OWLOntology;
 
 import java.util.Set;
@@ -40,7 +34,12 @@ public class CommandPythonOntology extends ReasoningCommandBase {
 
 		qaHornSHIQ.preprocessOntologies();
 
-		old_TBoxReasoner saturation = qaHornSHIQ.saturateTBox();
+		TBoxReasoner saturation = null;
+		try {
+			saturation = qaHornSHIQ.saturateTBox();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		IndexedEnfContainer enfs = saturation.getEnfContainer();
 
