@@ -285,7 +285,7 @@ public class LUBMQueryTest {
 	@Test
 	public void queryTest() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("src/test/resources/TestData/lubm/queryTest.dl");
 		qaHornSHIQ.setOntologyName("src/test/resources/TestData/lubm/lubm1.owl");
@@ -328,7 +328,7 @@ public class LUBMQueryTest {
 
 	private static void testLUBMQuery(String ontologyFile, String sparqlString, String answerFile, String tmpDatalogFile) throws OWLOntologyCreationException, RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
 		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);

@@ -19,7 +19,7 @@ public class RequiemTestSuiteAdolena {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 	
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setNamingStrategy(NamingStrategy.INT_ENCODING);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/AdolenaQuery0.dl");
 		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/adolena.owl");
@@ -54,7 +54,7 @@ public class RequiemTestSuiteAdolena {
 	public void query01() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
-	    QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+	    QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		// qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ
 				.setDatalogFileName("TestData/requiem/EvalDL09/AdolenaQuery01.dl");
@@ -89,7 +89,7 @@ public class RequiemTestSuiteAdolena {
 	public void query02() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ
 				.setDatalogFileName("TestData/requiem/EvalDL09/AdolenaQuery02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
@@ -129,7 +129,7 @@ public class RequiemTestSuiteAdolena {
 	public void query03() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ
 				.setDatalogFileName("TestData/requiem/EvalDL09/AdolenaQuery03.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
@@ -161,7 +161,7 @@ public class RequiemTestSuiteAdolena {
 	@Test
 	public void query04() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ
 				.setDatalogFileName("TestData/requiem/EvalDL09/AdolenaQuery04.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/adolena.owl");

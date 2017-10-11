@@ -20,7 +20,7 @@ public class RequiemTestSuiteVicodi {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(2);
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/VicodiQuery0.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/vicodi.owl");
 		//Q(?0) <- Location(?0)
@@ -58,7 +58,7 @@ public class RequiemTestSuiteVicodi {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 	//	KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ
 				.setDatalogFileName("TestData/requiem/EvalDL09/VicodiQuery01.dl");
@@ -98,7 +98,7 @@ public class RequiemTestSuiteVicodi {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 	//	KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ
 				.setDatalogFileName("TestData/requiem/EvalDL09/VicodiQuery02.dl");
@@ -134,7 +134,7 @@ public class RequiemTestSuiteVicodi {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 	//	KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ
 				.setDatalogFileName("TestData/requiem/EvalDL09/VicodiQuery4.dl");
@@ -170,7 +170,7 @@ public class RequiemTestSuiteVicodi {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 	//	KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ
 				.setDatalogFileName("TestData/requiem/EvalDL09/VicodiQuery04.dl");
@@ -211,7 +211,7 @@ public class RequiemTestSuiteVicodi {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 	//	KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ
 				.setDatalogFileName("TestData/requiem/EvalDL09/VicodiQuery04.dl");

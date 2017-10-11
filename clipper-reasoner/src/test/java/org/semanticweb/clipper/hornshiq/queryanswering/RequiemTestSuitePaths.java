@@ -18,7 +18,7 @@ public class RequiemTestSuitePaths {
 	public void query0() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(2);
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/PathsQuery0.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
 		//Q(?0) <- edge(?0,?1)
@@ -49,7 +49,7 @@ public class RequiemTestSuitePaths {
 	public void query01() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/PathsQuery01.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
 		//Q(?0) <- edge(?0,?1), edge(?1,?2)
@@ -81,7 +81,7 @@ public class RequiemTestSuitePaths {
 	public void query02() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/PathsQuery02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
 		//Q(?0) <- edge(?0,?1), edge(?1,?2), edge(?2,?3)
@@ -114,7 +114,7 @@ public class RequiemTestSuitePaths {
 	public void query03() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/PathsQuery03.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
 		//Q(?0) <- edge(?0,?1), edge(?1,?2), edge(?2,?3)
@@ -150,7 +150,7 @@ public class RequiemTestSuitePaths {
 	public void query04() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/PathsQuery04.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
 		//Q(?0) <- edge(?0,?1), edge(?1,?2), edge(?2,?3)

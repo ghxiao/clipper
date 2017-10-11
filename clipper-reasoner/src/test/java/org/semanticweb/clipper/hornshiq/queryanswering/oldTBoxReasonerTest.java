@@ -218,7 +218,7 @@ public class oldTBoxReasonerTest {
 
 	private static void testQuery(String ontologyFile, String sparqlString, int expected, String tmpDatalogFile) throws OWLOntologyCreationException, RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
 		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);

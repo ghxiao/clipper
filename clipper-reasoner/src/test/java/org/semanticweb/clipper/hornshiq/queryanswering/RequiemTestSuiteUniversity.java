@@ -22,7 +22,7 @@ public class RequiemTestSuiteUniversity {
 	public void query0() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(2);
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query1.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 
@@ -76,7 +76,7 @@ public class RequiemTestSuiteUniversity {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query1.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
@@ -114,7 +114,7 @@ public class RequiemTestSuiteUniversity {
 	@Test
 	public void query02() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
@@ -156,7 +156,7 @@ public class RequiemTestSuiteUniversity {
 	@Test
 	public void query03() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query03.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
@@ -193,7 +193,7 @@ public class RequiemTestSuiteUniversity {
 	@Test
 	public void query04() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query04.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
@@ -231,7 +231,7 @@ public class RequiemTestSuiteUniversity {
 	@Test
 	public void query07() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
@@ -272,7 +272,7 @@ public class RequiemTestSuiteUniversity {
 	@Test
 	public void query08() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
@@ -313,7 +313,7 @@ public class RequiemTestSuiteUniversity {
 	@Test
 	public void query09() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ();
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query02.dl");
 		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
