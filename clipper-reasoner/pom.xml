@@ -1,71 +1,85 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<artifactId>clipper-reasoner</artifactId>
-	<name>Clipper Reasoner</name>
-	<parent>
-		<groupId>org.semanticweb.clipper</groupId>
-		<artifactId>clipper</artifactId>
-		<version>0.3.0-20151204</version>
-	</parent>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>clipper-reasoner</artifactId>
+    <name>Clipper Reasoner</name>
+    <parent>
+        <groupId>org.semanticweb.clipper</groupId>
+        <artifactId>clipper</artifactId>
+        <version>0.3.0-20151204</version>
+    </parent>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.dlvsystem</groupId>
-			<artifactId>DLVWrapper</artifactId>
-			<version>4.2</version>
-		</dependency>
+    <dependencies>
+        <dependency>
+            <groupId>com.dlvsystem</groupId>
+            <artifactId>DLVWrapper</artifactId>
+            <version>4.2</version>
+        </dependency>
 
-		<dependency>
-			<groupId>net.sf.trove4j</groupId>
-			<artifactId>trove4j</artifactId>
-			<version>3.0.3</version>
-		</dependency>
+        <dependency>
+            <groupId>net.sf.trove4j</groupId>
+            <artifactId>trove4j</artifactId>
+            <version>3.0.3</version>
+        </dependency>
 
-		<dependency>
-			<groupId>org.antlr</groupId>
-			<artifactId>antlr-runtime</artifactId>
-			<version>3.4</version>
-		</dependency>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr-runtime</artifactId>
+            <version>3.4</version>
+        </dependency>
 
-		<dependency>
-			<groupId>net.sf.jung</groupId>
-			<artifactId>jung-graph-impl</artifactId>
-			<version>2.1</version>
-		</dependency>
+        <dependency>
+            <groupId>net.sf.jung</groupId>
+            <artifactId>jung-graph-impl</artifactId>
+            <version>2.1</version>
+        </dependency>
 
-		<dependency>
-			<groupId>net.sf.jung</groupId>
-			<artifactId>jung-algorithms</artifactId>
-			<version>2.1</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>net.sourceforge.owlapi</groupId>
-			<artifactId>owlapi-apibinding</artifactId>
-			<version>3.4.10</version>
-		</dependency>
+        <dependency>
+            <groupId>net.sf.jung</groupId>
+            <artifactId>jung-algorithms</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.owlapi</groupId>
+            <artifactId>owlapi-apibinding</artifactId>
+            <version>3.4.10</version>
+        </dependency>
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
             <version>2.0.1</version>
         </dependency>
+
+        <!-- Optique R2RML API -->
+        <dependency>
+            <groupId>eu.optique-project</groupId>
+            <artifactId>r2rml-api-core</artifactId>
+            <version>0.5.0</version>
+        </dependency>
+
+        <!-- Optique R2RML API Jena Binding -->
+        <dependency>
+            <groupId>eu.optique-project</groupId>
+            <artifactId>r2rml-api-jena-binding</artifactId>
+            <version>0.5.0</version>
+        </dependency>
     </dependencies>
 
     <build>
-		<plugins>
-			<plugin>
-				<groupId>org.antlr</groupId>
-				<artifactId>antlr3-maven-plugin</artifactId>
-				<version>3.5.2</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>antlr</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+        <plugins>
+            <plugin>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr3-maven-plugin</artifactId>
+                <version>3.5.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>antlr</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

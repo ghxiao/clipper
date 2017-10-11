@@ -3,8 +3,9 @@ package org.semanticweb.clipper.hornshiq.cli;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.google.common.io.CharStreams;
-import com.hp.hpl.jena.query.Query;
-import com.hp.hpl.jena.query.QueryFactory;
+
+import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryFactory;
 import org.semanticweb.clipper.cqparser.CQParser;
 import org.semanticweb.clipper.hornshiq.queryanswering.NamingStrategy;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
