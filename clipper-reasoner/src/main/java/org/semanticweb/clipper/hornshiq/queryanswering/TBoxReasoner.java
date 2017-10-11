@@ -24,6 +24,8 @@ public class TBoxReasoner {
     private Set<EnforcedRelation> newEnfs;
     private Set<HornImplication> newImps;
 
+    private final boolean withAxiomActivators;
+
     private Set<ClipperAxiomActivator> axiomActivators;
     private Set<ClipperAxiomActivator> newAxiomActivators;
     private Set<ClipperOverAproxPropagation> forwardPropagation;
@@ -156,10 +158,13 @@ public class TBoxReasoner {
     }
 
     public TBoxReasoner(ClipperHornSHIQOntology ont_bs) {
+        this.withAxiomActivators=false;
+
         initOntology(ont_bs);
     }
 
     public TBoxReasoner(ClipperHornSHIQOntology ont_bs, Collection<Set<Integer>> initAxiomActivators) {
+        this.withAxiomActivators=true;
         initOntology(ont_bs);
         initAxiomEnablers(initAxiomActivators);
     }
@@ -498,7 +503,7 @@ public class TBoxReasoner {
 
 
                 //todo:we check here if there exists some activator that would fire the axiom
-                if (!axiomApplicable(newEnf.getType1()))
+                if (withAxiomActivators && !axiomApplicable(newEnf.getType1()))
                     continue;
 
 
@@ -688,7 +693,8 @@ public class TBoxReasoner {
         Set<HornImplication> copyOfImps = cloneOfImps(this.impContainer
                 .getImps());
 
-        saturateActivators();//we saturate activators
+        if(withAxiomActivators)
+            saturateActivators();//we saturate activators
 
         // Apply all rule for the first time, in next times, we only run rule
         // with newEnfs, and newImps
@@ -719,7 +725,9 @@ public class TBoxReasoner {
         // Apply rule only in newEnfs and newImps
         boolean update = true;
         while (update && !inconsistent) {
-            saturateActivators();//we saturate the activators
+            if(withAxiomActivators)
+                saturateActivators();//we saturate the activators
+
             Set<EnforcedRelation> copyOfNewEnfs = cloneOfEnfs(newEnfs); // \Delta_{enf}
             Set<HornImplication> copyOfNewImps = cloneOfImps(newImps); // \Delta_{imp}
             copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());

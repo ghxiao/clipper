@@ -60,10 +60,9 @@ import java.util.Set;
 
 public class QAHornSHIQ implements QueryAnsweringSystem {
 
+    private boolean withActivatorOptimization;
+
     private String datalogFileName;
-    private String profilesFileName;//todo:needed for extracting initial profiles.
-    private String aboxFileName;
-    private String tboxFileName;
     private String ontologyName;
 
     private String queryString;
@@ -79,7 +78,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
     private ClipperReport clipperReport = new ClipperReport();
 
-    private Collection<CQ> rewrittenQueries;//todo:lb-why multiple rewritten Queries?
+    private Collection<CQ> rewrittenQueries;
 
     // String dlvPath = "lib/dlv";
     String dlvPath;
@@ -101,6 +100,13 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
         cqFormatter = new CQFormatter(namingStrategy);
 
         // ClipperManager.getInstance().reset();
+        //todo:add the case on top level calling of QAHornSHIQ class for this member to facilitate turning on and off the optimization of TBoxReasoner
+
+        withActivatorOptimization = false;
+    }
+
+    public boolean withActivatorOptimization() {
+        return withActivatorOptimization;
     }
 
     public void setNamingStrategy(NamingStrategy namingStrategy) {
@@ -291,21 +297,6 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
         reduction.getABoxAssertionsDatalogProgram(this.datalogFileName);
     }
 
-    /**
-     * @return
-     */
-    public TBoxReasoner old_saturateTBox() {
-
-        TBoxReasoner tb = new TBoxReasoner(clipperOntology);
-        // ///////////////////////////////////////////////
-        // Evaluate reasoning time
-        long reasoningBegin = System.currentTimeMillis();
-        tb.saturate();
-        long reasoningEnd = System.currentTimeMillis();
-        clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
-        // end of evaluating reasoning time
-        return tb;
-    }
 
     /**
      * @return
@@ -315,7 +306,12 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
         //TODO: add here an extraction for ABoxProfile extraction
         Collection<Set<Integer>> initialActivators = extractActivatorsFromProfiles(this.aboxProfiles); //from this point onward we get also the
 
-        TBoxReasoner tb = new TBoxReasoner(clipperOntology, initialActivators);
+        TBoxReasoner tb;
+
+        if(withActivatorOptimization)
+            tb= new TBoxReasoner(clipperOntology, initialActivators);
+        else
+            tb=new TBoxReasoner(clipperOntology);
         // ///////////////////////////////////////////////
         // Evaluate reasoning time
         long reasoningBegin = System.currentTimeMillis();
