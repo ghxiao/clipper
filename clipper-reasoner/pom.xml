@@ -3,6 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>clipper-reasoner</artifactId>
     <name>Clipper Reasoner</name>
+    <properties>
+        <!--<r2rml-api-core.version>0.5.0</r2rml-api-core.version>-->
+        <r2rml-api-core.version>0.6.1-SNAPSHOT</r2rml-api-core.version>
+    </properties>
     <parent>
         <groupId>org.semanticweb.clipper</groupId>
         <artifactId>clipper</artifactId>
@@ -55,14 +59,14 @@
         <dependency>
             <groupId>eu.optique-project</groupId>
             <artifactId>r2rml-api-core</artifactId>
-            <version>0.5.0</version>
+            <version>${r2rml-api-core.version}</version>
         </dependency>
 
         <!-- Optique R2RML API Jena Binding -->
         <dependency>
             <groupId>eu.optique-project</groupId>
             <artifactId>r2rml-api-jena-binding</artifactId>
-            <version>0.5.0</version>
+            <version>${r2rml-api-core.version}</version>
         </dependency>
     </dependencies>
 

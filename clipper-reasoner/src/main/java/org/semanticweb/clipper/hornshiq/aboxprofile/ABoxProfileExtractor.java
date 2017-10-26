@@ -128,7 +128,8 @@ public class ABoxProfileExtractor {
             final Set<Set<Resource>> finalProfile =
                     sets.parallelStream()
                             .filter(s -> sets.stream()
-                                    .noneMatch(t -> t.containsAll(s) && !t.equals(s)))
+                                    .noneMatch(t -> t.containsAll(s) && !t.equals(s)) // largest
+                            )
                             .collect(toSet());
 
             finalProfile.forEach(System.out::println);
