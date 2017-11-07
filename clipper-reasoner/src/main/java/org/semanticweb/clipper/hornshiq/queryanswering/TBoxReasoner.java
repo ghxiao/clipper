@@ -775,11 +775,16 @@ public class TBoxReasoner {
      * 2- it applies all TBox axioms (enf and imp) to un-processed activators
      */
     private void saturateActivators() {
-        System.out.println("calling Saturate Activators");
-        applyNewInferredAxiomsToActivators();
-        saturateActivatorsWithTBox();
-        saturateIterator++;
-        System.out.println("No of Activators after "+saturateIterator+" iteration:"+this.axiomActivators.size());
+        boolean saturated=false;
+
+        while(!saturated) {
+            saturated=true;
+            System.out.println("calling Saturate Activators");
+            saturated=saturated && !applyNewInferredAxiomsToActivators();
+            saturateActivatorsWithTBox();
+            saturateIterator++;
+            System.out.println("No of Activators after " + saturateIterator + " iteration:" + this.axiomActivators.size());
+        }
     }
 
     /**
@@ -792,14 +797,16 @@ public class TBoxReasoner {
      * @consequences 1- leaves the affected AxiomActivators in unstable condition
      * and the newly created ones
      */
-    private void applyNewInferredAxiomsToActivators() {
+    private boolean applyNewInferredAxiomsToActivators() {
+        boolean changed=false;
+
         for (ClipperAxiomActivator act : axiomActivators) {
             for (EnforcedRelation enf : newEnfs) {
-                applyEnfToActivator(act, enf);//and update it's status to unstable
+                changed=applyEnfToActivator(act, enf)||changed;//and update it's status to unstable
             }
 
             for (HornImplication imp : newImps) {
-                applyImpToActivator(act, imp);
+                changed=applyImpToActivator(act, imp)||changed;
             }
         }
 
@@ -810,6 +817,7 @@ public class TBoxReasoner {
         //now clear the newAxiomActivator container
         newAxiomActivators.clear();
 
+        return changed;
     }
 
     /**
