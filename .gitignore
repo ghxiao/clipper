@@ -22,6 +22,8 @@ temp.*
 build/
 gradle
 
+log/
+
 # Ignore Gradle GUI config
 gradle-app.setting
 

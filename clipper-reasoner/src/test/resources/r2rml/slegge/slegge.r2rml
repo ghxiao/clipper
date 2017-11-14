@@ -1,0 +1,2532 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rr:   <http://www.w3.org/ns/r2rml#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix map:  <http://slegger.gitlab.io/slegge-obda/mappings/slegge#> .
+@prefix expl: <http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#> .
+
+ 
+# ----------------------------------
+# wellbores and their types
+# ----------------------------------
+
+# master mapping for expl:Wellbore
+
+map:m-00001
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        IDENTIFIER,
+        COMPLETION_DATE,
+        CURRENT_TRACK 
+    FROM
+        WELLBORE 
+    WHERE
+        REF_EXISTENCE_KIND = 'actual'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#TotalCoreLength-{IDENTIFIER}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasTotalCoreLength
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://example.com/ABC?&id={IDENTIFIER}*&qf=*" ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:ABCdocURL
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "IDENTIFIER" ;
+            rr:datatype xsd:string ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:name
+    ] , [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "COMPLETION_DATE" ;
+            rr:datatype xsd:dateTime ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:completionDate
+    ] , [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "CURRENT_TRACK" ;
+            rr:datatype xsd:string ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:currentWellboreTrack
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:Wellbore ;
+        rr:template "http://slegger.gitlab.io/data#Wellbore-{IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# a subclass of expl:Wellbore (and the IRIs are included because of the SQL query containment)
+
+map:m-00011
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELLBORE.IDENTIFIER 
+    FROM
+        WELLBORE,
+        FACILITY_CLASSIFICATION 
+    WHERE
+        FACILITY_CLASSIFICATION.FACILITY_S = WELLBORE.WELLBORE_S AND 
+        FACILITY_CLASSIFICATION.CLASSIFICATION_SYSTEM = 'POSC wellbore purpose' AND 
+        FACILITY_CLASSIFICATION.FACILITY_CLASS_NAME = 'production' AND 
+        WELLBORE.REF_EXISTENCE_KIND = 'actual'"""
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:ProductionWellbore ;
+        rr:template "http://slegger.gitlab.io/data#Wellbore-{IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# a subclass of expl:Wellbore (and the IRIs are included because of the SQL query containment)
+
+map:m-00005
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELLBORE.IDENTIFIER 
+    FROM
+        WELLBORE,
+        FACILITY_CLASSIFICATION 
+    WHERE
+        FACILITY_CLASSIFICATION.FACILITY_S = WELLBORE.WELLBORE_S AND 
+        FACILITY_CLASSIFICATION.CLASSIFICATION_SYSTEM = 'POSC wellbore purpose' AND 
+        FACILITY_CLASSIFICATION.FACILITY_CLASS_NAME = 'exploration' AND 
+        WELLBORE.REF_EXISTENCE_KIND = 'actual'"""
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:ExplorationWellbore ;
+        rr:template "http://slegger.gitlab.io/data#Wellbore-{IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# a subclass of expl:Wellbore (and the IRIs are included because of the SQL query containment)
+
+map:m-00051
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        IDENTIFIER 
+    FROM
+        WELLBORE 
+    WHERE
+        (CURRENT_TRACK IS NULL OR CURRENT_TRACK != 1) AND 
+        REF_EXISTENCE_KIND = 'actual'"""  
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:PluggedWellbore ;
+        rr:template "http://slegger.gitlab.io/data#Wellbore-{IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00031
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        IDENTIFIER,
+        WELL_IDENTIFIER 
+    FROM
+        WELLBORE 
+    WHERE
+        REF_EXISTENCE_KIND = 'actual'""" 
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#Wellbore-{IDENTIFIER}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasWellbore
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Well-{WELL_IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# ------------------------
+# wellbore core length
+# ------------------------
+
+# in metres 
+
+map:m-00057m
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        SUM(BOTTOM_DEPTH-TOP_DEPTH) as LENGTH,
+        WELLBORE_IDENTIFIER 
+    FROM
+        WELLBORE_INTERVAL,
+        UNCERTAINTY_CLASS,
+        POSITION_UNCERTAINTY_CLSN
+    WHERE
+        UNCERTAINTY_CLASS.NAME = 'drillers depth' AND 
+        UNCERTAINTY_CLASS.CLASSIFICATION_SYSTEM = 'depth type uncertainty' AND 
+        POSITION_UNCERTAINTY_CLSN.EARTH_MODEL_OBJECT_S = WELLBORE_INTERVAL.WELLBORE_INTERVAL_S AND 
+        POSITION_UNCERTAINTY_CLSN.UNCERTAINTY_CLASS_S = UNCERTAINTY_CLASS.UNCERTAINTY_CLASS_S AND 
+        WELLBORE_INTERVAL.REF_WELLBORE_INTERVAL = 'cored interval' AND 
+        WELLBORE_INTERVAL.BOTTOM_DEPTH_U = 'm' AND 
+        WELLBORE_INTERVAL.TOP_DEPTH_U = 'm'
+    GROUP BY
+        WELLBORE_INTERVAL.WELLBORE_IDENTIFIER"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "LENGTH" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "m" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement ;
+        rr:predicate expl:standardUnitOfMeasurement
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:TotalCoreLength ;
+        rr:template "http://slegger.gitlab.io/data#TotalCoreLength-{WELLBORE_IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# a copy of map:m-00057, but in feet instead of metres
+
+map:m-00057ft
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        SUM(BOTTOM_DEPTH-TOP_DEPTH) * 0.3048 as LENGTH,
+        SUM(BOTTOM_DEPTH-TOP_DEPTH) as FEET_LENGTH,
+        WELLBORE_IDENTIFIER 
+    FROM
+        WELLBORE_INTERVAL,
+        UNCERTAINTY_CLASS,
+        POSITION_UNCERTAINTY_CLSN
+    WHERE
+        UNCERTAINTY_CLASS.NAME = 'drillers depth' AND 
+        UNCERTAINTY_CLASS.CLASSIFICATION_SYSTEM = 'depth type uncertainty' AND 
+        POSITION_UNCERTAINTY_CLSN.EARTH_MODEL_OBJECT_S = WELLBORE_INTERVAL.WELLBORE_INTERVAL_S AND 
+        POSITION_UNCERTAINTY_CLSN.UNCERTAINTY_CLASS_S = UNCERTAINTY_CLASS.UNCERTAINTY_CLASS_S AND 
+        WELLBORE_INTERVAL.REF_WELLBORE_INTERVAL = 'cored interval' AND 
+        WELLBORE_INTERVAL.BOTTOM_DEPTH_U = 'ft' AND 
+        WELLBORE_INTERVAL.TOP_DEPTH_U = 'ft'
+    GROUP BY
+        WELLBORE_INTERVAL.WELLBORE_IDENTIFIER"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "LENGTH" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInStandardUnit
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "FEET_LENGTH" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "ft" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement 
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "m" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:standardUnitOfMeasurement 
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:TotalCoreLength ;
+        rr:template "http://slegger.gitlab.io/data#TotalCoreLength-{WELLBORE_IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+
+
+# -------------------------
+# formation pressure 
+# -------------------------
+
+map:m-00006
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELLBORE.IDENTIFIER,	
+        PTY_PRESSURE.PTY_PRESSURE_S 
+    FROM
+        PTY_PRESSURE,
+        ACTIVITY FP_DEPTH_DATA,
+        WELLBORE,
+        ACTIVITY_CLASS FORM_PRESSURE_CLASS 
+    WHERE
+        PTY_PRESSURE.ACTIVITY_S = FP_DEPTH_DATA.ACTIVITY_S AND 
+        FP_DEPTH_DATA.FACILITY_S = WELLBORE.WELLBORE_S AND 
+        FP_DEPTH_DATA.KIND_S = FORM_PRESSURE_CLASS.ACTIVITY_CLASS_S AND 
+        FORM_PRESSURE_CLASS.NAME = 'formation pressure depth data' AND
+        WELLBORE.REF_EXISTENCE_KIND = 'actual'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#FormationPressure-{PTY_PRESSURE_S}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasFormationPressure
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Wellbore-{IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# master mapping for expl:FormationPressure
+
+map:m-00054
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        PTY_PRESSURE.PTY_PRESSURE_S, 
+        FP_DEPTH_DATA.IDENTIFIER 
+    FROM
+        PTY_PRESSURE,
+        ACTIVITY FP_DEPTH_DATA,
+        ACTIVITY_CLASS FORM_PRESSURE_CLASS 
+    WHERE
+        PTY_PRESSURE.ACTIVITY_S = FP_DEPTH_DATA.ACTIVITY_S AND 
+        FP_DEPTH_DATA.KIND_S = FORM_PRESSURE_CLASS.ACTIVITY_CLASS_S AND 
+        FORM_PRESSURE_CLASS.NAME = 'formation pressure depth data' """
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "IDENTIFIER" ;
+            rr:datatype xsd:string ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:name
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#PressureTrueVerticalDepth-{PTY_PRESSURE_S}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasDepth
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#PressureMeasuredDepth-{PTY_PRESSURE_S}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasDepth
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:FormationPressure ;
+        rr:template "http://slegger.gitlab.io/data#FormationPressure-{PTY_PRESSURE_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# formation pressure measurements in bars
+
+map:m-00026
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        PTY_PRESSURE.PTY_PRESSURE_S,
+        PTY_PRESSURE.DATA_VALUE as FORMATION_PRESSURE
+    FROM
+        PTY_PRESSURE,
+        ACTIVITY FP_DEPTH_DATA,
+        ACTIVITY_CLASS FORM_PRESSURE_CLASS 
+    WHERE
+        PTY_PRESSURE.ACTIVITY_S = FP_DEPTH_DATA.ACTIVITY_S AND 
+        FP_DEPTH_DATA.KIND_S = FORM_PRESSURE_CLASS.ACTIVITY_CLASS_S AND 
+        FORM_PRESSURE_CLASS.NAME = 'formation pressure depth data' AND 
+        PTY_PRESSURE.DATA_VALUE_U = 'bar' AND 
+        PTY_PRESSURE.DATA_VALUE > 0"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "bar" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:standardUnitOfMeasurement ;
+        rr:predicate expl:originalUnitOfMeasurement
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "FORMATION_PRESSURE" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#FormationPressure-{PTY_PRESSURE_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# true vertical depth of formation pressure measurements 
+
+map:m-00033
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        PTY_PRESSURE.PTY_PRESSURE_S,
+        FRAME_LEAF.MDTVD(WELLBORE.IDENTIFIER, FP_DEPTH_PT1_LOC.DATA_VALUE_1_O) as DEPTH
+    FROM
+        PTY_PRESSURE,
+        ACTIVITY FP_DEPTH_DATA,
+        PTY_LOCATION_1D FP_DEPTH_PT1_LOC,
+        WELLBORE,
+        ACTIVITY_CLASS FORM_PRESSURE_CLASS 
+    WHERE
+        PTY_PRESSURE.ACTIVITY_S = FP_DEPTH_DATA.ACTIVITY_S AND 
+        FP_DEPTH_DATA.ACTIVITY_S = FP_DEPTH_PT1_LOC.ACTIVITY_S AND 
+        FP_DEPTH_DATA.FACILITY_S = WELLBORE.WELLBORE_S AND 
+        FP_DEPTH_DATA.KIND_S = FORM_PRESSURE_CLASS.ACTIVITY_CLASS_S AND 
+        FORM_PRESSURE_CLASS.NAME = 'formation pressure depth data' AND 
+        FP_DEPTH_PT1_LOC.DATA_VALUE_1_OU ='m' AND 
+        FP_DEPTH_PT1_LOC.DATA_VALUE_1_O >= 0 AND
+        WELLBORE.REF_EXISTENCE_KIND = 'actual'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "DEPTH" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit 
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "m" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement ;
+        rr:predicate expl:standardUnitOfMeasurement
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:TrueVerticalDepth ;
+        rr:template "http://slegger.gitlab.io/data#PressureTrueVerticalDepth-{PTY_PRESSURE_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# measured depth of formation pressure measurements 
+
+map:m-00046
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        PTY_PRESSURE.PTY_PRESSURE_S,
+        FP_DEPTH_PT1_LOC.DATA_VALUE_1_O DEPTH
+    FROM
+        PTY_PRESSURE,
+        ACTIVITY FP_DEPTH_DATA,
+        PTY_LOCATION_1D FP_DEPTH_PT1_LOC,
+        WELLBORE,
+        ACTIVITY_CLASS FORM_PRESSURE_CLASS 
+    WHERE
+        PTY_PRESSURE.ACTIVITY_S = FP_DEPTH_DATA.ACTIVITY_S AND 
+        FP_DEPTH_DATA.ACTIVITY_S = FP_DEPTH_PT1_LOC.ACTIVITY_S AND 
+        FP_DEPTH_DATA.FACILITY_S = WELLBORE.WELLBORE_S AND 
+        FP_DEPTH_DATA.KIND_S = FORM_PRESSURE_CLASS.ACTIVITY_CLASS_S AND 
+        FORM_PRESSURE_CLASS.NAME = 'formation pressure depth data' AND 
+        FP_DEPTH_PT1_LOC.DATA_VALUE_1_OU ='m' AND
+        WELLBORE.REF_EXISTENCE_KIND = 'actual'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "m" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement ;
+        rr:predicate expl:standardUnitOfMeasurement
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "DEPTH" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:MeasuredDepth ;
+        rr:template "http://slegger.gitlab.io/data#PressureMeasuredDepth-{PTY_PRESSURE_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# StratigraphicZones for formation pressure measurements
+
+map:m-00016
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        ZS.STRAT_ZONE_IDENTIFIER,
+        ZS.WELLBORE BRONNAVN,
+        ZS.STRAT_COLUMN_IDENTIFIER,
+        ZS.STRAT_INTERP_VERSION,
+        PTY_PRESSURE.PTY_PRESSURE_S 
+    FROM
+        PICKED_STRATIGRAPHIC_ZONES ZS,
+        PTY_PRESSURE,
+        ACTIVITY FP_DEPTH_DATA,
+        PTY_LOCATION_1D FP_DEPTH_PT1_LOC,
+        WELLBORE,
+        ACTIVITY_CLASS FORM_PRESSURE_CLASS 
+    WHERE
+        PTY_PRESSURE.ACTIVITY_S = FP_DEPTH_DATA.ACTIVITY_S AND 
+        FP_DEPTH_DATA.ACTIVITY_S = FP_DEPTH_PT1_LOC.ACTIVITY_S AND 
+        FP_DEPTH_DATA.FACILITY_S = WELLBORE.WELLBORE_S AND 
+        FP_DEPTH_DATA.KIND_S = FORM_PRESSURE_CLASS.ACTIVITY_CLASS_S AND 
+        FORM_PRESSURE_CLASS.NAME = 'formation pressure depth data' AND 
+        ZS.WELLBORE = WELLBORE.IDENTIFIER AND 
+        ZS.STRAT_ZONE_ENTRY_MD <= FP_DEPTH_PT1_LOC.DATA_VALUE_1_O AND 
+        ZS.STRAT_ZONE_EXIT_MD >= FP_DEPTH_PT1_LOC.DATA_VALUE_1_O AND 
+        FP_DEPTH_PT1_LOC.DATA_VALUE_1_OU = ZS.STRAT_ZONE_DEPTH_UOM""" 
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#StratigraphicZone-{BRONNAVN}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:inWellboreInterval
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#PressureMeasuredDepth-{PTY_PRESSURE_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# -----------------------
+# StratigraphicZone  
+# -----------------------
+
+# master mapping for expl:StratigraphicZone
+
+map:m-00008
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:BaseTableOrView ;
+        rr:tableName "STRATIGRAPHIC_ZONE"
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#StratigraphicUnit-{STRAT_COLUMN_IDENTIFIER}-{STRAT_UNIT_IDENTIFIER}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasUnit
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "STRAT_ZONE_IDENTIFIER" ;
+            rr:datatype xsd:string ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:name
+    ] , [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#ZoneEntryTVD-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasTopDepth
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#ZoneExitTVD-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasBottomDepth
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#EntryMeasuredDepth-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasTopDepth
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#ExitMeasuredDepth-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasBottomDepth
+    ] , [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#GrossThicknessMeasured-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasThickness
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#GrossThicknessTVD-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasThickness
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:StratigraphicZone ;
+        rr:template "http://slegger.gitlab.io/data#StratigraphicZone-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00032
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELLBORE as BRONNAVN,
+        STRAT_ZONE_IDENTIFIER,
+        STRAT_COLUMN_IDENTIFIER,
+        STRAT_INTERP_VERSION,
+        STRAT_UNIT_IDENTIFIER CONTENT 
+    FROM
+        STRATIGRAPHIC_ZONE 
+    WHERE
+        STRAT_COLUMN_IDENTIFIER = 'FLUID'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "CONTENT" ;
+            rr:datatype xsd:string ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:fluidZoneContent
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:FluidZone ;
+        rr:template "http://slegger.gitlab.io/data#StratigraphicZone-{BRONNAVN}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00035
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:BaseTableOrView ;
+        rr:tableName "STRATIGRAPHIC_ZONE"
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#StratigraphicZone-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasWellboreInterval
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Wellbore-{WELLBORE}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# expl:overlapsWellboreInterval is symmetric in the ontology
+
+map:m-00048
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        Z1.WELLBORE as BRONNAVN,
+        Z1.STRAT_ZONE_IDENTIFIER as STRAT_ZONE_ID_1,
+        Z1.STRAT_COLUMN_IDENTIFIER as STRAT_COL_ID_1,
+        Z1.STRAT_INTERP_VERSION as STRAT_VERSION_1,
+        Z2.STRAT_ZONE_IDENTIFIER as STRAT_ZONE_ID_2,
+        Z2.STRAT_COLUMN_IDENTIFIER as STRAT_COL_ID_2,
+        Z2.STRAT_INTERP_VERSION as STRAT_VERSION_2 
+    FROM
+        STRATIGRAPHIC_ZONE Z1,
+        STRATIGRAPHIC_ZONE Z2 
+    WHERE
+        Z1.WELLBORE = Z2.WELLBORE AND 
+        Z1.STRAT_ZONE_DEPTH_UOM = Z2.STRAT_ZONE_DEPTH_UOM AND 
+        Z1.STRAT_ZONE_ENTRY_MD <= Z2.STRAT_ZONE_EXIT_MD AND 
+        Z1.STRAT_ZONE_EXIT_MD >= Z2.STRAT_ZONE_ENTRY_MD"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#StratigraphicZone-{BRONNAVN}-{STRAT_COL_ID_2}-{STRAT_VERSION_2}-{STRAT_ZONE_ID_2}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:overlapsWellboreInterval
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#StratigraphicZone-{BRONNAVN}-{STRAT_COL_ID_1}-{STRAT_VERSION_1}-{STRAT_ZONE_ID_1}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# expl:overlapsWellboreInterval is symmetric in the ontology
+
+map:m-00060
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        ZONES.WELLBORE BRONNAVN,
+        STRAT_COLUMN_IDENTIFIER,
+        STRAT_INTERP_VERSION,
+        STRAT_ZONE_IDENTIFIER,
+        WELLBORE_INTERVAL_S 
+    FROM
+        PICKED_STRATIGRAPHIC_ZONES ZONES,
+        WELLBORE_INTERVAL 
+    WHERE
+        WELLBORE_INTERVAL.WELLBORE_IDENTIFIER = ZONES.WELLBORE AND 
+        ZONES.STRAT_ZONE_DEPTH_UOM = WELLBORE_INTERVAL.BOTTOM_DEPTH_U AND 
+        ZONES.STRAT_ZONE_ENTRY_MD <= WELLBORE_INTERVAL.BOTTOM_DEPTH AND 
+        ZONES.STRAT_ZONE_DEPTH_UOM = WELLBORE_INTERVAL.TOP_DEPTH_U AND 
+        ZONES.STRAT_ZONE_EXIT_MD >= WELLBORE_INTERVAL.TOP_DEPTH"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#StratigraphicZone-{BRONNAVN}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:overlapsWellboreInterval
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#WellboreInterval-{WELLBORE_INTERVAL_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+
+
+# -----------------------
+# StratigraphicZone measurements 
+# -----------------------
+
+
+map:m-00058
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELLBORE,
+        STRAT_COLUMN_IDENTIFIER,
+        STRAT_INTERP_VERSION,
+        STRAT_ZONE_IDENTIFIER,
+        FRAME_LEAF.MDTVD(WELLBORE, STRAT_ZONE_ENTRY_MD) as STRAT_ZONE_TOP_TVD
+    FROM
+        STRATIGRAPHIC_ZONE 
+    WHERE
+        STRAT_ZONE_ENTRY_MD >= 0 AND
+        STRAT_ZONE_DEPTH_UOM = 'm'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "STRAT_ZONE_TOP_TVD" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "m" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement ;
+        rr:predicate expl:standardUnitOfMeasurement
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:TrueVerticalDepth ;
+        rr:template "http://slegger.gitlab.io/data#ZoneEntryTVD-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00071
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELLBORE,
+        STRAT_COLUMN_IDENTIFIER,
+        STRAT_INTERP_VERSION,
+        STRAT_ZONE_IDENTIFIER,
+        FRAME_LEAF.MDTVD(WELLBORE, STRAT_ZONE_EXIT_MD) as STRAT_ZONE_BASE_TVD
+    FROM
+        STRATIGRAPHIC_ZONE 
+    WHERE
+        STRAT_ZONE_ENTRY_MD >= 0 AND 
+        STRAT_ZONE_DEPTH_UOM = 'm'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "STRAT_ZONE_BASE_TVD" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "m" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement ;
+        rr:predicate expl:standardUnitOfMeasurement
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:TrueVerticalDepth ;
+        rr:template "http://slegger.gitlab.io/data#ZoneExitTVD-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00070
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELLBORE,
+        STRAT_ZONE_IDENTIFIER,
+        STRAT_COLUMN_IDENTIFIER,
+        STRAT_INTERP_VERSION,
+        STRAT_ZONE_ENTRY_MD as STRAT_ZONE_ENTRY_DEPTH
+    FROM
+        STRATIGRAPHIC_ZONE 
+    WHERE
+        STRAT_ZONE_DEPTH_UOM = 'm'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "STRAT_ZONE_ENTRY_DEPTH" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "m" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement ;
+        rr:predicate expl:standardUnitOfMeasurement
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:MeasuredDepth ;
+        rr:template "http://slegger.gitlab.io/data#EntryMeasuredDepth-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00019
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELLBORE,
+        STRAT_ZONE_IDENTIFIER,
+        STRAT_COLUMN_IDENTIFIER,
+        STRAT_INTERP_VERSION,
+        STRAT_ZONE_EXIT_MD as STRAT_ZONE_EXIT_DEPTH
+    FROM
+        STRATIGRAPHIC_ZONE 
+    WHERE
+        STRAT_ZONE_DEPTH_UOM = 'm'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "STRAT_ZONE_EXIT_DEPTH" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit 
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "m" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement ;
+        rr:predicate expl:standardUnitOfMeasurement 
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:MeasuredDepth ;
+        rr:template "http://slegger.gitlab.io/data#ExitMeasuredDepth-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00061
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELLBORE,
+        STRAT_ZONE_IDENTIFIER,
+        STRAT_COLUMN_IDENTIFIER,
+        STRAT_INTERP_VERSION,
+        STRAT_ZONE_EXIT_MD - STRAT_ZONE_ENTRY_MD as GROSS_THICKNESS
+    FROM
+        STRATIGRAPHIC_ZONE
+    WHERE
+        STRAT_ZONE_DEPTH_UOM = 'm'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "GROSS_THICKNESS" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit
+     ] , [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "m" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement ;
+        rr:predicate expl:standardUnitOfMeasurement
+   ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+	rr:class expl:GrossThicknessMeasured ;
+        rr:template "http://slegger.gitlab.io/data#GrossThicknessMeasured-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00014
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELLBORE,
+        STRAT_COLUMN_IDENTIFIER,
+        STRAT_INTERP_VERSION,
+        STRAT_ZONE_IDENTIFIER,
+        FRAME_LEAF.MDTVD(WELLBORE, STRAT_ZONE_EXIT_MD) 
+                    - FRAME_LEAF.MDTVD(WELLBORE, STRAT_ZONE_ENTRY_MD) as GROSS_THICKNESS_TVD
+    FROM
+        STRATIGRAPHIC_ZONE 
+    WHERE
+        STRAT_ZONE_EXIT_MD >= 0 AND
+        STRAT_ZONE_ENTRY_MD >= 0 AND
+        STRAT_ZONE_DEPTH_UOM = 'm'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "GROSS_THICKNESS_TVD" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit 
+    ] , [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "m" ;
+            rr:datatype xsd:string ;
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement ;
+        rr:predicate expl:standardUnitOfMeasurement
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+	rr:class expl:GrossThicknessTVD ;
+        rr:template "http://slegger.gitlab.io/data#GrossThicknessTVD-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+
+
+# ---------------------
+# Wellbore Interval
+# ---------------------
+
+map:m-00055
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:BaseTableOrView ;
+        rr:tableName "WELLBORE_INTERVAL"
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#WellboreInterval-{WELLBORE_INTERVAL_S}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasWellboreInterval
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Wellbore-{WELLBORE_IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# master mapping for expl:WellboreInterval
+
+map:m-00069
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:BaseTableOrView ;
+        rr:tableName "WELLBORE_INTERVAL"
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#Depth-WellboreInterval-Bottom-{WELLBORE_INTERVAL_S}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasBottomDepth
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+ 	               rr:template "http://slegger.gitlab.io/data#Depth-WellboreInterval-Top-{WELLBORE_INTERVAL_S}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasTopDepth
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#TrueVerticalDepth-WellboreInterval-Bottom-{WELLBORE_INTERVAL_S}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasBottomDepth
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#TrueVerticalDepth-WellboreInterval-Top-{WELLBORE_INTERVAL_S}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasTopDepth
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:WellboreInterval ;
+        rr:template "http://slegger.gitlab.io/data#WellboreInterval-{WELLBORE_INTERVAL_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# WellboreInterval measurements
+
+map:m-00024
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELLBORE_INTERVAL_S,
+        BOTTOM_DEPTH
+    FROM
+        WELLBORE_INTERVAL 
+    WHERE
+        BOTTOM_DEPTH_U = 'm'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "m" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement ;
+        rr:predicate expl:standardUnitOfMeasurement
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "BOTTOM_DEPTH" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:MeasuredDepth ;
+        rr:template "http://slegger.gitlab.io/data#Depth-WellboreInterval-Bottom-{WELLBORE_INTERVAL_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00044
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELLBORE_INTERVAL_S,
+        TOP_DEPTH
+    FROM
+        WELLBORE_INTERVAL 
+    WHERE
+        TOP_DEPTH_U = 'm'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "TOP_DEPTH" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit 
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "m" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement ;
+        rr:predicate expl:standardUnitOfMeasurement 
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:MeasuredDepth ;
+        rr:template "http://slegger.gitlab.io/data#Depth-WellboreInterval-Top-{WELLBORE_INTERVAL_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00025
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELLBORE_INTERVAL_S,
+        FRAME_LEAF.MDTVD(WELLBORE_IDENTIFIER, BOTTOM_DEPTH) as BOTTOM_TVD
+    FROM
+        WELLBORE_INTERVAL 
+    WHERE
+        BOTTOM_DEPTH_U = 'm' AND 
+        BOTTOM_DEPTH >= 0"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "BOTTOM_TVD" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "m" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement ;
+        rr:predicate expl:standardUnitOfMeasurement 
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:TrueVerticalDepth ;
+        rr:template "http://slegger.gitlab.io/data#TrueVerticalDepth-WellboreInterval-Bottom-{WELLBORE_INTERVAL_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00036
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELLBORE_INTERVAL_S,
+        FRAME_LEAF.MDTVD(WELLBORE_IDENTIFIER, TOP_DEPTH) as TOP_TVD
+    FROM
+        WELLBORE_INTERVAL 
+    WHERE
+        TOP_DEPTH_U = 'm' AND 
+        TOP_DEPTH >= 0"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "TOP_TVD" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "m" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement ;
+        rr:predicate expl:standardUnitOfMeasurement 
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:TrueVerticalDepth ;
+        rr:template "http://slegger.gitlab.io/data#TrueVerticalDepth-WellboreInterval-Top-{WELLBORE_INTERVAL_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# --------------------
+# Core
+# --------------------
+
+# master mapping for  expl:Core
+
+map:m-00012
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELLBORE_INTERVAL_S,
+        WELLBORE_IDENTIFIER, 
+	IDENTIFIER
+    FROM
+        WELLBORE_INTERVAL
+    WHERE
+        REF_WELLBORE_INTERVAL = 'cored interval'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#WellboreInterval-{WELLBORE_INTERVAL_S}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:extractedFrom
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "{WELLBORE_IDENTIFIER}/{IDENTIFIER}" ;
+            rr:datatype xsd:string ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:name
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:Core ;
+        rr:template "http://slegger.gitlab.io/data#Core-{WELLBORE_INTERVAL_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00002
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELLBORE_INTERVAL_S,
+        substr(IDENTIFIER, 6) as CORE_NUMBER 
+    FROM
+        WELLBORE_INTERVAL
+    WHERE
+        REF_WELLBORE_INTERVAL = 'cored interval' AND 
+        IDENTIFIER LIKE 'Core %'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "CORE_NUMBER" ;
+            rr:datatype xsd:integer ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:coreNumber
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Core-{WELLBORE_INTERVAL_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00049
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        CORE.CORE_S,
+        WELLBORE_INTERVAL.WELLBORE_INTERVAL_S 
+    FROM
+        CORE,
+        WELLBORE_INTERVAL,
+        TOPOLOGICAL_RELATIONSHIP 
+    WHERE
+        CORE.REF_EXISTENCE_KIND = 'actual' AND 
+        WELLBORE_INTERVAL.WELLBORE_S = CORE.WELLBORE_S AND 
+        TOPOLOGICAL_RELATIONSHIP.PRIMARY_TOPOLOGICAL_OBJECT_S = WELLBORE_INTERVAL.WELLBORE_INTERVAL_S AND 
+        CORE.CORE_S = TOPOLOGICAL_RELATIONSHIP.SECONDARY_TOPOLOGICAL_OBJECT_S AND 
+        TOPOLOGICAL_RELATIONSHIP.REF_OBJECT_INTERSECTION = 'inside' AND 
+        WELLBORE_INTERVAL.REF_WELLBORE_INTERVAL = 'cored interval'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#CoreSample-{CORE_S}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasCoreSample
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Core-{WELLBORE_INTERVAL_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# -----------------------------
+# CoreSample
+# ----------------------------
+
+# master map for expl:CoreSample
+
+map:m-00050
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        CORE_S,
+        IDENTIFIER 
+    FROM
+        CORE 
+    WHERE
+        REF_EXISTENCE_KIND = 'actual'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "IDENTIFIER" ;
+            rr:datatype xsd:string ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:name
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#CorePorosity-{CORE_S}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasPorosity
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#CorePermeability-{CORE_S}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasPermeability
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:CoreSample ;
+        rr:template "http://slegger.gitlab.io/data#CoreSample-{CORE_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# CoreSample measurements
+  
+map:m-00062
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        INTERPROCESS_DATA.REAL_VALUE KLHMD,
+        CORE.CORE_S
+    FROM
+        INTERPROCESS_DATA,
+        CORE,
+        ACTIVITY CONTAINING_ACTIVITY,
+        ACTIVITY SAMPLE_ANALYSIS,
+        PROCESS_PARAMETER,
+        TYPICAL_ACTIVITY PERM_TYPE_ACT_CLASS 
+    WHERE
+        INTERPROCESS_DATA.ACTIVITY_S = CONTAINING_ACTIVITY.ACTIVITY_S AND 
+        CONTAINING_ACTIVITY.CONTAINING_ACTIVITY_S = SAMPLE_ANALYSIS.ACTIVITY_S AND 
+        CORE.REF_EXISTENCE_KIND = 'actual' AND
+        SAMPLE_ANALYSIS.MATERIAL_S = CORE.CORE_S AND 
+        PROCESS_PARAMETER.PB_PARAMETER_CODE = 'KLH' AND 
+        PROCESS_PARAMETER.PROCESS_PARAMETER_S = INTERPROCESS_DATA.PROCESS_PARAMETER_S AND 
+        PROCESS_PARAMETER.TYPICAL_ACTIVITY_S = PERM_TYPE_ACT_CLASS.TYPICAL_ACTIVITY_S AND 
+        PERM_TYPE_ACT_CLASS.NAME = 'permeability' AND 
+        INTERPROCESS_DATA.PROCESS_PARAMETER_NAME = 'KLH'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "millidarcy" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement ;
+        rr:predicate expl:standardUnitOfMeasurement 
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "KLHMD" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:Permeability ;
+        rr:template "http://slegger.gitlab.io/data#CorePermeability-{CORE_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00004
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        INTERPROCESS_DATA.REAL_VALUE ORIG_VALUE,
+        CORE.CORE_S
+    FROM
+        INTERPROCESS_DATA,
+        CORE,
+        ACTIVITY CONTAINING_ACTIVITY,
+        ACTIVITY SAMPLE_ANALYSIS,
+        PROCESS_PARAMETER,
+        TYPICAL_ACTIVITY PERM_TYPE_ACT_CLASS 
+    WHERE
+        INTERPROCESS_DATA.ACTIVITY_S = CONTAINING_ACTIVITY.ACTIVITY_S AND 
+        CONTAINING_ACTIVITY.CONTAINING_ACTIVITY_S = SAMPLE_ANALYSIS.ACTIVITY_S AND 
+        CORE.REF_EXISTENCE_KIND = 'actual' AND
+        SAMPLE_ANALYSIS.MATERIAL_S = CORE.CORE_S AND 
+        PROCESS_PARAMETER.PROCESS_PARAMETER_S = INTERPROCESS_DATA.PROCESS_PARAMETER_S AND 
+        PROCESS_PARAMETER.TYPICAL_ACTIVITY_S = PERM_TYPE_ACT_CLASS.TYPICAL_ACTIVITY_S AND 
+        PERM_TYPE_ACT_CLASS.NAME = 'porosity'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "ORIG_VALUE" ;
+            rr:datatype xsd:decimal ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit 
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "%" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement ;
+        rr:predicate expl:standardUnitOfMeasurement
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:Porosity ;
+        rr:template "http://slegger.gitlab.io/data#CorePorosity-{CORE_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+
+# -------------------
+# Wells
+# ------------------
+
+# master mapping for expl:Well
+
+map:m-00053
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        TO_CHAR(SPUD_DATE, 'yyyy-mm-dd') || 'T00:00:00' as SPUD_DATE,
+        IDENTIFIER WELL_ID 
+    FROM
+        WELL"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "WELL_ID" ;
+	    rr:datatype xsd:string ;
+            rr:termType rr:Literal 
+        ] ;
+        rr:predicate expl:statoilName
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "SPUD_DATE" ;
+            rr:datatype xsd:dateTime ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:spudDate
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:Well ;
+        rr:template "http://slegger.gitlab.io/data#Well-{WELL_ID}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00009
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELL.IDENTIFIER WELL_ID,
+        WELL_OFFICIAL_NAME.IDENTIFIER OFFICIAL_WELL_NAME 
+    FROM
+        WELL,
+        WELL_ALIAS WELL_OFFICIAL_NAME 
+    WHERE
+        WELL_OFFICIAL_NAME.WELL_S = WELL.WELL_S AND 
+        WELL_OFFICIAL_NAME.REF_NAMING_SYSTEM = 'official well name set'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "OFFICIAL_WELL_NAME" ;
+	    rr:datatype xsd:string ;
+            rr:termType rr:Literal 
+        ] ;
+        rr:predicate expl:officialName
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Well-{WELL_ID}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00068
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        PLATFORM.OTHER_FACILITY_S PLATFORM_ID,
+        WELL.IDENTIFIER WELL_ID 
+    FROM
+        WELL,
+        OTHER_FACILITY PLATFORM,
+        FACILITY_COMPOSITION  
+    WHERE
+        FACILITY_COMPOSITION.WHOLE_S = PLATFORM.OTHER_FACILITY_S AND 
+        FACILITY_COMPOSITION.PART_S = WELL.WELL_S AND 
+        PLATFORM.NAME != 'none'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#Facility-{PLATFORM_ID}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasPlatform
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Well-{WELL_ID}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+
+
+
+# --------------------------
+# water depth measurements for wells 
+# --------------------------
+
+map:m-00072
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELL.IDENTIFIER WELL_ID,
+        WELL_SURFACE_POINT.WELL_SURFACE_POINT_S 
+    FROM
+        WELL,
+        WELL_SURFACE_POINT 
+    WHERE
+        WELL_SURFACE_POINT.WELL_S = WELL.WELL_S"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#WellWaterDepthSlegge-{WELL_SURFACE_POINT_S}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:hasWaterDepth
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Well-{WELL_ID}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00023
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELL_SURFACE_POINT_S,
+        WATER_DEPTH 
+    FROM
+        WELL_SURFACE_POINT
+    WHERE
+         WATER_DEPTH_U = 'm'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "WATER_DEPTH" ;
+	    rr:datatype xsd:decimal ;
+            rr:termType rr:Literal 
+        ] ;
+        rr:predicate expl:valueInOriginalUnit ;
+        rr:predicate expl:valueInStandardUnit 
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:constant "m" ;
+            rr:datatype xsd:string 
+        ] ;
+        rr:predicate expl:originalUnitOfMeasurement ;
+        rr:predicate expl:standardUnitOfMeasurement
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:WaterDepth ;
+        rr:template "http://slegger.gitlab.io/data#WellWaterDepthSlegge-{WELL_SURFACE_POINT_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+
+
+# -------------------------------------
+# wells and their regulators / operators
+# -------------------------------------
+
+# note: CountryArea-{} is an instance of geo:Geometry (= the range of expl:locatedIn)
+
+map:m-00034
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        COUNTRY.IDENTIFIER COUNTRY_NAME,
+        WELL.IDENTIFIER WELL_ID 
+    FROM
+        BUSINESS_ASSOCIATE COUNTRY,
+        WELL,
+        BUSINESS_ASSOC_FACILITY_INVT WELL_REGULATOR 
+    WHERE
+        COUNTRY.KIND = 'country' AND 
+        WELL_REGULATOR.BUSINESS_ASSOCIATE_S = COUNTRY.BUSINESS_ASSOCIATE_S AND 
+        WELL_REGULATOR.FACILITY_S = WELL.WELL_S AND 
+        WELL_REGULATOR.INVOLVEMENT_ROLE = 'regulatory authority'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#CountryArea-{COUNTRY_NAME}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:locatedIn
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Well-{WELL_ID}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00077
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELL.IDENTIFIER WELL_ID,
+        CONCESSION.IDENTIFIER LICENSE_ID 
+    FROM
+        WELL,
+        LICENSE_AGREEMENT CONCESSION,
+        SUBJECT_OF_CONTRACT
+    WHERE
+        SUBJECT_OF_CONTRACT.CONTRACT_S = CONCESSION.LICENSE_AGREEMENT_S AND 
+        SUBJECT_OF_CONTRACT.BUSINESS_OBJECT_S = WELL.WELL_S AND 
+        CONCESSION.REF_NAMING_SYSTEM = 'unique concession identifier'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#Concession-{LICENSE_ID}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:wellLicense
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Well-{WELL_ID}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00052
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        OPERATING_COMPANY.IDENTIFIER  OPERATOR,
+        WELL.IDENTIFIER WELL_ID 
+    FROM
+        WELL,
+        BUSINESS_ASSOCIATE OPERATING_COMPANY,
+        BUSINESS_ASSOC_FACILITY_INVT OPERATOR_DESIGNATION 
+    WHERE
+        OPERATING_COMPANY.KIND = 'grouping' AND 
+        OPERATOR_DESIGNATION.FACILITY_S = WELL.WELL_S AND 
+        OPERATOR_DESIGNATION.INVOLVEMENT_ROLE = 'operator' AND 
+        OPERATOR_DESIGNATION.BUSINESS_ASSOCIATE_S = OPERATING_COMPANY.BUSINESS_ASSOCIATE_S AND 
+        OPERATING_COMPANY.IDENTIFIER != 'none'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#Company-{OPERATOR}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:wellOperatedBy
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Well-{WELL_ID}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00059
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        IDENTIFIER 
+    FROM
+        BUSINESS_ASSOCIATE 
+    WHERE
+        KIND = 'grouping'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "IDENTIFIER" ;
+            rr:datatype xsd:string ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:name
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:AdministrativeEntity ;
+        rr:template "http://slegger.gitlab.io/data#Company-{IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00007
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        IDENTIFIER 
+    FROM
+        BUSINESS_ASSOCIATE 
+    WHERE
+        KIND = 'country'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "IDENTIFIER" ;
+            rr:datatype xsd:string ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:name
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:Country ;
+        rr:template "http://slegger.gitlab.io/data#Country-{IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+
+# ----------------------------------------
+# Concessions
+# ----------------------------------------
+
+# master mapping for expl:Concession
+
+map:m-00037
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        IDENTIFIER, 
+        TO_CHAR(EXECUTION_DATE, 'yyyy-mm-dd') || 'T00:00:00' as AWARD_DATE,
+        TO_CHAR(ORIGINAL_EXPIRY_DATE, 'yyyy-mm-dd') || 'T00:00:00' as ORIGINAL_EXPIRY_DATE,
+        TO_CHAR(EXPIRY_DATE, 'yyyy-mm-dd') || 'T00:00:00' as EXPIRY_DATE
+    FROM
+        LICENSE_AGREEMENT"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "IDENTIFIER" ;
+            rr:datatype xsd:string ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:name
+    ],  [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "ORIGINAL_EXPIRY_DATE" ;
+            rr:datatype xsd:dateTime ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:plannedRelinquishmentDate
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "EXPIRY_DATE" ;
+            rr:datatype xsd:dateTime ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:actualRelinquishmentDate
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "AWARD_DATE" ;
+            rr:datatype xsd:dateTime ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:awardDate
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:Concession ;
+        rr:template "http://slegger.gitlab.io/data#Concession-{IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00003
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        CONCESSION.IDENTIFIER LIC_ID,
+        COUNTRY.BUSINESS_ASSOCIATE_IDENTIFIER COUNTRY_NAME 
+    FROM
+        LICENSE_AGREEMENT CONCESSION,
+        DOCUMENT_SPEC_BUSINESS_ASSOC COUNTRY 
+    WHERE
+        COUNTRY.DOCUMENT_SPECIFICATION_S = CONCESSION.LICENSE_AGREEMENT_S AND 
+        COUNTRY.ROLE = 'country'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#Country-{COUNTRY_NAME}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:concededBy
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Concession-{LIC_ID}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00065
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        CONCESSION.IDENTIFIER LIC_ID 
+    FROM
+        LICENSE_AGREEMENT CONCESSION,
+        DOCUMENT_SPECIFICATION_CLASS CONCESSION_TYPE_CLASS,
+        DOCUMENT_SPECIFICATION_CLSN CONCESSION_TYPE 
+    WHERE
+        CONCESSION_TYPE.DOCUMENT_SPECIFICATION_CLASS_S = CONCESSION_TYPE_CLASS.DOCUMENT_SPECIFICATION_CLASS_S AND 
+        CONCESSION_TYPE_CLASS.CLASSIFICATION_SYSTEM = 'concession type' AND 
+        CONCESSION_TYPE.DOCUMENT_SPECIFICATION_S = CONCESSION.LICENSE_AGREEMENT_S AND 
+        CONCESSION_TYPE.DOCUMENT_SPEC_CLASS_NAME = 'license'"""
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:License ;
+        rr:template "http://slegger.gitlab.io/data#Concession-{LIC_ID}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+
+# --------------------------
+# documents
+# --------------------------
+
+# master mapping for expl:Document 
+
+map:m-00017
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:BaseTableOrView ;
+        rr:tableName "DENORMALIZED_DOCUMENTS"
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "FILE_NAME" ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:hasURL
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "TITLE" ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:description
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "COMMENTS" ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:comment
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "REPORT_IDENTIFIER" ;
+            rr:datatype xsd:string ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:name
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "STORAGE_LOCATION_INDEX" ;
+	    rr:datatype xsd:string ;
+            rr:termType rr:Literal 
+        ] ;
+        rr:predicate expl:physicalLocation
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:Document ;
+        rr:template "http://slegger.gitlab.io/data#Document-{DENORMALIZED_DOCUMENTS_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00020
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        DOCS.DENORMALIZED_DOCUMENTS_S,
+        S.DESCRIPTION TYPE 
+    FROM
+        DENORMALIZED_DOCUMENTS DOCS,
+        TYPICAL_DOCUMENT_SPEC S 
+    WHERE
+        DOCS.ITEM_TYPE_S = S.TYPICAL_DOCUMENT_SPEC_S"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "TYPE" ;
+	    rr:datatype xsd:string ;
+            rr:termType rr:Literal 
+        ] ;
+        rr:predicate expl:documentType
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Document-{DENORMALIZED_DOCUMENTS_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00027
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        DENORMALIZED_DOCUMENTS_S,
+        WELLBORE.IDENTIFIER WELLBORE_ID 
+    FROM
+        DENORMALIZED_DOCUMENTS DOCS,
+        DOCUMENT_SPECIFICATION_CLASS SPEC,
+        WELLBORE 
+    WHERE
+        SPEC.NAME IN ('wellbore data', 'wellbore report') AND 
+        DOCS.ARCHIVE_OBJECT_TYPE_S = SPEC.DOCUMENT_SPECIFICATION_CLASS_S AND 
+        WELLBORE.IDENTIFIER = DOCS.REFERENCE_NAME AND
+        WELLBORE.REF_EXISTENCE_KIND = 'actual'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#Document-{DENORMALIZED_DOCUMENTS_S}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:wellboreDocument
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Wellbore-{WELLBORE_ID}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# ---------------------
+# GeographicalPosition
+# ---------------------
+
+map:m-00029
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        DATA_VALUE_1_O as LAT,
+        DATA_VALUE_2_O as LONGIT,
+        PTY_LOCATION_2D_S POS_ID 
+    FROM
+        PTY_LOCATION_2D  
+    WHERE
+        DATA_VALUE_1_OU = 'dega' AND 
+        DATA_VALUE_2_OU = 'dega'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "LAT" ;
+	    rr:datatype xsd:decimal ;
+            rr:termType rr:Literal 
+        ] ;
+        rr:predicate expl:latitude
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "LONGIT" ;
+	    rr:datatype xsd:decimal ;
+            rr:termType rr:Literal 
+        ] ;
+        rr:predicate expl:longitude
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "POINT({LONGIT} {LAT})" ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:WKT
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class <http://www.opengis.net/ont/geosparql#Point> ;
+        rr:template "http://slegger.gitlab.io/data#GeographicalPosition-{POS_ID}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00047
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        WELL.IDENTIFIER,
+        PTY_LOCATION_2D.PTY_LOCATION_2D_S POS_ID 
+    FROM
+        WELL,
+        PTY_LOCATION_2D,
+        WELL_SURFACE_POINT 
+    WHERE
+        WELL.WELL_S = WELL_SURFACE_POINT.WELL_S AND 
+        WELL_SURFACE_POINT.WELL_SURFACE_POINT_S = PTY_LOCATION_2D.WELL_SURFACE_POINT_S"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#GeographicalPosition-{POS_ID}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:locatedIn
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Well-{IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+
+# -------------------------
+# StratigraphicColumn and StratigraphicUnit
+# ------------------------
+
+map:m-00042
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        NAME STRAT_COLUMN_IDENTIFIER 
+    FROM
+        DATA_COLLECTION 
+    WHERE
+        REF_DATA_COLLECTION_TYPE = 'stratigraphic hierarchy'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "STRAT_COLUMN_IDENTIFIER" ;
+            rr:datatype xsd:string ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:name
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:StratigraphicColumn ;
+        rr:template "http://slegger.gitlab.io/data#StratigraphicColumn-{STRAT_COLUMN_IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00018
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        DATA_COLLECTION.NAME STRAT_COLUMN_IDENTIFIER 
+    FROM
+        ROCK_FEATURE,
+        MATERIAL_CLASS,
+        CLASSIFICATION_SYSTEM,
+        DATA_COLLECTION,
+        DATA_COLLECTION_CONTENT,
+        MATERIAL_CLASSIFICATION 
+    WHERE
+        MATERIAL_CLASS.CLASSIFICATION_SYSTEM = CLASSIFICATION_SYSTEM.NAME AND 
+        DATA_COLLECTION_CONTENT.COLLECTION_PART_S = ROCK_FEATURE.ROCK_FEATURE_S AND 
+        DATA_COLLECTION_CONTENT.PART_OF_S = DATA_COLLECTION.DATA_COLLECTION_S AND 
+        MATERIAL_CLASSIFICATION.MATERIAL_S = ROCK_FEATURE.ROCK_FEATURE_S AND 
+        MATERIAL_CLASSIFICATION.MATERIAL_CLASS_S = MATERIAL_CLASS.MATERIAL_CLASS_S AND 
+        CLASSIFICATION_SYSTEM.KIND = 'chronostratigraphy' AND 
+        DATA_COLLECTION.REF_DATA_COLLECTION_TYPE = 'stratigraphic hierarchy'"""
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:ChronoStratigraphicColumn ;
+        rr:template "http://slegger.gitlab.io/data#StratigraphicColumn-{STRAT_COLUMN_IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00010
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        DATA_COLLECTION.NAME STRAT_COLUMN_IDENTIFIER 
+    FROM
+        ROCK_FEATURE,
+        MATERIAL_CLASS,
+        CLASSIFICATION_SYSTEM,
+        DATA_COLLECTION,
+        DATA_COLLECTION_CONTENT,
+        MATERIAL_CLASSIFICATION
+    WHERE
+        MATERIAL_CLASS.CLASSIFICATION_SYSTEM = CLASSIFICATION_SYSTEM.NAME AND 
+        DATA_COLLECTION_CONTENT.COLLECTION_PART_S = ROCK_FEATURE.ROCK_FEATURE_S AND 
+        DATA_COLLECTION_CONTENT.PART_OF_S = DATA_COLLECTION.DATA_COLLECTION_S AND 
+        MATERIAL_CLASSIFICATION.MATERIAL_S = ROCK_FEATURE.ROCK_FEATURE_S AND 
+        MATERIAL_CLASSIFICATION.MATERIAL_CLASS_S = MATERIAL_CLASS.MATERIAL_CLASS_S AND 
+        CLASSIFICATION_SYSTEM.KIND ='lithostratigraphy' AND 
+        DATA_COLLECTION.REF_DATA_COLLECTION_TYPE = 'stratigraphic hierarchy'"""
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:LithoStratigraphicColumn ;
+        rr:template "http://slegger.gitlab.io/data#StratigraphicColumn-{STRAT_COLUMN_IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00039
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        STRAT_COLUMN.NAME STRAT_COLUMN_IDENTIFIER,
+        ROCK_FEATURE.DESCRIPTION STRAT_UNIT_IDENTIFIER 
+    FROM
+        ROCK_FEATURE,
+        COMPONENT_MATERIAL,
+        DATA_COLLECTION STRAT_COLUMN,
+        DATA_COLLECTION_CONTENT 
+    WHERE
+        COMPONENT_MATERIAL.INCORPORATE_S = ROCK_FEATURE.ROCK_FEATURE_S AND 
+        COMPONENT_MATERIAL.ENTITY_TYPE_NAME = 'COMPONENT_MATERIAL' AND 
+        DATA_COLLECTION_CONTENT.COLLECTION_PART_S = ROCK_FEATURE.ROCK_FEATURE_S AND 
+        DATA_COLLECTION_CONTENT.PART_OF_S = STRAT_COLUMN.DATA_COLLECTION_S AND 
+        STRAT_COLUMN.REF_DATA_COLLECTION_TYPE = 'stratigraphic hierarchy'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "STRAT_UNIT_IDENTIFIER" ;
+            rr:datatype xsd:string ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:name
+    ], [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#StratigraphicColumn-{STRAT_COLUMN_IDENTIFIER}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:ofStratigraphicColumn
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:StratigraphicUnit ;
+        rr:template "http://slegger.gitlab.io/data#StratigraphicUnit-{STRAT_COLUMN_IDENTIFIER}-{STRAT_UNIT_IDENTIFIER}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+map:m-00022
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        STRAT_COLUMN_IDENTIFIER,
+        STRAT_UNIT_IDENTIFIER,
+        PARENT_STRAT_ZONE_ID 
+    FROM
+        STRATIGRAPHIC_HIERARCHY 
+    WHERE
+        PARENT_STRAT_ZONE_ID != 'none'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#StratigraphicUnit-{STRAT_COLUMN_IDENTIFIER}-{STRAT_UNIT_IDENTIFIER}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:isParentUnitOf
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#StratigraphicUnit-{STRAT_COLUMN_IDENTIFIER}-{PARENT_STRAT_ZONE_ID}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+
+# -----------------------------------------------------------
+# fields
+# -----------------------------------------------------------
+
+map:m-00030
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        FIELD_S,
+        IDENTIFIER 
+    FROM
+        FIELD
+    WHERE 
+        IDENTIFIER != 'none'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "IDENTIFIER" ;
+            rr:datatype xsd:string ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:name
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:Field ;
+        rr:template "http://slegger.gitlab.io/data#Field-{FIELD_S}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+# note: IDENTIFIER != 'none' is from the original ProSource query
+
+map:m-00063
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:R2RMLView ;
+        rr:sqlQuery """SELECT
+        FIELD.FIELD_S as FIELD_ID,
+        WELL.IDENTIFIER WELL_ID 
+    FROM
+        TOPOLOGICAL_RELATIONSHIP,
+        WELL,
+        FIELD 
+    WHERE
+        TOPOLOGICAL_RELATIONSHIP.PRIMARY_TOPOLOGICAL_OBJECT_S = FIELD.FIELD_S AND 
+        TOPOLOGICAL_RELATIONSHIP.REF_OBJECT_INTERSECTION = 'inside' AND 
+        TOPOLOGICAL_RELATIONSHIP.SECONDARY_TOPOLOGICAL_OBJECT_S = WELL.WELL_S AND 
+        FIELD.IDENTIFIER != 'none'"""
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:template "http://slegger.gitlab.io/data#Field-{FIELD_ID}" ;
+            rr:termType rr:IRI
+        ] ;
+        rr:predicate expl:inField
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:template "http://slegger.gitlab.io/data#Well-{WELL_ID}" ;
+        rr:termType rr:IRI
+    ] .
+
+
+
+#-----------------------
+# reservoirs
+#-----------------------
+
+map:m-00040
+    a rr:TriplesMap ;
+    rr:logicalTable [
+        a rr:BaseTableOrView ;
+        rr:tableName "RESERVOIR"
+    ] ;
+    rr:predicateObjectMap [
+        a rr:PredicateObjectMap ;
+        rr:objectMap [
+            a rr:ObjectMap, rr:TermMap ;
+            rr:column "NAME" ;
+            rr:datatype xsd:string ;
+            rr:termType rr:Literal
+        ] ;
+        rr:predicate expl:name
+    ] ;
+    rr:subjectMap [
+        a rr:SubjectMap, rr:TermMap ;
+        rr:class expl:Reservoir ;
+        rr:template "http://slegger.gitlab.io/data#Reservoir-{NAME}" ;
+        rr:termType rr:IRI
+    ] .

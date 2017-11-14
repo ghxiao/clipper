@@ -1,0 +1,916 @@
+<urn:mapping-join--914526819>
+        a       <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT * FROM dblp_pub_new"
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dx.doi.org/{doi}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://xmlns.com/foaf/0.1/homepage>
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#SubjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:mapping-join--1547166648>
+        a       <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT * FROM dblp_pub_new"
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.uni-trier.de/{url}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://www.w3.org/2000/01/rdf-schema#seeAlso>
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#SubjectMap> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:manual-7>  a  <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT type FROM dblp_pub_new WHERE type='phdthesis'"
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#SubjectMap> ;
+                  <http://www.w3.org/ns/r2rml#class>
+                          <http://swrc.ontoware.org/ontology#PhDThesis> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:mapping-join--1975154535>
+        a       <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT * FROM dblp_pub_new WHERE dblp_pub_new.type='article'"
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.l3s.de/d2r/resource/journals/{source_id}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://swrc.ontoware.org/ontology#journal>
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#SubjectMap> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:manual-2>  a  <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT type FROM dblp_pub_new WHERE type='inproceedings'"
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#SubjectMap> ;
+                  <http://www.w3.org/ns/r2rml#class>
+                          <http://swrc.ontoware.org/ontology#InProceedings> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:mapping--540425192_1>
+        a       <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT author FROM dblp_authorid_ref_new"
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://www.bibsonomy.org/uri/author/{author}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://www.w3.org/2000/01/rdf-schema#seeAlso>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#datatype>
+                                    <http://www.w3.org/2001/XMLSchema#string> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "{author}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://www.w3.org/2000/01/rdf-schema#label>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#datatype>
+                                    <http://www.w3.org/2001/XMLSchema#string> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "{author}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://xmlns.com/foaf/0.1/name>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.l3s.de/Authors/{author}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://www.w3.org/2000/01/rdf-schema#seeAlso>
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#SubjectMap> ;
+                  <http://www.w3.org/ns/r2rml#class>
+                          <http://xmlns.com/foaf/0.1/Agent> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/authors/{author}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:mapping-join--479379791_1>
+        a       <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT * FROM dblp_pub_new AS child, dblp_author_ref_new AS parent WHERE child.id=parent.id AND parent.editor = 0"
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.l3s.de/d2r/resource/authors/{author}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://xmlns.com/foaf/0.1/maker>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.l3s.de/d2r/resource/authors/{author}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://purl.org/dc/elements/1.1/creator>
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#SubjectMap> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:mapping--Davide1_1>
+        a       <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT * FROM dblp_pub_new where type IN ('inproceedings', 'proceedings')"
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#datatype>
+                                    <http://www.w3.org/2001/XMLSchema#string> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "{source}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://www.w3.org/2000/01/rdf-schema#label>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.l3s.de/Venues/{source}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://www.w3.org/2000/01/rdf-schema#seeAlso>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#datatype>
+                                    <http://www.w3.org/2001/XMLSchema#string> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "{source}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://purl.org/dc/elements/1.1/title>
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#SubjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                  <http://www.w3.org/ns/r2rml#class>
+                          <http://swrc.ontoware.org/ontology#Conference> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/conferences/{source_id}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:manual-5>  a  <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT type FROM dblp_pub_new WHERE type='book'"
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#SubjectMap> ;
+                  <http://www.w3.org/ns/r2rml#class>
+                          <http://swrc.ontoware.org/ontology#Book> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:manual-8>  a  <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT type FROM dblp_pub_new WHERE type='www'"
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#SubjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                  <http://www.w3.org/ns/r2rml#class>
+                          <http://swrc.ontoware.org/ontology#Document> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:mapping-join--263196419>
+        a       <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT dblp_key FROM dblp_pub_new"
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://purl.org/dc/terms/partOf>
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#SubjectMap> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:mapping-join--903207262>
+        a       <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT * FROM dblp_pub_new AS child, dblp_ref_new AS parent WHERE child.id=parent.id"
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.l3s.de/d2r/resource/publications/{ref_id}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://purl.org/dc/terms/references>
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#SubjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:manual-3>  a  <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT type FROM dblp_pub_new WHERE type='incollection'"
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#SubjectMap> ;
+                  <http://www.w3.org/ns/r2rml#class>
+                          <http://swrc.ontoware.org/ontology#InCollection> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:mapping--540425193>
+        a       <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT author, hp_ee FROM dblp_main_aliases_new"
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#column>
+                                    "hp_ee" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://xmlns.com/foaf/0.1/homepage>
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#SubjectMap> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/authors/{author}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:mapping--584873494_1>
+        a       <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT * FROM dblp_pub_new"
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "ISBN {isbn}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://purl.org/dc/elements/1.1/identifier>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#datatype>
+                                    <http://www.w3.org/2001/XMLSchema#gYear> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "{year}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://purl.org/dc/terms/issued>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#datatype>
+                                    <http://www.w3.org/2001/XMLSchema#string> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "{title}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://purl.org/dc/elements/1.1/title>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://amazon.com/s/ref=nb_ss_gw?field-keywords={isbn}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://www.w3.org/2000/01/rdf-schema#seeAlso>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#datatype>
+                                    <http://www.w3.org/2001/XMLSchema#string> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "{volume}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://swrc.ontoware.org/ontology#volume>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#datatype>
+                                    <http://www.w3.org/2001/XMLSchema#string> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "{pages}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://swrc.ontoware.org/ontology#pages>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "DBLP {dblp_key}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://purl.org/dc/elements/1.1/identifier>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "DOI {doi}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://purl.org/dc/elements/1.1/identifier>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.uni-trier.de/{url}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://purl.org/dc/terms/tableOfContent>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#column>
+                                    "ee" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://xmlns.com/foaf/0.1/page>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#column>
+                                    "ee" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://www.w3.org/2000/01/rdf-schema#seeAlso>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#datatype>
+                                    <http://www.w3.org/2001/XMLSchema#string> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "{publisher}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://purl.org/dc/elements/1.1/publisher>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.rkbexplorer.com/id/{dblp_key}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://www.w3.org/2002/07/owl#sameAs>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#datatype>
+                                    <http://www.w3.org/2001/XMLSchema#string> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "{number}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://swrc.ontoware.org/ontology#number>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.l3s.de/d2r/resource/conferences/{source_id}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://swrc.ontoware.org/ontology#series>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.l3s.de/d2r/resource/collections/{source_id}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://swrc.ontoware.org/ontology#series>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "ISBN {isbn}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://swrc.ontoware.org/ontology#isbn>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dx.doi.org/{doi}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://xmlns.com/foaf/0.1/page>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://bibsonomy.org/uri/bibtexkey/{dblp_key}/dblp" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://www.w3.org/2002/07/owl#sameAs>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.uni-trier.de/rec/bibtex/{dblp_key}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://purl.org/dc/terms/bibliographicCitation>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#datatype>
+                                    <http://www.w3.org/2001/XMLSchema#string> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "{month}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://swrc.ontoware.org/ontology#month>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#datatype>
+                                    <http://www.w3.org/2001/XMLSchema#string> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "{title}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://www.w3.org/2000/01/rdf-schema#label>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#column>
+                                    "ee" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://xmlns.com/foaf/0.1/homepage>
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#SubjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                  <http://www.w3.org/ns/r2rml#class>
+                          <http://xmlns.com/foaf/0.1/Document> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:mapping-join--1175902733_1>
+        a       <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT * FROM dblp_pub_new AS child, dblp_author_ref_new AS parent WHERE child.id=parent.id AND parent.editor = 1"
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.l3s.de/d2r/resource/authors/{author}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://swrc.ontoware.org/ontology#editor>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.l3s.de/d2r/resource/authors/{author}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://purl.org/dc/elements/1.1/creator>
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#SubjectMap> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:manual-6>  a  <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT type FROM dblp_pub_new WHERE type='masterthesis'"
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#SubjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                  <http://www.w3.org/ns/r2rml#class>
+                          <http://swrc.ontoware.org/ontology#MasterThesis> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:mapping-1565489986_1>
+        a       <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT * FROM dblp_pub_new WHERE dblp_pub_new.type='article'"
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#ObjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                            <http://www.w3.org/ns/r2rml#datatype>
+                                    <http://www.w3.org/2001/XMLSchema#string> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "{source}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://purl.org/dc/elements/1.1/title>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#datatype>
+                                    <http://www.w3.org/2001/XMLSchema#string> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "{source}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://www.w3.org/2000/01/rdf-schema#label>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.l3s.de/Venues/{source}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://www.w3.org/2000/01/rdf-schema#seeAlso>
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#SubjectMap> ;
+                  <http://www.w3.org/ns/r2rml#class>
+                          <http://swrc.ontoware.org/ontology#Journal> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/journals/{source_id}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:manual-1>  a  <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT type FROM dblp_pub_new WHERE type='article'"
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#SubjectMap> ;
+                  <http://www.w3.org/ns/r2rml#class>
+                          <http://swrc.ontoware.org/ontology#Article> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:mapping-1437803285_1>
+        a       <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT * FROM dblp_pub_new WHERE type IN ('incollection', 'book')"
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#datatype>
+                                    <http://www.w3.org/2001/XMLSchema#string> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "{source}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://www.w3.org/2000/01/rdf-schema#label>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "http://dblp.l3s.de/d2r/resource/publications/{crossref}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#IRI>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://www.w3.org/2002/07/owl#sameAs>
+                ] ;
+        <http://www.w3.org/ns/r2rml#predicateObjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#PredicateObjectMap> ;
+                  <http://www.w3.org/ns/r2rml#objectMap>
+                          [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#ObjectMap> ;
+                            <http://www.w3.org/ns/r2rml#datatype>
+                                    <http://www.w3.org/2001/XMLSchema#string> ;
+                            <http://www.w3.org/ns/r2rml#template>
+                                    "{source}" ;
+                            <http://www.w3.org/ns/r2rml#termType>
+                                    <http://www.w3.org/ns/r2rml#Literal>
+                          ] ;
+                  <http://www.w3.org/ns/r2rml#predicate>
+                          <http://purl.org/dc/elements/1.1/title>
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#TermMap> , <http://www.w3.org/ns/r2rml#SubjectMap> ;
+                  <http://www.w3.org/ns/r2rml#class>
+                          <http://swrc.ontoware.org/ontology#Collection> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/collections/{source_id}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .
+
+<urn:manual-4>  a  <http://www.w3.org/ns/r2rml#TriplesMap> ;
+        <http://www.w3.org/ns/r2rml#logicalTable>
+                [ a       <http://www.w3.org/ns/r2rml#R2RMLView> ;
+                  <http://www.w3.org/ns/r2rml#sqlQuery>
+                          "SELECT type FROM dblp_pub_new WHERE type='proceedings'"
+                ] ;
+        <http://www.w3.org/ns/r2rml#subjectMap>
+                [ a       <http://www.w3.org/ns/r2rml#SubjectMap> , <http://www.w3.org/ns/r2rml#TermMap> ;
+                  <http://www.w3.org/ns/r2rml#class>
+                          <http://swrc.ontoware.org/ontology#Proceedings> ;
+                  <http://www.w3.org/ns/r2rml#template>
+                          "http://dblp.l3s.de/d2r/resource/publications/{dblp_key}" ;
+                  <http://www.w3.org/ns/r2rml#termType>
+                          <http://www.w3.org/ns/r2rml#IRI>
+                ] .

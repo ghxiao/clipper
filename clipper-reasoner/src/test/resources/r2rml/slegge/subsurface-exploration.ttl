@@ -1,0 +1,1061 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geos:  <http://www.opengis.net/ont/geosparql#> .
+@prefix expl:  <http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix cc:    <http://creativecommons.org/ns#> .
+
+<http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration>
+    a owl:Ontology ;
+    owl:imports <http://www.opengis.net/ont/geosparql> ;
+
+    rdfs:label "Subsurface Exploration Ontology" ;
+    dc:title   "Subsurface Exploration Ontology" ;
+
+    rdfs:comment   "The ontology describes parts of the petroleum subsurface exploration domain including the classes for and properties about fields, wells, and wellbores." ;
+    dc:description "The ontology describes parts of the petroleum subsurface exploration domain including the classes for and properties about fields, wells, and wellbores." ,
+      <http://vowl.visualdataweb.de/webvowl/#iri=http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration> ;
+
+    owl:versionIRI   <http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration-1.0> ;
+    owl:versionInfo  "1.0" ;
+    dc:issued        "2017-05-01" ;
+    dc:modified      "2017-05-01" ;
+
+    dc:creator
+      "Dag Hovland",
+      "Martin G. Skjæveland" ;
+      
+    dc:contributor
+      "Hallstein Lie",
+      "Toralv Nordtveit",
+      "Roman Kontchakov",
+      "Domenico Fabio Savo",
+      "Valerio Santarelli" ;
+
+    vann:preferredNamespacePrefix  "expl" ;
+    vann:preferredNamespaceUri     "http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration" ;
+    
+    cc:licence <https://creativecommons.org/licenses/by/4.0/> .
+
+
+geos:Geometry
+    a owl:Class ;
+    owl:disjointWith expl:AdministrativeEntity, expl:Concession, expl:Core, expl:CoreSample, expl:Document, expl:Event, expl:Measurement, expl:Facility, expl:Field, expl:LogCurve, expl:StratigraphicColumn, expl:StratigraphicPick, expl:StratigraphicUnit, expl:Well, expl:Wellbore, expl:WellboreInterval .
+
+geos:Point
+    a owl:Class ;
+    rdfs:subClassOf geos:Geometry .
+
+    
+expl:Activity
+    a owl:Class ;
+    rdfs:comment "An activity has a duration, and goes on for some time. E.g. operations done on a wellbore, like drilling." ;
+    owl:disjointWith geos:Geometry, expl:Event, expl:AdministrativeEntity, expl:Concession, expl:Core, expl:CoreSample, expl:Document, expl:Measurement, expl:Facility, expl:Field, expl:LogCurve, expl:StratigraphicColumn, expl:StratigraphicPick, expl:StratigraphicUnit, expl:Well, expl:Wellbore, expl:WellboreInterval .
+
+expl:AdministrativeEntity
+    a owl:Class ;
+    rdfs:comment "Different forms of organizations. For example countries or companies." ;
+    owl:disjointWith expl:Concession, expl:Core, expl:Event, expl:CoreSample, expl:Document, expl:Measurement, expl:Facility, expl:Field, expl:LogCurve, expl:StratigraphicColumn, expl:StratigraphicPick, expl:StratigraphicUnit, expl:Well, expl:Wellbore, expl:WellboreInterval .	
+
+
+expl:BusinessArea
+    a owl:Class ;
+    rdfs:comment "Geographical area being part of a business transaction, usually an agreement to share an area of a license" ;
+    rdfs:subClassOf expl:Concession ;
+    owl:disjointWith expl:License .
+
+expl:ChronoStratigraphicColumn
+    a owl:Class ;
+    rdfs:comment "Classification system for rock, based on age. Standardized by International Commission on Stratigraphy" ;
+    rdfs:subClassOf expl:StratigraphicColumn ;
+    owl:disjointWith expl:SequenceStratigraphicColumn .
+
+expl:Company
+    a owl:Class ;
+    rdfs:comment "Commercial entity, e.g. oil and gas company or supplier" ;
+    rdfs:subClassOf expl:AdministrativeEntity ;
+    owl:disjointWith expl:Country .
+
+expl:Concession
+    a owl:Class ;
+    rdfs:comment "Concessions, usually for exploitation or exploration of hydrocarbon resources. May be given by direct licences from the legislative authority, or more complex constructs or cooperations." ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty expl:concededBy ;
+        owl:someValuesFrom expl:AdministrativeEntity
+    ] ;
+    owl:disjointWith expl:Core, expl:Event, expl:CoreSample, expl:Document, expl:Measurement, expl:Facility, expl:Field, expl:LogCurve, expl:StratigraphicColumn, expl:StratigraphicPick, expl:StratigraphicUnit, expl:Well, expl:Wellbore, expl:WellboreInterval .	
+
+expl:Core
+    a owl:Class ;
+    rdfs:comment "A piece of rock (or mud) extracted during drilling. The cores are extracted and parts are usually sent to national authorities. (Commonly also called core sample, though that term is reserved here for smaller samples taken from the cores.)" ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty expl:extractedFrom ;
+        owl:someValuesFrom expl:WellboreInterval
+    ] ;
+    owl:disjointWith expl:Event, expl:CoreSample, expl:Document, expl:Measurement, expl:Facility, expl:Field, expl:LogCurve, expl:StratigraphicColumn, expl:StratigraphicPick, expl:StratigraphicUnit, expl:Well, expl:Wellbore, expl:WellboreInterval .	
+
+
+expl:CoreSample
+    a owl:Class ;
+    rdfs:comment "A part of a core, possibly taken out from the core itself, to be used, e.g., for measurements. (CoreSample is commonly confused with Core, but in this ontology we reserve CoreSample for the samples taken from cores.)" ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf expl:hasCoreSample
+        ] ;
+        owl:someValuesFrom expl:Core
+    ] ;
+    owl:disjointWith expl:Event, expl:Document, expl:Measurement, expl:Facility, expl:Field, expl:LogCurve, expl:StratigraphicColumn, expl:StratigraphicPick, expl:StratigraphicUnit, expl:Well, expl:Wellbore, expl:WellboreInterval .	    
+
+
+expl:Country
+    a owl:Class ;
+    rdfs:comment "A country, as an organization. (As opposed to the geographical area the country covers). E.g. Norway, Sweden, UK." ;
+    rdfs:subClassOf expl:AdministrativeEntity .
+
+expl:Depth
+    a owl:Class ;
+    rdfs:comment "Any form of depth, e.g. along a wellbore." ;
+    rdfs:subClassOf expl:Length, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf expl:hasDepth
+        ] ;
+        owl:someValuesFrom owl:Thing
+    ] .
+
+expl:DevelopmentWellbore
+    a owl:Class ;
+    rdfs:comment "The purpose of a development wellbore is the extraction of hydrocarbons from the ground. (This contrasts with exploration wellbores, which are part of the search for hydrocarbons.) A development wellbore may have been drilled for this purpose, or it may be a repurposed exploration wellbore." ;
+    rdfs:subClassOf expl:Wellbore ;
+    owl:disjointWith expl:ExplorationWellbore, expl:NonOperatingWellbore .
+
+expl:Measurement
+    a owl:Class ;
+    rdfs:comment "Any form of measurement. E.g. length, temperature, porosity etc." ;
+    owl:disjointWith expl:StratigraphicColumn, expl:StratigraphicPick, expl:StratigraphicUnit, expl:Well, expl:Wellbore, expl:WellboreInterval .	        
+
+expl:Document
+    a owl:Class ;
+    rdfs:comment "Important documents available in some digital or physical format" ;
+    owl:disjointWith expl:Event, expl:Measurement, expl:Facility, expl:Field, expl:LogCurve, expl:StratigraphicColumn, expl:StratigraphicPick, expl:StratigraphicUnit, expl:Well, expl:Wellbore, expl:WellboreInterval .	        
+
+expl:DrillingEnd
+    a owl:Class ;
+    rdfs:comment "The day on which drilling of a wellbore ends. Note that this will often be after the the terminal depth is reached, as some drilling may occur later." ;
+    rdfs:subClassOf expl:Event , [
+        a owl:Restriction ;
+	owl:onProperty [
+	    owl:inverseOf expl:activityEnd
+	] ;
+	owl:allValuesFrom expl:DrillingOperation
+    ] ;
+    owl:disjointWith expl:DrillingStart, expl:DrillingTDReached .
+
+expl:DrillingOperation
+    a owl:Class ;
+    rdfs:comment "All the drilling activities on this wellbore. Maybe discontinuous in time and involve multiple rigs." ;
+    rdfs:subClassOf expl:Activity, [
+        a owl:Restriction ;
+        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onClass expl:DrillingEnd ;
+        owl:onProperty expl:activityEnd
+    ], [
+        a owl:Restriction ;
+        owl:allValuesFrom expl:WellboreDrilling ;
+        owl:onProperty expl:hasActivityPart
+    ], [
+        a owl:Restriction ;
+        owl:onClass expl:Wellbore ;
+        owl:onProperty expl:activityParticipant ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ], [
+        a owl:Restriction ;
+        owl:onClass expl:DrillingStart ;
+        owl:onProperty expl:activityStart ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+expl:DrillingRig
+    a owl:Class ;
+    rdfs:comment "A rig used for drilling." ;
+    rdfs:subClassOf expl:Facility ;
+    owl:disjointWith expl:ProductionFacility .
+
+expl:DrillingStart
+    a owl:Class ;
+    rdfs:comment "The day on which the drilling of a wellbore starts." ;
+    rdfs:subClassOf expl:Event , [
+        a owl:Restriction ;
+	owl:onProperty [
+	    owl:inverseOf expl:activityStart
+	] ;
+	owl:allValuesFrom expl:DrillingOperation
+    ].
+
+expl:DrillingTDReached
+    a owl:Class ;
+    rdfs:comment "The day on which the terminal depth (the maximum depth) of the wellbore was reached." ;
+    rdfs:subClassOf expl:Event , [
+        a owl:Restriction ;
+	owl:onProperty [
+	    owl:inverseOf expl:drillingTDReached
+	] ;
+	owl:allValuesFrom expl:DrillingOperation
+    ];
+    owl:disjointWith expl:DrillingStart .
+
+expl:ABCdocURL
+    a owl:DatatypeProperty ;
+    rdfs:comment "The URL of some webpage with information about the wellbore." ;
+    rdfs:domain expl:Wellbore ;
+    rdfs:subPropertyOf expl:hasURL .
+
+expl:Event
+    a owl:Class ;
+    rdfs:comment "Any important event in the history of a wellbore. The time resolution for many of these events is a day." ;
+    owl:disjointWith expl:Measurement, expl:Facility, expl:Field, expl:LogCurve, expl:StratigraphicColumn, expl:StratigraphicPick, expl:StratigraphicUnit, expl:Well, expl:Wellbore, expl:WellboreInterval .	        
+
+expl:ExplorationWellbore
+    rdfs:comment "A wellbore made with the purpose of exploration, that is, finding out what the earth crust looks like in an area. The long-term purpose is of course finding exploitable hydrocarbon resources. This is in contrast to development wellbores which are made with exploitation of certain deposits in mind. In certain instances exploration wellbores may be reclassified into development wellbores. They will then receive a new name." ;
+    a owl:Class ;
+    rdfs:subClassOf expl:Wellbore .
+
+expl:Facility
+    rdfs:comment "Any sort of facility, either for drilling, production, transport etc." ;
+    a owl:Class ;
+    owl:disjointWith expl:Measurement, expl:Field, expl:LogCurve, expl:StratigraphicColumn, expl:StratigraphicPick, expl:StratigraphicUnit, expl:Well, expl:Wellbore, expl:WellboreInterval .	        
+
+expl:Field
+    rdfs:comment "An oil or gas field, as defined by the legal/national authority in the area. From factpages.npd.no: A field is a discovery or several discoveries combined which the licensees have decided to develop, and for which the authorities have approved a plan for development and operation (PDO) or granted a PDO exemption. " ;
+    a owl:Class ;
+    owl:disjointWith expl:Measurement, expl:LogCurve, expl:StratigraphicColumn, expl:StratigraphicPick, expl:StratigraphicUnit, expl:Well, expl:Wellbore, expl:WellboreInterval .	        
+
+expl:FluidZone
+    a owl:Class ;
+    rdfs:comment "The depth interval at which some (fluid?) hydrocarbon occurs in a wellbore." ;
+    rdfs:subClassOf expl:StratigraphicZone .
+
+expl:FormationPressure
+    a owl:Class ;
+    rdfs:comment "The pressure of fluids in the wellbore. See also http://www.glossary.oilfield.slb.com/Terms/f/formation_pressure.aspx." ;
+    rdfs:subClassOf expl:Pressure , [
+        a owl:Restriction ;
+        owl:onProperty [
+	    owl:inverseOf expl:hasFormationPressure
+	] ;
+        owl:someValuesFrom expl:Wellbore
+    ] , [
+        a owl:Restriction ;
+	owl:someValuesFrom expl:Depth ;
+	owl:onProperty expl:hasDepth
+    ] .
+
+expl:GeochemicalMeasurement
+    a owl:Class ;
+    rdfs:subClassOf expl:Measurement ;
+    rdfs:comment "Geochemical measurements are represented in a manner suited for chromatography, with numbers describing the peak in the chromatogram." ;
+    owl:disjointWith expl:Length, expl:Permeability, expl:Porosity, expl:Pressure .
+
+expl:GrossThickness
+    a owl:Class ;
+    rdfs:comment "The thickness of some layer or part of the ground that the wellbore goes through." ;
+    rdfs:subClassOf expl:Thickness ;
+    owl:disjointWith expl:NetThickness .
+
+expl:GrossThicknessTVD
+    a owl:Class ;
+    rdfs:comment "The thickness of some layer or part of the ground that the wellbore goes through, measured as the difference in the TVD at which the wellbore enters and leaves the wellbore." ;
+    rdfs:subClassOf expl:GrossThickness ;
+    owl:disjointWith expl:GrossThicknessMeasured .
+
+expl:GrossThicknessMeasured
+    a owl:Class ;
+    rdfs:comment "The thickness of some layer or part of the ground that the wellbore goes through, measured by the length of the wellbore that goes through the layer." ;
+    rdfs:subClassOf expl:GrossThickness ;
+    owl:disjointWith expl:GrossThicknessTVD .
+
+expl:HydrostaticPressure
+    a owl:Class ;
+    rdfs:comment "The pressure that a column of water of the same depth would give. Used for comparison with the actual formation pressure. See also http://www.glossary.oilfield.slb.com/Terms/h/hydrostatic_pressure.aspx" ;
+    rdfs:subClassOf expl:Pressure ;
+    owl:disjointWith expl:FormationPressure .
+
+expl:Length
+    a owl:Class ;
+    rdfs:length "A measurement of length, by default in meters." ;
+    rdfs:subClassOf expl:Measurement .
+
+expl:License
+    a owl:Class ;
+    rdfs:comment "A license for exploitation of hydrocarbon resources, granted by a country to a company." ;
+    rdfs:subClassOf expl:Concession .
+
+expl:LithoStratigraphicColumn
+    a owl:Class ;
+    rdfs:comment "A system for classifying rock based on the nature of the rock. This is in contrast to chronostratigraphy, which is based on the age of the rock. Lithostratigrpahy is usually more local." ;
+    rdfs:subClassOf expl:StratigraphicColumn ;
+    owl:disjointWith expl:SequenceStratigraphicColumn, expl:ChronoStratigraphicColumn .
+
+expl:LogCurve
+    a owl:Class ;
+    rdfs:comment "A measurement taken repeatedly along an interval in a wellbore. For example: a temperature measurement made every meter. These can be taken both during or after drilling." ;
+    owl:disjointWith expl:Measurement, expl:StratigraphicColumn, expl:StratigraphicPick, expl:StratigraphicUnit, expl:Well, expl:Wellbore, expl:WellboreInterval .	        
+
+expl:MeasuredDepth
+    a owl:Class ;
+    rdfs:comment "The depth of a point in a wellbore, as measured along the wellbore. This is in contrast to the true vertical depth, measured from the horizon or sea bottom. These may differ because wellbores need not be vertical." ;
+    rdfs:subClassOf expl:Depth ;
+    owl:disjointWith expl:TrueVerticalDepth .
+
+expl:NetThickness
+    a owl:Class ;
+    rdfs:comment "The difference in the true vertical depth of the top and bottom of the interesting part of a  wellbore interval, according to different criteriea. See https://en.wikiversity.org/wiki/Introduction_to_petroleum_engineering" ;
+    rdfs:subClassOf expl:Thickness .
+
+expl:NonOperatingWellbore
+    a owl:Class ;
+    rdfs:comment "A wellbore that is not in use." ;
+    rdfs:subClassOf expl:Wellbore ;
+    owl:disjointWith expl:ExplorationWellbore .
+
+expl:Permeability
+    a owl:Class ;
+    rdfs:comment "The measurement of who well fluids can flow through a sample or rock. This is related to, but also different from porosity." ;
+    rdfs:subClassOf expl:Measurement, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf expl:hasPermeability
+        ] ;
+        owl:someValuesFrom expl:CoreSample
+    ] ;
+    owl:disjointWith expl:Length .
+
+expl:PluggedWellbore
+    a owl:Class ;
+    rdfs:comment "A wellbore that has been fitted with a plug at the top to prevent leakage. The wellbore cannot be used or entered anymore." ;
+    rdfs:subClassOf expl:NonOperatingWellbore .
+
+expl:PorePressure
+    a owl:Class ;
+    rdfs:comment "The pressure of the fluids from the pores in the formation around the wellbore. Probably synonymous to formation pressure." ;
+    rdfs:subClassOf expl:Pressure ;
+    owl:disjointWith expl:HydrostaticPressure .
+
+expl:Porosity
+    a owl:Class ;
+    rdfs:comment "A measure of how much fluid can be stored in a rock or sample" ;
+    rdfs:subClassOf expl:Measurement, [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf expl:hasPorosity
+        ] ;
+        owl:someValuesFrom expl:CoreSample
+    ] ;
+    owl:disjointWith expl:Length, expl:Permeability, expl:Temperature .
+
+expl:Pressure
+    a owl:Class ;
+    rdfs:commment "A measure of the force exerted per area by fluids (or gases)." ;
+    rdfs:subClassOf expl:Measurement ;
+    owl:disjointWith expl:Length, expl:Permeability, expl:Temperature, expl:Porosity .
+
+expl:ProductionFacility
+    a owl:Class ;
+    rdfs:comment "A facility used in the production line of hydrocarbon extraction. (As opposed to drilling and exploration.)" ;
+    rdfs:subClassOf expl:Facility .
+
+expl:ProductionWellbore
+    a owl:Class ;
+    rdfs:comment "A wellbore in use for hydrocarbon extraction." ;
+    rdfs:subClassOf expl:DevelopmentWellbore .
+
+expl:Reservoir
+    a owl:Class ;
+    rdfs:comment "The depth interval at which some (fluid?) hydrocarbon occurs in a wellbore." ;
+    rdfs:subClassOf expl:WellboreInterval ;
+    owl:disjointWith expl:StratigraphicZone .
+
+expl:RigOperation
+    a owl:Class ;
+    rdfs:comment "A consecutive involvement of a rig on a wellbore." ;
+    rdfs:subClassOf expl:Activity, [
+        a owl:Restriction ;
+        owl:onProperty expl:activityParticipant ;
+        owl:someValuesFrom expl:Wellbore 
+    ], [
+        a owl:Restriction ;
+        owl:onClass expl:DrillingRig ;
+        owl:onProperty expl:drilledByRig ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+expl:SequenceStratigraphicColumn
+    a owl:Class ;
+    rdfs:comment "A form of classifying rocks according to the order in which they were deposited." ;
+    rdfs:subClassOf expl:StratigraphicColumn ;
+    owl:disjointWith expl:ChronoStratigraphicColumn, expl:LithoStratigraphicColumn .
+
+expl:SingleWellHead
+    a owl:Class ;
+    rdfs:subClassOf expl:ProductionFacility .
+
+expl:StratigraphicColumn
+    a owl:Class ;
+    rdfs:comment "A system or hierarchy for classifying rocks or layers in the earth crust." ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf expl:ofStratigraphicColumn
+        ] ;
+        owl:someValuesFrom expl:StratigraphicUnit
+    ] ;
+    owl:disjointWith expl:Measurement, expl:StratigraphicPick, expl:StratigraphicUnit, expl:Well, expl:Wellbore, expl:WellboreInterval .	            
+
+
+expl:StratigraphicPick
+    a owl:Class ;
+    rdfs:comment "The occurrence of a stratigraphic surface in a wellbore." ;
+    owl:disjointWith expl:Measurement, expl:StratigraphicUnit, expl:Well, expl:Wellbore, expl:WellboreInterval .	                
+
+expl:StratigraphicSurface
+    a owl:Class ;
+    rdfs:comment "Upper or lower boundary of a stratigraphic unit." ;
+    owl:disjointWith expl:Activity, expl:AdministrativeEntity, expl:Concession, expl:Core, expl:CoreSample, expl:Document, expl:Event, expl:Facility, expl:Field, expl:LogCurve, geos:Geometry, expl:Measurement, expl:StratigraphicUnit, expl:StratigraphicPick, expl:StratigraphicColumn, expl:Well, expl:Wellbore, expl:WellboreInterval .	                
+
+expl:StratigraphicUnit
+    a owl:Class ;
+    rdfs:comment "A type of rock or layer in the crust of the earth. Can be classified after different hierarchies called stratigraphic columns. For example, Jurassic is a chronostratigraphic unit, indicating rock from the Jurassic period." ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty expl:ofStratigraphicColumn ;
+        owl:someValuesFrom expl:StratigraphicColumn 
+    ], [
+        a owl:Restriction ;
+        owl:onProperty expl:name ;
+        owl:someValuesFrom xsd:string
+    ] ;
+    owl:disjointWith expl:Well, expl:Wellbore, expl:WellboreInterval .
+
+expl:StratigraphicZone
+    a owl:Class ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty expl:hasUnit ;
+        owl:someValuesFrom expl:StratigraphicUnit 
+    ] ;
+    rdfs:comment "A depth interval at which the wellbore is deemed to intersect some stratigraphic unit. Note that a stratigraphic unit may be intersected several times by the same wellbore." ;
+    rdfs:subClassOf expl:WellboreInterval .
+
+expl:SubSeaTemplate
+    a owl:Class ;
+    rdfs:subClassOf expl:ProductionFacility ;
+    owl:disjointWith expl:SurfaceFacility .
+
+expl:SurfaceFacility
+    a owl:Class ;
+    rdfs:subClassOf expl:ProductionFacility .
+
+expl:Temperature
+    a owl:Class ;
+    rdfs:comment "The temperature at a given point and time" ;
+    rdfs:subClassOf expl:Measurement ;
+    owl:disjointWith expl:Length, expl:Permeability, expl:GeochemicalMeasurement .
+
+expl:Thickness
+    a owl:Class ;
+    rdfs:subClassOf expl:Length , [
+        a owl:Restriction ;	
+	owl:onProperty [
+	    owl:inverseOf expl:hasThickness
+	] ;
+	owl:someValuesFrom expl:WellboreInterval ;
+    ] ;
+    owl:disjointWith expl:Depth, expl:TotalCoreLength, expl:WaterDepth .
+
+expl:TotalCoreLength
+    a owl:Class ;
+    rdfs:comment "The sum of the lengths of all the cores extracted from a wellbore" ;
+    rdfs:subClassOf expl:Length ,
+    [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf expl:hasTotalCoreLength
+        ] ;
+        owl:someValuesFrom expl:Wellbore
+    ] ;
+    owl:disjointWith expl:Depth, expl:WaterDepth .
+
+expl:TrueVerticalDepth
+    a owl:Class ;
+    rdfs:comment "The direct vertical depth from sea bottom or horizon to a given point in a wellbore." ;
+    rdfs:subClassOf expl:Depth .
+
+expl:WKT
+    a owl:DatatypeProperty ;
+    rdfs:domain geos:Geometry ;
+    rdfs:range rdfs:Literal .
+
+expl:WaterDepth
+    rdfs:comment "The average depth of water at some point" ;
+    a owl:Class ;
+    rdfs:subClassOf expl:Length ;
+    owl:disjointWith expl:Depth .
+
+expl:Well
+    a owl:Class ;
+    rdfs:comment """A hole in the ground or seabed, through which wellbores are made. A well can have multiple wellbores, but each wellbore is only connected to the well it is drilled through. (There are some exceptions to this, but in these cases a single well is chosen.) Often confused with wellbore, but here well is reserved for the above description.)
+
+From NPD: borehole which is drilled in order to discover or delimit a petroleum deposit and/or to produce petroleum or water for injection purposes, to inject gas, water or other medium, or to map or monitor well parameters. There are several categories of wells. A well may consist of one or several wellbores (well paths) and may have one or several termination points.""" ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty expl:hasWellbore ;
+        owl:someValuesFrom expl:Wellbore
+    ] ;
+    owl:disjointWith expl:Wellbore, expl:WellboreInterval .
+
+expl:Wellbore
+    a owl:Class ;
+    rdfs:comment """A wellbore is a path drilled out in the ground. https://en.wikipedia.org/wiki/Wellbore. Note that the path may not be straight. A wellbore belongs to the well from which it was drilled.
+
+From NPD: Wellbore (well path): designates the location of the well from one termination point to the wellhead. A wellbore may consist of one or more well tracks.""" ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty expl:hasTotalCoreLength ;
+        owl:someValuesFrom expl:TotalCoreLength 
+    ], [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf expl:hasWellbore
+        ] ;
+        owl:someValuesFrom expl:Well
+    ] ;
+    owl:disjointWith expl:WellboreInterval .
+
+expl:WellboreBenchmarking
+    a owl:Class ;
+    rdfs:subClassOf expl:Activity, [
+        a owl:Restriction ;
+        owl:onClass expl:Wellbore ;
+        owl:onProperty expl:activityParticipant ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+expl:WellboreCompletion
+    a owl:Class ;
+    rdfs:subClassOf expl:Activity, [
+        a owl:Restriction ;
+        owl:onClass expl:Wellbore ;
+        owl:onProperty expl:activityParticipant ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+expl:WellboreDrilling
+    a owl:Class ;
+    rdfs:comment "Drilling on a wellbore. Involves a single rig." ;
+    rdfs:subClassOf expl:Activity, [
+        a owl:Restriction ;
+        owl:onProperty expl:partOfRigOperation ;
+        owl:someValuesFrom expl:RigOperation
+    ], [
+        a owl:Restriction ;
+        owl:onProperty expl:activityParticipant ;
+        owl:someValuesFrom expl:Wellbore 
+    ], [
+        a owl:Restriction ;
+        owl:onClass expl:WellboreInterval ;
+        owl:onProperty expl:drilledInterval ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+expl:WellboreInterval
+    a owl:Class ;
+    rdfs:comment "A depth interval along a wellbore. Has a top and bottom depth. Commonly refers to either a stratigraphic zone, or the interval at which a core was extracted." ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf expl:hasWellboreInterval
+        ] ;
+        owl:someValuesFrom expl:Wellbore
+    ], [
+        a owl:Restriction ;
+       owl:onProperty expl:hasTopDepth ;
+       owl:someValuesFrom expl:MeasuredDepth
+    ], [
+       a owl:Restriction ;
+       owl:onProperty expl:hasBottomDepth ;
+       owl:someValuesFrom expl:MeasuredDepth
+    ] .
+
+expl:WellboreIntervention
+    a owl:Class ;
+    rdfs:subClassOf expl:Activity, [
+        a owl:Restriction ;
+        owl:onProperty expl:activityParticipant ;
+        owl:someValuesFrom expl:Wellbore 
+    ] .
+
+expl:WellborePlugging
+    a owl:Class ;
+    rdfs:subClassOf expl:Activity, [
+        a owl:Restriction ;
+        owl:onProperty expl:activityParticipant ;
+        owl:someValuesFrom expl:Wellbore 
+    ] .
+
+expl:WellborePoint
+    a owl:Class ;
+    rdfs:comment """A 3D position/point along a wellbore. Used in the 3D description of the wellbore.""" ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty [
+            owl:inverseOf expl:hasWellborePoint
+        ] ;
+        owl:someValuesFrom expl:Wellbore
+    ] ;
+    owl:disjointWith expl:Activity, expl:Event, expl:AdministrativeEntity, expl:Concession, expl:Core, expl:CoreSample, expl:Document, expl:Measurement, expl:Facility, expl:Field, expl:LogCurve, expl:StratigraphicColumn, expl:StratigraphicPick, expl:StratigraphicUnit, expl:Well, expl:Wellbore, expl:WellboreInterval .
+
+
+expl:WellboreWorkover
+    a owl:Class ;
+    rdfs:subClassOf expl:Activity .
+
+expl:activityEnd
+    a owl:ObjectProperty ;
+    rdfs:domain expl:Activity ;
+    rdfs:range expl:Event .
+
+expl:activityParticipant
+    a owl:ObjectProperty ;
+    rdfs:comment "Something that has a duration, it exists between a start and an end." ;
+    rdfs:domain expl:Activity .
+
+expl:activityStart
+    a owl:ObjectProperty ;
+    rdfs:domain expl:Activity ;
+    rdfs:range expl:Event .
+
+expl:actualRelinquishmentDate
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain expl:Concession ;
+    rdfs:range xsd:dateTime .
+
+expl:awardDate
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain expl:Concession ;
+    rdfs:range xsd:dateTime .
+
+expl:baseSurface
+    a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:comment "Relates a stratigraphic unit to the base surface (also called exit surface)." ;
+    rdfs:domain expl:StratigraphicUnit ;
+    rdfs:range expl:StratigraphicSurface .
+
+expl:cgType
+    a owl:DatatypeProperty ;
+    rdfs:domain expl:GeochemicalMeasurement ;
+    rdfs:comment "The type of geochemical measurement, often a type or classification of chromatography." .
+
+expl:comment
+    a owl:DatatypeProperty .
+
+expl:completionDate
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain expl:Wellbore ;
+    rdfs:range xsd:dateTime .
+
+expl:concededBy
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:range expl:AdministrativeEntity ;
+    rdfs:domain expl:Concession .
+
+expl:coreNumber
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain expl:Core ;
+    rdfs:range xsd:integer .
+
+expl:currentWellboreTrack
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain expl:Wellbore ;
+    rdfs:range xsd:string .
+
+expl:description
+    a owl:DatatypeProperty .
+
+expl:documentType
+    a owl:DatatypeProperty ;
+    rdfs:domain expl:Document .
+
+expl:drilledByRig
+    a owl:ObjectProperty ;
+    rdfs:comment "Relates a rig operation to the rig that does/did the operation. Usually there is only one rig involved, but it can occur that several are involved, e.g. in case of malfunction or interrupted operation. " ;
+    rdfs:domain expl:RigOperation ;
+    rdfs:range expl:DrillingRig ;
+    rdfs:subPropertyOf expl:activityParticipant .
+
+expl:drilledInterval
+    a owl:ObjectProperty ;
+    rdfs:comment "The interval of the wellbore that was drilled during one registered session of drilling. Probably this is a section of the wellbore. This connects the time of the drilling with the depth." ;
+    rdfs:domain expl:WellboreDrilling ;
+    rdfs:range expl:WellboreInterval .
+
+expl:drillingTDReached
+    a owl:ObjectProperty ;
+    rdfs:comment "Related a drilling operation and the event of reaching terminal depth, that is reaching the maximum depth. This is an important milestone in a drilling operation." ;
+    rdfs:domain expl:DrillingOperation ;
+    rdfs:range expl:DrillingTDReached .
+
+expl:extractedFrom
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:comment "The wellbore interval that a core was extracted from. Since the core has physically been removed from the wellbore, we do not identify these two objects, although it is common to do so." ;
+    rdfs:domain expl:Core ;
+    rdfs:range expl:WellboreInterval .
+
+expl:fluidZoneContent
+    a owl:DatatypeProperty ;
+    rdfs:domain expl:FluidZone ;
+    rdfs:range xsd:string .
+
+expl:hasActivityPart
+    a owl:ObjectProperty ;
+    rdfs:domain expl:Activity .
+
+expl:hasBottomDepth
+    a owl:ObjectProperty ;
+    rdfs:comment "The base of a wellbore interval. The bottom is the point of the wellbore interval with the highest measured depth. Note that this may have a lower true vertical depth than other parts of the interval, since wellbore can bend." ;
+    rdfs:domain expl:WellboreInterval ;
+    rdfs:subPropertyOf expl:hasDepth .
+
+expl:hasConvergence
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf expl:hasMeasurement .
+
+expl:hasCoreSample
+    a owl:ObjectProperty , owl:InverseFunctionalProperty ;
+    rdfs:domain expl:Core ;
+    rdfs:range expl:CoreSample .
+
+expl:hasDate
+    a owl:DatatypeProperty ;
+    rdfs:comment "The time or date on which an event occurred or will occur." ;
+    rdfs:domain expl:Event ;
+    rdfs:range xsd:dateTime .
+
+expl:hasDatumElevation
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf expl:hasMeasurement .
+
+expl:hasDepth
+    a owl:ObjectProperty ;
+    rdfs:range expl:Depth ;
+    rdfs:subPropertyOf expl:hasMeasurement .
+
+expl:hasMeasurement
+    a owl:ObjectProperty ;
+    rdfs:range expl:Measurement .
+
+expl:hasEastOffset
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf expl:hasMeasurement ;
+    rdfs:domain expl:WellborePoint ;
+    rdfs:comment "The eastward distance from the well to a point on the wellbore" ;
+    rdfs:range expl:Length .
+
+expl:hasElevation
+    a owl:ObjectProperty ;
+    rdfs:comment "The depth reference, elevation, during this operation." ;
+    rdfs:domain expl:RigOperation ;
+    rdfs:range expl:Depth .
+
+expl:hasFormationPressure
+    a owl:ObjectProperty ;
+    rdfs:domain expl:Wellbore ;
+    rdfs:range expl:FormationPressure ;
+    rdfs:subPropertyOf expl:hasMeasurement .
+
+expl:hasGeochemicalMeasurement
+    a owl:ObjectProperty ;
+    rdfs:domain expl:Wellbore ;
+    rdfs:range expl:GeochemicalMeasurement ;
+    rdfs:subPropertyOf expl:hasMeasurement .
+
+expl:hasLogCurve
+    a owl:ObjectProperty ;
+    rdfs:domain expl:WellboreInterval ;
+    rdfs:range expl:LogCurve .
+
+expl:hasNorthOffset
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf expl:hasMeasurement ;
+    rdfs:comment "The northward distance from the well reference point to a point along the wellbore path." ;
+    rdfs:domain expl:WellborePoint ;
+    rdfs:range expl:Length .
+
+expl:hasPermeability
+    a owl:ObjectProperty ;
+    rdfs:domain expl:CoreSample ;
+    rdfs:range expl:Permeability ;
+    rdfs:subPropertyOf expl:hasMeasurement .
+
+expl:hasPlatform
+    a owl:ObjectProperty ;
+    rdfs:domain expl:Well ;
+    rdfs:range expl:SurfaceFacility .
+
+expl:hasPorosity
+    a owl:ObjectProperty ;
+    rdfs:domain expl:CoreSample ;
+    rdfs:range expl:Porosity ;
+    rdfs:subPropertyOf expl:hasMeasurement .
+
+expl:hasSlotEastWest
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf expl:hasMeasurement .
+
+expl:hasSlotNorthSouth
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf expl:hasMeasurement .
+
+expl:hasTopDepth
+    a owl:ObjectProperty ;
+    rdfs:comment "Gets the depth of the top of a wellbore interval. Note that the top means the point closest to the surface going along the wellbore, that is, the point with the lowest measured depth. Since wellbores may bend, this point may actually be farther from the surface in direct vertical distance." ;
+    rdfs:domain expl:WellboreInterval ;
+    rdfs:subPropertyOf expl:hasDepth .
+
+expl:hasThickness
+    a owl:ObjectProperty ;
+    rdfs:domain expl:WellboreInterval ;
+    rdfs:comment "Gets the thickness of an object. In this ontology, used for the various measures of thickness of stratigraphic zones." ;
+    rdfs:range expl:Thickness ;
+    rdfs:subPropertyOf expl:hasMeasurement .
+
+expl:hasTotalCoreLength
+    a owl:ObjectProperty ;
+    rdfs:domain expl:Wellbore ;
+    rdfs:range expl:TotalCoreLength ;
+    rdfs:subPropertyOf expl:hasMeasurement .
+
+expl:hasURL
+    a owl:DatatypeProperty ;
+    rdfs:comment "Various URLs constructed for different purposes in wiki and presentation. This is a crude hack, and should not be in the ontology" .
+
+expl:hasUnit
+    a owl:ObjectProperty ;
+    rdfs:comment "The stratigraphic unit that a zone is found to belong to. A zone is a concrete part/interval of a wellbore, while a unit is a more abstract type of rock, for example Jurassic." ;
+    rdfs:domain expl:StratigraphicZone ;
+    rdfs:range expl:StratigraphicUnit .
+
+expl:hasWaterDepth
+    a owl:ObjectProperty ;
+    rdfs:domain expl:Well ;
+    rdfs:comment "The average depth of the sea at which the well lies. Note that this is the result of an average taken over time, not a single measurement." ;
+    rdfs:range expl:WaterDepth ;
+    rdfs:subPropertyOf expl:hasMeasurement .
+
+expl:hasWellbore
+    a owl:ObjectProperty , owl:InverseFunctionalProperty ;
+    rdfs:comment "Relates a well to the wellbores starting at the well. This is everywhere assumed to be inverse functional, e.g. by the hierarchical national naming schemes. However, some new techniques allow entering an existing wellbore under the ground, hence creating entry to the same wellbore from different wells. " ;
+    rdfs:domain expl:Well ;
+    rdfs:range expl:Wellbore .
+
+expl:hasWellboreInterval
+    a owl:ObjectProperty , owl:InverseFunctionalProperty ;
+    rdfs:comment "Relates a wellbore and some depth interval along it." ;
+    rdfs:domain expl:Wellbore ;
+    rdfs:range expl:WellboreInterval .
+
+expl:hasWellborePoint
+    a owl:ObjectProperty, owl:InverseFunctionalProperty ;
+    rdfs:domain expl:Wellbore ;
+    rdfs:range expl:WellborePoint ;
+    rdfs:comment "Relates a wellbore to a 3D point along it, used for describing the three-dimensional path of the wellbore " .
+
+expl:inField
+    a owl:ObjectProperty ;
+    rdfs:comment "The Field in which a Well lies. For examples of maps showing oil fields and wells, see http://www.npd.no/en/Maps/Map-of-the-NCS/." ;
+    rdfs:domain expl:Well ;
+    rdfs:range expl:Field .
+
+expl:inWellboreInterval
+    a owl:ObjectProperty ;
+    rdfs:comment "Relates a point along a wellbore path with a wellbore interval that it is inside." ;
+    rdfs:domain expl:MeasuredDepth ;
+    rdfs:range expl:WellboreInterval .
+
+expl:isParentUnitOf
+    a owl:ObjectProperty ;
+    rdfs:domain expl:StratigraphicUnit ;
+    rdfs:range expl:StratigraphicUnit .
+
+expl:latitude
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain geos:Point .
+
+expl:locatedIn
+    a owl:ObjectProperty ;
+    rdfs:comment "Relates an object to its position. For example, a well to the geographical location of the well hole." ;
+    rdfs:domain owl:Thing ;
+    rdfs:range geos:Geometry .
+
+expl:logCurveNameLong
+    a owl:DatatypeProperty ;
+    rdfs:domain expl:LogCurve ;
+    rdfs:subPropertyOf expl:name .
+
+expl:logCurveNameShort
+    a owl:DatatypeProperty ;
+    rdfs:domain expl:LogCurve ;
+    rdfs:subPropertyOf expl:name .
+
+expl:longitude
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain geos:Point .
+
+expl:name
+    a owl:DatatypeProperty ;
+    rdfs:comment "The name of an object in the Statoil databases. Note that objects may have different names, filling different purposes. Therefore this property is not the same as rdfs:label." ;
+    rdfs:range xsd:string .
+
+expl:numberOfSamples
+    a owl:DatatypeProperty ;
+    rdfs:domain expl:LogCurve ;
+    rdfs:comment "The number of samples taken in a log curve." .
+
+expl:ofStratigraphicColumn
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:comment "The column that a stratigraphic unit belongs to. Stratigraphic columns are hierarchies of units. For examples, see http://www.stratigraphy.org/." ;
+    rdfs:domain expl:StratigraphicUnit ;
+    rdfs:range expl:StratigraphicColumn .
+
+expl:officialName
+    a owl:DatatypeProperty ;
+    rdfs:seeAlso expl:statoilName ;
+    rdfs:comment "The name for an object, as given by the legislative authority that governs it. For example, the name of a wellbore, as the national authorities have named it." ;
+    rdfs:subPropertyOf expl:name .
+
+expl:originalUnitOfMeasurement
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:comment "The unit of measurement used by the original data in the database. Used for error-checking purposes." ;
+    rdfs:seeAlso expl:valueInOriginalUnit ;
+    rdfs:domain expl:Measurement ;
+    rdfs:range xsd:string .
+
+expl:overlapsWellboreInterval
+    a owl:ObjectProperty, owl:SymmetricProperty ;
+    rdfs:comment "Relates two overlapping wellbore intervals, that is, two depth intervals along a wellbore that share some common part. This includes both the situations where one interval contains the other and those where one is above the other, but partially overlapping." ;
+    rdfs:domain expl:WellboreInterval ;
+    rdfs:range expl:WellboreInterval .
+
+expl:partOfRigOperation
+    a owl:ObjectProperty ;
+    rdfs:comment "Connects a wellbore activity to the rig operation it is part of (if any)." ;
+    rdfs:domain expl:Activity ;
+    rdfs:range expl:RigOperation ;
+    rdfs:subPropertyOf expl:hasActivityPart .
+
+expl:peakAmount
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain expl:GeochemicalMeasurement ;
+    rdfs:comment "Used for geochemical measurements where peak height or area does not apply." .
+
+expl:peakArea
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain expl:GeochemicalMeasurement ;
+    rdfs:comment "The area under a chromatographic peak, used for many geochemical measurements." .
+
+expl:peakHeight
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain expl:GeochemicalMeasurement ;
+    rdfs:comment "The height of a chromatographic peak, used for many geochemical measurements." .
+
+expl:peakName
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain expl:GeochemicalMeasurement ;
+    rdfs:comment "A peak is a type of measurement in the geochemistry databases. Many of these measurement types are actual peaks in the chromatography of a sample, but not all." .
+
+
+expl:physicalLocation
+    a owl:DatatypeProperty ;
+    rdfs:domain expl:Document .
+
+expl:plannedRelinquishmentDate
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:comment "The planned end date for the license. For further definition of relinquishment of licenses (in Norwegian territories), see http://www.npd.no/en/Topics/Production-licences/Theme-articles/Relinquishment/" ;
+    rdfs:domain expl:Concession ;
+    rdfs:range xsd:dateTime .
+
+expl:runNumber
+    a owl:DatatypeProperty ;
+    rdfs:domain expl:LogCurve ;
+    rdfs:comment "Logs are taken by running measurement equipment along the logging string. This may be done several times, called logging runs, or runs. Each run may include one or more measurement types, and each measurement type may be included in one or more runs. The run number is the iteration in which the log curve was made." ;
+    rdfs:domain expl:LogCurve ;
+    rdfs:range xsd:integer .
+
+expl:spudDate
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain expl:Well ;
+    rdfs:range xsd:dateTime .
+
+expl:standardUnitOfMeasurement
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain expl:Measurement ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The standard unit of measurement for the current measurement type, used in the ontology. For example the standard for length would be meters. The presentation layer or client application may of course translate into a unit the end user would like." ;
+    rdfs:seeAlso expl:valueInStandardUnit .
+
+expl:statoilName
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:comment "This is the name for an object as used internally at Statoil. This is especially important for wellbores and other objects that have national namespaces that overlap. That is, each country has its own legislative body that regulates names for wellbores. These names may overlap with names given in other countries. Therefore a different name must be used internally in any international organization caring about these objects." ;
+    rdfs:subPropertyOf expl:name .
+
+expl:topSurface
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:comment "Relates a stratigraphic unit to the top surface (also called entry surface)." ;
+    rdfs:domain expl:StratigraphicUnit ;
+    rdfs:range expl:StratigraphicSurface .
+
+expl:valueInOriginalUnit
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:comment "Used to access the original measurement value, as stored in the database. This is in contrast to the default presentation unit for a measurement, which may be chosen by the end user or admin, and may differ from the stored one. For example, European users will usually prefer depth in metres, although many depths are stored in feet. But in certain cases the conversion from feet to metres may obfuscate important information: e.g., depth of 9999ft could indicate an error, while the naively translated 3047.7m may look innocent." ;
+    rdfs:domain expl:Measurement ;
+    rdfs:range xsd:decimal .
+
+expl:valueInStandardUnit
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:comment "The value of the measurement in the unit that has been decided to be standard in the ontology for the measurement type. E.g. in meters for Length, in millidarcy for porosity. To get the proper standard unit for a measurement type, look in standardUnitOfMeasurement." ;
+    rdfs:domain expl:Measurement ;
+    rdfs:range xsd:decimal .
+
+expl:wellLicense
+    a owl:ObjectProperty ;
+    rdfs:comment "The current license for operating a well." ;
+    rdfs:domain expl:Well ;
+    rdfs:range expl:License .
+
+expl:wellOperatedBy
+    a owl:ObjectProperty ;
+    rdfs:comment "The company that currently operates a well. That is, they are responsible for the operation and maintenance of the well, and get the produced oil and/or gas." ;
+    rdfs:range expl:Company ;
+    rdfs:domain expl:Well .
+
+expl:wellboreDocument
+    a owl:ObjectProperty ;
+    rdfs:comment "Links a wellbore to relevant documents about it." ;
+    rdfs:domain expl:Wellbore ;
+    rdfs:range expl:Document .
+
+[]
+    a owl:AllDisjointClasses ;
+    owl:members (expl:DrillingOperation
+        expl:WellboreBenchmarking
+        expl:WellboreDrilling
+        expl:WellborePlugging
+        expl:WellboreWorkover
+    ) .
+

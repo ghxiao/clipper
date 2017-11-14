@@ -1,0 +1,8 @@
+ri(X,Y) :- ga(X,Y).
+r(X,Y) :- gb(X,Y).
+s(Y,X) :- si(X,Y).
+s(X,Y) :- ga(X,Y).
+r(Y,X) :- ri(X,Y).
+si(Y,X) :- s(X,Y).
+si(X,Y) :- gb(X,Y).
+ri(Y,X) :- r(X,Y).

@@ -118,8 +118,22 @@ public class TBoxReasonerTest {
         String tmpDatalogFile = "src/test/resources/TestData/FlyAnatomy/fly_anatomy_rewriting.dl";
         String ontologyFile = "src/test/resources/TestData/FlyAnatomy/fly_anatomy.owl";
 
+        testTBoxReasonerWithActivators(tmpDatalogFile, ontologyFile);
+
+    }
+
+    @Test
+    public void testLUBMTBoxReasoner() throws Exception {
+        String tmpDatalogFile = "src/test/resources/TestData/FlyAnatomy/full-lubm_rewriting.dl";
+        String ontologyFile = "src/test/resources/TestData/lubm/full-lubm.owl";
+
+        testTBoxReasonerWithActivators(tmpDatalogFile, ontologyFile);
+
+    }
+
+    private void testTBoxReasonerWithActivators(String tmpDatalogFile, String ontologyFile) throws Exception {
         System.setProperty("entityExpansionLimit", "512000");
-        QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
+        QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(true);
         //ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
         //ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
         qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
@@ -139,7 +153,6 @@ public class TBoxReasonerTest {
 
         System.out.println("TBox reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime()
                 + "  millisecond");
-
     }
 
 }

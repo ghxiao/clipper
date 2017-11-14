@@ -1,0 +1,243 @@
+[PrefixDeclaration]
+:		http://uob.iodt.ibm.com/univ-bench-dl.owl#
+dc:		http://purl.org/dc/elements/1.1/
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+xsd:		http://www.w3.org/2001/XMLSchema#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+benchmark-dl:	http://uob.iodt.ibm.com/univ-bench-dl.owl#
+
+[MappingDeclaration] @collection [[
+mappingId	Graduate_Student
+target		<http://www.Department{deptID}.University{uniID}.edu/{role}{studentID}> a benchmark-dl:GraduateStudent ; benchmark-dl:enrollIn <http://www.Department{deptID}.University{uniID}.edu> ; benchmark-dl:hasUndergraduateDegreeFrom <http://www.University{underGradUnvID}.edu> ; benchmark-dl:hasMajor {major} .
+source		SELECT deptID, uniID, studentID, underGradUnvID, major, 'GraduateStudent' as role FROM GraduateStudents
+
+mappingId	Graduate_Student_is_advisedBy_FullProfessor
+target		<http://www.Department{deptID}.University{uniID}.edu/{gradRole}{studentID}> benchmark-dl:isAdvisedBy <http://www.Department{deptID}.University{uniID}.edu/{fullProfRole}{advisorID}> .
+source		SELECT deptID, uniID, studentID, advisorID, advisorType, 'GraduateStudent' as gradRole, 'FullProfessor' as fullProfRole FROM GraduateStudents WHERE advisorType = 'FullProfessor'
+
+mappingId	Graduate_Student_is_Advised_By_Associate_Professor
+target		<http://www.Department{deptID}.University{uniID}.edu/{gradRole}{studentID}> benchmark-dl:isAdvisedBy <http://www.Department{deptID}.University{uniID}.edu/{assocProfRole}{advisorID}> .
+source		SELECT deptID, uniID, studentID, advisorID, advisorType, 'GraduateStudent' as gradRole, 'FullProfessor' as assocProfRole FROM GraduateStudents WHERE advisorType = 'AssociateProfessor'
+
+mappingId	Graduate_Student_is_Advised_By_Assistant_Professor
+target		<http://www.Department{deptID}.University{uniID}.edu/{gradRole}{studentID}> benchmark-dl:isAdvisedBy <http://www.Department{deptID}.University{uniID}.edu/{asstProfRole}{advisorID}> .
+source		SELECT deptID, uniID, studentID, advisorID, advisorType, 'GraduateStudent' as gradRole, 'AssistantProfessor' as asstProfRole FROM GraduateStudents WHERE advisorType = 'AssistantProfessor'
+
+mappingId	Graduate_Student_is_Advised_By_Lecturer
+target		<http://www.Department{deptID}.University{uniID}.edu/{gradRole}{studentID}> benchmark-dl:isAdvisedBy <http://www.Department{deptID}.University{uniID}.edu/{lecturerRole}{advisorID}> .
+source		SELECT deptID, uniID, studentID, advisorID, advisorType, 'GraduateStudent' as gradRole, 'Lecturer' as lecturerRole FROM GraduateStudents WHERE advisorType = 'Lecturer'
+
+mappingId	Personal_Information
+target		<http://www.Department{deptID}.University{uniID}.edu/{role}{ID}> a benchmark-dl:Person ; benchmark-dl:firstName {firstName} ; benchmark-dl:lastName {lastName} ; benchmark-dl:emailAddress {email} ; benchmark-dl:telephone {telephone} .
+source		SELECT ID, deptID,uniID, firstName, lastName, email, telephone FROM People
+
+mappingId	Undergraduate_Student
+target		<http://www.Department{deptID}.University{uniID}.edu/{role}{studentID}> a benchmark-dl:UndergraduateStudent ; benchmark-dl:enrollIn <http://www.Department{deptID}.University{uniID}.edu> ; benchmark-dl:hasMajor {major} .
+source		SELECT deptID, uniID, studentID, major, 'UndergraduateStudent' as role FROM UnderGradStudents
+
+mappingId	Full_Professor
+target		<http://www.Department{deptID}.University{uniID}.edu/{profType}{profID}> a benchmark-dl:FullProfessor ; benchmark-dl:hasUndergraduateDegreeFrom <http://www.University{underGradDegreeID}.edu> ; benchmark-dl:hasMasterDegreeFrom <http://www.University{masterDegreeID}.edu> ; benchmark-dl:hasDoctoralDegreeFrom <http://www.University{doctoralDegreeID}.edu> ; benchmark-dl:researchInterest <http://www.Department{deptID}.University{uniID}.edu/Research{researchInterestID}> ; benchmark-dl:isMemberOf <http://www.Department{deptID}.University{uniID}.edu> . 
+source		SELECT deptID, uniID, profID, underGradDegreeID, masterDegreeID, doctoralDegreeID, researchInterestID FROM Professors WHERE profType = 'FullProfessor'
+
+mappingId	Associate_Professor
+target		<http://www.Department{deptID}.University{uniID}.edu/{profType}{profID}> a benchmark-dl:AssociateProfessor ; benchmark-dl:worksFor <http://www.Department{deptID}.University{uniID}.edu> ; benchmark-dl:hasUndergraduateDegreeFrom <http://www.University{underGradDegreeID}.edu> ; benchmark-dl:hasMasterDegreeFrom <http://www.University{masterDegreeID}.edu> ; benchmark-dl:hasDoctoralDegreeFrom <http://www.University{doctoralDegreeID}.edu> ; benchmark-dl:researchInterest <http://www.Department{deptID}.University{uniID}.edu/Research{researchInterestID}> ; benchmark-dl:isMemberOf <http://www.Department{deptID}.University{uniID}.edu> . 
+source		SELECT deptID, uniID, profID, underGradDegreeID, masterDegreeID, doctoralDegreeID, researchInterestID FROM Professors WHERE profType = 'AssociateProfessor'
+
+mappingId	Assistant_Professor
+target		<http://www.Department{deptID}.University{uniID}.edu/{profType}{profID}> a benchmark-dl:AssistantProfessor ; benchmark-dl:worksFor <http://www.Department{deptID}.University{uniID}.edu> ; benchmark-dl:hasUndergraduateDegreeFrom <http://www.University{underGradDegreeID}.edu> ; benchmark-dl:hasMasterDegreeFrom <http://www.University{masterDegreeID}.edu> ; benchmark-dl:hasDoctoralDegreeFrom <http://www.University{doctoralDegreeID}.edu> ; benchmark-dl:researchInterest <http://www.Department{deptID}.University{uniID}.edu/Research{researchInterestID}> ; benchmark-dl:isMemberOf <http://www.Department{deptID}.University{uniID}.edu> . 
+source		SELECT deptID, uniID, profID, underGradDegreeID, masterDegreeID, doctoralDegreeID, researchInterestID FROM Professors WHERE profType = 'AssistantProfessor'
+
+mappingId	Lecturer
+target		<http://www.Department{deptID}.University{uniID}.edu/{role}{lecturerID}> a benchmark-dl:Lecturer ; benchmark-dl:worksFor <http://www.Department{deptID}.University{uniID}.edu> ; benchmark-dl:hasUndergraduateDegreeFrom <http://www.University{underGradDegreeID}.edu> ; benchmark-dl:hasMasterDegreeFrom <http://www.University{masterDegreeID}.edu> ; benchmark-dl:hasDoctoralDegreeFrom <http://www.University{doctoralDegreeID}.edu> ; benchmark-dl:isMemberOf <http://www.Department{deptID}.University{uniID}.edu> . 
+source		SELECT deptID, uniID, lecturerID, underGradDegreeID, masterDegreeID, doctoralDegreeID, 'Lecturer' as role FROM Lecturers
+
+mappingId	Undergraduate_Course
+target		<http://www.Department{deptID}.University{uniID}.edu/{courseType}{courseID}> a benchmark-dl:Course . 
+source		SELECT deptID, uniID, courseID, courseType FROM Courses WHERE courseType = 'Course'
+
+mappingId	Graduate_Course
+target		<http://www.Department{deptID}.University{uniID}.edu/{courseType}{courseID}> a benchmark-dl:Course . 
+source		SELECT deptID, uniID, courseID, courseType FROM Courses WHERE courseType = 'GraduateCourse'
+
+mappingId	Undergraduate_Course_is_Taught_By_Full_Professor
+target		<http://www.Department{deptID}.University{uniID}.edu/{courseType}{courseID}> benchmark-dl:isTaughtBy <http://www.Department{deptID}.University{uniID}.edu/{teacherType}{teacherID}> . 
+source		SELECT deptID, uniID, courseID, teacherID, courseType, teacherType FROM Teaching WHERE teacherType = 'FullProfessor' and courseType = 'Course'
+
+mappingId	Graduate_Course_is_Taught_By_Full_Professor
+target		<http://www.Department{deptID}.University{uniID}.edu/{courseType}{courseID}> benchmark-dl:isTaughtBy <http://www.Department{deptID}.University{uniID}.edu/{teacherType}{teacherID}> . 
+source		SELECT deptID, uniID, courseID, teacherID, courseType, teacherType FROM Teaching WHERE teacherType = 'FullProfessor' and courseType = 'GraduateCourse'
+
+mappingId	Undergraduate_Course_is_Taught_By_Associate_Professor
+target		<http://www.Department{deptID}.University{uniID}.edu/{courseType}{courseID}> benchmark-dl:isTaughtBy <http://www.Department{deptID}.University{uniID}.edu/{teacherType}{teacherID}> . 
+source		SELECT deptID, uniID, courseID, teacherID, courseType, teacherType FROM Teaching WHERE teacherType = 'AssociateProfessor' and courseType = 'Course'
+
+mappingId	Graduate_Course_is_Taught_By_Associate_Professor
+target		<http://www.Department{deptID}.University{uniID}.edu/{courseType}{courseID}> benchmark-dl:isTaughtBy <http://www.Department{deptID}.University{uniID}.edu/{teacherType}{teacherID}> . 
+source		SELECT deptID, uniID, courseID, teacherID, courseType, teacherType  FROM Teaching WHERE teacherType = 'AssociateProfessor' and courseType = 'GraduateCourse'
+
+mappingId	Undergraduate_Course_is_Taught_By_Assistant_Professor
+target		<http://www.Department{deptID}.University{uniID}.edu/{courseType}{courseID}> benchmark-dl:isTaughtBy <http://www.Department{deptID}.University{uniID}.edu/{teacherType}{teacherID}> . 
+source		SELECT deptID, uniID, courseID, teacherID, courseType, teacherType FROM Teaching WHERE teacherType = 'AssistantProfessor' and courseType = 'Course'
+
+mappingId	Graduate_Course_is_Taught_By_Assistant_Professor
+target		<http://www.Department{deptID}.University{uniID}.edu/{courseType}{courseID}> benchmark-dl:isTaughtBy <http://www.Department{deptID}.University{uniID}.edu/{teacherType}{teacherID}> . 
+source		SELECT deptID, uniID, courseID, teacherID, courseType, teacherType FROM Teaching WHERE teacherType = 'AssistantProfessor' and courseType = 'GraduateCourse'
+
+mappingId	Undergraduate_Course_is_Taught_By_Lecturer
+target		<http://www.Department{deptID}.University{uniID}.edu/{courseType}{courseID}> benchmark-dl:isTaughtBy <http://www.Department{deptID}.University{uniID}.edu/{pRole}{teacherID}> . 
+source		SELECT deptID, uniID, courseID, teacherID,courseType, 'Lecturer' as pRole FROM Teaching WHERE teacherType = 'Lecturer' and courseType = 'Course'
+
+mappingId	Graduate_Course_is_Taught_By_Lecturer
+target		<http://www.Department{deptID}.University{uniID}.edu/{courseType}{courseID}> benchmark-dl:isTaughtBy <http://www.Department{deptID}.University{uniID}.edu/{pRole}{teacherID}> . 
+source		SELECT deptID, uniID, courseID, teacherID, courseType, 'Lecturer' as pRole FROM Teaching WHERE teacherType = 'Lecturer' and courseType = 'GraduateCourse'
+
+mappingId	Full_Professor_Works_For_Department
+target		<http://www.Department{deptID}.University{uniID}.edu/{profType}{profID}> benchmark-dl:worksFor <http://www.Department{deptID}.University{uniID}.edu> . 
+source		SELECT deptID, uniID, profID, profType FROM Professors WHERE profType = 'FullProfessor' and isWorking = 1
+
+mappingId	Associate_Professor_Works_For_Department
+target		<http://www.Department{deptID}.University{uniID}.edu/{profType}{profID}> benchmark-dl:worksFor <http://www.Department{deptID}.University{uniID}.edu> . 
+source		SELECT deptID, uniID, profID, profType FROM Professors WHERE profType = 'AssociateProfessor' and isWorking = 1
+
+mappingId	Assistant_Professor_Works_For_Department
+target		<http://www.Department{deptID}.University{uniID}.edu/{profType}{profID}> benchmark-dl:worksFor <http://www.Department{deptID}.University{uniID}.edu> . 
+source		SELECT deptID, uniID, profID, profType FROM Professors WHERE profType = 'AssistantProfessor' and isWorking = 1
+
+mappingId	Lecturer_Works_For_Department
+target		<http://www.Department{deptID}.University{uniID}.edu/{role}{lecturerID}> benchmark-dl:worksFor <http://www.Department{deptID}.University{uniID}.edu> . 
+source		SELECT deptID, uniID, lecturerID, 'Lecturer' as role FROM Lecturers WHERE isWorking = 1
+
+mappingId	Undergraduate_Student_Takes_UndergraduateCourse
+target		<http://www.Department{studDeptID}.University{studUniID}.edu/{role}{studentID}> benchmark-dl:takesCourse <http://www.Department{courseDeptID}.University{courseUniID}.edu/{courseType}{courseID}> . 
+source		SELECT studDeptID, studUniID, studentID, courseID, courseDeptID, courseUniID, courseType, 'UndergraduateStudent' as role FROM CourseEnrollments WHERE studentType = 'UndergraduateStudent' and courseType = 'Course'
+
+mappingId	Undergraduate_Student_Takes_Graduate_Course
+target		<http://www.Department{studDeptID}.University{studUniID}.edu/{role}{studentID}> benchmark-dl:takesCourse <http://www.Department{studDeptID}.University{studUniID}.edu/{courseType}{courseID}> . 
+source		SELECT studDeptID, studUniID, studentID, courseDeptID, courseUniID, courseID, courseType, 'UndergraduateStudent' as role FROM CourseEnrollments WHERE studentType = 'UndergraduateStudent' and courseType = 'GraduateCourse'
+
+mappingId	Graduate_Student_Takes_Undergraduate_Course
+target		<http://www.Department{studDeptID}.University{studUniID}.edu/{role}{studentID}> benchmark-dl:takesCourse <http://www.Department{studDeptID}.University{studUniID}.edu/{courseType}{courseID}> . 
+source		SELECT studDeptID, studUniID, studentID, courseDeptID, courseUniID, courseID, courseType, 'GraduateStudent' as role FROM CourseEnrollments WHERE studentType = 'GraduateStudent' and courseType = 'Course'
+
+mappingId	Graduate_Student_Takes_Graduate_Course
+target		<http://www.Department{studDeptID}.University{studUniID}.edu/{role}{studentID}> benchmark-dl:takesCourse <http://www.Department{courseDeptID}.University{courseUniID}.edu/{courseType}{courseID}> . 
+source		SELECT studDeptID, studUniID, studentID, courseDeptID,courseUniID, courseID, courseType, 'GraduateStudent' as role FROM CourseEnrollments WHERE studentType = 'GraduateStudent' and courseType = 'GraduateCourse'
+
+mappingId	like
+target		<http://www.Department{deptID}.University{uniID}.edu/{role}{ID}> benchmark-dl:like {interest} . 
+source		SELECT deptID, uniID, role, ID, interest FROM Interests
+
+mappingId	isCrazyAbout
+target		<http://www.Department{deptID}.University{uniID}.edu/{role}{ID}> benchmark-dl:isCrazyAbout {interest} . 
+source		SELECT deptID, uniID, role, ID, interest FROM Interests WHERE isCrazyAbout = 1
+
+mappingId	Chair
+target		<http://www.Department{deptID}.University{uniID}.edu/{role}{chairID}> a benchmark-dl:Chair ; benchmark-dl:isHeadOf <http://www.Department{deptID}.University{uniID}.edu> . 
+source		SELECT deptID, uniID, chairID, 'Chair' as role FROM Chairs
+
+mappingId	Research_Group
+target		<http://www.Department{deptID}.University{uniID}.edu/ResearchGroup{resGroupID}> a benchmark-dl:ResearchGroup ; benchmark-dl:subOrganizationOf <http://www.Department{deptID}.University{uniID}.edu> . 
+source		SELECT deptID, uniID, resGroupID FROM ResearchGroups
+
+mappingId	Department
+target		<http://www.Department{deptID}.University{uniID}.edu> a benchmark-dl:Department ; benchmark-dl:subOrganizationOf <http://www.University{uniID}.edu> ; benchmark-dl:name {deptName} . 
+source		SELECT deptID, uniID, deptName FROM Departments
+
+mappingId	College
+target		<http://www.College{collegeID}.University{uniID}.edu> a benchmark-dl:College ; benchmark-dl:subOrganizationOf <http://www.University{uniID}.edu> . 
+source		SELECT collegeID, uniID FROM Colleges
+
+mappingId	Man
+target		<http://www.Department{deptID}.University{uniID}.edu/{role}{ID}> a benchmark-dl:Man . 
+source		SELECT deptID, uniID, role, ID FROM People WHERE gender = 'M'
+
+mappingId	Woman
+target		<http://www.Department{deptID}.University{uniID}.edu/{role}{ID}> a benchmark-dl:Woman . 
+source		SELECT deptID, uniID, role, ID FROM People WHERE gender = 'F'
+
+mappingId	Authors
+target		<http://www.Department{deptID}.University{uniID}.edu/Publication{pubID}> benchmark-dl:publicationAuthor <http://www.Department{deptID}.University{uniID}.edu/{role}{ID}> . 
+source		SELECT deptID, uniID, pubID, role, ID FROM Authors
+
+mappingId	Friends
+target		<http://www.Department{friendDeptID}.University{friendUniID}.edu/{friendRole}{friendID}> benchmark-dl:isFriendOf <http://www.Department{personDeptID}.University{personUniID}.edu/{personRole}{personID}> . 
+source		SELECT friendID, friendDeptID, friendUniID, friendRole, personID, personDeptID, personUniID, personRole FROM Friends
+
+mappingId	Clerical_Staff
+target		<http://www.Department{deptID}.University{uniID}.edu/{staffType}{ssID}> a benchmark-dl:ClericalStaff . 
+source		SELECT deptID, uniID, ssID, staffType FROM SupportStaff WHERE staffType = 'ClericalStaff'
+
+mappingId	Clerical_Staff_Works_For_Department
+target		<http://www.Department{deptID}.University{uniID}.edu/{staffType}{ssID}> benchmark-dl:worksFor <http://www.Department{deptID}.University{uniID}.edu> . 
+source		SELECT deptID, uniID, ssID, staffType FROM SupportStaff WHERE staffType ='ClericalStaff'
+
+mappingId	Systems_Staff
+target		<http://www.Department{deptID}.University{uniID}.edu/{staffType}{ssID}> a benchmark-dl:SystemsStaff . 
+source		SELECT deptID, uniID, ssID, staffType FROM SupportStaff WHERE staffType = 'SystemsStaff'
+
+mappingId	Systems_Staff_Works_For_Department
+target		<http://www.Department{deptID}.University{uniID}.edu/{staffType}{ssID}> benchmark-dl:worksFor <http://www.Department{deptID}.University{uniID}.edu> . 
+source		SELECT deptID, uniID, ssID, staffType FROM SupportStaff WHERE staffType = 'SystemsStaff'
+
+mappingId	University
+target		<http://www.University{uniID}.edu> a benchmark-dl:University ; benchmark-dl:name {uniName} . 
+source		SELECT uniID, uniName FROM Universities
+
+mappingId	Teaching_Assistants
+target		<http://www.Department{deptID}.University{uniID}.edu/{role}{graduateStdID}> a benchmark-dl:TeachingAssistant ; benchmark-dl:teachingAssistantOf <http://www.Department{deptID}.University{uniID}.edu/Course{courseID}> . 
+source		SELECT deptID, uniID, graduateStdID, courseID, 'GraduateStudent' as role FROM TeachingAssistants
+
+mappingId	Research_Assistants
+target		<http://www.Department{deptID}.University{uniID}.edu/{role}{studentID}> a benchmark-dl:ResearchAssistant . 
+source		SELECT deptID, uniID, studentID, 'GraduateStudent' as role FROM GraduateStudents WHERE isResearchAsst = 1
+
+mappingId	Full_Professor_is_Head_of_Department
+target		<http://www.Department{deptID}.University{uniID}.edu/{profType}{profID}> benchmark-dl:isHeadOf <http://www.Department{deptID}.University{uniID}.edu> . 
+source		SELECT deptID, uniID, profID, profType FROM Professors WHERE profType = 'FullProfessor' and isHeadOfDep = 1
+
+mappingId	Associate_Professor_is_Head_of_Department
+target		<http://www.Department{deptID}.University{uniID}.edu/{profType}{profID}> benchmark-dl:isHeadOf <http://www.Department{deptID}.University{uniID}.edu> . 
+source		SELECT deptID, uniID, profID, profType FROM Professors WHERE profType = 'AssociateProfessor' and isHeadOfDep = 1
+
+mappingId	Assistant_Professor_is_Head_of_Department
+target		<http://www.Department{deptID}.University{uniID}.edu/{profType}{profID}> benchmark-dl:isHeadOf <http://www.Department{deptID}.University{uniID}.edu> . 
+source		SELECT deptID, uniID, profID, profType FROM Professors WHERE profType = 'AssistantProfessor' and isHeadOfDep = 1
+
+mappingId	Software
+target		<http://www.Department{deptID}.University{uniID}.edu/Publication{pubID}> a benchmark-dl:Software . 
+source		SELECT deptID, uniID, pubID FROM Publications WHERE pubType = 'Software'
+
+mappingId	Conference_Paper
+target		<http://www.Department{deptID}.University{uniID}.edu/Publication{pubID}> a benchmark-dl:ConferencePaper . 
+source		SELECT deptID, uniID, pubId FROM Publications WHERE pubType = 'ConferencePaper'
+
+mappingId	Specification
+target		<http://www.Department{deptID}.University{uniID}.edu/Publication{pubID}> a benchmark-dl:Specification . 
+source		SELECT deptID, uniID, pubID FROM Publications WHERE pubType = 'Specification'
+
+mappingId	Technical_Report
+target		<http://www.Department{deptID}.University{uniID}.edu/Publication{pubID}> a benchmark-dl:TechnicalReport . 
+source		SELECT deptID, uniID, pubID FROM Publications WHERE pubType = 'TechnicalReport'
+
+mappingId	Journal_Article
+target		<http://www.Department{deptID}.University{uniID}.edu/Publication{pubID}> a benchmark-dl:JournalArticle . 
+source		SELECT deptID, uniID, pubID FROM Publications WHERE pubType = 'JournalArtical'
+
+mappingId	Book
+target		<http://www.Department{deptID}.University{uniID}.edu/Publication{pubID}> a benchmark-dl:Book . 
+source		SELECT deptID, uniID, pubID FROM Publications WHERE pubType = 'Book'
+
+mappingId	Manual
+target		<http://www.Department{deptID}.University{uniID}.edu/Publication{pubID}> a benchmark-dl:Manual . 
+source		SELECT deptID, uniID, pubID FROM Publications WHERE pubType = 'Manual'
+
+mappingId	Unofficial_Publication
+target		<http://www.Department{deptID}.University{uniID}.edu/Publication{pubID}> a benchmark-dl:UnofficialPublication . 
+source		SELECT deptID, uniID, pubID FROM Publications WHERE pubType = 'UnofficialPublication'
+
+mappingId	Article
+target		<http://www.Department{deptID}.University{uniID}.edu/Publication{pubID}> a benchmark-dl:Article . 
+source		SELECT deptID, uniID, pubID FROM Publications WHERE pubType = 'Article'
+]]
+

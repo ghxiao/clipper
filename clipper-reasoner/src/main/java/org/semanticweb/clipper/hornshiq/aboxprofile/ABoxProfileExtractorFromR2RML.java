@@ -13,19 +13,20 @@ import eu.optique.r2rml.api.model.impl.InvalidR2RMLMappingException;
 import org.apache.commons.rdf.api.IRI;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdf.model.Resource;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
-import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toMap;
 
 public class ABoxProfileExtractorFromR2RML {
 
-    public static Collection<Set<Resource>> computeProfilesFromR2RML(String r2rmlFile) throws FileNotFoundException, InvalidR2RMLMappingException {
+    public static Map<String, MappingProfile> computeProfilesFromR2RML(String r2rmlFile) throws FileNotFoundException, InvalidR2RMLMappingException {
         InputStream fis = new FileInputStream(r2rmlFile);
 
         JenaR2RMLMappingManager mm = JenaR2RMLMappingManager.getInstance();
@@ -34,7 +35,6 @@ public class ABoxProfileExtractorFromR2RML {
         m = m.read(fis, "testMapping", "TURTLE");
 
         Collection<TriplesMap> coll = mm.importMappings(m);
-
 
         Multimap<String, IRI> classMaps = HashMultimap.create();
         Multimap<String, IRI> incomingRoleMaps = HashMultimap.create();
@@ -70,8 +70,21 @@ public class ABoxProfileExtractorFromR2RML {
                 }
         );
 
+        Set<String> keys = new HashSet<>();
 
-        return null;
+        keys.addAll(classMaps.keySet());
+        keys.addAll(incomingRoleMaps.keySet());
+        keys.addAll(outgoingRoleMaps.keySet());
+
+        Map<String, MappingProfile> mappingProfileMap =
+
+                keys.stream()
+                        .collect(toMap(
+                                k -> k,
+                                k -> new MappingProfile(classMaps.get(k), incomingRoleMaps.get(k), outgoingRoleMaps.get(k))));
+
+
+        return mappingProfileMap;
 
     }
 }

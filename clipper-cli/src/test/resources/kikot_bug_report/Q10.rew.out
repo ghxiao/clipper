@@ -1,0 +1,45 @@
+ri(X,Y) :- ga(X,Y).
+r(X,Y) :- gb(X,Y).
+s(Y,X) :- si(X,Y).
+s(X,Y) :- ga(X,Y).
+r(Y,X) :- ri(X,Y).
+si(Y,X) :- s(X,Y).
+si(X,Y) :- gb(X,Y).
+ri(Y,X) :- r(X,Y).
+% rewritten queries:
+Q(X0,X9) :- r(X0,X1), r(X1,X9), a(X9), b(X9).
+Q(X0,X10) :- r(X1,X2), r(X6,X8), s(X9,X10), r(X0,X1), r(X8,X9), s(X2,X6), b(X6).
+Q(X0,X9) :- r(X4,X6), r(X1,X2), s(X2,X4), r(X7,X9), r(X0,X1), s(X6,X7), b(X4), b(X9).
+Q(X0,X10) :- r(X1,X2), r(X7,X9), s(X9,X10), r(X0,X1), s(X2,X3), r(X3,X7), a(X7).
+Q(X0,X10) :- s(X9,X10), r(X0,X1), r(X1,X3), r(X8,X9), r(X7,X8), s(X3,X7), a(X3).
+Q(X0,X9) :- r(X7,X9), r(X0,X1), r(X1,X3), s(X3,X5), s(X6,X7), r(X5,X6), a(X3), b(X9).
+Q(X0,X9) :- r(X7,X9), r(X0,X1), r(X1,X3), s(X3,X7), a(X3), b(X9).
+Q(X0,X9) :- r(X0,X2), r(X2,X9), b(X9), b(X2).
+Q(X0,X10) :- s(X9,X10), r(X0,X1), r(X1,X3), s(X3,X5), s(X6,X7), r(X8,X9), r(X7,X8), r(X5,X6), a(X3).
+Q(X0,X10) :- r(X3,X4), r(X1,X2), s(X4,X6), r(X6,X8), s(X9,X10), r(X0,X1), s(X2,X3), r(X8,X9), b(X6).
+Q(X0,X10) :- r(X1,X2), s(X2,X4), r(X4,X8), s(X9,X10), r(X0,X1), r(X8,X9), b(X4).
+Q(X0,X10) :- r(X0,X2), r(X2,X6), s(X9,X10), s(X6,X7), r(X8,X9), r(X7,X8), b(X2).
+Q(X0,X10) :- r(X1,X2), s(X5,X7), s(X9,X10), r(X3,X5), r(X0,X1), s(X2,X3), r(X8,X9), r(X7,X8), a(X5).
+Q(X0,X9) :- r(X2,X4), r(X0,X2), r(X7,X9), s(X6,X7), s(X4,X5), r(X5,X6), b(X9), b(X2).
+Q(X0,X10) :- r(X3,X4), r(X1,X2), r(X7,X9), r(X5,X7), s(X9,X10), r(X0,X1), s(X2,X3), s(X4,X5), a(X7).
+Q(X0,X9) :- r(X1,X2), r(X0,X1), s(X2,X6), r(X6,X9), b(X6), b(X9).
+Q(X0,X10) :- r(X1,X2), s(X2,X4), r(X7,X9), s(X9,X10), r(X4,X7), r(X0,X1), b(X4), a(X7).
+Q(X0,X9) :- r(X1,X2), r(X0,X1), s(X2,X3), r(X3,X9), a(X9), b(X9).
+Q(X0,X7) :- r(X1,X2), s(X2,X4), r(X4,X7), r(X0,X1), b(X4), a(X7), b(X7).
+Q(X0,X9) :- r(X3,X4), r(X1,X2), r(X5,X9), r(X0,X1), s(X2,X3), s(X4,X5), a(X9), b(X9).
+Q(X0,X10) :- r(X0,X2), s(X9,X10), r(X8,X9), r(X2,X8), b(X2).
+Q(X0,X10) :- r(X2,X4), r(X0,X2), s(X9,X10), s(X6,X7), r(X8,X9), s(X4,X5), r(X7,X8), r(X5,X6), b(X2).
+Q(X0,X9) :- r(X0,X2), r(X2,X6), r(X7,X9), s(X6,X7), b(X9), b(X2).
+Q(X0,X7) :- r(X1,X2), r(X0,X1), s(X2,X3), r(X3,X7), a(X7), b(X7).
+Q(X0,X9) :- r(X1,X2), r(X7,X9), s(X5,X7), r(X3,X5), r(X0,X1), s(X2,X3), a(X5), b(X9).
+Q(X0,X10) :- r(X4,X6), r(X1,X2), s(X2,X4), s(X9,X10), r(X0,X1), s(X6,X7), r(X8,X9), r(X7,X8), b(X4).
+Q(X0,X7) :- r(X3,X4), r(X1,X2), r(X5,X7), r(X0,X1), s(X2,X3), s(X4,X5), a(X7), b(X7).
+Q(X0,X5) :- r(X1,X2), r(X3,X5), r(X0,X1), s(X2,X3), a(X5), b(X5).
+Q(X0,X9) :- r(X1,X2), s(X2,X4), r(X4,X9), r(X0,X1), b(X4), a(X9), b(X9).
+Q(X0,X10) :- s(X9,X10), r(X0,X1), r(X1,X3), r(X3,X9), a(X3).
+Q(X0,X9) :- r(X1,X2), s(X5,X7), r(X7,X9), r(X3,X5), r(X0,X1), s(X2,X3), a(X5), b(X9).
+Q(X0,X9) :- r(X3,X4), r(X1,X2), r(X7,X9), r(X0,X1), s(X2,X3), s(X6,X7), s(X4,X5), r(X5,X6), b(X9).
+Q(X0,X10) :- r(X3,X4), r(X1,X2), s(X9,X10), r(X0,X1), s(X2,X3), s(X6,X7), r(X8,X9), s(X4,X5), r(X7,X8), r(X5,X6).
+Q(X0,X10) :- r(X1,X2), r(X5,X9), s(X9,X10), r(X3,X5), r(X0,X1), s(X2,X3), a(X5).
+Q(X0,X9) :- r(X3,X4), r(X1,X2), s(X4,X6), r(X0,X1), s(X2,X3), r(X6,X9), b(X6), b(X9).
+Q(X0,X9) :- r(X1,X2), s(X2,X4), r(X4,X9), r(X0,X1), b(X4), b(X9).

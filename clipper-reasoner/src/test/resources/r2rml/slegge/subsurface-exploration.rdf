@@ -1,0 +1,2021 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#"
+     xml:base="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration">
+        <owl:versionIRI rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration-1.0"/>
+        <owl:imports rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <dc:contributor>Hallstein Lie</dc:contributor>
+        <dc:description>The ontology describes parts of the petroleum subsurface exploration domain including the classes for and properties about fields, wells, and wellbores.</dc:description>
+        <dc:modified>2017-05-01</dc:modified>
+        <rdfs:label>Subsurface Exploration Ontology</rdfs:label>
+        <dc:contributor>Valerio Santarelli</dc:contributor>
+        <vann:preferredNamespaceUri>http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration</vann:preferredNamespaceUri>
+        <dc:creator>Dag Hovland</dc:creator>
+        <ns:licence rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <dc:title>Subsurface Exploration Ontology</dc:title>
+        <owl:versionInfo>1.0</owl:versionInfo>
+        <dc:contributor>Roman Kontchakov</dc:contributor>
+        <dc:issued>2017-05-01</dc:issued>
+        <dc:creator>Martin G. Skjæveland</dc:creator>
+        <dc:contributor>Domenico Fabio Savo</dc:contributor>
+        <dc:contributor>Toralv Nordtveit</dc:contributor>
+        <vann:preferredNamespacePrefix>expl</vann:preferredNamespacePrefix>
+        <dc:description rdf:resource="http://vowl.visualdataweb.de/webvowl/#iri=http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration"/>
+        <rdfs:comment>The ontology describes parts of the petroleum subsurface exploration domain including the classes for and properties about fields, wells, and wellbores.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#commment -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#commment"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#length -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#length"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityEnd -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityEnd">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Activity"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityParticipant -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityParticipant">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Activity"/>
+        <rdfs:comment>Something that has a duration, it exists between a start and an end.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityStart -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityStart">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Activity"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#baseSurface -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#baseSurface">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface"/>
+        <rdfs:comment>Relates a stratigraphic unit to the base surface (also called exit surface).</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#concededBy -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#concededBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Concession"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#AdministrativeEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#drilledByRig -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#drilledByRig">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityParticipant"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#RigOperation"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingRig"/>
+        <rdfs:comment>Relates a rig operation to the rig that does/did the operation. Usually there is only one rig involved, but it can occur that several are involved, e.g. in case of malfunction or interrupted operation. </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#drilledInterval -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#drilledInterval">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreDrilling"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <rdfs:comment>The interval of the wellbore that was drilled during one registered session of drilling. Probably this is a section of the wellbore. This connects the time of the drilling with the depth.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#drillingTDReached -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#drillingTDReached">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingOperation"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingTDReached"/>
+        <rdfs:comment>Related a drilling operation and the event of reaching terminal depth, that is reaching the maximum depth. This is an important milestone in a drilling operation.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#extractedFrom -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#extractedFrom">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Core"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <rdfs:comment>The wellbore interval that a core was extracted from. Since the core has physically been removed from the wellbore, we do not identify these two objects, although it is common to do so.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasActivityPart -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasActivityPart">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Activity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasBottomDepth -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasBottomDepth">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasDepth"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <rdfs:comment>The base of a wellbore interval. The bottom is the point of the wellbore interval with the highest measured depth. Note that this may have a lower true vertical depth than other parts of the interval, since wellbore can bend.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasConvergence -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasConvergence">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasMeasurement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasCoreSample -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasCoreSample">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Core"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#CoreSample"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasDatumElevation -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasDatumElevation">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasMeasurement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasDepth -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasDepth">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasMeasurement"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Depth"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasEastOffset -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasEastOffset">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasMeasurement"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Length"/>
+        <rdfs:comment>The eastward distance from the well to a point on the wellbore</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasElevation -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasElevation">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#RigOperation"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Depth"/>
+        <rdfs:comment>The depth reference, elevation, during this operation.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasFormationPressure -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasFormationPressure">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasMeasurement"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#FormationPressure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasGeochemicalMeasurement -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasGeochemicalMeasurement">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasMeasurement"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GeochemicalMeasurement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasLogCurve -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasLogCurve">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LogCurve"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasMeasurement -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasMeasurement">
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasNorthOffset -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasNorthOffset">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasMeasurement"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Length"/>
+        <rdfs:comment>The northward distance from the well reference point to a point along the wellbore path.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasPermeability -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasPermeability">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasMeasurement"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#CoreSample"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Permeability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasPlatform -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasPlatform">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#SurfaceFacility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasPorosity -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasPorosity">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasMeasurement"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#CoreSample"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Porosity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasSlotEastWest -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasSlotEastWest">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasMeasurement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasSlotNorthSouth -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasSlotNorthSouth">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasMeasurement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasThickness -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasThickness">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasMeasurement"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Thickness"/>
+        <rdfs:comment>Gets the thickness of an object. In this ontology, used for the various measures of thickness of stratigraphic zones.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasTopDepth -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasTopDepth">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasDepth"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <rdfs:comment>Gets the depth of the top of a wellbore interval. Note that the top means the point closest to the surface going along the wellbore, that is, the point with the lowest measured depth. Since wellbores may bend, this point may actually be farther from the surface in direct vertical distance.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasTotalCoreLength -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasTotalCoreLength">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasMeasurement"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#TotalCoreLength"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasUnit -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasUnit">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicZone"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <rdfs:comment>The stratigraphic unit that a zone is found to belong to. A zone is a concrete part/interval of a wellbore, while a unit is a more abstract type of rock, for example Jurassic.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasWaterDepth -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasWaterDepth">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasMeasurement"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WaterDepth"/>
+        <rdfs:comment>The average depth of the sea at which the well lies. Note that this is the result of an average taken over time, not a single measurement.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasWellbore -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasWellbore">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <rdfs:comment>Relates a well to the wellbores starting at the well. This is everywhere assumed to be inverse functional, e.g. by the hierarchical national naming schemes. However, some new techniques allow entering an existing wellbore under the ground, hence creating entry to the same wellbore from different wells. </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasWellboreInterval -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasWellboreInterval">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <rdfs:comment>Relates a wellbore and some depth interval along it.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasWellborePoint -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasWellborePoint">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <rdfs:comment>Relates a wellbore to a 3D point along it, used for describing the three-dimensional path of the wellbore </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#inField -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#inField">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Field"/>
+        <rdfs:comment>The Field in which a Well lies. For examples of maps showing oil fields and wells, see http://www.npd.no/en/Maps/Map-of-the-NCS/.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#inWellboreInterval -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#inWellboreInterval">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#MeasuredDepth"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <rdfs:comment>Relates a point along a wellbore path with a wellbore interval that it is inside.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#isParentUnitOf -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#isParentUnitOf">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#locatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#locatedIn">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>Relates an object to its position. For example, a well to the geographical location of the well hole.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ofStratigraphicColumn -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ofStratigraphicColumn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn"/>
+        <rdfs:comment>The column that a stratigraphic unit belongs to. Stratigraphic columns are hierarchies of units. For examples, see http://www.stratigraphy.org/.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#overlapsWellboreInterval -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#overlapsWellboreInterval">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <rdfs:comment>Relates two overlapping wellbore intervals, that is, two depth intervals along a wellbore that share some common part. This includes both the situations where one interval contains the other and those where one is above the other, but partially overlapping.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#partOfRigOperation -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#partOfRigOperation">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasActivityPart"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Activity"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#RigOperation"/>
+        <rdfs:comment>Connects a wellbore activity to the rig operation it is part of (if any).</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#topSurface -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#topSurface">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface"/>
+        <rdfs:comment>Relates a stratigraphic unit to the top surface (also called entry surface).</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#wellLicense -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#wellLicense">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#License"/>
+        <rdfs:comment>The current license for operating a well.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#wellOperatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#wellOperatedBy">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Company"/>
+        <rdfs:comment>The company that currently operates a well. That is, they are responsible for the operation and maintenance of the well, and get the produced oil and/or gas.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#wellboreDocument -->
+
+    <owl:ObjectProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#wellboreDocument">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <rdfs:range rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Document"/>
+        <rdfs:comment>Links a wellbore to relevant documents about it.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ABCdocURL -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ABCdocURL">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasURL"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <rdfs:comment>The URL of some webpage with information about the wellbore.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WKT -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WKT">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#actualRelinquishmentDate -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#actualRelinquishmentDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Concession"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#awardDate -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#awardDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Concession"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#cgType -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#cgType">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GeochemicalMeasurement"/>
+        <rdfs:comment>The type of geochemical measurement, often a type or classification of chromatography.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#comment -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#comment"/>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#completionDate -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#completionDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#coreNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#coreNumber">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Core"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#currentWellboreTrack -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#currentWellboreTrack">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#description -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#description"/>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#documentType -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#documentType">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Document"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#fluidZoneContent -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#fluidZoneContent">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#FluidZone"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasDate -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasDate">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>The time or date on which an event occurred or will occur.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasURL -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasURL">
+        <rdfs:comment>Various URLs constructed for different purposes in wiki and presentation. This is a crude hack, and should not be in the ontology</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#latitude -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#latitude">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Point"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#logCurveNameLong -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#logCurveNameLong">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#name"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LogCurve"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#logCurveNameShort -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#logCurveNameShort">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#name"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LogCurve"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#longitude -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#longitude">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Point"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#name -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#name">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The name of an object in the Statoil databases. Note that objects may have different names, filling different purposes. Therefore this property is not the same as rdfs:label.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#numberOfSamples -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#numberOfSamples">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LogCurve"/>
+        <rdfs:comment>The number of samples taken in a log curve.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#officialName -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#officialName">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#name"/>
+        <rdfs:comment>The name for an object, as given by the legislative authority that governs it. For example, the name of a wellbore, as the national authorities have named it.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#statoilName"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#originalUnitOfMeasurement -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#originalUnitOfMeasurement">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The unit of measurement used by the original data in the database. Used for error-checking purposes.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#valueInOriginalUnit"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#peakAmount -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#peakAmount">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GeochemicalMeasurement"/>
+        <rdfs:comment>Used for geochemical measurements where peak height or area does not apply.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#peakArea -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#peakArea">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GeochemicalMeasurement"/>
+        <rdfs:comment>The area under a chromatographic peak, used for many geochemical measurements.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#peakHeight -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#peakHeight">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GeochemicalMeasurement"/>
+        <rdfs:comment>The height of a chromatographic peak, used for many geochemical measurements.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#peakName -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#peakName">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GeochemicalMeasurement"/>
+        <rdfs:comment>A peak is a type of measurement in the geochemistry databases. Many of these measurement types are actual peaks in the chromatography of a sample, but not all.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#physicalLocation -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#physicalLocation">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Document"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#plannedRelinquishmentDate -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#plannedRelinquishmentDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Concession"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>The planned end date for the license. For further definition of relinquishment of licenses (in Norwegian territories), see http://www.npd.no/en/Topics/Production-licences/Theme-articles/Relinquishment/</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#runNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#runNumber">
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LogCurve"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>Logs are taken by running measurement equipment along the logging string. This may be done several times, called logging runs, or runs. Each run may include one or more measurement types, and each measurement type may be included in one or more runs. The run number is the iteration in which the log curve was made.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#spudDate -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#spudDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#standardUnitOfMeasurement -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#standardUnitOfMeasurement">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The standard unit of measurement for the current measurement type, used in the ontology. For example the standard for length would be meters. The presentation layer or client application may of course translate into a unit the end user would like.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#valueInStandardUnit"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#statoilName -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#statoilName">
+        <rdfs:subPropertyOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#name"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment>This is the name for an object as used internally at Statoil. This is especially important for wellbores and other objects that have national namespaces that overlap. That is, each country has its own legislative body that regulates names for wellbores. These names may overlap with names given in other countries. Therefore a different name must be used internally in any international organization caring about these objects.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#valueInOriginalUnit -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#valueInOriginalUnit">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>Used to access the original measurement value, as stored in the database. This is in contrast to the default presentation unit for a measurement, which may be chosen by the end user or admin, and may differ from the stored one. For example, European users will usually prefer depth in metres, although many depths are stored in feet. But in certain cases the conversion from feet to metres may obfuscate important information: e.g., depth of 9999ft could indicate an error, while the naively translated 3047.7m may look innocent.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#valueInStandardUnit -->
+
+    <owl:DatatypeProperty rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#valueInStandardUnit">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>The value of the measurement in the unit that has been decided to be standard in the ontology for the measurement type. E.g. in meters for Length, in millidarcy for porosity. To get the proper standard unit for a measurement type, look in standardUnitOfMeasurement.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Activity -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Activity">
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#AdministrativeEntity"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Concession"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Core"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#CoreSample"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Document"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Event"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Facility"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Field"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LogCurve"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicPick"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>An activity has a duration, and goes on for some time. E.g. operations done on a wellbore, like drilling.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#AdministrativeEntity -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#AdministrativeEntity">
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Concession"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Core"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#CoreSample"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Document"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Event"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Facility"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Field"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LogCurve"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicPick"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>Different forms of organizations. For example countries or companies.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#BusinessArea -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#BusinessArea">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Concession"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#License"/>
+        <rdfs:comment>Geographical area being part of a business transaction, usually an agreement to share an area of a license</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ChronoStratigraphicColumn -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ChronoStratigraphicColumn">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LithoStratigraphicColumn"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#SequenceStratigraphicColumn"/>
+        <rdfs:comment>Classification system for rock, based on age. Standardized by International Commission on Stratigraphy</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Company -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Company">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#AdministrativeEntity"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Country"/>
+        <rdfs:comment>Commercial entity, e.g. oil and gas company or supplier</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Concession -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Concession">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#concededBy"/>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#AdministrativeEntity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Core"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#CoreSample"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Document"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Event"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Facility"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Field"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LogCurve"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicPick"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>Concessions, usually for exploitation or exploration of hydrocarbon resources. May be given by direct licences from the legislative authority, or more complex constructs or cooperations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Core -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Core">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#extractedFrom"/>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#CoreSample"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Document"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Event"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Facility"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Field"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LogCurve"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicPick"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>A piece of rock (or mud) extracted during drilling. The cores are extracted and parts are usually sent to national authorities. (Commonly also called core sample, though that term is reserved here for smaller samples taken from the cores.)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#CoreSample -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#CoreSample">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasCoreSample"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Core"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Document"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Event"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Facility"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Field"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LogCurve"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicPick"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>A part of a core, possibly taken out from the core itself, to be used, e.g., for measurements. (CoreSample is commonly confused with Core, but in this ontology we reserve CoreSample for the samples taken from cores.)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Country -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Country">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#AdministrativeEntity"/>
+        <rdfs:comment>A country, as an organization. (As opposed to the geographical area the country covers). E.g. Norway, Sweden, UK.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Depth -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Depth">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Length"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasDepth"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Thickness"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#TotalCoreLength"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WaterDepth"/>
+        <rdfs:comment>Any form of depth, e.g. along a wellbore.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DevelopmentWellbore -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DevelopmentWellbore">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ExplorationWellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#NonOperatingWellbore"/>
+        <rdfs:comment>The purpose of a development wellbore is the extraction of hydrocarbons from the ground. (This contrasts with exploration wellbores, which are part of the search for hydrocarbons.) A development wellbore may have been drilled for this purpose, or it may be a repurposed exploration wellbore.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Document -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Document">
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Event"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Facility"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Field"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LogCurve"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicPick"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>Important documents available in some digital or physical format</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingEnd -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingEnd">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityEnd"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:allValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingOperation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingStart"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingTDReached"/>
+        <rdfs:comment>The day on which drilling of a wellbore ends. Note that this will often be after the the terminal depth is reached, as some drilling may occur later.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingOperation -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingOperation">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasActivityPart"/>
+                <owl:allValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreDrilling"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityParticipant"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityStart"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingStart"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityEnd"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingEnd"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>All the drilling activities on this wellbore. Maybe discontinuous in time and involve multiple rigs.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingRig -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingRig">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Facility"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ProductionFacility"/>
+        <rdfs:comment>A rig used for drilling.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingStart -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingStart">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityStart"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:allValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingOperation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingTDReached"/>
+        <rdfs:comment>The day on which the drilling of a wellbore starts.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingTDReached -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingTDReached">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#drillingTDReached"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:allValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingOperation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The day on which the terminal depth (the maximum depth) of the wellbore was reached.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Event -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Event">
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Facility"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Field"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LogCurve"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicPick"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>Any important event in the history of a wellbore. The time resolution for many of these events is a day.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ExplorationWellbore -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ExplorationWellbore">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#NonOperatingWellbore"/>
+        <rdfs:comment>A wellbore made with the purpose of exploration, that is, finding out what the earth crust looks like in an area. The long-term purpose is of course finding exploitable hydrocarbon resources. This is in contrast to development wellbores which are made with exploitation of certain deposits in mind. In certain instances exploration wellbores may be reclassified into development wellbores. They will then receive a new name.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Facility -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Facility">
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Field"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LogCurve"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicPick"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>Any sort of facility, either for drilling, production, transport etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Field -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Field">
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LogCurve"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicPick"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>An oil or gas field, as defined by the legal/national authority in the area. From factpages.npd.no: A field is a discovery or several discoveries combined which the licensees have decided to develop, and for which the authorities have approved a plan for development and operation (PDO) or granted a PDO exemption. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#FluidZone -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#FluidZone">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicZone"/>
+        <rdfs:comment>The depth interval at which some (fluid?) hydrocarbon occurs in a wellbore.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#FormationPressure -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#FormationPressure">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Pressure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasDepth"/>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Depth"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasFormationPressure"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#HydrostaticPressure"/>
+        <rdfs:comment>The pressure of fluids in the wellbore. See also http://www.glossary.oilfield.slb.com/Terms/f/formation_pressure.aspx.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GeochemicalMeasurement -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GeochemicalMeasurement">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Length"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Permeability"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Porosity"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Pressure"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Temperature"/>
+        <rdfs:comment>Geochemical measurements are represented in a manner suited for chromatography, with numbers describing the peak in the chromatogram.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GrossThickness -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GrossThickness">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Thickness"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#NetThickness"/>
+        <rdfs:comment>The thickness of some layer or part of the ground that the wellbore goes through.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GrossThicknessMeasured -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GrossThicknessMeasured">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GrossThickness"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GrossThicknessTVD"/>
+        <rdfs:comment>The thickness of some layer or part of the ground that the wellbore goes through, measured by the length of the wellbore that goes through the layer.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GrossThicknessTVD -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GrossThicknessTVD">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#GrossThickness"/>
+        <rdfs:comment>The thickness of some layer or part of the ground that the wellbore goes through, measured as the difference in the TVD at which the wellbore enters and leaves the wellbore.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#HydrostaticPressure -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#HydrostaticPressure">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Pressure"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#PorePressure"/>
+        <rdfs:comment>The pressure that a column of water of the same depth would give. Used for comparison with the actual formation pressure. See also http://www.glossary.oilfield.slb.com/Terms/h/hydrostatic_pressure.aspx</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Length -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Length">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Permeability"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Porosity"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Pressure"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Temperature"/>
+        <rdfs:length>A measurement of length, by default in meters.</rdfs:length>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#License -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#License">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Concession"/>
+        <rdfs:comment>A license for exploitation of hydrocarbon resources, granted by a country to a company.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LithoStratigraphicColumn -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LithoStratigraphicColumn">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#SequenceStratigraphicColumn"/>
+        <rdfs:comment>A system for classifying rock based on the nature of the rock. This is in contrast to chronostratigraphy, which is based on the age of the rock. Lithostratigrpahy is usually more local.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LogCurve -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#LogCurve">
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicPick"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>A measurement taken repeatedly along an interval in a wellbore. For example: a temperature measurement made every meter. These can be taken both during or after drilling.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#MeasuredDepth -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#MeasuredDepth">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Depth"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#TrueVerticalDepth"/>
+        <rdfs:comment>The depth of a point in a wellbore, as measured along the wellbore. This is in contrast to the true vertical depth, measured from the horizon or sea bottom. These may differ because wellbores need not be vertical.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement">
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicPick"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>Any form of measurement. E.g. length, temperature, porosity etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#NetThickness -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#NetThickness">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Thickness"/>
+        <rdfs:comment>The difference in the true vertical depth of the top and bottom of the interesting part of a  wellbore interval, according to different criteriea. See https://en.wikiversity.org/wiki/Introduction_to_petroleum_engineering</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#NonOperatingWellbore -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#NonOperatingWellbore">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <rdfs:comment>A wellbore that is not in use.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Permeability -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Permeability">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasPermeability"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#CoreSample"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Porosity"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Pressure"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Temperature"/>
+        <rdfs:comment>The measurement of who well fluids can flow through a sample or rock. This is related to, but also different from porosity.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#PluggedWellbore -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#PluggedWellbore">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#NonOperatingWellbore"/>
+        <rdfs:comment>A wellbore that has been fitted with a plug at the top to prevent leakage. The wellbore cannot be used or entered anymore.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#PorePressure -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#PorePressure">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Pressure"/>
+        <rdfs:comment>The pressure of the fluids from the pores in the formation around the wellbore. Probably synonymous to formation pressure.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Porosity -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Porosity">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasPorosity"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#CoreSample"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Pressure"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Temperature"/>
+        <rdfs:comment>A measure of how much fluid can be stored in a rock or sample</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Pressure -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Pressure">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Temperature"/>
+        <rdfs:commment>A measure of the force exerted per area by fluids (or gases).</rdfs:commment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ProductionFacility -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ProductionFacility">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Facility"/>
+        <rdfs:comment>A facility used in the production line of hydrocarbon extraction. (As opposed to drilling and exploration.)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ProductionWellbore -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ProductionWellbore">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DevelopmentWellbore"/>
+        <rdfs:comment>A wellbore in use for hydrocarbon extraction.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Reservoir -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Reservoir">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicZone"/>
+        <rdfs:comment>The depth interval at which some (fluid?) hydrocarbon occurs in a wellbore.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#RigOperation -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#RigOperation">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityParticipant"/>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#drilledByRig"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingRig"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A consecutive involvement of a rig on a wellbore.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#SequenceStratigraphicColumn -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#SequenceStratigraphicColumn">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn"/>
+        <rdfs:comment>A form of classifying rocks according to the order in which they were deposited.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#SingleWellHead -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#SingleWellHead">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ProductionFacility"/>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ofStratigraphicColumn"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicPick"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>A system or hierarchy for classifying rocks or layers in the earth crust.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicPick -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicPick">
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>The occurrence of a stratigraphic surface in a wellbore.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicSurface">
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>Upper or lower boundary of a stratigraphic unit.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ofStratigraphicColumn"/>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicColumn"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#name"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>A type of rock or layer in the crust of the earth. Can be classified after different hierarchies called stratigraphic columns. For example, Jurassic is a chronostratigraphic unit, indicating rock from the Jurassic period.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicZone -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicZone">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#StratigraphicUnit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A depth interval at which the wellbore is deemed to intersect some stratigraphic unit. Note that a stratigraphic unit may be intersected several times by the same wellbore.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#SubSeaTemplate -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#SubSeaTemplate">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ProductionFacility"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#SurfaceFacility"/>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#SurfaceFacility -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#SurfaceFacility">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#ProductionFacility"/>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Temperature -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Temperature">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Measurement"/>
+        <rdfs:comment>The temperature at a given point and time</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Thickness -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Thickness">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Length"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasThickness"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#TotalCoreLength"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WaterDepth"/>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#TotalCoreLength -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#TotalCoreLength">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Length"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasTotalCoreLength"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WaterDepth"/>
+        <rdfs:comment>The sum of the lengths of all the cores extracted from a wellbore</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#TrueVerticalDepth -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#TrueVerticalDepth">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Depth"/>
+        <rdfs:comment>The direct vertical depth from sea bottom or horizon to a given point in a wellbore.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WaterDepth -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WaterDepth">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Length"/>
+        <rdfs:comment>The average depth of water at some point</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasWellbore"/>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>A hole in the ground or seabed, through which wellbores are made. A well can have multiple wellbores, but each wellbore is only connected to the well it is drilled through. (There are some exceptions to this, but in these cases a single well is chosen.) Often confused with wellbore, but here well is reserved for the above description.)
+
+From NPD: borehole which is drilled in order to discover or delimit a petroleum deposit and/or to produce petroleum or water for injection purposes, to inject gas, water or other medium, or to map or monitor well parameters. There are several categories of wells. A well may consist of one or several wellbores (well paths) and may have one or several termination points.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasTotalCoreLength"/>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#TotalCoreLength"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasWellbore"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Well"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>A wellbore is a path drilled out in the ground. https://en.wikipedia.org/wiki/Wellbore. Note that the path may not be straight. A wellbore belongs to the well from which it was drilled.
+
+From NPD: Wellbore (well path): designates the location of the well from one termination point to the wellhead. A wellbore may consist of one or more well tracks.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreBenchmarking -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreBenchmarking">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityParticipant"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreCompletion -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreCompletion">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityParticipant"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreDrilling -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreDrilling">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityParticipant"/>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#partOfRigOperation"/>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#RigOperation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#drilledInterval"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Drilling on a wellbore. Involves a single rig.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreInterval">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasBottomDepth"/>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#MeasuredDepth"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasTopDepth"/>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#MeasuredDepth"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasWellboreInterval"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:comment>A depth interval along a wellbore. Has a top and bottom depth. Commonly refers to either a stratigraphic zone, or the interval at which a core was extracted.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreIntervention -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreIntervention">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityParticipant"/>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePlugging -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePlugging">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#activityParticipant"/>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePoint">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#hasWellborePoint"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:someValuesFrom rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Wellbore"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A 3D position/point along a wellbore. Used in the 3D description of the wellbore.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreWorkover -->
+
+    <owl:Class rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreWorkover">
+        <rdfs:subClassOf rdf:resource="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#Geometry -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Geometry"/>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#Point -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Point">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#DrillingOperation"/>
+            <rdf:Description rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreBenchmarking"/>
+            <rdf:Description rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreDrilling"/>
+            <rdf:Description rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellborePlugging"/>
+            <rdf:Description rdf:about="http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#WellboreWorkover"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+
