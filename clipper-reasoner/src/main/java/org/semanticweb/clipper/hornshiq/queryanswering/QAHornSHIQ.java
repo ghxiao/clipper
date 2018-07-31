@@ -76,7 +76,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
     private List<List<String>> decodedAnswers;
     private CQ cq;
 
-    private ClipperReport clipperReport = new ClipperReport();
+    protected ClipperReport clipperReport = new ClipperReport();
 
     private Collection<CQ> rewrittenQueries;
 
@@ -84,12 +84,12 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
     String dlvPath;
 
     private Collection<OWLOntology> ontologies;
-    private ClipperHornSHIQOntology clipperOntology;
+    protected ClipperHornSHIQOntology clipperOntology;
 
     private CQFormatter cqFormatter;
     private NamingStrategy namingStrategy;
-    private OWLOntology combinedOntology;
-    private Collection<Set<Resource>> aboxProfiles;
+    protected OWLOntology combinedOntology;
+    protected Collection<Set<Resource>> activators;
 
 
     /*Initialization of QAHornSHIQ with default behaviour,
@@ -106,7 +106,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
         // ClipperManager.getInstance().reset();
         //todo:add the case on top level calling of QAHornSHIQ class for this member to facilitate turning on and off the optimization of TBoxReasoner
 
-        this.withActivatorOptimization = true;
+        this.withActivatorOptimization = false;
     }
 
 
@@ -325,15 +325,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
      */
     public TBoxReasoner saturateTBox() throws Exception {
 
-        //TODO: add here an extraction for ABoxProfile extraction
-        Collection<Set<Integer>> initialActivators = extractActivatorsFromProfiles(this.aboxProfiles); //from this point onward we get also the
-
-        TBoxReasoner tb;
-
-        if(withActivatorOptimization)
-            tb= new TBoxReasoner(clipperOntology, initialActivators);
-        else
-            tb=new TBoxReasoner(clipperOntology);
+        TBoxReasoner tb =new TBoxReasoner(clipperOntology);
         // ///////////////////////////////////////////////
         // Evaluate reasoning time
         long reasoningBegin = System.currentTimeMillis();
@@ -613,7 +605,6 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
         // rewriteQuery(tb);
 
         reduceABoxToDatalog(tb);
-
     }
 
     public List<List<String>> execQuery(String sparqlString) {
@@ -797,10 +788,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
             }
         }
 
-        OWLOntology rlTBox = OWLOntologySplitter.extractRLTBox(combinedOntology);
-        OWLOntology aBox = OWLOntologySplitter.extractABox(combinedOntology);
-
-        this.aboxProfiles = ProfileExtractorFromABox.computeProfiles(rlTBox, aBox);
+        initializeActivators();
 
         ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
         ClipperHornSHIQOntology onto_bs = converter.convert(combinedOntology);
@@ -810,6 +798,11 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
         long endNormalizationTime = System.currentTimeMillis();
         this.clipperReport.setNormalizationTime(endNormalizationTime - startNormalizationTime);
 
+    }
+
+
+    protected void initializeActivators() {
+        // do nothing
     }
 
 
@@ -931,26 +924,6 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
     }
 
 
-    /**
-     * todo:lb
-     * This method is used to extract activators from a collection of profiles supplied as a parameter
-     */
-    public Collection<Set<Integer>> extractActivatorsFromProfiles(Collection<Set<Resource>> prmAboxProfiles) throws Exception {
-
-        return ABoxProfileLoader.getActivatorsFromProfileObjects(prmAboxProfiles);
-    }
-
-
-    /**
-     * todo:lb
-     * This method is used to extract activators from profiles previously stored in a file
-     */
-    public Collection<Set<Integer>> extractActivatorsFromProfiles(String tboxFileName, String aboxFileName, String profilesFileName) throws Exception {
-
-        ProfileExtractorFromABox.writeProfilesToFile(tboxFileName, aboxFileName, profilesFileName);
-
-        return ABoxProfileLoader.getActivatorsFromStoredProfiles(profilesFileName);
-    }
 
 
 }

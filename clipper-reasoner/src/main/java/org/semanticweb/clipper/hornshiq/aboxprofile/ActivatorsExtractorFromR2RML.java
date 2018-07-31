@@ -28,7 +28,7 @@ import java.util.*;
 import static java.util.stream.Collectors.toMap;
 import static java.util.stream.Collectors.toSet;
 
-public class ProfileExtractorFromR2RML {
+public class ActivatorsExtractorFromR2RML {
 
 
     public static Map<String, MappingProfile> computeActivators(String r2rmlFile) throws FileNotFoundException, InvalidR2RMLMappingException {

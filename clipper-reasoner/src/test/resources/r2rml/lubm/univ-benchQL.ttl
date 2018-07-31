@@ -1,0 +1,880 @@
+@prefix rr:    <http://www.w3.org/ns/r2rml#> .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, id, stype, name, degreeuniid, email, phone, advisorid, advisortype from students where stype=0"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/UndergraduateStudent{id}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#member>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, publicationid, authortype, authorid from publications where authortype=3"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/FullProfessor{authorid}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#publicationAuthor>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:class     <http://swat.cse.lehigh.edu/onto/univ-bench.owl#Publication> ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/FullProfessor{authorid}/Publication{publicationid}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, studid, coursetype, courseid from ta"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/Course{courseid}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#teachingAssistantOf>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:class     <http://swat.cse.lehigh.edu/onto/univ-bench.owl#TeachingAssistant> ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/GraduateStudent{studid}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, ctype, id, teacherid, teachertype from courses where ctype=1 and teachertype=3"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/GraduateCourse{id}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#teacherOf>
+                         ] ;
+  rr:subjectMap          [ a            rr:SubjectMap , rr:TermMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/FullProfessor{teacherid}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, id, stype, name, degreeuniid, email, phone, advisorid, advisortype from students where stype=0 and advisortype=2"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/AssociateProfessor{advisorid}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#advisor>
+                         ] ;
+  rr:subjectMap          [ a            rr:SubjectMap , rr:TermMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/UndergraduateStudent{id}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, ttype, id, name, underD, masterD, docD, email, phone, research from teachers where ttype=2"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.University{underD}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#undergraduateDegreeFrom>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:column    "name" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#name>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:column    "email" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#emailAddress>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:column    "research" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#researchInterest>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.University{masterD}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#mastersDegreeFrom>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.University{docD}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#doctoralDegreeFrom>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#worksFor>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:column    "phone" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#telephone>
+                         ] ;
+  rr:subjectMap          [ a            rr:SubjectMap , rr:TermMap ;
+                           rr:class     <http://swat.cse.lehigh.edu/onto/univ-bench.owl#AssociateProfessor> ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/AssociateProfessor{id}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, ttype, id, name, underD, masterD, docD, email, phone, research from teachers where ttype=3"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#worksFor>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.University{underD}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#undergraduateDegreeFrom>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:column    "email" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#emailAddress>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.University{docD}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#doctoralDegreeFrom>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.University{masterD}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#mastersDegreeFrom>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:column    "phone" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#telephone>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:column    "research" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#researchInterest>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:column    "name" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#name>
+                         ] ;
+  rr:subjectMap          [ a            rr:SubjectMap , rr:TermMap ;
+                           rr:class     <http://swat.cse.lehigh.edu/onto/univ-bench.owl#FullProfessor> ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/FullProfessor{id}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, id, stype, name, degreeuniid, email, phone, advisorid, advisortype from students where stype=1"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:column    "email" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#emailAddress>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:column    "phone" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#telephone>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.University{degreeuniid}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#undergraduateDegreeFrom>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#memberOf>
+                         ] ;
+  rr:subjectMap          [ a            rr:SubjectMap , rr:TermMap ;
+                           rr:class     <http://swat.cse.lehigh.edu/onto/univ-bench.owl#GraduateStudent> ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/GraduateStudent{id}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, id, stype, name, degreeuniid, email, phone, advisorid, advisortype from students where stype=1 and advisortype=1"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/AssistantProfessor{advisorid}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#advisor>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/GraduateStudent{id}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, ctype, id, teacherid, teachertype from courses where ctype=1 and teachertype=2"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/GraduateCourse{id}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#teacherOf>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/AssociateProfessor{teacherid}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                rr:TriplesMap ;
+  rr:logicalTable  [ a            rr:R2RMLView ;
+                     rr:sqlQuery  "select depid, uniid, studid from ra"
+                   ] ;
+  rr:subjectMap    [ a            rr:SubjectMap , rr:TermMap ;
+                     rr:class     <http://swat.cse.lehigh.edu/onto/univ-bench.owl#ResearchAssistant> ;
+                     rr:template  "http://www.Department{depid}.University{uniid}.edu/GraduateStudent{studid}" ;
+                     rr:termType  rr:IRI
+                   ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, ctype, id, teacherid, teachertype from courses where ctype=0 and teachertype=2"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/Course{id}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#teacherOf>
+                         ] ;
+  rr:subjectMap          [ a            rr:SubjectMap , rr:TermMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/AssociateProfessor{teacherid}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select departmentid, universityid from departments"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.University{universityid}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#subOrganizationOf>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:class     <http://swat.cse.lehigh.edu/onto/univ-bench.owl#Department> ;
+                           rr:template  "http://www.Department{departmentid}.University{universityid}.edu" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, id from researchgroups"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.University{uniid}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#subOrganizationOf>
+                         ] ;
+  rr:subjectMap          [ a            rr:SubjectMap , rr:TermMap ;
+                           rr:class     <http://swat.cse.lehigh.edu/onto/univ-bench.owl#ResearchGroup> ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/ResearchGroup{id}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, id, stype, name, degreeuniid, email, phone, advisorid, advisortype from students where stype=0"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:column    "phone" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#telephone>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#memberOf>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:column    "email" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#emailAddress>
+                         ] ;
+  rr:subjectMap          [ a            rr:SubjectMap , rr:TermMap ;
+                           rr:class     <http://swat.cse.lehigh.edu/onto/univ-bench.owl#UndergraduateStudent> ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/UndergraduateStudent{id}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, ttype, id, name, underD, masterD, docD, email, phone, research from teachers where ttype=0"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/Lecturer{id}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#member>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, id, stype, name, degreeuniid, email, phone, advisorid, advisortype from students where stype=1 and advisortype=2"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/AssociateProfessor{advisorid}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#advisor>
+                         ] ;
+  rr:subjectMap          [ a            rr:SubjectMap , rr:TermMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/GraduateStudent{id}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, id, stype, name, degreeuniid, email, phone, advisorid, advisortype from students where stype=0 and advisortype=1"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/AssistantProfessor{advisorid}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#advisor>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/UndergraduateStudent{id}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, ctype, id, teacherid, teachertype from courses where ctype=1 and teachertype=1"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/GraduateCourse{id}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#teacherOf>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/AssistantProfessor{teacherid}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, id, stype, name, degreeuniid, email, phone, advisorid, advisortype from students where stype=1"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/GraduateStudent{id}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#member>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, ctype, id, teacherid, teachertype from courses where ctype=0 and teachertype=3"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/Course{id}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#teacherOf>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/FullProfessor{teacherid}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, id from researchgroups"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#subOrganizationOf>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:class     <http://swat.cse.lehigh.edu/onto/univ-bench.owl#ResearchGroup> ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/ResearchGroup{id}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, publicationid, authortype, authorid from publications where authortype=2"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/AssociateProfessor{authorid}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#publicationAuthor>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:class     <http://swat.cse.lehigh.edu/onto/univ-bench.owl#Publication> ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/AssociateProfessor{authorid}/Publication{publicationid}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, ctype, id, teacherid, teachertype from courses where ctype=0 and teachertype=0"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/Course{id}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#teacherOf>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/Lecturer{teacherid}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, studtype, studid, coursetype, courseid from takescourses where coursetype=1"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/GraduateCourse{courseid}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#takesCourse>
+                         ] ;
+  rr:subjectMap          [ a            rr:SubjectMap , rr:TermMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/GraduateStudent{studid}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, publicationid, authortype, authorid from publications where authortype=1"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/AssistantProfessor{authorid}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#publicationAuthor>
+                         ] ;
+  rr:subjectMap          [ a            rr:SubjectMap , rr:TermMap ;
+                           rr:class     <http://swat.cse.lehigh.edu/onto/univ-bench.owl#Publication> ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/AssistantProfessor{authorid}/Publication{publicationid}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, profid from heads"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#headOf>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:class     <http://swat.cse.lehigh.edu/onto/univ-bench.owl#Chair> ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/FullProfessor{profid}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, ctype, id, teacherid, teachertype from courses where ctype=1 and teachertype=0"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/GraduateCourse{id}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#teacherOf>
+                         ] ;
+  rr:subjectMap          [ a            rr:SubjectMap , rr:TermMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/Lecturer{teacherid}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, ttype, id, name, underD, masterD, docD, email, phone, research from teachers where ttype=0"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:column    "email" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#emailAddress>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:column    "phone" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#telephone>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:column    "name" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#name>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.University{docD}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#doctoralDegreeFrom>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.University{underD}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#undergraduateDegreeFrom>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#worksFor>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.University{masterD}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#mastersDegreeFrom>
+                         ] ;
+  rr:subjectMap          [ a            rr:SubjectMap , rr:TermMap ;
+                           rr:class     <http://swat.cse.lehigh.edu/onto/univ-bench.owl#Lecturer> ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/Lecturer{id}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, ttype, id, name, underD, masterD, docD, email, phone, research from teachers where ttype=1"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/AssistantProfessor{id}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#member>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, studtype, studid, coursetype, courseid from takescourses where coursetype=0"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/Course{courseid}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#takesCourse>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/UndergraduateStudent{studid}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, ttype, id, name, underD, masterD, docD, email, phone, research from teachers where ttype=1"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:column    "email" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#emailAddress>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:column    "name" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#name>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#worksFor>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.University{masterD}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#mastersDegreeFrom>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:column    "research" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#researchInterest>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:column    "phone" ;
+                                           rr:termType  rr:Literal
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#telephone>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.University{docD}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#doctoralDegreeFrom>
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.University{underD}.edu" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#undergraduateDegreeFrom>
+                         ] ;
+  rr:subjectMap          [ a            rr:SubjectMap , rr:TermMap ;
+                           rr:class     <http://swat.cse.lehigh.edu/onto/univ-bench.owl#AssistantProfessor> ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/AssistantProfessor{id}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, id, stype, name, degreeuniid, email, phone, advisorid, advisortype from students where stype=0 and advisortype=3"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/FullProfessor{advisorid}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#advisor>
+                         ] ;
+  rr:subjectMap          [ a            rr:SubjectMap , rr:TermMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/UndergraduateStudent{id}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, publicationid, authortype, authorid from publications where authortype=0"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/Lecturer{authorid}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#publicationAuthor>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:class     <http://swat.cse.lehigh.edu/onto/univ-bench.owl#Publication> ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/Lecturer{authorid}/Publication{publicationid}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, ttype, id, name, underD, masterD, docD, email, phone, research from teachers where ttype=2"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/AssociateProfessor{id}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#member>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, ttype, id, name, underD, masterD, docD, email, phone, research from teachers where ttype=3"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/FullProfessor{id}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#member>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, id, stype, name, degreeuniid, email, phone, advisorid, advisortype from students where stype=1 and advisortype=3"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:ObjectMap , rr:TermMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/FullProfessor{advisorid}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#advisor>
+                         ] ;
+  rr:subjectMap          [ a            rr:SubjectMap , rr:TermMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/GraduateStudent{id}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .
+
+[ a                      rr:TriplesMap ;
+  rr:logicalTable        [ a            rr:R2RMLView ;
+                           rr:sqlQuery  "select depid, uniid, ctype, id, teacherid, teachertype from courses where ctype=0 and teachertype=1"
+                         ] ;
+  rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                           rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                           rr:template  "http://www.Department{depid}.University{uniid}.edu/Course{id}" ;
+                                           rr:termType  rr:IRI
+                                         ] ;
+                           rr:predicate  <http://swat.cse.lehigh.edu/onto/univ-bench.owl#teacherOf>
+                         ] ;
+  rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                           rr:template  "http://www.Department{depid}.University{uniid}.edu/AssistantProfessor{teacherid}" ;
+                           rr:termType  rr:IRI
+                         ]
+] .

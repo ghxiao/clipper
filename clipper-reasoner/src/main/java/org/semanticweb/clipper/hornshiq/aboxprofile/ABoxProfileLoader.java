@@ -42,7 +42,7 @@ public class ABoxProfileLoader {
 
     }
 
-    public static Collection<Set<Integer>> getActivatorsFromProfileObjects(Collection<Set<Resource>> prmAboxProfiles) throws IOException {
+    public static Collection<Set<Integer>> getActivatorsFromActivatorObjects(Collection<Set<Resource>> prmAboxProfiles) throws IOException {
 
         final ClipperManager clipperManager = ClipperManager.getInstance();
         final SymbolEncoder<OWLClass> owlClassEncoder = clipperManager.getOwlClassEncoder();

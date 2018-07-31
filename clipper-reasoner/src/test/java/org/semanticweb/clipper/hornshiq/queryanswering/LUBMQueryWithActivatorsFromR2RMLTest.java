@@ -1,10 +1,6 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import org.antlr.runtime.ANTLRStringStream;
-import org.antlr.runtime.CharStream;
-import org.antlr.runtime.CommonTokenStream;
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.TokenStream;
+import org.antlr.runtime.*;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
@@ -13,7 +9,6 @@ import org.semanticweb.clipper.util.LUBMAnswerFileParser;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import uk.ac.ox.cs.JRDFox.JRDFoxException;
 
 import java.io.File;
 import java.util.HashSet;
@@ -26,7 +21,7 @@ import static org.junit.Assert.assertEquals;
  * TO run the test, put DLV into ~/bin/dlv
  *
  */
-public class LUBMQueryTest {
+public class LUBMQueryWithActivatorsFromR2RMLTest {
 
 	@Test
 	public void query1() throws RecognitionException, OWLOntologyCreationException {
@@ -328,7 +323,7 @@ public class LUBMQueryTest {
 
 	private static void testLUBMQuery(String ontologyFile, String sparqlString, String answerFile, String tmpDatalogFile) throws OWLOntologyCreationException, RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
-		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
+		QAHornSHIQ qaHornSHIQ = new QAHornSHIQWithActivatorsFromMapping("src/test/resources/r2rml/lubm/univ-benchQL.ttl", "src/test/resources/r2rml/lubm/univ-benchQL.owl");
 		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);
 		//ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
