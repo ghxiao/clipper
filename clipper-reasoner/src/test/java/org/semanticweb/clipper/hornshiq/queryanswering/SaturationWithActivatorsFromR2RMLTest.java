@@ -47,7 +47,20 @@ public class SaturationWithActivatorsFromR2RMLTest {
         String ontologyFile = "src/test/resources/r2rml/slegge/subsurface-exploration.owl";
 
         testSaturationWithoutActivators(ontologyFile);
+    }
 
+
+    @Test
+    public void testUOBMSaturationWithActivators() throws Exception {
+        String r2rmlFile = "src/test/resources/r2rml/uobm/univ-bench-dl.ttl";
+        String ontologyFile = "src/test/resources/r2rml/uobm/univ-bench-dl.owl";
+        testSaturationWithActivators(r2rmlFile, ontologyFile);
+    }
+
+    @Test
+    public void testUOBMSaturationWithoutActivators() throws Exception {
+        String ontologyFile = "src/test/resources/r2rml/uobm/univ-bench-dl.owl";
+        testSaturationWithoutActivators(ontologyFile);
     }
 
     private void testSaturationWithActivators(String r2rmlFile, String ontologyFile) throws Exception {

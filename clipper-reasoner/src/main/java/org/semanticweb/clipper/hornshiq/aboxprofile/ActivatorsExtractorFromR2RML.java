@@ -162,7 +162,7 @@ public class ActivatorsExtractorFromR2RML {
             System.out.println("Adding the ontology to the store...");
             store.importOntology(ontology);
             store.applyReasoning();
-            Map<Resource, Set<Resource>> profiles = new HashMap<>();
+            Map<Resource, Set<Resource>> activators = new HashMap<>();
 
             int numberOfRows = 0;
             System.out.println();
@@ -172,22 +172,26 @@ public class ActivatorsExtractorFromR2RML {
             for (long multiplicity = tupleIterator.open(); multiplicity != 0; multiplicity = tupleIterator.advance()) {
                 // We iterate trough the terms of each tuple
                 final Resource individual = tupleIterator.getResource(0);
+
+                if(individual.toString().startsWith("<#"))
+                    continue;
+
                 final Resource concept = tupleIterator.getResource(1);
-                if (!profiles.containsKey(individual)) {
-                    profiles.put(individual, new HashSet<>());
+                if (!activators.containsKey(individual)) {
+                    activators.put(individual, new HashSet<>());
                 }
 
-                profiles.get(individual).add(concept);
+                activators.get(individual).add(concept);
 
             }
             System.out.println("---------------------------------------------------------------------------------------");
 
-            profiles.forEach((k, v) -> System.out.println(k + " -> " + v));
+            activators.forEach((k, v) -> System.out.println(k + " -> " + v));
 
             System.out.println("=======================================================================================");
             System.out.println();
 
-            final HashSet<Set<Resource>> sets = new HashSet<>(profiles.values());
+            final HashSet<Set<Resource>> sets = new HashSet<>(activators.values());
 
             System.out.println("=======================================================================================");
 
