@@ -16,7 +16,7 @@ import it.unical.mat.wrapper.ModelBufferedHandler;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryFactory;
 import org.semanticweb.clipper.QueryAnsweringSystem;
-import org.semanticweb.clipper.hornshiq.aboxprofile.ABoxProfileExtractor;
+import org.semanticweb.clipper.hornshiq.aboxprofile.ProfileExtractorFromABox;
 import org.semanticweb.clipper.hornshiq.aboxprofile.ABoxProfileLoader;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
@@ -43,7 +43,6 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.profiles.OWLProfileReport;
-import uk.ac.ox.cs.JRDFox.JRDFoxException;
 import uk.ac.ox.cs.JRDFox.store.Resource;
 
 import java.io.BufferedWriter;
@@ -801,7 +800,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
         OWLOntology rlTBox = OWLOntologySplitter.extractRLTBox(combinedOntology);
         OWLOntology aBox = OWLOntologySplitter.extractABox(combinedOntology);
 
-        this.aboxProfiles = ABoxProfileExtractor.computeProfiles(rlTBox, aBox);
+        this.aboxProfiles = ProfileExtractorFromABox.computeProfiles(rlTBox, aBox);
 
         ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
         ClipperHornSHIQOntology onto_bs = converter.convert(combinedOntology);
@@ -948,7 +947,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
      */
     public Collection<Set<Integer>> extractActivatorsFromProfiles(String tboxFileName, String aboxFileName, String profilesFileName) throws Exception {
 
-        ABoxProfileExtractor.writeProfilesToFile(tboxFileName, aboxFileName, profilesFileName);
+        ProfileExtractorFromABox.writeProfilesToFile(tboxFileName, aboxFileName, profilesFileName);
 
         return ABoxProfileLoader.getActivatorsFromStoredProfiles(profilesFileName);
     }

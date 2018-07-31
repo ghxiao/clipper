@@ -25,7 +25,7 @@ import java.util.Set;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toSet;
 
-public class ABoxProfileExtractor {
+public class ProfileExtractorFromABox {
 
     public static Collection<Set<Resource>> computeProfiles(String tboxFile, String aboxFile) {
 
@@ -162,7 +162,7 @@ public class ABoxProfileExtractor {
     public static void main(String[] args) throws Exception {
 
         if (args.length != 3) {
-            System.out.println("Usage: ABoxProfileExtractor tbox.owl abox.ttl output.txt");
+            System.out.println("Usage: ProfileExtractorFromABox tbox.owl abox.ttl output.txt");
             System.exit(-1);
         }
 
