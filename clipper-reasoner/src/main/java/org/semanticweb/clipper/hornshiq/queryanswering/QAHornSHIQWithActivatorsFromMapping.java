@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Set;
 
-public class QAHornSHIQWithActivatorsFromMapping extends QAHornSHIQ {
+public class QAHornSHIQWithActivatorsFromMapping extends QAHornSHIQWithActivators {
 
     private final String r2rmlFile;
 
@@ -20,26 +20,6 @@ public class QAHornSHIQWithActivatorsFromMapping extends QAHornSHIQ {
         super(true);
         this.r2rmlFile = r2rmlFile;
         this.tboxFile = tboxFile;
-    }
-
-    @Override
-    public TBoxReasoner saturateTBox() throws Exception {
-
-        Collection<Set<Integer>> initialActivators = extractActivatorsFromProfiles(activators);
-
-        TBoxReasoner tb;
-
-
-        tb = new TBoxReasoner(clipperOntology, initialActivators);
-
-        // ///////////////////////////////////////////////
-        // Evaluate reasoning time
-        long reasoningBegin = System.currentTimeMillis();
-        tb.saturate();
-        long reasoningEnd = System.currentTimeMillis();
-        clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
-        // end of evaluating reasoning time
-        return tb;
     }
 
 
@@ -53,15 +33,6 @@ public class QAHornSHIQWithActivatorsFromMapping extends QAHornSHIQ {
         } catch (InvalidR2RMLMappingException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * todo:lb
-     * This method is used to extract activators from a collection of profiles supplied as a parameter
-     */
-    public Collection<Set<Integer>> extractActivatorsFromProfiles(Collection<Set<Resource>> prmAboxProfiles) throws Exception {
-
-        return ABoxProfileLoader.getActivatorsFromActivatorObjects(prmAboxProfiles);
     }
 
 
