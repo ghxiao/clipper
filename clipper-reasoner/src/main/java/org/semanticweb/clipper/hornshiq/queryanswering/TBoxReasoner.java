@@ -31,7 +31,7 @@ public class TBoxReasoner {
     private Set<ClipperOverAproxPropagation> forwardPropagation;
     private Set<ClipperOverAproxPropagation> backwardPropagation;
 
-    private int saturateIterator=0;
+    private int saturateIterator = 0;
 
     private boolean inconsistent = false; // to check if the ontology is
     // consistent in case of Ontology
@@ -98,7 +98,6 @@ public class TBoxReasoner {
         this.backwardPropagation = new HashSet<>();
 
 
-
         //for each role occuring in the axioms of the form A -> (all) r.B
         //we gather the set of concepts that it forward propagates and
         //those it backpropagates
@@ -122,22 +121,22 @@ public class TBoxReasoner {
             bckProp.setRole(role);
 
             for (ClipperAtomSubAllAxiom ax : ontology.getAtomSubAllAxioms()) {
-                boolean axRoleInverse=false;
-                int propagatedConcept=ax.getConcept2();
+                boolean axRoleInverse = false;
+                int propagatedConcept = ax.getConcept2();
 
                 if (role % 2 == 1)
-                    axRoleInverse=true;
+                    axRoleInverse = true;
 
                 //get only the atomic role
-                int axRole=BitSetUtilOpt.getRolename(ax.getRole());
+                int axRole = BitSetUtilOpt.getRolename(ax.getRole());
 
                 //if the roles do not match continue to next iteration
-                if (role!=axRole)
+                if (role != axRole)
                     continue;
 
                 if (axRoleInverse) {
                     bckProp.getConcepts().add(propagatedConcept);
-                }else {
+                } else {
                     fwdProp.getConcepts().add(propagatedConcept);
                 }
             }
@@ -157,13 +156,13 @@ public class TBoxReasoner {
     }
 
     public TBoxReasoner(ClipperHornSHIQOntology ont_bs) {
-        this.withAxiomActivators=false;
+        this.withAxiomActivators = false;
 
         initOntology(ont_bs);
     }
 
     public TBoxReasoner(ClipperHornSHIQOntology ont_bs, Collection<Set<Integer>> initAxiomActivators) {
-        this.withAxiomActivators=true;
+        this.withAxiomActivators = true;
         initOntology(ont_bs);
         initAxiomActivators(initAxiomActivators);
     }
@@ -286,8 +285,8 @@ public class TBoxReasoner {
 
                 //todo:we check here if there exists some activator that would fire the axiom
                 //todo: check code
-                TIntHashSet head = new TIntHashSet(new_imp.getHead());
-                if (withAxiomActivators && !axiomApplicable(head))
+                //TIntHashSet head = new TIntHashSet(new_imp.getHead());
+                if (withAxiomActivators && !axiomApplicable(new_imp.getBody()))
                     continue;
 
                 if (impContainer.add(new_imp)) {
@@ -521,8 +520,10 @@ public class TBoxReasoner {
 
 
                 //todo:we check here if there exists some activator that would fire the axiom
-                if (withAxiomActivators && !axiomApplicable(newEnf.getType1()))
+                if (withAxiomActivators && !axiomApplicable(newEnf.getType1())) {
+                    System.err.println("Activator helps!");
                     continue;
+                }
 
 
                 if (this.enfContainer.add(newEnf)) {
@@ -664,16 +665,14 @@ public class TBoxReasoner {
                     if (!tuple1.equals(tuple2)
                             && tuple1.getType2().containsAll(tuple2.getType1())) {
                         for (int i : tuple2.getType2().toArray()) {
-                            TIntHashSet body = new TIntHashSet(
-                                    tuple1.getType1());
+                            TIntHashSet body = new TIntHashSet(tuple1.getType1());
                             body.add(ax.getConcept2());
-                            HornImplication new_imp = new HornImplication(body,
-                                    i);
+                            HornImplication new_imp = new HornImplication(body, i);
 
                             //todo:we check here if there exists some activator that would fire the axiom
                             //todo: check code
-                            TIntHashSet head = new TIntHashSet(new_imp.getHead());
-                            if (withAxiomActivators && !axiomApplicable(head))
+                            //TIntHashSet head = new TIntHashSet(new_imp.getHead());
+                            if (withAxiomActivators && !axiomApplicable(body))
                                 continue;
 
                             if (this.impContainer.add(new_imp)) {
@@ -729,7 +728,7 @@ public class TBoxReasoner {
         Set<HornImplication> copyOfImps = cloneOfImps(this.impContainer
                 .getImps());
 
-        if(withAxiomActivators)
+        if (withAxiomActivators)
             saturateActivators();//we saturate activators
 
         // Apply all rule for the first time, in next times, we only run rule
@@ -760,8 +759,9 @@ public class TBoxReasoner {
 
         // Apply rule only in newEnfs and newImps
         boolean update = true;
+        int counter = 0;
         while (update && !inconsistent) {
-            if(withAxiomActivators)
+            if (withAxiomActivators)
                 saturateActivators();//we saturate the activators
 
             Set<EnforcedRelation> copyOfNewEnfs = cloneOfEnfs(newEnfs); // \Delta_{enf}
@@ -793,6 +793,16 @@ public class TBoxReasoner {
             // FIXME: not semi-naive style
             update |= atMostRule_ParentChildCollapsed();
 
+            if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+                System.out.println("Iteration " + counter);
+                System.out.println(" IMP size: " + enfContainer.getEnfs().size());
+                System.out.println(" ENF size: " + impContainer.getImps().size());
+                System.out.println(" ABoxType size: " + this.aboxTypes.size());
+                System.out.println(" Max1 Axiom:" + this.maxOneCardinalityAxioms);
+                System.out.println(" Sub roles:" + this.subObjectPropertyAxioms);
+                System.out.println(" Inverse:" + this.inverseRoleAxioms);
+                System.out.println(" Activators: " + this.axiomActivators.size());
+            }
         }
         if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
             System.out.println("End of reasoning");
@@ -811,12 +821,12 @@ public class TBoxReasoner {
      * 2- it applies all TBox axioms (enf and imp) to un-processed activators
      */
     private void saturateActivators() {
-        boolean saturated=false;
+        boolean saturated = false;
 
-        while(!saturated) {
-            saturated=true;
+        while (!saturated) {
+            saturated = true;
             System.out.println("calling Saturate Activators");
-            saturated=saturated && !saturateActivatorsWithDeltaTBox();
+            saturated = saturated && !saturateActivatorsWithDeltaTBox();
             saturateActivatorsWithTBox();
             saturateIterator++;
             System.out.println("No of Activators after " + saturateIterator + " iteration:" + this.axiomActivators.size());
@@ -834,15 +844,15 @@ public class TBoxReasoner {
      * and the newly created ones
      */
     private boolean saturateActivatorsWithDeltaTBox() {
-        boolean updated=false;
+        boolean updated = false;
 
         for (ClipperAxiomActivator act : axiomActivators) {
             for (EnforcedRelation enf : newEnfs) {
-                updated=applyEnfToActivator(act, enf)||updated;//and update it's status to unstable
+                updated = applyEnfToActivator(act, enf) || updated;//and update it's status to unstable
             }
 
             for (HornImplication imp : newImps) {
-                updated=applyImpToActivator(act, imp)||updated;
+                updated = applyImpToActivator(act, imp) || updated;
             }
         }
 
@@ -916,9 +926,9 @@ public class TBoxReasoner {
     }
 
     /* OLD implementation
-    * If the application of an axiom alters the current activator or creates a new one
-    * then it returns true
-    * */
+     * If the application of an axiom alters the current activator or creates a new one
+     * then it returns true
+     * */
     public boolean old_applyEnfToActivator(ClipperAxiomActivator act, EnforcedRelation enf) {
         boolean changed = false;
         boolean found = false;//indicates a proper activator is already present
@@ -937,7 +947,7 @@ public class TBoxReasoner {
         if (act.getConcepts().containsAll(enf.getType1())) {
 
             //get all concepts that are propagated to the parent activator (with over aproximation)
-            TIntHashSet propagatedToParent= new TIntHashSet();
+            TIntHashSet propagatedToParent = new TIntHashSet();
             for (ClipperOverAproxPropagation prop : backwardPropagation) {
                 int Role = prop.getRole();
 
@@ -969,7 +979,7 @@ public class TBoxReasoner {
             TIntHashSet propagatedToChild = new TIntHashSet();
             propagatedToChild.addAll(enf.getType2());
             for (ClipperOverAproxPropagation prop : forwardPropagation) {
-                int Role=prop.getRole();
+                int Role = prop.getRole();
 
                 if (enf.getRoles().contains(Role))
                     propagatedToChild.addAll(prop.getConcepts());
@@ -1013,7 +1023,7 @@ public class TBoxReasoner {
 
 
         //check if the enforced relation is activated by the activator
-        if(act.getConcepts().containsAll(enf.getType1())) {
+        if (act.getConcepts().containsAll(enf.getType1())) {
 
             //now check if a proper activator allready exists for the successor
             for (ClipperAxiomActivator curr : this.axiomActivators) {
@@ -1025,7 +1035,7 @@ public class TBoxReasoner {
             /*
             if no proper activator is found, then create a new one and add
             it to the list of activators.*/
-            if(!found){
+            if (!found) {
                 axiomActivators.add(new ClipperAxiomActivator(enf.getType2()));
                 changed = true;
             }
@@ -1053,8 +1063,13 @@ public class TBoxReasoner {
       if there is some A in AxiomActivators s.t. LHS subseteq A*/
     private boolean axiomApplicable(TIntHashSet lhs) {
 
-        return axiomActivators.stream()
+        boolean b = axiomActivators.stream()
                 .anyMatch(act -> act.getConcepts().containsAll(lhs));
+
+        if (!b) {
+            System.err.println("Activator helps!");
+        }
+        return b;
 
 //        boolean applicable = false;
 //
@@ -1068,7 +1083,7 @@ public class TBoxReasoner {
 //        return applicable;
     }
 
-    
+
     private void mergeWithActivators(Set<ClipperAxiomActivator> newAxiomActivators) {
         //add the new activators to the set
         axiomActivators.addAll(cloneOfActivators(newAxiomActivators));

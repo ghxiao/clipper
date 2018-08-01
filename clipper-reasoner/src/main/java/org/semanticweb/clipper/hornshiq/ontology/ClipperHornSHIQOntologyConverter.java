@@ -80,7 +80,13 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitor {
 
 				boolean normalized = true;
 				for (OWLClassExpression op : operands) {
-					left.add(km.getOwlClassEncoder().getValueBySymbol((OWLClass) op));
+					if(op instanceof OWLClass){
+						left.add(km.getOwlClassEncoder().getValueBySymbol((OWLClass) op));
+					} else {
+						System.err.println("ignore complex concept in lhs: " + op);
+						// HACKY!
+					}
+
 				}
 				ontology.getAndSubAtomAxioms().add(new ClipperAndSubAtomAxiom(left, right));
 
@@ -338,9 +344,20 @@ public class ClipperHornSHIQOntologyConverter implements OWLAxiomVisitor {
 
 	@Override
 	public void visit(OWLClassAssertionAxiom axiom) {
-		int cls = km.getOwlClassEncoder().getValueBySymbol((OWLClass) axiom.getClassExpression());
-		int ind = km.getOwlIndividualAndLiteralEncoder().getValueBySymbol(axiom.getIndividual());
-		ontology.getConceptAssertionAxioms().add(new ClipperConceptAssertionAxiom(cls, ind));
+		OWLClassExpression classExpression = axiom.getClassExpression();
+
+		if(classExpression instanceof OWLClass){
+			int cls = km.getOwlClassEncoder().getValueBySymbol((OWLClass) classExpression);
+			int ind = km.getOwlIndividualAndLiteralEncoder().getValueBySymbol(axiom.getIndividual());
+			ontology.getConceptAssertionAxioms().add(new ClipperConceptAssertionAxiom(cls, ind));
+		}
+		else{
+			// nothing
+			// HACKY!
+			System.err.println("ignore complex Abox assertion: " + classExpression);
+
+		}
+
 	}
 
 	@Override
