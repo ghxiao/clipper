@@ -857,11 +857,11 @@ public class TBoxReasoner {
         }
 
 //        todo: check: this part has been moved inside the method applyEnfToActivator
-//        if (newAxiomActivators.size() > 0)
-//            mergeWithActivators(newAxiomActivators);
-//
-//        //now clear the newAxiomActivator container
-//        newAxiomActivators.clear();
+       if (newAxiomActivators.size() > 0)
+            mergeWithActivators(newAxiomActivators);
+
+        //now clear the newAxiomActivator container
+        newAxiomActivators.clear();
 
         return updated;
     }
@@ -918,10 +918,12 @@ public class TBoxReasoner {
                 }
             }
 
-            //todo check:this part has been moved inside the method applyEnftoActivator
-//            if (newAxiomActivators.size() > 0) {
-//                mergeWithActivators(newAxiomActivators);
-//            }
+//        todo: check: this part has been moved inside the method applyEnfToActivator
+            if (newAxiomActivators.size() > 0)
+                mergeWithActivators(newAxiomActivators);
+
+            //now clear the newAxiomActivator container
+            newAxiomActivators.clear();
         }
     }
 
@@ -1036,7 +1038,8 @@ public class TBoxReasoner {
             if no proper activator is found, then create a new one and add
             it to the list of activators.*/
             if (!found) {
-                axiomActivators.add(new ClipperAxiomActivator(enf.getType2()));
+                //now clear the newAxiomActivator container
+                newAxiomActivators.add(new ClipperAxiomActivator(enf.getType2()));
                 changed = true;
             }
         }
