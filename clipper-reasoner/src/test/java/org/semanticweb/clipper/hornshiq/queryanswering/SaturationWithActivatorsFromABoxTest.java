@@ -34,6 +34,18 @@ public class SaturationWithActivatorsFromABoxTest {
         testSaturationWithoutActivators(ontologyFile);
     }
 
+    @Test
+    public void testSaturationWithActivators() throws Exception {
+        String ontologyFile = "src/test/resources/ontologies/oxford-isg/00001.owl";
+        testSaturationWithActivators(ontologyFile);
+    }
+
+    @Test
+    public void testSaturationWithoutActivators() throws Exception {
+        String ontologyFile = "src/test/resources/ontologies/oxford-isg/00001.owl";
+        testSaturationWithoutActivators(ontologyFile);
+    }
+
 
     private void testSaturationWithActivators(String ontologyFile) throws Exception {
         System.setProperty("entityExpansionLimit", "512000");

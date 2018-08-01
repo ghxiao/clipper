@@ -353,7 +353,8 @@ public class HornSHIQNormalizer implements OWLAxiomVisitor {
 
 	@Override
 	public void visit(OWLAsymmetricObjectPropertyAxiom axiom) {
-		throw new IllegalArgumentException(axiom.toString());
+//		throw new IllegalArgumentException(axiom.toString());
+        // DO NOTHING
 	}
 
 	@Override
@@ -410,7 +411,8 @@ public class HornSHIQNormalizer implements OWLAxiomVisitor {
 
 	@Override
 	public void visit(OWLDifferentIndividualsAxiom axiom) {
-		throw new IllegalArgumentException(axiom.toString());
+		// DO NOTHING
+		//throw new IllegalArgumentException(axiom.toString());
 	}
 
 	@Override
