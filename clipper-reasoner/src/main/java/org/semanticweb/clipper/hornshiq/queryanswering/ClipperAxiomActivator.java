@@ -14,7 +14,7 @@ public class ClipperAxiomActivator {
     //todo: add two different set of roles (incoming and outgoing)
     //todo: add a proper indexed set for roles (with an indicator of inverse)
     private TIntHashSet concepts;
-    private boolean unstable;
+    private boolean updated;
     private HashSet<TIntHashSet> processedRoles;//qued roles (to be applied later)
     private HashSet<TIntHashSet> quedRoles;//qued roles (to be applied later)
 
@@ -27,7 +27,7 @@ public class ClipperAxiomActivator {
 
         //add top to each activator
         this.concepts.add(ClipperManager.getInstance().getThing());
-        this.unstable = true;
+        this.updated = true;
     }
 
     public ClipperAxiomActivator(TIntHashSet concepts) {
@@ -35,13 +35,13 @@ public class ClipperAxiomActivator {
         this.concepts.addAll(concepts);
         //add top to each activator
         this.concepts.add(ClipperManager.getInstance().getThing());
-        this.unstable = true;
+        this.updated = true;
     }
 
     // constructor to get a clone of an EnforcedRelation
     public ClipperAxiomActivator(ClipperAxiomActivator clonedAct) {
         this.concepts = new TIntHashSet(clonedAct.getConcepts());
-        this.unstable = clonedAct.isUnstable();
+        this.updated = clonedAct.isUpdated();
     }
 
 
@@ -55,20 +55,20 @@ public class ClipperAxiomActivator {
 
     public void addConcept(int conc) {
         this.concepts.add(conc);
-        this.unstable = true;
+        this.updated = true;
     }
 
-    public boolean isUnstable() {
-        return this.unstable;
+    public boolean isUpdated() {
+        return this.updated;
     }
 
-    public void setUnstable(boolean unstable) {
-        this.unstable = unstable;
+    public void setUpdated(boolean updated) {
+        this.updated = updated;
     }
 
     public void addQuedRole(TIntHashSet role) {
         this.quedRoles.add(role);
-        this.unstable = true;
+        this.updated = true;
     }
 
     /*Caller: Is called after processing the roles in the que

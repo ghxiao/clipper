@@ -90,7 +90,6 @@ public class TBoxReasoner {
         newImps = new HashSet<>();
         propagateConcepts(ont_bs);
 
-
     }
 
     private void propagateConcepts(ClipperHornSHIQOntology ontology) {
@@ -148,7 +147,7 @@ public class TBoxReasoner {
         }
     }
 
-    private void initAxiomEnablers(Collection<Set<Integer>> initAxiomActivators) {
+    private void initAxiomActivators(Collection<Set<Integer>> initAxiomActivators) {
         this.newAxiomActivators = new HashSet<>();
 
         this.axiomActivators = initAxiomActivators
@@ -166,7 +165,7 @@ public class TBoxReasoner {
     public TBoxReasoner(ClipperHornSHIQOntology ont_bs, Collection<Set<Integer>> initAxiomActivators) {
         this.withAxiomActivators=true;
         initOntology(ont_bs);
-        initAxiomEnablers(initAxiomActivators);
+        initAxiomActivators(initAxiomActivators);
     }
 
     // setters and getters
@@ -214,7 +213,6 @@ public class TBoxReasoner {
         }
         return clonedSet;
     }
-
 
     /**
      * @param enfs
@@ -282,8 +280,16 @@ public class TBoxReasoner {
         for (EnforcedRelation tuple : enfs) {
             if (tuple.getType2().contains(
                     ClipperManager.getInstance().getNothing())) {
+
                 HornImplication new_imp = new HornImplication(tuple.getType1(),
                         ClipperManager.getInstance().getNothing());
+
+                //todo:we check here if there exists some activator that would fire the axiom
+                //todo: check code
+                TIntHashSet head = new TIntHashSet(new_imp.getHead());
+                if (withAxiomActivators && !axiomApplicable(head))
+                    continue;
+
                 if (impContainer.add(new_imp)) {
                     newImps.add(new_imp);
                     modifiedIMPS = true;
@@ -308,6 +314,12 @@ public class TBoxReasoner {
                 if (tuple.getRoles().contains(r)
                         && !tuple.getRoles().contains(s)) {
                     EnforcedRelation newTuple = new EnforcedRelation(tuple);
+
+                    //todo:we check here if there exists some activator that would fire the axiom
+                    //todo: check code
+                    if (withAxiomActivators && !axiomApplicable(newTuple.getType1()))
+                        continue;
+
                     newTuple.getRoles().add(s);
                     if (enfContainer.add(newTuple)) {
                         enfContainer.remove(tuple);
@@ -417,6 +429,12 @@ public class TBoxReasoner {
                     .matchType2(imp.getBody());
             for (EnforcedRelation enf : matchedEnfs) {
                 if (!enf.getType2().contains(imp.getHead())) {
+
+                    //todo:we check here if there exists some activator that would fire the axiom
+                    //todo: check code
+                    if (withAxiomActivators && !axiomApplicable(enf.getType1()))
+                        continue;
+
                     EnforcedRelation newEnf = new EnforcedRelation(enf);
                     newEnf.getType2().add(imp.getHead());
                     if (this.enfContainer.add(newEnf)) {
@@ -604,6 +622,11 @@ public class TBoxReasoner {
                         T2.addAll(tuple2.getType2());
                         EnforcedRelation enf = new EnforcedRelation(T1, R, T2);
 
+                        //todo:we check here if there exists some activator that would fire the axiom
+                        //todo: check code
+                        if (withAxiomActivators && !axiomApplicable(enf.getType1()))
+                            continue;
+
                         if (this.enfContainer.add(enf)) {
                             newEnfs.add(new EnforcedRelation(enf));
                             update = true;
@@ -646,6 +669,13 @@ public class TBoxReasoner {
                             body.add(ax.getConcept2());
                             HornImplication new_imp = new HornImplication(body,
                                     i);
+
+                            //todo:we check here if there exists some activator that would fire the axiom
+                            //todo: check code
+                            TIntHashSet head = new TIntHashSet(new_imp.getHead());
+                            if (withAxiomActivators && !axiomApplicable(head))
+                                continue;
+
                             if (this.impContainer.add(new_imp)) {
                                 newImps.add(new HornImplication(new_imp));
                                 update = true;
@@ -662,6 +692,12 @@ public class TBoxReasoner {
 
                         EnforcedRelation new_enf = new EnforcedRelation(T1, R,
                                 tuple1.getType2());
+
+                        //todo:we check here if there exists some activator that would fire the axiom
+                        //todo: check code
+                        if (withAxiomActivators && !axiomApplicable(new_enf.getType1()))
+                            continue;
+
                         if (this.enfContainer.add(new_enf)) {
                             newEnfs.add(new EnforcedRelation(new_enf));
                             update = true;
@@ -780,7 +816,7 @@ public class TBoxReasoner {
         while(!saturated) {
             saturated=true;
             System.out.println("calling Saturate Activators");
-            saturated=saturated && !applyNewInferredAxiomsToActivators();
+            saturated=saturated && !saturateActivatorsWithDeltaTBox();
             saturateActivatorsWithTBox();
             saturateIterator++;
             System.out.println("No of Activators after " + saturateIterator + " iteration:" + this.axiomActivators.size());
@@ -797,27 +833,27 @@ public class TBoxReasoner {
      * @consequences 1- leaves the affected AxiomActivators in unstable condition
      * and the newly created ones
      */
-    private boolean applyNewInferredAxiomsToActivators() {
-        boolean changed=false;
+    private boolean saturateActivatorsWithDeltaTBox() {
+        boolean updated=false;
 
         for (ClipperAxiomActivator act : axiomActivators) {
             for (EnforcedRelation enf : newEnfs) {
-                changed=applyEnfToActivator(act, enf)||changed;//and update it's status to unstable
+                updated=applyEnfToActivator(act, enf)||updated;//and update it's status to unstable
             }
 
             for (HornImplication imp : newImps) {
-                changed=applyImpToActivator(act, imp)||changed;
+                updated=applyImpToActivator(act, imp)||updated;
             }
         }
 
-        //if there are new activators infered, add them to the list
-        if (newAxiomActivators.size() > 0)
-            mergeWithActivators(newAxiomActivators);
+//        todo: check: this part has been moved inside the method applyEnfToActivator
+//        if (newAxiomActivators.size() > 0)
+//            mergeWithActivators(newAxiomActivators);
+//
+//        //now clear the newAxiomActivator container
+//        newAxiomActivators.clear();
 
-        //now clear the newAxiomActivator container
-        newAxiomActivators.clear();
-
-        return changed;
+        return updated;
     }
 
     /**
@@ -833,56 +869,57 @@ public class TBoxReasoner {
      */
     private void saturateActivatorsWithTBox() {
 
-        boolean changed = true;
-        while (changed) {
-            changed = false;//the condition that controls the saturation criteria
+        boolean updated = true;
+        while (updated) {
+            updated = false;//the condition that controls the saturation criteria
             for (ClipperAxiomActivator act : axiomActivators) {
                 //if the activator is stable than skip
-                if (!act.isUnstable())
+                if (!act.isUpdated())
                     continue;
 
-                act.setUnstable(false); //set the status to stable
+                act.setUpdated(false); //set the status to stable
 
                 //apply old enforced relations
                 for (EnforcedRelation enf : enfContainer) {
                     //if any change incurs from applying the rule, then we set the flag change to true
                     //to force the iteration
-                    changed |= applyEnfToActivator(act, enf);//and update it's status to unstable
+                    updated |= applyEnfToActivator(act, enf);//and update it's status to unstable
                 }
 
                 //apply newly enforced relations
                 for (EnforcedRelation enf : newEnfs) {
                     //if any change incurs from applying the rule, then we set the flag change to true
                     //to force the iteration
-                    changed |= applyEnfToActivator(act, enf);//and update it's status to unstable
+                    updated |= applyEnfToActivator(act, enf);//and update it's status to unstable
                 }
 
                 //apply old implied relations
                 for (HornImplication imp : impContainer) {
                     //if any new concept is added to the activator from applying the rule,
                     // then we set the flag change to true to force the iteration
-                    changed |= applyImpToActivator(act, imp);
+                    updated |= applyImpToActivator(act, imp);
                 }
 
                 //apply newly implied relations
                 for (HornImplication imp : newImps) {
                     //if any new concept is added to the activator from applying the rule,
                     // then we set the flag change to true to force the iteration
-                    changed |= applyImpToActivator(act, imp);
+                    updated |= applyImpToActivator(act, imp);
                 }
             }
 
-            if (newAxiomActivators.size() > 0) {
-                mergeWithActivators(newAxiomActivators);
-            }
+            //todo check:this part has been moved inside the method applyEnftoActivator
+//            if (newAxiomActivators.size() > 0) {
+//                mergeWithActivators(newAxiomActivators);
+//            }
         }
     }
 
-    /*
+    /* OLD implementation
     * If the application of an axiom alters the current activator or creates a new one
-    * then it returns yes
+    * then it returns true
     * */
-    public boolean applyEnfToActivator(ClipperAxiomActivator act, EnforcedRelation enf) {
+    public boolean old_applyEnfToActivator(ClipperAxiomActivator act, EnforcedRelation enf) {
         boolean changed = false;
         boolean found = false;//indicates a proper activator is already present
 
@@ -923,7 +960,7 @@ public class TBoxReasoner {
             //and set the status of the activator to unstable and the changed flag to true
             if (!act.getConcepts().containsAll(propagatedToParent)) {
                 act.getConcepts().addAll(propagatedToParent);
-                act.setUnstable(true);
+                act.setUpdated(true);
                 changed = true;
             }
 
@@ -965,20 +1002,48 @@ public class TBoxReasoner {
         return changed;
     }
 
-    /*
-    * If the application of an axiom alters the current activator or creates a new one
-    * then it returns yes
-    * */
-    private boolean applyImpToActivator(ClipperAxiomActivator act, HornImplication imp) {
+
+    /* Checks if the given existential axiom enf is activator by the provided Activator act.
+       In case the axiom is activated and it results in creating a new activator, the
+       created activator is added to the set. The method returns the indicator if
+       a new activator has been added or not. */
+    public boolean applyEnfToActivator(ClipperAxiomActivator act, EnforcedRelation enf) {
         boolean changed = false;
-        //if the implication rule is applicable to the activator
-        //   and some new concept is added to the activator
-        //   then update activators status to unstable
-        //        and set the return flag to true(there is change in the set of Activators)
+        boolean found = false;//indicates a proper activator is already present
+
+
+        //check if the enforced relation is activated by the activator
+        if(act.getConcepts().containsAll(enf.getType1())) {
+
+            //now check if a proper activator allready exists for the successor
+            for (ClipperAxiomActivator curr : this.axiomActivators) {
+                if (curr.getConcepts().containsAll(enf.getType2())) {
+                    found = true;
+                    break;
+                }
+            }
+            /*
+            if no proper activator is found, then create a new one and add
+            it to the list of activators.*/
+            if(!found){
+                axiomActivators.add(new ClipperAxiomActivator(enf.getType2()));
+                changed = true;
+            }
+        }
+
+        return changed;
+    }
+
+    /* Alpha^{*} Closes an activator under implication rules (det axioms A->B).
+     * If the activator is updated (i.e. new concepts are added), it sets
+     * the update status of an activator to true and returns the flag changed as true,
+     * otherwise false*/
+    public boolean applyImpToActivator(ClipperAxiomActivator act, HornImplication imp) {
+        boolean changed = false;
         if (act.getConcepts().containsAll(imp.getBody())
                 && !act.getConcepts().contains(imp.getHead())) {
             act.getConcepts().add(imp.getHead());
-            act.setUnstable(true);
+            act.setUpdated(true);
             changed = true;
         }
         return changed;
@@ -1003,6 +1068,7 @@ public class TBoxReasoner {
 //        return applicable;
     }
 
+    
     private void mergeWithActivators(Set<ClipperAxiomActivator> newAxiomActivators) {
         //add the new activators to the set
         axiomActivators.addAll(cloneOfActivators(newAxiomActivators));
