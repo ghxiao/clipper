@@ -85,7 +85,7 @@ public class ProfileExtractorFromR2RMLTest {
     public void testSleggeActivators() throws FileNotFoundException, InvalidR2RMLMappingException {
         final Map<String, MappingProfile> mappingProfileMap = ActivatorsExtractorFromR2RML.computeActivators("src/test/resources/r2rml/slegge/slegge.r2rml");
 
-        report("Slegge",mappingProfileMap);
+        report("slegge",mappingProfileMap);
     }
 
     @Test

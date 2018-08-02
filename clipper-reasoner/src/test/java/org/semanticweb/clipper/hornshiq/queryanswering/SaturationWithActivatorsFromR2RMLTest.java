@@ -23,14 +23,15 @@ public class SaturationWithActivatorsFromR2RMLTest {
     @Test
     public void testNPDSaturationWithActivators() throws Exception {
         String r2rmlFile = "src/test/resources/r2rml/npd/npd-v2-ql-postgres-ontop3.0.ttl";
-        String ontologyFile = "src/test/resources/r2rml/npd/npd-v2-ql.owl";
+        //String ontologyFile = "src/test/resources/r2rml/npd/npd-v2-ql.owl";
+        String ontologyFile = "src/test/resources/r2rml/npd/npd-main-complete.rdf.owl";
         testSaturationWithActivators(r2rmlFile, ontologyFile);
     }
 
     @Test
     public void testNPDSaturationWithoutActivators() throws Exception {
-        String ontologyFile = "src/test/resources/r2rml/npd/npd-v2-ql.owl";
-
+        //String ontologyFile = "src/test/resources/r2rml/npd/npd-v2-ql.owl";
+        String ontologyFile = "src/test/resources/r2rml/npd/npd-main-complete.rdf.owl";
         testSaturationWithoutActivators(ontologyFile);
 
     }
@@ -45,7 +46,6 @@ public class SaturationWithActivatorsFromR2RMLTest {
     @Test
     public void testSleggeSaturationWithoutActivators() throws Exception {
         String ontologyFile = "src/test/resources/r2rml/slegge/subsurface-exploration.owl";
-
         testSaturationWithoutActivators(ontologyFile);
     }
 

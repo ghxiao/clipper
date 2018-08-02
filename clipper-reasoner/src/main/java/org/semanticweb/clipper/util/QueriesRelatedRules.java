@@ -2,11 +2,7 @@ package org.semanticweb.clipper.util;
 
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubAllAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperAtomSubMaxOneAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperInversePropertyOfAxiom;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperSubPropertyAxiom;
+import org.semanticweb.clipper.hornshiq.ontology.*;
 import org.semanticweb.clipper.hornshiq.queryanswering.CQFormatter;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
 import org.semanticweb.clipper.hornshiq.queryanswering.EnforcedRelation;
@@ -19,6 +15,7 @@ import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
 import org.semanticweb.clipper.hornshiq.rule.Predicate;
 
+import java.io.PrintStream;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -26,7 +23,7 @@ import java.util.Set;
 
 /**
  * @author kien
- * 
+ *
  */
 public class QueriesRelatedRules {
 	private IndexedHornImpContainer indexImps;
@@ -38,6 +35,7 @@ public class QueriesRelatedRules {
 	private List<ClipperSubPropertyAxiom> subObjectPropertyAxioms;
 	private List<ClipperInversePropertyOfAxiom> inverseObjectPropertyAxioms;
 	private List<ClipperAtomSubMaxOneAxiom> maxOneCardinalityAxioms;
+	private List<ClipperTransitivityAxiom> transAxioms;
 
 	private Set<CQ> ucq;
 
@@ -59,6 +57,7 @@ public class QueriesRelatedRules {
 		subObjectPropertyAxioms = ont_bs.getSubPropertyAxioms();
 		inverseObjectPropertyAxioms = ont_bs.getInversePropertyOfAxioms();
 		subObjectPropertyAxioms = ont_bs.getSubPropertyAxioms();
+		transAxioms = ont_bs.getTransitivityAxioms();
 
 		ucq = rewrittenUcq;
 		ucqRelatedDatalogRules = new HashSet<Rule>();
@@ -201,6 +200,30 @@ public class QueriesRelatedRules {
 		return updated;
 	}
 
+	private void rulesFromTransitiveAxioms(PrintStream program) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+			System.out.println("%Rules From Transitive Assertions");
+		}
+		for (ClipperTransitivityAxiom a : transAxioms) {
+
+			int ir = a.getRole();
+
+			Rule rule = new Rule();
+			rule.setHead(cqFormatter.getBinaryAtomWithoutInverse(ir, "X", "Z"));
+			rule.addAtomToBody(cqFormatter.getBinaryAtomWithoutInverse(ir, "X", "Y"));
+			rule.addAtomToBody(cqFormatter.getBinaryAtomWithoutInverse(ir, "Y", "Z"));
+
+			if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+				System.out.println(rule);
+			}
+
+			program.println(rule);
+
+		}
+
+	}
+
+
 	// subclassOf( A, R only C)
 	public boolean rulesFromValueRestrictions() {
 		boolean updated = false;
@@ -238,7 +261,7 @@ public class QueriesRelatedRules {
 
 	/*
 	 * Delaing with rule generated from axion of type: SubRole (sup, super)
-	 * 
+	 *
 	 * @return true if there is an update
 	 */
 	public boolean rulesFromRoleInclusions() {
@@ -279,7 +302,7 @@ public class QueriesRelatedRules {
 
 	/**
 	 * InverseRole(r1, r2)
-	 * 
+	 *
 	 * @return true if there is a update in ucqRelatedBodyPredicates
 	 */
 	public boolean rulesFromInverseRoleAxioms() {

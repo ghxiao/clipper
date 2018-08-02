@@ -16,8 +16,6 @@ import it.unical.mat.wrapper.ModelBufferedHandler;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryFactory;
 import org.semanticweb.clipper.QueryAnsweringSystem;
-import org.semanticweb.clipper.hornshiq.aboxprofile.ProfileExtractorFromABox;
-import org.semanticweb.clipper.hornshiq.aboxprofile.ABoxProfileLoader;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntologyConverter;
@@ -60,7 +58,7 @@ import java.util.Set;
 
 public class QAHornSHIQ implements QueryAnsweringSystem {
 
-    private boolean withActivatorOptimization;
+    private final boolean withActivatorOptimization;
 
     private String datalogFileName;
     private String ontologyName;
@@ -88,7 +86,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
     private CQFormatter cqFormatter;
     private NamingStrategy namingStrategy;
-    protected OWLOntology combinedOntology;
+    protected OWLOntology combinedNormalizedOntology;
     protected Collection<Set<Resource>> activators;
 
 
@@ -428,6 +426,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
     /**
      * @return Datalog program contains: rewritten queries, related rules
      */
+    // TODO: refactor, redundant/inconsistent code
     public void getQueriesAndRelatedRulesDataLog() {
 
         if (this.ontologyName == null || this.datalogFileName == null) {
@@ -489,6 +488,9 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
                         tb.getAllValuesFromAxioms());
                 // QueryRewriting qr = new QueryRewriting(tb.getEnfContainer(),
                 // tb.getInverseRoleAxioms(), tb.getAllValuesFromAxioms());
+
+
+                //QueryRewriter qr = createQueryRewriter(onto_bs, tb);
 
                 if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
                     System.out.println("%Enforces relations:");
@@ -774,9 +776,9 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
     public void preprocessOntologies() {
         long startNormalizationTime = System.currentTimeMillis();
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-        combinedOntology = null;
+        combinedNormalizedOntology = null;
         try {
-            combinedOntology = manager.createOntology();
+            combinedNormalizedOntology = manager.createOntology();
         } catch (OWLOntologyCreationException e) {
             e.printStackTrace();
         }
@@ -784,14 +786,14 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
         for (OWLOntology ontology : ontologies) {
             for (OWLOntology ontologyInImportsClosure : ontology.getImportsClosure()) {
                 OWLOntology normalizedOntology = normalize(ontologyInImportsClosure);
-                manager.addAxioms(combinedOntology, normalizedOntology.getAxioms());
+                manager.addAxioms(combinedNormalizedOntology, normalizedOntology.getAxioms());
             }
         }
 
         initializeActivators();
 
         ClipperHornSHIQOntologyConverter converter = new ClipperHornSHIQOntologyConverter();
-        ClipperHornSHIQOntology onto_bs = converter.convert(combinedOntology);
+        ClipperHornSHIQOntology onto_bs = converter.convert(combinedNormalizedOntology);
 
         this.clipperOntology = onto_bs;
 
@@ -850,9 +852,9 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
         Set<OWLAxiom> owlAxioms = exporter.export(tb.getEnfContainer());
 
-        Set<OWLLogicalAxiom> normalizedAxioms = combinedOntology.getLogicalAxioms();
+        Set<OWLLogicalAxiom> normalizedAxioms = combinedNormalizedOntology.getLogicalAxioms();
 
-        Set<OWLDeclarationAxiom> declarationAxioms = combinedOntology.getAxioms(AxiomType.DECLARATION);
+        Set<OWLDeclarationAxiom> declarationAxioms = combinedNormalizedOntology.getAxioms(AxiomType.DECLARATION);
 
         owlAxioms.addAll(normalizedAxioms);
         owlAxioms.addAll(declarationAxioms);

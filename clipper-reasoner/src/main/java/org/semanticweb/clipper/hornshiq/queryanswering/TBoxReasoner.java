@@ -26,10 +26,10 @@ public class TBoxReasoner {
 
     private final boolean withAxiomActivators;
 
-    private Set<ClipperAxiomActivator> axiomActivators;
-    private Set<ClipperAxiomActivator> newAxiomActivators;
-    private Set<ClipperOverAproxPropagation> forwardPropagation;
-    private Set<ClipperOverAproxPropagation> backwardPropagation;
+    private Set<ClipperAxiomActivator> axiomActivators = new HashSet<>();
+    private Set<ClipperAxiomActivator> newAxiomActivators = new HashSet<>();
+    private Set<ClipperOverAproxPropagation> forwardPropagation = new HashSet<>();
+    private Set<ClipperOverAproxPropagation> backwardPropagation = new HashSet<>();
 
     private int saturateIterator = 0;
 
@@ -69,8 +69,7 @@ public class TBoxReasoner {
         // initializing coreImp
         impContainer = new IndexedHornImpContainer();
         for (ClipperAndSubAtomAxiom axiom : ont_bs.getAndSubAtomAxioms()) {
-            impContainer.add(new HornImplication(axiom.getLeft(), axiom
-                    .getRight()));
+            impContainer.add(new HornImplication(axiom.getLeft(), axiom.getRight()));
         }
 
 
@@ -521,7 +520,7 @@ public class TBoxReasoner {
 
                 //todo:we check here if there exists some activator that would fire the axiom
                 if (withAxiomActivators && !axiomApplicable(newEnf.getType1())) {
-                    System.err.println("Activator helps!");
+                    //System.err.println("Activator helps!");
                     continue;
                 }
 
@@ -1074,16 +1073,6 @@ public class TBoxReasoner {
         }
         return b;
 
-//        boolean applicable = false;
-//
-//        for (ClipperAxiomActivator act : axiomActivators) {
-//            if (act.getConcepts().containsAll(lhs)) {
-//                applicable = true;
-//                break;
-//            }
-//
-//        }
-//        return applicable;
     }
 
 
