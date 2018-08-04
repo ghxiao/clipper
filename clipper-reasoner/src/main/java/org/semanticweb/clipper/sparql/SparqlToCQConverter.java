@@ -1,7 +1,5 @@
 package org.semanticweb.clipper.sparql;
 
-import com.google.common.collect.Lists;
-
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.Triple;
 import org.apache.jena.query.Query;
@@ -10,13 +8,7 @@ import org.apache.jena.sparql.core.Var;
 import org.apache.jena.sparql.syntax.Element;
 import org.apache.jena.sparql.syntax.ElementGroup;
 import org.apache.jena.sparql.syntax.ElementPathBlock;
-import org.semanticweb.clipper.hornshiq.rule.Atom;
-import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.rule.Constant;
-import org.semanticweb.clipper.hornshiq.rule.DLPredicate;
-import org.semanticweb.clipper.hornshiq.rule.NonDLPredicate;
-import org.semanticweb.clipper.hornshiq.rule.Term;
-import org.semanticweb.clipper.hornshiq.rule.Variable;
+import org.semanticweb.clipper.hornshiq.rule.*;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
@@ -94,7 +86,7 @@ public class SparqlToCQConverter {
 
 		if (predicate.isURI()) {
 			String uri = predicate.getURI();
-			
+
 			return new DLPredicate(OWLManager.getOWLDataFactory()
 					.getOWLClass(IRI.create(uri)));
 		} else {

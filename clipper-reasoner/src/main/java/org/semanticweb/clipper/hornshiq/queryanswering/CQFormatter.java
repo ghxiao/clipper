@@ -130,12 +130,11 @@ public class CQFormatter {
 	String formatQuery(CQ cq) {
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(cq.getHead());
+		sb.append(formatAtom(cq.getHead()));
 		sb.append(" :- ");
 		boolean first = true;
 		for (Atom b : cq.getBody()) {
-			if (b.getPredicate().getEncoding() != ClipperManager.getInstance()
-					.getThing()) {
+			if (b.getPredicate().getEncoding() != ClipperManager.getInstance().getThing()) {
 				if (!first) {
 					sb.append(", ");
 				}
@@ -152,13 +151,11 @@ public class CQFormatter {
 	private String formatAtom(Atom atom) {
 		StringBuilder sb = new StringBuilder();
 		if (atom.getPredicate().getArity() == 1) {
-			String predicateStr = getUnaryPredicate(atom.getPredicate()
-					.getEncoding());
+			String predicateStr = getUnaryPredicate(atom.getPredicate().getEncoding());
 
 			sb.append(predicateStr);
 		} else if (atom.getPredicate().getArity() == 2) {
-			String predicateStr = getBinaryPredicate(atom.getPredicate()
-					.getEncoding());
+			String predicateStr = getBinaryPredicate(atom.getPredicate().getEncoding());
 
 			sb.append(predicateStr);
 		} else

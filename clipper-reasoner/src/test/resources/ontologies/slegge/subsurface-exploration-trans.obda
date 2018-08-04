@@ -1,0 +1,827 @@
+[PrefixDeclaration]
+:		http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#
+cc:		http://creativecommons.org/ns#
+dc:		http://purl.org/dc/elements/1.1/
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+xml:		http://www.w3.org/XML/1998/namespace#
+xsd:		http://www.w3.org/2001/XMLSchema#
+expl:		http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#
+geos:		http://www.opengis.net/ont/geosparql#
+obda:		https://w3id.org/obda/vocabulary#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+vann:		http://purl.org/vocab/vann/
+
+[MappingDeclaration] @collection [[
+mappingId	mapping-1849088948
+target		<http://slegger.gitlab.io/data#TotalCoreLength-{WELLBORE_IDENTIFIER}> a :TotalCoreLength ; :originalUnitOfMeasurement "m"^^xsd:string ; :standardUnitOfMeasurement "m"^^xsd:string ; :valueInOriginalUnit {LENGTH}^^xsd:decimal ; :valueInStandardUnit {LENGTH}^^xsd:decimal . 
+source		SELECT
+			        SUM(BOTTOM_DEPTH-TOP_DEPTH) as LENGTH,
+			        WELLBORE_IDENTIFIER 
+			    FROM
+			        WELLBORE_INTERVAL,
+			        UNCERTAINTY_CLASS,
+			        POSITION_UNCERTAINTY_CLSN
+			    WHERE
+			        UNCERTAINTY_CLASS.NAME = 'drillers depth' AND 
+			        UNCERTAINTY_CLASS.CLASSIFICATION_SYSTEM = 'depth type uncertainty' AND 
+			        POSITION_UNCERTAINTY_CLSN.EARTH_MODEL_OBJECT_S = WELLBORE_INTERVAL.WELLBORE_INTERVAL_S AND 
+			        POSITION_UNCERTAINTY_CLSN.UNCERTAINTY_CLASS_S = UNCERTAINTY_CLASS.UNCERTAINTY_CLASS_S AND 
+			        WELLBORE_INTERVAL.REF_WELLBORE_INTERVAL = 'cored interval' AND 
+			        WELLBORE_INTERVAL.BOTTOM_DEPTH_U = 'm' AND 
+			        WELLBORE_INTERVAL.TOP_DEPTH_U = 'm'
+			    GROUP BY
+			        WELLBORE_INTERVAL.WELLBORE_IDENTIFIER
+
+mappingId	mapping--1200793147
+target		<http://slegger.gitlab.io/data#GeographicalPosition-{POS_ID}> a geos:Point ; :latitude {LAT}^^xsd:decimal ; :longitude {LONGIT}^^xsd:decimal ; :WKT "POINT({LONGIT} {LAT})" . 
+source		SELECT
+			        DATA_VALUE_1_O as LAT,
+			        DATA_VALUE_2_O as LONGIT,
+			        PTY_LOCATION_2D_S POS_ID 
+			    FROM
+			        PTY_LOCATION_2D  
+			    WHERE
+			        DATA_VALUE_1_OU = 'dega' AND 
+			        DATA_VALUE_2_OU = 'dega'
+
+mappingId	mapping-362797511
+target		<http://slegger.gitlab.io/data#Wellbore-{WELLBORE_ID}> :wellboreDocument <http://slegger.gitlab.io/data#Document-{DENORMALIZED_DOCUMENTS_S}> . 
+source		SELECT
+			        DENORMALIZED_DOCUMENTS_S,
+			        WELLBORE.IDENTIFIER WELLBORE_ID 
+			    FROM
+			        DENORMALIZED_DOCUMENTS DOCS,
+			        DOCUMENT_SPECIFICATION_CLASS SPEC,
+			        WELLBORE 
+			    WHERE
+			        SPEC.NAME IN ('wellbore data', 'wellbore report') AND 
+			        DOCS.ARCHIVE_OBJECT_TYPE_S = SPEC.DOCUMENT_SPECIFICATION_CLASS_S AND 
+			        WELLBORE.IDENTIFIER = DOCS.REFERENCE_NAME AND
+			        WELLBORE.REF_EXISTENCE_KIND = 'actual'
+
+mappingId	mapping--292741510
+target		<http://slegger.gitlab.io/data#FormationPressure-{PTY_PRESSURE_S}> :originalUnitOfMeasurement "bar"^^xsd:string ; :standardUnitOfMeasurement "bar"^^xsd:string ; :valueInOriginalUnit {FORMATION_PRESSURE}^^xsd:decimal ; :valueInStandardUnit {FORMATION_PRESSURE}^^xsd:decimal . 
+source		SELECT
+			        PTY_PRESSURE.PTY_PRESSURE_S,
+			        PTY_PRESSURE.DATA_VALUE as FORMATION_PRESSURE
+			    FROM
+			        PTY_PRESSURE,
+			        ACTIVITY FP_DEPTH_DATA,
+			        ACTIVITY_CLASS FORM_PRESSURE_CLASS 
+			    WHERE
+			        PTY_PRESSURE.ACTIVITY_S = FP_DEPTH_DATA.ACTIVITY_S AND 
+			        FP_DEPTH_DATA.KIND_S = FORM_PRESSURE_CLASS.ACTIVITY_CLASS_S AND 
+			        FORM_PRESSURE_CLASS.NAME = 'formation pressure depth data' AND 
+			        PTY_PRESSURE.DATA_VALUE_U = 'bar' AND 
+			        PTY_PRESSURE.DATA_VALUE > 0
+
+mappingId	mapping-744060533
+target		<http://slegger.gitlab.io/data#WellboreInterval-{WELLBORE_INTERVAL_S}> a :WellboreInterval ; :hasTopDepth <http://slegger.gitlab.io/data#Depth-WellboreInterval-Top-{WELLBORE_INTERVAL_S}> , <http://slegger.gitlab.io/data#TrueVerticalDepth-WellboreInterval-Top-{WELLBORE_INTERVAL_S}> ; :hasBottomDepth <http://slegger.gitlab.io/data#TrueVerticalDepth-WellboreInterval-Bottom-{WELLBORE_INTERVAL_S}> , <http://slegger.gitlab.io/data#Depth-WellboreInterval-Bottom-{WELLBORE_INTERVAL_S}> . 
+source		SELECT * FROM WELLBORE_INTERVAL
+
+mappingId	mapping-1345223617
+target		<http://slegger.gitlab.io/data#TrueVerticalDepth-WellboreInterval-Bottom-{WELLBORE_INTERVAL_S}> a :TrueVerticalDepth ; :valueInOriginalUnit {BOTTOM_TVD}^^xsd:decimal ; :valueInStandardUnit {BOTTOM_TVD}^^xsd:decimal ; :originalUnitOfMeasurement "m"^^xsd:string ; :standardUnitOfMeasurement "m"^^xsd:string . 
+source		SELECT
+			        WELLBORE_INTERVAL_S,
+			        FRAME_LEAF.MDTVD(WELLBORE_IDENTIFIER, BOTTOM_DEPTH) as BOTTOM_TVD
+			    FROM
+			        WELLBORE_INTERVAL 
+			    WHERE
+			        BOTTOM_DEPTH_U = 'm' AND 
+			        BOTTOM_DEPTH >= 0
+
+mappingId	mapping-1479555582
+target		<http://slegger.gitlab.io/data#Depth-WellboreInterval-Bottom-{WELLBORE_INTERVAL_S}> a :MeasuredDepth ; :valueInOriginalUnit {BOTTOM_DEPTH}^^xsd:decimal ; :valueInStandardUnit {BOTTOM_DEPTH}^^xsd:decimal ; :originalUnitOfMeasurement "m"^^xsd:string ; :standardUnitOfMeasurement "m"^^xsd:string . 
+source		SELECT
+			        WELLBORE_INTERVAL_S,
+			        BOTTOM_DEPTH
+			    FROM
+			        WELLBORE_INTERVAL 
+			    WHERE
+			        BOTTOM_DEPTH_U = 'm'
+
+mappingId	mapping-586558321
+target		<http://slegger.gitlab.io/data#Well-{WELL_ID}> :hasPlatform <http://slegger.gitlab.io/data#Facility-{PLATFORM_ID}> . 
+source		SELECT
+			        PLATFORM.OTHER_FACILITY_S PLATFORM_ID,
+			        WELL.IDENTIFIER WELL_ID 
+			    FROM
+			        WELL,
+			        OTHER_FACILITY PLATFORM,
+			        FACILITY_COMPOSITION  
+			    WHERE
+			        FACILITY_COMPOSITION.WHOLE_S = PLATFORM.OTHER_FACILITY_S AND 
+			        FACILITY_COMPOSITION.PART_S = WELL.WELL_S AND 
+			        PLATFORM.NAME != 'none'
+
+mappingId	mapping--1574495205
+target		<http://slegger.gitlab.io/data#WellWaterDepthSlegge-{WELL_SURFACE_POINT_S}> a :WaterDepth ; :valueInOriginalUnit {WATER_DEPTH}^^xsd:decimal ; :valueInStandardUnit {WATER_DEPTH}^^xsd:decimal ; :originalUnitOfMeasurement "m"^^xsd:string ; :standardUnitOfMeasurement "m"^^xsd:string . 
+source		SELECT
+			        WELL_SURFACE_POINT_S,
+			        WATER_DEPTH 
+			    FROM
+			        WELL_SURFACE_POINT
+			    WHERE
+			         WATER_DEPTH_U = 'm'
+
+mappingId	mapping--651288722
+target		<http://slegger.gitlab.io/data#StratigraphicUnit-{STRAT_COLUMN_IDENTIFIER}-{PARENT_STRAT_ZONE_ID}> :isParentUnitOf <http://slegger.gitlab.io/data#StratigraphicUnit-{STRAT_COLUMN_IDENTIFIER}-{STRAT_UNIT_IDENTIFIER}> . 
+source		SELECT
+			        STRAT_COLUMN_IDENTIFIER,
+			        STRAT_UNIT_IDENTIFIER,
+			        PARENT_STRAT_ZONE_ID 
+			    FROM
+			        STRATIGRAPHIC_HIERARCHY 
+			    WHERE
+			        PARENT_STRAT_ZONE_ID != 'none'
+
+mappingId	mapping--9518081
+target		<http://slegger.gitlab.io/data#Concession-{LIC_ID}> a :License . 
+source		SELECT
+			        CONCESSION.IDENTIFIER LIC_ID 
+			    FROM
+			        LICENSE_AGREEMENT CONCESSION,
+			        DOCUMENT_SPECIFICATION_CLASS CONCESSION_TYPE_CLASS,
+			        DOCUMENT_SPECIFICATION_CLSN CONCESSION_TYPE 
+			    WHERE
+			        CONCESSION_TYPE.DOCUMENT_SPECIFICATION_CLASS_S = CONCESSION_TYPE_CLASS.DOCUMENT_SPECIFICATION_CLASS_S AND 
+			        CONCESSION_TYPE_CLASS.CLASSIFICATION_SYSTEM = 'concession type' AND 
+			        CONCESSION_TYPE.DOCUMENT_SPECIFICATION_S = CONCESSION.LICENSE_AGREEMENT_S AND 
+			        CONCESSION_TYPE.DOCUMENT_SPEC_CLASS_NAME = 'license'
+
+mappingId	mapping-386061982
+target		<http://slegger.gitlab.io/data#Document-{DENORMALIZED_DOCUMENTS_S}> :documentType {TYPE}^^xsd:string . 
+source		SELECT
+			        DOCS.DENORMALIZED_DOCUMENTS_S,
+			        S.DESCRIPTION TYPE 
+			    FROM
+			        DENORMALIZED_DOCUMENTS DOCS,
+			        TYPICAL_DOCUMENT_SPEC S 
+			    WHERE
+			        DOCS.ITEM_TYPE_S = S.TYPICAL_DOCUMENT_SPEC_S
+
+mappingId	mapping--1384647668
+target		<http://slegger.gitlab.io/data#Well-{WELL_ID}> :inField <http://slegger.gitlab.io/data#Field-{FIELD_ID}> . 
+source		SELECT
+			        FIELD.FIELD_S as FIELD_ID,
+			        WELL.IDENTIFIER WELL_ID 
+			    FROM
+			        TOPOLOGICAL_RELATIONSHIP,
+			        WELL,
+			        FIELD 
+			    WHERE
+			        TOPOLOGICAL_RELATIONSHIP.PRIMARY_TOPOLOGICAL_OBJECT_S = FIELD.FIELD_S AND 
+			        TOPOLOGICAL_RELATIONSHIP.REF_OBJECT_INTERSECTION = 'inside' AND 
+			        TOPOLOGICAL_RELATIONSHIP.SECONDARY_TOPOLOGICAL_OBJECT_S = WELL.WELL_S AND 
+			        FIELD.IDENTIFIER != 'none'
+
+mappingId	mapping--82740648
+target		<http://slegger.gitlab.io/data#CorePermeability-{CORE_S}> a :Permeability ; :originalUnitOfMeasurement "millidarcy"^^xsd:string ; :standardUnitOfMeasurement "millidarcy"^^xsd:string ; :valueInOriginalUnit {KLHMD}^^xsd:decimal ; :valueInStandardUnit {KLHMD}^^xsd:decimal . 
+source		SELECT
+			        INTERPROCESS_DATA.REAL_VALUE KLHMD,
+			        CORE.CORE_S
+			    FROM
+			        INTERPROCESS_DATA,
+			        CORE,
+			        ACTIVITY CONTAINING_ACTIVITY,
+			        ACTIVITY SAMPLE_ANALYSIS,
+			        PROCESS_PARAMETER,
+			        TYPICAL_ACTIVITY PERM_TYPE_ACT_CLASS 
+			    WHERE
+			        INTERPROCESS_DATA.ACTIVITY_S = CONTAINING_ACTIVITY.ACTIVITY_S AND 
+			        CONTAINING_ACTIVITY.CONTAINING_ACTIVITY_S = SAMPLE_ANALYSIS.ACTIVITY_S AND 
+			        CORE.REF_EXISTENCE_KIND = 'actual' AND
+			        SAMPLE_ANALYSIS.MATERIAL_S = CORE.CORE_S AND 
+			        PROCESS_PARAMETER.PB_PARAMETER_CODE = 'KLH' AND 
+			        PROCESS_PARAMETER.PROCESS_PARAMETER_S = INTERPROCESS_DATA.PROCESS_PARAMETER_S AND 
+			        PROCESS_PARAMETER.TYPICAL_ACTIVITY_S = PERM_TYPE_ACT_CLASS.TYPICAL_ACTIVITY_S AND 
+			        PERM_TYPE_ACT_CLASS.NAME = 'permeability' AND 
+			        INTERPROCESS_DATA.PROCESS_PARAMETER_NAME = 'KLH'
+
+mappingId	mapping-453138924
+target		<http://slegger.gitlab.io/data#GrossThicknessMeasured-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> a :GrossThicknessMeasured ; :valueInOriginalUnit {GROSS_THICKNESS}^^xsd:decimal ; :valueInStandardUnit {GROSS_THICKNESS}^^xsd:decimal ; :originalUnitOfMeasurement "m"^^xsd:string ; :standardUnitOfMeasurement "m"^^xsd:string . 
+source		SELECT
+			        WELLBORE,
+			        STRAT_ZONE_IDENTIFIER,
+			        STRAT_COLUMN_IDENTIFIER,
+			        STRAT_INTERP_VERSION,
+			        STRAT_ZONE_EXIT_MD - STRAT_ZONE_ENTRY_MD as GROSS_THICKNESS
+			    FROM
+			        STRATIGRAPHIC_ZONE
+			    WHERE
+			        STRAT_ZONE_DEPTH_UOM = 'm'
+
+mappingId	mapping--1622987273
+target		<http://slegger.gitlab.io/data#WellboreInterval-{WELLBORE_INTERVAL_S}> :overlapsWellboreInterval <http://slegger.gitlab.io/data#StratigraphicZone-{BRONNAVN}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> . 
+source		SELECT
+			        ZONES.WELLBORE BRONNAVN,
+			        STRAT_COLUMN_IDENTIFIER,
+			        STRAT_INTERP_VERSION,
+			        STRAT_ZONE_IDENTIFIER,
+			        WELLBORE_INTERVAL_S 
+			    FROM
+			        PICKED_STRATIGRAPHIC_ZONES ZONES,
+			        WELLBORE_INTERVAL 
+			    WHERE
+			        WELLBORE_INTERVAL.WELLBORE_IDENTIFIER = ZONES.WELLBORE AND 
+			        ZONES.STRAT_ZONE_DEPTH_UOM = WELLBORE_INTERVAL.BOTTOM_DEPTH_U AND 
+			        ZONES.STRAT_ZONE_ENTRY_MD <= WELLBORE_INTERVAL.BOTTOM_DEPTH AND 
+			        ZONES.STRAT_ZONE_DEPTH_UOM = WELLBORE_INTERVAL.TOP_DEPTH_U AND 
+			        ZONES.STRAT_ZONE_EXIT_MD >= WELLBORE_INTERVAL.TOP_DEPTH
+
+mappingId	mapping--709094412
+target		<http://slegger.gitlab.io/data#ExitMeasuredDepth-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> a :MeasuredDepth ; :valueInOriginalUnit {STRAT_ZONE_EXIT_DEPTH}^^xsd:decimal ; :valueInStandardUnit {STRAT_ZONE_EXIT_DEPTH}^^xsd:decimal ; :originalUnitOfMeasurement "m"^^xsd:string ; :standardUnitOfMeasurement "m"^^xsd:string . 
+source		SELECT
+			        WELLBORE,
+			        STRAT_ZONE_IDENTIFIER,
+			        STRAT_COLUMN_IDENTIFIER,
+			        STRAT_INTERP_VERSION,
+			        STRAT_ZONE_EXIT_MD as STRAT_ZONE_EXIT_DEPTH
+			    FROM
+			        STRATIGRAPHIC_ZONE 
+			    WHERE
+			        STRAT_ZONE_DEPTH_UOM = 'm'
+
+mappingId	mapping-1455067385
+target		<http://slegger.gitlab.io/data#StratigraphicColumn-{STRAT_COLUMN_IDENTIFIER}> a :ChronoStratigraphicColumn . 
+source		SELECT
+			        DATA_COLLECTION.NAME STRAT_COLUMN_IDENTIFIER 
+			    FROM
+			        ROCK_FEATURE,
+			        MATERIAL_CLASS,
+			        CLASSIFICATION_SYSTEM,
+			        DATA_COLLECTION,
+			        DATA_COLLECTION_CONTENT,
+			        MATERIAL_CLASSIFICATION 
+			    WHERE
+			        MATERIAL_CLASS.CLASSIFICATION_SYSTEM = CLASSIFICATION_SYSTEM.NAME AND 
+			        DATA_COLLECTION_CONTENT.COLLECTION_PART_S = ROCK_FEATURE.ROCK_FEATURE_S AND 
+			        DATA_COLLECTION_CONTENT.PART_OF_S = DATA_COLLECTION.DATA_COLLECTION_S AND 
+			        MATERIAL_CLASSIFICATION.MATERIAL_S = ROCK_FEATURE.ROCK_FEATURE_S AND 
+			        MATERIAL_CLASSIFICATION.MATERIAL_CLASS_S = MATERIAL_CLASS.MATERIAL_CLASS_S AND 
+			        CLASSIFICATION_SYSTEM.KIND = 'chronostratigraphy' AND 
+			        DATA_COLLECTION.REF_DATA_COLLECTION_TYPE = 'stratigraphic hierarchy'
+
+mappingId	mapping--873016215
+target		<http://slegger.gitlab.io/data#Document-{DENORMALIZED_DOCUMENTS_S}> a :Document ; :comment {COMMENTS} ; :name {REPORT_IDENTIFIER}^^xsd:string ; :physicalLocation {STORAGE_LOCATION_INDEX}^^xsd:string ; :hasURL {FILE_NAME} ; :description {TITLE} . 
+source		SELECT * FROM DENORMALIZED_DOCUMENTS
+
+mappingId	mapping--2029711870
+target		<http://slegger.gitlab.io/data#PressureMeasuredDepth-{PTY_PRESSURE_S}> :inWellboreInterval <http://slegger.gitlab.io/data#StratigraphicZone-{BRONNAVN}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> . 
+source		SELECT
+			        ZS.STRAT_ZONE_IDENTIFIER,
+			        ZS.WELLBORE BRONNAVN,
+			        ZS.STRAT_COLUMN_IDENTIFIER,
+			        ZS.STRAT_INTERP_VERSION,
+			        PTY_PRESSURE.PTY_PRESSURE_S 
+			    FROM
+			        PICKED_STRATIGRAPHIC_ZONES ZS,
+			        PTY_PRESSURE,
+			        ACTIVITY FP_DEPTH_DATA,
+			        PTY_LOCATION_1D FP_DEPTH_PT1_LOC,
+			        WELLBORE,
+			        ACTIVITY_CLASS FORM_PRESSURE_CLASS 
+			    WHERE
+			        PTY_PRESSURE.ACTIVITY_S = FP_DEPTH_DATA.ACTIVITY_S AND 
+			        FP_DEPTH_DATA.ACTIVITY_S = FP_DEPTH_PT1_LOC.ACTIVITY_S AND 
+			        FP_DEPTH_DATA.FACILITY_S = WELLBORE.WELLBORE_S AND 
+			        FP_DEPTH_DATA.KIND_S = FORM_PRESSURE_CLASS.ACTIVITY_CLASS_S AND 
+			        FORM_PRESSURE_CLASS.NAME = 'formation pressure depth data' AND 
+			        ZS.WELLBORE = WELLBORE.IDENTIFIER AND 
+			        ZS.STRAT_ZONE_ENTRY_MD <= FP_DEPTH_PT1_LOC.DATA_VALUE_1_O AND 
+			        ZS.STRAT_ZONE_EXIT_MD >= FP_DEPTH_PT1_LOC.DATA_VALUE_1_O AND 
+			        FP_DEPTH_PT1_LOC.DATA_VALUE_1_OU = ZS.STRAT_ZONE_DEPTH_UOM
+
+mappingId	mapping-1331766809
+target		<http://slegger.gitlab.io/data#Company-{IDENTIFIER}> a :AdministrativeEntity ; :name {IDENTIFIER}^^xsd:string . 
+source		SELECT
+			        IDENTIFIER 
+			    FROM
+			        BUSINESS_ASSOCIATE 
+			    WHERE
+			        KIND = 'grouping'
+
+mappingId	mapping--934803967
+target		<http://slegger.gitlab.io/data#ZoneEntryTVD-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> a :TrueVerticalDepth ; :originalUnitOfMeasurement "m"^^xsd:string ; :standardUnitOfMeasurement "m"^^xsd:string ; :valueInOriginalUnit {STRAT_ZONE_TOP_TVD}^^xsd:decimal ; :valueInStandardUnit {STRAT_ZONE_TOP_TVD}^^xsd:decimal . 
+source		SELECT
+			        WELLBORE,
+			        STRAT_COLUMN_IDENTIFIER,
+			        STRAT_INTERP_VERSION,
+			        STRAT_ZONE_IDENTIFIER,
+			        FRAME_LEAF.MDTVD(WELLBORE, STRAT_ZONE_ENTRY_MD) as STRAT_ZONE_TOP_TVD
+			    FROM
+			        STRATIGRAPHIC_ZONE 
+			    WHERE
+			        STRAT_ZONE_ENTRY_MD >= 0 AND
+			        STRAT_ZONE_DEPTH_UOM = 'm'
+
+mappingId	mapping--498710836
+target		<http://slegger.gitlab.io/data#GrossThicknessTVD-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> a :GrossThicknessTVD ; :originalUnitOfMeasurement "m"^^xsd:string ; :standardUnitOfMeasurement "m"^^xsd:string ; :valueInOriginalUnit {GROSS_THICKNESS_TVD}^^xsd:decimal ; :valueInStandardUnit {GROSS_THICKNESS_TVD}^^xsd:decimal . 
+source		SELECT
+			        WELLBORE,
+			        STRAT_COLUMN_IDENTIFIER,
+			        STRAT_INTERP_VERSION,
+			        STRAT_ZONE_IDENTIFIER,
+			        FRAME_LEAF.MDTVD(WELLBORE, STRAT_ZONE_EXIT_MD) 
+			                    - FRAME_LEAF.MDTVD(WELLBORE, STRAT_ZONE_ENTRY_MD) as GROSS_THICKNESS_TVD
+			    FROM
+			        STRATIGRAPHIC_ZONE 
+			    WHERE
+			        STRAT_ZONE_EXIT_MD >= 0 AND
+			        STRAT_ZONE_ENTRY_MD >= 0 AND
+			        STRAT_ZONE_DEPTH_UOM = 'm'
+
+mappingId	mapping-339362865
+target		<http://slegger.gitlab.io/data#Core-{WELLBORE_INTERVAL_S}> a :Core ; :extractedFrom <http://slegger.gitlab.io/data#WellboreInterval-{WELLBORE_INTERVAL_S}> ; :name "{WELLBORE_IDENTIFIER}/{IDENTIFIER}"^^xsd:string . 
+source		SELECT
+			        WELLBORE_INTERVAL_S,
+			        WELLBORE_IDENTIFIER, 
+			   IDENTIFIER
+			    FROM
+			        WELLBORE_INTERVAL
+			    WHERE
+			        REF_WELLBORE_INTERVAL = 'cored interval'
+
+mappingId	mapping-1713748154
+target		<http://slegger.gitlab.io/data#Wellbore-{IDENTIFIER}> a :ProductionWellbore . 
+source		SELECT
+			        WELLBORE.IDENTIFIER 
+			    FROM
+			        WELLBORE,
+			        FACILITY_CLASSIFICATION 
+			    WHERE
+			        FACILITY_CLASSIFICATION.FACILITY_S = WELLBORE.WELLBORE_S AND 
+			        FACILITY_CLASSIFICATION.CLASSIFICATION_SYSTEM = 'POSC wellbore purpose' AND 
+			        FACILITY_CLASSIFICATION.FACILITY_CLASS_NAME = 'production' AND 
+			        WELLBORE.REF_EXISTENCE_KIND = 'actual'
+
+mappingId	mapping--406467524
+target		<http://slegger.gitlab.io/data#Wellbore-{WELLBORE_IDENTIFIER}> :hasWellboreInterval <http://slegger.gitlab.io/data#WellboreInterval-{WELLBORE_INTERVAL_S}> . 
+source		SELECT * FROM WELLBORE_INTERVAL
+
+mappingId	mapping--1264859304
+target		<http://slegger.gitlab.io/data#FormationPressure-{PTY_PRESSURE_S}> a :FormationPressure ; :name {IDENTIFIER}^^xsd:string ; :hasDepth <http://slegger.gitlab.io/data#PressureMeasuredDepth-{PTY_PRESSURE_S}> , <http://slegger.gitlab.io/data#PressureTrueVerticalDepth-{PTY_PRESSURE_S}> . 
+source		SELECT
+			        PTY_PRESSURE.PTY_PRESSURE_S, 
+			        FP_DEPTH_DATA.IDENTIFIER 
+			    FROM
+			        PTY_PRESSURE,
+			        ACTIVITY FP_DEPTH_DATA,
+			        ACTIVITY_CLASS FORM_PRESSURE_CLASS 
+			    WHERE
+			        PTY_PRESSURE.ACTIVITY_S = FP_DEPTH_DATA.ACTIVITY_S AND 
+			        FP_DEPTH_DATA.KIND_S = FORM_PRESSURE_CLASS.ACTIVITY_CLASS_S AND 
+			        FORM_PRESSURE_CLASS.NAME = 'formation pressure depth data'
+
+mappingId	mapping--1555002781
+target		<http://slegger.gitlab.io/data#StratigraphicColumn-{STRAT_COLUMN_IDENTIFIER}> a :LithoStratigraphicColumn . 
+source		SELECT
+			        DATA_COLLECTION.NAME STRAT_COLUMN_IDENTIFIER 
+			    FROM
+			        ROCK_FEATURE,
+			        MATERIAL_CLASS,
+			        CLASSIFICATION_SYSTEM,
+			        DATA_COLLECTION,
+			        DATA_COLLECTION_CONTENT,
+			        MATERIAL_CLASSIFICATION
+			    WHERE
+			        MATERIAL_CLASS.CLASSIFICATION_SYSTEM = CLASSIFICATION_SYSTEM.NAME AND 
+			        DATA_COLLECTION_CONTENT.COLLECTION_PART_S = ROCK_FEATURE.ROCK_FEATURE_S AND 
+			        DATA_COLLECTION_CONTENT.PART_OF_S = DATA_COLLECTION.DATA_COLLECTION_S AND 
+			        MATERIAL_CLASSIFICATION.MATERIAL_S = ROCK_FEATURE.ROCK_FEATURE_S AND 
+			        MATERIAL_CLASSIFICATION.MATERIAL_CLASS_S = MATERIAL_CLASS.MATERIAL_CLASS_S AND 
+			        CLASSIFICATION_SYSTEM.KIND ='lithostratigraphy' AND 
+			        DATA_COLLECTION.REF_DATA_COLLECTION_TYPE = 'stratigraphic hierarchy'
+
+mappingId	mapping-2085689406
+target		<http://slegger.gitlab.io/data#Well-{WELL_ID}> a :Well ; :statoilName {WELL_ID}^^xsd:string ; :spudDate {SPUD_DATE}^^xsd:dateTime . 
+source		SELECT
+			        TO_CHAR(SPUD_DATE, 'yyyy-mm-dd') || 'T00:00:00' as SPUD_DATE,
+			        IDENTIFIER WELL_ID 
+			    FROM
+			        WELL
+
+mappingId	mapping--1197333033
+target		<http://slegger.gitlab.io/data#Well-{WELL_ID}> :wellOperatedBy <http://slegger.gitlab.io/data#Company-{OPERATOR}> . 
+source		SELECT
+			        OPERATING_COMPANY.IDENTIFIER  OPERATOR,
+			        WELL.IDENTIFIER WELL_ID 
+			    FROM
+			        WELL,
+			        BUSINESS_ASSOCIATE OPERATING_COMPANY,
+			        BUSINESS_ASSOC_FACILITY_INVT OPERATOR_DESIGNATION 
+			    WHERE
+			        OPERATING_COMPANY.KIND = 'grouping' AND 
+			        OPERATOR_DESIGNATION.FACILITY_S = WELL.WELL_S AND 
+			        OPERATOR_DESIGNATION.INVOLVEMENT_ROLE = 'operator' AND 
+			        OPERATOR_DESIGNATION.BUSINESS_ASSOCIATE_S = OPERATING_COMPANY.BUSINESS_ASSOCIATE_S AND 
+			        OPERATING_COMPANY.IDENTIFIER != 'none'
+
+mappingId	mapping--1356840597
+target		<http://slegger.gitlab.io/data#Wellbore-{IDENTIFIER}> a :PluggedWellbore . 
+source		SELECT
+			        IDENTIFIER 
+			    FROM
+			        WELLBORE 
+			    WHERE
+			        (CURRENT_TRACK IS NULL OR CURRENT_TRACK != 1) AND 
+			        REF_EXISTENCE_KIND = 'actual'
+
+mappingId	mapping-1859999771
+target		<http://slegger.gitlab.io/data#CoreSample-{CORE_S}> a :CoreSample ; :name {IDENTIFIER}^^xsd:string ; :hasPorosity <http://slegger.gitlab.io/data#CorePorosity-{CORE_S}> ; :hasPermeability <http://slegger.gitlab.io/data#CorePermeability-{CORE_S}> . 
+source		SELECT
+			        CORE_S,
+			        IDENTIFIER 
+			    FROM
+			        CORE 
+			    WHERE
+			        REF_EXISTENCE_KIND = 'actual'
+
+mappingId	mapping-2023187617
+target		<http://slegger.gitlab.io/data#Well-{WELL_ID}> :officialName {OFFICIAL_WELL_NAME}^^xsd:string . 
+source		SELECT
+			        WELL.IDENTIFIER WELL_ID,
+			        WELL_OFFICIAL_NAME.IDENTIFIER OFFICIAL_WELL_NAME 
+			    FROM
+			        WELL,
+			        WELL_ALIAS WELL_OFFICIAL_NAME 
+			    WHERE
+			        WELL_OFFICIAL_NAME.WELL_S = WELL.WELL_S AND 
+			        WELL_OFFICIAL_NAME.REF_NAMING_SYSTEM = 'official well name set'
+
+mappingId	mapping--2035434719
+target		<http://slegger.gitlab.io/data#StratigraphicZone-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> a :StratigraphicZone ; :hasBottomDepth <http://slegger.gitlab.io/data#ZoneExitTVD-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> , <http://slegger.gitlab.io/data#ExitMeasuredDepth-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> ; :hasUnit <http://slegger.gitlab.io/data#StratigraphicUnit-{STRAT_COLUMN_IDENTIFIER}-{STRAT_UNIT_IDENTIFIER}> ; :hasTopDepth <http://slegger.gitlab.io/data#EntryMeasuredDepth-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> , <http://slegger.gitlab.io/data#ZoneEntryTVD-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> ; :hasThickness <http://slegger.gitlab.io/data#GrossThicknessTVD-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> , <http://slegger.gitlab.io/data#GrossThicknessMeasured-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> ; :name {STRAT_ZONE_IDENTIFIER}^^xsd:string . 
+source		SELECT * FROM STRATIGRAPHIC_ZONE
+
+mappingId	mapping-2021937721
+target		<http://slegger.gitlab.io/data#Country-{IDENTIFIER}> a :Country ; :name {IDENTIFIER}^^xsd:string . 
+source		SELECT
+			        IDENTIFIER 
+			    FROM
+			        BUSINESS_ASSOCIATE 
+			    WHERE
+			        KIND = 'country'
+
+mappingId	mapping--39293136
+target		<http://slegger.gitlab.io/data#Wellbore-{IDENTIFIER}> :hasFormationPressure <http://slegger.gitlab.io/data#FormationPressure-{PTY_PRESSURE_S}> . 
+source		SELECT
+			        WELLBORE.IDENTIFIER,   
+			        PTY_PRESSURE.PTY_PRESSURE_S 
+			    FROM
+			        PTY_PRESSURE,
+			        ACTIVITY FP_DEPTH_DATA,
+			        WELLBORE,
+			        ACTIVITY_CLASS FORM_PRESSURE_CLASS 
+			    WHERE
+			        PTY_PRESSURE.ACTIVITY_S = FP_DEPTH_DATA.ACTIVITY_S AND 
+			        FP_DEPTH_DATA.FACILITY_S = WELLBORE.WELLBORE_S AND 
+			        FP_DEPTH_DATA.KIND_S = FORM_PRESSURE_CLASS.ACTIVITY_CLASS_S AND 
+			        FORM_PRESSURE_CLASS.NAME = 'formation pressure depth data' AND
+			        WELLBORE.REF_EXISTENCE_KIND = 'actual'
+
+mappingId	mapping-877512365
+target		<http://slegger.gitlab.io/data#Wellbore-{IDENTIFIER}> a :ExplorationWellbore . 
+source		SELECT
+			        WELLBORE.IDENTIFIER 
+			    FROM
+			        WELLBORE,
+			        FACILITY_CLASSIFICATION 
+			    WHERE
+			        FACILITY_CLASSIFICATION.FACILITY_S = WELLBORE.WELLBORE_S AND 
+			        FACILITY_CLASSIFICATION.CLASSIFICATION_SYSTEM = 'POSC wellbore purpose' AND 
+			        FACILITY_CLASSIFICATION.FACILITY_CLASS_NAME = 'exploration' AND 
+			        WELLBORE.REF_EXISTENCE_KIND = 'actual'
+
+mappingId	mapping--589384314
+target		<http://slegger.gitlab.io/data#Core-{WELLBORE_INTERVAL_S}> :hasCoreSample <http://slegger.gitlab.io/data#CoreSample-{CORE_S}> . 
+source		SELECT
+			        CORE.CORE_S,
+			        WELLBORE_INTERVAL.WELLBORE_INTERVAL_S 
+			    FROM
+			        CORE,
+			        WELLBORE_INTERVAL,
+			        TOPOLOGICAL_RELATIONSHIP 
+			    WHERE
+			        CORE.REF_EXISTENCE_KIND = 'actual' AND 
+			        WELLBORE_INTERVAL.WELLBORE_S = CORE.WELLBORE_S AND 
+			        TOPOLOGICAL_RELATIONSHIP.PRIMARY_TOPOLOGICAL_OBJECT_S = WELLBORE_INTERVAL.WELLBORE_INTERVAL_S AND 
+			        CORE.CORE_S = TOPOLOGICAL_RELATIONSHIP.SECONDARY_TOPOLOGICAL_OBJECT_S AND 
+			        TOPOLOGICAL_RELATIONSHIP.REF_OBJECT_INTERSECTION = 'inside' AND 
+			        WELLBORE_INTERVAL.REF_WELLBORE_INTERVAL = 'cored interval'
+
+mappingId	mapping-1074548081
+target		<http://slegger.gitlab.io/data#StratigraphicZone-{BRONNAVN}-{STRAT_COL_ID_1}-{STRAT_VERSION_1}-{STRAT_ZONE_ID_1}> :overlapsWellboreInterval <http://slegger.gitlab.io/data#StratigraphicZone-{BRONNAVN}-{STRAT_COL_ID_2}-{STRAT_VERSION_2}-{STRAT_ZONE_ID_2}> . 
+source		SELECT
+			        Z1.WELLBORE as BRONNAVN,
+			        Z1.STRAT_ZONE_IDENTIFIER as STRAT_ZONE_ID_1,
+			        Z1.STRAT_COLUMN_IDENTIFIER as STRAT_COL_ID_1,
+			        Z1.STRAT_INTERP_VERSION as STRAT_VERSION_1,
+			        Z2.STRAT_ZONE_IDENTIFIER as STRAT_ZONE_ID_2,
+			        Z2.STRAT_COLUMN_IDENTIFIER as STRAT_COL_ID_2,
+			        Z2.STRAT_INTERP_VERSION as STRAT_VERSION_2 
+			    FROM
+			        STRATIGRAPHIC_ZONE Z1,
+			        STRATIGRAPHIC_ZONE Z2 
+			    WHERE
+			        Z1.WELLBORE = Z2.WELLBORE AND 
+			        Z1.STRAT_ZONE_DEPTH_UOM = Z2.STRAT_ZONE_DEPTH_UOM AND 
+			        Z1.STRAT_ZONE_ENTRY_MD <= Z2.STRAT_ZONE_EXIT_MD AND 
+			        Z1.STRAT_ZONE_EXIT_MD >= Z2.STRAT_ZONE_ENTRY_MD
+
+mappingId	mapping--1410931794
+target		<http://slegger.gitlab.io/data#CorePorosity-{CORE_S}> a :Porosity ; :valueInOriginalUnit {ORIG_VALUE}^^xsd:decimal ; :valueInStandardUnit {ORIG_VALUE}^^xsd:decimal ; :originalUnitOfMeasurement "%"^^xsd:string ; :standardUnitOfMeasurement "%"^^xsd:string . 
+source		SELECT
+			        INTERPROCESS_DATA.REAL_VALUE ORIG_VALUE,
+			        CORE.CORE_S
+			    FROM
+			        INTERPROCESS_DATA,
+			        CORE,
+			        ACTIVITY CONTAINING_ACTIVITY,
+			        ACTIVITY SAMPLE_ANALYSIS,
+			        PROCESS_PARAMETER,
+			        TYPICAL_ACTIVITY PERM_TYPE_ACT_CLASS 
+			    WHERE
+			        INTERPROCESS_DATA.ACTIVITY_S = CONTAINING_ACTIVITY.ACTIVITY_S AND 
+			        CONTAINING_ACTIVITY.CONTAINING_ACTIVITY_S = SAMPLE_ANALYSIS.ACTIVITY_S AND 
+			        CORE.REF_EXISTENCE_KIND = 'actual' AND
+			        SAMPLE_ANALYSIS.MATERIAL_S = CORE.CORE_S AND 
+			        PROCESS_PARAMETER.PROCESS_PARAMETER_S = INTERPROCESS_DATA.PROCESS_PARAMETER_S AND 
+			        PROCESS_PARAMETER.TYPICAL_ACTIVITY_S = PERM_TYPE_ACT_CLASS.TYPICAL_ACTIVITY_S AND 
+			        PERM_TYPE_ACT_CLASS.NAME = 'porosity'
+
+mappingId	mapping-274635071
+target		<http://slegger.gitlab.io/data#Concession-{LIC_ID}> :concededBy <http://slegger.gitlab.io/data#Country-{COUNTRY_NAME}> . 
+source		SELECT
+			        CONCESSION.IDENTIFIER LIC_ID,
+			        COUNTRY.BUSINESS_ASSOCIATE_IDENTIFIER COUNTRY_NAME 
+			    FROM
+			        LICENSE_AGREEMENT CONCESSION,
+			        DOCUMENT_SPEC_BUSINESS_ASSOC COUNTRY 
+			    WHERE
+			        COUNTRY.DOCUMENT_SPECIFICATION_S = CONCESSION.LICENSE_AGREEMENT_S AND 
+			        COUNTRY.ROLE = 'country'
+
+mappingId	mapping-1236354559
+target		<http://slegger.gitlab.io/data#Well-{IDENTIFIER}> :locatedIn <http://slegger.gitlab.io/data#GeographicalPosition-{POS_ID}> . 
+source		SELECT
+			        WELL.IDENTIFIER,
+			        PTY_LOCATION_2D.PTY_LOCATION_2D_S POS_ID 
+			    FROM
+			        WELL,
+			        PTY_LOCATION_2D,
+			        WELL_SURFACE_POINT 
+			    WHERE
+			        WELL.WELL_S = WELL_SURFACE_POINT.WELL_S AND 
+			        WELL_SURFACE_POINT.WELL_SURFACE_POINT_S = PTY_LOCATION_2D.WELL_SURFACE_POINT_S
+
+mappingId	mapping-1773118543
+target		<http://slegger.gitlab.io/data#PressureMeasuredDepth-{PTY_PRESSURE_S}> a :MeasuredDepth ; :valueInOriginalUnit {DEPTH}^^xsd:decimal ; :valueInStandardUnit {DEPTH}^^xsd:decimal ; :originalUnitOfMeasurement "m"^^xsd:string ; :standardUnitOfMeasurement "m"^^xsd:string . 
+source		SELECT
+			        PTY_PRESSURE.PTY_PRESSURE_S,
+			        FP_DEPTH_PT1_LOC.DATA_VALUE_1_O DEPTH
+			    FROM
+			        PTY_PRESSURE,
+			        ACTIVITY FP_DEPTH_DATA,
+			        PTY_LOCATION_1D FP_DEPTH_PT1_LOC,
+			        WELLBORE,
+			        ACTIVITY_CLASS FORM_PRESSURE_CLASS 
+			    WHERE
+			        PTY_PRESSURE.ACTIVITY_S = FP_DEPTH_DATA.ACTIVITY_S AND 
+			        FP_DEPTH_DATA.ACTIVITY_S = FP_DEPTH_PT1_LOC.ACTIVITY_S AND 
+			        FP_DEPTH_DATA.FACILITY_S = WELLBORE.WELLBORE_S AND 
+			        FP_DEPTH_DATA.KIND_S = FORM_PRESSURE_CLASS.ACTIVITY_CLASS_S AND 
+			        FORM_PRESSURE_CLASS.NAME = 'formation pressure depth data' AND 
+			        FP_DEPTH_PT1_LOC.DATA_VALUE_1_OU ='m' AND
+			        WELLBORE.REF_EXISTENCE_KIND = 'actual'
+
+mappingId	mapping-1804401112
+target		<http://slegger.gitlab.io/data#Core-{WELLBORE_INTERVAL_S}> :coreNumber {CORE_NUMBER}^^xsd:integer . 
+source		SELECT
+			        WELLBORE_INTERVAL_S,
+			        substr(IDENTIFIER, 6) as CORE_NUMBER 
+			    FROM
+			        WELLBORE_INTERVAL
+			    WHERE
+			        REF_WELLBORE_INTERVAL = 'cored interval' AND 
+			        IDENTIFIER LIKE 'Core %'
+
+mappingId	mapping--1165528166
+target		<http://slegger.gitlab.io/data#Wellbore-{IDENTIFIER}> a :Wellbore ; :name {IDENTIFIER}^^xsd:string ; :completionDate {COMPLETION_DATE}^^xsd:dateTime ; :currentWellboreTrack {CURRENT_TRACK}^^xsd:string ; :hasTotalCoreLength <http://slegger.gitlab.io/data#TotalCoreLength-{IDENTIFIER}> ; :ABCdocURL "http://example.com/ABC?&id={IDENTIFIER}*&qf=*" . 
+source		SELECT
+			        IDENTIFIER,
+			        COMPLETION_DATE,
+			        CURRENT_TRACK 
+			    FROM
+			        WELLBORE 
+			    WHERE
+			        REF_EXISTENCE_KIND = 'actual'
+
+mappingId	mapping-749172383
+target		<http://slegger.gitlab.io/data#Depth-WellboreInterval-Top-{WELLBORE_INTERVAL_S}> a :MeasuredDepth ; :valueInOriginalUnit {TOP_DEPTH}^^xsd:decimal ; :valueInStandardUnit {TOP_DEPTH}^^xsd:decimal ; :originalUnitOfMeasurement "m"^^xsd:string ; :standardUnitOfMeasurement "m"^^xsd:string . 
+source		SELECT
+			        WELLBORE_INTERVAL_S,
+			        TOP_DEPTH
+			    FROM
+			        WELLBORE_INTERVAL 
+			    WHERE
+			        TOP_DEPTH_U = 'm'
+
+mappingId	mapping-1759269359
+target		<http://slegger.gitlab.io/data#StratigraphicColumn-{STRAT_COLUMN_IDENTIFIER}> a :StratigraphicColumn ; :name {STRAT_COLUMN_IDENTIFIER}^^xsd:string . 
+source		SELECT
+			        NAME STRAT_COLUMN_IDENTIFIER 
+			    FROM
+			        DATA_COLLECTION 
+			    WHERE
+			        REF_DATA_COLLECTION_TYPE = 'stratigraphic hierarchy'
+
+mappingId	mapping-7582784
+target		<http://slegger.gitlab.io/data#Reservoir-{NAME}> a :Reservoir ; :name {NAME}^^xsd:string . 
+source		SELECT * FROM RESERVOIR
+
+mappingId	mapping--2108624693
+target		<http://slegger.gitlab.io/data#TotalCoreLength-{WELLBORE_IDENTIFIER}> a :TotalCoreLength ; :valueInStandardUnit {LENGTH}^^xsd:decimal ; :originalUnitOfMeasurement "ft"^^xsd:string ; :valueInOriginalUnit {FEET_LENGTH}^^xsd:decimal ; :standardUnitOfMeasurement "m"^^xsd:string . 
+source		SELECT
+			        SUM(BOTTOM_DEPTH-TOP_DEPTH) * 0.3048 as LENGTH,
+			        SUM(BOTTOM_DEPTH-TOP_DEPTH) as FEET_LENGTH,
+			        WELLBORE_IDENTIFIER 
+			    FROM
+			        WELLBORE_INTERVAL,
+			        UNCERTAINTY_CLASS,
+			        POSITION_UNCERTAINTY_CLSN
+			    WHERE
+			        UNCERTAINTY_CLASS.NAME = 'drillers depth' AND 
+			        UNCERTAINTY_CLASS.CLASSIFICATION_SYSTEM = 'depth type uncertainty' AND 
+			        POSITION_UNCERTAINTY_CLSN.EARTH_MODEL_OBJECT_S = WELLBORE_INTERVAL.WELLBORE_INTERVAL_S AND 
+			        POSITION_UNCERTAINTY_CLSN.UNCERTAINTY_CLASS_S = UNCERTAINTY_CLASS.UNCERTAINTY_CLASS_S AND 
+			        WELLBORE_INTERVAL.REF_WELLBORE_INTERVAL = 'cored interval' AND 
+			        WELLBORE_INTERVAL.BOTTOM_DEPTH_U = 'ft' AND 
+			        WELLBORE_INTERVAL.TOP_DEPTH_U = 'ft'
+			    GROUP BY
+			        WELLBORE_INTERVAL.WELLBORE_IDENTIFIER
+
+mappingId	mapping--458774060
+target		<http://slegger.gitlab.io/data#StratigraphicUnit-{STRAT_COLUMN_IDENTIFIER}-{STRAT_UNIT_IDENTIFIER}> a :StratigraphicUnit ; :ofStratigraphicColumn <http://slegger.gitlab.io/data#StratigraphicColumn-{STRAT_COLUMN_IDENTIFIER}> ; :name {STRAT_UNIT_IDENTIFIER}^^xsd:string . 
+source		SELECT
+			        STRAT_COLUMN.NAME STRAT_COLUMN_IDENTIFIER,
+			        ROCK_FEATURE.DESCRIPTION STRAT_UNIT_IDENTIFIER 
+			    FROM
+			        ROCK_FEATURE,
+			        COMPONENT_MATERIAL,
+			        DATA_COLLECTION STRAT_COLUMN,
+			        DATA_COLLECTION_CONTENT 
+			    WHERE
+			        COMPONENT_MATERIAL.INCORPORATE_S = ROCK_FEATURE.ROCK_FEATURE_S AND 
+			        COMPONENT_MATERIAL.ENTITY_TYPE_NAME = 'COMPONENT_MATERIAL' AND 
+			        DATA_COLLECTION_CONTENT.COLLECTION_PART_S = ROCK_FEATURE.ROCK_FEATURE_S AND 
+			        DATA_COLLECTION_CONTENT.PART_OF_S = STRAT_COLUMN.DATA_COLLECTION_S AND 
+			        STRAT_COLUMN.REF_DATA_COLLECTION_TYPE = 'stratigraphic hierarchy'
+
+mappingId	mapping-1545370269
+target		<http://slegger.gitlab.io/data#Concession-{IDENTIFIER}> a :Concession ; :name {IDENTIFIER}^^xsd:string ; :plannedRelinquishmentDate {ORIGINAL_EXPIRY_DATE}^^xsd:dateTime ; :actualRelinquishmentDate {EXPIRY_DATE}^^xsd:dateTime ; :awardDate {AWARD_DATE}^^xsd:dateTime . 
+source		SELECT
+			        IDENTIFIER, 
+			        TO_CHAR(EXECUTION_DATE, 'yyyy-mm-dd') || 'T00:00:00' as AWARD_DATE,
+			        TO_CHAR(ORIGINAL_EXPIRY_DATE, 'yyyy-mm-dd') || 'T00:00:00' as ORIGINAL_EXPIRY_DATE,
+			        TO_CHAR(EXPIRY_DATE, 'yyyy-mm-dd') || 'T00:00:00' as EXPIRY_DATE
+			    FROM
+			        LICENSE_AGREEMENT
+
+mappingId	mapping--1065606547
+target		<http://slegger.gitlab.io/data#TrueVerticalDepth-WellboreInterval-Top-{WELLBORE_INTERVAL_S}> a :TrueVerticalDepth ; :valueInOriginalUnit {TOP_TVD}^^xsd:decimal ; :valueInStandardUnit {TOP_TVD}^^xsd:decimal ; :originalUnitOfMeasurement "m"^^xsd:string ; :standardUnitOfMeasurement "m"^^xsd:string . 
+source		SELECT
+			        WELLBORE_INTERVAL_S,
+			        FRAME_LEAF.MDTVD(WELLBORE_IDENTIFIER, TOP_DEPTH) as TOP_TVD
+			    FROM
+			        WELLBORE_INTERVAL 
+			    WHERE
+			        TOP_DEPTH_U = 'm' AND 
+			        TOP_DEPTH >= 0
+
+mappingId	mapping-470033356
+target		<http://slegger.gitlab.io/data#Wellbore-{WELLBORE}> :hasWellboreInterval <http://slegger.gitlab.io/data#StratigraphicZone-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> . 
+source		SELECT * FROM STRATIGRAPHIC_ZONE
+
+mappingId	mapping-558785335
+target		<http://slegger.gitlab.io/data#Well-{WELL_ID}> :locatedIn <http://slegger.gitlab.io/data#CountryArea-{COUNTRY_NAME}> . 
+source		SELECT
+			        COUNTRY.IDENTIFIER COUNTRY_NAME,
+			        WELL.IDENTIFIER WELL_ID 
+			    FROM
+			        BUSINESS_ASSOCIATE COUNTRY,
+			        WELL,
+			        BUSINESS_ASSOC_FACILITY_INVT WELL_REGULATOR 
+			    WHERE
+			        COUNTRY.KIND = 'country' AND 
+			        WELL_REGULATOR.BUSINESS_ASSOCIATE_S = COUNTRY.BUSINESS_ASSOCIATE_S AND 
+			        WELL_REGULATOR.FACILITY_S = WELL.WELL_S AND 
+			        WELL_REGULATOR.INVOLVEMENT_ROLE = 'regulatory authority'
+
+mappingId	mapping-1312239828
+target		<http://slegger.gitlab.io/data#PressureTrueVerticalDepth-{PTY_PRESSURE_S}> a :TrueVerticalDepth ; :originalUnitOfMeasurement "m"^^xsd:string ; :standardUnitOfMeasurement "m"^^xsd:string ; :valueInOriginalUnit {DEPTH}^^xsd:decimal ; :valueInStandardUnit {DEPTH}^^xsd:decimal . 
+source		SELECT
+			        PTY_PRESSURE.PTY_PRESSURE_S,
+			        FRAME_LEAF.MDTVD(WELLBORE.IDENTIFIER, FP_DEPTH_PT1_LOC.DATA_VALUE_1_O) as DEPTH
+			    FROM
+			        PTY_PRESSURE,
+			        ACTIVITY FP_DEPTH_DATA,
+			        PTY_LOCATION_1D FP_DEPTH_PT1_LOC,
+			        WELLBORE,
+			        ACTIVITY_CLASS FORM_PRESSURE_CLASS 
+			    WHERE
+			        PTY_PRESSURE.ACTIVITY_S = FP_DEPTH_DATA.ACTIVITY_S AND 
+			        FP_DEPTH_DATA.ACTIVITY_S = FP_DEPTH_PT1_LOC.ACTIVITY_S AND 
+			        FP_DEPTH_DATA.FACILITY_S = WELLBORE.WELLBORE_S AND 
+			        FP_DEPTH_DATA.KIND_S = FORM_PRESSURE_CLASS.ACTIVITY_CLASS_S AND 
+			        FORM_PRESSURE_CLASS.NAME = 'formation pressure depth data' AND 
+			        FP_DEPTH_PT1_LOC.DATA_VALUE_1_OU ='m' AND 
+			        FP_DEPTH_PT1_LOC.DATA_VALUE_1_O >= 0 AND
+			        WELLBORE.REF_EXISTENCE_KIND = 'actual'
+
+mappingId	mapping-1270680490
+target		<http://slegger.gitlab.io/data#Well-{WELL_ID}> :wellLicense <http://slegger.gitlab.io/data#Concession-{LICENSE_ID}> . 
+source		SELECT
+			        WELL.IDENTIFIER WELL_ID,
+			        CONCESSION.IDENTIFIER LICENSE_ID 
+			    FROM
+			        WELL,
+			        LICENSE_AGREEMENT CONCESSION,
+			        SUBJECT_OF_CONTRACT
+			    WHERE
+			        SUBJECT_OF_CONTRACT.CONTRACT_S = CONCESSION.LICENSE_AGREEMENT_S AND 
+			        SUBJECT_OF_CONTRACT.BUSINESS_OBJECT_S = WELL.WELL_S AND 
+			        CONCESSION.REF_NAMING_SYSTEM = 'unique concession identifier'
+
+mappingId	mapping-381715238
+target		<http://slegger.gitlab.io/data#StratigraphicZone-{BRONNAVN}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> a :FluidZone ; :fluidZoneContent {CONTENT}^^xsd:string . 
+source		SELECT
+			        WELLBORE as BRONNAVN,
+			        STRAT_ZONE_IDENTIFIER,
+			        STRAT_COLUMN_IDENTIFIER,
+			        STRAT_INTERP_VERSION,
+			        STRAT_UNIT_IDENTIFIER CONTENT 
+			    FROM
+			        STRATIGRAPHIC_ZONE 
+			    WHERE
+			        STRAT_COLUMN_IDENTIFIER = 'FLUID'
+
+mappingId	mapping--330681829
+target		<http://slegger.gitlab.io/data#Well-{WELL_IDENTIFIER}> :hasWellbore <http://slegger.gitlab.io/data#Wellbore-{IDENTIFIER}> . 
+source		SELECT
+			        IDENTIFIER,
+			        WELL_IDENTIFIER 
+			    FROM
+			        WELLBORE 
+			    WHERE
+			        REF_EXISTENCE_KIND = 'actual'
+
+mappingId	mapping--1411763297
+target		<http://slegger.gitlab.io/data#Field-{FIELD_S}> a :Field ; :name {IDENTIFIER}^^xsd:string . 
+source		SELECT
+			        FIELD_S,
+			        IDENTIFIER 
+			    FROM
+			        FIELD
+			    WHERE 
+			        IDENTIFIER != 'none'
+
+mappingId	mapping--1076655987
+target		<http://slegger.gitlab.io/data#Well-{WELL_ID}> :hasWaterDepth <http://slegger.gitlab.io/data#WellWaterDepthSlegge-{WELL_SURFACE_POINT_S}> . 
+source		SELECT
+			        WELL.IDENTIFIER WELL_ID,
+			        WELL_SURFACE_POINT.WELL_SURFACE_POINT_S 
+			    FROM
+			        WELL,
+			        WELL_SURFACE_POINT 
+			    WHERE
+			        WELL_SURFACE_POINT.WELL_S = WELL.WELL_S
+
+mappingId	mapping--323820400
+target		<http://slegger.gitlab.io/data#ZoneExitTVD-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> a :TrueVerticalDepth ; :valueInOriginalUnit {STRAT_ZONE_BASE_TVD}^^xsd:decimal ; :valueInStandardUnit {STRAT_ZONE_BASE_TVD}^^xsd:decimal ; :originalUnitOfMeasurement "m"^^xsd:string ; :standardUnitOfMeasurement "m"^^xsd:string . 
+source		SELECT
+			        WELLBORE,
+			        STRAT_COLUMN_IDENTIFIER,
+			        STRAT_INTERP_VERSION,
+			        STRAT_ZONE_IDENTIFIER,
+			        FRAME_LEAF.MDTVD(WELLBORE, STRAT_ZONE_EXIT_MD) as STRAT_ZONE_BASE_TVD
+			    FROM
+			        STRATIGRAPHIC_ZONE 
+			    WHERE
+			        STRAT_ZONE_ENTRY_MD >= 0 AND 
+			        STRAT_ZONE_DEPTH_UOM = 'm'
+
+mappingId	mapping--735910159
+target		<http://slegger.gitlab.io/data#EntryMeasuredDepth-{WELLBORE}-{STRAT_COLUMN_IDENTIFIER}-{STRAT_INTERP_VERSION}-{STRAT_ZONE_IDENTIFIER}> a :MeasuredDepth ; :valueInOriginalUnit {STRAT_ZONE_ENTRY_DEPTH}^^xsd:decimal ; :valueInStandardUnit {STRAT_ZONE_ENTRY_DEPTH}^^xsd:decimal ; :originalUnitOfMeasurement "m"^^xsd:string ; :standardUnitOfMeasurement "m"^^xsd:string . 
+source		SELECT
+			        WELLBORE,
+			        STRAT_ZONE_IDENTIFIER,
+			        STRAT_COLUMN_IDENTIFIER,
+			        STRAT_INTERP_VERSION,
+			        STRAT_ZONE_ENTRY_MD as STRAT_ZONE_ENTRY_DEPTH
+			    FROM
+			        STRATIGRAPHIC_ZONE 
+			    WHERE
+			        STRAT_ZONE_DEPTH_UOM = 'm'
+]]
+

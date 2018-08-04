@@ -3,7 +3,9 @@ package org.semanticweb.clipper.hornshiq.ontology;
 import gnu.trove.set.hash.TIntHashSet;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ClipperHornSHIQOntology {
 
@@ -29,7 +31,7 @@ public class ClipperHornSHIQOntology {
 
 	private List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms;
 
-	private List<ClipperTransitivityAxiom> transitivityAxioms;
+	private Set<ClipperTransitivityAxiom> transitivityAxioms;
 
 	TIntHashSet aboxConcepts;
 
@@ -45,7 +47,7 @@ public class ClipperHornSHIQOntology {
 		this.someSubAtomAxioms = new ArrayList<>();
 		this.subPropertyAxioms = new ArrayList<>();
 		this.inversePropertyOfAxioms = new ArrayList<>();
-		this.transitivityAxioms = new ArrayList<>();
+		this.transitivityAxioms = new HashSet<>();
 	}
 
 	public List<ClipperAxiom> getAllAxioms() {
@@ -113,7 +115,7 @@ public class ClipperHornSHIQOntology {
         return this.inversePropertyOfAxioms;
     }
 
-    public List<ClipperTransitivityAxiom> getTransitivityAxioms() {
+    public Set<ClipperTransitivityAxiom> getTransitivityAxioms() {
         return this.transitivityAxioms;
     }
 
@@ -121,55 +123,5 @@ public class ClipperHornSHIQOntology {
         return this.aboxConcepts;
     }
 
-    public void setAndSubAtomAxioms(List<ClipperAndSubAtomAxiom> andSubAtomAxioms) {
-        this.andSubAtomAxioms = andSubAtomAxioms;
-    }
 
-    public void setDisjointObjectPropertiesAxioms(List<ClipperDisjointObjectPropertiesAxiom> disjointObjectPropertiesAxioms) {
-        this.disjointObjectPropertiesAxioms = disjointObjectPropertiesAxioms;
-    }
-
-    public void setAtomSubSomeAxioms(List<ClipperAtomSubSomeAxiom> atomSubSomeAxioms) {
-        this.atomSubSomeAxioms = atomSubSomeAxioms;
-    }
-
-    public void setAtomSubAllAxioms(List<ClipperAtomSubAllAxiom> atomSubAllAxioms) {
-        this.atomSubAllAxioms = atomSubAllAxioms;
-    }
-
-    public void setAtomSubMaxOneAxioms(List<ClipperAtomSubMaxOneAxiom> atomSubMaxOneAxioms) {
-        this.atomSubMaxOneAxioms = atomSubMaxOneAxioms;
-    }
-
-    public void setAtomSubMinAxioms(List<ClipperAtomSubMinAxiom> atomSubMinAxioms) {
-        this.atomSubMinAxioms = atomSubMinAxioms;
-    }
-
-    public void setSomeSubAtomAxioms(List<ClipperSomeSubAtomAxiom> someSubAtomAxioms) {
-        this.someSubAtomAxioms = someSubAtomAxioms;
-    }
-
-    public void setConceptAssertionAxioms(List<ClipperConceptAssertionAxiom> conceptAssertionAxioms) {
-        this.conceptAssertionAxioms = conceptAssertionAxioms;
-    }
-
-    public void setPropertyAssertionAxioms(List<ClipperPropertyAssertionAxiom> propertyAssertionAxioms) {
-        this.propertyAssertionAxioms = propertyAssertionAxioms;
-    }
-
-    public void setSubPropertyAxioms(List<ClipperSubPropertyAxiom> subPropertyAxioms) {
-        this.subPropertyAxioms = subPropertyAxioms;
-    }
-
-    public void setInversePropertyOfAxioms(List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms) {
-        this.inversePropertyOfAxioms = inversePropertyOfAxioms;
-    }
-
-    public void setTransitivityAxioms(List<ClipperTransitivityAxiom> transitivityAxioms) {
-        this.transitivityAxioms = transitivityAxioms;
-    }
-
-    public void setAboxConcepts(TIntHashSet aboxConcepts) {
-        this.aboxConcepts = aboxConcepts;
-    }
 }

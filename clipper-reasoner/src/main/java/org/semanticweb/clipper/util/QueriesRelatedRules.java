@@ -25,6 +25,8 @@ import java.util.Set;
  * @author kien
  *
  */
+@Deprecated
+        //("to many redundant code; should be reimplemented")
 public class QueriesRelatedRules {
 	private IndexedHornImpContainer indexImps;
 	private IndexedEnfContainer indexEnfs;
@@ -35,7 +37,7 @@ public class QueriesRelatedRules {
 	private List<ClipperSubPropertyAxiom> subObjectPropertyAxioms;
 	private List<ClipperInversePropertyOfAxiom> inverseObjectPropertyAxioms;
 	private List<ClipperAtomSubMaxOneAxiom> maxOneCardinalityAxioms;
-	private List<ClipperTransitivityAxiom> transAxioms;
+	private Set<ClipperTransitivityAxiom> transAxioms;
 
 	private Set<CQ> ucq;
 

@@ -93,7 +93,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
     /*Initialization of QAHornSHIQ with default behaviour,
       with optimizations on (for now only TBoxSaturation optimization is implemented)
     */
-    public QAHornSHIQ(){
+    public QAHornSHIQ() {
         decodedAnswers = new ArrayList<>();
         //ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);// default
         this.ontologies = new ArrayList<OWLOntology>();
@@ -109,8 +109,8 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
 
     /*
-    * @param withActivatorOptimization turns on/off the optimization for TBoxSaturation
-    * */
+     * @param withActivatorOptimization turns on/off the optimization for TBoxSaturation
+     * */
     public QAHornSHIQ(boolean withActivatorOptimization) {
         decodedAnswers = new ArrayList<>();
         //ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);// default
@@ -218,39 +218,26 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
         long starCountingRelatedRule = System.currentTimeMillis();
 
         Set<CQ> ucq = new HashSet<CQ>(rewrittenQueries);
-        QueriesRelatedRules relatedRules = new QueriesRelatedRules(clipperOntology, ucq, cqFormatter);
-        relatedRules.setCoreImps(tb.getImpContainer().getImps());
-        relatedRules.setCoreEnfs(tb.getEnfContainer().getEnfs());
-        relatedRules.countUCQRelatedRules();
-        long endCountingRelatedRule = System.currentTimeMillis();
-        this.clipperReport.setCoutingRealtedRulesTime(endCountingRelatedRule - starCountingRelatedRule);
 
-        if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-            System.out.println("==============================================");
-            System.out.println("Numbers of rewritten queries is: " + ucq.size());
-            System.out.println("==============================================");
-            System.out.println("Rewritten queries: ");
-            for (CQ query : ucq)
-                System.out.println(cqFormatter.formatQuery(query));
-            System.out.println("==============================================");
-            System.out.println("Datalog related to rewritten queries: ");
-            for (Rule rule : relatedRules.getUcqRelatedDatalogRules()) {
-                System.out.println(rule);
-            }
-        }
-        clipperReport.setNumberOfRewrittenQueries(ucq.size());
-        clipperReport.setNumberOfRewrittenQueriesAndRules(relatedRules.getUcqRelatedDatalogRules().size() + ucq.size());
+        ReductionToDatalog reduction = new ReductionToDatalog(clipperOntology, cqFormatter);
+        // reduction.setNamingStrategy(this.namingStrategy);
+        reduction.setCoreImps(tb.getImpContainer().getImps());
+        reduction.setCoreEnfs(tb.getEnfContainer().getEnfs());
 
-        FileWriter fstream = new FileWriter(this.datalogFileName, true);
+        List<CQ> program = reduction.getCompletionRulesDatalogProgram();
+
+        FileWriter fstream = new FileWriter(this.datalogFileName, false);
         BufferedWriter out = new BufferedWriter(fstream);
         out.write("% rewritten queries:\n");
         for (CQ query : ucq)
             out.write(cqFormatter.formatQuery(query) + "\n");
-        // for (Rule rule : relatedRules.getUcqRelatedDatalogRules()) {
-        // out.write(rule + "\n");
-        // }
+        for (CQ rule : program) {
+            out.write(cqFormatter.formatQuery(rule) + "\n");
+        }
 
         out.close();
+
+        // TODO: reimplement the related queries part
     }
 
     /**
@@ -280,6 +267,10 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
         clipperReport.setQueryRewritingTime(rewritingEnd - rewritingBegin);
         // End of evaluating query rewriting time
         // /////////////////////////////////////////////////////////
+
+        if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+            System.out.println(rewrittenQueries);
+        }
     }
 
     /**
@@ -323,7 +314,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
      */
     public TBoxReasoner saturateTBox() throws Exception {
 
-        TBoxReasoner tb =new TBoxReasoner(clipperOntology);
+        TBoxReasoner tb = new TBoxReasoner(clipperOntology);
         // ///////////////////////////////////////////////
         // Evaluate reasoning time
         long reasoningBegin = System.currentTimeMillis();
@@ -632,7 +623,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
         DLVInputProgram inputProgram = new DLVInputProgramImpl();
         String outPutNotification = "";
 
-		/* I can add some file to the DLVInputProgram */
+        /* I can add some file to the DLVInputProgram */
 
         inputProgram.addFile(this.datalogFileName);
 
@@ -658,7 +649,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
             this.answers = new ArrayList<>();
 
-			/* In this moment I can start the DLV execution */
+            /* In this moment I can start the DLV execution */
             FactHandler factHandler = new FactHandler() {
                 @Override
                 public void handleResult(DLVInvocation obsd, FactResult res) {
@@ -924,8 +915,6 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
     public void setOntologies(Set<OWLOntology> ontologies) {
         this.ontologies = ontologies;
     }
-
-
 
 
 }

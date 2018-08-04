@@ -52,7 +52,9 @@ public class ReductionToDatalog {
     private List<ClipperAtomSubMaxOneAxiom> maxOneCardinalityAxioms;
     private List<ClipperConceptAssertionAxiom> conceptAssertionAxioms;
     private List<ClipperPropertyAssertionAxiom> roleAssertionAxioms;
-    private List<ClipperTransitivityAxiom> transAxioms;
+
+    // TODO: all axioms should be sets
+    private Set<ClipperTransitivityAxiom> transAxioms;
 
     protected static final int THING = 0;
 
@@ -85,11 +87,6 @@ public class ReductionToDatalog {
 
         transAxioms = ontology.getTransitivityAxioms();
     }
-
-    /*todo:new constructor to implement the reduction */
-    public ReductionToDatalog() {
-    }
-
 
     private static DLPredicate getClassPredicate(int index) {
         return new DLPredicate(owlClassEncoder.getSymbolByValue(index));
