@@ -11,6 +11,7 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -278,7 +279,7 @@ public class LUBMQueryWithActivatorsFromR2RMLTest {
 	}
 
 	@Test
-	public void queryTest() throws RecognitionException {
+	public void queryTest() throws RecognitionException, IOException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);

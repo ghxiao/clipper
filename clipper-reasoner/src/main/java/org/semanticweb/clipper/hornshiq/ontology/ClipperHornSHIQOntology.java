@@ -9,6 +9,7 @@ import java.util.Set;
 
 public class ClipperHornSHIQOntology {
 
+	// TBox Axioms
 	private List<ClipperAndSubAtomAxiom> andSubAtomAxioms;
 
 	private List<ClipperDisjointObjectPropertiesAxiom> disjointObjectPropertiesAxioms;
@@ -23,15 +24,17 @@ public class ClipperHornSHIQOntology {
 
 	private List<ClipperSomeSubAtomAxiom> someSubAtomAxioms;
 
-	private List<ClipperConceptAssertionAxiom> conceptAssertionAxioms;
-
-	private List<ClipperPropertyAssertionAxiom> propertyAssertionAxioms;
-
 	private List<ClipperSubPropertyAxiom> subPropertyAxioms;
 
 	private List<ClipperInversePropertyOfAxiom> inversePropertyOfAxioms;
 
 	private Set<ClipperTransitivityAxiom> transitivityAxioms;
+
+	// ABox Axioms
+
+	private List<ClipperConceptAssertionAxiom> conceptAssertionAxioms;
+
+	private List<ClipperPropertyAssertionAxiom> propertyAssertionAxioms;
 
 	TIntHashSet aboxConcepts;
 
@@ -58,13 +61,14 @@ public class ClipperHornSHIQOntology {
 		result.addAll(atomSubMaxOneAxioms);
 		result.addAll(atomSubMinAxioms);
 		result.addAll(atomSubSomeAxioms);
-		result.addAll(conceptAssertionAxioms);
-		result.addAll(disjointObjectPropertiesAxioms);
 		result.addAll(propertyAssertionAxioms);
 		result.addAll(someSubAtomAxioms);
 		result.addAll(subPropertyAxioms);
 		result.addAll(inversePropertyOfAxioms);
 		result.addAll(transitivityAxioms);
+
+        result.addAll(conceptAssertionAxioms);
+        result.addAll(disjointObjectPropertiesAxioms);
 
 		return result;
 

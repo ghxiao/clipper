@@ -42,8 +42,7 @@ public class ClipperManager {
 		this.owlClassEncoder = new SymbolEncoder<OWLClass>(OWLClass.class);
 		this.owlPropertyExpressionEncoder = new SymbolEncoder<OWLPropertyExpression>(OWLPropertyExpression.class);
 
-		this.owlIndividualAndLiteralEncoder = new SymbolEncoder<OWLPropertyAssertionObject>(
-				OWLPropertyAssertionObject.class);
+		this.owlIndividualAndLiteralEncoder = new SymbolEncoder<OWLPropertyAssertionObject>(OWLPropertyAssertionObject.class);
 
 		this.thing = owlClassEncoder.getValueBySymbol(OWLManager.getOWLDataFactory().getOWLThing());
 		this.nothing = owlClassEncoder.getValueBySymbol(OWLManager.getOWLDataFactory().getOWLNothing());

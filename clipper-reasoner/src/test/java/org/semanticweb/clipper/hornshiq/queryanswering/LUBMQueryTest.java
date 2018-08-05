@@ -5,10 +5,13 @@ import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenStream;
+import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryFactory;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
+import org.semanticweb.clipper.sparql.SparqlToCQConverter;
 import org.semanticweb.clipper.util.LUBMAnswerFileParser;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
@@ -16,6 +19,7 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import uk.ac.ox.cs.JRDFox.JRDFoxException;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -283,7 +287,7 @@ public class LUBMQueryTest {
 	}
 
 	@Test
-	public void queryTest() throws RecognitionException {
+	public void queryTest() throws RecognitionException, IOException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
@@ -342,20 +346,21 @@ public class LUBMQueryTest {
 				new File(ontologyFile));
 		qaHornSHIQ.addOntology(ontology);
 
-
 		System.out.println(sparqlString);
+//
+//		CharStream stream = new ANTLRStringStream(sparqlString);
+//		SparqlLexer lexer = new SparqlLexer(stream);
+//		TokenStream tokenStream = new CommonTokenStream(lexer);
+//		SparqlParser parser = new SparqlParser(tokenStream);
+//		CQ cq = parser.query();
+//
+        Query query = QueryFactory.create(sparqlString);
+        CQ cq = new SparqlToCQConverter().compileQuery(query);
 
-		CharStream stream = new ANTLRStringStream(sparqlString);
-		SparqlLexer lexer = new SparqlLexer(stream);
-		TokenStream tokenStream = new CommonTokenStream(lexer);
-		SparqlParser parser = new SparqlParser(tokenStream);
-		CQ cq = parser.query();
-
-		String queryString = cq.toString();
+        String queryString = cq.toString();
 		System.out.println(queryString);
 		qaHornSHIQ.setQuery(cq);
 		qaHornSHIQ.execQuery();
-
 
 		System.out.println("TBox reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime()
 				+ "  millisecond");
