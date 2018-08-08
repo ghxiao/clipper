@@ -20,7 +20,6 @@ public class RequiemTestSuitePaths {
 		ClipperManager.getInstance().setVerboseLevel(2);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/PathsQuery0.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
 		//Q(?0) <- edge(?0,?1)
 		String sparql = "PREFIX ub: <http://www.semanticweb.org/ontologies/2008/8/24/Ontology1222256119496.owl#>\n" + //
 				"SELECT ?x0 \n" + //
@@ -51,7 +50,6 @@ public class RequiemTestSuitePaths {
 		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/PathsQuery01.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
 		//Q(?0) <- edge(?0,?1), edge(?1,?2)
 		String sparql = "PREFIX ub: <http://www.semanticweb.org/ontologies/2008/8/24/Ontology1222256119496.owl#>\n" + //
 				"SELECT ?x0 \n" + //
@@ -76,14 +74,13 @@ public class RequiemTestSuitePaths {
 		qaHornSHIQ.execQuery();
 
 	}
-	
+
 	@Test
 	public void query02() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/PathsQuery02.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
 		//Q(?0) <- edge(?0,?1), edge(?1,?2), edge(?2,?3)
 		String sparql = "PREFIX ub: <http://www.semanticweb.org/ontologies/2008/8/24/Ontology1222256119496.owl#>\n" + //
 				"SELECT ?x1 \n" + //
@@ -109,14 +106,14 @@ public class RequiemTestSuitePaths {
 		qaHornSHIQ.execQuery();
 		System.out.println("NUmber of rewritten quries: " + qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueries());
 	}
-	
+
 	@Test
 	public void query03() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/PathsQuery03.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
+		// qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
 		//Q(?0) <- edge(?0,?1), edge(?1,?2), edge(?2,?3)
 		String sparql = "PREFIX ub: <http://www.semanticweb.org/ontologies/2008/8/24/Ontology1222256119496.owl#>\n" + //
 				"SELECT ?x0 \n" + //
@@ -145,14 +142,14 @@ public class RequiemTestSuitePaths {
 		System.out.println("reasoning time " + qaHornSHIQ.getClipperReport().getQueryRewritingTime() + "millisecond");
 		System.out.println("NUmber of rewritten quries: " + qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueries());
 	}
-	
+
 	@Test
 	public void query04() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/PathsQuery04.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
+		// qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/path5.owl");
 		//Q(?0) <- edge(?0,?1), edge(?1,?2), edge(?2,?3)
 		String sparql = "PREFIX ub: <http://www.semanticweb.org/ontologies/2008/8/24/Ontology1222256119496.owl#>\n" + //
 				"SELECT ?x0 \n" + //
@@ -181,7 +178,7 @@ public class RequiemTestSuitePaths {
 		System.out.println("Reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime() + "  millisecond");
 		System.out.println("Query rewriting time: " + qaHornSHIQ.getClipperReport().getQueryRewritingTime() + "  millisecond");
 		System.out.println("Time of running datalog program : " + qaHornSHIQ.getClipperReport().getDatalogRunTime() + "  milliseconds");
-		
+
 
 	}
 }

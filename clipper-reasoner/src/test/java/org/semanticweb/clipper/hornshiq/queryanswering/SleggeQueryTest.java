@@ -148,8 +148,6 @@ public class SleggeQueryTest {
         qaHornSHIQ.setQueryRewriter("new");
         ClipperManager.getInstance().setVerboseLevel(2);
 
-
-        qaHornSHIQ.setOntologyName(ontologyFile);
         OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
                 new File(ontologyFile));
         qaHornSHIQ.addOntology(ontology);
@@ -163,7 +161,7 @@ public class SleggeQueryTest {
 //        CQ cq = parser.query();
 
         Query query = QueryFactory.create(sparqlString);
-        CQ cq = new SparqlToCQConverter().compileQuery(query);
+        CQ cq = new SparqlToCQConverter(ontology).compileQuery(query);
 
 
 //        String queryString = cq.toString();

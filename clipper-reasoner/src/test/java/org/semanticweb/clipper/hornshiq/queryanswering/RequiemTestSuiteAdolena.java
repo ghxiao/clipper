@@ -18,12 +18,12 @@ public class RequiemTestSuiteAdolena {
 	public void query0() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		ClipperManager.getInstance().setVerboseLevel(1);
-	
+
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setNamingStrategy(NamingStrategy.INT_ENCODING);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/AdolenaQuery0.dl");
 		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/adolena.owl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/miniAdolena.owl");
+		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/miniAdolena.owl");
 		// Q(?0) <- Device(?0), assistsWith(?0,?1)
 		String sparql = "PREFIX ub: <http://ksg.meraka.co.za/adolena.owl#>\n" + //
 			"PREFIX y: <file:/home/aurona/0AlleWerk/Navorsing/Ontologies/NAP/NAP#>\n" + //
@@ -58,7 +58,7 @@ public class RequiemTestSuiteAdolena {
 		// qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		qaHornSHIQ
 				.setDatalogFileName("TestData/requiem/EvalDL09/AdolenaQuery01.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/adolena.owl");
+		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/adolena.owl");
 		// Q(?0) <- Device(?0), assistsWith(?0,?1), UpperLimbMobility(?1)
 		String sparql = "PREFIX ub: <http://ksg.meraka.co.za/adolena.owl#>\n" + //
 				"SELECT ?x0 \n" + //
@@ -92,7 +92,7 @@ public class RequiemTestSuiteAdolena {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ
 				.setDatalogFileName("TestData/requiem/EvalDL09/AdolenaQuery02.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
+		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		// Q(?0) <- Device(?0), assistsWith(?0,?1), Hear(?1), affects(?2,?1),
 		// Autism(?2)
 		String sparql = "PREFIX ub: <http://ksg.meraka.co.za/adolena.owl#>\n"
@@ -132,7 +132,7 @@ public class RequiemTestSuiteAdolena {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ
 				.setDatalogFileName("TestData/requiem/EvalDL09/AdolenaQuery03.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
+		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		// Q(?0) <- Device(?0), assistsWith(?0,?1), PhysicalAbility(?1)
 		String sparql = "PREFIX ub: <http://ksg.meraka.co.za/adolena.owl#>\n" + //
 				"SELECT ?x0 \n" + //
@@ -164,7 +164,7 @@ public class RequiemTestSuiteAdolena {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ
 				.setDatalogFileName("TestData/requiem/EvalDL09/AdolenaQuery04.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/adolena.owl");
+		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/adolena.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0) <- Device(?0), assistsWith(?0,?1), PhysicalAbility(?1),
 		// affects(?2,?1), Quadriplegia(?2)

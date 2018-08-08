@@ -24,7 +24,7 @@ public class RequiemTestSuiteUniversity {
 		ClipperManager.getInstance().setVerboseLevel(2);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query1.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
+		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>\n"
 				+ //
@@ -78,7 +78,7 @@ public class RequiemTestSuiteUniversity {
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query1.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
+		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 	//	qaHornSHIQ.setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		// Q(?0,?1) <- Person(?0), teacherOf(?0,?1), Course(?1)
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>\n"
@@ -104,7 +104,7 @@ public class RequiemTestSuiteUniversity {
 		qaHornSHIQ.setDlvPath("lib/dlv");
 		// qaHornSHIQ.getModel();
 		qaHornSHIQ.generateDatalog();
-		
+
 		//qaHornSHIQ.getAnswers();
 		// Check if our answers is the same as correct answers.
 		System.out.println("NUmber of rewritten quries: " + qaHornSHIQ.getClipperReport().getNumberOfRewrittenQueries());
@@ -116,7 +116,7 @@ public class RequiemTestSuiteUniversity {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query02.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
+		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0,?1,?2) <- Student(?0), advisor(?0,?1), FacultyStaff(?1),
 		// takesCourse(?0,?2), teacherOf(?1,?2), Course(?2)
@@ -150,7 +150,7 @@ public class RequiemTestSuiteUniversity {
 			Set<String> setAnswer = new HashSet<String>(listAnswer);
 			actualAnswers.add(setAnswer);
 		}
-      
+
 	}
 
 	@Test
@@ -158,7 +158,7 @@ public class RequiemTestSuiteUniversity {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query03.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
+		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0,?1) <- Person(?0), worksFor(?0,?1), Organization(?1)
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>\n" + //
@@ -195,7 +195,7 @@ public class RequiemTestSuiteUniversity {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query04.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
+		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		// /Q(?0) <- Person(?0), worksFor(?0,?1), University(?1),
 		// hasAlumnus(?1,?0)
@@ -233,7 +233,7 @@ public class RequiemTestSuiteUniversity {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query02.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
+		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0,?1,?2) <- Student(?0), advisor(?0,?1), FacultyStaff(?1),
 		// takesCourse(?0,?2), teacherOf(?1,?2), Course(?2)
@@ -267,21 +267,21 @@ public class RequiemTestSuiteUniversity {
 			Set<String> setAnswer = new HashSet<String>(listAnswer);
 			actualAnswers.add(setAnswer);
 		}
-    
+
 	}
 	@Test
 	public void query08() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query02.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
+		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0,?1,?2) <- Student(?0), advisor(?0,?1), FacultyStaff(?1),
 		// takesCourse(?0,?2), teacherOf(?1,?2), Course(?2)
 		String sparql =  "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n" +
-		                 "SELECT ?X ?Z \n" + 
+		                 "SELECT ?X ?Z \n" +
 							"WHERE { \n" +
-						"?X a ub:Student . \n" + 
+						"?X a ub:Student . \n" +
 						"?Y a ub:Course . \n" +
 						"?X ub:takesCourse ?Y . \n" +
 						"?Z a ub:Professor ; \n" +
@@ -308,21 +308,21 @@ public class RequiemTestSuiteUniversity {
 			Set<String> setAnswer = new HashSet<String>(listAnswer);
 			actualAnswers.add(setAnswer);
 		}
-    
+
 	}
 	@Test
 	public void query09() throws RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/requiem/EvalDL09/query02.dl");
-		qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
+		//qaHornSHIQ.setOntologyName("TestData/requiem/EvalDL09/university.owl");
 		ClipperManager.getInstance().setVerboseLevel(1);
 		// Q(?0,?1,?2) <- Student(?0), advisor(?0,?1), FacultyStaff(?1),
 		// takesCourse(?0,?2), teacherOf(?1,?2), Course(?2)
 		String sparql =  "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#> \n" +
-		                 "SELECT ?X ?Z \n" + 
+		                 "SELECT ?X ?Z \n" +
 							"WHERE { \n" +
-						"?X a ub:Student . \n" + 
+						"?X a ub:Student . \n" +
 						"?Y a ub:Department . \n" +
 						"?X ub:memberOf ?Y . \n" +
 						"?Z a ub:Professor ; \n" +
@@ -349,7 +349,7 @@ public class RequiemTestSuiteUniversity {
 			Set<String> setAnswer = new HashSet<String>(listAnswer);
 			actualAnswers.add(setAnswer);
 		}
-    
+
 	}
-	
+
 }

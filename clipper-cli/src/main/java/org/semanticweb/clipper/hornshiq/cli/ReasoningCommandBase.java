@@ -24,9 +24,9 @@ import java.util.Set;
 
 /**
  * Common base class for CommandQuery and CommandRewrite
- * 
+ *
  * @author xiao
- * 
+ *
  */
 public abstract class ReasoningCommandBase extends CommandBase {
 
@@ -58,7 +58,7 @@ public abstract class ReasoningCommandBase extends CommandBase {
 
         if(sparqlString!=null){
             Query query = QueryFactory.create(sparqlString);
-            cq = new SparqlToCQConverter().compileQuery(query);
+            cq = new SparqlToCQConverter(ontologies.iterator().next()).compileQuery(query);
         } else if (sparqlFile != null) {
 			try {
                 FileReader reader = new FileReader(new File(sparqlFile));
@@ -67,7 +67,7 @@ public abstract class ReasoningCommandBase extends CommandBase {
 
                 Query query = QueryFactory.create(queryString);
 
-                cq = new SparqlToCQConverter().compileQuery(query);
+                cq = new SparqlToCQConverter(ontologies.iterator().next()).compileQuery(query);
 
                 reader.close();
 

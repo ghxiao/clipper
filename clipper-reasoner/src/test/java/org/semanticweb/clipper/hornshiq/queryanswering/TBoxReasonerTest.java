@@ -142,7 +142,6 @@ public class TBoxReasonerTest {
 
         qaHornSHIQ.setDatalogFileName(tmpDatalogFile);
 
-        qaHornSHIQ.setOntologyName(ontologyFile);
         OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
                 new File(ontologyFile));
         qaHornSHIQ.addOntology(ontology);

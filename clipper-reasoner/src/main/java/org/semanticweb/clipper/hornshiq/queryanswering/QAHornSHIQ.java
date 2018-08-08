@@ -1,22 +1,12 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
 import com.google.common.base.Strings;
-
 import gnu.trove.iterator.TIntIterator;
 import gnu.trove.set.hash.TIntHashSet;
-import it.unical.mat.wrapper.DLVError;
-import it.unical.mat.wrapper.DLVInputProgram;
-import it.unical.mat.wrapper.DLVInputProgramImpl;
-import it.unical.mat.wrapper.DLVInvocation;
-import it.unical.mat.wrapper.DLVInvocationException;
-import it.unical.mat.wrapper.DLVWrapper;
-import it.unical.mat.wrapper.FactHandler;
-import it.unical.mat.wrapper.FactResult;
-import it.unical.mat.wrapper.ModelBufferedHandler;
+import it.unical.mat.wrapper.*;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryFactory;
 import org.semanticweb.clipper.QueryAnsweringSystem;
-import org.semanticweb.clipper.hornshiq.ontology.ClipperAxiom;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntology;
 import org.semanticweb.clipper.hornshiq.ontology.ClipperHornSHIQOntologyConverter;
 import org.semanticweb.clipper.hornshiq.profile.HornALCHIQNormalizer;
@@ -27,49 +17,26 @@ import org.semanticweb.clipper.hornshiq.queryrewriting.HornALCHIQQueryRewriter;
 import org.semanticweb.clipper.hornshiq.queryrewriting.HornSHIQQueryRewriter;
 import org.semanticweb.clipper.hornshiq.queryrewriting.QueryRewriter;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.rule.InternalCQParser;
 import org.semanticweb.clipper.sparql.SparqlToCQConverter;
 import org.semanticweb.clipper.util.AnswerParser;
-import org.semanticweb.clipper.util.QueriesRelatedRules;
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.AxiomType;
-import org.semanticweb.owlapi.model.IRI;
-import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
-import org.semanticweb.owlapi.model.OWLLogicalAxiom;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.profiles.OWLProfileReport;
 import uk.ac.ox.cs.JRDFox.store.Resource;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.io.*;
+import java.util.*;
 
 public class QAHornSHIQ implements QueryAnsweringSystem {
 
     private final boolean withActivatorOptimization;
 
     private String datalogFileName;
-    private String ontologyName;
 
-    private String queryString;
-    private String queryPrefix;
     private String datalogEngine = "dlv";
 
     private String queryRewriter = "";//"old";
 
-    private String headPredicate;
     private List<String> answers;
     private List<List<String>> decodedAnswers;
     private CQ cq;
@@ -79,7 +46,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
     private Collection<CQ> rewrittenQueries;
 
     // String dlvPath = "lib/dlv";
-    String dlvPath;
+    private String dlvPath;
 
     private Collection<OWLOntology> ontologies;
     protected ClipperHornSHIQOntology clipperOntology;
@@ -94,17 +61,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
       with optimizations on (for now only TBoxSaturation optimization is implemented)
     */
     public QAHornSHIQ() {
-        decodedAnswers = new ArrayList<>();
-        //ClipperManager.getInstance().setNamingStrategy(NamingStrategy.INT_ENCODING);// default
-        this.ontologies = new ArrayList<OWLOntology>();
-
-        setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);// default
-        cqFormatter = new CQFormatter(namingStrategy);
-
-        // ClipperManager.getInstance().reset();
-        //todo:add the case on top level calling of QAHornSHIQ class for this member to facilitate turning on and off the optimization of TBoxReasoner
-
-        this.withActivatorOptimization = false;
+        this(false);
     }
 
 
@@ -119,7 +76,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
         setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);// default
         cqFormatter = new CQFormatter(namingStrategy);
 
-        // ClipperManager.getInstance().reset();
+        //ClipperManager.getInstance().reset();
         //todo:add the case on top level calling of QAHornSHIQ class for this member to facilitate turning on and off the optimization of TBoxReasoner
 
         this.withActivatorOptimization = withActivatorOptimization;
@@ -139,7 +96,6 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
      * rules, and ABox assertions
      */
     public void generateDatalog() {
-        this.headPredicate = cq.getHead().getPredicate().toString();
         if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
             System.out.println("% Encoded Input query:" + cq);
         }
@@ -255,16 +211,6 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
     private void rewriteQuery(TBoxReasoner tb) {
         QueryRewriter qr = createQueryRewriter(clipperOntology, tb);
 
-//        if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-//            System.out.println("%Enforces relations:");
-//            for (EnforcedRelation e : tb.getEnfContainer().getEnfs()) {
-//                printClassNamesFromEncodedNamesSet(e.getType1());
-//                printRoleNamesFromEncodedNamesSet(e.getRoles());
-//                printClassNamesFromEncodedNamesSet(e.getType2());
-//                System.out.println();
-//            }
-//
-//        }
         if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
             System.out.println("%rewritten queries:");
         }
@@ -402,7 +348,6 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
      */
     public void generateQueriesAndCompletionRulesDatalog() {
 
-        this.headPredicate = cq.getHead().getPredicate().toString();
         if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
             System.out.println("% Encoded Input query:" + cq);
         }
@@ -449,7 +394,6 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
      */
     public void getQueriesAndRelatedRulesDataLog() {
 
-        this.headPredicate = cq.getHead().getPredicate().toString();
         if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
             System.out.println("% Encoded Input query:" + cq);
         }
@@ -468,26 +412,6 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
             e.printStackTrace();
         }
 
-    }
-
-    private void printClassNamesFromEncodedNamesSet(TIntHashSet encodedNames) {
-        TIntIterator iterator = encodedNames.iterator();
-        System.out.print("{ ");
-        while (iterator.hasNext()) {
-            int index = iterator.next();
-            System.out.print(cqFormatter.getUnaryPredicate(index) + ",");
-        }
-        System.out.print(" } ");
-    }
-
-    private void printRoleNamesFromEncodedNamesSet(TIntHashSet encodedNames) {
-        TIntIterator iterator = encodedNames.iterator();
-        System.out.print("{ ");
-        while (iterator.hasNext()) {
-            int index = iterator.next();
-            System.out.print(cqFormatter.getBinaryPredicate(index) + ",");
-        }
-        System.out.print(" } ");
     }
 
     /**
@@ -518,7 +442,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
     public List<List<String>> execQuery(String sparqlString) {
         Query query = QueryFactory.create(sparqlString);
-        CQ cq = new SparqlToCQConverter().compileQuery(query);
+        CQ cq = new SparqlToCQConverter(ontologies.iterator().next()).compileQuery(query);
 
         this.setQuery(cq);
 
@@ -802,14 +726,6 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
 
     public void setDatalogFileName(String datalogFileName) {
         this.datalogFileName = datalogFileName;
-    }
-
-    public void setOntologyName(String ontologyName) {
-        this.ontologyName = ontologyName;
-    }
-
-    public void setQueryString(String queryString) {
-        this.queryString = queryString;
     }
 
     public void setQueryRewriter(String queryRewriter) {

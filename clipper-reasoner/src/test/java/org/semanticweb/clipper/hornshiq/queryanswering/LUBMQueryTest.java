@@ -1,22 +1,14 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import org.antlr.runtime.ANTLRStringStream;
-import org.antlr.runtime.CharStream;
-import org.antlr.runtime.CommonTokenStream;
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.TokenStream;
-import org.apache.jena.query.Query;
-import org.apache.jena.query.QueryFactory;
+import org.antlr.runtime.*;
 import org.junit.Test;
 import org.semanticweb.clipper.hornshiq.rule.CQ;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
 import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
-import org.semanticweb.clipper.sparql.SparqlToCQConverter;
 import org.semanticweb.clipper.util.LUBMAnswerFileParser;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import uk.ac.ox.cs.JRDFox.JRDFoxException;
 
 import java.io.File;
 import java.io.IOException;
@@ -292,7 +284,7 @@ public class LUBMQueryTest {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("src/test/resources/TestData/lubm/queryTest.dl");
-		qaHornSHIQ.setOntologyName("src/test/resources/TestData/lubm/lubm1.owl");
+		//qaHornSHIQ.setOntologyName("src/test/resources/TestData/lubm/lubm1.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>"+
 			" SELECT ?X ?Z "+
@@ -341,7 +333,7 @@ public class LUBMQueryTest {
 
 		qaHornSHIQ.setDatalogFileName(tmpDatalogFile);
 
-		qaHornSHIQ.setOntologyName(ontologyFile);
+		//qaHornSHIQ.setOntologyName(ontologyFile);
 		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
 				new File(ontologyFile));
 		qaHornSHIQ.addOntology(ontology);
@@ -354,13 +346,13 @@ public class LUBMQueryTest {
 //		SparqlParser parser = new SparqlParser(tokenStream);
 //		CQ cq = parser.query();
 //
-        Query query = QueryFactory.create(sparqlString);
-        CQ cq = new SparqlToCQConverter().compileQuery(query);
-
-        String queryString = cq.toString();
-		System.out.println(queryString);
-		qaHornSHIQ.setQuery(cq);
-		qaHornSHIQ.execQuery();
+        //Query query = QueryFactory.create(sparqlString);
+//        CQ cq = new SparqlToCQConverter().compileQuery(query);
+//
+//        String queryString = cq.toString();
+//		System.out.println(queryString);
+//		qaHornSHIQ.setQuery(cq);
+		qaHornSHIQ.execQuery(sparqlString);
 
 		System.out.println("TBox reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime()
 				+ "  millisecond");
@@ -374,22 +366,6 @@ public class LUBMQueryTest {
 		LUBMAnswerFileParser answerParser = new LUBMAnswerFileParser();
 
 		Set<List<String>> expectedAnswers = answerParser.readAnswers(answerFile);
-
-//		int n = 0;
-
-//		for(List<String> actual : actualAnswers) {
-//			boolean b = expectedAnswers.contains(actual);
-//
-//			if(!b){
-//				n++;
-//				System.out.println("missing" + actual);
-//			}
-//
-//		}
-
-//		System.out.println("expected : " + expectedAnswers.size());
-//		System.out.println("actual   : " + n);
-
 
 		assertEquals(expectedAnswers.size(), actualAnswers.size());
 

@@ -68,7 +68,7 @@ class HornSHIQProfileObjectVisitor extends OWLOntologyWalkerVisitor<Object> {
 
 
 	private final HornSHIQProfile hornSHIQProfile;
-    
+
     private final LeftHornClassExpressionChecker leftExpressionChecker;
     private final RightHornClassExpressionChecker rightExpressionChecker;
 
@@ -97,21 +97,24 @@ class HornSHIQProfileObjectVisitor extends OWLOntologyWalkerVisitor<Object> {
 
 	@Override
 	public Object visit(OWLSubAnnotationPropertyOfAxiom axiom) {
-		profileViolations.add(new UseOfIllegalAxiom(getCurrentOntology(), axiom));
+		// ignore
+		//profileViolations.add(new UseOfIllegalAxiom(getCurrentOntology(), axiom));
 
 		return null;
 	}
 
 	@Override
 	public Object visit(OWLAnnotationPropertyDomainAxiom axiom) {
-		profileViolations.add(new UseOfIllegalAxiom(getCurrentOntology(), axiom));
+        // ignore
+		// profileViolations.add(new UseOfIllegalAxiom(getCurrentOntology(), axiom));
 
 		return null;
 	}
 
 	@Override
 	public Object visit(OWLAnnotationPropertyRangeAxiom axiom) {
-		profileViolations.add(new UseOfIllegalAxiom(getCurrentOntology(), axiom));
+        // ignore
+		// profileViolations.add(new UseOfIllegalAxiom(getCurrentOntology(), axiom));
 
 		return null;
 	}
@@ -181,7 +184,7 @@ class HornSHIQProfileObjectVisitor extends OWLOntologyWalkerVisitor<Object> {
 		for(OWLAxiom ax:axiom.asSubObjectPropertyOfAxioms()){
 			ax.accept(this);
 		}
-	
+
 		return null;
 	}
 
@@ -289,17 +292,17 @@ class HornSHIQProfileObjectVisitor extends OWLOntologyWalkerVisitor<Object> {
 
 	@Override
 	public Object visit(OWLEquivalentClassesAxiom axiom) {
-		
+
 		for(OWLAxiom ax:axiom.asOWLSubClassOfAxioms()){
 			ax.accept(this);
 		}
-		
+
 		return null;
 	}
 
 	@Override
 	public Object visit(OWLDataPropertyAssertionAxiom axiom) {
-		profileViolations.add(new UseOfIllegalAxiom(getCurrentOntology(), axiom));
+		//profileViolations.add(new UseOfIllegalAxiom(getCurrentOntology(), axiom));
 		return null;
 	}
 

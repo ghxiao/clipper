@@ -284,7 +284,7 @@ public class LUBMQueryWithActivatorsFromR2RMLTest {
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("src/test/resources/TestData/lubm/queryTest.dl");
-		qaHornSHIQ.setOntologyName("src/test/resources/TestData/lubm/lubm1.owl");
+		//qaHornSHIQ.setOntologyName("src/test/resources/TestData/lubm/lubm1.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>"+
 			" SELECT ?X ?Z "+
@@ -333,7 +333,6 @@ public class LUBMQueryWithActivatorsFromR2RMLTest {
 
 		qaHornSHIQ.setDatalogFileName(tmpDatalogFile);
 
-		qaHornSHIQ.setOntologyName(ontologyFile);
 		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
 				new File(ontologyFile));
 		qaHornSHIQ.addOntology(ontology);

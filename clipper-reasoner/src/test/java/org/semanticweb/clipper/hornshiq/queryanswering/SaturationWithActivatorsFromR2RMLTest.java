@@ -85,8 +85,6 @@ public class SaturationWithActivatorsFromR2RMLTest {
         qaHornSHIQ.setQueryRewriter("new");
         ClipperManager.getInstance().setVerboseLevel(2);
 
-
-        qaHornSHIQ.setOntologyName(ontologyFile);
         OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
                 new File(ontologyFile));
         qaHornSHIQ.addOntology(ontology);
@@ -110,7 +108,6 @@ public class SaturationWithActivatorsFromR2RMLTest {
         ClipperManager.getInstance().setVerboseLevel(2);
 
 
-        qaHornSHIQ.setOntologyName(ontologyFile);
         OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
                 new File(ontologyFile));
         qaHornSHIQ.addOntology(ontology);

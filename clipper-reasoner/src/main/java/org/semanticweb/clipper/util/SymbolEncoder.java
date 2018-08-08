@@ -37,9 +37,9 @@ public class SymbolEncoder<K> {
 		this.cls = cls;
 	}
 
-	Map<K, Integer> symbolToInt_Map = new HashMap<K, Integer>();
+	private Map<K, Integer> symbolToInt_Map = new HashMap<K, Integer>();
 
-	List<K> intToSymbol_List = new ArrayList<K>();
+	private List<K> intToSymbol_List = new ArrayList<K>();
 
 	@SuppressWarnings("unchecked")
 	public K getSymbolByValue(int value) {
