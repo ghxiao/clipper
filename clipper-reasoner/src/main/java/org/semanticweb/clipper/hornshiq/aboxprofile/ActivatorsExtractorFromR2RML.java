@@ -25,6 +25,7 @@ import uk.ac.ox.cs.JRDFox.store.TupleIterator;
 import java.io.*;
 import java.util.*;
 
+import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toMap;
 import static java.util.stream.Collectors.toSet;
 
@@ -48,8 +49,7 @@ public class ActivatorsExtractorFromR2RML {
         coll.forEach(
                 triplesMap -> {
                     final SubjectMap subjectMap = triplesMap.getSubjectMap();
-                    final String subjectTemplate =
-                            subjectMap.getTemplate().getTemplateStringWithoutColumnNames();
+                    final String subjectTemplate = getTemplateStringWithoutColumnNames(subjectMap.getTemplate());
                     classMaps.putAll(subjectTemplate, subjectMap.getClasses());
 
                     for (PredicateObjectMap predictedObjectsMap : triplesMap.getPredicateObjectMaps()) {
@@ -63,7 +63,8 @@ public class ActivatorsExtractorFromR2RML {
                                 final Template template = objectMap.getTemplate();
 
                                 if (template != null) {
-                                    final String objectTemplate = template.getTemplateStringWithoutColumnNames();
+                                    final String objectTemplate = getTemplateStringWithoutColumnNames(template);
+                                    // final String objectTemplate = template.getTemplateStringWithoutColumnNames();
                                     incomingRoleMaps.put(objectTemplate, predicate);
                                 }
 
@@ -87,6 +88,10 @@ public class ActivatorsExtractorFromR2RML {
                                 k -> k,
                                 k -> new MappingProfile(classMaps.get(k), incomingRoleMaps.get(k), outgoingRoleMaps.get(k))));
         return mappingProfileMap;
+    }
+
+    private static String getTemplateStringWithoutColumnNames(Template template){
+        return template.toString().replaceAll("\\{.+?}", "{}");
     }
 
     public static Collection<Set<Resource>> computeProfilesFromR2RML(String r2rmlFile, String tboxFile) throws IOException, InvalidR2RMLMappingException {

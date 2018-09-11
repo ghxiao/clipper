@@ -25,11 +25,11 @@ class CommandQuery extends ReasoningCommandBase {
 
 	@Parameter(names = { "-f", "-output-format" }, description = "output format, possible values: { table | csv | atoms | html }")
 	private String outputFormat = "table";
-	
+
 	// TODO: will be supported in the future
 	@Parameter(names = "-clingo", description = "the path to clingo", hidden = true)
 	private String clingoPath;
-	
+
 	@Parameter(names = { "-output-datalog", "-d" }, description = "output datalog file (if not specified, the output will be stdout)")
 	private String datalog = "tmp.dlv";
 
@@ -77,7 +77,7 @@ class CommandQuery extends ReasoningCommandBase {
 
 		printer.print(cq.getHead(), answers);
 
-		if (ClipperManager.getInstance().getVerboseLevel() > 1) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 			statistics(qaHornSHIQ.getClipperReport(), startTime, endTime);
 		}
 

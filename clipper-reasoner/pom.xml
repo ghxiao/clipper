@@ -5,12 +5,12 @@
     <name>Clipper Reasoner</name>
     <properties>
         <!--<r2rml-api-core.version>0.5.0</r2rml-api-core.version>-->
-        <r2rml-api-core.version>0.6.1-SNAPSHOT</r2rml-api-core.version>
+        <r2rml-api-core.version>0.6.0</r2rml-api-core.version>
     </properties>
     <parent>
         <groupId>org.semanticweb.clipper</groupId>
         <artifactId>clipper</artifactId>
-        <version>0.3.0-20151204</version>
+        <version>0.4.0-SNAPSHOT</version>
     </parent>
 
     <dependencies>
@@ -67,6 +67,13 @@
             <groupId>eu.optique-project</groupId>
             <artifactId>r2rml-api-jena-binding</artifactId>
             <version>${r2rml-api-core.version}</version>
+        </dependency>
+
+        <!-- rdfox -->
+        <dependency>
+            <groupId>uk.ox.jrdfox</groupId>
+            <artifactId>jrdfox</artifactId>
+            <version>1.2776.2017</version>
         </dependency>
     </dependencies>
 
