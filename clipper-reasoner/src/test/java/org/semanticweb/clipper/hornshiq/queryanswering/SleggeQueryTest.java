@@ -34,12 +34,13 @@ public class SleggeQueryTest {
         //language=SPARQL
         String sparql = "PREFIX  :     <http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#>\n" +
                 "\n" +
-                "SELECT  ?x ?y\n" +
+                "SELECT  ?x\n" +
                 "WHERE\n" +
                 "  { \n" +
                 "    ?x a :ExplorationWellbore .\n" +
                 "    ?x :isAssociatedTo ?y .\n" +
-                "    ?y a :ChronoStratigraphicColumn .\n" +
+                //"    ?y a :ChronoStratigraphicColumn .\n" +
+               "    ?y a :StratigraphicColumn .\n" +
                 "  }";
 
         testQueryRewriting(ontologyFile, sparql, outputDatalogFile);
@@ -60,8 +61,10 @@ public class SleggeQueryTest {
                 "    ?x a :DevelopmentWellbore .\n" +
                 "    ?x :isAssociatedTo ?y1 .\n" +
                 "    ?x :isAssociatedTo ?y2 .\n" +
-                "    ?y1 a :ChronoStratigraphicColumn .\n" +
-                "    ?y2 a :LithoStratigraphicColumn .\n" +
+                //"    ?y1 a :ChronoStratigraphicColumn .\n" +
+                "    ?y1 a :StratigraphicColumn .\n" +
+                //"    ?y2 a :LithoStratigraphicColumn .\n" +
+                "    ?y2 a :Reservoir .\n" +
                 "  }";
 
         testQueryRewriting(ontologyFile, sparql, outputDatalogFile);
@@ -98,8 +101,7 @@ public class SleggeQueryTest {
 
         //language=TEXT
         String sparql = "PREFIX  :     <http://slegger.gitlab.io/slegge-obda/ontology/subsurface-exploration#>\n" +
-                "\n" +
-                "SELECT  ?x ?z\n" +
+                "SELECT  ?x\n" +
                 "WHERE\n" +
                 "  { \n" +
                 "    ?x a :Well .\n" +

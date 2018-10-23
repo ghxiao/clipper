@@ -72,8 +72,7 @@ class CommandQuery extends ReasoningCommandBase {
 		List<List<String>> answers = qaHornSHIQ.execQuery();
 		long endTime = System.currentTimeMillis();
 
-		QueryResultPrinter printer = createQueryResultPrinter(this
-				.getOutputFormat());
+		QueryResultPrinter printer = createQueryResultPrinter(this.getOutputFormat());
 
 		printer.print(cq.getHead(), answers);
 
@@ -115,18 +114,19 @@ class CommandQuery extends ReasoningCommandBase {
 		System.out.println("Query rewriting time:                                         "
 				+ clipperReport.getQueryRewritingTime() + "  milliseconds");
 		long totalTime = clipperReport.getReasoningTime() + clipperReport.getQueryRewritingTime();
-		System.out.println("Total time for query rewriting (reasoning + rewriting time):  " + totalTime
-				+ "  milliseconds");
-		System.out.println("Total rules/rewritten queries: " + clipperReport.getNumberOfRewrittenQueriesAndRules());
+		System.out.println("Total time for query rewriting (reasoning + rewriting time):  "
+                + totalTime + "  milliseconds");
+		System.out.println("Total rules/rewritten queries:                                "
+				+ clipperReport.getNumberOfRewrittenQueriesAndRules());
 		System.out.println("Time of running datalog program:                              "
 				+ clipperReport.getDatalogRunTime() + "  milliseconds");
 		System.out.println("Time for output answer  :                                     "
 				+ clipperReport.getOutputAnswerTime() + "  milliseconds");
 		System.out.println("Time for counting queries realted rules (just for benchmark): "
 				+ clipperReport.getCoutingRealtedRulesTime() + "  milliseconds");
-		long runningTime = endTime - startTime - clipperReport.getCoutingRealtedRulesTime();
-		System.out.println("Total running time of the whole system:                       " + runningTime
-				+ "  milliseconds");
+		long runningTime = endTime - startTime; // - clipperReport.getCoutingRealtedRulesTime();
+		System.out.println("Total running time of the whole system:                       "
+                + runningTime + "  milliseconds");
 	}
 
     public String getDlvPath() {

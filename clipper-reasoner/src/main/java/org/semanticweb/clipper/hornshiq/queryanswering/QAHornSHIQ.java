@@ -202,6 +202,10 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
             out.write(cqFormatter.formatQuery(rule) + "\n");
         }
 
+        clipperReport.setNumberOfRewrittenQueries(ucq.size());
+
+        clipperReport.setNumberOfRewrittenQueriesAndRules(ucq.size() + relevantRules.size());
+
         out.close();
     }
 
