@@ -2,14 +2,15 @@ package org.semanticweb.clipper.hornshiq.cli;
 
 import com.beust.jcommander.JCommander;
 import org.semanticweb.clipper.hornshiq.queryanswering.ClipperManager;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 public class ClipperApp {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws OWLOntologyCreationException {
 		new ClipperApp(args);
 	}
 
-	public ClipperApp(String[] args) {
+	public ClipperApp(String[] args) throws OWLOntologyCreationException {
 		CommandLineArgs co = new CommandLineArgs();
 		JCommander jc = new JCommander(co);
 
@@ -18,6 +19,8 @@ public class ClipperApp {
 		CommandRewrite commandRewrite = new CommandRewrite(jc);
 
 		CommandHelp commandHelp = new CommandHelp(jc);
+
+		CommandTestOptimisation commandTestOptimisation= new CommandTestOptimisation(jc);
 
 //		CommandLoad commandLoad = new CommandLoad(jc);
 //
@@ -49,6 +52,8 @@ public class ClipperApp {
 			commandQuery.exec();
 		} else if (cmd.equals("rewrite")) {
 			commandRewrite.exec();
+		} else if (cmd.equals("testOptimisation")) {
+			commandTestOptimisation.exec();
 		}
 //        else if (cmd.equals("load")) {
 //			commandLoad.exec();

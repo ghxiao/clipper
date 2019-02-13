@@ -106,4 +106,17 @@ public class ClipperAppTest {
 		//new ClipperAppTest().testRewriteAll();
 	}
 
+	@Test
+	public void test_new() throws Exception {
+
+//		ClipperApp
+//				.main(("-v=9 testOptimisation /home/bato/data/ISWC-Benchmarks/00014.owl")
+//						.split("\\ "));
+
+		ClipperApp
+				.main((" testOptimisation -optimised /home/bato/data/ISWC-Benchmarks/00014.owl")
+						.split("\\ "));
+
+	}
+
 }
