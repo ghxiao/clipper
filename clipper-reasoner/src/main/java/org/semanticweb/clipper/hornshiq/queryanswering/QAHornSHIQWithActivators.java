@@ -32,8 +32,7 @@ public class QAHornSHIQWithActivators extends QAHornSHIQ {
         return tb;
     }
 
-    @Override
-    public TBoxReasoner saturateTBox(String message) throws Exception {
+    public TBoxReasoner saturateTBox(boolean newVersion) throws Exception {
 
         Collection<Set<Integer>> initialActivators = extractActivatorsFromProfiles(activators);
 
@@ -44,29 +43,9 @@ public class QAHornSHIQWithActivators extends QAHornSHIQ {
         // ///////////////////////////////////////////////
         // Evaluate reasoning time
         long reasoningBegin = System.currentTimeMillis();
-        tb.saturate(this.clipperReport);
+        tb.saturate(newVersion);
         long reasoningEnd = System.currentTimeMillis();
         clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
-        // end of evaluating reasoning time
-        return tb;
-    }
-
-    /**
-     * @return
-     */
-    public TBoxReasoner saturateTBox(long timeout, String writeStatsToFile) throws Exception {
-
-        Collection<Set<Integer>> initialActivators = extractActivatorsFromProfiles(activators);
-
-        TBoxReasoner tb;
-
-        tb = new TBoxReasoner(clipperOntology, initialActivators);
-
-        long reasoningBegin = System.currentTimeMillis();
-
-        tb.saturate(this.clipperReport);
-        clipperReport.setReasoningTime(System.currentTimeMillis() - reasoningBegin);
-
         // end of evaluating reasoning time
         return tb;
     }

@@ -815,6 +815,132 @@ public class TBoxReasoner {
     }
 
     /**
+     * ToDo:change parameter to boolean withActivators
+     */
+    public void saturate(boolean newVersion) {
+
+
+        if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+            System.out.println();
+
+            System.out.println("Start TBox reasoning with activator optimization:"+withAxiomActivators);
+            System.out.println(" ENF size: " + enfContainer.getEnfs().size());
+            System.out.println(" IMP size: " + impContainer.getImps().size());
+            System.out.println(" ABoxType size: " + this.aboxTypes.size());
+            System.out.println(" Max1 Axiom:" + this.maxOneCardinalityAxioms);
+            System.out.println(" Sub roles:" + this.subObjectPropertyAxioms);
+            System.out.println(" Inverse:" + this.inverseRoleAxioms);
+            if(this.withAxiomActivators)
+                System.out.println(" Number of initial activators:" + this.axiomActivators.size());
+            else
+                System.out.println(" Number of initial activators:0");
+            System.out.println(" Saturation procedure iteration details (Iteration,ActivatorNo):");
+        }
+
+        Set<EnforcedRelation> copyOfEnfs = cloneOfEnfs(this.enfContainer
+                .getEnfs());
+        Set<HornImplication> copyOfImps = cloneOfImps(this.impContainer
+                .getImps());
+
+        if (withAxiomActivators)
+            saturateActivators();//we saturate activators
+
+        // Apply all rule for the first time, in next times, we only run rule
+        // with newEnfs, and newImps
+        bottomRule(copyOfEnfs);
+
+        copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
+        roleInclusionRule(copyOfEnfs);
+
+        conceptInclusionRule(this.impContainer.getImps());
+
+        copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
+        forAllRule(copyOfEnfs);
+
+        copyOfImps = cloneOfImps(this.impContainer.getImps());
+        computeAboxTypeClosure(copyOfImps);
+        // This rule make sense only we have ABox
+        if (this.hasABox) {
+            copyOfImps = cloneOfImps(this.impContainer.getImps());
+            copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
+            forAllRuleABoxType(copyOfEnfs);
+        }
+
+
+        atMostOneRule_MergeChildren();
+
+        atMostRule_ParentChildCollapsed();
+
+        // Apply rule only in newEnfs and newImps
+        boolean update = true;
+        int counter = 0;
+        while (update && !inconsistent) {
+
+            if (withAxiomActivators)
+                saturateActivators();//we saturate the activators
+
+            Set<EnforcedRelation> copyOfNewEnfs = cloneOfEnfs(newEnfs); // \Delta_{enf}
+            Set<HornImplication> copyOfNewImps = cloneOfImps(newImps); // \Delta_{imp}
+            copyOfEnfs = cloneOfEnfs(this.enfContainer.getEnfs());
+            copyOfImps = cloneOfImps(this.impContainer.getImps());
+            this.newEnfs.clear();
+            this.newImps.clear();
+            update = (bottomRule(copyOfNewEnfs)); // only applied to the Delta
+
+            update |= (roleInclusionRule(copyOfNewEnfs)); // only applied to the Delta
+
+            update |= (conceptInclusionRule(copyOfImps)); // only applied to the Delta
+
+            // FIXME!!!: xiao: copyOfNewEnfs is not used inside the
+            // implementation,
+            // this makes the algorithim is not semi-naive
+            update |= forAllRule(copyOfNewEnfs);
+
+            update |= computeAboxTypeClosure(copyOfNewImps);
+            // This rule make sense only we have ABox
+            if (this.hasABox)
+                if (forAllRuleABoxType(copyOfNewEnfs))
+                    update = true;
+
+            // FIXME: not semi-naive style
+            update |= atMostOneRule_MergeChildren();
+
+            // FIXME: not semi-naive style
+            update |= atMostRule_ParentChildCollapsed();
+
+            //print out iteration count and the number of activators
+            if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+                System.out.print("("+counter+","+this.axiomActivators.size()+")");
+            }
+        }
+
+        //todo: temporary stat gathering code
+        //writeOxfordStatistics(filename,false);
+
+        if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
+            System.out.println("End of reasoning");
+            System.out.println(" ENF size: " + enfContainer.getEnfs().size());
+            System.out.println(" IMP size: " + impContainer.getImps().size());
+            System.out.println(" ABoxType size: " + this.aboxTypes.size());
+            System.out.println(" Max1 Axiom:" + this.maxOneCardinalityAxioms);
+            System.out.println(" Sub roles:" + this.subObjectPropertyAxioms);
+            System.out.println(" Inverse:" + this.inverseRoleAxioms);
+
+            if(withAxiomActivators)
+                System.out.println(" Number of activators after saturation:" + this.axiomActivators.size());
+            else
+                System.out.println(" Number of activators after saturation:0");
+
+            if(withAxiomActivators)
+                System.out.println("============================================");
+            else
+                System.out.println("--------------------------------------------");
+
+        }
+    }
+
+
+    /**
      * Saturates the activators with current TBox
      * 1- it applies the newly infered axioms to all activators
      * 2- it applies all TBox axioms (enf and imp) to un-processed activators

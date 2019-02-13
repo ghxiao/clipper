@@ -306,6 +306,28 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
         return tb;
     }
 
+    /**todo:delete this method, implement gathering of statistics via shell script
+     * @return
+     */
+    public TBoxReasoner saturateTBox(boolean newVersion) throws Exception {
+
+        TBoxReasoner tb =new TBoxReasoner(clipperOntology);
+        // ///////////////////////////////////////////////
+        // Evaluate reasoning time
+
+
+        long reasoningBegin = System.currentTimeMillis();
+
+        if(newVersion)
+            tb.saturate(newVersion);
+        else
+            tb.saturate();
+        clipperReport.setReasoningTime(System.currentTimeMillis() - reasoningBegin);
+
+        // end of evaluating reasoning time
+        return tb;
+    }
+
     /**
      * @param onto_bs
      * @param tb
