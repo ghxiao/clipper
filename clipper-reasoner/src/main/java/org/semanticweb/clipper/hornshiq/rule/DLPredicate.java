@@ -38,6 +38,9 @@ public class DLPredicate implements Predicate {
 			return false;
 		if (encoding != other.encoding)
 			return false;
+
+		// NB: owlEntity is not used for comparison
+
 		return true;
 	}
 

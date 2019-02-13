@@ -22,6 +22,12 @@ public class CQ {
         body = new ArrayList<>();
     }
 
+    // Fact
+    public CQ(Atom fact) {
+        this.head = fact;
+        body = new ArrayList<>();
+    }
+
     public CQ(Atom head, List<Atom> body) {
         this.head = head;
         this.body = body;

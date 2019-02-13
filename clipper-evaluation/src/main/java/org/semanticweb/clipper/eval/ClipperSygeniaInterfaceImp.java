@@ -51,12 +51,10 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 		OWLOntology tboxOntology = manager.loadOntologyFromOntologyDocument(new File(ontologyFile));
 		this.tbox = tboxOntology;
 
-		qaHornSHIQ.setOntologyName(ontologyFile);
-
 		qaHornSHIQ.addOntology(tboxOntology);
 
 		qaHornSHIQ.setDatalogFileName("tmp.dlv");
-		
+
 		qaHornSHIQ.setQueryRewriter("new");
 
 		// qaHornSHIQ.setNamingStrategy(NamingStrategy.IntEncoding);
@@ -106,7 +104,7 @@ public class ClipperSygeniaInterfaceImp implements SystemInterface {
 		qaHornSHIQ.clearOntologies();
 		tbox = null;
 		abox = null;
-		// manager.removeOntology(abox);	
+		// manager.removeOntology(abox);
 	}
 
     public void setDataSetRoot(String dataSetRoot) {

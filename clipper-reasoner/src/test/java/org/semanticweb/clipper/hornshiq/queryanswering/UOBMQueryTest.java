@@ -18,8 +18,7 @@ public class UOBMQueryTest {
 		System.setProperty("entityExpansionLimit", "51200000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/uobm/query1.dl");
-		qaHornSHIQ
-				.setOntologyName("TestData/uobm/univ-bench-dl-hornshiq-1.owl");
+		//qaHornSHIQ.setOntologyName("TestData/uobm/univ-bench-dl-hornshiq-1.owl");
 		// KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		String sparql = "PREFIX ub: <http://semantics.crl.ibm.com/univ-bench-dl.owl#>"
 				+ //
@@ -56,15 +55,14 @@ public class UOBMQueryTest {
 //		System.out.println("query rewriting time: "
 //				+ qaHornSHIQ.getQueryRewritingTime() + "  millisecond");
 	}
-	
+
 	@Test
 	public void query2() throws RecognitionException {
 		// Query 6 in LiMa's paper
 		System.setProperty("entityExpansionLimit", "51200000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/uobm/query2.dl");
-		qaHornSHIQ
-				.setOntologyName("TestData/uobm/univ-bench-dl-hornshiq-1.owl");
+		//qaHornSHIQ.setOntologyName("TestData/uobm/univ-bench-dl-hornshiq-1.owl");
 		// KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		String sparql = "PREFIX ub: <http://semantics.crl.ibm.com/univ-bench-dl.owl#>"
 				+ //
@@ -101,15 +99,14 @@ public class UOBMQueryTest {
 //		System.out.println("query rewriting time: "
 //				+ qaHornSHIQ.getQueryRewritingTime() + "  millisecond");
 	}
-	
+
 	@Test
 	public void query2Prime() throws RecognitionException {
 		// Query 6 in LiMa's paper, but using inverserole of hasAlumnus
 		System.setProperty("entityExpansionLimit", "51200000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/uobm/query2Prime.dl");
-		qaHornSHIQ
-				.setOntologyName("TestData/uobm/univ-bench-dl-hornshiq-1.owl");
+		//qaHornSHIQ.setOntologyName("TestData/uobm/univ-bench-dl-hornshiq-1.owl");
 		// KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		String sparql = "PREFIX ub: <http://semantics.crl.ibm.com/univ-bench-dl.owl#>"
 				+ //
@@ -152,8 +149,7 @@ public class UOBMQueryTest {
 		System.setProperty("entityExpansionLimit", "51200000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/uobm/query3.dl");
-		qaHornSHIQ
-				.setOntologyName("TestData/uobm/univ-bench-dl-hornshiq-1.owl");
+		//qaHornSHIQ.setOntologyName("TestData/uobm/univ-bench-dl-hornshiq-1.owl");
 		// KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 //		WHERE { ?x rdf:type benchmark:GraduateCourse . ?x benchmark:isTaughtBy ?y .
 //				?y benchmark:isMemberOf ?z .?z benchmark:subOrganizationOf http://www.University0.edu }
@@ -191,15 +187,14 @@ public class UOBMQueryTest {
 //		System.out.println("query rewriting time: "
 //				+ qaHornSHIQ.getQueryRewritingTime() + "  millisecond");
 	}
-	
+
 	@Test
 	public void query4() throws RecognitionException {
 		// Query 10 in LiMa's paper, but using inverserole of hasAlumnus
 		System.setProperty("entityExpansionLimit", "51200000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/uobm/query4.dl");
-		qaHornSHIQ
-				.setOntologyName("TestData/uobm/univ-bench-dl-hornshiq-1.owl");
+		//qaHornSHIQ.setOntologyName("TestData/uobm/univ-bench-dl-hornshiq-1.owl");
 		// KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 //		WHERE { ?x rdf:type benchmark:GraduateCourse . ?x benchmark:isTaughtBy ?y .
 //				?y benchmark:isMemberOf ?z .?z benchmark:subOrganizationOf http://www.University0.edu }
@@ -235,15 +230,14 @@ public class UOBMQueryTest {
 //		System.out.println("query rewriting time: "
 //				+ qaHornSHIQ.getQueryRewritingTime() + "  millisecond");
 	}
-	
+
 	@Test
 	public void query5() throws RecognitionException {
 		// Modify Query 8 in LiMa's paper
 		System.setProperty("entityExpansionLimit", "51200000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("TestData/uobm/query5.dl");
-		qaHornSHIQ
-				.setOntologyName("TestData/uobm/univ-bench-dl-hornshiq-1.owl");
+		//qaHornSHIQ.setOntologyName("TestData/uobm/univ-bench-dl-hornshiq-1.owl");
 		// KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 //		WHERE { ?x rdf:type benchmark:GraduateCourse . ?x benchmark:isTaughtBy ?y .
 //				?y benchmark:isMemberOf ?z .?z benchmark:subOrganizationOf http://www.University0.edu }
@@ -285,8 +279,7 @@ public class UOBMQueryTest {
 		System.setProperty("entityExpansionLimit", "51200000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		qaHornSHIQ.setDatalogFileName("/home/kien/dataset/5/query1.dl");
-		qaHornSHIQ
-				.setOntologyName("/home/kien/dataset/5/univ-bench-hornshiq.owl");
+		//qaHornSHIQ.setOntologyName("/home/kien/dataset/5/univ-bench-hornshiq.owl");
 		// KaosManager.getInstance().setNamingStrategy(NamingStrategy.LowerCaseFragment);
 		String sparql = "PREFIX ub: <http://semantics.crl.ibm.com/univ-bench-dl.owl#>"
 				+ //

@@ -1,0 +1,26 @@
+[PrefixDeclaration]
+:		http://www.cs.ox.ac.uk/isg/ontologies/UID/00014.owl#
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+xml:		http://www.w3.org/XML/1998/namespace
+xsd:		http://www.w3.org/2001/XMLSchema#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+Plans:		http://www.loa-cnr.it/ontologies/Plans.owl#
+Systems:		http://www.loa-cnr.it/ontologies/Systems.owl#
+DOLCE-Lite:	http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#
+Collections:	http://www.loa-cnr.it/ontologies/Collections.owl#
+Collectives:	http://www.loa-cnr.it/ontologies/Collectives.owl#
+ExtendedDnS:	http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#
+SocialUnits:	http://www.loa-cnr.it/ontologies/SocialUnits.owl#
+MentalObjects:	http://www.loa-cnr.it/ontologies/MentalObjects.owl#
+SpatialRelations:	http://www.loa-cnr.it/ontologies/SpatialRelations.owl#
+ModalDescriptions:	http://www.loa-cnr.it/ontologies/ModalDescriptions.owl#
+TemporalRelations:	http://www.loa-cnr.it/ontologies/TemporalRelations.owl#
+CommonSenseMapping:	http://www.loa-cnr.it/ontologies/CommonSenseMapping.owl#
+InformationObjects:	http://www.loa-cnr.it/ontologies/InformationObjects.owl#
+FunctionalParticipation:	http://www.loa-cnr.it/ontologies/FunctionalParticipation.owl#
+SemioticCommunicationTheory:	http://www.loa-cnr.it/ontologies/SemioticCommunicationTheory.owl#
+
+[MappingDeclaration] @collection [[
+]]
+

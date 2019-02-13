@@ -11,6 +11,7 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -278,12 +279,12 @@ public class LUBMQueryWithActivatorsFromR2RMLTest {
 	}
 
 	@Test
-	public void queryTest() throws RecognitionException {
+	public void queryTest() throws RecognitionException, IOException {
 		System.setProperty("entityExpansionLimit", "512000");
 		QAHornSHIQ qaHornSHIQ = new QAHornSHIQ(false);
 		ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
 		qaHornSHIQ.setDatalogFileName("src/test/resources/TestData/lubm/queryTest.dl");
-		qaHornSHIQ.setOntologyName("src/test/resources/TestData/lubm/lubm1.owl");
+		//qaHornSHIQ.setOntologyName("src/test/resources/TestData/lubm/lubm1.owl");
 
 		String sparql = "PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>"+
 			" SELECT ?X ?Z "+
@@ -332,7 +333,6 @@ public class LUBMQueryWithActivatorsFromR2RMLTest {
 
 		qaHornSHIQ.setDatalogFileName(tmpDatalogFile);
 
-		qaHornSHIQ.setOntologyName(ontologyFile);
 		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
 				new File(ontologyFile));
 		qaHornSHIQ.addOntology(ontology);

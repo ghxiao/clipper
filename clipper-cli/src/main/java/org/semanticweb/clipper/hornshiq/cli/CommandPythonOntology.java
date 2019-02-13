@@ -8,7 +8,7 @@ import org.semanticweb.owlapi.model.OWLOntology;
 
 import java.util.Set;
 
-@Parameters(commandNames = { "pex" }, separators = "=", commandDescription = "output the Existence Axioms in the sturated ontology")
+@Parameters(commandNames = { "pex" }, separators = "=", commandDescription = "output the Existence Axioms in the saturated ontology")
 public class CommandPythonOntology extends ReasoningCommandBase {
 
 	private CQFormatter formatter;

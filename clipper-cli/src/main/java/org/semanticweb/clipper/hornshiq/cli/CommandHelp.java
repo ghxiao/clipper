@@ -22,7 +22,7 @@ class CommandHelp extends CommandBase {
 
 	@Override
 	public void exec() {
-		System.out.println("Clipper reasoner [v0.2]");
+		System.out.println("Clipper reasoner [v0.4]");
 		System.out.println();
 		jc.usage();
 	}

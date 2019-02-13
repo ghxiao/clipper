@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author kien
- * 
+ *
  */
 public class oldTBoxReasonerTest {
 
@@ -53,7 +53,7 @@ public class oldTBoxReasonerTest {
 
 	/**
 	 * Test case 2: Test Inverse Role Inclusion
-	 * 
+	 *
 	 * @throws RecognitionException
 	 */
 	@Test
@@ -114,7 +114,7 @@ public class oldTBoxReasonerTest {
 
 	/**
 	 * Test case 6 in the Thesis
-	 * 
+	 *
 	 */
 	@Test
 	public void testForallRule1() throws RecognitionException, OWLOntologyCreationException {
@@ -214,7 +214,7 @@ public class oldTBoxReasonerTest {
 
 		testQuery(ontologyFile, sparql, 1, tempDatalogFile);
 	}
-	
+
 
 	private static void testQuery(String ontologyFile, String sparqlString, int expected, String tmpDatalogFile) throws OWLOntologyCreationException, RecognitionException {
 		System.setProperty("entityExpansionLimit", "512000");
@@ -227,7 +227,6 @@ public class oldTBoxReasonerTest {
 
 		qaHornSHIQ.setDatalogFileName(tmpDatalogFile);
 
-		qaHornSHIQ.setOntologyName(ontologyFile);
 		OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
 				new File(ontologyFile));
 		qaHornSHIQ.addOntology(ontology);

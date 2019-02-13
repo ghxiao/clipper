@@ -25,11 +25,11 @@ class CommandQuery extends ReasoningCommandBase {
 
 	@Parameter(names = { "-f", "-output-format" }, description = "output format, possible values: { table | csv | atoms | html }")
 	private String outputFormat = "table";
-	
+
 	// TODO: will be supported in the future
 	@Parameter(names = "-clingo", description = "the path to clingo", hidden = true)
 	private String clingoPath;
-	
+
 	@Parameter(names = { "-output-datalog", "-d" }, description = "output datalog file (if not specified, the output will be stdout)")
 	private String datalog = "tmp.dlv";
 
@@ -72,12 +72,11 @@ class CommandQuery extends ReasoningCommandBase {
 		List<List<String>> answers = qaHornSHIQ.execQuery();
 		long endTime = System.currentTimeMillis();
 
-		QueryResultPrinter printer = createQueryResultPrinter(this
-				.getOutputFormat());
+		QueryResultPrinter printer = createQueryResultPrinter(this.getOutputFormat());
 
 		printer.print(cq.getHead(), answers);
 
-		if (ClipperManager.getInstance().getVerboseLevel() > 1) {
+		if (ClipperManager.getInstance().getVerboseLevel() >= 1) {
 			statistics(qaHornSHIQ.getClipperReport(), startTime, endTime);
 		}
 
@@ -115,18 +114,19 @@ class CommandQuery extends ReasoningCommandBase {
 		System.out.println("Query rewriting time:                                         "
 				+ clipperReport.getQueryRewritingTime() + "  milliseconds");
 		long totalTime = clipperReport.getReasoningTime() + clipperReport.getQueryRewritingTime();
-		System.out.println("Total time for query rewriting (reasoning + rewriting time):  " + totalTime
-				+ "  milliseconds");
-		System.out.println("Total rules/rewritten queries: " + clipperReport.getNumberOfRewrittenQueriesAndRules());
+		System.out.println("Total time for query rewriting (reasoning + rewriting time):  "
+                + totalTime + "  milliseconds");
+		System.out.println("Total rules/rewritten queries:                                "
+				+ clipperReport.getNumberOfRewrittenQueriesAndRules());
 		System.out.println("Time of running datalog program:                              "
 				+ clipperReport.getDatalogRunTime() + "  milliseconds");
 		System.out.println("Time for output answer  :                                     "
 				+ clipperReport.getOutputAnswerTime() + "  milliseconds");
 		System.out.println("Time for counting queries realted rules (just for benchmark): "
 				+ clipperReport.getCoutingRealtedRulesTime() + "  milliseconds");
-		long runningTime = endTime - startTime - clipperReport.getCoutingRealtedRulesTime();
-		System.out.println("Total running time of the whole system:                       " + runningTime
-				+ "  milliseconds");
+		long runningTime = endTime - startTime; // - clipperReport.getCoutingRealtedRulesTime();
+		System.out.println("Total running time of the whole system:                       "
+                + runningTime + "  milliseconds");
 	}
 
     public String getDlvPath() {

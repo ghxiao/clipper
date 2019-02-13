@@ -1,0 +1,36 @@
+Install JRDFox in the local maven repository
+
+mvn install:install-file -Dfile=<path-to-file> -DgroupId=<group-id> -DartifactId=<artifact-id> -Dversion=<version> -Dpackaging=<packaging>
+
+
+Select group id, artifact id and version as it appears in the pom (using RDFox SVN version: 2776 (available in 2017)):
+  <dependency>
+    <groupId>uk.ox.jrdfox</groupId>
+    <artifactId>jrdfox</artifactId>
+    <version>1.2776.2017</version>
+  </dependency>
+
+e.g.:
+mvn install:install-file -Dfile=rdfox-macos/JRDFox.jar -DgroupId=uk.ox.jrdfox -DartifactId=jrdfox -Dversion=1.2776.2017 -Dpackaging=jar
+
+
+Select the JRDFox according to your platform.
+
+JRDFox.jar: compiled for platform Ubuntu Linux 14.04 with g++ compiler 7.2
+JRDFox-mac, JRDFox-windows and JRDFox-linux are the distributions provided in the RDFox webpage (http://www.cs.ox.ac.uk/isg/tools/RDFox/).
+Alternatively compiling the RDFox sources may be necessary if the available distributions do not work.
+
+To compile RDFox it is recommended to have the latest (or one of the latest) g++ compiler installed.
+
+1. Go to CppRDFox folder and execute:
+make apilogging=yes dll=yes
+make apilogging=yes
+make dll=yes
+This combination of parameters will create libCppRDFox-logAPI.so and libCppRDFox.so in the buld folders, which will be then required by the java compilation with ant
+
+2. Go to folder JRDFox and run
+'ant' without any arguments
+
+The folder JRDFox/build/jar should contain the jar distribution of (J)RDFox.
+
+3. Install the generated jar file in the local maven repository as described above.
