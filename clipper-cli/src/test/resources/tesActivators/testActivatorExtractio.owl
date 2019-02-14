@@ -1,0 +1,74 @@
+Prefix(:=<http://www.optimization.org/testActivators#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.optimization.org/testActivators>
+
+Declaration(Class(:A))
+Declaration(Class(:B))
+Declaration(Class(:C))
+Declaration(Class(:D))
+Declaration(Class(:E))
+Declaration(Class(:F))
+Declaration(ObjectProperty(:R))
+Declaration(ObjectProperty(:S))
+Declaration(ObjectProperty(:T))
+Declaration(NamedIndividual(:a))
+Declaration(NamedIndividual(:b))
+Declaration(NamedIndividual(:c))
+Declaration(NamedIndividual(:d))
+Declaration(NamedIndividual(:e))
+############################
+#   Object Properties
+############################
+
+# Object Property: :T (:T)
+
+SubObjectPropertyOf(:T :R)
+
+
+############################
+#   Classes
+############################
+
+# Class: :A (:A)
+
+SubClassOf(:A ObjectAllValuesFrom(:R :B))
+SubClassOf(:A ObjectAllValuesFrom(:S :D))
+SubClassOf(:A ObjectAllValuesFrom(ObjectInverseOf(:S) :B))
+SubClassOf(:A ObjectAllValuesFrom(ObjectInverseOf(:T) :C))
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: :a (:a)
+
+ClassAssertion(owl:Thing :a)
+ObjectPropertyAssertion(:R :a :b)
+ObjectPropertyAssertion(:S :a :c)
+
+# Individual: :b (:b)
+
+ClassAssertion(owl:Thing :b)
+
+# Individual: :c (:c)
+
+ClassAssertion(owl:Thing :c)
+
+# Individual: :d (:d)
+
+ClassAssertion(owl:Thing :d)
+ObjectPropertyAssertion(:R :d :a)
+
+# Individual: :e (:e)
+
+ClassAssertion(owl:Thing :e)
+
+
+)
