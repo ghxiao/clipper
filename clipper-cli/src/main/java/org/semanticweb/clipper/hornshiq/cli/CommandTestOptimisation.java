@@ -41,7 +41,7 @@ class CommandTestOptimisation extends ReasoningCommandBase {
     }
 
     @Override
-    void exec() throws OWLOntologyCreationException {
+    void exec() {
         System.setProperty("entityExpansionLimit", "512000");
 
         QAHornSHIQ qaHornSHIQ;
@@ -58,13 +58,14 @@ class CommandTestOptimisation extends ReasoningCommandBase {
         ClipperManager.getInstance().setVerboseLevel(4);
 
         Set<OWLOntology> ontologies = loadOntologies();
-        qaHornSHIQ.setOntologyName("test");
+        //qaHornSHIQ.setOntologyName("test");
         qaHornSHIQ.setOntologies(ontologies);
 
         qaHornSHIQ.preprocessOntologies();
 
         try {
-            qaHornSHIQ.saturateTBox("new");
+            //
+            qaHornSHIQ.saturateTBox(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
