@@ -13,6 +13,7 @@ public class QAHornSHIQWithActivatorsFromABox extends QAHornSHIQWithActivators {
         OWLOntology rlTBox = OWLOntologySplitter.extractRLTBox(combinedNormalizedOntology);
         OWLOntology aBox = OWLOntologySplitter.extractABox(combinedNormalizedOntology);
 
-        this.activators = ProfileExtractorFromABox.computeProfiles(rlTBox, aBox);
+        this.activators = ProfileExtractorFromABox.computeProfiles(rlTBox, aBox);//todo:remove later, left only for purpose of comparison
+        this.activatorsFromABox= ProfileExtractorFromABox.computeActivators(rlTBox, aBox);
     }
 }

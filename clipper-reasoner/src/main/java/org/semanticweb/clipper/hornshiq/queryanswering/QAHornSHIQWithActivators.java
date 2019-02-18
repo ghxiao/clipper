@@ -32,9 +32,14 @@ public class QAHornSHIQWithActivators extends QAHornSHIQ {
         return tb;
     }
 
-    public TBoxReasoner saturateTBox(boolean newVersion) throws Exception {
+    public TBoxReasoner saturateTBox(boolean fromABox) throws Exception {
 
-        Collection<Set<Integer>> initialActivators = extractActivatorsFromProfiles(activators);
+        Collection<Set<Integer>> initialActivators;
+        //if the extraction is done from ABox
+        if(true)
+            initialActivators = activatorsFromABox;
+        else
+            initialActivators = extractActivatorsFromProfiles(activators);
 
         TBoxReasoner tb;
 
@@ -43,7 +48,10 @@ public class QAHornSHIQWithActivators extends QAHornSHIQ {
         // ///////////////////////////////////////////////
         // Evaluate reasoning time
         long reasoningBegin = System.currentTimeMillis();
-        tb.saturate(newVersion);
+        //todo:implement properly the calling of appropriate methods
+        // the parameter as it is now has no role inside the method, it's a meance to pick up the overloaded method which
+        //implements the optimisation
+        tb.saturate(fromABox);
         long reasoningEnd = System.currentTimeMillis();
         clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
         // end of evaluating reasoning time

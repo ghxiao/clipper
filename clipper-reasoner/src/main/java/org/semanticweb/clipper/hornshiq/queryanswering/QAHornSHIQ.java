@@ -54,7 +54,8 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
     private CQFormatter cqFormatter;
     private NamingStrategy namingStrategy;
     protected OWLOntology combinedNormalizedOntology;
-    protected Collection<Set<Resource>> activators;
+    protected Collection<Set<Resource>> activators;//todo refactor to activatorsFromMappings
+    protected Collection<Set<Integer>> activatorsFromABox;
 
 
     /*Initialization of QAHornSHIQ with default behaviour,
