@@ -113,13 +113,13 @@ public class ClipperAppTest {
 //				.main(("-v=9 testOptimisation /home/bato/data/ISWC-Benchmarks/00014.owl")
 //						.split("\\ "));
 
-		ClipperApp
-				.main((" testOptimisation -optimised /home/bato/data/ISWC-Benchmarks/00014.owl")
-						.split("\\ "));
-
 //		ClipperApp
-//				.main((" testOptimisation -optimised src/test/resources/testActivators/testActivatorExtractio.owl")
+//				.main((" testOptimisation -optimised /home/bato/data/ISWC-Benchmarks/00014.owl")
 //						.split("\\ "));
+
+		ClipperApp
+				.main((" testOptimisation -optimised src/test/resources/testActivators/testActivatorExtractio.owl")
+						.split("\\ "));
 
 	}
 
