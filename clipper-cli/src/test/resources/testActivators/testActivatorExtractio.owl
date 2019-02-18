@@ -50,8 +50,8 @@ SubClassOf(:A ObjectAllValuesFrom(ObjectInverseOf(:T) :C))
 # Individual: :a (:a)
 
 ClassAssertion(owl:Thing :a)
-ObjectPropertyAssertion(:R :a :b)
 ObjectPropertyAssertion(:S :a :c)
+ObjectPropertyAssertion(:T :a :b)
 
 # Individual: :b (:b)
 
@@ -64,7 +64,7 @@ ClassAssertion(owl:Thing :c)
 # Individual: :d (:d)
 
 ClassAssertion(owl:Thing :d)
-ObjectPropertyAssertion(:R :d :a)
+ObjectPropertyAssertion(:T :d :a)
 
 # Individual: :e (:e)
 
