@@ -1,19 +1,10 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
-import org.antlr.runtime.*;
 import org.junit.Test;
-import org.semanticweb.clipper.hornshiq.rule.CQ;
-import org.semanticweb.clipper.hornshiq.sparql.SparqlLexer;
-import org.semanticweb.clipper.hornshiq.sparql.SparqlParser;
-import org.semanticweb.clipper.util.LUBMAnswerFileParser;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import java.io.File;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
@@ -83,13 +74,14 @@ public class SaturationWithActivatorsFromR2RMLTest {
         //ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
         qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
         qaHornSHIQ.setQueryRewriter("new");
-        ClipperManager.getInstance().setVerboseLevel(2);
+        ClipperManager.getInstance().setVerboseLevel(-2);
 
         OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(
                 new File(ontologyFile));
         qaHornSHIQ.addOntology(ontology);
         qaHornSHIQ.preprocessOntologies();
-        qaHornSHIQ.saturateTBox();
+        //true-> activators come from Abox, false->from Mappings
+        qaHornSHIQ.saturateTBox(false);
 
         System.out.println("TBox reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime()
                 + "  millisecond");
@@ -105,7 +97,7 @@ public class SaturationWithActivatorsFromR2RMLTest {
         //ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
         qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
         qaHornSHIQ.setQueryRewriter("new");
-        ClipperManager.getInstance().setVerboseLevel(2);
+        ClipperManager.getInstance().setVerboseLevel(-3);
 
 
         OWLOntology ontology = OWLManager.createOWLOntologyManager().loadOntologyFromOntologyDocument(

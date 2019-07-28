@@ -157,6 +157,44 @@ public class ActivatorsExtractorFromR2RML {
     }
 
 
+    public static String computeAbstractABoxFromR2RML(String r2rmlFile) throws IOException, InvalidR2RMLMappingException {
+
+        Map<String, MappingProfile> mappingProfileMap = computeActivators(r2rmlFile);
+
+        String aboxFile = r2rmlFile + ".abox.ttl";
+        FileWriter aboxFileWriter = new FileWriter(aboxFile);
+
+
+        int counter = 0;
+
+        for (String template : mappingProfileMap.keySet()) {
+
+            Collection<IRI> classes = mappingProfileMap.get(template).concepts;
+
+            String normalizedTemplate = template.replaceAll("\\{}", "__").replaceAll(" ", "");
+            //String normalizedTemplate = template;
+
+            for (IRI cls : classes) {
+                aboxFileWriter.append(String.format("<%s> a <%s> . \n", normalizedTemplate, cls.getIRIString()));
+            }
+
+            for (IRI incoming : mappingProfileMap.get(template).incomingRoles) {
+                aboxFileWriter.append(String.format("<#%s> <%s> <%s> . \n", counter++, incoming.getIRIString(), normalizedTemplate));
+            }
+
+            for (IRI outgoing : mappingProfileMap.get(template).outgoingRoles) {
+                aboxFileWriter.append(String.format("<%s> <%s> <#%s> . \n", normalizedTemplate, outgoing.getIRIString(), counter++));
+            }
+
+        }
+
+        aboxFileWriter.close();
+
+        return aboxFile;
+    }
+
+
+
     private static Collection<Set<Resource>> compute(OWLOntology ontology, DataStore store) throws JRDFoxException {
         Prefixes prefixes = Prefixes.DEFAULT_IMMUTABLE_INSTANCE;
         System.out.println("Retrieving all properties before materialisation.");

@@ -19,6 +19,8 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import java.io.File;
 import java.util.Set;
 
+import static java.util.stream.Collectors.joining;
+
 @Parameters(commandNames = { "testOptimisation" }, separators = "=", commandDescription = "tests the TBox saturation with and without activator optimization and prints out statistics")
 class CommandTestOptimisation extends ReasoningCommandBase {
 
@@ -28,6 +30,9 @@ class CommandTestOptimisation extends ReasoningCommandBase {
 
     @Parameter(names = { "-optimised", "-x" }, description = "run with activator optimisation, where activators are obtained from the ABox")
     private boolean withActivatorOptimisation;
+
+    @Parameter(names = { "-stats", "-s" }, description = "run with activator optimisation, where activators are obtained from the ABox")
+    private boolean extractProfileStatsOnly;
 
     // @Parameter(names = { "--remove-redundancy", "-r" }, description =
     // "remove redundancy rules w.r.t the query")
@@ -55,13 +60,22 @@ class CommandTestOptimisation extends ReasoningCommandBase {
         //ClipperManager.getInstance().setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
         qaHornSHIQ.setNamingStrategy(NamingStrategy.LOWER_CASE_FRAGMENT);
         qaHornSHIQ.setQueryRewriter("new");
-        ClipperManager.getInstance().setVerboseLevel(4);
+        //ClipperManager.getInstance().setVerboseLevel(-2);
 
         Set<OWLOntology> ontologies = loadOntologies();
+
+        ontologies.forEach(ontology -> {
+            System.out.println(ontology.getOntologyID().toString());});
+
+        String filenamesOfOntologies =this.getOntologyFiles().stream().collect(joining(","));
         //qaHornSHIQ.setOntologyName("test");
         qaHornSHIQ.setOntologies(ontologies);
+        qaHornSHIQ.setOntologyFilename(filenamesOfOntologies);
 
         qaHornSHIQ.preprocessOntologies();
+
+        if(extractProfileStatsOnly)
+            return;
 
         try {
             //
@@ -71,6 +85,10 @@ class CommandTestOptimisation extends ReasoningCommandBase {
         }
 
         System.out.println("TBox reasoning time: " + qaHornSHIQ.getClipperReport().getReasoningTime()
+                + "  millisecond");
+
+        if (withActivatorOptimisation)
+            System.out.println("Activator Initialization from ABox time: " + qaHornSHIQ.getClipperReport().getInitializeActivatorsTime()
                 + "  millisecond");
 
     }

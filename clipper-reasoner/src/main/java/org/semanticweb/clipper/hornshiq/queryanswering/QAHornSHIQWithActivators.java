@@ -25,21 +25,25 @@ public class QAHornSHIQWithActivators extends QAHornSHIQ {
         // ///////////////////////////////////////////////
         // Evaluate reasoning time
         long reasoningBegin = System.currentTimeMillis();
-        tb.saturate();
+        tb.saturate(false);
         long reasoningEnd = System.currentTimeMillis();
         clipperReport.setReasoningTime(reasoningEnd - reasoningBegin);
         // end of evaluating reasoning time
         return tb;
     }
 
+    /**@param fromABox when true then Activators are extracted from ABox otherwise from Mappings
+     * @return
+     * @throws Exception
+     */
     public TBoxReasoner saturateTBox(boolean fromABox) throws Exception {
 
         Collection<Set<Integer>> initialActivators;
         //if the extraction is done from ABox
-        if(true)
+        if(fromABox)
             initialActivators = activatorsFromABox;
         else
-            initialActivators = extractActivatorsFromProfiles(activators);
+            initialActivators = activatorsFromMappings;
 
         TBoxReasoner tb;
 

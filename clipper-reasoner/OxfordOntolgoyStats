@@ -1,0 +1,20 @@
+
+Onotology:/home/bato/git/mod4Q/mod4Q-reasoner/src/test/resources/ontologies/OxfordRepo/00001.owl
+With Activators:True
+ Before Saturation
+ ENF size: 195
+ IMP size: 4184
+ ABoxType size: 8
+ Max1 Axiom number:10
+ Role Axiom number:566
+ Inverse Role Axiom number:0
+ Number of Activators:14
+With Activators:True
+ After Saturation
+ ENF size: 261
+ IMP size: 4260
+ ABoxType size: 10
+ Max1 Axiom number:10
+ Role Axiom number:566
+ Inverse Role Axiom number:0
+ Number of Activators:25

@@ -1,8 +1,13 @@
 package org.semanticweb.clipper.hornshiq.queryanswering;
 
+import gnu.trove.impl.hash.TIntHash;
+import gnu.trove.impl.hash.TIntIntHash;
 import gnu.trove.set.hash.TIntHashSet;
 import org.semanticweb.clipper.hornshiq.ontology.*;
 import org.semanticweb.clipper.util.BitSetUtilOpt;
+import org.semanticweb.clipper.util.SymbolEncoder;
+import org.semanticweb.owlapi.model.OWLClass;
+import sun.util.cldr.CLDRLocaleDataMetaInfo;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -28,8 +33,8 @@ public class TBoxReasoner {
 
     private Set<ClipperAxiomActivator> axiomActivators = new HashSet<>();
     private Set<ClipperAxiomActivator> newAxiomActivators = new HashSet<>();
-    private Set<ClipperOverAproxPropagation> forwardPropagation = new HashSet<>();
-    private Set<ClipperOverAproxPropagation> backwardPropagation = new HashSet<>();
+    //private Set<ClipperOverAproxPropagation> forwardPropagation = new HashSet<>();
+    //private Set<ClipperOverAproxPropagation> backwardPropagation = new HashSet<>();
 
     private int saturateIterator = 0;
 
@@ -87,63 +92,63 @@ public class TBoxReasoner {
         // initialize newEnfs and newImps
         newEnfs = new HashSet<>();
         newImps = new HashSet<>();
-        propagateConcepts(ont_bs);
+        //propagateConcepts(ont_bs);
 
     }
 
-    private void propagateConcepts(ClipperHornSHIQOntology ontology) {
-        // initialize forward and backward propagation structures
-        this.forwardPropagation = new HashSet<>();
-        this.backwardPropagation = new HashSet<>();
-
-
-        //for each role occuring in the axioms of the form A -> (all) r.B
-        //we gather the set of concepts that it forward propagates and
-        //those it backpropagates
-/*        final Set<Integer> propagatingRoles =
-                ontology.getAtomSubAllAxioms()
-                        .stream()
-                        .map(ClipperAtomSubAllAxiom::getRole)
-                        .collect(toSet());*/
-
-        Set<Integer> propagatingRoles = new HashSet<>();
-        for (ClipperAtomSubAllAxiom ax : ontology.getAtomSubAllAxioms()) {
-            int role = BitSetUtilOpt.getRolename(ax.getRole());
-            propagatingRoles.add(role);
-        }
-
-        for (int role : propagatingRoles) {
-            ClipperOverAproxPropagation fwdProp = new ClipperOverAproxPropagation();
-            ClipperOverAproxPropagation bckProp = new ClipperOverAproxPropagation();
-
-            fwdProp.setRole(role);
-            bckProp.setRole(role);
-
-            for (ClipperAtomSubAllAxiom ax : ontology.getAtomSubAllAxioms()) {
-                boolean axRoleInverse = false;
-                int propagatedConcept = ax.getConcept2();
-
-                if (role % 2 == 1)
-                    axRoleInverse = true;
-
-                //get only the atomic role
-                int axRole = BitSetUtilOpt.getRolename(ax.getRole());
-
-                //if the roles do not match continue to next iteration
-                if (role != axRole)
-                    continue;
-
-                if (axRoleInverse) {
-                    bckProp.getConcepts().add(propagatedConcept);
-                } else {
-                    fwdProp.getConcepts().add(propagatedConcept);
-                }
-            }
-
-            this.backwardPropagation.add(bckProp);
-            this.forwardPropagation.add(bckProp);
-        }
-    }
+//    private void propagateConcepts(ClipperHornSHIQOntology ontology) {
+//        // initialize forward and backward propagation structures
+//        this.forwardPropagation = new HashSet<>();
+//        this.backwardPropagation = new HashSet<>();
+//
+//
+//        //for each role occuring in the axioms of the form A -> (all) r.B
+//        //we gather the set of concepts that it forward propagates and
+//        //those it backpropagates
+///*        final Set<Integer> propagatingRoles =
+//                ontology.getAtomSubAllAxioms()
+//                        .stream()
+//                        .map(ClipperAtomSubAllAxiom::getRole)
+//                        .collect(toSet());*/
+//
+//        Set<Integer> propagatingRoles = new HashSet<>();
+//        for (ClipperAtomSubAllAxiom ax : ontology.getAtomSubAllAxioms()) {
+//            int role = BitSetUtilOpt.getRolename(ax.getRole());
+//            propagatingRoles.add(role);
+//        }
+//
+//        for (int role : propagatingRoles) {
+//            ClipperOverAproxPropagation fwdProp = new ClipperOverAproxPropagation();
+//            ClipperOverAproxPropagation bckProp = new ClipperOverAproxPropagation();
+//
+//            fwdProp.setRole(role);
+//            bckProp.setRole(role);
+//
+//            for (ClipperAtomSubAllAxiom ax : ontology.getAtomSubAllAxioms()) {
+//                boolean axRoleInverse = false;
+//                int propagatedConcept = ax.getConcept2();
+//
+//                if (role % 2 == 1)
+//                    axRoleInverse = true;
+//
+//                //get only the atomic role
+//                int axRole = BitSetUtilOpt.getRolename(ax.getRole());
+//
+//                //if the roles do not match continue to next iteration
+//                if (role != axRole)
+//                    continue;
+//
+//                if (axRoleInverse) {
+//                    bckProp.getConcepts().add(propagatedConcept);
+//                } else {
+//                    fwdProp.getConcepts().add(propagatedConcept);
+//                }
+//            }
+//
+//            this.backwardPropagation.add(bckProp);
+//            this.forwardPropagation.add(bckProp);
+//        }
+//    }
 
     private void initAxiomActivators(Collection<Set<Integer>> initAxiomActivators) {
         this.newAxiomActivators = new HashSet<>();
@@ -285,8 +290,11 @@ public class TBoxReasoner {
                 //todo:we check here if there exists some activator that would fire the axiom
                 //todo: check code
                 //TIntHashSet head = new TIntHashSet(new_imp.getHead());
-                if (withAxiomActivators && !axiomApplicable(new_imp.getBody()))
+                if (withAxiomActivators && !axiomApplicable(new_imp.getBody())) {
+                    if(ClipperManager.getInstance().getVerboseLevel()==3)
+                        System.out.println("Activator helps:bottomRule!");
                     continue;
+                }
 
                 if (impContainer.add(new_imp)) {
                     newImps.add(new_imp);
@@ -315,8 +323,11 @@ public class TBoxReasoner {
 
                     //todo:we check here if there exists some activator that would fire the axiom
                     //todo: check code
-                    if (withAxiomActivators && !axiomApplicable(newTuple.getType1()))
+                    if (withAxiomActivators && !axiomApplicable(newTuple.getType1())) {
+                        if(ClipperManager.getInstance().getVerboseLevel()==3)
+                            System.out.println("Activator helps:roleInclusionRule!");
                         continue;
+                    }
 
                     newTuple.getRoles().add(s);
                     if (enfContainer.add(newTuple)) {
@@ -430,8 +441,11 @@ public class TBoxReasoner {
 
                     //todo:we check here if there exists some activator that would fire the axiom
                     //todo: check code
-                    if (withAxiomActivators && !axiomApplicable(enf.getType1()))
+                    if (withAxiomActivators && !axiomApplicable(enf.getType1())) {
+                        if(ClipperManager.getInstance().getVerboseLevel()==3)
+                            System.out.println("Activator helps:conceptInclusionRule!");
                         continue;
+                    }
 
                     EnforcedRelation newEnf = new EnforcedRelation(enf);
                     newEnf.getType2().add(imp.getHead());
@@ -520,7 +534,8 @@ public class TBoxReasoner {
 
                 //todo:we check here if there exists some activator that would fire the axiom
                 if (withAxiomActivators && !axiomApplicable(newEnf.getType1())) {
-                    //System.err.println("Activator helps!");
+                    if(ClipperManager.getInstance().getVerboseLevel()==3)
+                        System.out.println("Activator helps:forAllRule!");
                     continue;
                 }
 
@@ -539,8 +554,16 @@ public class TBoxReasoner {
                     .matchRolesAndType2(invRole, axType1);
 
             for (EnforcedRelation enf : matchesRolesAndType2) {
+                //todo:we check here if there exists some activator that would fire the axiom
+                if (withAxiomActivators && !axiomApplicable(enf.getType1())) {
+                    if(ClipperManager.getInstance().getVerboseLevel()==3)
+                        System.out.println("Activator helps:forAllRule(inv)!");
+                    continue;
+                }
+
                 HornImplication newImp = new HornImplication(enf.getType1(),
                         ax.getConcept2());
+
                 if (this.impContainer.add(newImp)) {
                     newImps.add(new HornImplication(newImp));
                     update = true;
@@ -624,8 +647,12 @@ public class TBoxReasoner {
 
                         //todo:we check here if there exists some activator that would fire the axiom
                         //todo: check code
-                        if (withAxiomActivators && !axiomApplicable(enf.getType1()))
+                        if (withAxiomActivators && !axiomApplicable(enf.getType1())) {
+                            if(ClipperManager.getInstance().getVerboseLevel()==3)
+                                System.out.println("Activator helps:atMostOne_MergeChildren!");
+
                             continue;
+                        }
 
                         if (this.enfContainer.add(enf)) {
                             newEnfs.add(new EnforcedRelation(enf));
@@ -671,8 +698,11 @@ public class TBoxReasoner {
                             //todo:we check here if there exists some activator that would fire the axiom
                             //todo: check code
                             //TIntHashSet head = new TIntHashSet(new_imp.getHead());
-                            if (withAxiomActivators && !axiomApplicable(body))
+                            if (withAxiomActivators && !axiomApplicable(body)) {
+                                if(ClipperManager.getInstance().getVerboseLevel()==3)
+                                    System.out.println("Activator helps:atMostRule_ParentChildCollapsed!");
                                 continue;
+                            }
 
                             if (this.impContainer.add(new_imp)) {
                                 newImps.add(new HornImplication(new_imp));
@@ -693,8 +723,12 @@ public class TBoxReasoner {
 
                         //todo:we check here if there exists some activator that would fire the axiom
                         //todo: check code
-                        if (withAxiomActivators && !axiomApplicable(new_enf.getType1()))
+                        if (withAxiomActivators && !axiomApplicable(new_enf.getType1())) {
+                            if(ClipperManager.getInstance().getVerboseLevel()==3)
+                                System.out.println("Activator helps:atMostRule_ParentChildCollapsed 2!");
+
                             continue;
+                        }
 
                         if (this.enfContainer.add(new_enf)) {
                             newEnfs.add(new EnforcedRelation(new_enf));
@@ -712,23 +746,54 @@ public class TBoxReasoner {
      * Apply the saturation rules on TBox
      */
     public void saturate() {
+        long timepoint_saturate_start = System.currentTimeMillis();
 
-        if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-            System.out.println("Start TBox reasoning");
-            System.out.println(" IMP size: " + enfContainer.getEnfs().size());
-            System.out.println(" ENF size: " + impContainer.getImps().size());
-            System.out.println(" ABoxType size: " + this.aboxTypes.size());
-            System.out.println(" Max1 Axiom:" + this.maxOneCardinalityAxioms);
-            System.out.println(" Sub roles:" + this.subObjectPropertyAxioms);
-            System.out.println(" Inverse:" + this.inverseRoleAxioms);
-        }
+        int stat_enf_size_begin=enfContainer.getEnfs().size();
+        int stat_imp_size_begin=impContainer.getImps().size();
+        int stat_initialActivators_size=0;
+        int stat_aboxTypes_begin=this.aboxTypes.size();
+        int stat_enf_size_end;
+        int stat_imp_size_end;
+        int stat_saturatedActivators_size;
+        int stat_aboxTypes_end;
+        Integer stat_act_size_min=0;
+        int stat_act_size_max=0;
+        int stat_act_size_sum=0;
+        float stat_act_size_avg=0;
+        long stat_saturation_exec_runtime;
+
+        int stat_allValues_axioms=this.allValuesFromAxioms.size();
+        int stat_maxOneCardinality_axioms=this.maxOneCardinalityAxioms.size();
+        int stat_objectProperty_axioms=this.subObjectPropertyAxioms.size();
+        int stat_invObjectPropertyAxiom=this.inverseRoleAxioms.size();
+
+        String staurationLoopDetails="Saturation procedure iteration details (Iteration,EnfNo,ImpNo, ActivatorNo):";
+
+        if(this.withAxiomActivators)
+            stat_initialActivators_size=this.axiomActivators.size();
+
         Set<EnforcedRelation> copyOfEnfs = cloneOfEnfs(this.enfContainer
                 .getEnfs());
         Set<HornImplication> copyOfImps = cloneOfImps(this.impContainer
                 .getImps());
 
-        if (withAxiomActivators)
+        if (withAxiomActivators) {
             saturateActivators();//we saturate activators
+
+            if(ClipperManager.getInstance().getVerboseLevel()==1) {
+                final SymbolEncoder<OWLClass> owlClassEncoder = ClipperManager.getInstance().getOwlClassEncoder();
+                //for debugging purposes
+                System.out.println("========Saturated Activators from ABox=============");
+                for (ClipperAxiomActivator activator : this.axiomActivators) {
+                    System.out.println("{");
+                    for (Integer res : activator.getConcepts().toArray()) {
+                        System.out.println(owlClassEncoder.getSymbolByValue(res).toString());
+                    }
+                    System.out.println("}");
+                }
+            }
+
+        }
 
         // Apply all rule for the first time, in next times, we only run rule
         // with newEnfs, and newImps
@@ -760,6 +825,7 @@ public class TBoxReasoner {
         boolean update = true;
         int counter = 0;
         while (update && !inconsistent) {
+
             if (withAxiomActivators)
                 saturateActivators();//we saturate the activators
 
@@ -792,25 +858,49 @@ public class TBoxReasoner {
             // FIXME: not semi-naive style
             update |= atMostRule_ParentChildCollapsed();
 
-            if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-                System.out.println("Iteration " + counter);
-                System.out.println(" IMP size: " + enfContainer.getEnfs().size());
-                System.out.println(" ENF size: " + impContainer.getImps().size());
-                System.out.println(" ABoxType size: " + this.aboxTypes.size());
-                System.out.println(" Max1 Axiom:" + this.maxOneCardinalityAxioms);
-                System.out.println(" Sub roles:" + this.subObjectPropertyAxioms);
-                System.out.println(" Inverse:" + this.inverseRoleAxioms);
-                System.out.println(" Activators: " + this.axiomActivators.size());
+            if (ClipperManager.getInstance().getVerboseLevel() < 0) {
+
+                staurationLoopDetails = staurationLoopDetails + "(" + counter + "," + this.enfContainer.getEnfs().size() + "," + this.impContainer.getImps().size() + ",0) ";
             }
         }
-        if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-            System.out.println("End of reasoning");
-            System.out.println(" IMP size: " + enfContainer.getEnfs().size());
-            System.out.println(" ENF size: " + impContainer.getImps().size());
-            System.out.println(" ABoxType size: " + this.aboxTypes.size());
-            System.out.println(" Max1 Axiom:" + this.maxOneCardinalityAxioms);
-            System.out.println(" Sub roles:" + this.subObjectPropertyAxioms);
-            System.out.println(" Inverse:" + this.inverseRoleAxioms);
+        staurationLoopDetails = staurationLoopDetails + " End of reasoning";
+        stat_saturation_exec_runtime = System.currentTimeMillis() - timepoint_saturate_start;
+
+        if (withAxiomActivators) {
+            for (ClipperAxiomActivator act : axiomActivators) {
+                if(stat_act_size_min==null)
+                    stat_act_size_min=act.getConcepts().size();
+
+                if (act.getConcepts().size() < stat_act_size_min)
+                    stat_act_size_min = act.getConcepts().size();
+
+                if (act.getConcepts().size() > stat_act_size_max)
+                    stat_act_size_max = act.getConcepts().size();
+
+                stat_act_size_sum +=act.getConcepts().size();
+            }
+
+            stat_act_size_avg = stat_act_size_sum / axiomActivators.size();
+        }
+
+        if (ClipperManager.getInstance().getVerboseLevel() < 0) {
+
+            stat_enf_size_end = enfContainer.getEnfs().size();
+            stat_imp_size_end = impContainer.getImps().size();
+            stat_saturatedActivators_size = this.axiomActivators.size();
+            stat_aboxTypes_end = this.aboxTypes.size();
+
+            if (withAxiomActivators)
+                stat_saturatedActivators_size = this.axiomActivators.size();
+
+            System.out.println("InConsisent \t Saturation execution time in ms\t enf size (begining)\t enf size (end)\t imp size (begining)\t imp size (end)\t " +
+                    "no of activators from ABox\t no of activators after Sat\t activator size min\t activator size max\t activator size avg\t ABox type size (begining)\t ABox type size (end)\t " +
+                    "forAll axioms\t Max1 axioms\t Sub role axioms\t inverse role axioms");
+            System.out.println(inconsistent + "\t" + stat_saturation_exec_runtime + "\t" + stat_enf_size_begin + "\t" + stat_enf_size_end + "\t" + stat_imp_size_begin + "\t" + stat_imp_size_end + "\t" +
+                    stat_initialActivators_size + "\t" + stat_saturatedActivators_size + "\t" + stat_act_size_min + "\t" + stat_act_size_max + "\t" + stat_act_size_avg + "\t" + stat_aboxTypes_begin + "\t" + stat_aboxTypes_end + "\t" +
+                    stat_allValues_axioms + "\t" + stat_maxOneCardinality_axioms + "\t" + stat_objectProperty_axioms + "\t" + stat_invObjectPropertyAxiom);
+            System.out.println(staurationLoopDetails);
+            System.out.println("============================================");
         }
     }
 
@@ -818,33 +908,54 @@ public class TBoxReasoner {
      * ToDo:change parameter to boolean withActivators
      */
     public void saturate(boolean newVersion) {
+        long timepoint_saturate_start = System.currentTimeMillis();
 
+        int stat_enf_size_begin=enfContainer.getEnfs().size();
+        int stat_imp_size_begin=impContainer.getImps().size();
+        int stat_initialActivators_size=0;
+        int stat_aboxTypes_begin=this.aboxTypes.size();
+        int stat_enf_size_end;
+        int stat_imp_size_end;
+        int stat_saturatedActivators_size;
+        int stat_aboxTypes_end;
+        Integer stat_act_size_min=null;
+        int stat_act_size_max=0;
+        int stat_act_size_sum=0;
+        float stat_act_size_avg=0;
+        long stat_saturation_exec_runtime;
 
-        if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-            System.out.println();
+        int stat_allValues_axioms=this.allValuesFromAxioms.size();
+        int stat_maxOneCardinality_axioms=this.maxOneCardinalityAxioms.size();
+        int stat_objectProperty_axioms=this.subObjectPropertyAxioms.size();
+        int stat_invObjectPropertyAxiom=this.inverseRoleAxioms.size();
 
-            System.out.println("Start TBox reasoning with activator optimization:"+withAxiomActivators);
-            System.out.println(" ENF size: " + enfContainer.getEnfs().size());
-            System.out.println(" IMP size: " + impContainer.getImps().size());
-            System.out.println(" ABoxType size: " + this.aboxTypes.size());
-            System.out.println(" Max1 Axiom:" + this.maxOneCardinalityAxioms);
-            System.out.println(" Sub roles:" + this.subObjectPropertyAxioms);
-            System.out.println(" Inverse:" + this.inverseRoleAxioms);
-            if(this.withAxiomActivators)
-                System.out.println(" Number of initial activators:" + this.axiomActivators.size());
-            else
-                System.out.println(" Number of initial activators:0");
-            System.out.println(" Saturation procedure iteration details (Iteration,ActivatorNo):");
-        }
+        String staurationLoopDetails="Saturation procedure iteration details (Iteration,EnfNo,ImpNo, ActivatorNo):";
+
+        if(this.withAxiomActivators)
+                stat_initialActivators_size=this.axiomActivators.size();
 
         Set<EnforcedRelation> copyOfEnfs = cloneOfEnfs(this.enfContainer
                 .getEnfs());
         Set<HornImplication> copyOfImps = cloneOfImps(this.impContainer
                 .getImps());
 
-        if (withAxiomActivators)
+        if (withAxiomActivators) {
             saturateActivators();//we saturate activators
 
+            if(ClipperManager.getInstance().getVerboseLevel()==1) {
+                final SymbolEncoder<OWLClass> owlClassEncoder = ClipperManager.getInstance().getOwlClassEncoder();
+                //for debugging purposes
+                System.out.println("========Saturated Activators from ABox=============");
+                for (ClipperAxiomActivator activator : this.axiomActivators) {
+                    System.out.println("{");
+                    for (Integer res : activator.getConcepts().toArray()) {
+                        System.out.println(owlClassEncoder.getSymbolByValue(res).toString());
+                    }
+                    System.out.println("}");
+                }
+            }
+
+        }
         // Apply all rule for the first time, in next times, we only run rule
         // with newEnfs, and newImps
         bottomRule(copyOfEnfs);
@@ -859,6 +970,7 @@ public class TBoxReasoner {
 
         copyOfImps = cloneOfImps(this.impContainer.getImps());
         computeAboxTypeClosure(copyOfImps);
+
         // This rule make sense only we have ABox
         if (this.hasABox) {
             copyOfImps = cloneOfImps(this.impContainer.getImps());
@@ -875,7 +987,10 @@ public class TBoxReasoner {
         boolean update = true;
         int counter = 0;
         while (update && !inconsistent) {
+            counter++;
 
+            System.out.println("Iteraion"+counter);
+            System.out.println("====================================");
             if (withAxiomActivators)
                 saturateActivators();//we saturate the activators
 
@@ -885,16 +1000,34 @@ public class TBoxReasoner {
             copyOfImps = cloneOfImps(this.impContainer.getImps());
             this.newEnfs.clear();
             this.newImps.clear();
+
+
             update = (bottomRule(copyOfNewEnfs)); // only applied to the Delta
+
+            //System.out.println("after bottom rule:");
+            //printEnfs();
+
 
             update |= (roleInclusionRule(copyOfNewEnfs)); // only applied to the Delta
 
+            //System.out.println("after role inclusion rule:");
+            //printEnfs();
+
+
             update |= (conceptInclusionRule(copyOfImps)); // only applied to the Delta
+
+            //System.out.println("after concept inclusion rule:");
+            //printEnfs();
+
 
             // FIXME!!!: xiao: copyOfNewEnfs is not used inside the
             // implementation,
             // this makes the algorithim is not semi-naive
             update |= forAllRule(copyOfNewEnfs);
+
+            System.out.println("after for all rule:");
+            printEnfs();
+
 
             update |= computeAboxTypeClosure(copyOfNewImps);
             // This rule make sense only we have ABox
@@ -908,34 +1041,57 @@ public class TBoxReasoner {
             // FIXME: not semi-naive style
             update |= atMostRule_ParentChildCollapsed();
 
+            System.out.println("after at most rule:");
+            printEnfs();
+
+
+            int activator_no=this.axiomActivators.size();
+
             //print out iteration count and the number of activators
-            if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-                System.out.print("("+counter+","+this.axiomActivators.size()+")");
+            if (ClipperManager.getInstance().getVerboseLevel() <0) {
+
+                staurationLoopDetails=staurationLoopDetails+"("+counter+","+this.enfContainer.getEnfs().size()+","+this.impContainer.getImps().size()+","+activator_no+") ";
             }
         }
 
-        //todo: temporary stat gathering code
-        //writeOxfordStatistics(filename,false);
+        staurationLoopDetails=staurationLoopDetails+" End of reasoning";
+        stat_saturation_exec_runtime = System.currentTimeMillis()-timepoint_saturate_start;
 
-        if (ClipperManager.getInstance().getVerboseLevel() >= 2) {
-            System.out.println("End of reasoning");
-            System.out.println(" ENF size: " + enfContainer.getEnfs().size());
-            System.out.println(" IMP size: " + impContainer.getImps().size());
-            System.out.println(" ABoxType size: " + this.aboxTypes.size());
-            System.out.println(" Max1 Axiom:" + this.maxOneCardinalityAxioms);
-            System.out.println(" Sub roles:" + this.subObjectPropertyAxioms);
-            System.out.println(" Inverse:" + this.inverseRoleAxioms);
+        if(withAxiomActivators) {
+            for (ClipperAxiomActivator act : axiomActivators) {
+                if(stat_act_size_min==null)
+                    stat_act_size_min=act.getConcepts().size();
+
+                if (act.getConcepts().size() < stat_act_size_min)
+                    stat_act_size_min = act.getConcepts().size();
+
+                if (act.getConcepts().size() > stat_act_size_max)
+                    stat_act_size_max = act.getConcepts().size();
+
+                stat_act_size_sum += act.getConcepts().size();
+            }
+
+            stat_act_size_avg = stat_act_size_sum / axiomActivators.size();
+        }
+
+        if (ClipperManager.getInstance().getVerboseLevel()==-1) {
+
+            stat_enf_size_end=enfContainer.getEnfs().size();
+            stat_imp_size_end=impContainer.getImps().size();
+            stat_saturatedActivators_size=this.axiomActivators.size();
+            stat_aboxTypes_end=this.aboxTypes.size();
 
             if(withAxiomActivators)
-                System.out.println(" Number of activators after saturation:" + this.axiomActivators.size());
-            else
-                System.out.println(" Number of activators after saturation:0");
+                stat_saturatedActivators_size=this.axiomActivators.size();
 
-            if(withAxiomActivators)
-                System.out.println("============================================");
-            else
-                System.out.println("--------------------------------------------");
-
+            System.out.println("InConsisent \t Saturation execution time in ms\t enf size (begining)\t enf size (end)\t imp size (begining)\t imp size (end)\t " +
+                                                        "no of activators from ABox\t no of activators after Sat\t activator size min\t activator size max\t activator size avg\t ABox type size (begining)\t ABox type size (end)\t "+
+                                                        "forAll axioms\t Max1 axioms\t Sub role axioms\t inverse role axioms");
+            System.out.println(inconsistent+"\t"+ stat_saturation_exec_runtime+"\t"+ stat_enf_size_begin+"\t"+ stat_enf_size_end+"\t"+stat_imp_size_begin+"\t"+stat_imp_size_end+"\t"+
+                                                         stat_initialActivators_size+"\t"+stat_saturatedActivators_size+ "\t"+ stat_act_size_min+ "\t"+ stat_act_size_max+ "\t"+ stat_act_size_avg+ "\t"+ stat_aboxTypes_begin+"\t"+ stat_aboxTypes_end+"\t"+
+                                                         stat_allValues_axioms+"\t"+stat_maxOneCardinality_axioms+"\t"+stat_objectProperty_axioms+"\t"+stat_invObjectPropertyAxiom);
+            System.out.println(staurationLoopDetails);
+            System.out.println("============================================");
         }
     }
 
@@ -947,14 +1103,17 @@ public class TBoxReasoner {
      */
     private void saturateActivators() {
         boolean saturated = false;
+        saturateIterator++;
+        if(ClipperManager.getInstance().getVerboseLevel()==0||ClipperManager.getInstance().getVerboseLevel()==2)
+            System.out.println("Called saturateActivators:"+saturateIterator);
 
         while (!saturated) {
             saturated = true;
-            System.out.println("calling Saturate Activators");
+            //System.out.println("calling Saturate Activators");
             saturated = saturated && !saturateActivatorsWithDeltaTBox();
+
             saturateActivatorsWithTBox();
-            saturateIterator++;
-            System.out.println("No of Activators after " + saturateIterator + " iteration:" + this.axiomActivators.size());
+            //System.out.println("No of Activators after the " + saturateIterator + " iteration:" + this.axiomActivators.size());
         }
     }
 
@@ -962,32 +1121,77 @@ public class TBoxReasoner {
      * This method applies the newly infered axioms (delta TBox) to
      * all activators in axiomActivators.
      *
-     * @behaviour 1- Updates the status of each activator that receives changes
+     * @behaviour 1- Updates the status of each activator that gets updated
      * during the course of applying delta TBox to unstable=true
      * 2- adds newly introduced activators to AxiomActivators
-     * @consequences 1- leaves the affected AxiomActivators in unstable condition
+     * @consequences 1- leaves the updated AxiomActivators in unstable condition
      * and the newly created ones
      */
     private boolean saturateActivatorsWithDeltaTBox() {
         boolean updated = false;
 
-        for (ClipperAxiomActivator act : axiomActivators) {
-            for (EnforcedRelation enf : newEnfs) {
-                updated = applyEnfToActivator(act, enf) || updated;//and update it's status to unstable
-            }
-
-            for (HornImplication imp : newImps) {
-                updated = applyImpToActivator(act, imp) || updated;
-            }
+        if(ClipperManager.getInstance().getVerboseLevel()==0||ClipperManager.getInstance().getVerboseLevel()==2){
+            System.out.println("---------------------------------------");
+            System.out.println("\tCalled saturateActivatorsWithDeltaTBox");
+            System.out.println("\tEnfs:"+enfContainer.getEnfs().size()+",\t"+"Imps:"+impContainer.getImps().size()+",\t"+"newEnfs:"+newEnfs.size()+",\t"+"newImps:"+newEnfs.size()+",\t"+"activators:"+axiomActivators.size()+",\t"+"newActivators:"+newAxiomActivators.size());
         }
 
+        for (ClipperAxiomActivator act : axiomActivators) {
+            if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                System.out.println("\t\tApplying axioms to activator:"+act.getConcepts().toString()+"\t and has status:"+act.isUpdated());
+            }
+
+            if(ClipperManager.getInstance().getVerboseLevel()==0)
+                System.out.println("\t\tapplying newEnfs");
+
+            for (EnforcedRelation enf : newEnfs) {
+                if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                    System.out.println("\t\t\tapplying enf:" + enf.toString());
+                }
+                updated = applyEnfToActivator(act, enf) || updated;
+
+                if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                    System.out.println("\t\t\tactivator after application:"+act.getConcepts().toString()+"\t and has status:"+act.isUpdated());
+                    System.out.println("\t\t\tMethod Update flag set to:" + updated);
+                }
+            }
+
+            if(ClipperManager.getInstance().getVerboseLevel()==0)
+                System.out.println("\t\tapplying newImps");
+
+            for (HornImplication imp : newImps) {
+                if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                    System.out.println("\t\t\tApplying imp:" + imp.toString());
+                }
+                updated = applyImpToActivator(act, imp) || updated;//and update it's status to unstable
+
+                if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                    System.out.println("\t\t\tactivator after application:"+act.getConcepts().toString()+"\t and has status:"+act.isUpdated());
+                    System.out.println("\t\t\tMethod Update flag set to:" + updated);
+                }
+            }
+            if(ClipperManager.getInstance().getVerboseLevel()==0)
+                System.out.println("\t\tactivator after application:"+act.getConcepts().toString()+"\t and has status"+act.isUpdated());
+
+        }
+
+        if(ClipperManager.getInstance().getVerboseLevel()==0) {
+            System.out.println("\tStatus of key var before calling mergeAxiomActivators");
+            System.out.println("\tEnfs:"+enfContainer.getEnfs().size()+",\t"+"Imps:"+impContainer.getImps().size()+",\t"+"newEnfs:"+newEnfs.size()+",\t"+"newImps:"+newEnfs.size()+",\t"+"activators:"+axiomActivators.size()+",\t"+"newActivators:"+newAxiomActivators.size());
+        }
 //        todo: check: this part has been moved inside the method applyEnfToActivator
        if (newAxiomActivators.size() > 0)
             mergeWithActivators(newAxiomActivators);
 
+        if(ClipperManager.getInstance().getVerboseLevel()==0||ClipperManager.getInstance().getVerboseLevel()==2){
+            System.out.println("\tsaturateActivatorsWithDeltaTBox ended");
+            System.out.println("\tStatus of key var at the end of saturateActivatorsWithDeltaTBox");
+            System.out.println("\tEnfs:"+enfContainer.getEnfs().size()+",\t"+"Imps:"+impContainer.getImps().size()+",\t"+"newEnfs:"+newEnfs.size()+",\t"+"newImps:"+newEnfs.size()+",\t"+"activators:"+axiomActivators.size()+",\t"+"newActivators:"+newAxiomActivators.size());
+            System.out.println("\t---------------------------------------");
+        }
+
         //now clear the newAxiomActivator container
         newAxiomActivators.clear();
-
         return updated;
     }
 
@@ -1004,143 +1208,225 @@ public class TBoxReasoner {
      */
     private void saturateActivatorsWithTBox() {
 
+        if(ClipperManager.getInstance().getVerboseLevel()==0||ClipperManager.getInstance().getVerboseLevel()==2){
+            System.out.println("---------------------------------------");
+            System.out.println("\tCalled saturateActivatorsWithTBox");
+            System.out.println("\tEnfs:"+enfContainer.getEnfs().size()+",\t"+"Imps:"+impContainer.getImps().size()+",\t"+"newEnfs:"+newEnfs.size()+",\t"+"newImps:"+newEnfs.size()+",\t"+"activators:"+axiomActivators.size()+",\t"+"newActivators:"+newAxiomActivators.size());
+        }
         boolean updated = true;
+        int while_loop_cnt=0;
+
         while (updated) {
+
+            if(ClipperManager.getInstance().getVerboseLevel()==0||ClipperManager.getInstance().getVerboseLevel()==2){
+                while_loop_cnt++;
+                System.out.println("\t\tWhile Loop iteration:"+while_loop_cnt);
+                System.out.println("\t\tEnfs:"+enfContainer.getEnfs().size()+",\t"+"Imps:"+impContainer.getImps().size()+",\t"+"newEnfs:"+newEnfs.size()+",\t"+"newImps:"+newEnfs.size()+",\t"+"activators:"+axiomActivators.size()+",\t"+"newActivators:"+newAxiomActivators.size());
+            }
+
+
             updated = false;//the condition that controls the saturation criteria
             for (ClipperAxiomActivator act : axiomActivators) {
+                if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                    System.out.println("\t\tApplying axioms to activator:"+act.getConcepts().toString()+"\t and has status:"+act.isUpdated());
+                }
+
                 //if the activator is stable than skip
                 if (!act.isUpdated())
                     continue;
 
                 act.setUpdated(false); //set the status to stable
 
+                if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                    System.out.println("\t\tapplying oldEnfs");
+                }
                 //apply old enforced relations
                 for (EnforcedRelation enf : enfContainer) {
+                    if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                        System.out.println("\t\t\tapplying oldEnf:" + enf.toString());
+                    }
                     //if any change incurs from applying the rule, then we set the flag change to true
                     //to force the iteration
                     updated |= applyEnfToActivator(act, enf);//and update it's status to unstable
+
+                    if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                        System.out.println("\t\t\tactivator after application:"+act.getConcepts().toString()+"\t and has status:"+act.isUpdated());
+                        System.out.println("\t\t\tactivator applicablemethod Update flag set to:" + updated);
+                    }
+                }
+
+                if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                    System.out.println("\t\tapplying newEnfs");
                 }
 
                 //apply newly enforced relations
                 for (EnforcedRelation enf : newEnfs) {
+                    if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                        System.out.println("\t\t\tapplying newEnf:" + enf.toString());
+                    }
                     //if any change incurs from applying the rule, then we set the flag change to true
                     //to force the iteration
                     updated |= applyEnfToActivator(act, enf);//and update it's status to unstable
+
+                    if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                        System.out.println("\t\t\tactivator after application:"+act.getConcepts().toString()+"\t and has status:"+act.isUpdated());
+                        System.out.println("\t\t\tmethod Update flag set to:" + updated);
+                    }
                 }
 
+                if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                    System.out.println("\t\tapplying oldImps");
+                }
                 //apply old implied relations
                 for (HornImplication imp : impContainer) {
+                    if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                        System.out.println("\t\t\tapplying oldImp:" + imp.toString());
+                    }
                     //if any new concept is added to the activator from applying the rule,
                     // then we set the flag change to true to force the iteration
                     updated |= applyImpToActivator(act, imp);
+
+                    if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                        System.out.println("\t\t\tactivator after application:"+act.getConcepts().toString()+"\t and has status:"+act.isUpdated());
+                        System.out.println("\t\t\tmethod Update flag set to:" + updated);
+                    }
                 }
 
+                if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                    System.out.println("\t\tapplying newImps");
+                }
                 //apply newly implied relations
                 for (HornImplication imp : newImps) {
+                    if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                        System.out.println("\t\t\tapplying newImp:" + imp.toString());
+                    }
                     //if any new concept is added to the activator from applying the rule,
                     // then we set the flag change to true to force the iteration
                     updated |= applyImpToActivator(act, imp);
+
+                    if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                        System.out.println("\t\t\tactivator after application:"+act.getConcepts().toString()+"\t and has status"+act.isUpdated());
+                        System.out.println("\t\t\tmethod Update flag set to:" + updated);
+                    }
                 }
             }
+
+            if(ClipperManager.getInstance().getVerboseLevel()==0) {
+                System.out.println("\t\tStatus of key var before calling mergeAxiomActivators");
+                System.out.println("\t\tEnfs:"+enfContainer.getEnfs().size()+",\t"+"Imps:"+impContainer.getImps().size()+",\t"+"newEnfs:"+newEnfs.size()+",\t"+"newImps:"+newEnfs.size()+",\t"+"activators:"+axiomActivators.size()+",\t"+"newActivators:"+newAxiomActivators.size());
+            }
+
 
 //        todo: check: this part has been moved inside the method applyEnfToActivator
             if (newAxiomActivators.size() > 0)
                 mergeWithActivators(newAxiomActivators);
 
+            if(ClipperManager.getInstance().getVerboseLevel()==0||ClipperManager.getInstance().getVerboseLevel()==2){
+                System.out.println("\twhile Loop iteration:"+while_loop_cnt+" ended");
+                System.out.println("\tStatus of key var");
+                System.out.println("\tEnfs:"+enfContainer.getEnfs().size()+",\t"+"Imps:"+impContainer.getImps().size()+",\t"+"newEnfs:"+newEnfs.size()+",\t"+"newImps:"+newEnfs.size()+",\t"+"activators:"+axiomActivators.size()+",\t"+"newActivators:"+newAxiomActivators.size());
+                System.out.println("\t---------------------------------------");
+            }
             //now clear the newAxiomActivator container
             newAxiomActivators.clear();
         }
-    }
-
-    /* OLD implementation
-     * If the application of an axiom alters the current activator or creates a new one
-     * then it returns true
-     * */
-    public boolean old_applyEnfToActivator(ClipperAxiomActivator act, EnforcedRelation enf) {
-        boolean changed = false;
-        boolean found = false;//indicates a proper activator is already present
-
-        //if(enf.getRoles())
-
-        //if the enforced relation is activated by an act
-        //
-        //   and if there are new consequences in act
-        //   then add the consequences to act and update it's status to unstable
-        //        and set the return flag to true (there is change in the set of Activators)
-        //
-        //   and if there is no suitable successor in the list of Activators
-        //   then add a new activator to the list of NewActivators
-        //        and set the return flag to true (there is change in the set of Activators)
-        if (act.getConcepts().containsAll(enf.getType1())) {
-
-            //get all concepts that are propagated to the parent activator (with over aproximation)
-            TIntHashSet propagatedToParent = new TIntHashSet();
-            for (ClipperOverAproxPropagation prop : backwardPropagation) {
-                int Role = prop.getRole();
-
-                if (enf.getRoles().contains(Role))
-                    propagatedToParent.addAll(prop.getConcepts());
-
-            }
-
-            for (ClipperOverAproxPropagation prop : forwardPropagation) {
-                int invRole = BitSetUtilOpt.inverseRole(prop.getRole());
-
-                if (enf.getRoles().contains(invRole))
-                    propagatedToParent.addAll(prop.getConcepts());
-
-            }
-
-
-            //if all the propagated concepts to parent aren't contained,
-            //add them to the activator
-            //and set the status of the activator to unstable and the changed flag to true
-            if (!act.getConcepts().containsAll(propagatedToParent)) {
-                act.getConcepts().addAll(propagatedToParent);
-                act.setUpdated(true);
-                changed = true;
-            }
-
-            //now we check if there exists a proper successor activator, if not we create it
-            //first we get all the concepts that are forwardpropagated by the activator
-            TIntHashSet propagatedToChild = new TIntHashSet();
-            propagatedToChild.addAll(enf.getType2());
-            for (ClipperOverAproxPropagation prop : forwardPropagation) {
-                int Role = prop.getRole();
-
-                if (enf.getRoles().contains(Role))
-                    propagatedToChild.addAll(prop.getConcepts());
-            }
-
-            for (ClipperOverAproxPropagation prop : backwardPropagation) {
-                int invRole = BitSetUtilOpt.inverseRole(prop.getRole());
-
-                if (enf.getRoles().contains(invRole))
-                    propagatedToChild.addAll(prop.getConcepts());
-            }
-
-            //second we iterate over the activators and check if there is one that allready
-            //contains the set of concepts propagated by the role.
-            // If not: we create a new activator and add it to the queue of NewActivators
-            //         which are added to the set of activators at the end of the method
-            //         and the changed flag to true
-            for (ClipperAxiomActivator curr : this.axiomActivators) {
-                if (curr.getConcepts().containsAll(propagatedToChild)) {
-                    found = true;
-                    break;
-                }
-            }
-
-            if (!found) {
-                newAxiomActivators.add(new ClipperAxiomActivator(propagatedToChild));
-                changed = true;
-            }
+        if(ClipperManager.getInstance().getVerboseLevel()==0||ClipperManager.getInstance().getVerboseLevel()==2){
+            System.out.println("\tsaturateActivatorsWithTBox ended");
+            System.out.println("\tStatus of key var at the end of saturateActivatorsWithTBox");
+            System.out.println("\tEnfs:"+enfContainer.getEnfs().size()+",\t"+"Imps:"+impContainer.getImps().size()+",\t"+"newEnfs:"+newEnfs.size()+",\t"+"newImps:"+newEnfs.size()+",\t"+"activators:"+axiomActivators.size()+",\t"+"newActivators:"+newAxiomActivators.size());
+            System.out.println("\t---------------------------------------");
         }
-        return changed;
     }
 
+//    /* OLD implementation
+//     * If the application of an axiom alters the current activator or creates a new one
+//     * then it returns true
+//     * */
+//    public boolean old_applyEnfToActivator(ClipperAxiomActivator act, EnforcedRelation enf) {
+//        boolean changed = false;
+//        boolean found = false;//indicates a proper activator is already present
+//
+//        //if(enf.getRoles())
+//
+//        //if the enforced relation is activated by an act
+//        //
+//        //   and if there are new consequences in act
+//        //   then add the consequences to act and update it's status to unstable
+//        //        and set the return flag to true (there is change in the set of Activators)
+//        //
+//        //   and if there is no suitable successor in the list of Activators
+//        //   then add a new activator to the list of NewActivators
+//        //        and set the return flag to true (there is change in the set of Activators)
+//        if (act.getConcepts().containsAll(enf.getType1())) {
+//
+//            //get all concepts that are propagated to the parent activator (with over aproximation)
+//            TIntHashSet propagatedToParent = new TIntHashSet();
+//            for (ClipperOverAproxPropagation prop : backwardPropagation) {
+//                int Role = prop.getRole();
+//
+//                if (enf.getRoles().contains(Role))
+//                    propagatedToParent.addAll(prop.getConcepts());
+//
+//            }
+//
+//            for (ClipperOverAproxPropagation prop : forwardPropagation) {
+//                int invRole = BitSetUtilOpt.inverseRole(prop.getRole());
+//
+//                if (enf.getRoles().contains(invRole))
+//                    propagatedToParent.addAll(prop.getConcepts());
+//
+//            }
+//
+//
+//            //if all the propagated concepts to parent aren't contained,
+//            //add them to the activator
+//            //and set the status of the activator to unstable and the changed flag to true
+//            if (!act.getConcepts().containsAll(propagatedToParent)) {
+//                act.getConcepts().addAll(propagatedToParent);
+//                act.setUpdated(true);
+//                changed = true;
+//            }
+//
+//            //now we check if there exists a proper successor activator, if not we create it
+//            //first we get all the concepts that are forwardpropagated by the activator
+//            TIntHashSet propagatedToChild = new TIntHashSet();
+//            propagatedToChild.addAll(enf.getType2());
+//            for (ClipperOverAproxPropagation prop : forwardPropagation) {
+//                int Role = prop.getRole();
+//
+//                if (enf.getRoles().contains(Role))
+//                    propagatedToChild.addAll(prop.getConcepts());
+//            }
+//
+//            for (ClipperOverAproxPropagation prop : backwardPropagation) {
+//                int invRole = BitSetUtilOpt.inverseRole(prop.getRole());
+//
+//                if (enf.getRoles().contains(invRole))
+//                    propagatedToChild.addAll(prop.getConcepts());
+//            }
+//
+//            //second we iterate over the activators and check if there is one that allready
+//            //contains the set of concepts propagated by the role.
+//            // If not: we create a new activator and add it to the queue of NewActivators
+//            //         which are added to the set of activators at the end of the method
+//            //         and the changed flag to true
+//            for (ClipperAxiomActivator curr : this.axiomActivators) {
+//                if (curr.getConcepts().containsAll(propagatedToChild)) {
+//                    found = true;
+//                    break;
+//                }
+//            }
+//
+//            if (!found) {
+//                newAxiomActivators.add(new ClipperAxiomActivator(propagatedToChild));
+//                changed = true;
+//            }
+//        }
+//        return changed;
+//    }
 
-    /* Checks if the given existential axiom enf is activator by the provided Activator act.
+
+    /* Checks if the given existential axiom enf is activated by the provided Activator act.
        In case the axiom is activated and it results in creating a new activator, the
        created activator is added to the set. The method returns the indicator if
        a new activator has been added or not. */
@@ -1194,21 +1480,53 @@ public class TBoxReasoner {
         boolean b = axiomActivators.stream()
                 .anyMatch(act -> act.getConcepts().containsAll(lhs));
 
-        if (!b) {
-            System.err.println("Activator helps!");
-        }
+//        if (!b && ClipperManager.getInstance().getVerboseLevel()>=4) {
+//            System.out.println("Activator helps!");
+//        }
         return b;
 
     }
 
 
     private void mergeWithActivators(Set<ClipperAxiomActivator> newAxiomActivators) {
-        //add the new activators to the set
+        if(ClipperManager.getInstance().getVerboseLevel()==0)
+            System.out.println("Called mergeWithActivators");
+            //add the new activators to the set
         axiomActivators.addAll(cloneOfActivators(newAxiomActivators));
 
         //clear the container of newAxiomActivators
         newAxiomActivators.clear();
     }
 
+
+    private void printEnfs(){
+
+        for(EnforcedRelation e: enfContainer.getEnfs()){
+
+            ClipperManager.getInstance().getOwlClassEncoder();
+            ClipperManager.getInstance().getOwlPropertyExpressionEncoder();
+
+            String s="[";
+
+            for(int t: e.getType1().toArray()){
+                s=s+ClipperManager.getInstance().getOwlClassEncoder().getSymbolByValue(t)+",";
+            }
+
+            s=s.substring(0,s.length()-1)+".-";
+
+            for(int r: e.getRoles().toArray()){
+                s=s+ClipperManager.getInstance().getOwlPropertyExpressionEncoder().getSymbolByValue(r)+",";
+            }
+            s=s.substring(0,s.length()-1)+".->";
+
+            for(int t: e.getType2().toArray()){
+                s=s+ClipperManager.getInstance().getOwlClassEncoder().getSymbolByValue(t)+",";
+            }
+            s=s.substring(0,s.length()-1)+"]";
+
+            System.out.println(s);
+        }
+
+    }
 
 }

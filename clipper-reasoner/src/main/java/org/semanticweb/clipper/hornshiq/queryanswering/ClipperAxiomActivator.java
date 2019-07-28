@@ -15,8 +15,6 @@ public class ClipperAxiomActivator {
     //todo: add a proper indexed set for roles (with an indicator of inverse)
     private TIntHashSet concepts;
     private boolean updated;
-    private HashSet<TIntHashSet> processedRoles;//qued roles (to be applied later)
-    private HashSet<TIntHashSet> quedRoles;//qued roles (to be applied later)
 
     public ClipperAxiomActivator(Set<Integer> concepts) {
         this.concepts = new TIntHashSet();
@@ -53,10 +51,10 @@ public class ClipperAxiomActivator {
         this.concepts = concepts;
     }
 
-    public void addConcept(int conc) {
-        this.concepts.add(conc);
-        this.updated = true;
-    }
+//    public void addConcept(int conc) {
+//        this.concepts.add(conc);
+//        this.updated = true;
+//    }
 
     public boolean isUpdated() {
         return this.updated;
@@ -66,29 +64,29 @@ public class ClipperAxiomActivator {
         this.updated = updated;
     }
 
-    public void addQuedRole(TIntHashSet role) {
-        this.quedRoles.add(role);
-        this.updated = true;
-    }
+//    public void addQuedRole(TIntHashSet role) {
+//        this.quedRoles.add(role);
+//        this.updated = true;
+//    }
 
     /*Caller: Is called after processing the roles in the que
     * Behaviour:Adds the qued roles to the set of processed roles
     * and clears the que
     * */
-    public void removeQuedRoles() {
-        this.processedRoles.addAll(this.quedRoles);
-        this.quedRoles.clear();//should check if the processedRoles are affected
-    }
+//    public void removeQuedRoles() {
+//        this.processedRoles.addAll(this.quedRoles);
+//        this.quedRoles.clear();//should check if the processedRoles are affected
+//    }
 
     /*Behaviour:Checks if the provided role is processed*/
-    public boolean isProcessed(TIntHashSet role) {
-        boolean contained = false;
-        for (TIntHashSet r : this.processedRoles)
-            //if role is the same
-            if (role.containsAll(r) && r.containsAll(role)) {
-                contained = true;
-                break;
-            }
-        return contained;
-    }
+//    public boolean isProcessed(TIntHashSet role) {
+//        boolean contained = false;
+//        for (TIntHashSet r : this.processedRoles)
+//            //if role is the same
+//            if (role.containsAll(r) && r.containsAll(role)) {
+//                contained = true;
+//                break;
+//            }
+//        return contained;
+//    }
 }

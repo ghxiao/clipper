@@ -110,16 +110,26 @@ public class ClipperAppTest {
 	public void test_new() throws Exception {
 
 //		ClipperApp
-//				.main(("-v=9 testOptimisation /home/bato/data/ISWC-Benchmarks/00014.owl")
+//				.main(("-v=9 testOptimisation /home/bato/data/ISWC-Benchmarks/OxfordRepo/succeded_under_2_min_optimised_version/00794.owl")
 //						.split("\\ "));
 
-//		ClipperApp
-//				.main((" testOptimisation -optimised /home/bato/data/ISWC-Benchmarks/00014.owl")
-//						.split("\\ "));
 
 		ClipperApp
-				.main((" testOptimisation -optimised src/test/resources/testActivators/testActivatorExtractio.owl")
+				.main(("-v -3 testOptimisation -x /home/bato/data/ISWC-Benchmarks/OxfordRepo/test/00725.owl")
 						.split("\\ "));
+
+//		ClipperApp
+//				.main((" testOptimisation -optimised src/test/resources/testActivators/testActivatorExtractio.owl")
+//						.split("\\ "));
+
+
+//		ClipperApp
+//				.main(("-v -1 testOptimisation -optimised src/test/resources/testActivators/testActivatorExtraction2.owl")
+//						.split("\\ "));
+//
+//		ClipperApp
+//				.main(("-v -1 testOptimisation src/test/resources/testActivators/testActivatorExtraction2.owl")
+//						.split("\\ "));
 
 	}
 

@@ -49,6 +49,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
     private String dlvPath;
 
     private Collection<OWLOntology> ontologies;
+    private String fileNamesOfOntologies;
     protected ClipperHornSHIQOntology clipperOntology;
 
     private CQFormatter cqFormatter;
@@ -56,7 +57,7 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
     protected OWLOntology combinedNormalizedOntology;
     protected Collection<Set<Resource>> activators;//todo refactor to activatorsFromMappings
     protected Collection<Set<Integer>> activatorsFromABox;
-
+    protected Collection<Set<Integer>> activatorsFromMappings;
 
     /*Initialization of QAHornSHIQ with default behaviour,
       with optimizations on (for now only TBoxSaturation optimization is implemented)
@@ -772,5 +773,12 @@ public class QAHornSHIQ implements QueryAnsweringSystem {
         this.ontologies = ontologies;
     }
 
+    public void setOntologyFilename(String filenamesOfOntologies) {
+        this.fileNamesOfOntologies = filenamesOfOntologies;
+    }
+
+    public String getOntologyFilename() {
+        return this.fileNamesOfOntologies;
+    }
 
 }

@@ -2,6 +2,7 @@ package org.semanticweb.clipper.hornshiq.queryanswering;
 
 public class ClipperReport {
 	private long reasoningTime;
+    private long initializeActivatorsTime;
 	private long queryRewritingTime;
 	private long datalogRunTime;
 	private long normalizationTime;
@@ -15,6 +16,10 @@ public class ClipperReport {
 
     public long getReasoningTime() {
         return this.reasoningTime;
+    }
+
+    public long getInitializeActivatorsTime() {
+        return this.initializeActivatorsTime;
     }
 
     public long getQueryRewritingTime() {
@@ -49,6 +54,8 @@ public class ClipperReport {
         this.reasoningTime = reasoningTime;
     }
 
+    public void setInitializeActivatorsTime(long initializeActivatorsTime) {this.initializeActivatorsTime= initializeActivatorsTime;}
+
     public void setQueryRewritingTime(long queryRewritingTime) {
         this.queryRewritingTime = queryRewritingTime;
     }
@@ -82,6 +89,7 @@ public class ClipperReport {
         if (!(o instanceof ClipperReport)) return false;
         final ClipperReport other = (ClipperReport) o;
         if (!other.canEqual((Object) this)) return false;
+        if (this.initializeActivatorsTime!= other.initializeActivatorsTime) return false;
         if (this.reasoningTime != other.reasoningTime) return false;
         if (this.queryRewritingTime != other.queryRewritingTime) return false;
         if (this.datalogRunTime != other.datalogRunTime) return false;
